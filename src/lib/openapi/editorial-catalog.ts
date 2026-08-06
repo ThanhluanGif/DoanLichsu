@@ -6,6 +6,11 @@ const auth = [{ cookieAuth: [] }];
 const id = { name: "id", in: "path", required: true, schema: { type: "string" } } as const;
 const locale = { name: "locale", in: "path", required: true, schema: { type: "string", enum: ["vi", "en"] } } as const;
 const page = [{ name: "page", in: "query", schema: { type: "integer", minimum: 1 } }, { name: "pageSize", in: "query", schema: { type: "integer", minimum: 1, maximum: 100 } }] as const;
+const contentFilters = [...page, { name:"type",in:"query",schema:{type:"string",enum:["PERIOD","EVENT","PERSON","ARTIFACT","TOPIC"]} }, { name:"status",in:"query",schema:{type:"string",enum:["DRAFT","IN_REVIEW","APPROVED","PUBLISHED","REJECTED","ARCHIVED"]} }, { name:"locale",in:"query",schema:{type:"string",enum:["vi","en"]} }, { name:"q",in:"query",schema:{type:"string"} }] as const;
+const sourceFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }] as const;
+const mediaFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"kind",in:"query",schema:{type:"string",enum:["IMAGE","DOCUMENT"]} }] as const;
+const userFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"role",in:"query",schema:{type:"string",enum:["ADMIN","EDITOR","REVIEWER"]} }, { name:"active",in:"query",schema:{type:"boolean"} }] as const;
+const auditFilters = [...page, ...["actorId","action","objectType","objectId","from","to"].map((name)=>({name,in:"query",schema:{type:"string"}}))] as const;
 const errors = {
   "400": json({ $ref: "#/components/schemas/ApiError" }, "Dữ liệu không hợp lệ."),
   "401": json({ $ref: "#/components/schemas/ApiError" }, "Chưa đăng nhập."),
@@ -29,7 +34,7 @@ export const editorialOpenApiPaths = {
   "/api/v1/auth/me": { get: operation("me", "Đọc người dùng hiện tại", { response: "AuthUser", admin: false }) },
   "/api/v1/admin/dashboard": { get: operation("adminDashboard", "Đọc dashboard biên tập", { response: "DashboardView" }) },
   "/api/v1/admin/contents": {
-    get: operation("listAdminContents", "Liệt kê nội dung biên tập", { response: "List:AdminContentListItem", parameters: page }),
+    get: operation("listAdminContents", "Liệt kê nội dung biên tập", { response: "List:AdminContentListItem", parameters: contentFilters }),
     post: operation("createContent", "Tạo draft", { request: "ContentCreateInput", response: "AdminContentDetail", status: "201" }),
   },
   "/api/v1/admin/contents/{id}": {
@@ -38,12 +43,12 @@ export const editorialOpenApiPaths = {
   },
   "/api/v1/admin/contents/{id}/translations/{locale}": { put: operation("putTranslation", "Upsert bản dịch", { request: "TranslationInput", response: "AdminTranslation", parameters: [id, locale] }) },
   "/api/v1/admin/sources": {
-    get: operation("listAdminSources", "Liệt kê nguồn", { response: "List:AdminSourceView", parameters: page }),
+    get: operation("listAdminSources", "Liệt kê nguồn", { response: "List:AdminSourceView", parameters: sourceFilters }),
     post: operation("createSource", "Tạo nguồn", { request: "SourceInput", response: "AdminSourceView", status: "201" }),
   },
   "/api/v1/admin/sources/{id}": { patch: operation("updateSource", "Cập nhật nguồn", { request: "SourceUpdateInput", response: "AdminSourceView", parameters: [id] }) },
   "/api/v1/admin/media": {
-    get: operation("listAdminMedia", "Liệt kê media", { response: "List:AdminMediaView", parameters: page }),
+    get: operation("listAdminMedia", "Liệt kê media", { response: "List:AdminMediaView", parameters: mediaFilters }),
     post: operation("createMedia", "Tạo metadata media", { request: "MediaInput", response: "AdminMediaView", status: "201" }),
   },
   "/api/v1/admin/media/{id}": { patch: operation("updateMedia", "Cập nhật metadata media", { request: "MediaUpdateInput", response: "AdminMediaView", parameters: [id] }) },
@@ -53,11 +58,11 @@ export const editorialOpenApiPaths = {
   "/api/v1/admin/contents/{id}/publish": { post: operation("publishContent", "Xuất bản locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id] }) },
   "/api/v1/admin/contents/{id}/archive": { post: operation("archiveContent", "Lưu trữ nội dung", { request: "VersionInput", response: "WorkflowResult", parameters: [id] }) },
   "/api/v1/admin/users": {
-    get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: page }),
+    get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: userFilters }),
     post: operation("createUser", "Tạo người dùng", { request: "UserCreateInput", response: "UserView", status: "201" }),
   },
   "/api/v1/admin/users/{id}": { patch: operation("updateUser", "Cập nhật người dùng", { request: "UserUpdateInput", response: "UserView", parameters: [id] }) },
-  "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: page }) },
+  "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: auditFilters }) },
 } as const;
 
 const string = { type: "string" } as const;
@@ -70,6 +75,10 @@ const translationStatuses = ["NOT_STARTED", "TRANSLATING", "READY_FOR_REVIEW", "
 const object = (required: readonly string[], properties: Record<string, object>) => ({ type: "object", additionalProperties: false, required, properties });
 const sourceProperties = { id:string,title:string,author:nullableString,publisher:nullableString,year:{anyOf:[{type:"integer"},{type:"null"}]},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:nullableString,version };
 const mediaProperties = { id:string,url:{type:"string",format:"uri"},kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,alt:string,caption:nullableString,width:{anyOf:[{type:"integer"},{type:"null"}]},height:{anyOf:[{type:"integer"},{type:"null"}]},version,altVi:string,altEn:string,captionVi:nullableString,captionEn:nullableString };
+const idArray = { type:"array",uniqueItems:true,items:string } as const;
+const translationEditableProperties = { title:string,slug:string,summary:string,body:string,seoTitle:string,seoDescription:string,translationStatus:{type:"string",enum:["NOT_STARTED","TRANSLATING","READY_FOR_REVIEW"]} } as const;
+const translationCreate = object(["title","slug","summary","body","seoTitle","seoDescription","translationStatus"],translationEditableProperties);
+const contentEditableProperties = { featured:{type:"boolean"},startDate:{type:"string",format:"date"},endDate:{type:"string",format:"date"},datePrecision:{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},periodId:string,location:string,result:string,role:string,artifactMeta:{type:"object",additionalProperties:string},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray } as const;
 
 export const editorialOpenApiSchemas = {
   AuthUser: object(["id","email","displayName","role"], { id:string,email:{type:"string",format:"email"},displayName:string,role:{type:"string",enum:roles} }),
@@ -80,12 +89,13 @@ export const editorialOpenApiSchemas = {
   ReviewInput: object(["version","locales"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},note:string }),
   RejectInput: object(["version","locales","reason"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},reason:{type:"string",minLength:1} }),
   WorkflowResult: object(["id","status","version","translationStatuses","reviewedBy","reviewedAt","publishedAt"], { id:string,status:{type:"string",enum:workflow},version,translationStatuses:{type:"object",additionalProperties:{type:"string",enum:translationStatuses}},reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString }),
-  TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,title:string,slug:string,summary:string,body:string,seoTitle:string,seoDescription:string,translationStatus:{type:"string",enum:["NOT_STARTED","TRANSLATING","READY_FOR_REVIEW"]} }),
+  TranslationCreateInput: translationCreate,
+  TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,...translationEditableProperties }),
   AdminTranslation: object(["id","locale","version","title","slug","summary","body","seoTitle","seoDescription","translationStatus","updatedAt"], { id:string,locale:{type:"string",enum:["vi","en"]},version,title:string,slug:string,summary:string,body:string,seoTitle:string,seoDescription:string,translationStatus:{type:"string",enum:translationStatuses},updatedAt:string }),
-  ContentCreateInput: object(["type","sourceIds","translations"], { type:{type:"string",enum:types},featured:{type:"boolean"},sourceIds:{type:"array",items:string},mediaIds:{type:"array",items:string},tagIds:{type:"array",items:string},relatedIds:{type:"array",items:string},translations:{type:"object",additionalProperties:{type:"object"}} }),
-  ContentUpdateInput: object(["version"], { version,featured:{type:"boolean"},sourceIds:{type:"array",items:string},mediaIds:{type:"array",items:string},tagIds:{type:"array",items:string},relatedIds:{type:"array",items:string} }),
+  ContentCreateInput: object(["type","sourceIds","translations"], { type:{type:"string",enum:types},...contentEditableProperties,translations:{type:"object",additionalProperties:false,properties:{vi:{$ref:"#/components/schemas/TranslationCreateInput"},en:{$ref:"#/components/schemas/TranslationCreateInput"}}} }),
+  ContentUpdateInput: object(["version"], { version,...contentEditableProperties }),
   AdminContentListItem: object(["id","type","status","featured","version","titles","updatedAt","updatedBy"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:{type:"object",additionalProperties:string},updatedAt:string,updatedBy:string }),
-  AdminContentDetail: { type:"object", additionalProperties:true, required:["id","type","status","version","translations"], properties:{id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},version,translations:{type:"object",additionalProperties:{$ref:"#/components/schemas/AdminTranslation"}}} },
+  AdminContentDetail: object(["id","type","status","featured","version","titles","updatedAt","updatedBy","startDate","endDate","datePrecision","periodId","location","result","role","artifactMeta","tagIds","relatedIds","sourceIds","mediaIds","translations"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:{type:"object",additionalProperties:string},updatedAt:string,updatedBy:string,startDate:nullableString,endDate:nullableString,datePrecision:{anyOf:[{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},{type:"null"}]},periodId:nullableString,location:nullableString,result:nullableString,role:nullableString,artifactMeta:{anyOf:[{type:"object",additionalProperties:string},{type:"null"}]},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray,translations:{type:"object",additionalProperties:false,properties:{vi:{$ref:"#/components/schemas/AdminTranslation"},en:{$ref:"#/components/schemas/AdminTranslation"}}} }),
   SourceInput: object(["title","url","accessedAt"], { title:string,author:string,publisher:string,year:{type:"integer"},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:string }),
   SourceUpdateInput: object(["version","title","url","accessedAt"], { version,title:string,author:string,publisher:string,year:{type:"integer"},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:string }),
   AdminSourceView: object(["id","title","author","publisher","year","url","accessedAt","citationNote","version"],sourceProperties),

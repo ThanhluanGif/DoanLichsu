@@ -6,7 +6,7 @@ import { hashPassword, verifyPassword } from "@/lib/auth/password";
 import { requireSameOrigin } from "@/lib/auth/origin";
 import { createSessionCookie } from "@/lib/auth/session";
 import type { Role } from "@/lib/auth/types";
-import { assertLoginAllowed, clearLoginFailures, recordLoginFailure } from "@/lib/rate-limit/login";
+import { releaseSuccessfulLogin, reserveLoginAttempt } from "@/lib/rate-limit/login";
 import { ApiError, apiErrorResponse, readJsonObject, secretField, stringField } from "@/lib/validation/api-error";
 
 export const dynamic = "force-dynamic";
@@ -22,22 +22,17 @@ export async function POST(request: Request) {
     const forwardedIp = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim();
     const ip = process.env.TRUST_PROXY_HEADERS === "1" && forwardedIp ? forwardedIp : "direct-client";
     database = openDatabase(getEnv().databasePath);
-    assertLoginAllowed(database, email, ip);
+    reserveLoginAttempt(database, email, ip);
     const row = database.prepare(`
       SELECT id,email,display_name,role,password_hash,active,session_version FROM users WHERE email=?
     `).get(email) as { id:string;email:string;display_name:string;role:Role;password_hash:string;active:number;session_version:number } | undefined;
     const valid = await verifyPassword(row?.password_hash ?? await dummyHash, password);
     if (!row || row.active !== 1 || !valid) {
-      database.transaction(() => {
-        recordLoginFailure(database!, email, ip);
-        writeAudit(database!, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip } });
-      }).immediate();
+      writeAudit(database, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip } });
       throw new ApiError(401, "INVALID_CREDENTIALS", "Email hoặc mật khẩu không đúng.");
     }
-    database.transaction(() => {
-      clearLoginFailures(database!, email);
-      writeAudit(database!, { actorId: row.id, action: "auth.login", objectType: "session", objectId: row.id, metadata: { ip } });
-    }).immediate();
+    releaseSuccessfulLogin(database, email, ip);
+    writeAudit(database, { actorId: row.id, action: "auth.login", objectType: "session", objectId: row.id, metadata: { ip } });
     const cookie = await createSessionCookie({ userId: row.id, sessionVersion: row.session_version });
     return NextResponse.json(
       { data: { id: row.id, email: row.email, displayName: row.display_name, role: row.role } },

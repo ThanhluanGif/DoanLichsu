@@ -1,8 +1,9 @@
 import Database from "better-sqlite3";
-import { spawnSync } from "node:child_process";
+import { execFile, spawnSync } from "node:child_process";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
+import { promisify } from "node:util";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { migrateDatabase } from "@/lib/db/migrate";
 import { hashPassword, verifyPassword } from "@/lib/auth/password";
@@ -19,12 +20,14 @@ import { POST as submitRoute } from "@/app/api/v1/admin/contents/[id]/submit-rev
 import { POST as approveRoute } from "@/app/api/v1/admin/contents/[id]/approve/route";
 import { POST as rejectRoute } from "@/app/api/v1/admin/contents/[id]/reject/route";
 import { POST as publishRoute } from "@/app/api/v1/admin/contents/[id]/publish/route";
+import { POST as archiveRoute } from "@/app/api/v1/admin/contents/[id]/archive/route";
 import { GET as auditRoute } from "@/app/api/v1/admin/audit-logs/route";
 import { openApiDocument } from "@/lib/openapi/document";
 
 const origin = "http://editorial.test";
 const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-editorial-"));
 const databasePath = join(directory, "editorial.db");
+const execFileAsync = promisify(execFile);
 type Cookie = string;
 
 function request(method: string, path: string, body?: unknown, cookie?: Cookie, requestOrigin = origin) {
@@ -109,9 +112,26 @@ describe("security boundary", () => {
       email: "nobody@example.test", password: "Wrong-Password-2026!",
     }));
     expect(blocked.status).toBe(429);
+    expect(blocked.headers.get("retry-after")).toBe("900");
     const database = new Database(databasePath, { readonly: true });
     expect(database.prepare("SELECT attempts FROM login_rate_limits WHERE bucket=?").get("email:nobody@example.test")).toEqual({ attempts: 5 });
     database.close();
+
+    const concurrent = await Promise.all(Array.from({ length: 10 }, () => loginRoute(request("POST", "/api/v1/auth/login", {
+      email: "parallel@example.test", password: "Wrong-Password-2026!",
+    }))));
+    expect(concurrent.map((response) => response.status).sort()).toEqual([401,401,401,401,401,429,429,429,429,429]);
+  });
+
+  it("refuses public demo credentials during an explicitly allowed production seed", () => {
+    const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
+      cwd: resolve("."), encoding: "utf8", env: {
+        ...process.env, NODE_ENV: "production", ALLOW_DEMO_SEED: "1", DATABASE_PATH: databasePath,
+        SEED_ADMIN_PASSWORD: "", SEED_EDITOR_PASSWORD: "", SEED_REVIEWER_PASSWORD: "",
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain("SEED_ADMIN_PASSWORD must be an explicit non-demo password");
   });
 });
 
@@ -227,12 +247,38 @@ describe("RBAC and locale workflow", () => {
     expect(incompleteMedia.status).toBe(422);
     const mediaViolations = (await incompleteMedia.json()).details.violations as string[];
     expect(mediaViolations).toEqual(expect.arrayContaining(["media[0]: credit is required", "media[0]: license is required", "media[0]: alt vi is required"]));
+    expect((await archiveRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/archive`, { version: 3 }, reviewer), context(mediaDraft.id))).status).toBe(200);
+    const archivedTranslation = await putTranslationRoute(request("PUT", `/api/v1/admin/contents/${mediaDraft.id}/translations/vi`, {
+      version: 3, title: "Media archived", slug: "media-archived", summary: "Archived.", body: "Archived content.",
+      seoTitle: "Archived", seoDescription: "Archived content.", translationStatus: "TRANSLATING",
+    }, editor), { params: Promise.resolve({ id: mediaDraft.id as string, locale: "vi" }) });
+    expect(archivedTranslation.status).toBe(422);
 
     const audit = await auditRoute(request("GET", "/api/v1/admin/audit-logs?pageSize=100", undefined, admin));
     const auditText = JSON.stringify(await audit.json());
     expect(auditText).toContain("content.publish");
     expect(auditText).toContain("createdAt");
     expect(auditText).not.toMatch(/password_hash|session_secret|qsv_session|temporaryPassword/i);
+  });
+
+  it("serializes two attempts to demote the final pair of active Admins", async () => {
+    const passwordHash = await hashPassword("Second-Admin-Password-2026!");
+    const database = new Database(databasePath);
+    const now = new Date().toISOString();
+    database.prepare(`INSERT INTO users(id,email,display_name,role,password_hash,active,created_at,updated_at)
+      VALUES('user-admin-two','admin-two@example.test','Admin Two','ADMIN',?,1,?,?)`).run(passwordHash,now,now);
+    database.close();
+    const worker = resolve("tests/editorial-api/demote-admin-worker.ts");
+    const results = await Promise.all([
+      execFileAsync(resolve("node_modules/.bin/tsx"), [worker, databasePath, "user-admin"]),
+      execFileAsync(resolve("node_modules/.bin/tsx"), [worker, databasePath, "user-admin-two"]),
+    ]);
+    const outcomes = results.map(({ stdout }) => JSON.parse(stdout) as { ok:boolean;code?:string });
+    expect(outcomes.filter(({ ok }) => ok)).toHaveLength(1);
+    expect(outcomes.find(({ ok }) => !ok)?.code).toBe("LAST_ADMIN_PROTECTED");
+    const verified = new Database(databasePath, { readonly: true });
+    expect(verified.prepare("SELECT COUNT(*) AS count FROM users WHERE role='ADMIN' AND active=1").get()).toEqual({ count: 1 });
+    verified.close();
   });
 
   it("documents every auth/admin endpoint without credential response fields", () => {
@@ -248,5 +294,9 @@ describe("RBAC and locale workflow", () => {
     const authUser = JSON.stringify(openApiDocument.components.schemas.AuthUser);
     expect(authUser).not.toMatch(/password|token|secret/i);
     expect(openApiDocument.components.securitySchemes.cookieAuth).toEqual({ type: "apiKey", in: "cookie", name: "qsv_session" });
+    expect(openApiDocument.components.schemas.ContentCreateInput.properties).toHaveProperty("startDate");
+    expect(openApiDocument.components.schemas.AdminContentDetail.additionalProperties).toBe(false);
+    const contentParameters = openApiDocument.paths["/api/v1/admin/contents"].get.parameters as readonly { name:string }[];
+    expect(contentParameters.some((parameter) => parameter.name === "status")).toBe(true);
   });
 });

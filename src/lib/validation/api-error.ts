@@ -12,6 +12,7 @@ export class ApiError extends Error {
     readonly code: string,
     message: string,
     readonly details?: ErrorDetails,
+    readonly retryAfter?: number,
   ) {
     super(message);
   }
@@ -26,7 +27,7 @@ export function apiErrorResponse(error: unknown): NextResponse {
         ...(error.details ? { details: error.details } : {}),
         requestId: randomUUID(),
       },
-      { status: error.status, headers: { "Cache-Control": "no-store" } },
+      { status: error.status, headers: { "Cache-Control": "no-store", ...(error.retryAfter ? { "Retry-After": String(error.retryAfter) } : {}) } },
     );
   }
   console.error("admin-api-error", error instanceof Error ? error.message : "unknown");

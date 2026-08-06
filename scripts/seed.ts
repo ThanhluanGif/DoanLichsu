@@ -5,8 +5,16 @@ import { normalizeSearchText } from "../src/lib/search/normalize";
 import { readEnv } from "../src/lib/env";
 import { hashPassword } from "../src/lib/auth/password";
 
-if (process.env.NODE_ENV === "production" && process.env.ALLOW_DEMO_SEED !== "1") {
-  throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
+if (process.env.NODE_ENV === "production") {
+  if (process.env.ALLOW_DEMO_SEED !== "1") {
+    throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
+  }
+  for (const name of ["SEED_ADMIN_PASSWORD", "SEED_EDITOR_PASSWORD", "SEED_REVIEWER_PASSWORD"] as const) {
+    const password = process.env[name];
+    if (!password || password.length < 16 || /Demo-2026|replace-with|change-me/i.test(password)) {
+      throw new Error(`${name} must be an explicit non-demo password of at least 16 characters in production.`);
+    }
+  }
 }
 
 const { databasePath } = readEnv();
