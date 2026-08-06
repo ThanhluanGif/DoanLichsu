@@ -36,11 +36,14 @@ describe("planning to OpenAPI deep-shape audit",() => {
     ["public role metadata drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/home","get"])["x-allowed-roles"] = ["ADMIN"]; }],
     ["role metadata drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get"])["x-allowed-roles"] = ["ADMIN"]; }],
     ["optional request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","requestBody"]).required = false; }],
+    ["extra request media type",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","requestBody","content"])["application/xml"] = {schema:{type:"string"}}; }],
+    ["undocumented request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/auth/logout","post"]).requestBody = {required:true,content:{"text/plain":{schema:{type:"string"}}}}; }],
     ["planned success status drift",(document:MutableObject) => {
       const responses = objectAt(document,["paths","/api/v1/admin/sources","post","responses"]);
       responses["202"] = responses["201"];
       delete responses["201"];
     }],
+    ["extra success status",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","responses"])["202"] = {description:"extra"}; }],
     ["missing planned error status",(document:MutableObject) => { delete objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses"])["404"]; }],
     ["error response shape drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses","404","content","application/json"]).schema = {type:"string"}; }],
     ["response wrapper drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses","200","content","application/json","schema","properties","data"]).$ref = "#/components/schemas/AuthUser"; }],

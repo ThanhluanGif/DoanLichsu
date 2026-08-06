@@ -280,23 +280,33 @@ export function contractShapeDrift(markdown, document) {
       const actualBody = operation.requestBody?.content?.["application/json"]?.schema;
       if (bodyToken) {
         if (operation.requestBody?.required !== true) drift.push(`${row.method} ${row.path}: JSON requestBody must be required`);
+        const mediaTypes = Object.keys(operation.requestBody?.content ?? {}).sort();
+        if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: request media types must be exactly application/json`);
         compare(`${row.method} ${row.path} request`,descriptorForExpression(bodyToken,model),actualBody,document,drift);
       }
-      else if (actualBody) drift.push(`${row.method} ${row.path}: OpenAPI has an undocumented JSON request body`);
+      else if (operation.requestBody) drift.push(`${row.method} ${row.path}: OpenAPI has an undocumented request body`);
     }
 
     const outputToken = expressionToken(row.output);
     const successStatus = /\bstatus\s+(2\d\d)\b/i.exec(row.output)?.[1] ?? "200";
     const success = operation.responses?.[successStatus]?.content?.["application/json"]?.schema;
     if (!operation.responses?.[successStatus]) drift.push(`${row.method} ${row.path}: missing planned success response ${successStatus}`);
+    const extraSuccess = Object.keys(operation.responses ?? {}).filter((status) => /^2\d\d$/.test(status) && status !== successStatus);
+    if (extraSuccess.length) drift.push(`${row.method} ${row.path}: undocumented success responses [${extraSuccess.join(",")}]`);
     if (outputToken && (model.interfaces.has(outputToken) || /^(?:DataResponse|ListResponse)</.test(outputToken))) {
+      const mediaTypes = Object.keys(operation.responses?.[successStatus]?.content ?? {}).sort();
+      if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: success ${successStatus} media types must be exactly application/json`);
       compare(`${row.method} ${row.path} response`,descriptorForExpression(outputToken,model),success,document,drift);
     }
     const errorStatuses = [...new Set([...row.output.matchAll(/\b(4\d\d)\b/g)].map((match) => match[1]))];
     for (const status of errorStatuses) {
       const errorSchema = operation.responses?.[status]?.content?.["application/json"]?.schema;
       if (!operation.responses?.[status]) drift.push(`${row.method} ${row.path}: missing planned ApiError response ${status}`);
-      else compare(`${row.method} ${row.path} response.${status}`,descriptorForExpression("ApiError",model),errorSchema,document,drift);
+      else {
+        const mediaTypes = Object.keys(operation.responses[status]?.content ?? {}).sort();
+        if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: error ${status} media types must be exactly application/json`);
+        compare(`${row.method} ${row.path} response.${status}`,descriptorForExpression("ApiError",model),errorSchema,document,drift);
+      }
     }
   }
   return drift;

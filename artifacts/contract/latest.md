@@ -1,7 +1,7 @@
 # Contract report
 
-- Run: 62dd34d7
-- Generated: 2026-08-06T17:56:19.623Z
+- Run: 06ae60a8
+- Generated: 2026-08-06T18:04:36.132Z
 - Base URL: http://127.0.0.1:3000
 - Planning operations: 37
 - Runtime operations: 37
@@ -95,9 +95,9 @@
 | PASS | rbac.allowed.post./api/v1/admin/contents.admin | 400 |  |
 | PASS | rbac.allowed.post./api/v1/admin/contents.editor | 400 |  |
 | PASS | rbac.allowed.post./api/v1/admin/contents.reviewer | 400 |  |
-| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.admin | 404 |  |
-| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.editor | 404 |  |
-| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.reviewer | 404 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.reviewer | 200 |  |
 | PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.admin | 400 |  |
 | PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.editor | 400 |  |
 | PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.reviewer | 400 |  |

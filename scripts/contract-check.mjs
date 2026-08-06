@@ -51,6 +51,7 @@ let identityState = "not-run";
 let baselineDigest = null;
 let baselineCounts = null;
 let cleanupState = "not-run";
+let roleProbeIds = null;
 
 const digestTables = [
   "schema_migrations","app_metadata","content_nodes","content_translations","sources","media","tags","content_sources","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
@@ -105,7 +106,7 @@ async function proveDatabaseIdentity() {
     if (drift.length) throw new Error(`database is not a pristine disposable seed: ${drift.join(", ")}`);
     baselineDigest = databaseDigest(database);
     const row = database.prepare(`
-      SELECT t.id,n.type,t.locale,t.slug,t.summary
+      SELECT t.id,n.id AS node_id,n.type,t.locale,t.slug,t.summary
       FROM content_translations t JOIN content_nodes n ON n.id=t.node_id
       WHERE n.status='PUBLISHED' AND t.translation_status='PUBLISHED'
       ORDER BY t.id LIMIT 1
@@ -134,6 +135,12 @@ async function proveDatabaseIdentity() {
       const insert = database.prepare("INSERT INTO users(id,email,display_name,role,password_hash,active,session_version,version,created_at,updated_at) VALUES(?,?,?,?,?,1,1,1,?,?)");
       for (const fixture of fixtures) insert.run(fixture.id,fixture.email,fixture.displayName,fixture.role,fixture.passwordHash,now,now);
     }).immediate();
+    roleProbeIds = {
+      content:row.node_id,
+      source:database.prepare("SELECT id FROM sources ORDER BY id LIMIT 1").get().id,
+      media:database.prepare("SELECT id FROM media ORDER BY id LIMIT 1").get().id,
+      user:authFixtures.ADMIN.id,
+    };
     identityState = `verified marker over ${row.locale}/${row.type}/${row.slug}; baseline sha256=${baselineDigest}`;
     cases.push({ name:"preflight.database-identity",passed:true,status:200,durationMs:Math.round(performance.now()-started),url:`${baseUrl}/api/v1/${row.locale}/contents/${row.type}/${row.slug}` });
   } catch (error) {
@@ -295,26 +302,6 @@ async function check(name, expectedStatus, action, requiredPaths = []) {
   }
 }
 
-async function checkAuthorizedReachability(name, action) {
-  const started = performance.now();
-  let actualStatus = null;
-  try {
-    const result = await action();
-    actualStatus = result.response.status;
-    validateLiveResponse(result);
-    if ([401,403].includes(actualStatus)) throw new Error(`declared role was rejected with HTTP ${actualStatus}`);
-    if (typeof result.body === "object") {
-      assertNoSecrets(result.body);
-      assertIsoTimestamps(result.body);
-    }
-    cases.push({name,passed:true,status:actualStatus,durationMs:Math.round(performance.now()-started)});
-    return result;
-  } catch (error) {
-    cases.push({name,passed:false,status:actualStatus,durationMs:Math.round(performance.now()-started),diff:error instanceof Error?error.message:String(error)});
-    return null;
-  }
-}
-
 async function loginWithCredentials(name, credential) {
   const result = await check(`auth.login.${name}`, 200, () => http("/api/v1/auth/login", { method:"POST",body:credential }), ["data.id","data.email","data.displayName","data.role"]);
   if (!result) return null;
@@ -412,11 +399,20 @@ const adminCookie = await login("ADMIN");
 const editorCookie = await login("EDITOR");
 const reviewerCookie = await login("REVIEWER");
 const roleCookies = { ADMIN:adminCookie,EDITOR:editorCookie,REVIEWER:reviewerCookie };
+const materializeAllowedPath = (path) => {
+  let value = path.replaceAll("{locale}","vi").replaceAll("{type}","EVENT").replaceAll("{slug}","chien-dich-dien-bien-phu");
+  const id = value.includes("/admin/contents/") ? roleProbeIds.content
+    : value.includes("/admin/sources/") ? roleProbeIds.source
+    : value.includes("/admin/media/") ? roleProbeIds.media
+    : value.includes("/admin/users/") ? roleProbeIds.user
+    : roleProbeIds.content;
+  return value.replaceAll("{id}",id);
+};
 for (const operation of protectedOperations.filter((candidate) => candidate.path !== "/api/v1/auth/logout")) {
   for (const [role,cookie] of Object.entries(roleCookies)) {
     const options = {method:operation.method.toUpperCase(),cookie,...(["post","put","patch","delete"].includes(operation.method)?{body:{}}:{})};
     const name = `${operation.method}.${operation.path}.${role.toLowerCase()}`;
-    if (operation.roles.includes(role)) await checkAuthorizedReachability(`rbac.allowed.${name}`,() => http(materializePath(operation.path),options));
+    if (operation.roles.includes(role)) await check(`rbac.allowed.${name}`,operation.method === "get" ? 200 : 400,() => http(materializeAllowedPath(operation.path),options));
     else await check(`rbac.denied.${name}`,403,() => http(materializePath(operation.path),options),["code","requestId"]);
   }
 }
