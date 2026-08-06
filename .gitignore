@@ -1,0 +1,15 @@
+node_modules/
+.next/
+coverage/
+data/
+.env
+.env.local
+*.log
+*.tsbuildinfo
+
+# /flow run-state (generated; safe to ignore)
+MODE
+PROJECT_TYPE
+.flow/
+cards/.inflight
+flow/.lock
