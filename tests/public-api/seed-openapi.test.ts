@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2], currentVersion: 2 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3], currentVersion: 3 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",
@@ -22,8 +22,8 @@ describe("public seed and runtime contract", () => {
       if (result.status !== 0) throw new Error(result.stderr);
       return JSON.parse(result.stdout);
     };
-    expect(seed()).toEqual({ contentNodes: 50, translations: 100, sources: 50, users: 0 });
-    expect(seed()).toEqual({ contentNodes: 50, translations: 100, sources: 50, users: 0 });
+    expect(seed()).toEqual({ contentNodes: 50, translations: 100, sources: 50, users: 3 });
+    expect(seed()).toEqual({ contentNodes: 50, translations: 100, sources: 50, users: 3 });
 
     const database = new Database(databasePath);
     expect(database.prepare("SELECT COUNT(*) AS count FROM content_nodes").get()).toEqual({ count: 50 });
@@ -34,6 +34,9 @@ describe("public seed and runtime contract", () => {
       { type: "PERSON", count: 10 }, { type: "TOPIC", count: 4 },
     ]);
     expect(database.prepare("SELECT COUNT(*) AS count FROM media WHERE kind = 'DOCUMENT'").get()).toEqual({ count: 10 });
+    expect(database.prepare("SELECT role, COUNT(*) AS count FROM users GROUP BY role ORDER BY role").all()).toEqual([
+      { role: "ADMIN", count: 1 }, { role: "EDITOR", count: 1 }, { role: "REVIEWER", count: 1 },
+    ]);
     expect(database.prepare("SELECT translation_status FROM content_translations WHERE node_id = ? AND locale = 'en'").get("artifact-mig21-4324")).toEqual({ translation_status: "READY_FOR_REVIEW" });
     expect(() => database.prepare(`
       INSERT INTO content_nodes (

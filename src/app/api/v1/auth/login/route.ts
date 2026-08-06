@@ -1,0 +1,51 @@
+import { NextResponse } from "next/server";
+import { getEnv } from "@/lib/env";
+import { openDatabase } from "@/lib/db/connection";
+import { writeAudit } from "@/lib/audit/log";
+import { hashPassword, verifyPassword } from "@/lib/auth/password";
+import { requireSameOrigin } from "@/lib/auth/origin";
+import { createSessionCookie } from "@/lib/auth/session";
+import type { Role } from "@/lib/auth/types";
+import { assertLoginAllowed, clearLoginFailures, recordLoginFailure } from "@/lib/rate-limit/login";
+import { ApiError, apiErrorResponse, readJsonObject, stringField } from "@/lib/validation/api-error";
+
+export const dynamic = "force-dynamic";
+const dummyHash = hashPassword("Dummy-Password-2026!");
+
+export async function POST(request: Request) {
+  let database: ReturnType<typeof openDatabase> | undefined;
+  try {
+    requireSameOrigin(request);
+    const body = await readJsonObject(request);
+    const email = stringField(body, "email", { required: true, max: 320 })!.toLowerCase();
+    const password = stringField(body, "password", { required: true, max: 256 })!;
+    const ip = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim() || "unknown";
+    database = openDatabase(getEnv().databasePath);
+    assertLoginAllowed(database, email, ip);
+    const row = database.prepare(`
+      SELECT id,email,display_name,role,password_hash,active,session_version FROM users WHERE email=?
+    `).get(email) as { id:string;email:string;display_name:string;role:Role;password_hash:string;active:number;session_version:number } | undefined;
+    const valid = await verifyPassword(row?.password_hash ?? await dummyHash, password);
+    if (!row || row.active !== 1 || !valid) {
+      database.transaction(() => {
+        recordLoginFailure(database!, email, ip);
+        writeAudit(database!, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip } });
+      }).immediate();
+      throw new ApiError(401, "INVALID_CREDENTIALS", "Email hoặc mật khẩu không đúng.");
+    }
+    database.transaction(() => {
+      clearLoginFailures(database!, email);
+      writeAudit(database!, { actorId: row.id, action: "auth.login", objectType: "session", objectId: row.id, metadata: { ip } });
+    }).immediate();
+    const cookie = await createSessionCookie({ userId: row.id, sessionVersion: row.session_version });
+    return NextResponse.json(
+      { data: { id: row.id, email: row.email, displayName: row.display_name, role: row.role } },
+      { headers: { "Set-Cookie": cookie, "Cache-Control": "no-store" } },
+    );
+  } catch (error) {
+    return apiErrorResponse(error);
+  } finally {
+    database?.close();
+  }
+}
+

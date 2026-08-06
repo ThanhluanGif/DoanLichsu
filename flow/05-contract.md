@@ -64,15 +64,15 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; no write | Path `id` | `DataResponse<AdminContentDetail>` or `ApiError` 404 |
 | PATCH | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; update allowed fields + audit; cannot publish | Path `id`; `ContentUpdateInput` | `DataResponse<AdminContentDetail>` or `ApiError` 409 on stale `version` |
 | PUT | `/api/v1/admin/contents/{id}/translations/{locale}` | Editor/Reviewer/Admin; upsert translation + audit | Path `{id,locale}`; `TranslationInput` | `DataResponse<AdminTranslation>` or `ApiError` 409 on slug conflict |
-| GET | `/api/v1/admin/sources` | Editor/Reviewer/Admin; no write | query `SourceListQuery` | `ListResponse<SourceView>` |
-| POST | `/api/v1/admin/sources` | Editor/Reviewer/Admin; create source + audit | `SourceInput` | `DataResponse<SourceView>` status 201 |
-| PATCH | `/api/v1/admin/sources/{id}` | Editor/Reviewer/Admin; update source + audit | Path `id`; `SourceInput` | `DataResponse<SourceView>` |
-| GET | `/api/v1/admin/media` | Editor/Reviewer/Admin; no write | query `MediaListQuery` | `ListResponse<MediaView>` |
-| POST | `/api/v1/admin/media` | Editor/Reviewer/Admin; metadata-only create + audit | `MediaInput` | `DataResponse<MediaView>` status 201 |
-| PATCH | `/api/v1/admin/media/{id}` | Editor/Reviewer/Admin; metadata-only update + audit | Path `id`; `MediaInput` | `DataResponse<MediaView>` |
-| POST | `/api/v1/admin/contents/{id}/submit-review` | Editor/Reviewer/Admin; selected locales from DRAFT/REJECTED → READY_FOR_REVIEW and node → IN_REVIEW + audit | Path `id`; `LocaleWorkflowInput` | `DataResponse<WorkflowResult>` or `ApiError` 422 |
-| POST | `/api/v1/admin/contents/{id}/approve` | Reviewer/Admin; IN_REVIEW → APPROVED + reviewer/time + audit | Path `id`; `ReviewInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 |
-| POST | `/api/v1/admin/contents/{id}/reject` | Reviewer/Admin; IN_REVIEW → REJECTED + required reason + audit | Path `id`; `RejectInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 |
+| GET | `/api/v1/admin/sources` | Editor/Reviewer/Admin; no write | query `SourceListQuery` | `ListResponse<AdminSourceView>` |
+| POST | `/api/v1/admin/sources` | Editor/Reviewer/Admin; create source + audit | `SourceInput` | `DataResponse<AdminSourceView>` status 201 |
+| PATCH | `/api/v1/admin/sources/{id}` | Editor/Reviewer/Admin; update source + audit | Path `id`; `SourceUpdateInput` | `DataResponse<AdminSourceView>` or `ApiError` 409 on stale `version` |
+| GET | `/api/v1/admin/media` | Editor/Reviewer/Admin; no write | query `MediaListQuery` | `ListResponse<AdminMediaView>` |
+| POST | `/api/v1/admin/media` | Editor/Reviewer/Admin; metadata-only create + audit | `MediaInput` | `DataResponse<AdminMediaView>` status 201 |
+| PATCH | `/api/v1/admin/media/{id}` | Editor/Reviewer/Admin; metadata-only update + audit | Path `id`; `MediaUpdateInput` | `DataResponse<AdminMediaView>` or `ApiError` 409 on stale `version` |
+| POST | `/api/v1/admin/contents/{id}/submit-review` | Editor/Reviewer/Admin; selected unpublished locales from DRAFT/REJECTED/TRANSLATING → READY_FOR_REVIEW; node → IN_REVIEW unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | Path `id`; `LocaleWorkflowInput` | `DataResponse<WorkflowResult>` or `ApiError` 422 |
+| POST | `/api/v1/admin/contents/{id}/approve` | Reviewer/Admin; selected READY_FOR_REVIEW locales → APPROVED + reviewer/time; node → APPROVED unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | Path `id`; `ReviewInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 |
+| POST | `/api/v1/admin/contents/{id}/reject` | Reviewer/Admin; selected READY_FOR_REVIEW locales → TRANSLATING + required reason; node → REJECTED unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | Path `id`; `RejectInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 |
 | POST | `/api/v1/admin/contents/{id}/publish` | Reviewer/Admin; publish selected approved locales after source/translation/media validation; node becomes PUBLISHED when ≥1 locale is published; audit | Path `id`; `LocaleWorkflowInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 with `details.violations` |
 | POST | `/api/v1/admin/contents/{id}/archive` | Reviewer/Admin; non-deleted row → ARCHIVED + audit | Path `id`; `VersionInput` | `DataResponse<WorkflowResult>` or `ApiError` 403/422 |
 | GET | `/api/v1/admin/users` | Admin only; no password hash returned | query `UserListQuery` | `ListResponse<UserView>` |
@@ -151,10 +151,15 @@ interface WorkflowResult {
 
 interface TranslationInput {
   version: number; title: string; slug: string; summary: string; body: string;
-  seoTitle: string; seoDescription: string; translationStatus: TranslationStatus;
+  seoTitle: string; seoDescription: string;
+  translationStatus: "NOT_STARTED" | "TRANSLATING" | "READY_FOR_REVIEW";
 }
 interface SourceInput { title: string; author?: string; publisher?: string; year?: number; url: string; accessedAt: string; citationNote?: string }
 interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string }
+interface AdminSourceView extends SourceView { version: number }
+interface AdminMediaView extends MediaView { version: number; altVi: string; altEn: string; captionVi: string | null; captionEn: string | null }
+interface SourceUpdateInput extends SourceInput { version: number }
+interface MediaUpdateInput extends MediaInput { version: number }
 interface ContentCreateInput {
   type: ContentType; featured?: boolean; startDate?: string; endDate?: string; datePrecision?: DatePrecision;
   periodId?: string; location?: string; result?: string; role?: string; artifactMeta?: Record<string, string>;
@@ -175,7 +180,7 @@ interface DashboardView { countsByStatus: Record<WorkflowStatus, number>; counts
 interface SourceListQuery extends PageQuery { q?: string }
 interface MediaListQuery extends PageQuery { q?: string; kind?: "IMAGE" | "DOCUMENT" }
 interface UserListQuery extends PageQuery { q?: string; role?: Role; active?: boolean }
-interface UserView { id: string; email: string; displayName: string; role: Role; active: boolean; createdAt: string; updatedAt: string }
+interface UserView { id: string; email: string; displayName: string; role: Role; active: boolean; version: number; createdAt: string; updatedAt: string }
 interface UserCreateInput { email: string; displayName: string; role: Role; temporaryPassword: string; active?: boolean }
 interface UserUpdateInput { displayName?: string; role?: Role; active?: boolean; resetPassword?: string; version: number }
 interface AuditListQuery extends PageQuery { actorId?: string; action?: string; objectType?: string; objectId?: string; from?: string; to?: string }

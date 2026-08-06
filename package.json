@@ -16,23 +16,25 @@
     "test": "vitest run",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "tsx scripts/seed.ts",
-    "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
+    "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
   },
   "dependencies": {
+    "@node-rs/argon2": "^2.0.2",
     "better-sqlite3": "^13.0.3",
+    "iron-session": "^8.0.4",
     "next": "^16.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "@eslint/eslintrc": "^3.3.3",
+    "esbuild": "^0.28.1",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.3.0",
-    "esbuild": "^0.28.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "vitest": "^4.0.15"
