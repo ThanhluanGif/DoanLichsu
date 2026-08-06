@@ -7,7 +7,7 @@ import { requireSameOrigin } from "@/lib/auth/origin";
 import { createSessionCookie } from "@/lib/auth/session";
 import type { Role } from "@/lib/auth/types";
 import { assertLoginAllowed, clearLoginFailures, recordLoginFailure } from "@/lib/rate-limit/login";
-import { ApiError, apiErrorResponse, readJsonObject, stringField } from "@/lib/validation/api-error";
+import { ApiError, apiErrorResponse, readJsonObject, secretField, stringField } from "@/lib/validation/api-error";
 
 export const dynamic = "force-dynamic";
 const dummyHash = hashPassword("Dummy-Password-2026!");
@@ -18,8 +18,9 @@ export async function POST(request: Request) {
     requireSameOrigin(request);
     const body = await readJsonObject(request);
     const email = stringField(body, "email", { required: true, max: 320 })!.toLowerCase();
-    const password = stringField(body, "password", { required: true, max: 256 })!;
-    const ip = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim() || "unknown";
+    const password = secretField(body, "password", true)!;
+    const forwardedIp = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim();
+    const ip = process.env.TRUST_PROXY_HEADERS === "1" && forwardedIp ? forwardedIp : "direct-client";
     database = openDatabase(getEnv().databasePath);
     assertLoginAllowed(database, email, ip);
     const row = database.prepare(`
@@ -48,4 +49,3 @@ export async function POST(request: Request) {
     database?.close();
   }
 }
-

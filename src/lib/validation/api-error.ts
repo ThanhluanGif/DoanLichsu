@@ -92,6 +92,16 @@ export function stringField(
   return normalized;
 }
 
+export function secretField(input: Record<string, unknown>, name: string, required = false): string | undefined {
+  const value = input[name];
+  if (value === undefined) {
+    if (required) invalidField(name, "Bắt buộc.");
+    return undefined;
+  }
+  if (typeof value !== "string" || value.length < 1 || value.length > 256) invalidField(name, "Phải có 1-256 ký tự.");
+  return value;
+}
+
 export function numberField(input: Record<string, unknown>, name: string, required = false): number | undefined {
   const value = input[name];
   if (value === undefined) {

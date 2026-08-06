@@ -24,6 +24,8 @@ function bucketState(database: SqliteDatabase, bucket: string, maxAttempts: numb
 
 export function assertLoginAllowed(database: SqliteDatabase, email: string, ip: string): void {
   const now = new Date();
+  database.prepare("DELETE FROM login_rate_limits WHERE window_started_at < ? AND (blocked_until IS NULL OR blocked_until < ?)")
+    .run(new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString(), now.toISOString());
   bucketState(database, `email:${email.toLowerCase()}`, 5, now);
   bucketState(database, `ip:${ip}`, 20, now);
 }
@@ -42,4 +44,3 @@ export function recordLoginFailure(database: SqliteDatabase, email: string, ip: 
 export function clearLoginFailures(database: SqliteDatabase, email: string): void {
   database.prepare("DELETE FROM login_rate_limits WHERE bucket = ?").run(`email:${email.toLowerCase()}`);
 }
-

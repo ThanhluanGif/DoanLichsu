@@ -10,8 +10,10 @@ const errors = {
   "400": json({ $ref: "#/components/schemas/ApiError" }, "Dữ liệu không hợp lệ."),
   "401": json({ $ref: "#/components/schemas/ApiError" }, "Chưa đăng nhập."),
   "403": json({ $ref: "#/components/schemas/ApiError" }, "Sai quyền hoặc Origin."),
+  "404": json({ $ref: "#/components/schemas/ApiError" }, "Đối tượng không tồn tại."),
   "409": json({ $ref: "#/components/schemas/ApiError" }, "Xung đột phiên bản hoặc slug."),
   "422": json({ $ref: "#/components/schemas/ApiError" }, "Workflow hoặc publish validation thất bại."),
+  "429": json({ $ref: "#/components/schemas/ApiError" }, "Tạm giới hạn đăng nhập."),
 };
 const operation = (operationId: string, summary: string, options: { method?: "get"; request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201" }) => ({
   operationId, summary, tags: [options.admin === false ? "Auth" : "Editorial"],

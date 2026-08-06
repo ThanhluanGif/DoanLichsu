@@ -105,13 +105,17 @@ function assertOnlyDemoData(): void {
       throw new Error(`Refusing to replace non-demo row ${table}.${unknown.id}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
     }
   }
-  for (const table of ["content_nodes", "content_translations", "sources", "media"]) {
+  for (const table of ["content_nodes", "content_translations", "sources", "media", "users"]) {
     const changed = database.prepare(
       `SELECT id FROM ${table} WHERE updated_at <> ? LIMIT 1`,
     ).get(now) as { id: string } | undefined;
     if (changed) {
       throw new Error(`Refusing to replace edited demo row ${table}.${changed.id}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
     }
+  }
+  for (const table of ["audit_logs", "login_rate_limits"]) {
+    const row = database.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get() as { count: number };
+    if (row.count > 0) throw new Error(`Refusing to erase ${table}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
   }
 }
 

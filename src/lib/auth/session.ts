@@ -9,6 +9,9 @@ function sessionSecret(): string {
   if (!secret || secret.length < 32) {
     throw new Error("SESSION_SECRET must contain at least 32 characters.");
   }
+  if (process.env.NODE_ENV === "production" && /replace-with|change-me|example/i.test(secret)) {
+    throw new Error("SESSION_SECRET must not use an example value in production.");
+  }
   return secret;
 }
 
