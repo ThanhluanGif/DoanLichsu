@@ -16,9 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       WHERE n.status='PUBLISHED' AND t.translation_status='PUBLISHED'
       ORDER BY t.locale,n.type,t.slug,n.id
     `).all() as PublishedRoute[];
-    const entries: MetadataRoute.Sitemap = ["vi","en"].map((locale)=>({url:`${origin}/${locale}`,changeFrequency:"weekly",priority:1}));
+    const entries: MetadataRoute.Sitemap = ["vi","en"].map((locale)=>({url:`${origin}/api/v1/${locale}/home`,changeFrequency:"weekly",priority:1}));
     entries.push(...rows.map<MetadataRoute.Sitemap[number]>((row)=>({
-        url:`${origin}/${row.locale}/noi-dung/${row.type.toLowerCase()}/${row.slug}`,
+        url:`${origin}/api/v1/${row.locale}/contents/${row.type}/${row.slug}`,
         lastModified:new Date(row.updated_at),changeFrequency:"monthly",priority:0.7,
       })));
     return entries;

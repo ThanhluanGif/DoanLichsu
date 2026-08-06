@@ -167,7 +167,10 @@ interface ContentCreateInput {
   translations: Partial<Record<Locale, Omit<TranslationInput, "version">>>;
 }
 interface ContentUpdateInput extends Partial<Omit<ContentCreateInput, "type" | "translations">> { version: number }
-interface AdminTranslation extends TranslationInput { locale: Locale; id: string; updatedAt: string }
+interface AdminTranslation {
+  locale: Locale; id: string; version: number; title: string; slug: string; summary: string; body: string;
+  seoTitle: string; seoDescription: string; translationStatus: TranslationStatus; updatedAt: string;
+}
 interface AdminContentListItem { id: string; type: ContentType; status: WorkflowStatus; featured: boolean; version: number; titles: Partial<Record<Locale, string>>; updatedAt: string; updatedBy: string }
 interface AdminContentDetail extends AdminContentListItem {
   startDate: string | null; endDate: string | null; datePrecision: DatePrecision | null;

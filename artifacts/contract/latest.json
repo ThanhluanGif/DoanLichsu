@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T13:44:50.064Z",
+  "generatedAt": "2026-08-06T17:05:55.549Z",
   "baseUrl": "http://127.0.0.1:3000",
   "planning": {
     "operationCount": 37,
@@ -88,54 +88,676 @@
   },
   "drift": {
     "missingOperations": [],
-    "extraOperations": []
+    "extraOperations": [],
+    "shapeDrift": []
   },
   "summary": {
-    "total": 72,
-    "passed": 72,
-    "failed": 0
+    "total": 178,
+    "passed": 178,
+    "failed": 0,
+    "responseSchemasValidated": 165
   },
   "cleanup": {
-    "content": "archived",
-    "testUser": "disabled",
-    "databaseTeardown": "caller-owned dedicated database"
+    "preTeardown": {
+      "content": "archived",
+      "testUser": "disabled"
+    },
+    "database": "verified exact seed counts: contentNodes=50, translations=100, sources=50, media=10, users=3, auditLogs=0, rateLimits=0"
   },
   "cases": [
     {
       "name": "plumbing.openapi",
       "passed": true,
       "status": 200,
-      "durationMs": 96
+      "durationMs": 76
     },
     {
       "name": "plumbing.health",
       "passed": true,
       "status": 200,
-      "durationMs": 574
+      "durationMs": 72
     },
     {
       "name": "plumbing.docs",
       "passed": true,
       "status": 200,
-      "durationMs": 31
+      "durationMs": 16
     },
     {
       "name": "plumbing.sitemap",
       "passed": true,
       "status": 200,
-      "durationMs": 15
+      "durationMs": 9
     },
     {
-      "name": "plumbing.robots",
+      "name": "plumbing.sitemap-link.1",
+      "passed": true,
+      "status": 200,
+      "durationMs": 31
+    },
+    {
+      "name": "plumbing.sitemap-link.2",
       "passed": true,
       "status": 200,
       "durationMs": 11
     },
     {
+      "name": "plumbing.sitemap-link.3",
+      "passed": true,
+      "status": 200,
+      "durationMs": 47
+    },
+    {
+      "name": "plumbing.sitemap-link.4",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "plumbing.sitemap-link.5",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.6",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.7",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.8",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.9",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.10",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.11",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.12",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.13",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.14",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.15",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.16",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.17",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.18",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.19",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.20",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.21",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.22",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.23",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.24",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "plumbing.sitemap-link.25",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.26",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.27",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.28",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.29",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.30",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.31",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.32",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.33",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.34",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.35",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.36",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.37",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.38",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.39",
+      "passed": true,
+      "status": 200,
+      "durationMs": 59
+    },
+    {
+      "name": "plumbing.sitemap-link.40",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.41",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.42",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.43",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.44",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.45",
+      "passed": true,
+      "status": 200,
+      "durationMs": 4
+    },
+    {
+      "name": "plumbing.sitemap-link.46",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.47",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.48",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.49",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.50",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.51",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.52",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.53",
+      "passed": true,
+      "status": 200,
+      "durationMs": 47
+    },
+    {
+      "name": "plumbing.sitemap-link.54",
+      "passed": true,
+      "status": 200,
+      "durationMs": 18
+    },
+    {
+      "name": "plumbing.sitemap-link.55",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.56",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.57",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.58",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.59",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.60",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.61",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.62",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.63",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.64",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.65",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.66",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.67",
+      "passed": true,
+      "status": 200,
+      "durationMs": 5
+    },
+    {
+      "name": "plumbing.sitemap-link.68",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.69",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.70",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.71",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.72",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.73",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.74",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.75",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.76",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.77",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.78",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.79",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.80",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.81",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.82",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.83",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.84",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.85",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.86",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.87",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.88",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "plumbing.sitemap-link.89",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.90",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.91",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.92",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.93",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.94",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.95",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.sitemap-link.96",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.97",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "plumbing.sitemap-link.98",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-link.99",
+      "passed": true,
+      "status": 200,
+      "durationMs": 7
+    },
+    {
+      "name": "plumbing.sitemap-link.100",
+      "passed": true,
+      "status": 200,
+      "durationMs": 50
+    },
+    {
+      "name": "plumbing.sitemap-link.101",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "plumbing.sitemap-live-links",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "plumbing.robots",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "plumbing.robots-policy",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
       "name": "public.home",
       "passed": true,
       "status": 200,
-      "durationMs": 40
+      "durationMs": 14
     },
     {
       "name": "public.periods",
@@ -147,19 +769,19 @@
       "name": "public.timeline",
       "passed": true,
       "status": 200,
-      "durationMs": 16
+      "durationMs": 15
     },
     {
       "name": "public.contents.first",
       "passed": true,
       "status": 200,
-      "durationMs": 18
+      "durationMs": 24
     },
     {
       "name": "public.contents.deterministic",
       "passed": true,
       "status": 200,
-      "durationMs": 14
+      "durationMs": 9
     },
     {
       "name": "public.pagination.stable",
@@ -168,22 +790,34 @@
       "durationMs": 0
     },
     {
+      "name": "public.contents.title-order",
+      "passed": true,
+      "status": 200,
+      "durationMs": 22
+    },
+    {
+      "name": "public.pagination.title-order",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
       "name": "public.detail",
       "passed": true,
       "status": 200,
-      "durationMs": 14
+      "durationMs": 8
     },
     {
       "name": "public.search",
       "passed": true,
       "status": 200,
-      "durationMs": 12
+      "durationMs": 42
     },
     {
       "name": "public.taxonomies",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 15
     },
     {
       "name": "public.alternate",
@@ -195,61 +829,61 @@
       "name": "error.400.invalid-query",
       "passed": true,
       "status": 400,
-      "durationMs": 5
+      "durationMs": 8
     },
     {
       "name": "error.404.not-found",
       "passed": true,
       "status": 404,
-      "durationMs": 6
+      "durationMs": 10
     },
     {
       "name": "error.401.no-session",
       "passed": true,
       "status": 401,
-      "durationMs": 10
+      "durationMs": 8
     },
     {
       "name": "auth.rate-limit.failure-1",
       "passed": true,
       "status": 401,
-      "durationMs": 110
+      "durationMs": 58
     },
     {
       "name": "auth.rate-limit.failure-2",
       "passed": true,
       "status": 401,
-      "durationMs": 39
+      "durationMs": 56
     },
     {
       "name": "auth.rate-limit.failure-3",
       "passed": true,
       "status": 401,
-      "durationMs": 58
+      "durationMs": 52
     },
     {
       "name": "auth.rate-limit.failure-4",
       "passed": true,
       "status": 401,
-      "durationMs": 41
+      "durationMs": 53
     },
     {
       "name": "auth.rate-limit.failure-5",
       "passed": true,
       "status": 401,
-      "durationMs": 39
+      "durationMs": 42
     },
     {
       "name": "error.429.rate-limit",
       "passed": true,
       "status": 429,
-      "durationMs": 8
+      "durationMs": 12
     },
     {
       "name": "auth.login.admin",
       "passed": true,
       "status": 200,
-      "durationMs": 42
+      "durationMs": 43
     },
     {
       "name": "auth.cookie.admin",
@@ -261,7 +895,7 @@
       "name": "auth.login.editor",
       "passed": true,
       "status": 200,
-      "durationMs": 33
+      "durationMs": 40
     },
     {
       "name": "auth.cookie.editor",
@@ -273,7 +907,7 @@
       "name": "auth.login.reviewer",
       "passed": true,
       "status": 200,
-      "durationMs": 34
+      "durationMs": 40
     },
     {
       "name": "auth.cookie.reviewer",
@@ -303,145 +937,139 @@
       "name": "error.403.invalid-origin",
       "passed": true,
       "status": 403,
-      "durationMs": 7
+      "durationMs": 11
     },
     {
       "name": "admin.dashboard",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 12
     },
     {
       "name": "admin.contents.list",
       "passed": true,
       "status": 200,
-      "durationMs": 8
+      "durationMs": 15
     },
     {
       "name": "admin.sources.list",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 17
     },
     {
       "name": "admin.media.list",
       "passed": true,
       "status": 200,
-      "durationMs": 13
+      "durationMs": 16
     },
     {
       "name": "admin.users.list",
       "passed": true,
       "status": 200,
-      "durationMs": 8
+      "durationMs": 14
     },
     {
       "name": "admin.audit.list",
       "passed": true,
       "status": 200,
-      "durationMs": 11
+      "durationMs": 13
     },
     {
       "name": "admin.source.create",
       "passed": true,
       "status": 201,
-      "durationMs": 12
+      "durationMs": 14
     },
     {
       "name": "admin.source.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 12
+      "durationMs": 15
     },
     {
       "name": "admin.media.create",
       "passed": true,
       "status": 201,
-      "durationMs": 9
+      "durationMs": 16
     },
     {
       "name": "admin.media.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 13
+      "durationMs": 16
     },
     {
       "name": "admin.user.create",
       "passed": true,
       "status": 201,
-      "durationMs": 41
+      "durationMs": 49
     },
     {
       "name": "admin.user.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 12
-    },
-    {
-      "name": "admin.user.last-admin",
-      "passed": true,
-      "status": 422,
-      "durationMs": 7
+      "durationMs": 14
     },
     {
       "name": "admin.content.create",
       "passed": true,
       "status": 201,
-      "durationMs": 12
+      "durationMs": 29
     },
     {
       "name": "admin.content.get",
       "passed": true,
       "status": 200,
-      "durationMs": 11
+      "durationMs": 22
     },
     {
       "name": "admin.translation.put",
       "passed": true,
       "status": 200,
-      "durationMs": 14
+      "durationMs": 17
     },
     {
       "name": "error.409.stale-version",
       "passed": true,
       "status": 409,
-      "durationMs": 8
+      "durationMs": 12
     },
     {
       "name": "workflow.submit",
       "passed": true,
       "status": 200,
-      "durationMs": 13
+      "durationMs": 82
     },
     {
       "name": "workflow.reject-reason-required",
       "passed": true,
       "status": 400,
-      "durationMs": 11
+      "durationMs": 10
     },
     {
       "name": "workflow.editor-approve-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 10
+      "durationMs": 11
     },
     {
       "name": "workflow.reject",
       "passed": true,
       "status": 200,
-      "durationMs": 9
+      "durationMs": 16
     },
     {
       "name": "workflow.resubmit",
       "passed": true,
       "status": 200,
-      "durationMs": 9
+      "durationMs": 11
     },
     {
       "name": "workflow.approve",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 15
     },
     {
       "name": "error.422.publish-source",
@@ -453,61 +1081,61 @@
       "name": "admin.content.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 12
+      "durationMs": 26
     },
     {
       "name": "workflow.editor-publish-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 7
+      "durationMs": 11
     },
     {
       "name": "workflow.publish",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 14
     },
     {
       "name": "public.created-detail",
       "passed": true,
       "status": 200,
-      "durationMs": 6
+      "durationMs": 7
     },
     {
       "name": "public.created-alternate",
       "passed": true,
       "status": 200,
-      "durationMs": 6
+      "durationMs": 7
     },
     {
       "name": "workflow.published-source-immutable",
       "passed": true,
       "status": 422,
-      "durationMs": 9
+      "durationMs": 14
     },
     {
       "name": "workflow.published-media-immutable",
       "passed": true,
       "status": 422,
-      "durationMs": 12
+      "durationMs": 11
     },
     {
       "name": "admin.audit.object",
       "passed": true,
       "status": 200,
-      "durationMs": 6
+      "durationMs": 9
     },
     {
       "name": "cleanup.content.archive",
       "passed": true,
       "status": 200,
-      "durationMs": 12
+      "durationMs": 14
     },
     {
       "name": "cleanup.public-hidden",
       "passed": true,
       "status": 404,
-      "durationMs": 5
+      "durationMs": 6
     },
     {
       "name": "diagnostic.shape-diff",
@@ -520,7 +1148,13 @@
       "name": "auth.logout",
       "passed": true,
       "status": 200,
-      "durationMs": 11
+      "durationMs": 14
+    },
+    {
+      "name": "cleanup.database",
+      "passed": true,
+      "status": null,
+      "durationMs": 19
     },
     {
       "name": "openapi.planning-coverage",
@@ -530,6 +1164,12 @@
     },
     {
       "name": "openapi.no-extra-operations",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "openapi.request-response-shapes",
       "passed": true,
       "status": 200,
       "durationMs": 0

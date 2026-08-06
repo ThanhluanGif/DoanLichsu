@@ -1,12 +1,13 @@
 # Contract report
 
-- Generated: 2026-08-06T13:44:50.064Z
+- Generated: 2026-08-06T17:05:55.549Z
 - Base URL: http://127.0.0.1:3000
 - Planning operations: 37
 - Runtime operations: 37
-- Cases: 72/72 passed
-- Drift: 0 missing, 0 extra
-- Cleanup: content archived; test user disabled; database teardown caller-owned dedicated database
+- Cases: 178/178 passed
+- Live response schemas validated: 165
+- Drift: 0 missing, 0 extra, 0 shape
+- Cleanup: verified exact seed counts: contentNodes=50, translations=100, sources=50, media=10, users=3, auditLogs=0, rateLimits=0
 
 | Result | Case | HTTP | Diff |
 |---|---|---:|---|
@@ -14,13 +15,118 @@
 | PASS | plumbing.health | 200 |  |
 | PASS | plumbing.docs | 200 |  |
 | PASS | plumbing.sitemap | 200 |  |
+| PASS | plumbing.sitemap-link.1 | 200 |  |
+| PASS | plumbing.sitemap-link.2 | 200 |  |
+| PASS | plumbing.sitemap-link.3 | 200 |  |
+| PASS | plumbing.sitemap-link.4 | 200 |  |
+| PASS | plumbing.sitemap-link.5 | 200 |  |
+| PASS | plumbing.sitemap-link.6 | 200 |  |
+| PASS | plumbing.sitemap-link.7 | 200 |  |
+| PASS | plumbing.sitemap-link.8 | 200 |  |
+| PASS | plumbing.sitemap-link.9 | 200 |  |
+| PASS | plumbing.sitemap-link.10 | 200 |  |
+| PASS | plumbing.sitemap-link.11 | 200 |  |
+| PASS | plumbing.sitemap-link.12 | 200 |  |
+| PASS | plumbing.sitemap-link.13 | 200 |  |
+| PASS | plumbing.sitemap-link.14 | 200 |  |
+| PASS | plumbing.sitemap-link.15 | 200 |  |
+| PASS | plumbing.sitemap-link.16 | 200 |  |
+| PASS | plumbing.sitemap-link.17 | 200 |  |
+| PASS | plumbing.sitemap-link.18 | 200 |  |
+| PASS | plumbing.sitemap-link.19 | 200 |  |
+| PASS | plumbing.sitemap-link.20 | 200 |  |
+| PASS | plumbing.sitemap-link.21 | 200 |  |
+| PASS | plumbing.sitemap-link.22 | 200 |  |
+| PASS | plumbing.sitemap-link.23 | 200 |  |
+| PASS | plumbing.sitemap-link.24 | 200 |  |
+| PASS | plumbing.sitemap-link.25 | 200 |  |
+| PASS | plumbing.sitemap-link.26 | 200 |  |
+| PASS | plumbing.sitemap-link.27 | 200 |  |
+| PASS | plumbing.sitemap-link.28 | 200 |  |
+| PASS | plumbing.sitemap-link.29 | 200 |  |
+| PASS | plumbing.sitemap-link.30 | 200 |  |
+| PASS | plumbing.sitemap-link.31 | 200 |  |
+| PASS | plumbing.sitemap-link.32 | 200 |  |
+| PASS | plumbing.sitemap-link.33 | 200 |  |
+| PASS | plumbing.sitemap-link.34 | 200 |  |
+| PASS | plumbing.sitemap-link.35 | 200 |  |
+| PASS | plumbing.sitemap-link.36 | 200 |  |
+| PASS | plumbing.sitemap-link.37 | 200 |  |
+| PASS | plumbing.sitemap-link.38 | 200 |  |
+| PASS | plumbing.sitemap-link.39 | 200 |  |
+| PASS | plumbing.sitemap-link.40 | 200 |  |
+| PASS | plumbing.sitemap-link.41 | 200 |  |
+| PASS | plumbing.sitemap-link.42 | 200 |  |
+| PASS | plumbing.sitemap-link.43 | 200 |  |
+| PASS | plumbing.sitemap-link.44 | 200 |  |
+| PASS | plumbing.sitemap-link.45 | 200 |  |
+| PASS | plumbing.sitemap-link.46 | 200 |  |
+| PASS | plumbing.sitemap-link.47 | 200 |  |
+| PASS | plumbing.sitemap-link.48 | 200 |  |
+| PASS | plumbing.sitemap-link.49 | 200 |  |
+| PASS | plumbing.sitemap-link.50 | 200 |  |
+| PASS | plumbing.sitemap-link.51 | 200 |  |
+| PASS | plumbing.sitemap-link.52 | 200 |  |
+| PASS | plumbing.sitemap-link.53 | 200 |  |
+| PASS | plumbing.sitemap-link.54 | 200 |  |
+| PASS | plumbing.sitemap-link.55 | 200 |  |
+| PASS | plumbing.sitemap-link.56 | 200 |  |
+| PASS | plumbing.sitemap-link.57 | 200 |  |
+| PASS | plumbing.sitemap-link.58 | 200 |  |
+| PASS | plumbing.sitemap-link.59 | 200 |  |
+| PASS | plumbing.sitemap-link.60 | 200 |  |
+| PASS | plumbing.sitemap-link.61 | 200 |  |
+| PASS | plumbing.sitemap-link.62 | 200 |  |
+| PASS | plumbing.sitemap-link.63 | 200 |  |
+| PASS | plumbing.sitemap-link.64 | 200 |  |
+| PASS | plumbing.sitemap-link.65 | 200 |  |
+| PASS | plumbing.sitemap-link.66 | 200 |  |
+| PASS | plumbing.sitemap-link.67 | 200 |  |
+| PASS | plumbing.sitemap-link.68 | 200 |  |
+| PASS | plumbing.sitemap-link.69 | 200 |  |
+| PASS | plumbing.sitemap-link.70 | 200 |  |
+| PASS | plumbing.sitemap-link.71 | 200 |  |
+| PASS | plumbing.sitemap-link.72 | 200 |  |
+| PASS | plumbing.sitemap-link.73 | 200 |  |
+| PASS | plumbing.sitemap-link.74 | 200 |  |
+| PASS | plumbing.sitemap-link.75 | 200 |  |
+| PASS | plumbing.sitemap-link.76 | 200 |  |
+| PASS | plumbing.sitemap-link.77 | 200 |  |
+| PASS | plumbing.sitemap-link.78 | 200 |  |
+| PASS | plumbing.sitemap-link.79 | 200 |  |
+| PASS | plumbing.sitemap-link.80 | 200 |  |
+| PASS | plumbing.sitemap-link.81 | 200 |  |
+| PASS | plumbing.sitemap-link.82 | 200 |  |
+| PASS | plumbing.sitemap-link.83 | 200 |  |
+| PASS | plumbing.sitemap-link.84 | 200 |  |
+| PASS | plumbing.sitemap-link.85 | 200 |  |
+| PASS | plumbing.sitemap-link.86 | 200 |  |
+| PASS | plumbing.sitemap-link.87 | 200 |  |
+| PASS | plumbing.sitemap-link.88 | 200 |  |
+| PASS | plumbing.sitemap-link.89 | 200 |  |
+| PASS | plumbing.sitemap-link.90 | 200 |  |
+| PASS | plumbing.sitemap-link.91 | 200 |  |
+| PASS | plumbing.sitemap-link.92 | 200 |  |
+| PASS | plumbing.sitemap-link.93 | 200 |  |
+| PASS | plumbing.sitemap-link.94 | 200 |  |
+| PASS | plumbing.sitemap-link.95 | 200 |  |
+| PASS | plumbing.sitemap-link.96 | 200 |  |
+| PASS | plumbing.sitemap-link.97 | 200 |  |
+| PASS | plumbing.sitemap-link.98 | 200 |  |
+| PASS | plumbing.sitemap-link.99 | 200 |  |
+| PASS | plumbing.sitemap-link.100 | 200 |  |
+| PASS | plumbing.sitemap-link.101 | 200 |  |
+| PASS | plumbing.sitemap-live-links | 200 |  |
 | PASS | plumbing.robots | 200 |  |
+| PASS | plumbing.robots-policy | 200 |  |
 | PASS | public.home | 200 |  |
 | PASS | public.periods | 200 |  |
 | PASS | public.timeline | 200 |  |
 | PASS | public.contents.first | 200 |  |
 | PASS | public.contents.deterministic | 200 |  |
 | PASS | public.pagination.stable | 200 |  |
+| PASS | public.contents.title-order | 200 |  |
+| PASS | public.pagination.title-order | 200 |  |
 | PASS | public.detail | 200 |  |
 | PASS | public.search | 200 |  |
 | PASS | public.taxonomies | 200 |  |
@@ -56,7 +162,6 @@
 | PASS | admin.media.patch | 200 |  |
 | PASS | admin.user.create | 201 |  |
 | PASS | admin.user.patch | 200 |  |
-| PASS | admin.user.last-admin | 422 |  |
 | PASS | admin.content.create | 201 |  |
 | PASS | admin.content.get | 200 |  |
 | PASS | admin.translation.put | 200 |  |
@@ -80,5 +185,7 @@
 | PASS | cleanup.public-hidden | 404 |  |
 | PASS | diagnostic.shape-diff | — | missing required field(s): data.id, data.status |
 | PASS | auth.logout | 200 |  |
+| PASS | cleanup.database | — |  |
 | PASS | openapi.planning-coverage | 200 |  |
 | PASS | openapi.no-extra-operations | 200 |  |
+| PASS | openapi.request-response-shapes | 200 |  |
