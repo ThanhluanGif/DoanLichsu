@@ -21,6 +21,7 @@ import { POST as approveRoute } from "@/app/api/v1/admin/contents/[id]/approve/r
 import { POST as rejectRoute } from "@/app/api/v1/admin/contents/[id]/reject/route";
 import { POST as publishRoute } from "@/app/api/v1/admin/contents/[id]/publish/route";
 import { POST as archiveRoute } from "@/app/api/v1/admin/contents/[id]/archive/route";
+import { PATCH as updateSourceRoute } from "@/app/api/v1/admin/sources/[id]/route";
 import { GET as auditRoute } from "@/app/api/v1/admin/audit-logs/route";
 import { GET as dashboardRoute } from "@/app/api/v1/admin/dashboard/route";
 import { openApiDocument } from "@/lib/openapi/document";
@@ -74,6 +75,11 @@ describe("security boundary", () => {
       email: "admin@quansuviet.local", password: "Admin-Demo-2026!",
     }, undefined, "https://evil.test"));
     expect(invalidOrigin.status).toBe(403);
+    const oversized = await loginRoute(new Request(`${origin}/api/v1/auth/login`, {
+      method: "POST", headers: { Origin: origin, "Content-Type": "application/json", "Content-Length": "1048577" }, body: "{}",
+    }));
+    expect(oversized.status).toBe(400);
+    expect((await oversized.json()).code).toBe("PAYLOAD_TOO_LARGE");
 
     const loginResponse = await loginRoute(request("POST", "/api/v1/auth/login", {
       email: "admin@quansuviet.local", password: "Admin-Demo-2026!",
@@ -128,6 +134,10 @@ describe("security boundary", () => {
     expect((await loginRoute(request("POST", "/api/v1/auth/login", {
       email: "admin@quansuviet.local", password: "Admin-Demo-2026!",
     }))).status).toBe(200);
+    const sprayed = await Promise.all(Array.from({ length: 25 }, (_, index) => loginRoute(request("POST", "/api/v1/auth/login", {
+      email: `spray-${index}@example.test`, password: "Wrong-Password-2026!",
+    }))));
+    expect(sprayed.some((response) => response.status === 429)).toBe(true);
   });
 
   it("refuses public demo credentials during an explicitly allowed production seed", () => {
@@ -151,6 +161,13 @@ describe("RBAC and locale workflow", () => {
     const editorDashboard = await dashboardRoute(request("GET", "/api/v1/admin/dashboard", undefined, editor));
     expect(editorDashboard.status).toBe(200);
     expect(JSON.stringify(await editorDashboard.json())).not.toMatch(/email|metadata|ip/i);
+    const publishedSourceMutation = await updateSourceRoute(request("PATCH", "/api/v1/admin/sources/source-event-dien-bien-phu", {
+      version: 1, title: "Editor changed published citation", url: "https://example.test/changed", accessedAt: "2026-08-06T00:00:00.000Z",
+    }, editor), context("source-event-dien-bien-phu"));
+    expect(publishedSourceMutation.status).toBe(422);
+    const sourceDatabase = new Database(databasePath, { readonly: true });
+    expect(sourceDatabase.prepare("SELECT title FROM sources WHERE id='source-event-dien-bien-phu'").get()).toEqual({ title: "Battle of Dien Bien Phu" });
+    sourceDatabase.close();
 
     expect((await usersRoute(request("GET", "/api/v1/admin/users"))).status).toBe(401);
     expect((await createContentRoute(request("POST", "/api/v1/admin/contents", { type: "EVENT", sourceIds: [], translations: {} }, editor, "https://evil.test"))).status).toBe(403);

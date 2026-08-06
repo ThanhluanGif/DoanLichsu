@@ -11,6 +11,15 @@ import { ApiError, apiErrorResponse, readJsonObject, secretField, stringField } 
 
 export const dynamic = "force-dynamic";
 const dummyHash = hashPassword("Dummy-Password-2026!");
+const maximumConcurrentPasswordChecks = 8;
+let activePasswordChecks = 0;
+
+function acquirePasswordCheck(): void {
+  if (activePasswordChecks >= maximumConcurrentPasswordChecks) {
+    throw new ApiError(429, "AUTH_CAPACITY_REACHED", "Hệ thống đăng nhập đang bận.", undefined, 1);
+  }
+  activePasswordChecks += 1;
+}
 
 export async function POST(request: Request) {
   let database: ReturnType<typeof openDatabase> | undefined;
@@ -22,11 +31,18 @@ export async function POST(request: Request) {
     const forwardedIp = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim();
     const ip = process.env.TRUST_PROXY_HEADERS === "1" && forwardedIp ? forwardedIp : null;
     database = openDatabase(getEnv().databasePath);
-    reserveLoginAttempt(database, email, ip);
-    const row = database.prepare(`
-      SELECT id,email,display_name,role,password_hash,active,session_version FROM users WHERE email=?
-    `).get(email) as { id:string;email:string;display_name:string;role:Role;password_hash:string;active:number;session_version:number } | undefined;
-    const valid = await verifyPassword(row?.password_hash ?? await dummyHash, password);
+    acquirePasswordCheck();
+    let row: { id:string;email:string;display_name:string;role:Role;password_hash:string;active:number;session_version:number } | undefined;
+    let valid = false;
+    try {
+      reserveLoginAttempt(database, email, ip);
+      row = database.prepare(`
+        SELECT id,email,display_name,role,password_hash,active,session_version FROM users WHERE email=?
+      `).get(email) as typeof row;
+      valid = await verifyPassword(row?.password_hash ?? await dummyHash, password);
+    } finally {
+      activePasswordChecks -= 1;
+    }
     if (!row || row.active !== 1 || !valid) {
       writeAudit(database, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip: ip ?? "unavailable" } });
       throw new ApiError(401, "INVALID_CREDENTIALS", "Email hoặc mật khẩu không đúng.");

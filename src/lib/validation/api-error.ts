@@ -44,10 +44,25 @@ export async function readJsonObject(request: Request): Promise<Record<string, u
   }
   let value: unknown;
   try {
-    const raw = await request.text();
-    if (Buffer.byteLength(raw, "utf8") > 1_048_576) {
+    const maximumBytes = 1_048_576;
+    const declaredLength = Number(request.headers.get("content-length") ?? "0");
+    if (Number.isFinite(declaredLength) && declaredLength > maximumBytes) {
       throw new ApiError(400, "PAYLOAD_TOO_LARGE", "JSON vượt quá giới hạn 1 MiB.");
     }
+    const chunks: Uint8Array[] = [];
+    let received = 0;
+    const reader = request.body?.getReader();
+    while (reader) {
+      const chunk = await reader.read();
+      if (chunk.done) break;
+      received += chunk.value.byteLength;
+      if (received > maximumBytes) {
+        await reader.cancel();
+        throw new ApiError(400, "PAYLOAD_TOO_LARGE", "JSON vượt quá giới hạn 1 MiB.");
+      }
+      chunks.push(chunk.value);
+    }
+    const raw = Buffer.concat(chunks).toString("utf8");
     value = JSON.parse(raw);
   } catch (error) {
     if (error instanceof ApiError) throw error;
