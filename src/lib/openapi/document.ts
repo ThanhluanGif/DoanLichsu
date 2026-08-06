@@ -1,5 +1,6 @@
 import packageJson from "../../../package.json";
 import { publicOpenApiPaths, publicOpenApiSchemas } from "./public-catalog";
+import { editorialOpenApiPaths, editorialOpenApiSchemas } from "./editorial-catalog";
 
 const healthResponseSchema = {
   type: "object",
@@ -47,11 +48,16 @@ export const openApiDocument = {
       },
     },
     ...publicOpenApiPaths,
+    ...editorialOpenApiPaths,
   },
   components: {
+    securitySchemes: {
+      cookieAuth: { type: "apiKey", in: "cookie", name: "qsv_session" },
+    },
     schemas: {
       HealthResponse: healthResponseSchema,
       ...publicOpenApiSchemas,
+      ...editorialOpenApiSchemas,
     },
   },
 } as const;

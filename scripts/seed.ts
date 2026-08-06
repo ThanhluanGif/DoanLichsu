@@ -3,9 +3,18 @@ import { migrateDatabase } from "../src/lib/db/migrate";
 import { demoContent, demoTags, unpublishedEnglishNodeId } from "../src/data/demo-content";
 import { normalizeSearchText } from "../src/lib/search/normalize";
 import { readEnv } from "../src/lib/env";
+import { hashPassword } from "../src/lib/auth/password";
 
-if (process.env.NODE_ENV === "production" && process.env.ALLOW_DEMO_SEED !== "1") {
-  throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
+if (process.env.NODE_ENV === "production") {
+  if (process.env.ALLOW_DEMO_SEED !== "1") {
+    throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
+  }
+  for (const name of ["SEED_ADMIN_PASSWORD", "SEED_EDITOR_PASSWORD", "SEED_REVIEWER_PASSWORD"] as const) {
+    const password = process.env[name];
+    if (!password || password.length < 16 || /Demo-2026|replace-with|change-me/i.test(password)) {
+      throw new Error(`${name} must be an explicit non-demo password of at least 16 characters in production.`);
+    }
+  }
 }
 
 const { databasePath } = readEnv();
@@ -13,6 +22,12 @@ migrateDatabase(databasePath);
 const database = openDatabase(databasePath);
 const now = "2026-08-06T00:00:00.000Z";
 const allowReplacement = process.env.ALLOW_DEMO_SEED === "1";
+const demoUsers = [
+  { id: "user-admin", email: "admin@quansuviet.local", displayName: "Quản trị viên", role: "ADMIN", password: process.env.SEED_ADMIN_PASSWORD ?? "Admin-Demo-2026!" },
+  { id: "user-editor", email: "editor@quansuviet.local", displayName: "Biên tập viên", role: "EDITOR", password: process.env.SEED_EDITOR_PASSWORD ?? "Editor-Demo-2026!" },
+  { id: "user-reviewer", email: "reviewer@quansuviet.local", displayName: "Kiểm duyệt viên", role: "REVIEWER", password: process.env.SEED_REVIEWER_PASSWORD ?? "Reviewer-Demo-2026!" },
+] as const;
+const passwordHashes = new Map(await Promise.all(demoUsers.map(async (user) => [user.id, await hashPassword(user.password)] as const)));
 
 const englishLocations: Record<string, string> = {
   "Biên giới Tây Nam": "Southwestern border",
@@ -89,6 +104,7 @@ function assertOnlyDemoData(): void {
     sources: new Set(demoContent.map(({ id }) => `source-${id}`)),
     media: new Set(demoContent.filter(({ type }) => type === "ARTIFACT").map(({ id }) => `media-${id}`)),
     tags: new Set(demoTags.map(({ id }) => id)),
+    users: new Set(demoUsers.map(({ id }) => id)),
   };
   for (const [table, expectedIds] of Object.entries(expected)) {
     const rows = database.prepare(`SELECT id FROM ${table}`).all() as Array<{ id: string }>;
@@ -97,7 +113,7 @@ function assertOnlyDemoData(): void {
       throw new Error(`Refusing to replace non-demo row ${table}.${unknown.id}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
     }
   }
-  for (const table of ["content_nodes", "content_translations", "sources", "media"]) {
+  for (const table of ["content_nodes", "content_translations", "sources", "media", "users"]) {
     const changed = database.prepare(
       `SELECT id FROM ${table} WHERE updated_at <> ? LIMIT 1`,
     ).get(now) as { id: string } | undefined;
@@ -105,12 +121,18 @@ function assertOnlyDemoData(): void {
       throw new Error(`Refusing to replace edited demo row ${table}.${changed.id}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
     }
   }
+  for (const table of ["audit_logs", "login_rate_limits"]) {
+    const row = database.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get() as { count: number };
+    if (row.count > 0) throw new Error(`Refusing to erase ${table}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
+  }
 }
 
 try {
   assertOnlyDemoData();
   const seed = database.transaction(() => {
     database.exec(`
+      DELETE FROM login_rate_limits;
+      DELETE FROM audit_logs;
       DELETE FROM content_relations;
       DELETE FROM content_tags;
       DELETE FROM content_media;
@@ -120,7 +142,16 @@ try {
       DELETE FROM content_translations;
       DELETE FROM content_nodes;
       DELETE FROM tags;
+      DELETE FROM users;
     `);
+
+    const insertUser = database.prepare(`
+      INSERT INTO users (id, email, display_name, role, password_hash, active, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, 1, ?, ?)
+    `);
+    for (const user of demoUsers) {
+      insertUser.run(user.id, user.email, user.displayName, user.role, passwordHashes.get(user.id), now, now);
+    }
 
     const insertTag = database.prepare(
       "INSERT INTO tags (id, slug, name_vi, name_en) VALUES (?, ?, ?, ?)",
@@ -266,24 +297,24 @@ try {
         SELECT
           (SELECT COUNT(*) FROM content_nodes) AS contentNodes,
           (SELECT COUNT(*) FROM content_translations) AS translations,
-          (SELECT COUNT(*) FROM sources) AS sources
+          (SELECT COUNT(*) FROM sources) AS sources,
+          (SELECT COUNT(*) FROM users) AS users
       `)
-      .get() as { contentNodes: number; translations: number; sources: number };
+      .get() as { contentNodes: number; translations: number; sources: number; users: number };
     const distribution = Object.fromEntries(
       (database
         .prepare("SELECT type, COUNT(*) AS count FROM content_nodes GROUP BY type ORDER BY type")
         .all() as Array<{ type: string; count: number }>).map(({ type, count }) => [type, count]),
     );
 
-    if (counts.contentNodes !== 50 || counts.translations !== 100 || counts.sources < 50) {
+    if (counts.contentNodes !== 50 || counts.translations !== 100 || counts.sources < 50 || counts.users !== 3) {
       throw new Error(`Seed invariant failed: ${JSON.stringify(counts)}`);
     }
     const expectedDistribution = { ARTIFACT: 10, EVENT: 20, PERIOD: 6, PERSON: 10, TOPIC: 4 };
     if (JSON.stringify(distribution) !== JSON.stringify(expectedDistribution)) {
       throw new Error(`Seed distribution invariant failed: ${JSON.stringify(distribution)}`);
     }
-    // C-004 owns the auth/user schema and will replace this shape-compatible stub with 3.
-    return { ...counts, users: 0 };
+    return counts;
   });
 
   console.log(JSON.stringify(seed.immediate()));

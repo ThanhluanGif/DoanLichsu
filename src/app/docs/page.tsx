@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 type OperationDoc = {
   summary: string;
-  description: string;
+  description?: string;
   parameters?: ReadonlyArray<{
     name: string;
     in: string;
@@ -19,8 +19,9 @@ type OperationDoc = {
   responses: Record<string, unknown>;
 };
 
-function successSchema(operation: OperationDoc): string {
-  const response = operation.responses["200"] as {
+function successResponse(operation: OperationDoc): { status: string; schema: string } {
+  const status = operation.responses["200"] ? "200" : "201";
+  const response = operation.responses[status] as {
     content?: { "application/json"?: { schema?: {
       $ref?: string;
       properties?: { data?: { $ref?: string; items?: { $ref?: string } } };
@@ -31,10 +32,10 @@ function successSchema(operation: OperationDoc): string {
   const data = schema?.properties?.data;
   const dataName = data?.$ref?.split("/").at(-1);
   const itemName = data?.items?.$ref?.split("/").at(-1);
-  if (direct) return direct;
-  if (dataName) return `DataResponse<${dataName}>`;
-  if (itemName) return `ListResponse<${itemName}>`;
-  return "JSON theo schema OpenAPI";
+  if (direct) return { status, schema: direct };
+  if (dataName) return { status, schema: `DataResponse<${dataName}>` };
+  if (itemName) return { status, schema: `ListResponse<${itemName}>` };
+  return { status, schema: "JSON theo schema OpenAPI" };
 }
 
 export default function ApiDocsPage() {
@@ -77,11 +78,11 @@ export default function ApiDocsPage() {
               <code>{path}</code>
             </div>
             <h3>{operation.summary}</h3>
-            <p>{operation.description}</p>
+            <p>{operation.description ?? operation.summary}</p>
             <dl>
               <div>
                 <dt>Phản hồi thành công</dt>
-                <dd><code>200 · {successSchema(operation)}</code></dd>
+                <dd><code>{successResponse(operation).status} · {successResponse(operation).schema}</code></dd>
               </div>
               <div>
                 <dt>Tham số</dt>
