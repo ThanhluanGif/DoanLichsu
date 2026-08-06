@@ -24,7 +24,13 @@ table below and use it everywhere.
 
 | Engine concept | This project's user word |
 |---|---|
-| _(e.g. async agent run)_ | _(e.g. "đang phân loại…")_ |
+| content node / record | nội dung lịch sử |
+| workflow | trạng thái kiểm duyệt |
+| queue | danh sách chờ duyệt |
+| trigger / action | thao tác |
+| version conflict | nội dung đã được cập nhật ở nơi khác |
+| publish validation | điều kiện xuất bản |
+| audit log | nhật ký biên tập |
 
 ## Five rules that override everything
 
@@ -68,18 +74,26 @@ Every object-detail page:
 - **Modal-first sub-actions** — small focused modals, one CTA. No multi-screen flows.
 - **The overview shows less, not more.** Heavy lifting goes to specialized tabs.
 
-## Editorial Minimal tokens (locked)
+## Quân Sử Việt editorial tokens (locked)
+
+Amended 2026-08-06 for the approved museum-editorial direction: warm archival neutrals,
+deep ink-green text and a restrained vermilion accent. This replaces the default token set
+as one coordinated change; components may not invent per-surface colors.
 
 | Token | Value | Use |
 |---|---|---|
-| `--bg-base` | `#FFFFFF` | page bg, cards |
-| `--bg-subtle` | `#FAFAFA` | sidebar, savebar, secondary surfaces |
-| `--bg-muted` | `#F4F4F5` | hover, muted chips |
-| `--fg-base` | `#09090B` | primary text, primary buttons |
-| `--fg-muted` | `#52525B` | body, descriptions |
-| `--fg-subtle` | `#71717A` | helper text, timestamps |
-| `--border` | `#E4E4E7` | all 1px borders |
-| `--accent` | `#4F46E5` | focus rings, accent links, validate-ok |
+| `--bg-base` | `#F8F5EE` | page bg, cards |
+| `--bg-subtle` | `#F1ECE2` | sidebar, savebar, secondary surfaces |
+| `--bg-muted` | `#E8E1D5` | hover, muted chips |
+| `--fg-base` | `#17251F` | primary text, primary buttons |
+| `--fg-muted` | `#48564F` | body, descriptions |
+| `--fg-subtle` | `#6B756F` | helper text, timestamps |
+| `--border` | `#D5CDC0` | all 1px borders |
+| `--accent` | `#A3442F` | focus rings, accent links, validate-ok |
+| `--accent-dark` | `#7F3021` | accent hover only |
+| `--accent-success` | `#376144` | verified/source-complete state |
+| `--surface-paper` | `#FFFDF8` | elevated reading and form surfaces |
+| `--surface-ink` | `#203C32` | dark museum search surface |
 
 **Typography**: `Inter` body/labels/buttons · `Fraunces` h1, card titles, prominent stat
 values ONLY · `JetBrains Mono` identifiers, dates, counts, machine-shaped content ONLY.
@@ -94,12 +108,12 @@ Hero surfaces ONLY (hero action cards, gallery/list covers, pulse backdrop). NEV
 tables, form inputs, sidebars, page backgrounds, or body rows.
 
 ```css
---grad-peach:    linear-gradient(135deg, #FFF4EC 0%, #FEE7D6 100%);  /* action / first in a series */
---grad-mint:     linear-gradient(135deg, #ECFDF3 0%, #D1F4DD 100%);  /* money / success / all-green */
---grad-sky:      linear-gradient(135deg, #EEF4FF 0%, #DCE7FF 100%);  /* info / context banners */
---grad-lavender: linear-gradient(135deg, #F3EEFF 0%, #E2D6FB 100%);  /* primary surface / pulse */
---grad-rose:     linear-gradient(135deg, #FFF1F4 0%, #FDDDE3 100%);  /* social / sharing / accent */
---grad-pulse:    linear-gradient(90deg, #FAFAFA 0%, #F3EEFF 50%, #FAFAFA 100%); /* subtle strips */
+--grad-peach:    linear-gradient(135deg, #F9EDE1 0%, #EED8C5 100%);  /* action / first in a series */
+--grad-mint:     linear-gradient(135deg, #EDF2E8 0%, #D9E5D2 100%);  /* success / all-green */
+--grad-sky:      linear-gradient(135deg, #EBF0EE 0%, #D7E2DE 100%);  /* info / context banners */
+--grad-lavender: linear-gradient(135deg, #EFE9E2 0%, #DED4C9 100%);  /* primary surface / pulse */
+--grad-rose:     linear-gradient(135deg, #F7E8E3 0%, #EACFC6 100%);  /* sharing / accent */
+--grad-pulse:    linear-gradient(90deg, #F8F5EE 0%, #EDE5DA 50%, #F8F5EE 100%); /* subtle strips */
 ```
 
 Hover on gradient cards: lift `translateY(-1px)` + `box-shadow: 0 8px 24px rgba(9,9,11,.06)`;

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Static visual contract cho website Quân Sử Việt." />
+    <title>Quân Sử Việt — Visual contract</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#noi-dung">Chuyển đến nội dung</a>
+    <header class="site-header">
+      <a class="brand" href="#trang-chu" aria-label="Quân Sử Việt, trang chủ">
+        <span class="brand-mark" aria-hidden="true">QS</span>
+        <span><strong>Quân Sử Việt</strong><small>Vietnamese Military History</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="Điều hướng chính">
+        <a href="#timeline">Dòng thời gian</a>
+        <a href="#kham-pha">Khám phá</a>
+        <a href="#chi-tiet">Nguồn tư liệu</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language-button" type="button" aria-label="Chuyển sang tiếng Anh">VI <span aria-hidden="true">/</span> EN</button>
+        <a class="admin-link" href="#quan-tri">Biên tập</a>
+      </div>
+    </header>
+
+    <main id="noi-dung">
+      <section class="hero" id="trang-chu" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Kho tư liệu song ngữ có kiểm chứng</p>
+          <h1 id="hero-title">Theo dòng lịch sử giữ nước của dân tộc Việt Nam</h1>
+          <p class="hero-lead">Khám phá các thời kỳ, sự kiện, nhân vật và hiện vật qua một dòng thời gian rõ ràng — mỗi nội dung đều dẫn về nguồn tham khảo.</p>
+          <div class="hero-buttons">
+            <a class="button primary" href="#timeline">Khám phá dòng thời gian</a>
+            <a class="button secondary" href="#kham-pha">Tra cứu nội dung</a>
+          </div>
+          <p class="trust-note"><span class="trust-mark" aria-hidden="true"></span>Nội dung mẫu được đối chiếu nguồn và hiển thị ngày cập nhật</p>
+        </div>
+        <figure class="hero-art">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/hero-history-mobile.webp" type="image/webp" />
+            <source srcset="assets/hero-history.webp" type="image/webp" />
+            <img src="assets/hero-history.png" width="1536" height="1024" alt="Minh họa lớp bản đồ, núi, thành cổ và hoa văn trống đồng" />
+          </picture>
+          <figcaption>Minh họa nguyên bản, không phải tư liệu lịch sử</figcaption>
+        </figure>
+      </section>
+
+      <section class="pulse-strip" aria-label="Quy mô kho tư liệu mẫu">
+        <div><strong>6</strong><span>thời kỳ</span></div>
+        <div><strong>20</strong><span>sự kiện</span></div>
+        <div><strong>10</strong><span>nhân vật</span></div>
+        <div><strong>10</strong><span>hiện vật</span></div>
+        <p>Có bản Việt và Anh · Mỗi nội dung có nguồn</p>
+      </section>
+
+      <section class="section-shell" id="timeline" aria-labelledby="timeline-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Khám phá theo thời gian</p><h2 id="timeline-title">Một lát cắt xuyên suốt lịch sử</h2></div>
+          <a class="text-link" href="#kham-pha">Xem toàn bộ 6 thời kỳ <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="timeline-track" role="list">
+          <article class="period-card" role="listitem">
+            <p class="period-years">938–1407</p>
+            <h3>Thời kỳ độc lập tự chủ</h3>
+            <p>Hình thành nhà nước độc lập và những cuộc kháng chiến bảo vệ bờ cõi.</p>
+            <a href="#chi-tiet">5 sự kiện tiêu biểu</a>
+          </article>
+          <article class="period-card active" role="listitem">
+            <p class="period-years">1858–1945</p>
+            <h3>Chống thực dân, giành độc lập</h3>
+            <p>Các phong trào yêu nước và quá trình chuẩn bị cho cuộc Cách mạng Tháng Tám.</p>
+            <a href="#chi-tiet">7 sự kiện tiêu biểu</a>
+          </article>
+          <article class="period-card" role="listitem">
+            <p class="period-years">1945–1975</p>
+            <h3>Kháng chiến và thống nhất</h3>
+            <p>Ba thập niên chiến đấu bảo vệ nền độc lập và thống nhất đất nước.</p>
+            <a href="#chi-tiet">8 sự kiện tiêu biểu</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="search-panel" id="kham-pha" aria-labelledby="search-title">
+        <div class="search-intro">
+          <p class="eyebrow">Tra cứu nhanh</p>
+          <h2 id="search-title">Tìm một mốc, một người, một hiện vật</h2>
+          <p>Tìm được cả khi nhập không dấu. Bộ lọc được giữ trong đường dẫn để bạn có thể chia sẻ đúng kết quả.</p>
+        </div>
+        <form class="search-form" action="#ket-qua">
+          <label for="search-query">Từ khóa</label>
+          <div class="search-row">
+            <input id="search-query" name="q" value="dien bien phu" />
+            <button class="button primary" type="submit">Tìm kiếm</button>
+          </div>
+          <fieldset class="filter-row">
+            <legend>Lọc theo loại nội dung</legend>
+            <label><input type="radio" name="type" value="all" checked /> Tất cả</label>
+            <label><input type="radio" name="type" value="event" /> Sự kiện</label>
+            <label><input type="radio" name="type" value="person" /> Nhân vật</label>
+            <label><input type="radio" name="type" value="artifact" /> Hiện vật</label>
+          </fieldset>
+        </form>
+        <div class="search-results" id="ket-qua">
+          <div class="result-count"><strong>3 kết quả</strong><span>cho “dien bien phu”</span></div>
+          <article class="result-row">
+            <div class="result-date"><span>07</span><small>05.1954</small></div>
+            <div><p class="content-type">Sự kiện · 1945–1975</p><h3><a href="#chi-tiet">Chiến thắng Điện Biên Phủ</a></h3><p>Chiến dịch kết thúc sau 56 ngày đêm, tạo bước ngoặt cho Hội nghị Genève năm 1954.</p></div>
+            <span class="source-badge">2 nguồn</span>
+          </article>
+          <article class="result-row compact">
+            <div class="result-date"><span>1953</span><small>–1954</small></div>
+            <div><p class="content-type">Nhân vật</p><h3><a href="#chi-tiet">Võ Nguyên Giáp</a></h3><p>Đại tướng, Tổng Tư lệnh Quân đội nhân dân Việt Nam.</p></div>
+            <span class="source-badge">3 nguồn</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-shell" id="chi-tiet" aria-labelledby="detail-title">
+        <nav class="breadcrumbs" aria-label="Đường dẫn"><a href="#trang-chu">Trang chủ</a><span>/</span><a href="#timeline">Sự kiện</a><span>/</span><span aria-current="page">Điện Biên Phủ</span></nav>
+        <div class="detail-grid">
+          <article class="detail-article">
+            <p class="eyebrow">Sự kiện · Kháng chiến chống Pháp</p>
+            <h2 id="detail-title">Chiến thắng Điện Biên Phủ</h2>
+            <p class="detail-deck">Cuộc tiến công chiến lược kết thúc ngày 7 tháng 5 năm 1954, làm thay đổi cục diện chiến tranh ở Đông Dương.</p>
+            <div class="detail-pulse" aria-label="Thông tin chính">
+              <div><span>Thời gian</span><strong>13.03–07.05.1954</strong></div>
+              <div><span>Địa điểm</span><strong>Điện Biên, Việt Nam</strong></div>
+              <div><span>Cập nhật</span><strong>06.08.2026</strong></div>
+            </div>
+            <div class="article-copy">
+              <h3>Bối cảnh</h3>
+              <p>Chiến dịch diễn ra trong thung lũng Điện Biên Phủ, nơi quân đội Pháp xây dựng một tập đoàn cứ điểm. Nội dung trên website được trình bày ngắn gọn để người học nhìn thấy mốc thời gian, địa điểm, kết quả và các nguồn dùng để đối chiếu.</p>
+              <h3>Kết quả và ý nghĩa</h3>
+              <p>Chiến thắng tạo điều kiện quan trọng cho việc ký kết Hiệp định Genève năm 1954. Những chi tiết có cách diễn giải khác nhau phải được ghi chú và dẫn nhiều nguồn thay vì ép thành một kết luận không có căn cứ.</p>
+            </div>
+            <section class="sources" aria-labelledby="sources-title">
+              <div class="section-heading compact-heading"><div><p class="eyebrow">Kiểm chứng thông tin</p><h3 id="sources-title">Nguồn tham khảo</h3></div><span class="reviewed-label">Đã kiểm tra nguồn</span></div>
+              <ol>
+                <li><a href="https://www.britannica.com/event/Battle-of-Dien-Bien-Phu" rel="noreferrer">Encyclopaedia Britannica — Battle of Dien Bien Phu</a><span>Truy cập 06.08.2026</span></li>
+                <li><a href="https://www.iwm.org.uk/history/the-battle-of-dien-bien-phu" rel="noreferrer">Imperial War Museums — The Battle of Dien Bien Phu</a><span>Truy cập 06.08.2026</span></li>
+              </ol>
+            </section>
+          </article>
+          <aside class="detail-aside" aria-label="Nội dung liên quan">
+            <div class="locale-card"><span>English edition</span><strong>Battle of Dien Bien Phu</strong><p id="english-summary">The verified English edition preserves this event and its sources.</p><a href="#english-summary">Read in English</a></div>
+            <h3>Nội dung liên quan</h3>
+            <a class="related-card" href="#timeline"><span>Nhân vật</span><strong>Võ Nguyên Giáp</strong><small>Đại tướng, Tổng Tư lệnh</small></a>
+            <a class="related-card" href="#timeline"><span>Hiện vật</span><strong>Xe đạp thồ</strong><small>Phương tiện vận chuyển hậu cần</small></a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="admin-demo" id="quan-tri" aria-labelledby="admin-title">
+        <div class="admin-window">
+          <aside class="admin-sidebar">
+            <a class="brand admin-brand" href="#quan-tri"><span class="brand-mark" aria-hidden="true">QS</span><span><strong>Không gian biên tập</strong><small>Editor</small></span></a>
+            <nav aria-label="Điều hướng biên tập">
+              <a class="selected" href="#quan-tri">Nội dung</a>
+              <a href="#quan-tri">Chờ duyệt <span>4</span></a>
+              <a href="#quan-tri">Nguồn tư liệu</a>
+              <a href="#quan-tri">Thư viện media</a>
+              <a href="#quan-tri">Nhật ký biên tập</a>
+            </nav>
+            <div class="admin-profile"><span class="avatar">NN</span><div><strong>Nguyễn Đức Nam</strong><small>Editor</small></div></div>
+          </aside>
+          <div class="admin-content">
+            <div class="admin-topbar"><nav class="breadcrumbs" aria-label="Đường dẫn biên tập"><a href="#quan-tri">Nội dung</a><span>/</span><span aria-current="page">Chiến thắng Điện Biên Phủ</span></nav><a class="preview-link" href="#chi-tiet">Xem trước</a></div>
+            <div class="object-header">
+              <div><span class="status-chip">Bản nháp</span><h2 id="admin-title">Chiến thắng Điện Biên Phủ</h2><p>Cập nhật 14:32 bởi Nguyễn Đức Nam</p></div>
+              <button class="button primary" type="button">Gửi duyệt</button>
+            </div>
+            <div class="object-pulse"><span><strong>2/2</strong> ngôn ngữ</span><span><strong>2</strong> nguồn</span><span><strong>1</strong> media</span><span><strong>Chưa gửi</strong> kiểm duyệt</span></div>
+            <nav class="object-tabs" aria-label="Các phần của nội dung"><a class="active" href="#quan-tri">Tổng quan</a><a href="#quan-tri">Nội dung</a><a href="#quan-tri">Nguồn và media</a><a href="#quan-tri">Liên quan</a></nav>
+            <form class="editor-form">
+              <div class="form-heading"><div><h3>Thông tin hiển thị</h3><p>Hai bản ngôn ngữ của cùng một nội dung lịch sử.</p></div><div class="locale-tabs" role="tablist" aria-label="Ngôn ngữ nội dung"><button class="active" type="button" role="tab" aria-selected="true" aria-controls="translation-fields-vi">Tiếng Việt</button><button type="button" role="tab" aria-selected="false" aria-controls="translation-fields-en">English</button></div></div>
+              <div id="translation-fields-vi" role="tabpanel" aria-label="Trường nội dung tiếng Việt">
+              <label>Tiêu đề<input value="Chiến thắng Điện Biên Phủ" /></label>
+              <label>Tóm tắt<textarea rows="3">Cuộc tiến công chiến lược kết thúc ngày 7 tháng 5 năm 1954, làm thay đổi cục diện chiến tranh ở Đông Dương.</textarea></label>
+              <div class="field-pair"><label>Ngày bắt đầu<input type="text" value="13.03.1954" /></label><label>Độ chính xác<select><option>Đủ ngày</option><option>Chỉ biết tháng</option><option>Chỉ biết năm</option><option>Ước lệ</option></select></label></div>
+              <div class="field-pair"><label>Thời kỳ<select><option>1945–1975</option></select></label><label>Địa điểm<input value="Điện Biên, Việt Nam" /></label></div>
+              </div>
+              <div id="translation-fields-en" role="tabpanel" aria-label="English content fields" hidden>
+                <label>Title<input value="Battle of Dien Bien Phu" /></label>
+                <label>Summary<textarea rows="3">The strategic campaign ended on 7 May 1954 and changed the course of the war in Indochina.</textarea></label>
+              </div>
+              <details class="more-options"><summary>Tùy chọn thêm</summary><div><p>Nguồn, media, thẻ chủ đề và nội dung liên quan được quản lý tại các phần riêng của cùng trang này.</p><button class="button secondary" type="button">Mở nguồn và media</button></div></details>
+            </form>
+            <section class="review-panel" aria-labelledby="review-title">
+              <div class="review-copy">
+                <p class="eyebrow">Góc nhìn người duyệt</p>
+                <h3 id="review-title">Kiểm tra trước khi xuất bản</h3>
+                <p class="reviewer-identity"><span class="avatar" aria-hidden="true">ND</span><span><strong>Người duyệt chuyên môn</strong><small>Reviewer</small></span></p>
+                <ul class="review-checks">
+                  <li class="complete"><strong>Hai bản ngôn ngữ</strong><span>Đủ tiêu đề, tóm tắt và nội dung</span></li>
+                  <li class="complete"><strong>Nguồn tham khảo</strong><span>2 nguồn đã ghi ngày truy cập</span></li>
+                  <li class="blocked"><strong>Quyền sử dụng media</strong><span>Thiếu giấy phép của 1 hình ảnh</span></li>
+                </ul>
+              </div>
+              <form class="review-form">
+                <div class="publish-block"><strong>Chưa thể xuất bản</strong><span>Bổ sung quyền sử dụng media để tiếp tục.</span></div>
+                <label for="reject-reason">Lý do trả lại<textarea id="reject-reason" rows="3" placeholder="Nêu rõ nội dung cần chỉnh sửa"></textarea></label>
+                <div class="review-actions"><button class="button secondary" type="button">Trả lại</button><button class="button primary" type="button">Duyệt nội dung</button><button class="button primary" type="button" disabled>Xuất bản</button></div>
+              </form>
+            </section>
+            <div class="savebar"><span><span class="save-dot" aria-hidden="true"></span>Thay đổi chưa lưu</span><div><button class="button ghost" type="button">Hủy thay đổi</button><button class="button primary" type="button">Lưu bản nháp</button></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="brand"><span class="brand-mark" aria-hidden="true">QS</span><span><strong>Quân Sử Việt</strong><small>Dự án học tập song ngữ</small></span></div><p>Ưu tiên nguồn rõ ràng, ngôn ngữ nhất quán và khả năng tiếp cận.</p></footer>
+  </body>
+</html>
