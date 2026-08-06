@@ -33,6 +33,7 @@ This table is the PLANNING source of truth. If the framework serves a spec (Fast
   `/docs` with correct schemas. The contract-test card later asserts full agreement —
   but by then the docs have been growing card by card, never a catch-up task.
 - Keep `/docs` enabled at least until v1 ships — it's the free human-readable contract.
+- Protected operations declare `cookieAuth` plus exact `x-allowed-roles`: authenticated or Editor/Reviewer/Admin = all three roles; Reviewer/Admin = `ADMIN,REVIEWER`; Admin only = `ADMIN`. Public operations declare neither.
 
 ## Interfaces  (web: endpoints · cli: commands · library: functions · skill: commands)
 
@@ -53,7 +54,7 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/{locale}/search` | Public; published rows only | Path `locale`; query `SearchQuery` | `ListResponse<SearchResult>` |
 | GET | `/api/v1/{locale}/taxonomies` | Public; published-used terms only | Path `locale`; query `{kind?: TaxonomyKind}` | `DataResponse<TaxonomyView>` |
 | GET | `/api/v1/contents/{id}/alternate` | Public; published translations only | Path `id`; query `{locale: Locale}` | `DataResponse<AlternateView>` where `alternate` may be `null` |
-| GET | `/sitemap.xml` | Public; no write | none | XML URL set containing canonical published VI/EN routes |
+| GET | `/sitemap.xml` | Public; no write | none | XML URL set; empty through C-005 because canonical published VI/EN HTML routes ship in C-006, then populated only with those canonical pages |
 | GET | `/robots.txt` | Public; no write | none | text/plain allowing public routes and disallowing `/admin` and `/api/v1/admin` |
 | POST | `/api/v1/auth/login` | Public, rate-limited; sets encrypted HttpOnly session cookie; writes login audit | `LoginInput` | `DataResponse<AuthUser>` or `ApiError` 401/429 |
 | POST | `/api/v1/auth/logout` | Authenticated; clears cookie; writes logout audit | none | `DataResponse<{loggedOut:true}>` |

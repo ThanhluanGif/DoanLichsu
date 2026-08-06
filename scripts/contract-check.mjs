@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { randomUUID } from "node:crypto";
+import { mkdir,open,readFile,rename,unlink,writeFile } from "node:fs/promises";
+import { lstatSync,realpathSync } from "node:fs";
+import { resolve,sep } from "node:path";
+import { tmpdir } from "node:os";
+import { createHash,randomUUID } from "node:crypto";
+import Database from "better-sqlite3";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
+import { contractShapeDrift,planningOperations,runtimeOperations } from "./contract-shape.mjs";
 
-const httpMethods = new Set(["get","post","put","patch","delete","head","options"]);
 const argv = process.argv.slice(2);
 function argument(name, fallback) {
   const exact = argv.indexOf(name);
@@ -19,16 +22,19 @@ const reportDirectory = resolve(argument("--report-dir", "artifacts/contract"));
 const cleanupDatabasePath = argument("--cleanup-database", process.env.CONTRACT_DATABASE_PATH);
 const runId = randomUUID().slice(0, 8);
 const origin = new URL(baseUrl).origin;
-const runStartedAt = new Date().toISOString();
 const isLocalTarget = ["127.0.0.1","localhost","::1"].includes(new URL(baseUrl).hostname);
-if (!isLocalTarget && ["CONTRACT_ADMIN_PASSWORD","CONTRACT_EDITOR_PASSWORD","CONTRACT_REVIEWER_PASSWORD"].some((name)=>!process.env[name])) {
-  throw new Error("Remote contract checks require injected CONTRACT_ADMIN_PASSWORD, CONTRACT_EDITOR_PASSWORD and CONTRACT_REVIEWER_PASSWORD.");
-}
+const configurationErrors = [
+  ...(!isLocalTarget ? ["contract checks that mutate data require a localhost target"] : []),
+  ...(!cleanupDatabasePath ? ["set --cleanup-database or CONTRACT_DATABASE_PATH before the first HTTP request"] : []),
+];
 const credentials = {
   ADMIN: { email:"admin@quansuviet.local", password:process.env.CONTRACT_ADMIN_PASSWORD ?? "Admin-Demo-2026!" },
   EDITOR: { email:"editor@quansuviet.local", password:process.env.CONTRACT_EDITOR_PASSWORD ?? "Editor-Demo-2026!" },
   REVIEWER: { email:"reviewer@quansuviet.local", password:process.env.CONTRACT_REVIEWER_PASSWORD ?? "Reviewer-Demo-2026!" },
 };
+const temporaryPassword = `Contract-${runId}-Password!`;
+const resetPassword = `Contract-${runId}-Reset-Password!`;
+const sensitiveValues = Object.values(credentials).map((credential) => credential.password).concat(["Wrong-Password-2026!",temporaryPassword,resetPassword]);
 const cases = [];
 const requestTimeoutMs = 10_000;
 const ajv = new Ajv2020({ allErrors:true,strict:false });
@@ -36,165 +42,91 @@ addFormats(ajv);
 const responseValidators = new Map();
 let liveOpenApi = null;
 let validatedResponseCount = 0;
+let lockHandle = null;
+let lockPath = null;
+let identityBound = false;
+let identityState = "not-run";
+let baselineDigest = null;
+let baselineCounts = null;
+let cleanupState = "not-run";
 
-function planningOperations(markdown) {
-  const operations = [];
-  for (const line of markdown.split(/\r?\n/)) {
-    const match = /^\|\s*(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\s*\|\s*`([^`]+)`/.exec(line);
-    if (match) operations.push(`${match[1].toLowerCase()} ${match[2]}`);
+const digestTables = [
+  "schema_migrations","app_metadata","content_nodes","content_translations","sources","media","tags","content_sources","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
+];
+
+function databaseCounts(database) {
+  return {
+    contentNodes:database.prepare("SELECT count(*) AS count FROM content_nodes").get().count,
+    translations:database.prepare("SELECT count(*) AS count FROM content_translations").get().count,
+    sources:database.prepare("SELECT count(*) AS count FROM sources").get().count,
+    media:database.prepare("SELECT count(*) AS count FROM media").get().count,
+    users:database.prepare("SELECT count(*) AS count FROM users").get().count,
+    auditLogs:database.prepare("SELECT count(*) AS count FROM audit_logs").get().count,
+    rateLimits:database.prepare("SELECT count(*) AS count FROM login_rate_limits").get().count,
+    schemaVersion:database.prepare("SELECT COALESCE(MAX(version),0) AS version FROM schema_migrations").get().version,
+  };
+}
+
+function databaseDigest(database) {
+  const hash = createHash("sha256");
+  for (const table of digestTables) {
+    hash.update(table);
+    hash.update(JSON.stringify(database.prepare(`SELECT * FROM ${table} ORDER BY rowid`).all()));
   }
-  return [...new Set(operations)].sort();
+  return hash.digest("hex");
 }
 
-function planningRows(markdown) {
-  return markdown.split(/\r?\n/).flatMap((line) => {
-    const match = /^\|\s*(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\s*\|\s*`([^`]+)`/.exec(line);
-    if (!match) return [];
-    const cells = line.split("|").slice(1, -1).map((cell) => cell.trim());
-    return [{ method:match[1].toLowerCase(),path:match[2],input:cells[3] ?? "",output:cells[4] ?? "" }];
-  });
+function dedicatedDatabasePath(path) {
+  const candidate = resolve(path);
+  if (lstatSync(candidate).isSymbolicLink()) throw new Error("cleanup database must not be a symlink");
+  const real = realpathSync(candidate);
+  const temporaryRoots = [...new Set([realpathSync(tmpdir()),realpathSync("/tmp")])];
+  if (!temporaryRoots.some((temporary) => real === temporary || real.startsWith(`${temporary}${sep}`))) throw new Error(`cleanup database must be beneath a system temporary directory: ${temporaryRoots.join(", ")}`);
+  return real;
 }
 
-function interfaceContracts(markdown) {
-  const contracts = new Map();
-  const pattern = /interface\s+(\w+)(?:\s+extends\s+([^\{]+))?\s*\{/g;
-  let match;
-  while ((match = pattern.exec(markdown))) {
-    let depth = 1;
-    let cursor = pattern.lastIndex;
-    while (cursor < markdown.length && depth > 0) {
-      if (markdown[cursor] === "{") depth += 1;
-      if (markdown[cursor] === "}") depth -= 1;
-      cursor += 1;
+async function proveDatabaseIdentity() {
+  const started = performance.now();
+  const path = dedicatedDatabasePath(cleanupDatabasePath);
+  lockPath = `${path}.contract-check.lock`;
+  lockHandle = await open(lockPath,"wx",0o600);
+  const database = new Database(path);
+  database.pragma("foreign_keys=ON");
+  try {
+    baselineCounts = databaseCounts(database);
+    const expected = { contentNodes:50,translations:100,sources:50,media:10,users:3,auditLogs:0,rateLimits:0,schemaVersion:3 };
+    const drift = Object.entries(expected).filter(([name,count]) => baselineCounts[name] !== count).map(([name,count]) => `${name}=${baselineCounts[name]} expected ${count}`);
+    if (drift.length) throw new Error(`database is not a pristine disposable seed: ${drift.join(", ")}`);
+    baselineDigest = databaseDigest(database);
+    const row = database.prepare(`
+      SELECT t.id,n.type,t.locale,t.slug,t.summary
+      FROM content_translations t JOIN content_nodes n ON n.id=t.node_id
+      WHERE n.status='PUBLISHED' AND t.translation_status='PUBLISHED'
+      ORDER BY t.id LIMIT 1
+    `).get();
+    if (!row) throw new Error("identity probe needs one published seed translation");
+    const marker = `contract-identity-${runId}`;
+    let observed = false;
+    database.prepare("UPDATE content_translations SET summary=? WHERE id=?").run(marker,row.id);
+    try {
+      const result = await http(`/api/v1/${row.locale}/contents/${row.type}/${row.slug}`);
+      observed = result.response.status === 200 && result.body?.data?.summary === marker;
+      if (!observed) throw new Error("HTTP target did not observe the reversible marker in CONTRACT_DATABASE_PATH");
+    } finally {
+      database.prepare("UPDATE content_translations SET summary=? WHERE id=?").run(row.summary,row.id);
     }
-    const body = markdown.slice(pattern.lastIndex, cursor - 1);
-    const segments = [];
-    let segment = "";
-    let nested = 0;
-    for (const character of body) {
-      if ("{[(<".includes(character)) nested += 1;
-      if ("}])>".includes(character)) nested = Math.max(0, nested - 1);
-      if (character === ";" && nested === 0) { segments.push(segment); segment = ""; }
-      else segment += character;
-    }
-    if (segment.trim()) segments.push(segment);
-    const properties = segments.flatMap((entry) => {
-      const property = /^\s*(\w+)(\?)?\s*:\s*([\s\S]+)$/.exec(entry);
-      return property ? [{ name:property[1],required:!property[2],contractType:property[3].trim() }] : [];
-    });
-    const rawExtends = match[2]?.trim() ?? "";
-    const parents = rawExtends && !rawExtends.includes("<") ? rawExtends.split(",").map((value)=>value.trim()).filter(Boolean) : [];
-    contracts.set(match[1], { name:match[1],parents,properties });
-    pattern.lastIndex = cursor;
+    if (database.prepare("SELECT summary FROM content_translations WHERE id=?").get(row.id)?.summary !== row.summary) throw new Error("identity marker restoration failed");
+    if (databaseDigest(database) !== baselineDigest) throw new Error("database digest changed during identity probe restoration");
+    identityBound = true;
+    identityState = `verified marker over ${row.locale}/${row.type}/${row.slug}; baseline sha256=${baselineDigest}`;
+    cases.push({ name:"preflight.database-identity",passed:true,status:200,durationMs:Math.round(performance.now()-started),url:`${baseUrl}/api/v1/${row.locale}/contents/${row.type}/${row.slug}` });
+  } catch (error) {
+    identityState = "failed";
+    cases.push({ name:"preflight.database-identity",passed:false,status:null,durationMs:Math.round(performance.now()-started),diff:error instanceof Error?error.message:String(error) });
+    throw error;
+  } finally {
+    database.close();
   }
-  return contracts;
-}
-
-function interfaceProperties(name, contracts, seen = new Set()) {
-  if (seen.has(name) || !contracts.has(name)) return [];
-  seen.add(name);
-  const contract = contracts.get(name);
-  const inherited = contract.parents.flatMap((parent) => interfaceProperties(parent, contracts, seen));
-  return [...new Map([...inherited, ...contract.properties].map((property)=>[property.name, property])).values()];
-}
-
-function referencedInterface(cell, names) {
-  return [...names].sort((left,right)=>right.length-left.length).find((name)=>new RegExp(`\\b${name}\\b`).test(cell)) ?? null;
-}
-
-function successSchema(operation) {
-  const status = Object.keys(operation.responses ?? {}).filter((value)=>/^2\d\d$/.test(value)).sort()[0];
-  return status ? operation.responses[status]?.content?.["application/json"]?.schema : null;
-}
-
-function responseShape(schema) {
-  if (!schema) return null;
-  if (schema.$ref) return { kind:"single",name:schema.$ref.split("/").at(-1) };
-  const data = schema.properties?.data;
-  if (data?.$ref) return { kind:"data",name:data.$ref.split("/").at(-1) };
-  if (data?.type === "array" && data.items?.$ref) return { kind:"list",name:data.items.$ref.split("/").at(-1) };
-  return null;
-}
-
-function expectedPropertyShape(contractType, interfaceNames) {
-  if (/\[\]\s*(?:\||$)|\bArray\s*</.test(contractType)) return { category:"array" };
-  if (/\bRecord\s*<|^\{/.test(contractType)) return { category:"object" };
-  const reference = [...interfaceNames].find((name)=>new RegExp(`\\b${name}\\b`).test(contractType));
-  if (reference) return { category:`ref:${reference}` };
-  const literals = [...contractType.matchAll(/"([^"]+)"/g)].map((match)=>match[1]);
-  if (literals.length) return { category:"string",enum:literals.sort() };
-  if (/\bboolean\b/.test(contractType)) return { category:"boolean" };
-  if (/\bnumber\b/.test(contractType)) return { category:"number" };
-  if (/\bstring\b/.test(contractType)) return { category:"string" };
-  return null;
-}
-
-function actualPropertyShape(schema) {
-  if (!schema) return null;
-  if (schema.$ref) return { category:`ref:${schema.$ref.split("/").at(-1)}` };
-  if (schema.anyOf) {
-    const concrete = schema.anyOf.find((item)=>item.type !== "null");
-    return actualPropertyShape(concrete);
-  }
-  return { category:schema.type ?? "unknown",...(schema.enum ? { enum:[...schema.enum].sort() } : schema.const !== undefined ? { enum:[schema.const] } : {}) };
-}
-
-function contractShapeDrift(markdown, document) {
-  const rows = planningRows(markdown);
-  const interfaces = interfaceContracts(markdown);
-  const names = new Set(interfaces.keys());
-  const drift = [];
-  for (const row of rows) {
-    const operation = document.paths?.[row.path]?.[row.method];
-    if (!operation) continue;
-    const pathNames = [...row.path.matchAll(/\{(\w+)\}/g)].map((match)=>match[1]);
-    const actualPathNames = new Set((operation.parameters ?? []).filter((parameter)=>parameter.in === "path").map((parameter)=>parameter.name));
-    for (const name of pathNames) if (!actualPathNames.has(name)) drift.push(`${row.method} ${row.path}: missing OpenAPI path parameter ${name}`);
-
-    const inputShape = referencedInterface(row.input, names);
-    if (["post","put","patch","delete"].includes(row.method) && inputShape) {
-      const actual = operation.requestBody?.content?.["application/json"]?.schema?.$ref?.split("/").at(-1);
-      if (actual !== inputShape) drift.push(`${row.method} ${row.path}: request ${inputShape}, OpenAPI ${actual ?? "none"}`);
-    }
-    if (["get","head"].includes(row.method) && inputShape) {
-      const expected = interfaceProperties(inputShape, interfaces).map((property)=>property.name);
-      const actual = new Set((operation.parameters ?? []).filter((parameter)=>parameter.in === "query").map((parameter)=>parameter.name));
-      for (const name of expected) if (!actual.has(name)) drift.push(`${row.method} ${row.path}: ${inputShape} query field ${name} absent from OpenAPI`);
-    }
-
-    const generic = /(DataResponse|ListResponse)<\s*(\w+)/.exec(row.output);
-    const direct = generic || /(?:DataResponse|ListResponse)</.test(row.output) ? null : referencedInterface(row.output, names);
-    const expected = generic ? { kind:generic[1] === "DataResponse" ? "data" : "list",name:generic[2] } : direct ? { kind:"single",name:direct } : null;
-    const actual = responseShape(successSchema(operation));
-    if (expected && (!actual || expected.kind !== actual.kind || expected.name !== actual.name)) {
-      drift.push(`${row.method} ${row.path}: response ${expected.kind}<${expected.name}>, OpenAPI ${actual ? `${actual.kind}<${actual.name}>` : "untyped"}`);
-    }
-  }
-
-  for (const [name, schema] of Object.entries(document.components?.schemas ?? {})) {
-    if (!interfaces.has(name)) continue;
-    const expectedRequired = interfaceProperties(name, interfaces).filter((property)=>property.required).map((property)=>property.name).sort();
-    const actualRequired = [...(schema.required ?? [])].sort();
-    const missing = expectedRequired.filter((property)=>!actualRequired.includes(property));
-    const extra = actualRequired.filter((property)=>!expectedRequired.includes(property));
-    if (missing.length || extra.length) drift.push(`schema ${name}: required mismatch missing=[${missing.join(",")}] extra=[${extra.join(",")}]`);
-    if (schema.type === "object" && schema.additionalProperties !== false) drift.push(`schema ${name}: additionalProperties must be false for an interface shape`);
-    for (const property of interfaceProperties(name, interfaces)) {
-      const expected = expectedPropertyShape(property.contractType, names);
-      const actual = actualPropertyShape(schema.properties?.[property.name]);
-      if (!expected || !actual) continue;
-      const categoryMatches = expected.category === "number" ? ["number","integer"].includes(actual.category) : expected.category === actual.category;
-      const enumMatches = !expected.enum || JSON.stringify(expected.enum) === JSON.stringify(actual.enum ?? []);
-      if (!categoryMatches || !enumMatches) drift.push(`schema ${name}.${property.name}: contract ${expected.category}${expected.enum?` enum=${expected.enum.join(",")}`:""}, OpenAPI ${actual.category}${actual.enum?` enum=${actual.enum.join(",")}`:""}`);
-    }
-  }
-  return drift;
-}
-
-function runtimeOperations(document) {
-  return Object.entries(document.paths ?? {}).flatMap(([path, item]) =>
-    Object.keys(item).filter((method) => httpMethods.has(method)).map((method) => `${method} ${path}`),
-  ).sort();
 }
 
 export function shapeDiff(value, requiredPaths) {
@@ -214,10 +146,20 @@ function assertShape(body, requiredPaths) {
   if (diff) throw new Error(diff);
 }
 
-function assertNoSecrets(body) {
-  const serialized = JSON.stringify(body);
-  if (/password_hash|session_secret|qsv_session|temporaryPassword|resetPassword|"token"/i.test(serialized)) {
-    throw new Error("response leaked a password/session/token field");
+function assertNoSecrets(body, path = "response") {
+  const blockedKey = /^(?:password|password_hash|passwordHash|temporaryPassword|resetPassword|session_secret|sessionSecret|sessionToken|accessToken|refreshToken|token|tokenHash|cookie|credentials?)$/i;
+  if (Array.isArray(body)) return body.forEach((value,index) => assertNoSecrets(value,`${path}[${index}]`));
+  if (body && typeof body === "object") {
+    for (const [key,value] of Object.entries(body)) {
+      if (blockedKey.test(key) || /(?:hash|token|secret)$/i.test(key)) throw new Error(`${path}.${key} is a forbidden secret-bearing response field`);
+      assertNoSecrets(value,`${path}.${key}`);
+    }
+    return;
+  }
+  if (typeof body === "string") {
+    if (sensitiveValues.some((secret) => secret && body.includes(secret)) || /\$argon2(?:id|i|d)\$|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(body)) {
+      throw new Error(`${path} contains a credential, password hash or token value`);
+    }
   }
 }
 
@@ -247,7 +189,14 @@ function matchingPathTemplate(pathname, document) {
 function responseContentSchema(content, contentType) {
   const normalized = contentType.split(";", 1)[0].trim().toLowerCase();
   if (content[normalized]) return { mediaType:normalized,schema:content[normalized].schema };
-  const wildcard = Object.entries(content).find(([mediaType]) => mediaType.endsWith("/*") && normalized.startsWith(mediaType.slice(0, -1)));
+  const wildcard = Object.entries(content).find(([mediaType]) => {
+    if (mediaType.endsWith("/*")) return normalized.startsWith(mediaType.slice(0, -1));
+    if (mediaType.includes("*+")) {
+      const [prefix,suffix] = mediaType.split("*");
+      return normalized.startsWith(prefix) && normalized.endsWith(suffix);
+    }
+    return false;
+  });
   return wildcard ? { mediaType:wildcard[0],schema:wildcard[1].schema } : null;
 }
 
@@ -256,7 +205,8 @@ function validateLiveResponse(result) {
   const template = matchingPathTemplate(result.path, liveOpenApi);
   const operation = template ? liveOpenApi.paths?.[template]?.[result.method.toLowerCase()] : null;
   if (!operation) throw new Error(`OpenAPI has no ${result.method} operation matching ${result.path}`);
-  const declared = operation.responses?.[String(result.response.status)] ?? operation.responses?.default;
+  const rangeStatus = `${Math.floor(result.response.status / 100)}XX`;
+  const declared = operation.responses?.[String(result.response.status)] ?? operation.responses?.[rangeStatus] ?? operation.responses?.[rangeStatus.toLowerCase()] ?? operation.responses?.default;
   if (!declared) throw new Error(`OpenAPI has no response schema for ${result.method} ${template} HTTP ${result.response.status}`);
   const content = declared.content ?? {};
   if (!Object.keys(content).length) {
@@ -307,11 +257,14 @@ async function http(path, options = {}) {
 
 async function check(name, expectedStatus, action, requiredPaths = []) {
   const started = performance.now();
+  let actualStatus = null;
   try {
     const result = await action();
+    actualStatus = result.response.status;
     validateLiveResponse(result);
     if (result.response.status !== expectedStatus) {
-      throw new Error(`expected HTTP ${expectedStatus}, received ${result.response.status}: ${result.text.slice(0, 300)}`);
+      if (typeof result.body === "object") assertNoSecrets(result.body);
+      throw new Error(`expected HTTP ${expectedStatus}, received ${result.response.status}`);
     }
     if (requiredPaths.length) assertShape(result.body, requiredPaths);
     if (typeof result.body === "object") {
@@ -321,45 +274,57 @@ async function check(name, expectedStatus, action, requiredPaths = []) {
     cases.push({ name,passed:true,status:result.response.status,durationMs:Math.round(performance.now()-started) });
     return result;
   } catch (error) {
-    cases.push({ name,passed:false,status:null,durationMs:Math.round(performance.now()-started),diff:error instanceof Error ? error.message : String(error) });
+    cases.push({ name,passed:false,status:actualStatus,durationMs:Math.round(performance.now()-started),diff:error instanceof Error ? error.message : String(error) });
     return null;
   }
 }
 
-async function login(role) {
-  const result = await check(`auth.login.${role.toLowerCase()}`, 200, () => http("/api/v1/auth/login", { method:"POST",body:credentials[role] }), ["data.id","data.email","data.displayName","data.role"]);
+async function loginWithCredentials(name, credential) {
+  const result = await check(`auth.login.${name}`, 200, () => http("/api/v1/auth/login", { method:"POST",body:credential }), ["data.id","data.email","data.displayName","data.role"]);
   if (!result) return null;
   const setCookie = result.response.headers.get("set-cookie");
   if (!setCookie?.includes("HttpOnly") || !setCookie.includes("SameSite=Lax")) {
-    cases.push({ name:`auth.cookie.${role.toLowerCase()}`,passed:false,status:200,durationMs:0,diff:"missing HttpOnly or SameSite=Lax" });
+    cases.push({ name:`auth.cookie.${name}`,passed:false,status:200,durationMs:0,diff:"missing HttpOnly or SameSite=Lax" });
     return null;
   }
-  cases.push({ name:`auth.cookie.${role.toLowerCase()}`,passed:true,status:200,durationMs:0 });
-  return setCookie.split(";", 1)[0];
+  cases.push({ name:`auth.cookie.${name}`,passed:true,status:200,durationMs:0 });
+  const cookie = setCookie.split(";", 1)[0];
+  sensitiveValues.push(cookie);
+  return cookie;
 }
 
+const login = (role) => loginWithCredentials(role.toLowerCase(),credentials[role]);
+
+let planned = [];
+let runtime = [];
+let missingOperations = [];
+let extraOperations = [];
+let shapeDrift = [];
+let contentId = null;
+let userId = null;
+const rateEmail = `contract-rate-${runId}@example.test`;
+
+try {
+if (configurationErrors.length) throw new Error(configurationErrors.join("; "));
+await proveDatabaseIdentity();
+
 const contractMarkdown = await readFile(resolve("flow/05-contract.md"), "utf8");
-const planned = planningOperations(contractMarkdown);
+planned = planningOperations(contractMarkdown);
 const openApiResult = await check("plumbing.openapi", 200, () => http("/openapi.json"), ["openapi","info.title","paths","components.schemas.ApiError"]);
 const openApi = openApiResult?.body && typeof openApiResult.body === "object" ? openApiResult.body : { paths:{} };
 liveOpenApi = openApiResult ? openApi : null;
-const runtime = runtimeOperations(openApi);
-const missingOperations = planned.filter((operation) => !runtime.includes(operation));
-const extraOperations = runtime.filter((operation) => !planned.includes(operation));
-const shapeDrift = contractShapeDrift(contractMarkdown, openApi);
+runtime = runtimeOperations(openApi);
+missingOperations = planned.filter((operation) => !runtime.includes(operation));
+extraOperations = runtime.filter((operation) => !planned.includes(operation));
+shapeDrift = contractShapeDrift(contractMarkdown, openApi);
 
 await check("plumbing.health", 200, () => http("/healthz"), ["status","version","database","timestamp"]);
 await check("plumbing.docs", 200, () => http("/docs"));
 const sitemapResult = await check("plumbing.sitemap", 200, () => http("/sitemap.xml"));
 if (sitemapResult) {
   const locations = [...sitemapResult.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
-  let linked = 0;
-  for (const [index, location] of locations.entries()) {
-    const result = await check(`plumbing.sitemap-link.${index + 1}`, 200, () => http(location));
-    if (result) linked += 1;
-  }
-  const passed = locations.length > 2 && linked === locations.length;
-  cases.push({ name:"plumbing.sitemap-live-links",passed,status:passed?200:null,durationMs:0,...(passed?{}:{diff:`${linked}/${locations.length} sitemap locations returned schema-valid HTTP 200`}) });
+  const passed = /<urlset\b/.test(sitemapResult.text) && locations.length === 0 && !sitemapResult.text.includes("/api/");
+  cases.push({ name:"plumbing.sitemap-empty-until-c006",passed,status:passed?200:null,durationMs:0,...(passed?{}:{diff:`C-005 sitemap must be a valid empty urlset without API URLs; found ${locations.length} locations`}) });
 }
 const robotsResult = await check("plumbing.robots", 200, () => http("/robots.txt"));
 if (robotsResult) {
@@ -391,9 +356,17 @@ await check("public.taxonomies", 200, () => http("/api/v1/vi/taxonomies"), ["dat
 await check("public.alternate", 200, () => http("/api/v1/contents/event-dien-bien-phu/alternate?locale=vi"), ["data.id","data.current","data.alternate"]);
 await check("error.400.invalid-query", 400, () => http("/api/v1/vi/search?q="), ["code","message","requestId"]);
 await check("error.404.not-found", 404, () => http("/api/v1/vi/contents/EVENT/not-a-real-slug"), ["code","message","requestId"]);
+await check("error.404.unknown-locale", 404, () => http("/api/v1/fr/home"), ["code","message","requestId"]);
+await check("error.404.unknown-type", 404, () => http("/api/v1/vi/contents/UNKNOWN/not-a-real-slug"), ["code","message","requestId"]);
 await check("error.401.no-session", 401, () => http("/api/v1/auth/me"), ["code","message","requestId"]);
 
-const rateEmail = `contract-rate-${runId}@example.test`;
+const protectedOperations = Object.entries(openApi.paths ?? {}).flatMap(([path,item]) => Object.entries(item).filter(([method,operation]) => ["get","post","put","patch","delete"].includes(method) && (operation.security ?? []).some((requirement) => Object.hasOwn(requirement,"cookieAuth"))).map(([method]) => ({ method,path })));
+const materializePath = (path) => path.replaceAll("{locale}","vi").replaceAll("{type}","EVENT").replaceAll("{slug}","not-a-real-slug").replaceAll("{id}","not-a-real-id");
+for (const operation of protectedOperations) {
+  await check(`rbac.unauthenticated.${operation.method}.${operation.path}`,401,() => http(materializePath(operation.path),{
+    method:operation.method.toUpperCase(),...(["post","put","patch","delete"].includes(operation.method)?{body:{}}:{}),
+  }),["code","requestId"]);
+}
 for (let attempt = 1; attempt <= 5; attempt += 1) {
   await check(`auth.rate-limit.failure-${attempt}`, 401, () => http("/api/v1/auth/login", { method:"POST",body:{ email:rateEmail,password:"Wrong-Password-2026!" } }), ["code","requestId"]);
 }
@@ -405,6 +378,10 @@ const reviewerCookie = await login("REVIEWER");
 if (adminCookie) await check("auth.me", 200, () => http("/api/v1/auth/me", { cookie:adminCookie }), ["data.id","data.role"]);
 await check("error.403.editor-users", 403, () => http("/api/v1/admin/users", { cookie:editorCookie }), ["code","requestId"]);
 await check("error.403.reviewer-users", 403, () => http("/api/v1/admin/users", { cookie:reviewerCookie }), ["code","requestId"]);
+await check("error.403.editor-user-create", 403, () => http("/api/v1/admin/users", { method:"POST",cookie:editorCookie,body:{} }), ["code","requestId"]);
+await check("error.403.reviewer-user-create", 403, () => http("/api/v1/admin/users", { method:"POST",cookie:reviewerCookie,body:{} }), ["code","requestId"]);
+await check("error.403.editor-audit", 403, () => http("/api/v1/admin/audit-logs", { cookie:editorCookie }), ["code","requestId"]);
+await check("error.403.reviewer-audit", 403, () => http("/api/v1/admin/audit-logs", { cookie:reviewerCookie }), ["code","requestId"]);
 await check("error.403.invalid-origin", 403, () => http("/api/v1/admin/contents", { method:"POST",cookie:editorCookie,origin:"https://invalid-origin.example",body:{ type:"EVENT",sourceIds:[],translations:{} } }), ["code","requestId"]);
 
 await check("admin.dashboard", 200, () => http("/api/v1/admin/dashboard", { cookie:editorCookie }), ["data.countsByStatus","data.countsByType","data.recentAudit"]);
@@ -422,11 +399,17 @@ const mediaCreated = await check("admin.media.create", 201, () => http("/api/v1/
 const mediaId = mediaCreated?.body.data.id;
 const mediaPatched = mediaId ? await check("admin.media.patch", 200, () => http(`/api/v1/admin/media/${mediaId}`, { method:"PATCH",cookie:editorCookie,body:{ version:1,url:`https://example.test/media/${runId}.jpg`,kind:"IMAGE",credit:"Contract suite updated",license:"CC BY 4.0",altVi:"Ảnh kiểm thử contract",altEn:"Contract test image" } }), ["data.id","data.version"]) : null;
 
-const testUser = await check("admin.user.create", 201, () => http("/api/v1/admin/users", { method:"POST",cookie:adminCookie,body:{ email:`contract-${runId}@example.test`,displayName:`Contract ${runId}`,role:"EDITOR",temporaryPassword:`Contract-${runId}-Password!` } }), ["data.id","data.active","data.version"]);
-const userId = testUser?.body.data.id;
-if (userId) await check("admin.user.patch", 200, () => http(`/api/v1/admin/users/${userId}`, { method:"PATCH",cookie:adminCookie,body:{ version:1,displayName:`Contract cleaned ${runId}`,active:false } }), ["data.id","data.version","data.active"]);
+const testUserEmail = `contract-${runId}@example.test`;
+const testUser = await check("admin.user.create", 201, () => http("/api/v1/admin/users", { method:"POST",cookie:adminCookie,body:{ email:testUserEmail,displayName:`Contract ${runId}`,role:"EDITOR",temporaryPassword,active:true } }), ["data.id","data.active","data.version"]);
+userId = testUser?.body.data.id ?? null;
+const testUserCookie = userId ? await loginWithCredentials("test-user",{email:testUserEmail,password:temporaryPassword}) : null;
+if (testUserCookie) await check("auth.logout.test-user",200,() => http("/api/v1/auth/logout",{method:"POST",cookie:testUserCookie}),["data.loggedOut"]);
+if (userId) await check("admin.user.patch", 200, () => http(`/api/v1/admin/users/${userId}`, { method:"PATCH",cookie:adminCookie,body:{ version:1,displayName:`Contract cleaned ${runId}`,active:false,resetPassword } }), ["data.id","data.version","data.active"]);
+if (userId) {
+  await check("error.403.editor-user-patch",403,() => http(`/api/v1/admin/users/${userId}`,{ method:"PATCH",cookie:editorCookie,body:{version:2,active:true} }),["code","requestId"]);
+  await check("error.403.reviewer-user-patch",403,() => http(`/api/v1/admin/users/${userId}`,{ method:"PATCH",cookie:reviewerCookie,body:{version:2,active:true} }),["code","requestId"]);
+}
 
-let contentId = null;
 let viSlug = `contract-live-${runId}`;
 if (mediaId) {
   const created = await check("admin.content.create", 201, () => http("/api/v1/admin/contents", { method:"POST",cookie:editorCookie,body:{
@@ -442,6 +425,8 @@ if (contentId) {
   await check("workflow.submit", 200, () => http(`/api/v1/admin/contents/${contentId}/submit-review`, { method:"POST",cookie:editorCookie,body:{ version:2,locales:["vi","en"] } }), ["data.status","data.version","data.translationStatuses"]);
   await check("workflow.reject-reason-required", 400, () => http(`/api/v1/admin/contents/${contentId}/reject`, { method:"POST",cookie:reviewerCookie,body:{ version:3,locales:["vi","en"] } }), ["code","details.fieldErrors.reason","requestId"]);
   await check("workflow.editor-approve-forbidden", 403, () => http(`/api/v1/admin/contents/${contentId}/approve`, { method:"POST",cookie:editorCookie,body:{ version:3,locales:["vi","en"] } }), ["code","requestId"]);
+  await check("workflow.editor-reject-forbidden", 403, () => http(`/api/v1/admin/contents/${contentId}/reject`, { method:"POST",cookie:editorCookie,body:{ version:3,locales:["vi","en"],reason:"Must be forbidden" } }), ["code","requestId"]);
+  await check("workflow.editor-archive-forbidden", 403, () => http(`/api/v1/admin/contents/${contentId}/archive`, { method:"POST",cookie:editorCookie,body:{ version:3 } }), ["code","requestId"]);
   await check("workflow.reject", 200, () => http(`/api/v1/admin/contents/${contentId}/reject`, { method:"POST",cookie:reviewerCookie,body:{ version:3,locales:["vi","en"],reason:"Contract rejection" } }), ["data.status","data.version"]);
   await check("workflow.resubmit", 200, () => http(`/api/v1/admin/contents/${contentId}/submit-review`, { method:"POST",cookie:editorCookie,body:{ version:4,locales:["vi","en"] } }), ["data.status","data.version"]);
   await check("workflow.approve", 200, () => http(`/api/v1/admin/contents/${contentId}/approve`, { method:"POST",cookie:reviewerCookie,body:{ version:5,locales:["vi","en"] } }), ["data.status","data.version","data.reviewedAt"]);
@@ -458,92 +443,119 @@ if (contentId) {
   await check("cleanup.public-hidden", 404, () => http(`/api/v1/vi/contents/EVENT/${viSlug}`), ["code","requestId"]);
 }
 
-const diagnostic = shapeDiff({ data:{} }, ["data.id","data.status"]);
-cases.push({ name:"diagnostic.shape-diff",passed:diagnostic === "missing required field(s): data.id, data.status",status:null,durationMs:0,...(diagnostic?{sampleDiff:diagnostic}:{diff:"shape diff did not identify missing fields"}) });
+const mutatedOpenApi = structuredClone(openApi);
+delete mutatedOpenApi.components.schemas.SourceInput.properties.author;
+const mutationDrift = contractShapeDrift(contractMarkdown,mutatedOpenApi);
+const mutationDiff = mutationDrift.find((difference) => difference.includes("SourceInput") || difference.includes("admin/sources"));
+cases.push({ name:"diagnostic.intentional-openapi-mutation",passed:Boolean(mutationDiff),status:null,durationMs:0,...(mutationDiff?{sampleDiff:mutationDiff}:{diff:"deep shape audit missed an intentionally removed optional request field"}) });
 
-if (adminCookie) await check("auth.logout", 200, () => http("/api/v1/auth/logout", { method:"POST",cookie:adminCookie }), ["data.loggedOut"]);
-
-let cleanupState = "not-run";
-if (!cleanupDatabasePath) {
-  cases.push({ name:"cleanup.database",passed:false,status:null,durationMs:0,diff:"set --cleanup-database or CONTRACT_DATABASE_PATH to a dedicated local test database" });
-} else if (!isLocalTarget) {
-  cases.push({ name:"cleanup.database",passed:false,status:null,durationMs:0,diff:"direct database cleanup is allowed only for a local dedicated target" });
-} else {
+} catch (error) {
+  cases.push({ name:"suite.unhandled",passed:false,status:null,durationMs:0,diff:error instanceof Error?error.message:String(error) });
+} finally {
+if (identityBound) {
   const cleanupStarted = performance.now();
+  let database = null;
   try {
-    const { default:Database } = await import("better-sqlite3");
-    const database = new Database(resolve(cleanupDatabasePath));
+    database = new Database(dedicatedDatabasePath(cleanupDatabasePath));
     database.pragma("foreign_keys=ON");
+    const contentIds = database.prepare("SELECT DISTINCT node_id AS id FROM content_translations WHERE slug IN (?,?)").all(`contract-live-${runId}`,`contract-en-${runId}`).map((row) => row.id);
+    const sourceIds = database.prepare("SELECT id FROM sources WHERE url=?").all(`https://example.test/source/${runId}`).map((row) => row.id);
+    const mediaIds = database.prepare("SELECT id FROM media WHERE url=?").all(`https://example.test/media/${runId}.jpg`).map((row) => row.id);
+    const userIds = database.prepare("SELECT id FROM users WHERE email=?").all(`contract-${runId}@example.test`).map((row) => row.id);
+    const objectIds = new Set([...contentIds,...sourceIds,...mediaIds,...userIds]);
+    const seededActors = new Set(["user-admin","user-editor","user-reviewer"]);
+    const audits = database.prepare("SELECT id,action,object_id,metadata FROM audit_logs ORDER BY id").all();
+    const ownedAuditIds = [];
+    const unownedAudits = [];
+    for (const audit of audits) {
+      const metadata = JSON.parse(audit.metadata);
+      const owned = objectIds.has(audit.object_id)
+        || (audit.action === "auth.login_failed" && metadata.email === rateEmail)
+        || (["auth.login","auth.logout"].includes(audit.action) && seededActors.has(audit.object_id));
+      (owned ? ownedAuditIds : unownedAudits).push(audit.id);
+    }
+    const deleteIds = (table,ids) => {
+      if (ids.length) database.prepare(`DELETE FROM ${table} WHERE id IN (${ids.map(() => "?").join(",")})`).run(...ids);
+    };
     database.transaction(() => {
-      database.prepare(`DELETE FROM audit_logs WHERE created_at >= ? OR id IN (
-        SELECT id FROM audit_logs
-        WHERE action='auth.login_failed' AND json_extract(metadata,'$.email') LIKE 'contract-rate-%@example.test'
-      ) OR object_id IN (
-        SELECT node_id FROM content_translations WHERE slug LIKE 'contract-live-%' OR slug LIKE 'contract-en-%'
-        UNION SELECT id FROM users WHERE email LIKE 'contract-%@example.test'
-        UNION SELECT id FROM sources WHERE url LIKE 'https://example.test/source/%'
-        UNION SELECT id FROM media WHERE url LIKE 'https://example.test/media/%'
-      )`).run(runStartedAt);
-      database.prepare("DELETE FROM login_rate_limits WHERE bucket LIKE 'email:contract-rate-%@example.test'").run();
-      database.prepare("DELETE FROM content_nodes WHERE id IN (SELECT node_id FROM content_translations WHERE slug LIKE 'contract-live-%' OR slug LIKE 'contract-en-%')").run();
-      database.prepare("DELETE FROM users WHERE email LIKE 'contract-%@example.test'").run();
-      database.prepare("DELETE FROM sources WHERE url LIKE 'https://example.test/source/%'").run();
-      database.prepare("DELETE FROM media WHERE url LIKE 'https://example.test/media/%'").run();
+      deleteIds("audit_logs",ownedAuditIds);
+      database.prepare("DELETE FROM login_rate_limits WHERE bucket=?").run(`email:${rateEmail}`);
+      deleteIds("content_nodes",contentIds);
+      deleteIds("users",userIds);
+      deleteIds("sources",sourceIds);
+      deleteIds("media",mediaIds);
     }).immediate();
     const leftovers = [
-      database.prepare("SELECT 1 FROM content_translations WHERE slug LIKE 'contract-live-%' OR slug LIKE 'contract-en-%' LIMIT 1").get(),
-      database.prepare("SELECT 1 FROM users WHERE email LIKE 'contract-%@example.test' LIMIT 1").get(),
-      database.prepare("SELECT 1 FROM sources WHERE url LIKE 'https://example.test/source/%' LIMIT 1").get(),
-      database.prepare("SELECT 1 FROM media WHERE url LIKE 'https://example.test/media/%' LIMIT 1").get(),
-      database.prepare("SELECT 1 FROM audit_logs WHERE created_at >= ? LIMIT 1").get(runStartedAt),
-      database.prepare("SELECT 1 FROM login_rate_limits WHERE bucket LIKE 'email:contract-rate-%@example.test' LIMIT 1").get(),
+      database.prepare("SELECT 1 FROM content_translations WHERE slug IN (?,?) LIMIT 1").get(`contract-live-${runId}`,`contract-en-${runId}`),
+      database.prepare("SELECT 1 FROM users WHERE email=? LIMIT 1").get(`contract-${runId}@example.test`),
+      database.prepare("SELECT 1 FROM sources WHERE url=? LIMIT 1").get(`https://example.test/source/${runId}`),
+      database.prepare("SELECT 1 FROM media WHERE url=? LIMIT 1").get(`https://example.test/media/${runId}.jpg`),
+      database.prepare("SELECT 1 FROM login_rate_limits WHERE bucket=? LIMIT 1").get(`email:${rateEmail}`),
     ].filter(Boolean);
-    const counts = {
-      contentNodes:database.prepare("SELECT count(*) AS count FROM content_nodes").get().count,
-      translations:database.prepare("SELECT count(*) AS count FROM content_translations").get().count,
-      sources:database.prepare("SELECT count(*) AS count FROM sources").get().count,
-      media:database.prepare("SELECT count(*) AS count FROM media").get().count,
-      users:database.prepare("SELECT count(*) AS count FROM users").get().count,
-      auditLogs:database.prepare("SELECT count(*) AS count FROM audit_logs").get().count,
-      rateLimits:database.prepare("SELECT count(*) AS count FROM login_rate_limits").get().count,
-    };
-    database.close();
-    if (leftovers.length) throw new Error(`${leftovers.length} test-owned row groups remain`);
-    const expectedCounts = { contentNodes:50,translations:100,sources:50,media:10,users:3,auditLogs:0,rateLimits:0 };
-    const countDrift = Object.entries(expectedCounts).filter(([name,count]) => counts[name] !== count).map(([name,count]) => `${name}=${counts[name]} expected ${count}`);
-    if (countDrift.length) throw new Error(`database did not return to exact seed state: ${countDrift.join(", ")}`);
-    cleanupState = `verified exact seed counts: ${Object.entries(counts).map(([name,count]) => `${name}=${count}`).join(", ")}`;
+    if (leftovers.length) throw new Error(`${leftovers.length} exact run-owned row groups remain`);
+    const counts = databaseCounts(database);
+    const finalDigest = databaseDigest(database);
+    if (unownedAudits.length) throw new Error(`refused to delete ${unownedAudits.length} audit row(s) not attributable to run ${runId}`);
+    if (finalDigest !== baselineDigest) throw new Error(`database digest did not return to baseline: ${finalDigest}`);
+    cleanupState = `verified exact run-owned teardown and baseline sha256=${finalDigest}: ${Object.entries(counts).map(([name,count]) => `${name}=${count}`).join(", ")}`;
     cases.push({ name:"cleanup.database",passed:true,status:null,durationMs:Math.round(performance.now()-cleanupStarted) });
   } catch (error) {
     cleanupState = "failed";
     cases.push({ name:"cleanup.database",passed:false,status:null,durationMs:Math.round(performance.now()-cleanupStarted),diff:error instanceof Error?error.message:String(error) });
+  } finally {
+    database?.close();
   }
+} else {
+  cleanupState = "not run because database identity was not established; no HTTP mutation phase entered";
+  cases.push({ name:"cleanup.database",passed:configurationErrors.length === 0,status:null,durationMs:0,...(configurationErrors.length?{diff:cleanupState}:{sampleDiff:cleanupState}) });
 }
 
 if (missingOperations.length) cases.push({ name:"openapi.planning-coverage",passed:false,status:200,durationMs:0,diff:`missing operations: ${missingOperations.join(", ")}` });
 else cases.push({ name:"openapi.planning-coverage",passed:true,status:200,durationMs:0 });
 if (extraOperations.length) cases.push({ name:"openapi.no-extra-operations",passed:false,status:200,durationMs:0,diff:`runtime-only operations: ${extraOperations.join(", ")}` });
 else cases.push({ name:"openapi.no-extra-operations",passed:true,status:200,durationMs:0 });
-if (shapeDrift.length) cases.push({ name:"openapi.request-response-shapes",passed:false,status:200,durationMs:0,diff:shapeDrift.join(" | ") });
+if (shapeDrift.length) cases.push({ name:"openapi.request-response-shapes",passed:false,status:200,durationMs:0,diff:shapeDrift.join("; ") });
 else cases.push({ name:"openapi.request-response-shapes",passed:true,status:200,durationMs:0 });
+
+if (lockHandle) await lockHandle.close();
+if (lockPath) await unlink(lockPath).catch(() => {});
+lockHandle = null;
+lockPath = null;
+
+const leakedArtifactSecret = sensitiveValues.find((secret) => secret && JSON.stringify(cases).includes(secret));
+if (leakedArtifactSecret) cases.push({ name:"report.no-secrets",passed:false,status:null,durationMs:0,diff:"a credential or cookie reached the report model" });
+else cases.push({ name:"report.no-secrets",passed:true,status:null,durationMs:0 });
 
 const passed = cases.filter((item) => item.passed).length;
 const failed = cases.length - passed;
 const report = {
-  schemaVersion:1,generatedAt:new Date().toISOString(),baseUrl,
+  schemaVersion:2,runId,generatedAt:new Date().toISOString(),baseUrl,
   planning:{operationCount:planned.length,operations:planned},runtime:{operationCount:runtime.length,operations:runtime},
-  drift:{missingOperations,extraOperations,shapeDrift},summary:{total:cases.length,passed,failed,responseSchemasValidated:validatedResponseCount},
-  cleanup:{preTeardown:{content:contentId ? "archived" : "not-created",testUser:userId ? "disabled" : "not-created"},database:cleanupState},
+  liveUrls:[`${baseUrl}/healthz`,`${baseUrl}/openapi.json`,`${baseUrl}/docs`,`${baseUrl}/sitemap.xml`,`${baseUrl}/robots.txt`,`${baseUrl}/api/v1/vi/home`],
+  drift:{missingOperations,extraOperations,shapeDrift},summary:{total:cases.length,passed,failed,responseSchemasValidated:validatedResponseCount,protectedOperations:cases.filter((item) => item.name.startsWith("rbac.unauthenticated.")).length},
+  cleanup:{identity:identityState,baselineCounts,database:cleanupState},
   cases,
 };
 
-function markdown(value) {
-  const rows = value.cases.map((item) => `| ${item.passed ? "PASS" : "FAIL"} | ${item.name} | ${item.status ?? "—"} | ${item.diff ?? item.sampleDiff ?? ""} |`).join("\n");
-  return `# Contract report\n\n- Generated: ${value.generatedAt}\n- Base URL: ${value.baseUrl}\n- Planning operations: ${value.planning.operationCount}\n- Runtime operations: ${value.runtime.operationCount}\n- Cases: ${value.summary.passed}/${value.summary.total} passed\n- Live response schemas validated: ${value.summary.responseSchemasValidated}\n- Drift: ${value.drift.missingOperations.length} missing, ${value.drift.extraOperations.length} extra, ${value.drift.shapeDrift.length} shape\n- Cleanup: ${value.cleanup.database}\n\n| Result | Case | HTTP | Diff |\n|---|---|---:|---|\n${rows}\n`;
+function escapeMarkdown(value) {
+  return String(value ?? "").replaceAll("\\","\\\\").replaceAll("|","\\|").replaceAll("\r"," ").replaceAll("\n","<br>");
 }
 
-await mkdir(reportDirectory, { recursive:true });
-await writeFile(resolve(reportDirectory, "latest.json"), `${JSON.stringify(report, null, 2)}\n`, "utf8");
-await writeFile(resolve(reportDirectory, "latest.md"), markdown(report), "utf8");
-console.log(JSON.stringify({ report:resolve(reportDirectory,"latest.json"),markdown:resolve(reportDirectory,"latest.md"),operations:`${runtime.length}/${planned.length}`,cases:`${passed}/${cases.length}`,failed }));
+function markdown(value) {
+  const rows = value.cases.map((item) => `| ${item.passed ? "PASS" : "FAIL"} | ${escapeMarkdown(item.name)} | ${item.status ?? "—"} | ${escapeMarkdown(item.diff ?? item.sampleDiff ?? "")} |`).join("\n");
+  const urls = value.liveUrls.map((url) => `  - ${url}`).join("\n");
+  return `# Contract report\n\n- Run: ${value.runId}\n- Generated: ${value.generatedAt}\n- Base URL: ${value.baseUrl}\n- Planning operations: ${value.planning.operationCount}\n- Runtime operations: ${value.runtime.operationCount}\n- Cases: ${value.summary.passed}/${value.summary.total} passed\n- Live response schemas validated: ${value.summary.responseSchemasValidated}\n- Protected operations probed without a session: ${value.summary.protectedOperations}\n- Drift: ${value.drift.missingOperations.length} missing, ${value.drift.extraOperations.length} extra, ${value.drift.shapeDrift.length} shape\n- Identity: ${value.cleanup.identity}\n- Cleanup: ${value.cleanup.database}\n- Live URLs:\n${urls}\n\n| Result | Case | HTTP | Diff |\n|---|---|---:|---|\n${rows}\n`;
+}
+
+await mkdir(reportDirectory,{recursive:true});
+const jsonPath = resolve(reportDirectory,"latest.json");
+const markdownPath = resolve(reportDirectory,"latest.md");
+const jsonTemporary = resolve(reportDirectory,`.latest-${runId}.json.tmp`);
+const markdownTemporary = resolve(reportDirectory,`.latest-${runId}.md.tmp`);
+await writeFile(jsonTemporary,`${JSON.stringify(report,null,2)}\n`,"utf8");
+await writeFile(markdownTemporary,markdown(report),"utf8");
+await rename(jsonTemporary,jsonPath);
+await rename(markdownTemporary,markdownPath);
+console.log(JSON.stringify({ report:jsonPath,markdown:markdownPath,operations:`${runtime.length}/${planned.length}`,cases:`${passed}/${cases.length}`,failed }));
 if (failed) process.exitCode = 1;
+}

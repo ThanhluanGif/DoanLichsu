@@ -61,7 +61,7 @@ export const openApiDocument = {
     },
     "/sitemap.xml": {
       get: {
-        operationId:"getSitemap",summary:"Đọc sitemap",description:"Trả URL VI/EN đã xuất bản.",tags:["SEO"],
+        operationId:"getSitemap",summary:"Đọc sitemap",description:"URL set rỗng đến khi canonical HTML routes được triển khai ở C-006.",tags:["SEO"],
         responses:{"200":{description:"Sitemap XML.",content:{"application/xml":{schema:{type:"string"}}}}},
       },
     },
