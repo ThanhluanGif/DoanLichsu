@@ -193,6 +193,7 @@ describe("RBAC and locale workflow", () => {
     const submitted = await submitRoute(request("POST", `/api/v1/admin/contents/${draft.id}/submit-review`, { version: 1, locales: ["vi"] }, editor), context(draft.id));
     expect(submitted.status).toBe(200);
     expect((await submitted.clone().json()).data.status).toBe("IN_REVIEW");
+    expect((await submitRoute(request("POST", `/api/v1/admin/contents/${draft.id}/submit-review`, { version: 2, locales: ["vi"] }, editor), context(draft.id))).status).toBe(422);
 
     const missingReason = await rejectRoute(request("POST", `/api/v1/admin/contents/${draft.id}/reject`, { version: 2, locales: ["vi"] }, reviewer), context(draft.id));
     expect(missingReason.status).toBe(400);
