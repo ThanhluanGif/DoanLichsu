@@ -5,6 +5,7 @@ import { resolve,sep } from "node:path";
 import { tmpdir } from "node:os";
 import { createHash,randomUUID } from "node:crypto";
 import Database from "better-sqlite3";
+import { hash } from "@node-rs/argon2";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { contractShapeDrift,planningOperations,runtimeOperations } from "./contract-shape.mjs";
@@ -27,11 +28,12 @@ const configurationErrors = [
   ...(!isLocalTarget ? ["contract checks that mutate data require a localhost target"] : []),
   ...(!cleanupDatabasePath ? ["set --cleanup-database or CONTRACT_DATABASE_PATH before the first HTTP request"] : []),
 ];
-const credentials = {
-  ADMIN: { email:"admin@quansuviet.local", password:process.env.CONTRACT_ADMIN_PASSWORD ?? "Admin-Demo-2026!" },
-  EDITOR: { email:"editor@quansuviet.local", password:process.env.CONTRACT_EDITOR_PASSWORD ?? "Editor-Demo-2026!" },
-  REVIEWER: { email:"reviewer@quansuviet.local", password:process.env.CONTRACT_REVIEWER_PASSWORD ?? "Reviewer-Demo-2026!" },
+const authFixtures = {
+  ADMIN:{ id:`contract-auth-admin-${runId}`,email:`contract-auth-admin-${runId}@example.test`,displayName:"Contract Admin",role:"ADMIN",password:`Contract-${runId}-Admin-Password!` },
+  EDITOR:{ id:`contract-auth-editor-${runId}`,email:`contract-auth-editor-${runId}@example.test`,displayName:"Contract Editor",role:"EDITOR",password:`Contract-${runId}-Editor-Password!` },
+  REVIEWER:{ id:`contract-auth-reviewer-${runId}`,email:`contract-auth-reviewer-${runId}@example.test`,displayName:"Contract Reviewer",role:"REVIEWER",password:`Contract-${runId}-Reviewer-Password!` },
 };
+const credentials = Object.fromEntries(Object.entries(authFixtures).map(([role,fixture]) => [role,{email:fixture.email,password:fixture.password}]));
 const temporaryPassword = `Contract-${runId}-Password!`;
 const resetPassword = `Contract-${runId}-Reset-Password!`;
 const sensitiveValues = Object.values(credentials).map((credential) => credential.password).concat(["Wrong-Password-2026!",temporaryPassword,resetPassword]);
@@ -78,7 +80,9 @@ function databaseDigest(database) {
 
 function dedicatedDatabasePath(path) {
   const candidate = resolve(path);
-  if (lstatSync(candidate).isSymbolicLink()) throw new Error("cleanup database must not be a symlink");
+  const metadata = lstatSync(candidate);
+  if (metadata.isSymbolicLink()) throw new Error("cleanup database must not be a symlink");
+  if (!metadata.isFile() || metadata.nlink !== 1) throw new Error("cleanup database must be a single-link regular file");
   const real = realpathSync(candidate);
   const temporaryRoots = [...new Set([realpathSync(tmpdir()),realpathSync("/tmp")])];
   if (!temporaryRoots.some((temporary) => real === temporary || real.startsWith(`${temporary}${sep}`))) throw new Error(`cleanup database must be beneath a system temporary directory: ${temporaryRoots.join(", ")}`);
@@ -88,8 +92,10 @@ function dedicatedDatabasePath(path) {
 async function proveDatabaseIdentity() {
   const started = performance.now();
   const path = dedicatedDatabasePath(cleanupDatabasePath);
-  lockPath = `${path}.contract-check.lock`;
-  lockHandle = await open(lockPath,"wx",0o600);
+  const candidateLockPath = `${path}.contract-check.lock`;
+  const acquiredLock = await open(candidateLockPath,"wx",0o600);
+  lockPath = candidateLockPath;
+  lockHandle = acquiredLock;
   const database = new Database(path);
   database.pragma("foreign_keys=ON");
   try {
@@ -107,17 +113,27 @@ async function proveDatabaseIdentity() {
     if (!row) throw new Error("identity probe needs one published seed translation");
     const marker = `contract-identity-${runId}`;
     let observed = false;
+    let probeError = null;
     database.prepare("UPDATE content_translations SET summary=? WHERE id=?").run(marker,row.id);
     try {
       const result = await http(`/api/v1/${row.locale}/contents/${row.type}/${row.slug}`);
       observed = result.response.status === 200 && result.body?.data?.summary === marker;
       if (!observed) throw new Error("HTTP target did not observe the reversible marker in CONTRACT_DATABASE_PATH");
+    } catch (error) {
+      probeError = error;
     } finally {
       database.prepare("UPDATE content_translations SET summary=? WHERE id=?").run(row.summary,row.id);
     }
     if (database.prepare("SELECT summary FROM content_translations WHERE id=?").get(row.id)?.summary !== row.summary) throw new Error("identity marker restoration failed");
     if (databaseDigest(database) !== baselineDigest) throw new Error("database digest changed during identity probe restoration");
     identityBound = true;
+    if (probeError) throw probeError;
+    const now = new Date().toISOString();
+    const fixtures = await Promise.all(Object.values(authFixtures).map(async (fixture) => ({...fixture,passwordHash:await hash(fixture.password)})));
+    database.transaction(() => {
+      const insert = database.prepare("INSERT INTO users(id,email,display_name,role,password_hash,active,session_version,version,created_at,updated_at) VALUES(?,?,?,?,?,1,1,1,?,?)");
+      for (const fixture of fixtures) insert.run(fixture.id,fixture.email,fixture.displayName,fixture.role,fixture.passwordHash,now,now);
+    }).immediate();
     identityState = `verified marker over ${row.locale}/${row.type}/${row.slug}; baseline sha256=${baselineDigest}`;
     cases.push({ name:"preflight.database-identity",passed:true,status:200,durationMs:Math.round(performance.now()-started),url:`${baseUrl}/api/v1/${row.locale}/contents/${row.type}/${row.slug}` });
   } catch (error) {
@@ -279,6 +295,26 @@ async function check(name, expectedStatus, action, requiredPaths = []) {
   }
 }
 
+async function checkAuthorizedReachability(name, action) {
+  const started = performance.now();
+  let actualStatus = null;
+  try {
+    const result = await action();
+    actualStatus = result.response.status;
+    validateLiveResponse(result);
+    if ([401,403].includes(actualStatus)) throw new Error(`declared role was rejected with HTTP ${actualStatus}`);
+    if (typeof result.body === "object") {
+      assertNoSecrets(result.body);
+      assertIsoTimestamps(result.body);
+    }
+    cases.push({name,passed:true,status:actualStatus,durationMs:Math.round(performance.now()-started)});
+    return result;
+  } catch (error) {
+    cases.push({name,passed:false,status:actualStatus,durationMs:Math.round(performance.now()-started),diff:error instanceof Error?error.message:String(error)});
+    return null;
+  }
+}
+
 async function loginWithCredentials(name, credential) {
   const result = await check(`auth.login.${name}`, 200, () => http("/api/v1/auth/login", { method:"POST",body:credential }), ["data.id","data.email","data.displayName","data.role"]);
   if (!result) return null;
@@ -360,7 +396,7 @@ await check("error.404.unknown-locale", 404, () => http("/api/v1/fr/home"), ["co
 await check("error.404.unknown-type", 404, () => http("/api/v1/vi/contents/UNKNOWN/not-a-real-slug"), ["code","message","requestId"]);
 await check("error.401.no-session", 401, () => http("/api/v1/auth/me"), ["code","message","requestId"]);
 
-const protectedOperations = Object.entries(openApi.paths ?? {}).flatMap(([path,item]) => Object.entries(item).filter(([method,operation]) => ["get","post","put","patch","delete"].includes(method) && (operation.security ?? []).some((requirement) => Object.hasOwn(requirement,"cookieAuth"))).map(([method]) => ({ method,path })));
+const protectedOperations = Object.entries(openApi.paths ?? {}).flatMap(([path,item]) => Object.entries(item).filter(([method,operation]) => ["get","post","put","patch","delete"].includes(method) && Array.isArray(operation["x-allowed-roles"])).map(([method,operation]) => ({ method,path,roles:operation["x-allowed-roles"] })));
 const materializePath = (path) => path.replaceAll("{locale}","vi").replaceAll("{type}","EVENT").replaceAll("{slug}","not-a-real-slug").replaceAll("{id}","not-a-real-id");
 for (const operation of protectedOperations) {
   await check(`rbac.unauthenticated.${operation.method}.${operation.path}`,401,() => http(materializePath(operation.path),{
@@ -375,6 +411,15 @@ await check("error.429.rate-limit", 429, () => http("/api/v1/auth/login", { meth
 const adminCookie = await login("ADMIN");
 const editorCookie = await login("EDITOR");
 const reviewerCookie = await login("REVIEWER");
+const roleCookies = { ADMIN:adminCookie,EDITOR:editorCookie,REVIEWER:reviewerCookie };
+for (const operation of protectedOperations.filter((candidate) => candidate.path !== "/api/v1/auth/logout")) {
+  for (const [role,cookie] of Object.entries(roleCookies)) {
+    const options = {method:operation.method.toUpperCase(),cookie,...(["post","put","patch","delete"].includes(operation.method)?{body:{}}:{})};
+    const name = `${operation.method}.${operation.path}.${role.toLowerCase()}`;
+    if (operation.roles.includes(role)) await checkAuthorizedReachability(`rbac.allowed.${name}`,() => http(materializePath(operation.path),options));
+    else await check(`rbac.denied.${name}`,403,() => http(materializePath(operation.path),options),["code","requestId"]);
+  }
+}
 if (adminCookie) await check("auth.me", 200, () => http("/api/v1/auth/me", { cookie:adminCookie }), ["data.id","data.role"]);
 await check("error.403.editor-users", 403, () => http("/api/v1/admin/users", { cookie:editorCookie }), ["code","requestId"]);
 await check("error.403.reviewer-users", 403, () => http("/api/v1/admin/users", { cookie:reviewerCookie }), ["code","requestId"]);
@@ -449,6 +494,11 @@ const mutationDrift = contractShapeDrift(contractMarkdown,mutatedOpenApi);
 const mutationDiff = mutationDrift.find((difference) => difference.includes("SourceInput") || difference.includes("admin/sources"));
 cases.push({ name:"diagnostic.intentional-openapi-mutation",passed:Boolean(mutationDiff),status:null,durationMs:0,...(mutationDiff?{sampleDiff:mutationDiff}:{diff:"deep shape audit missed an intentionally removed optional request field"}) });
 
+for (const role of Object.keys(credentials)) {
+  const logoutCookie = await loginWithCredentials(`${role.toLowerCase()}-logout-probe`,credentials[role]);
+  if (logoutCookie) await check(`rbac.allowed.post./api/v1/auth/logout.${role.toLowerCase()}`,200,() => http("/api/v1/auth/logout",{method:"POST",cookie:logoutCookie}),["data.loggedOut"]);
+}
+
 } catch (error) {
   cases.push({ name:"suite.unhandled",passed:false,status:null,durationMs:0,diff:error instanceof Error?error.message:String(error) });
 } finally {
@@ -461,17 +511,16 @@ if (identityBound) {
     const contentIds = database.prepare("SELECT DISTINCT node_id AS id FROM content_translations WHERE slug IN (?,?)").all(`contract-live-${runId}`,`contract-en-${runId}`).map((row) => row.id);
     const sourceIds = database.prepare("SELECT id FROM sources WHERE url=?").all(`https://example.test/source/${runId}`).map((row) => row.id);
     const mediaIds = database.prepare("SELECT id FROM media WHERE url=?").all(`https://example.test/media/${runId}.jpg`).map((row) => row.id);
-    const userIds = database.prepare("SELECT id FROM users WHERE email=?").all(`contract-${runId}@example.test`).map((row) => row.id);
+    const fixtureIds = Object.values(authFixtures).map((fixture) => fixture.id);
+    const userIds = database.prepare(`SELECT id FROM users WHERE email=? OR id IN (${fixtureIds.map(() => "?").join(",")})`).all(`contract-${runId}@example.test`,...fixtureIds).map((row) => row.id);
     const objectIds = new Set([...contentIds,...sourceIds,...mediaIds,...userIds]);
-    const seededActors = new Set(["user-admin","user-editor","user-reviewer"]);
     const audits = database.prepare("SELECT id,action,object_id,metadata FROM audit_logs ORDER BY id").all();
     const ownedAuditIds = [];
     const unownedAudits = [];
     for (const audit of audits) {
       const metadata = JSON.parse(audit.metadata);
       const owned = objectIds.has(audit.object_id)
-        || (audit.action === "auth.login_failed" && metadata.email === rateEmail)
-        || (["auth.login","auth.logout"].includes(audit.action) && seededActors.has(audit.object_id));
+        || (audit.action === "auth.login_failed" && metadata.email === rateEmail);
       (owned ? ownedAuditIds : unownedAudits).push(audit.id);
     }
     const deleteIds = (table,ids) => {
@@ -507,7 +556,7 @@ if (identityBound) {
   }
 } else {
   cleanupState = "not run because database identity was not established; no HTTP mutation phase entered";
-  cases.push({ name:"cleanup.database",passed:configurationErrors.length === 0,status:null,durationMs:0,...(configurationErrors.length?{diff:cleanupState}:{sampleDiff:cleanupState}) });
+  cases.push({ name:"cleanup.database",passed:false,status:null,durationMs:0,diff:cleanupState });
 }
 
 if (missingOperations.length) cases.push({ name:"openapi.planning-coverage",passed:false,status:200,durationMs:0,diff:`missing operations: ${missingOperations.join(", ")}` });
@@ -532,7 +581,7 @@ const report = {
   schemaVersion:2,runId,generatedAt:new Date().toISOString(),baseUrl,
   planning:{operationCount:planned.length,operations:planned},runtime:{operationCount:runtime.length,operations:runtime},
   liveUrls:[`${baseUrl}/healthz`,`${baseUrl}/openapi.json`,`${baseUrl}/docs`,`${baseUrl}/sitemap.xml`,`${baseUrl}/robots.txt`,`${baseUrl}/api/v1/vi/home`],
-  drift:{missingOperations,extraOperations,shapeDrift},summary:{total:cases.length,passed,failed,responseSchemasValidated:validatedResponseCount,protectedOperations:cases.filter((item) => item.name.startsWith("rbac.unauthenticated.")).length},
+  drift:{missingOperations,extraOperations,shapeDrift},summary:{total:cases.length,passed,failed,responseSchemasValidated:validatedResponseCount,protectedOperations:cases.filter((item) => item.name.startsWith("rbac.unauthenticated.")).length,allowedRoleProbes:cases.filter((item) => item.name.startsWith("rbac.allowed.")).length,deniedRoleProbes:cases.filter((item) => item.name.startsWith("rbac.denied.")).length},
   cleanup:{identity:identityState,baselineCounts,database:cleanupState},
   cases,
 };
@@ -544,7 +593,7 @@ function escapeMarkdown(value) {
 function markdown(value) {
   const rows = value.cases.map((item) => `| ${item.passed ? "PASS" : "FAIL"} | ${escapeMarkdown(item.name)} | ${item.status ?? "—"} | ${escapeMarkdown(item.diff ?? item.sampleDiff ?? "")} |`).join("\n");
   const urls = value.liveUrls.map((url) => `  - ${url}`).join("\n");
-  return `# Contract report\n\n- Run: ${value.runId}\n- Generated: ${value.generatedAt}\n- Base URL: ${value.baseUrl}\n- Planning operations: ${value.planning.operationCount}\n- Runtime operations: ${value.runtime.operationCount}\n- Cases: ${value.summary.passed}/${value.summary.total} passed\n- Live response schemas validated: ${value.summary.responseSchemasValidated}\n- Protected operations probed without a session: ${value.summary.protectedOperations}\n- Drift: ${value.drift.missingOperations.length} missing, ${value.drift.extraOperations.length} extra, ${value.drift.shapeDrift.length} shape\n- Identity: ${value.cleanup.identity}\n- Cleanup: ${value.cleanup.database}\n- Live URLs:\n${urls}\n\n| Result | Case | HTTP | Diff |\n|---|---|---:|---|\n${rows}\n`;
+  return `# Contract report\n\n- Run: ${value.runId}\n- Generated: ${value.generatedAt}\n- Base URL: ${value.baseUrl}\n- Planning operations: ${value.planning.operationCount}\n- Runtime operations: ${value.runtime.operationCount}\n- Cases: ${value.summary.passed}/${value.summary.total} passed\n- Live response schemas validated: ${value.summary.responseSchemasValidated}\n- Protected operations probed without a session: ${value.summary.protectedOperations}\n- Allowed-role probes: ${value.summary.allowedRoleProbes}\n- Denied-role probes: ${value.summary.deniedRoleProbes}\n- Drift: ${value.drift.missingOperations.length} missing, ${value.drift.extraOperations.length} extra, ${value.drift.shapeDrift.length} shape\n- Identity: ${value.cleanup.identity}\n- Cleanup: ${value.cleanup.database}\n- Live URLs:\n${urls}\n\n| Result | Case | HTTP | Diff |\n|---|---|---:|---|\n${rows}\n`;
 }
 
 await mkdir(reportDirectory,{recursive:true});

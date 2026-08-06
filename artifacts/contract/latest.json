@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "runId": "07542013",
-  "generatedAt": "2026-08-06T17:38:54.593Z",
+  "runId": "62dd34d7",
+  "generatedAt": "2026-08-06T17:56:19.623Z",
   "baseUrl": "http://127.0.0.1:3000",
   "planning": {
     "operationCount": 37,
@@ -101,11 +101,13 @@
     "shapeDrift": []
   },
   "summary": {
-    "total": 114,
-    "passed": 114,
+    "total": 189,
+    "passed": 189,
     "failed": 0,
-    "responseSchemasValidated": 98,
-    "protectedOperations": 23
+    "responseSchemasValidated": 170,
+    "protectedOperations": 23,
+    "allowedRoleProbes": 57,
+    "deniedRoleProbes": 12
   },
   "cleanup": {
     "identity": "verified marker over en/ARTIFACT/bach-dang-wooden-stakes; baseline sha256=db3b3f875e281565fce6cd5ea5f716f4bf715fd02d829dfac0bb8a683cf621e2",
@@ -126,32 +128,32 @@
       "name": "preflight.database-identity",
       "passed": true,
       "status": 200,
-      "durationMs": 130,
+      "durationMs": 237,
       "url": "http://127.0.0.1:3000/api/v1/en/contents/ARTIFACT/bach-dang-wooden-stakes"
     },
     {
       "name": "plumbing.openapi",
       "passed": true,
       "status": 200,
-      "durationMs": 15
+      "durationMs": 16
     },
     {
       "name": "plumbing.health",
       "passed": true,
       "status": 200,
-      "durationMs": 99
+      "durationMs": 110
     },
     {
       "name": "plumbing.docs",
       "passed": true,
       "status": 200,
-      "durationMs": 20
+      "durationMs": 30
     },
     {
       "name": "plumbing.sitemap",
       "passed": true,
       "status": 200,
-      "durationMs": 8
+      "durationMs": 9
     },
     {
       "name": "plumbing.sitemap-empty-until-c006",
@@ -163,7 +165,7 @@
       "name": "plumbing.robots",
       "passed": true,
       "status": 200,
-      "durationMs": 8
+      "durationMs": 9
     },
     {
       "name": "plumbing.robots-policy",
@@ -175,19 +177,19 @@
       "name": "public.home",
       "passed": true,
       "status": 200,
-      "durationMs": 79
+      "durationMs": 53
     },
     {
       "name": "public.periods",
       "passed": true,
       "status": 200,
-      "durationMs": 25
+      "durationMs": 18
     },
     {
       "name": "public.timeline",
       "passed": true,
       "status": 200,
-      "durationMs": 27
+      "durationMs": 23
     },
     {
       "name": "public.contents.first",
@@ -199,7 +201,7 @@
       "name": "public.contents.deterministic",
       "passed": true,
       "status": 200,
-      "durationMs": 15
+      "durationMs": 14
     },
     {
       "name": "public.pagination.stable",
@@ -211,7 +213,7 @@
       "name": "public.contents.title-order",
       "passed": true,
       "status": 200,
-      "durationMs": 35
+      "durationMs": 36
     },
     {
       "name": "public.pagination.title-order",
@@ -223,19 +225,19 @@
       "name": "public.detail",
       "passed": true,
       "status": 200,
-      "durationMs": 71
+      "durationMs": 64
     },
     {
       "name": "public.search",
       "passed": true,
       "status": 200,
-      "durationMs": 33
+      "durationMs": 43
     },
     {
       "name": "public.taxonomies",
       "passed": true,
       "status": 200,
-      "durationMs": 26
+      "durationMs": 20
     },
     {
       "name": "public.alternate",
@@ -247,19 +249,19 @@
       "name": "error.400.invalid-query",
       "passed": true,
       "status": 400,
-      "durationMs": 8
+      "durationMs": 14
     },
     {
       "name": "error.404.not-found",
       "passed": true,
       "status": 404,
-      "durationMs": 16
+      "durationMs": 12
     },
     {
       "name": "error.404.unknown-locale",
       "passed": true,
       "status": 404,
-      "durationMs": 11
+      "durationMs": 10
     },
     {
       "name": "error.404.unknown-type",
@@ -271,31 +273,31 @@
       "name": "error.401.no-session",
       "passed": true,
       "status": 401,
-      "durationMs": 16
+      "durationMs": 13
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/auth/logout",
       "passed": true,
       "status": 401,
-      "durationMs": 65
+      "durationMs": 17
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/auth/me",
       "passed": true,
       "status": 401,
-      "durationMs": 12
+      "durationMs": 6
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/dashboard",
       "passed": true,
       "status": 401,
-      "durationMs": 14
+      "durationMs": 11
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/contents",
       "passed": true,
       "status": 401,
-      "durationMs": 13
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/contents",
@@ -307,19 +309,19 @@
       "name": "rbac.unauthenticated.get./api/v1/admin/contents/{id}",
       "passed": true,
       "status": 401,
-      "durationMs": 13
+      "durationMs": 11
     },
     {
       "name": "rbac.unauthenticated.patch./api/v1/admin/contents/{id}",
       "passed": true,
       "status": 401,
-      "durationMs": 14
+      "durationMs": 13
     },
     {
       "name": "rbac.unauthenticated.put./api/v1/admin/contents/{id}/translations/{locale}",
       "passed": true,
       "status": 401,
-      "durationMs": 14
+      "durationMs": 13
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/sources",
@@ -337,19 +339,19 @@
       "name": "rbac.unauthenticated.patch./api/v1/admin/sources/{id}",
       "passed": true,
       "status": 401,
-      "durationMs": 13
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/media",
       "passed": true,
       "status": 401,
-      "durationMs": 18
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/media",
       "passed": true,
       "status": 401,
-      "durationMs": 18
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.patch./api/v1/admin/media/{id}",
@@ -361,37 +363,37 @@
       "name": "rbac.unauthenticated.post./api/v1/admin/contents/{id}/submit-review",
       "passed": true,
       "status": 401,
-      "durationMs": 58
+      "durationMs": 13
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/contents/{id}/approve",
       "passed": true,
       "status": 401,
-      "durationMs": 12
+      "durationMs": 11
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/contents/{id}/reject",
       "passed": true,
       "status": 401,
-      "durationMs": 16
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/contents/{id}/publish",
       "passed": true,
       "status": 401,
-      "durationMs": 21
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/contents/{id}/archive",
       "passed": true,
       "status": 401,
-      "durationMs": 14
+      "durationMs": 13
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/users",
       "passed": true,
       "status": 401,
-      "durationMs": 10
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.post./api/v1/admin/users",
@@ -403,55 +405,55 @@
       "name": "rbac.unauthenticated.patch./api/v1/admin/users/{id}",
       "passed": true,
       "status": 401,
-      "durationMs": 13
+      "durationMs": 12
     },
     {
       "name": "rbac.unauthenticated.get./api/v1/admin/audit-logs",
       "passed": true,
       "status": 401,
-      "durationMs": 12
+      "durationMs": 11
     },
     {
       "name": "auth.rate-limit.failure-1",
       "passed": true,
       "status": 401,
-      "durationMs": 108
+      "durationMs": 79
     },
     {
       "name": "auth.rate-limit.failure-2",
       "passed": true,
       "status": 401,
-      "durationMs": 57
+      "durationMs": 50
     },
     {
       "name": "auth.rate-limit.failure-3",
       "passed": true,
       "status": 401,
-      "durationMs": 59
+      "durationMs": 50
     },
     {
       "name": "auth.rate-limit.failure-4",
       "passed": true,
       "status": 401,
-      "durationMs": 60
+      "durationMs": 50
     },
     {
       "name": "auth.rate-limit.failure-5",
       "passed": true,
       "status": 401,
-      "durationMs": 53
+      "durationMs": 49
     },
     {
       "name": "error.429.rate-limit",
       "passed": true,
       "status": 429,
-      "durationMs": 15
+      "durationMs": 13
     },
     {
       "name": "auth.login.admin",
       "passed": true,
       "status": 200,
-      "durationMs": 61
+      "durationMs": 58
     },
     {
       "name": "auth.cookie.admin",
@@ -463,7 +465,7 @@
       "name": "auth.login.editor",
       "passed": true,
       "status": 200,
-      "durationMs": 57
+      "durationMs": 50
     },
     {
       "name": "auth.cookie.editor",
@@ -475,7 +477,7 @@
       "name": "auth.login.reviewer",
       "passed": true,
       "status": 200,
-      "durationMs": 60
+      "durationMs": 49
     },
     {
       "name": "auth.cookie.reviewer",
@@ -484,46 +486,442 @@
       "durationMs": 0
     },
     {
-      "name": "auth.me",
+      "name": "rbac.allowed.get./api/v1/auth/me.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/auth/me.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/auth/me.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/dashboard.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 17
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/dashboard.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/dashboard.reviewer",
       "passed": true,
       "status": 200,
       "durationMs": 12
     },
     {
-      "name": "error.403.editor-users",
+      "name": "rbac.allowed.get./api/v1/admin/contents.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 17
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/contents.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/contents.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 8
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/contents/{id}.admin",
+      "passed": true,
+      "status": 404,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/contents/{id}.editor",
+      "passed": true,
+      "status": 404,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/contents/{id}.reviewer",
+      "passed": true,
+      "status": 404,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/contents/{id}.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/contents/{id}.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 11
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/contents/{id}.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 12
+    },
+    {
+      "name": "rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 12
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/sources.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 20
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/sources.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/sources.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/sources.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/sources.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/sources.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/sources/{id}.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/sources/{id}.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/sources/{id}.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/media.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 20
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/media.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/media.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/media.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 12
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/media.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/media.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 8
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/media/{id}.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 15
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/media/{id}.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/media/{id}.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 8
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.editor",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/approve.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/contents/{id}/approve.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/approve.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/reject.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/contents/{id}/reject.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/reject.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 10
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/publish.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/contents/{id}/publish.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/publish.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/archive.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/contents/{id}/archive.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/contents/{id}/archive.reviewer",
+      "passed": true,
+      "status": 400,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.get./api/v1/admin/users.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 15
+    },
+    {
+      "name": "rbac.denied.get./api/v1/admin/users.editor",
       "passed": true,
       "status": 403,
       "durationMs": 12
     },
     {
-      "name": "error.403.reviewer-users",
+      "name": "rbac.denied.get./api/v1/admin/users.reviewer",
+      "passed": true,
+      "status": 403,
+      "durationMs": 8
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/admin/users.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 13
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/users.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 12
+    },
+    {
+      "name": "rbac.denied.post./api/v1/admin/users.reviewer",
+      "passed": true,
+      "status": 403,
+      "durationMs": 9
+    },
+    {
+      "name": "rbac.allowed.patch./api/v1/admin/users/{id}.admin",
+      "passed": true,
+      "status": 400,
+      "durationMs": 17
+    },
+    {
+      "name": "rbac.denied.patch./api/v1/admin/users/{id}.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 14
+    },
+    {
+      "name": "rbac.denied.patch./api/v1/admin/users/{id}.reviewer",
       "passed": true,
       "status": 403,
       "durationMs": 10
     },
     {
+      "name": "rbac.allowed.get./api/v1/admin/audit-logs.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 28
+    },
+    {
+      "name": "rbac.denied.get./api/v1/admin/audit-logs.editor",
+      "passed": true,
+      "status": 403,
+      "durationMs": 12
+    },
+    {
+      "name": "rbac.denied.get./api/v1/admin/audit-logs.reviewer",
+      "passed": true,
+      "status": 403,
+      "durationMs": 8
+    },
+    {
+      "name": "auth.me",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "error.403.editor-users",
+      "passed": true,
+      "status": 403,
+      "durationMs": 9
+    },
+    {
+      "name": "error.403.reviewer-users",
+      "passed": true,
+      "status": 403,
+      "durationMs": 9
+    },
+    {
       "name": "error.403.editor-user-create",
       "passed": true,
       "status": 403,
-      "durationMs": 16
+      "durationMs": 9
     },
     {
       "name": "error.403.reviewer-user-create",
       "passed": true,
       "status": 403,
-      "durationMs": 17
+      "durationMs": 9
     },
     {
       "name": "error.403.editor-audit",
       "passed": true,
       "status": 403,
-      "durationMs": 15
+      "durationMs": 8
     },
     {
       "name": "error.403.reviewer-audit",
       "passed": true,
       "status": 403,
-      "durationMs": 15
+      "durationMs": 7
     },
     {
       "name": "error.403.invalid-origin",
@@ -535,73 +933,73 @@
       "name": "admin.dashboard",
       "passed": true,
       "status": 200,
-      "durationMs": 18
+      "durationMs": 10
     },
     {
       "name": "admin.contents.list",
       "passed": true,
       "status": 200,
-      "durationMs": 22
+      "durationMs": 10
     },
     {
       "name": "admin.sources.list",
       "passed": true,
       "status": 200,
-      "durationMs": 19
+      "durationMs": 9
     },
     {
       "name": "admin.media.list",
       "passed": true,
       "status": 200,
-      "durationMs": 18
+      "durationMs": 9
     },
     {
       "name": "admin.users.list",
       "passed": true,
       "status": 200,
-      "durationMs": 17
+      "durationMs": 9
     },
     {
       "name": "admin.audit.list",
       "passed": true,
       "status": 200,
-      "durationMs": 24
+      "durationMs": 9
     },
     {
       "name": "admin.source.create",
       "passed": true,
       "status": 201,
-      "durationMs": 21
+      "durationMs": 17
     },
     {
       "name": "admin.source.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 18
+      "durationMs": 17
     },
     {
       "name": "admin.media.create",
       "passed": true,
       "status": 201,
-      "durationMs": 23
+      "durationMs": 18
     },
     {
       "name": "admin.media.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 25
+      "durationMs": 20
     },
     {
       "name": "admin.user.create",
       "passed": true,
       "status": 201,
-      "durationMs": 65
+      "durationMs": 58
     },
     {
       "name": "auth.login.test-user",
       "passed": true,
       "status": 200,
-      "durationMs": 70
+      "durationMs": 51
     },
     {
       "name": "auth.cookie.test-user",
@@ -619,170 +1017,224 @@
       "name": "admin.user.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 58
+      "durationMs": 56
     },
     {
       "name": "error.403.editor-user-patch",
       "passed": true,
       "status": 403,
-      "durationMs": 15
+      "durationMs": 9
     },
     {
       "name": "error.403.reviewer-user-patch",
       "passed": true,
       "status": 403,
-      "durationMs": 11
+      "durationMs": 10
     },
     {
       "name": "admin.content.create",
       "passed": true,
       "status": 201,
-      "durationMs": 34
+      "durationMs": 35
     },
     {
       "name": "admin.content.get",
       "passed": true,
       "status": 200,
-      "durationMs": 45
+      "durationMs": 26
     },
     {
       "name": "admin.translation.put",
       "passed": true,
       "status": 200,
-      "durationMs": 20
+      "durationMs": 19
     },
     {
       "name": "error.409.stale-version",
       "passed": true,
       "status": 409,
-      "durationMs": 14
+      "durationMs": 13
     },
     {
       "name": "workflow.submit",
       "passed": true,
       "status": 200,
-      "durationMs": 25
+      "durationMs": 18
     },
     {
       "name": "workflow.reject-reason-required",
       "passed": true,
       "status": 400,
-      "durationMs": 16
+      "durationMs": 10
     },
     {
       "name": "workflow.editor-approve-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 13
+      "durationMs": 10
     },
     {
       "name": "workflow.editor-reject-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 18
+      "durationMs": 12
     },
     {
       "name": "workflow.editor-archive-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 23
+      "durationMs": 9
     },
     {
       "name": "workflow.reject",
       "passed": true,
       "status": 200,
-      "durationMs": 42
+      "durationMs": 17
     },
     {
       "name": "workflow.resubmit",
       "passed": true,
       "status": 200,
-      "durationMs": 17
+      "durationMs": 13
     },
     {
       "name": "workflow.approve",
       "passed": true,
       "status": 200,
-      "durationMs": 31
+      "durationMs": 18
     },
     {
       "name": "error.422.publish-source",
       "passed": true,
       "status": 422,
-      "durationMs": 18
+      "durationMs": 14
     },
     {
       "name": "admin.content.patch",
       "passed": true,
       "status": 200,
-      "durationMs": 37
+      "durationMs": 32
     },
     {
       "name": "workflow.editor-publish-forbidden",
       "passed": true,
       "status": 403,
-      "durationMs": 16
+      "durationMs": 9
     },
     {
       "name": "workflow.publish",
       "passed": true,
       "status": 200,
-      "durationMs": 27
+      "durationMs": 19
     },
     {
       "name": "public.created-detail",
       "passed": true,
       "status": 200,
-      "durationMs": 10
+      "durationMs": 8
     },
     {
       "name": "public.created-alternate",
       "passed": true,
       "status": 200,
-      "durationMs": 9
+      "durationMs": 8
     },
     {
       "name": "workflow.published-source-immutable",
       "passed": true,
       "status": 422,
-      "durationMs": 45
+      "durationMs": 14
     },
     {
       "name": "workflow.published-media-immutable",
       "passed": true,
       "status": 422,
-      "durationMs": 19
+      "durationMs": 14
     },
     {
       "name": "admin.audit.object",
       "passed": true,
       "status": 200,
-      "durationMs": 9
+      "durationMs": 12
     },
     {
       "name": "cleanup.content.archive",
       "passed": true,
       "status": 200,
-      "durationMs": 26
+      "durationMs": 20
     },
     {
       "name": "cleanup.public-hidden",
       "passed": true,
       "status": 404,
-      "durationMs": 11
+      "durationMs": 7
     },
     {
       "name": "diagnostic.intentional-openapi-mutation",
       "passed": true,
       "status": null,
       "durationMs": 0,
-      "sampleDiff": "post /api/v1/admin/sources request: property mismatch expected=[accessedAt,author,citationNote,publisher,title,url,year] OpenAPI=[accessedAt,citationNote,publisher,title,url,year]"
+      "sampleDiff": "schema SourceInput: property mismatch expected=[accessedAt,author,citationNote,publisher,title,url,year] OpenAPI=[accessedAt,citationNote,publisher,title,url,year]"
+    },
+    {
+      "name": "auth.login.admin-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 56
+    },
+    {
+      "name": "auth.cookie.admin-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/auth/logout.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "auth.login.editor-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 56
+    },
+    {
+      "name": "auth.cookie.editor-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/auth/logout.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "auth.login.reviewer-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 51
+    },
+    {
+      "name": "auth.cookie.reviewer-logout-probe",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "rbac.allowed.post./api/v1/auth/logout.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
     },
     {
       "name": "cleanup.database",
       "passed": true,
       "status": null,
-      "durationMs": 24
+      "durationMs": 14
     },
     {
       "name": "openapi.planning-coverage",

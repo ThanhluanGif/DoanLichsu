@@ -30,11 +30,35 @@ describe("planning to OpenAPI deep-shape audit",() => {
       if (query) query.required = false;
     }],
     ["cookie security drift",(document:MutableObject) => { delete objectAt(document,["paths","/api/v1/admin/dashboard","get"]).security; }],
+    ["optional cookie security alternative",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get"]).security = [{},{cookieAuth:[]}]; }],
+    ["cookie scope drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get"]).security = [{cookieAuth:["admin"]}]; }],
+    ["public security drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/home","get"]).security = [{otherAuth:[]}]; }],
+    ["public role metadata drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/home","get"])["x-allowed-roles"] = ["ADMIN"]; }],
     ["role metadata drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get"])["x-allowed-roles"] = ["ADMIN"]; }],
+    ["optional request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","requestBody"]).required = false; }],
+    ["planned success status drift",(document:MutableObject) => {
+      const responses = objectAt(document,["paths","/api/v1/admin/sources","post","responses"]);
+      responses["202"] = responses["201"];
+      delete responses["201"];
+    }],
+    ["missing planned error status",(document:MutableObject) => { delete objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses"])["404"]; }],
+    ["error response shape drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses","404","content","application/json"]).schema = {type:"string"}; }],
     ["response wrapper drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses","200","content","application/json","schema","properties","data"]).$ref = "#/components/schemas/AuthUser"; }],
   ])("reports %s with a useful path",(_name,change) => {
     const drift = mutate(change);
     expect(drift.length).toBeGreaterThan(0);
-    expect(drift.join("\n")).toMatch(/(?:request|response|query|roles|cookieAuth|shape)/);
+    expect(drift.join("\n")).toMatch(/(?:request|response|query|roles|security|cookieAuth|shape|status)/);
+  });
+
+  it("resolves a generic response type alias instead of accepting it as any",() => {
+    const aliased = contract.replace("interface DataResponse<T> { data: T }","type DataResponse<T> = { data: T };");
+    const document = structuredClone(openApiDocument) as unknown as MutableObject;
+    objectAt(document,["paths","/api/v1/admin/dashboard","get","responses","200","content","application/json","schema","properties"]).data = {type:"string"};
+    expect(contractShapeDrift(aliased,document).join("\n")).toContain("dashboard response.data");
+  });
+
+  it("fails closed on an unresolved planning type",() => {
+    const unresolved = contract.replace("interface AuthUser { id: string; email: string; displayName: string; role: Role }","interface AuthUser { id: string; email: string; displayName: string; role: MissingRole }");
+    expect(contractShapeDrift(unresolved,openApiDocument).join("\n")).toContain("unresolved");
   });
 });

@@ -25,6 +25,7 @@ function contractModel(markdown) {
   const code = /## Shared shapes[\s\S]*?```ts\s*\n([\s\S]*?)```/.exec(markdown)?.[1];
   if (!code) throw new Error("planning contract has no Shared shapes TypeScript block");
   const source = ts.createSourceFile("planning-contract.ts", code, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+  if (source.parseDiagnostics.length) throw new Error(`planning contract TypeScript does not parse: ${source.parseDiagnostics.map((diagnostic) => diagnostic.messageText).join("; ")}`);
   const interfaces = new Map();
   const aliases = new Map();
   for (const statement of source.statements) {
@@ -96,7 +97,15 @@ function referenceDescriptor(name, typeArguments, model, context) {
     if (keys.kind === "string" && keys.values) return object(Object.fromEntries(keys.values.map((key) => [key,value])),keys.values,"none");
     return object({},[],value);
   }
-  if (model.aliases.has(name)) return descriptorFromType(model.aliases.get(name).type,model,{ ...context,stack:new Set(context.stack).add(name) });
+  if (model.aliases.has(name)) {
+    if (context.stack.has(name)) return { kind:"ref",name };
+    const declaration = model.aliases.get(name);
+    const substitutions = new Map(context.substitutions ?? []);
+    (declaration.typeParameters ?? []).forEach((parameter,index) => {
+      if (typeArguments[index]) substitutions.set(parameter.name.text,descriptorFromType(typeArguments[index],model,context));
+    });
+    return descriptorFromType(declaration.type,model,{ stack:new Set(context.stack).add(name),substitutions });
+  }
   if (model.interfaces.has(name)) {
     if (context.stack.has(name)) return { kind:"ref",name };
     const declaration = model.interfaces.get(name);
@@ -106,7 +115,7 @@ function referenceDescriptor(name, typeArguments, model, context) {
     });
     return descriptorFromInterface(declaration,model,{ stack:new Set(context.stack).add(name),substitutions });
   }
-  return { kind:"any" };
+  return { kind:"unresolved",name };
 }
 
 function descriptorFromInterface(declaration, model, context) {
@@ -138,11 +147,12 @@ function descriptorFromType(node, model, context = { stack:new Set(),substitutio
   if (node.kind === ts.SyntaxKind.BooleanKeyword) return scalar("boolean");
   if (node.kind === ts.SyntaxKind.NullKeyword) return { kind:"null" };
   if (node.kind === ts.SyntaxKind.UnknownKeyword || node.kind === ts.SyntaxKind.AnyKeyword) return { kind:"any" };
-  return { kind:"any" };
+  return { kind:"unresolved",name:node.getText() };
 }
 
 function descriptorForExpression(expression, model) {
   const source = ts.createSourceFile("inline-contract.ts", `type ContractInline = ${expression};`,ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
+  if (source.parseDiagnostics.length) throw new Error(`cannot parse contract type expression ${expression}`);
   const alias = source.statements.find(ts.isTypeAliasDeclaration);
   return alias ? descriptorFromType(alias.type,model) : { kind:"any" };
 }
@@ -224,13 +234,20 @@ export function contractShapeDrift(markdown, document) {
   for (const [schemaName,propertyName] of [["LoginInput","password"],["UserCreateInput","temporaryPassword"],["UserUpdateInput","resetPassword"]]) {
     if (document.components?.schemas?.[schemaName]?.properties?.[propertyName]?.writeOnly !== true) drift.push(`schema ${schemaName}.${propertyName} must be writeOnly`);
   }
+  if (document.security !== undefined && JSON.stringify(document.security) !== "[]") drift.push("root OpenAPI security must be absent or empty; access is operation-specific");
+  for (const [name,declaration] of model.interfaces) {
+    const schema = document.components?.schemas?.[name];
+    if (schema) compare(`schema ${name}`,descriptorFromInterface(declaration,model,{stack:new Set([name]),substitutions:new Map()}),schema,document,drift);
+  }
   for (const row of rows) {
     const operation = document.paths?.[row.path]?.[row.method];
     if (!operation) continue;
     const roles = expectedRoles(row.access);
-    const secured = (operation.security ?? []).some((requirement) => Object.hasOwn(requirement,"cookieAuth"));
-    if (roles.length === 0 && secured) drift.push(`${row.method} ${row.path}: public planning row unexpectedly requires cookieAuth`);
-    if (roles.length > 0 && !secured) drift.push(`${row.method} ${row.path}: protected planning row missing cookieAuth`);
+    const security = operation.security;
+    const exactCookieSecurity = Array.isArray(security) && security.length === 1 && security[0] && Object.keys(security[0]).length === 1 && Array.isArray(security[0].cookieAuth) && security[0].cookieAuth.length === 0;
+    if (roles.length === 0 && security !== undefined) drift.push(`${row.method} ${row.path}: public planning row must not declare security`);
+    if (roles.length === 0 && operation["x-allowed-roles"] !== undefined) drift.push(`${row.method} ${row.path}: public planning row must not declare x-allowed-roles`);
+    if (roles.length > 0 && !exactCookieSecurity) drift.push(`${row.method} ${row.path}: protected planning row security must be exactly [{cookieAuth:[]}]`);
     const actualRoles = [...(operation["x-allowed-roles"] ?? [])].sort();
     if (roles.length > 0 && JSON.stringify(roles) !== JSON.stringify(actualRoles)) drift.push(`${row.method} ${row.path}: roles expected=[${roles.join(",")}] OpenAPI=[${actualRoles.join(",")}]`);
 
@@ -238,12 +255,13 @@ export function contractShapeDrift(markdown, document) {
     const actualPath = (operation.parameters ?? []).filter((parameter) => parameter.in === "path");
     const actualPathNames = actualPath.map((parameter) => parameter.name).sort();
     if (JSON.stringify(pathNames) !== JSON.stringify(actualPathNames)) drift.push(`${row.method} ${row.path}: path parameters expected=[${pathNames.join(",")}] OpenAPI=[${actualPathNames.join(",")}]`);
-    for (const name of pathNames) {
-      const parameter = actualPath.find((candidate) => candidate.name === name);
-      if (!parameter) continue;
-      if (parameter.required !== true) drift.push(`${row.method} ${row.path}: path parameter ${name} must be required`);
-      const type = name === "locale" ? "Locale" : name === "type" ? "ContentType" : "string";
-      compare(`${row.method} ${row.path} path.${name}`,descriptorForExpression(type,model),parameter.schema,document,drift);
+    const pathToken = /path\s+`([^`]+)`/i.exec(row.input)?.[1];
+    if (pathNames.length && !pathToken) drift.push(`${row.method} ${row.path}: planning row has no typed path shape`);
+    if (pathToken) {
+      const expected = descriptorForExpression(pathToken,model);
+      const actual = object(Object.fromEntries(actualPath.map((parameter) => [parameter.name,normalizeOpenApi(parameter.schema ?? {},document)])),actualPath.filter((parameter) => parameter.required).map((parameter) => parameter.name),"none");
+      const difference = firstDifference(expected,actual,`${row.method} ${row.path} path`);
+      if (difference) drift.push(difference);
     }
 
     const queryToken = /query\s+`([^`]+)`/i.exec(row.input)?.[1];
@@ -260,15 +278,25 @@ export function contractShapeDrift(markdown, document) {
     if (["post","put","patch","delete"].includes(row.method)) {
       const bodyToken = [...row.input.matchAll(/`([^`]+)`/g)].map((match) => match[1]).find((token) => model.interfaces.has(token) || model.aliases.has(token));
       const actualBody = operation.requestBody?.content?.["application/json"]?.schema;
-      if (bodyToken) compare(`${row.method} ${row.path} request`,descriptorForExpression(bodyToken,model),actualBody,document,drift);
+      if (bodyToken) {
+        if (operation.requestBody?.required !== true) drift.push(`${row.method} ${row.path}: JSON requestBody must be required`);
+        compare(`${row.method} ${row.path} request`,descriptorForExpression(bodyToken,model),actualBody,document,drift);
+      }
       else if (actualBody) drift.push(`${row.method} ${row.path}: OpenAPI has an undocumented JSON request body`);
     }
 
     const outputToken = expressionToken(row.output);
-    const successStatus = Object.keys(operation.responses ?? {}).filter((value) => /^2\d\d$/.test(value)).sort()[0];
-    const success = successStatus ? operation.responses[successStatus]?.content?.["application/json"]?.schema : null;
+    const successStatus = /\bstatus\s+(2\d\d)\b/i.exec(row.output)?.[1] ?? "200";
+    const success = operation.responses?.[successStatus]?.content?.["application/json"]?.schema;
+    if (!operation.responses?.[successStatus]) drift.push(`${row.method} ${row.path}: missing planned success response ${successStatus}`);
     if (outputToken && (model.interfaces.has(outputToken) || /^(?:DataResponse|ListResponse)</.test(outputToken))) {
       compare(`${row.method} ${row.path} response`,descriptorForExpression(outputToken,model),success,document,drift);
+    }
+    const errorStatuses = [...new Set([...row.output.matchAll(/\b(4\d\d)\b/g)].map((match) => match[1]))];
+    for (const status of errorStatuses) {
+      const errorSchema = operation.responses?.[status]?.content?.["application/json"]?.schema;
+      if (!operation.responses?.[status]) drift.push(`${row.method} ${row.path}: missing planned ApiError response ${status}`);
+      else compare(`${row.method} ${row.path} response.${status}`,descriptorForExpression("ApiError",model),errorSchema,document,drift);
     }
   }
   return drift;

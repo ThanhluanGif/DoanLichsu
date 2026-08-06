@@ -1,13 +1,15 @@
 # Contract report
 
-- Run: 07542013
-- Generated: 2026-08-06T17:38:54.593Z
+- Run: 62dd34d7
+- Generated: 2026-08-06T17:56:19.623Z
 - Base URL: http://127.0.0.1:3000
 - Planning operations: 37
 - Runtime operations: 37
-- Cases: 114/114 passed
-- Live response schemas validated: 98
+- Cases: 189/189 passed
+- Live response schemas validated: 170
 - Protected operations probed without a session: 23
+- Allowed-role probes: 57
+- Denied-role probes: 12
 - Drift: 0 missing, 0 extra, 0 shape
 - Identity: verified marker over en/ARTIFACT/bach-dang-wooden-stakes; baseline sha256=db3b3f875e281565fce6cd5ea5f716f4bf715fd02d829dfac0bb8a683cf621e2
 - Cleanup: verified exact run-owned teardown and baseline sha256=db3b3f875e281565fce6cd5ea5f716f4bf715fd02d829dfac0bb8a683cf621e2: contentNodes=50, translations=100, sources=50, media=10, users=3, auditLogs=0, rateLimits=0, schemaVersion=3
@@ -81,6 +83,72 @@
 | PASS | auth.cookie.editor | 200 |  |
 | PASS | auth.login.reviewer | 200 |  |
 | PASS | auth.cookie.reviewer | 200 |  |
+| PASS | rbac.allowed.get./api/v1/auth/me.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/auth/me.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/auth/me.reviewer | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/dashboard.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/dashboard.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/dashboard.reviewer | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents.reviewer | 200 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents.admin | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents.editor | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents.reviewer | 400 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.admin | 404 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.editor | 404 |  |
+| PASS | rbac.allowed.get./api/v1/admin/contents/{id}.reviewer | 404 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.admin | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.editor | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/contents/{id}.reviewer | 400 |  |
+| PASS | rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.admin | 400 |  |
+| PASS | rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.editor | 400 |  |
+| PASS | rbac.allowed.put./api/v1/admin/contents/{id}/translations/{locale}.reviewer | 400 |  |
+| PASS | rbac.allowed.get./api/v1/admin/sources.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/sources.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/sources.reviewer | 200 |  |
+| PASS | rbac.allowed.post./api/v1/admin/sources.admin | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/sources.editor | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/sources.reviewer | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/sources/{id}.admin | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/sources/{id}.editor | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/sources/{id}.reviewer | 400 |  |
+| PASS | rbac.allowed.get./api/v1/admin/media.admin | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/media.editor | 200 |  |
+| PASS | rbac.allowed.get./api/v1/admin/media.reviewer | 200 |  |
+| PASS | rbac.allowed.post./api/v1/admin/media.admin | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/media.editor | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/media.reviewer | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/media/{id}.admin | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/media/{id}.editor | 400 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/media/{id}.reviewer | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.admin | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.editor | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/submit-review.reviewer | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/approve.admin | 400 |  |
+| PASS | rbac.denied.post./api/v1/admin/contents/{id}/approve.editor | 403 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/approve.reviewer | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/reject.admin | 400 |  |
+| PASS | rbac.denied.post./api/v1/admin/contents/{id}/reject.editor | 403 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/reject.reviewer | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/publish.admin | 400 |  |
+| PASS | rbac.denied.post./api/v1/admin/contents/{id}/publish.editor | 403 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/publish.reviewer | 400 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/archive.admin | 400 |  |
+| PASS | rbac.denied.post./api/v1/admin/contents/{id}/archive.editor | 403 |  |
+| PASS | rbac.allowed.post./api/v1/admin/contents/{id}/archive.reviewer | 400 |  |
+| PASS | rbac.allowed.get./api/v1/admin/users.admin | 200 |  |
+| PASS | rbac.denied.get./api/v1/admin/users.editor | 403 |  |
+| PASS | rbac.denied.get./api/v1/admin/users.reviewer | 403 |  |
+| PASS | rbac.allowed.post./api/v1/admin/users.admin | 400 |  |
+| PASS | rbac.denied.post./api/v1/admin/users.editor | 403 |  |
+| PASS | rbac.denied.post./api/v1/admin/users.reviewer | 403 |  |
+| PASS | rbac.allowed.patch./api/v1/admin/users/{id}.admin | 400 |  |
+| PASS | rbac.denied.patch./api/v1/admin/users/{id}.editor | 403 |  |
+| PASS | rbac.denied.patch./api/v1/admin/users/{id}.reviewer | 403 |  |
+| PASS | rbac.allowed.get./api/v1/admin/audit-logs.admin | 200 |  |
+| PASS | rbac.denied.get./api/v1/admin/audit-logs.editor | 403 |  |
+| PASS | rbac.denied.get./api/v1/admin/audit-logs.reviewer | 403 |  |
 | PASS | auth.me | 200 |  |
 | PASS | error.403.editor-users | 403 |  |
 | PASS | error.403.reviewer-users | 403 |  |
@@ -129,7 +197,16 @@
 | PASS | admin.audit.object | 200 |  |
 | PASS | cleanup.content.archive | 200 |  |
 | PASS | cleanup.public-hidden | 404 |  |
-| PASS | diagnostic.intentional-openapi-mutation | — | post /api/v1/admin/sources request: property mismatch expected=[accessedAt,author,citationNote,publisher,title,url,year] OpenAPI=[accessedAt,citationNote,publisher,title,url,year] |
+| PASS | diagnostic.intentional-openapi-mutation | — | schema SourceInput: property mismatch expected=[accessedAt,author,citationNote,publisher,title,url,year] OpenAPI=[accessedAt,citationNote,publisher,title,url,year] |
+| PASS | auth.login.admin-logout-probe | 200 |  |
+| PASS | auth.cookie.admin-logout-probe | 200 |  |
+| PASS | rbac.allowed.post./api/v1/auth/logout.admin | 200 |  |
+| PASS | auth.login.editor-logout-probe | 200 |  |
+| PASS | auth.cookie.editor-logout-probe | 200 |  |
+| PASS | rbac.allowed.post./api/v1/auth/logout.editor | 200 |  |
+| PASS | auth.login.reviewer-logout-probe | 200 |  |
+| PASS | auth.cookie.reviewer-logout-probe | 200 |  |
+| PASS | rbac.allowed.post./api/v1/auth/logout.reviewer | 200 |  |
 | PASS | cleanup.database | — |  |
 | PASS | openapi.planning-coverage | 200 |  |
 | PASS | openapi.no-extra-operations | 200 |  |
