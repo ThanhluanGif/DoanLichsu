@@ -40,7 +40,6 @@ function openDatabase(databasePath) {
 
   const database = new Database(resolvedPath);
   database.pragma("busy_timeout = 5000");
-  database.pragma("journal_mode = WAL");
   database.pragma("foreign_keys = ON");
   return database;
 }
@@ -134,6 +133,7 @@ export function migrateDatabase(
     });
 
     const result = applyPending.immediate();
+    database.pragma("journal_mode = WAL");
     return { databasePath: resolve(databasePath), ...result };
   } finally {
     database.close();
