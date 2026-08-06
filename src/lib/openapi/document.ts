@@ -47,6 +47,30 @@ export const openApiDocument = {
         },
       },
     },
+    "/openapi.json": {
+      get: {
+        operationId:"getOpenApi",summary:"Đọc đặc tả OpenAPI",description:"Trả planning contract ở dạng OpenAPI 3.1.",tags:["Hạ tầng"],
+        responses:{"200":{description:"Đặc tả OpenAPI.",content:{"application/json":{schema:{type:"object"}}}}},
+      },
+    },
+    "/docs": {
+      get: {
+        operationId:"getApiDocs",summary:"Đọc tài liệu API",description:"Trả tài liệu HTML sinh từ OpenAPI.",tags:["Hạ tầng"],
+        responses:{"200":{description:"Tài liệu API.",content:{"text/html":{schema:{type:"string"}}}}},
+      },
+    },
+    "/sitemap.xml": {
+      get: {
+        operationId:"getSitemap",summary:"Đọc sitemap",description:"Trả URL VI/EN đã xuất bản.",tags:["SEO"],
+        responses:{"200":{description:"Sitemap XML.",content:{"application/xml":{schema:{type:"string"}}}}},
+      },
+    },
+    "/robots.txt": {
+      get: {
+        operationId:"getRobots",summary:"Đọc robots",description:"Cho phép public routes và chặn admin.",tags:["SEO"],
+        responses:{"200":{description:"Robots text.",content:{"text/plain":{schema:{type:"string"}}}}},
+      },
+    },
     ...publicOpenApiPaths,
     ...editorialOpenApiPaths,
   },

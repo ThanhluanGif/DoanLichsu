@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:contract": "node scripts/contract-check.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "tsx scripts/seed.ts",
     "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""

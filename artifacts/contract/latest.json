@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-06T13:44:50.064Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "planning": {
+    "operationCount": 37,
+    "operations": [
+      "get /api/v1/admin/audit-logs",
+      "get /api/v1/admin/contents",
+      "get /api/v1/admin/contents/{id}",
+      "get /api/v1/admin/dashboard",
+      "get /api/v1/admin/media",
+      "get /api/v1/admin/sources",
+      "get /api/v1/admin/users",
+      "get /api/v1/auth/me",
+      "get /api/v1/contents/{id}/alternate",
+      "get /api/v1/{locale}/contents",
+      "get /api/v1/{locale}/contents/{type}/{slug}",
+      "get /api/v1/{locale}/home",
+      "get /api/v1/{locale}/periods",
+      "get /api/v1/{locale}/search",
+      "get /api/v1/{locale}/taxonomies",
+      "get /api/v1/{locale}/timeline",
+      "get /docs",
+      "get /healthz",
+      "get /openapi.json",
+      "get /robots.txt",
+      "get /sitemap.xml",
+      "patch /api/v1/admin/contents/{id}",
+      "patch /api/v1/admin/media/{id}",
+      "patch /api/v1/admin/sources/{id}",
+      "patch /api/v1/admin/users/{id}",
+      "post /api/v1/admin/contents",
+      "post /api/v1/admin/contents/{id}/approve",
+      "post /api/v1/admin/contents/{id}/archive",
+      "post /api/v1/admin/contents/{id}/publish",
+      "post /api/v1/admin/contents/{id}/reject",
+      "post /api/v1/admin/contents/{id}/submit-review",
+      "post /api/v1/admin/media",
+      "post /api/v1/admin/sources",
+      "post /api/v1/admin/users",
+      "post /api/v1/auth/login",
+      "post /api/v1/auth/logout",
+      "put /api/v1/admin/contents/{id}/translations/{locale}"
+    ]
+  },
+  "runtime": {
+    "operationCount": 37,
+    "operations": [
+      "get /api/v1/admin/audit-logs",
+      "get /api/v1/admin/contents",
+      "get /api/v1/admin/contents/{id}",
+      "get /api/v1/admin/dashboard",
+      "get /api/v1/admin/media",
+      "get /api/v1/admin/sources",
+      "get /api/v1/admin/users",
+      "get /api/v1/auth/me",
+      "get /api/v1/contents/{id}/alternate",
+      "get /api/v1/{locale}/contents",
+      "get /api/v1/{locale}/contents/{type}/{slug}",
+      "get /api/v1/{locale}/home",
+      "get /api/v1/{locale}/periods",
+      "get /api/v1/{locale}/search",
+      "get /api/v1/{locale}/taxonomies",
+      "get /api/v1/{locale}/timeline",
+      "get /docs",
+      "get /healthz",
+      "get /openapi.json",
+      "get /robots.txt",
+      "get /sitemap.xml",
+      "patch /api/v1/admin/contents/{id}",
+      "patch /api/v1/admin/media/{id}",
+      "patch /api/v1/admin/sources/{id}",
+      "patch /api/v1/admin/users/{id}",
+      "post /api/v1/admin/contents",
+      "post /api/v1/admin/contents/{id}/approve",
+      "post /api/v1/admin/contents/{id}/archive",
+      "post /api/v1/admin/contents/{id}/publish",
+      "post /api/v1/admin/contents/{id}/reject",
+      "post /api/v1/admin/contents/{id}/submit-review",
+      "post /api/v1/admin/media",
+      "post /api/v1/admin/sources",
+      "post /api/v1/admin/users",
+      "post /api/v1/auth/login",
+      "post /api/v1/auth/logout",
+      "put /api/v1/admin/contents/{id}/translations/{locale}"
+    ]
+  },
+  "drift": {
+    "missingOperations": [],
+    "extraOperations": []
+  },
+  "summary": {
+    "total": 72,
+    "passed": 72,
+    "failed": 0
+  },
+  "cleanup": {
+    "content": "archived",
+    "testUser": "disabled",
+    "databaseTeardown": "caller-owned dedicated database"
+  },
+  "cases": [
+    {
+      "name": "plumbing.openapi",
+      "passed": true,
+      "status": 200,
+      "durationMs": 96
+    },
+    {
+      "name": "plumbing.health",
+      "passed": true,
+      "status": 200,
+      "durationMs": 574
+    },
+    {
+      "name": "plumbing.docs",
+      "passed": true,
+      "status": 200,
+      "durationMs": 31
+    },
+    {
+      "name": "plumbing.sitemap",
+      "passed": true,
+      "status": 200,
+      "durationMs": 15
+    },
+    {
+      "name": "plumbing.robots",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "public.home",
+      "passed": true,
+      "status": 200,
+      "durationMs": 40
+    },
+    {
+      "name": "public.periods",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "public.timeline",
+      "passed": true,
+      "status": 200,
+      "durationMs": 16
+    },
+    {
+      "name": "public.contents.first",
+      "passed": true,
+      "status": 200,
+      "durationMs": 18
+    },
+    {
+      "name": "public.contents.deterministic",
+      "passed": true,
+      "status": 200,
+      "durationMs": 14
+    },
+    {
+      "name": "public.pagination.stable",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "public.detail",
+      "passed": true,
+      "status": 200,
+      "durationMs": 14
+    },
+    {
+      "name": "public.search",
+      "passed": true,
+      "status": 200,
+      "durationMs": 12
+    },
+    {
+      "name": "public.taxonomies",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "public.alternate",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "error.400.invalid-query",
+      "passed": true,
+      "status": 400,
+      "durationMs": 5
+    },
+    {
+      "name": "error.404.not-found",
+      "passed": true,
+      "status": 404,
+      "durationMs": 6
+    },
+    {
+      "name": "error.401.no-session",
+      "passed": true,
+      "status": 401,
+      "durationMs": 10
+    },
+    {
+      "name": "auth.rate-limit.failure-1",
+      "passed": true,
+      "status": 401,
+      "durationMs": 110
+    },
+    {
+      "name": "auth.rate-limit.failure-2",
+      "passed": true,
+      "status": 401,
+      "durationMs": 39
+    },
+    {
+      "name": "auth.rate-limit.failure-3",
+      "passed": true,
+      "status": 401,
+      "durationMs": 58
+    },
+    {
+      "name": "auth.rate-limit.failure-4",
+      "passed": true,
+      "status": 401,
+      "durationMs": 41
+    },
+    {
+      "name": "auth.rate-limit.failure-5",
+      "passed": true,
+      "status": 401,
+      "durationMs": 39
+    },
+    {
+      "name": "error.429.rate-limit",
+      "passed": true,
+      "status": 429,
+      "durationMs": 8
+    },
+    {
+      "name": "auth.login.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 42
+    },
+    {
+      "name": "auth.cookie.admin",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "auth.login.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 33
+    },
+    {
+      "name": "auth.cookie.editor",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "auth.login.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 34
+    },
+    {
+      "name": "auth.cookie.reviewer",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "auth.me",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "error.403.editor-users",
+      "passed": true,
+      "status": 403,
+      "durationMs": 11
+    },
+    {
+      "name": "error.403.reviewer-users",
+      "passed": true,
+      "status": 403,
+      "durationMs": 7
+    },
+    {
+      "name": "error.403.invalid-origin",
+      "passed": true,
+      "status": 403,
+      "durationMs": 7
+    },
+    {
+      "name": "admin.dashboard",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "admin.contents.list",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "admin.sources.list",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "admin.media.list",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "admin.users.list",
+      "passed": true,
+      "status": 200,
+      "durationMs": 8
+    },
+    {
+      "name": "admin.audit.list",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "admin.source.create",
+      "passed": true,
+      "status": 201,
+      "durationMs": 12
+    },
+    {
+      "name": "admin.source.patch",
+      "passed": true,
+      "status": 200,
+      "durationMs": 12
+    },
+    {
+      "name": "admin.media.create",
+      "passed": true,
+      "status": 201,
+      "durationMs": 9
+    },
+    {
+      "name": "admin.media.patch",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "admin.user.create",
+      "passed": true,
+      "status": 201,
+      "durationMs": 41
+    },
+    {
+      "name": "admin.user.patch",
+      "passed": true,
+      "status": 200,
+      "durationMs": 12
+    },
+    {
+      "name": "admin.user.last-admin",
+      "passed": true,
+      "status": 422,
+      "durationMs": 7
+    },
+    {
+      "name": "admin.content.create",
+      "passed": true,
+      "status": 201,
+      "durationMs": 12
+    },
+    {
+      "name": "admin.content.get",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "admin.translation.put",
+      "passed": true,
+      "status": 200,
+      "durationMs": 14
+    },
+    {
+      "name": "error.409.stale-version",
+      "passed": true,
+      "status": 409,
+      "durationMs": 8
+    },
+    {
+      "name": "workflow.submit",
+      "passed": true,
+      "status": 200,
+      "durationMs": 13
+    },
+    {
+      "name": "workflow.reject-reason-required",
+      "passed": true,
+      "status": 400,
+      "durationMs": 11
+    },
+    {
+      "name": "workflow.editor-approve-forbidden",
+      "passed": true,
+      "status": 403,
+      "durationMs": 10
+    },
+    {
+      "name": "workflow.reject",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "workflow.resubmit",
+      "passed": true,
+      "status": 200,
+      "durationMs": 9
+    },
+    {
+      "name": "workflow.approve",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "error.422.publish-source",
+      "passed": true,
+      "status": 422,
+      "durationMs": 11
+    },
+    {
+      "name": "admin.content.patch",
+      "passed": true,
+      "status": 200,
+      "durationMs": 12
+    },
+    {
+      "name": "workflow.editor-publish-forbidden",
+      "passed": true,
+      "status": 403,
+      "durationMs": 7
+    },
+    {
+      "name": "workflow.publish",
+      "passed": true,
+      "status": 200,
+      "durationMs": 10
+    },
+    {
+      "name": "public.created-detail",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "public.created-alternate",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "workflow.published-source-immutable",
+      "passed": true,
+      "status": 422,
+      "durationMs": 9
+    },
+    {
+      "name": "workflow.published-media-immutable",
+      "passed": true,
+      "status": 422,
+      "durationMs": 12
+    },
+    {
+      "name": "admin.audit.object",
+      "passed": true,
+      "status": 200,
+      "durationMs": 6
+    },
+    {
+      "name": "cleanup.content.archive",
+      "passed": true,
+      "status": 200,
+      "durationMs": 12
+    },
+    {
+      "name": "cleanup.public-hidden",
+      "passed": true,
+      "status": 404,
+      "durationMs": 5
+    },
+    {
+      "name": "diagnostic.shape-diff",
+      "passed": true,
+      "status": null,
+      "durationMs": 0,
+      "sampleDiff": "missing required field(s): data.id, data.status"
+    },
+    {
+      "name": "auth.logout",
+      "passed": true,
+      "status": 200,
+      "durationMs": 11
+    },
+    {
+      "name": "openapi.planning-coverage",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    },
+    {
+      "name": "openapi.no-extra-operations",
+      "passed": true,
+      "status": 200,
+      "durationMs": 0
+    }
+  ]
+}
