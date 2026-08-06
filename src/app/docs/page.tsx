@@ -7,12 +7,42 @@ export const metadata: Metadata = {
   description: "Tài liệu hợp đồng HTTP của Quân Sử Việt.",
 };
 
+type OperationDoc = {
+  summary: string;
+  description: string;
+  parameters?: ReadonlyArray<{
+    name: string;
+    in: string;
+    required?: boolean;
+    schema?: { type?: string; enum?: readonly string[] };
+  }>;
+  responses: Record<string, unknown>;
+};
+
+function successSchema(operation: OperationDoc): string {
+  const response = operation.responses["200"] as {
+    content?: { "application/json"?: { schema?: {
+      $ref?: string;
+      properties?: { data?: { $ref?: string; items?: { $ref?: string } } };
+    } } };
+  } | undefined;
+  const schema = response?.content?.["application/json"]?.schema;
+  const direct = schema?.$ref?.split("/").at(-1);
+  const data = schema?.properties?.data;
+  const dataName = data?.$ref?.split("/").at(-1);
+  const itemName = data?.items?.$ref?.split("/").at(-1);
+  if (direct) return direct;
+  if (dataName) return `DataResponse<${dataName}>`;
+  if (itemName) return `ListResponse<${itemName}>`;
+  return "JSON theo schema OpenAPI";
+}
+
 export default function ApiDocsPage() {
   const operations = Object.entries(openApiDocument.paths).flatMap(([path, pathItem]) =>
     Object.entries(pathItem).map(([method, operation]) => ({
       path,
       method: method.toUpperCase(),
-      operation,
+      operation: operation as OperationDoc,
     })),
   );
 
@@ -51,11 +81,17 @@ export default function ApiDocsPage() {
             <dl>
               <div>
                 <dt>Phản hồi thành công</dt>
-                <dd><code>200 · HealthResponse</code></dd>
+                <dd><code>200 · {successSchema(operation)}</code></dd>
               </div>
               <div>
-                <dt>Định dạng</dt>
-                <dd><code>application/json</code></dd>
+                <dt>Tham số</dt>
+                <dd>
+                  <code>
+                    {operation.parameters?.map((parameter) =>
+                      `${parameter.in}:${parameter.name}${parameter.required ? "*" : ""}`,
+                    ).join(", ") || "none"}
+                  </code>
+                </dd>
               </div>
             </dl>
           </article>

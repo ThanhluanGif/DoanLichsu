@@ -1,4 +1,5 @@
 import packageJson from "../../../package.json";
+import { publicOpenApiPaths, publicOpenApiSchemas } from "./public-catalog";
 
 const healthResponseSchema = {
   type: "object",
@@ -45,10 +46,12 @@ export const openApiDocument = {
         },
       },
     },
+    ...publicOpenApiPaths,
   },
   components: {
     schemas: {
       HealthResponse: healthResponseSchema,
+      ...publicOpenApiSchemas,
     },
   },
 } as const;
