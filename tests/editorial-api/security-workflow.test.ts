@@ -22,6 +22,7 @@ import { POST as rejectRoute } from "@/app/api/v1/admin/contents/[id]/reject/rou
 import { POST as publishRoute } from "@/app/api/v1/admin/contents/[id]/publish/route";
 import { POST as archiveRoute } from "@/app/api/v1/admin/contents/[id]/archive/route";
 import { GET as auditRoute } from "@/app/api/v1/admin/audit-logs/route";
+import { GET as dashboardRoute } from "@/app/api/v1/admin/dashboard/route";
 import { openApiDocument } from "@/lib/openapi/document";
 
 const origin = "http://editorial.test";
@@ -121,6 +122,12 @@ describe("security boundary", () => {
       email: "parallel@example.test", password: "Wrong-Password-2026!",
     }))));
     expect(concurrent.map((response) => response.status).sort()).toEqual([401,401,401,401,401,429,429,429,429,429]);
+    const noGlobalBucket = new Database(databasePath, { readonly: true });
+    expect(noGlobalBucket.prepare("SELECT COUNT(*) AS count FROM login_rate_limits WHERE bucket LIKE 'ip:%'").get()).toEqual({ count: 0 });
+    noGlobalBucket.close();
+    expect((await loginRoute(request("POST", "/api/v1/auth/login", {
+      email: "admin@quansuviet.local", password: "Admin-Demo-2026!",
+    }))).status).toBe(200);
   });
 
   it("refuses public demo credentials during an explicitly allowed production seed", () => {
@@ -140,6 +147,10 @@ describe("RBAC and locale workflow", () => {
     const admin = await login("admin@quansuviet.local", "Admin-Demo-2026!");
     const editor = await login("editor@quansuviet.local", "Editor-Demo-2026!");
     const reviewer = await login("reviewer@quansuviet.local", "Reviewer-Demo-2026!");
+
+    const editorDashboard = await dashboardRoute(request("GET", "/api/v1/admin/dashboard", undefined, editor));
+    expect(editorDashboard.status).toBe(200);
+    expect(JSON.stringify(await editorDashboard.json())).not.toMatch(/email|metadata|ip/i);
 
     expect((await usersRoute(request("GET", "/api/v1/admin/users"))).status).toBe(401);
     expect((await createContentRoute(request("POST", "/api/v1/admin/contents", { type: "EVENT", sourceIds: [], translations: {} }, editor, "https://evil.test"))).status).toBe(403);
@@ -298,5 +309,7 @@ describe("RBAC and locale workflow", () => {
     expect(openApiDocument.components.schemas.AdminContentDetail.additionalProperties).toBe(false);
     const contentParameters = openApiDocument.paths["/api/v1/admin/contents"].get.parameters as readonly { name:string }[];
     expect(contentParameters.some((parameter) => parameter.name === "status")).toBe(true);
+    expect((openApiDocument.components.schemas.SourceInput.properties.url as { pattern:string }).pattern).toBe("^https://");
+    expect(openApiDocument.paths["/api/v1/auth/login"].post.responses["429"].headers["Retry-After"]).toBeDefined();
   });
 });

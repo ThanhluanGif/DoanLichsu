@@ -176,7 +176,8 @@ interface AdminContentDetail extends AdminContentListItem {
   sourceIds: string[]; mediaIds: string[]; translations: Partial<Record<Locale, AdminTranslation>>;
 }
 interface AdminContentListQuery extends PageQuery { type?: ContentType; status?: WorkflowStatus; locale?: Locale; q?: string }
-interface DashboardView { countsByStatus: Record<WorkflowStatus, number>; countsByType: Record<ContentType, number>; recentAudit: AuditLogView[] }
+interface RecentActivityView { action: string; objectType: string; objectId: string | null; createdAt: string }
+interface DashboardView { countsByStatus: Record<WorkflowStatus, number>; countsByType: Record<ContentType, number>; recentAudit: RecentActivityView[] }
 interface SourceListQuery extends PageQuery { q?: string }
 interface MediaListQuery extends PageQuery { q?: string; kind?: "IMAGE" | "DOCUMENT" }
 interface UserListQuery extends PageQuery { q?: string; role?: Role; active?: boolean }

@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const email = stringField(body, "email", { required: true, max: 320 })!.toLowerCase();
     const password = secretField(body, "password", true)!;
     const forwardedIp = request.headers.get("x-forwarded-for")?.split(",", 1)[0]?.trim();
-    const ip = process.env.TRUST_PROXY_HEADERS === "1" && forwardedIp ? forwardedIp : "direct-client";
+    const ip = process.env.TRUST_PROXY_HEADERS === "1" && forwardedIp ? forwardedIp : null;
     database = openDatabase(getEnv().databasePath);
     reserveLoginAttempt(database, email, ip);
     const row = database.prepare(`
@@ -28,11 +28,11 @@ export async function POST(request: Request) {
     `).get(email) as { id:string;email:string;display_name:string;role:Role;password_hash:string;active:number;session_version:number } | undefined;
     const valid = await verifyPassword(row?.password_hash ?? await dummyHash, password);
     if (!row || row.active !== 1 || !valid) {
-      writeAudit(database, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip } });
+      writeAudit(database, { actorId: row?.id ?? null, action: "auth.login_failed", objectType: "session", metadata: { email, ip: ip ?? "unavailable" } });
       throw new ApiError(401, "INVALID_CREDENTIALS", "Email hoặc mật khẩu không đúng.");
     }
     releaseSuccessfulLogin(database, email, ip);
-    writeAudit(database, { actorId: row.id, action: "auth.login", objectType: "session", objectId: row.id, metadata: { ip } });
+    writeAudit(database, { actorId: row.id, action: "auth.login", objectType: "session", objectId: row.id, metadata: { ip: ip ?? "unavailable" } });
     const cookie = await createSessionCookie({ userId: row.id, sessionVersion: row.session_version });
     return NextResponse.json(
       { data: { id: row.id, email: row.email, displayName: row.display_name, role: row.role } },

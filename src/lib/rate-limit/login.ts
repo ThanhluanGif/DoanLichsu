@@ -10,12 +10,10 @@ function rateLimited(retryAfter: number): ApiError {
 }
 
 /** Reserve an attempt before password verification so parallel Argon2 work cannot bypass the cap. */
-export function reserveLoginAttempt(database: SqliteDatabase, email: string, ip: string): void {
+export function reserveLoginAttempt(database: SqliteDatabase, email: string, ip: string | null): void {
   const now = new Date();
-  const buckets: Bucket[] = [
-    { key: `email:${email.toLowerCase()}`, maximum: 5 },
-    { key: `ip:${ip}`, maximum: 20 },
-  ];
+  const buckets: Bucket[] = [{ key: `email:${email.toLowerCase()}`, maximum: 5 }];
+  if (ip) buckets.push({ key: `ip:${ip}`, maximum: 20 });
   const reserve = database.transaction((): { retryAfter?: number } => {
     database.prepare("DELETE FROM login_rate_limits WHERE window_started_at < ? AND (blocked_until IS NULL OR blocked_until < ?)")
       .run(new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString(), now.toISOString());
@@ -48,9 +46,10 @@ export function reserveLoginAttempt(database: SqliteDatabase, email: string, ip:
 }
 
 /** Release only the successful request's reservation; concurrent failures remain counted. */
-export function releaseSuccessfulLogin(database: SqliteDatabase, email: string, ip: string): void {
+export function releaseSuccessfulLogin(database: SqliteDatabase, email: string, ip: string | null): void {
   const release = database.transaction(() => {
-    for (const bucket of [`email:${email.toLowerCase()}`, `ip:${ip}`]) {
+    const buckets = [`email:${email.toLowerCase()}`, ...(ip ? [`ip:${ip}`] : [])];
+    for (const bucket of buckets) {
       database.prepare("UPDATE login_rate_limits SET attempts=MAX(0,attempts-1),blocked_until=NULL WHERE bucket=?").run(bucket);
       database.prepare("DELETE FROM login_rate_limits WHERE bucket=? AND attempts=0").run(bucket);
     }

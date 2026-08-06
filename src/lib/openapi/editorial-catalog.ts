@@ -18,7 +18,7 @@ const errors = {
   "404": json({ $ref: "#/components/schemas/ApiError" }, "Đối tượng không tồn tại."),
   "409": json({ $ref: "#/components/schemas/ApiError" }, "Xung đột phiên bản hoặc slug."),
   "422": json({ $ref: "#/components/schemas/ApiError" }, "Workflow hoặc publish validation thất bại."),
-  "429": json({ $ref: "#/components/schemas/ApiError" }, "Tạm giới hạn đăng nhập."),
+  "429": { ...json({ $ref: "#/components/schemas/ApiError" }, "Tạm giới hạn đăng nhập."), headers: { "Retry-After": { schema: { type:"integer", minimum:1 }, description:"Số giây trước khi thử lại." } } },
 };
 const operation = (operationId: string, summary: string, options: { method?: "get"; request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201" }) => ({
   operationId, summary, tags: [options.admin === false ? "Auth" : "Editorial"],
@@ -73,8 +73,9 @@ const types = ["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"] as const;
 const workflow = ["DRAFT", "IN_REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "ARCHIVED"] as const;
 const translationStatuses = ["NOT_STARTED", "TRANSLATING", "READY_FOR_REVIEW", "APPROVED", "PUBLISHED"] as const;
 const object = (required: readonly string[], properties: Record<string, object>) => ({ type: "object", additionalProperties: false, required, properties });
-const sourceProperties = { id:string,title:string,author:nullableString,publisher:nullableString,year:{anyOf:[{type:"integer"},{type:"null"}]},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:nullableString,version };
-const mediaProperties = { id:string,url:{type:"string",format:"uri"},kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,alt:string,caption:nullableString,width:{anyOf:[{type:"integer"},{type:"null"}]},height:{anyOf:[{type:"integer"},{type:"null"}]},version,altVi:string,altEn:string,captionVi:nullableString,captionEn:nullableString };
+const httpsUri = { type:"string",format:"uri",pattern:"^https://" } as const;
+const sourceProperties = { id:string,title:string,author:nullableString,publisher:nullableString,year:{anyOf:[{type:"integer"},{type:"null"}]},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:nullableString,version };
+const mediaProperties = { id:string,url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,alt:string,caption:nullableString,width:{anyOf:[{type:"integer"},{type:"null"}]},height:{anyOf:[{type:"integer"},{type:"null"}]},version,altVi:string,altEn:string,captionVi:nullableString,captionEn:nullableString };
 const idArray = { type:"array",uniqueItems:true,items:string } as const;
 const translationEditableProperties = { title:string,slug:string,summary:string,body:string,seoTitle:string,seoDescription:string,translationStatus:{type:"string",enum:["NOT_STARTED","TRANSLATING","READY_FOR_REVIEW"]} } as const;
 const translationCreate = object(["title","slug","summary","body","seoTitle","seoDescription","translationStatus"],translationEditableProperties);
@@ -96,15 +97,16 @@ export const editorialOpenApiSchemas = {
   ContentUpdateInput: object(["version"], { version,...contentEditableProperties }),
   AdminContentListItem: object(["id","type","status","featured","version","titles","updatedAt","updatedBy"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:{type:"object",additionalProperties:string},updatedAt:string,updatedBy:string }),
   AdminContentDetail: object(["id","type","status","featured","version","titles","updatedAt","updatedBy","startDate","endDate","datePrecision","periodId","location","result","role","artifactMeta","tagIds","relatedIds","sourceIds","mediaIds","translations"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:{type:"object",additionalProperties:string},updatedAt:string,updatedBy:string,startDate:nullableString,endDate:nullableString,datePrecision:{anyOf:[{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},{type:"null"}]},periodId:nullableString,location:nullableString,result:nullableString,role:nullableString,artifactMeta:{anyOf:[{type:"object",additionalProperties:string},{type:"null"}]},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray,translations:{type:"object",additionalProperties:false,properties:{vi:{$ref:"#/components/schemas/AdminTranslation"},en:{$ref:"#/components/schemas/AdminTranslation"}}} }),
-  SourceInput: object(["title","url","accessedAt"], { title:string,author:string,publisher:string,year:{type:"integer"},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:string }),
-  SourceUpdateInput: object(["version","title","url","accessedAt"], { version,title:string,author:string,publisher:string,year:{type:"integer"},url:{type:"string",format:"uri"},accessedAt:{type:"string",format:"date-time"},citationNote:string }),
+  SourceInput: object(["title","url","accessedAt"], { title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string }),
+  SourceUpdateInput: object(["version","title","url","accessedAt"], { version,title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string }),
   AdminSourceView: object(["id","title","author","publisher","year","url","accessedAt","citationNote","version"],sourceProperties),
-  MediaInput: object(["url","kind","credit","license","altVi","altEn"], { url:{type:"string",format:"uri"},kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
-  MediaUpdateInput: object(["version","url","kind","credit","license","altVi","altEn"], { version,url:{type:"string",format:"uri"},kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
+  MediaInput: object(["url","kind","credit","license","altVi","altEn"], { url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
+  MediaUpdateInput: object(["version","url","kind","credit","license","altVi","altEn"], { version,url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
   AdminMediaView: object(["id","url","kind","credit","license","alt","caption","width","height","version","altVi","altEn","captionVi","captionEn"],mediaProperties),
   UserView: object(["id","email","displayName","role","active","version","createdAt","updatedAt"], { id:string,email:{type:"string",format:"email"},displayName:string,role:{type:"string",enum:roles},active:{type:"boolean"},version,createdAt:string,updatedAt:string }),
   UserCreateInput: object(["email","displayName","role","temporaryPassword"], { email:{type:"string",format:"email"},displayName:string,role:{type:"string",enum:roles},temporaryPassword:{type:"string",minLength:12,maxLength:256,writeOnly:true},active:{type:"boolean"} }),
   UserUpdateInput: object(["version"], { version,displayName:string,role:{type:"string",enum:roles},active:{type:"boolean"},resetPassword:{type:"string",minLength:12,maxLength:256,writeOnly:true} }),
   AuditLogView: object(["id","actor","action","objectType","objectId","metadata","createdAt"], { id:string,actor:{anyOf:[{$ref:"#/components/schemas/AuthUser"},{type:"null"}]},action:string,objectType:string,objectId:nullableString,metadata:{type:"object"},createdAt:string }),
-  DashboardView: object(["countsByStatus","countsByType","recentAudit"], { countsByStatus:{type:"object",additionalProperties:{type:"integer"}},countsByType:{type:"object",additionalProperties:{type:"integer"}},recentAudit:{type:"array",items:{$ref:"#/components/schemas/AuditLogView"}} }),
+  RecentActivityView: object(["action","objectType","objectId","createdAt"], { action:string,objectType:string,objectId:nullableString,createdAt:string }),
+  DashboardView: object(["countsByStatus","countsByType","recentAudit"], { countsByStatus:{type:"object",additionalProperties:{type:"integer"}},countsByType:{type:"object",additionalProperties:{type:"integer"}},recentAudit:{type:"array",items:{$ref:"#/components/schemas/RecentActivityView"}} }),
 } as const;
