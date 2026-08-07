@@ -8,16 +8,17 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node -e \"require('node:fs').cpSync('.next/static', '.next/standalone/.next/static', { recursive: true })\" && esbuild scripts/seed.ts --bundle --platform=node --target=node22 --format=esm --packages=external --outfile=.next/standalone/scripts/seed.mjs",
+    "build": "next build && node -e \"const fs=require('node:fs'); fs.cpSync('.next/static', '.next/standalone/.next/static', { recursive: true }); fs.cpSync('public', '.next/standalone/public', { recursive: true })\" && esbuild scripts/seed.ts --bundle --platform=node --target=node22 --format=esm --packages=external --outfile=.next/standalone/scripts/seed.mjs",
     "start": "next start",
     "start:standalone": "node .next/standalone/server.js",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:contract": "node scripts/contract-check.mjs",
+    "test:public-ui:axe": "node tests/public-ui/axe-runtime.mjs",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "tsx scripts/seed.ts",
-    "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
+    "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/public/images/hero-history.webp','.next/standalone/public/images/hero-history-mobile.webp','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
   },
   "dependencies": {
     "@node-rs/argon2": "^2.0.2",
@@ -32,12 +33,15 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
     "@types/better-sqlite3": "^7.6.13",
+    "@types/jsdom": "^28.0.3",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "axe-core": "^4.13.0",
     "esbuild": "^0.28.1",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.3.0",
+    "jsdom": "^30.0.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "vitest": "^4.0.15"

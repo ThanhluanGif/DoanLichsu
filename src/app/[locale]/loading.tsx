@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="state-page" id="noi-dung" aria-live="polite"><span className="loading-line"/><span className="loading-line wide"/><span className="loading-line short"/><p>Đang tải nội dung đã xuất bản… / Loading published content…</p></main>;}

@@ -346,8 +346,19 @@ await check("plumbing.docs", 200, () => http("/docs"));
 const sitemapResult = await check("plumbing.sitemap", 200, () => http("/sitemap.xml"));
 if (sitemapResult) {
   const locations = [...sitemapResult.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
-  const passed = /<urlset\b/.test(sitemapResult.text) && locations.length === 0 && !sitemapResult.text.includes("/api/");
-  cases.push({ name:"plumbing.sitemap-empty-until-c006",passed,status:passed?200:null,durationMs:0,...(passed?{}:{diff:`C-005 sitemap must be a valid empty urlset without API URLs; found ${locations.length} locations`}) });
+  const [viContents,enContents] = await Promise.all([http("/api/v1/vi/contents?page=1&pageSize=50"),http("/api/v1/en/contents?page=1&pageSize=50")]);
+  const typeSegments = {
+    vi:{ PERIOD:"thoi-ky",EVENT:"su-kien",PERSON:"nhan-vat",ARTIFACT:"hien-vat",TOPIC:"chu-de" },
+    en:{ PERIOD:"periods",EVENT:"events",PERSON:"people",ARTIFACT:"artifacts",TOPIC:"topics" },
+  };
+  const expectedLocations = new Set([`${origin}/vi`,`${origin}/vi/timeline`,`${origin}/en`,`${origin}/en/timeline`]);
+  for (const [locale,result] of [["vi",viContents],["en",enContents]]) {
+    for (const item of result.body.data) expectedLocations.add(`${origin}/${locale}/${typeSegments[locale][item.type]}/${item.slug}`);
+  }
+  const unexpected = locations.filter((location) => !expectedLocations.has(location));
+  const missing = [...expectedLocations].filter((location) => !locations.includes(location));
+  const passed = /<urlset\b/.test(sitemapResult.text) && locations.length === expectedLocations.size && unexpected.length === 0 && missing.length === 0 && !sitemapResult.text.includes("/api/") && !sitemapResult.text.includes("/admin");
+  cases.push({ name:"plumbing.sitemap-published-canonicals",passed,status:passed?200:null,durationMs:0,...(passed?{}:{diff:`sitemap canonical drift: expected=${expectedLocations.size} actual=${locations.length} missing=[${missing.slice(0,3).join(",")}] unexpected=[${unexpected.slice(0,3).join(",")}]`}) });
 }
 const robotsResult = await check("plumbing.robots", 200, () => http("/robots.txt"));
 if (robotsResult) {

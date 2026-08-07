@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}:{error:Error&{digest?:string};reset:()=>void}){return <main className="state-page" id="noi-dung"><p className="eyebrow">Quân Sử Việt</p><h1>Không thể tải kho tư liệu</h1><p>Không thể kết nối dữ liệu đã xuất bản. Please try again in a moment.</p><button className="button primary" type="button" onClick={reset}>Thử lại / Try again</button></main>;}
