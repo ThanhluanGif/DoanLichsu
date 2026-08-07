@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T10:13:51.581Z",
+  "generatedAt": "2026-08-07T11:00:25.580Z",
   "baseUrl": "http://127.0.0.1:3006",
   "pages": [
     {
@@ -54,7 +54,7 @@
       "name": "search",
       "url": "http://127.0.0.1:3006/vi/tim-kiem?q=dien+Bien+phu&type=EVENT",
       "httpStatus": 200,
-      "htmlBytes": 23249,
+      "htmlBytes": 22358,
       "metadata": [
         "<title>Tra cứu nội dung · Quân Sử Việt</title>",
         "<meta name=\"description\" content=\"Tìm kiếm nội dung lịch sử quân sự Việt Nam đã xuất bản.\"/>"

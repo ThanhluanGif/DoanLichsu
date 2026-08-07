@@ -1,6 +1,6 @@
 # Public UI runtime proof
 
-- Generated: 2026-08-07T10:13:51.581Z
+- Generated: 2026-08-07T11:00:25.580Z
 - Base URL: http://127.0.0.1:3006
 - Limitation: JSDOM has no layout engine, so color-contrast is excluded; keyboard, responsive layout, and focus order still require a real browser.
 
@@ -8,7 +8,7 @@
 |---|---:|---:|---:|---|
 | home-vi | 200 | 44397 | 0 | no |
 | home-en | 200 | 42382 | 0 | no |
-| search | 200 | 23249 | 0 | no |
+| search | 200 | 22358 | 0 | no |
 | detail-vi | 200 | 31903 | 0 | yes |
 | detail-en | 200 | 30572 | 0 | yes |
 
@@ -75,7 +75,6 @@
 <meta property="og:image:alt" content="Chiến dịch Điện Biên Phủ"/>
 <meta property="og:type" content="article"/>
 ```
-
 ## detail-en
 
 - URL: http://127.0.0.1:3006/en/events/battle-of-dien-bien-phu
@@ -94,4 +93,3 @@
 <meta property="og:image:alt" content="Battle of Điện Biên Phủ"/>
 <meta property="og:type" content="article"/>
 ```
-

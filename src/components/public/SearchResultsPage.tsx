@@ -19,7 +19,7 @@ export async function SearchResultsPage({locale:raw,searchParams}:{locale:string
   return <PublicShell locale={locale} localeHref={withQuery(searchPath(other),preserved)}><main id="noi-dung" className="search-main">
     <nav className="breadcrumbs" aria-label={locale==="vi"?"Đường dẫn":"Breadcrumb"}><Link href={homePath(locale)}>{copy.home}</Link><span>/</span><span aria-current="page">{copy.search}</span></nav>
     <header className="search-heading"><p className="eyebrow">{copy.searchEyebrow}</p><h1>{copy.searchTitle}</h1><p>{copy.searchHint}</p></header>
-    <SearchForm locale={locale} periods={periods.data} state={{q,type,period,sort}}/>
+    <SearchForm key={`${q}|${type??""}|${period??""}|${sort??""}`} locale={locale} periods={periods.data} state={{q,type,period,sort}}/>
     {!result&&!q?<section className="search-prompt"><h2>{locale==="vi"?"Bắt đầu bằng một từ khóa hoặc bộ lọc":"Start with a search term or filter"}</h2><p>{locale==="vi"?"Ví dụ: dien bien phu, Sự kiện, hoặc một thời kỳ.":"For example: dien bien phu, Events, or a historical period."}</p></section>:result?.data.length?<section className="results-section" aria-live="polite"><div className="result-count"><strong>{result.meta.total} {copy.results}</strong>{q?<span>{copy.forQuery} “{q}”</span>:<span>{locale==="vi"?"trong bộ lọc đã chọn":"in the selected filters"}</span>}</div><div className="result-list">{result.data.map((item)=><ContentCard item={item} locale={locale} variant="compact" key={item.id}/>)}</div><Pagination meta={result.meta} locale={locale} path={searchPath(locale)} query={{q,type,period,sort}}/></section>:<section className="empty-state" aria-live="polite"><h2>{copy.noResults}</h2><p>{copy.noResultsHint}</p></section>}
   </main></PublicShell>;
 }
