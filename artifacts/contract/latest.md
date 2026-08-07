@@ -1,7 +1,7 @@
 # Contract report
 
-- Run: 06ae60a8
-- Generated: 2026-08-06T18:04:36.132Z
+- Run: dd5fb6fd
+- Generated: 2026-08-07T05:06:58.179Z
 - Base URL: http://127.0.0.1:3000
 - Planning operations: 37
 - Runtime operations: 37
@@ -11,8 +11,8 @@
 - Allowed-role probes: 57
 - Denied-role probes: 12
 - Drift: 0 missing, 0 extra, 0 shape
-- Identity: verified marker over en/ARTIFACT/bach-dang-wooden-stakes; baseline sha256=db3b3f875e281565fce6cd5ea5f716f4bf715fd02d829dfac0bb8a683cf621e2
-- Cleanup: verified exact run-owned teardown and baseline sha256=db3b3f875e281565fce6cd5ea5f716f4bf715fd02d829dfac0bb8a683cf621e2: contentNodes=50, translations=100, sources=50, media=10, users=3, auditLogs=0, rateLimits=0, schemaVersion=3
+- Identity: verified marker over en/ARTIFACT/bach-dang-wooden-stakes; baseline sha256=3087f8725697f4741ac2efc2e0a1772ef72a309c96b31e94f6ed48a9045b3da9
+- Cleanup: verified exact run-owned teardown and baseline sha256=3087f8725697f4741ac2efc2e0a1772ef72a309c96b31e94f6ed48a9045b3da9: contentNodes=50, translations=100, sources=50, media=10, users=3, auditLogs=0, rateLimits=0, schemaVersion=3
 - Live URLs:
   - http://127.0.0.1:3000/healthz
   - http://127.0.0.1:3000/openapi.json

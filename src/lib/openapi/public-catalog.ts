@@ -28,46 +28,48 @@ const errorResponses = {
   "404": jsonResponse({ $ref: "#/components/schemas/ApiError" }, "Locale, loại hoặc nội dung không tồn tại."),
   "500": jsonResponse({ $ref: "#/components/schemas/ApiError" }, "Không thể đọc dữ liệu công khai."),
 };
+const errors = (...statuses: Array<keyof typeof errorResponses>) =>
+  Object.fromEntries(statuses.map((status) => [status,errorResponses[status]]));
 
 export const publicOpenApiPaths = {
   "/api/v1/{locale}/home": { get: {
     operationId: "getPublicHome", summary: "Đọc trang chủ công khai", description: "Trả nội dung nổi bật, thời kỳ, nội dung mới và số lượng đã xuất bản.", tags: ["Public"], parameters: [localeParameter],
-    responses: { "200": jsonResponse(dataRef("HomeView")), ...errorResponses },
+    responses: { "200": jsonResponse(dataRef("HomeView")), ...errors("404","500") },
   } },
   "/api/v1/{locale}/periods": { get: {
     operationId: "listPublicPeriods", summary: "Liệt kê thời kỳ", description: "Trả các thời kỳ đã xuất bản và số nội dung thuộc từng thời kỳ.", tags: ["Public"],
     parameters: [localeParameter, { name: "includeEmpty", in: "query", schema: { type: "boolean", default: false } }],
-    responses: { "200": jsonResponse(listRef("PeriodView")), ...errorResponses },
+    responses: { "200": jsonResponse(listRef("PeriodView")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/timeline": { get: {
     operationId: "getPublicTimeline", summary: "Đọc dòng thời gian", description: "Trả các sự kiện đã xuất bản theo chronology và id làm tie-breaker.", tags: ["Public"],
     parameters: [localeParameter, ...pageParameters, { name: "period", in: "query", schema: { type: "string" } }, { name: "tag", in: "query", schema: { type: "string" } }, { name: "fromYear", in: "query", schema: { type: "integer" } }, { name: "toYear", in: "query", schema: { type: "integer" } }],
-    responses: { "200": jsonResponse(listRef("TimelineItem")), ...errorResponses },
+    responses: { "200": jsonResponse(listRef("TimelineItem")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/contents": { get: {
     operationId: "listPublicContents", summary: "Liệt kê nội dung", description: "Lọc và phân trang nội dung có translation đã xuất bản.", tags: ["Public"],
     parameters: [localeParameter, ...pageParameters, { name: "type", in: "query", schema: { type: "string", enum: contentTypes } }, { name: "period", in: "query", schema: { type: "string" } }, { name: "tag", in: "query", schema: { type: "string" } }, { name: "sort", in: "query", schema: { type: "string", enum: ["chronology", "updated", "title"], default: "chronology" } }],
-    responses: { "200": jsonResponse(listRef("ContentListItem")), ...errorResponses },
+    responses: { "200": jsonResponse(listRef("ContentListItem")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/contents/{type}/{slug}": { get: {
     operationId: "getPublicContentDetail", summary: "Đọc chi tiết nội dung", description: "Trả detail, source, media, quan hệ và alternate của một translation đã xuất bản.", tags: ["Public"],
     parameters: [localeParameter, { name: "type", in: "path", required: true, schema: { type: "string", enum: contentTypes } }, { name: "slug", in: "path", required: true, schema: { type: "string" } }],
-    responses: { "200": jsonResponse(dataRef("ContentDetail")), ...errorResponses },
+    responses: { "200": jsonResponse(dataRef("ContentDetail")), ...errors("404","500") },
   } },
   "/api/v1/{locale}/search": { get: {
     operationId: "searchPublicContents", summary: "Tìm kiếm nội dung", description: "Tìm không phân biệt dấu tiếng Việt, lọc và phân trang ổn định.", tags: ["Public"],
     parameters: [localeParameter, { name: "q", in: "query", required: true, schema: { type: "string", minLength: 1, maxLength: 200 } }, ...pageParameters, { name: "type", in: "query", schema: { type: "string", enum: contentTypes } }, { name: "period", in: "query", schema: { type: "string" } }, { name: "tag", in: "query", schema: { type: "string" } }, { name: "sort", in: "query", schema: { type: "string", enum: ["chronology", "updated", "title"] } }],
-    responses: { "200": jsonResponse(listRef("SearchResult")), ...errorResponses },
+    responses: { "200": jsonResponse(listRef("SearchResult")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/taxonomies": { get: {
     operationId: "getPublicTaxonomies", summary: "Đọc taxonomy", description: "Trả period, tag và type thực sự được nội dung đã xuất bản sử dụng.", tags: ["Public"],
     parameters: [localeParameter, { name: "kind", in: "query", schema: { type: "string", enum: ["period", "tag", "type"] } }],
-    responses: { "200": jsonResponse(dataRef("TaxonomyView")), ...errorResponses },
+    responses: { "200": jsonResponse(dataRef("TaxonomyView")), ...errors("400","404","500") },
   } },
   "/api/v1/contents/{id}/alternate": { get: {
     operationId: "getPublicAlternate", summary: "Đọc locale thay thế", description: "Giữ cùng content id và trả null khi translation còn lại chưa được xuất bản.", tags: ["Public"],
     parameters: [{ name: "id", in: "path", required: true, schema: { type: "string" } }, { name: "locale", in: "query", required: true, schema: { type: "string", enum: ["vi", "en"] } }],
-    responses: { "200": jsonResponse(dataRef("AlternateView")), ...errorResponses },
+    responses: { "200": jsonResponse(dataRef("AlternateView")), ...errors("400","404","500") },
   } },
 } as const;
 

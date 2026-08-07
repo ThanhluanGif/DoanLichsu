@@ -22,50 +22,54 @@ const errors = {
   "409": json({ $ref: "#/components/schemas/ApiError" }, "Xung đột phiên bản hoặc slug."),
   "422": json({ $ref: "#/components/schemas/ApiError" }, "Workflow hoặc publish validation thất bại."),
   "429": { ...json({ $ref: "#/components/schemas/ApiError" }, "Tạm giới hạn đăng nhập."), headers: { "Retry-After": { schema: { type:"integer", minimum:1 }, description:"Số giây trước khi thử lại." } } },
+  "500": json({ $ref: "#/components/schemas/ApiError" }, "Lỗi xử lý nội bộ."),
 };
-const operation = (operationId: string, summary: string, options: { method?: "get"; request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][] }) => ({
+type ErrorStatus = keyof typeof errors;
+const selectedErrors = <const T extends readonly ErrorStatus[]>(statuses: T) =>
+  Object.fromEntries(statuses.map((status) => [status,errors[status]])) as { [K in T[number]]: (typeof errors)[K] };
+const operation = <const T extends readonly ErrorStatus[]>(operationId: string, summary: string, options: { request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][]; errors: T }) => ({
   operationId, summary, tags: [options.admin === false ? "Auth" : "Editorial"],
   ...(options.admin === false && operationId === "login" ? {} : { security: auth,"x-allowed-roles":options.roles ?? allRoles }),
   ...(options.parameters ? { parameters: options.parameters } : {}),
   ...(options.request ? { requestBody: body(options.request) } : {}),
-  responses: { [options.status ?? "200"]: json(options.response.startsWith("List:") ? list(options.response.slice(5)) : data(options.response), "Thành công."), ...errors },
+  responses: { [options.status ?? "200"]: json(options.response.startsWith("List:") ? list(options.response.slice(5)) : data(options.response), "Thành công."), ...selectedErrors(options.errors) },
 });
 
 export const editorialOpenApiPaths = {
-  "/api/v1/auth/login": { post: operation("login", "Đăng nhập", { request: "LoginInput", response: "AuthUser", admin: false }) },
-  "/api/v1/auth/logout": { post: operation("logout", "Đăng xuất", { response: "LogoutResult", admin: false }) },
-  "/api/v1/auth/me": { get: operation("me", "Đọc người dùng hiện tại", { response: "AuthUser", admin: false }) },
-  "/api/v1/admin/dashboard": { get: operation("adminDashboard", "Đọc dashboard biên tập", { response: "DashboardView" }) },
+  "/api/v1/auth/login": { post: operation("login", "Đăng nhập", { request: "LoginInput", response: "AuthUser", admin: false,errors:["400","401","403","429","500"] }) },
+  "/api/v1/auth/logout": { post: operation("logout", "Đăng xuất", { response: "LogoutResult", admin: false,errors:["401","403","500"] }) },
+  "/api/v1/auth/me": { get: operation("me", "Đọc người dùng hiện tại", { response: "AuthUser", admin: false,errors:["401","500"] }) },
+  "/api/v1/admin/dashboard": { get: operation("adminDashboard", "Đọc dashboard biên tập", { response: "DashboardView",errors:["401","500"] }) },
   "/api/v1/admin/contents": {
-    get: operation("listAdminContents", "Liệt kê nội dung biên tập", { response: "List:AdminContentListItem", parameters: contentFilters }),
-    post: operation("createContent", "Tạo draft", { request: "ContentCreateInput", response: "AdminContentDetail", status: "201" }),
+    get: operation("listAdminContents", "Liệt kê nội dung biên tập", { response: "List:AdminContentListItem", parameters: contentFilters,errors:["400","401","500"] }),
+    post: operation("createContent", "Tạo draft", { request: "ContentCreateInput", response: "AdminContentDetail", status: "201",errors:["400","401","403","500"] }),
   },
   "/api/v1/admin/contents/{id}": {
-    get: operation("getAdminContent", "Đọc nội dung biên tập", { response: "AdminContentDetail", parameters: [id] }),
-    patch: operation("updateContent", "Cập nhật nội dung", { request: "ContentUpdateInput", response: "AdminContentDetail", parameters: [id] }),
+    get: operation("getAdminContent", "Đọc nội dung biên tập", { response: "AdminContentDetail", parameters: [id],errors:["401","404","500"] }),
+    patch: operation("updateContent", "Cập nhật nội dung", { request: "ContentUpdateInput", response: "AdminContentDetail", parameters: [id],errors:["400","401","403","404","409","422","500"] }),
   },
-  "/api/v1/admin/contents/{id}/translations/{locale}": { put: operation("putTranslation", "Upsert bản dịch", { request: "TranslationInput", response: "AdminTranslation", parameters: [id, locale] }) },
+  "/api/v1/admin/contents/{id}/translations/{locale}": { put: operation("putTranslation", "Upsert bản dịch", { request: "TranslationInput", response: "AdminTranslation", parameters: [id, locale],errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/sources": {
-    get: operation("listAdminSources", "Liệt kê nguồn", { response: "List:AdminSourceView", parameters: sourceFilters }),
-    post: operation("createSource", "Tạo nguồn", { request: "SourceInput", response: "AdminSourceView", status: "201" }),
+    get: operation("listAdminSources", "Liệt kê nguồn", { response: "List:AdminSourceView", parameters: sourceFilters,errors:["400","401","500"] }),
+    post: operation("createSource", "Tạo nguồn", { request: "SourceInput", response: "AdminSourceView", status: "201",errors:["400","401","403","500"] }),
   },
-  "/api/v1/admin/sources/{id}": { patch: operation("updateSource", "Cập nhật nguồn", { request: "SourceUpdateInput", response: "AdminSourceView", parameters: [id] }) },
+  "/api/v1/admin/sources/{id}": { patch: operation("updateSource", "Cập nhật nguồn", { request: "SourceUpdateInput", response: "AdminSourceView", parameters: [id],errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/media": {
-    get: operation("listAdminMedia", "Liệt kê media", { response: "List:AdminMediaView", parameters: mediaFilters }),
-    post: operation("createMedia", "Tạo metadata media", { request: "MediaInput", response: "AdminMediaView", status: "201" }),
+    get: operation("listAdminMedia", "Liệt kê media", { response: "List:AdminMediaView", parameters: mediaFilters,errors:["400","401","500"] }),
+    post: operation("createMedia", "Tạo metadata media", { request: "MediaInput", response: "AdminMediaView", status: "201",errors:["400","401","403","500"] }),
   },
-  "/api/v1/admin/media/{id}": { patch: operation("updateMedia", "Cập nhật metadata media", { request: "MediaUpdateInput", response: "AdminMediaView", parameters: [id] }) },
-  "/api/v1/admin/contents/{id}/submit-review": { post: operation("submitReview", "Gửi duyệt locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id] }) },
-  "/api/v1/admin/contents/{id}/approve": { post: operation("approveContent", "Duyệt locale", { request: "ReviewInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles }) },
-  "/api/v1/admin/contents/{id}/reject": { post: operation("rejectContent", "Từ chối locale", { request: "RejectInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles }) },
-  "/api/v1/admin/contents/{id}/publish": { post: operation("publishContent", "Xuất bản locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles }) },
-  "/api/v1/admin/contents/{id}/archive": { post: operation("archiveContent", "Lưu trữ nội dung", { request: "VersionInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles }) },
+  "/api/v1/admin/media/{id}": { patch: operation("updateMedia", "Cập nhật metadata media", { request: "MediaUpdateInput", response: "AdminMediaView", parameters: [id],errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/submit-review": { post: operation("submitReview", "Gửi duyệt locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id],errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/approve": { post: operation("approveContent", "Duyệt locale", { request: "ReviewInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/reject": { post: operation("rejectContent", "Từ chối locale", { request: "RejectInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/publish": { post: operation("publishContent", "Xuất bản locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/archive": { post: operation("archiveContent", "Lưu trữ nội dung", { request: "VersionInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/users": {
-    get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: userFilters,roles:adminRoles }),
-    post: operation("createUser", "Tạo người dùng", { request: "UserCreateInput", response: "UserView", status: "201",roles:adminRoles }),
+    get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: userFilters,roles:adminRoles,errors:["400","401","403","500"] }),
+    post: operation("createUser", "Tạo người dùng", { request: "UserCreateInput", response: "UserView", status: "201",roles:adminRoles,errors:["400","401","403","409","500"] }),
   },
-  "/api/v1/admin/users/{id}": { patch: operation("updateUser", "Cập nhật người dùng", { request: "UserUpdateInput", response: "UserView", parameters: [id],roles:adminRoles }) },
-  "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: auditFilters,roles:adminRoles }) },
+  "/api/v1/admin/users/{id}": { patch: operation("updateUser", "Cập nhật người dùng", { request: "UserUpdateInput", response: "UserView", parameters: [id],roles:adminRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: auditFilters,roles:adminRoles,errors:["400","401","403","500"] }) },
 } as const;
 
 const string = { type: "string" } as const;

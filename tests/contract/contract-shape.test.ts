@@ -38,30 +38,50 @@ describe("planning to OpenAPI deep-shape audit",() => {
     ["optional request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","requestBody"]).required = false; }],
     ["extra request media type",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","requestBody","content"])["application/xml"] = {schema:{type:"string"}}; }],
     ["undocumented request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/auth/logout","post"]).requestBody = {required:true,content:{"text/plain":{schema:{type:"string"}}}}; }],
+    ["GET request body",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get"]).requestBody = {required:true,content:{"application/json":{schema:{type:"object"}}}}; }],
+    ["header parameter",(document:MutableObject) => { (objectAt(document,["paths","/api/v1/admin/dashboard","get"]).parameters = [{name:"x-debug",in:"header",required:true,schema:{type:"string"}}]); }],
+    ["cookie parameter",(document:MutableObject) => { (objectAt(document,["paths","/api/v1/admin/dashboard","get"]).parameters = [{name:"debug",in:"cookie",schema:{type:"string"}}]); }],
     ["planned success status drift",(document:MutableObject) => {
       const responses = objectAt(document,["paths","/api/v1/admin/sources","post","responses"]);
       responses["202"] = responses["201"];
       delete responses["201"];
     }],
     ["extra success status",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/sources","post","responses"])["202"] = {description:"extra"}; }],
+    ["extra error status",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses"])["418"] = {description:"extra"}; }],
+    ["default response",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses"]).default = {description:"extra"}; }],
+    ["response range",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses"])["4XX"] = {description:"extra"}; }],
+    ["plumbing media drift",(document:MutableObject) => {
+      const response = objectAt(document,["paths","/docs","get","responses","200"]);
+      response.content = {"application/json":{schema:{type:"string"}}};
+    }],
     ["missing planned error status",(document:MutableObject) => { delete objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses"])["404"]; }],
     ["error response shape drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/{locale}/contents/{type}/{slug}","get","responses","404","content","application/json"]).schema = {type:"string"}; }],
     ["response wrapper drift",(document:MutableObject) => { objectAt(document,["paths","/api/v1/admin/dashboard","get","responses","200","content","application/json","schema","properties","data"]).$ref = "#/components/schemas/AuthUser"; }],
   ])("reports %s with a useful path",(_name,change) => {
     const drift = mutate(change);
     expect(drift.length).toBeGreaterThan(0);
-    expect(drift.join("\n")).toMatch(/(?:request|response|query|roles|security|cookieAuth|shape|status)/);
+    expect(drift.join("\n")).toMatch(/(?:request|response|query|roles|security|cookieAuth|shape|status|parameters)/);
   });
 
   it("resolves a generic response type alias instead of accepting it as any",() => {
     const aliased = contract.replace("interface DataResponse<T> { data: T }","type DataResponse<T> = { data: T };");
     const document = structuredClone(openApiDocument) as unknown as MutableObject;
     objectAt(document,["paths","/api/v1/admin/dashboard","get","responses","200","content","application/json","schema","properties"]).data = {type:"string"};
-    expect(contractShapeDrift(aliased,document).join("\n")).toContain("dashboard response.data");
+    expect(contractShapeDrift(aliased,document).join("\n")).toContain("dashboard response.200.data");
   });
 
   it("fails closed on an unresolved planning type",() => {
     const unresolved = contract.replace("interface AuthUser { id: string; email: string; displayName: string; role: Role }","interface AuthUser { id: string; email: string; displayName: string; role: MissingRole }");
     expect(contractShapeDrift(unresolved,openApiDocument).join("\n")).toContain("unresolved");
+  });
+
+  it("fails closed on unrecognized access prose",() => {
+    const unknownAccess = contract.replace("Editor/Reviewer/Admin; no write","Editor/Admin; no write");
+    expect(contractShapeDrift(unknownAccess,openApiDocument).join("\n")).toContain("unrecognized access grammar");
+  });
+
+  it("fails closed on an unrecognized response descriptor",() => {
+    const unknownResponse = contract.replace("application/json 200 object containing the OpenAPI","application/json 200 mystery containing the OpenAPI");
+    expect(contractShapeDrift(unknownResponse,openApiDocument).join("\n")).toContain("unrecognized planned response descriptor");
   });
 });

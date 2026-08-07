@@ -211,16 +211,52 @@ function compare(label, expected, schema, document, drift) {
 }
 
 function expectedRoles(access) {
-  const lower = access.toLowerCase();
-  if (lower.startsWith("public")) return [];
-  if (lower.includes("admin only")) return ["ADMIN"];
-  if (lower.includes("editor/reviewer/admin")) return ["ADMIN","EDITOR","REVIEWER"];
-  if (lower.includes("reviewer/admin")) return ["ADMIN","REVIEWER"];
-  return ["ADMIN","EDITOR","REVIEWER"];
+  const subject = access.split(";",1)[0].trim().toLowerCase();
+  if (subject === "public" || subject.startsWith("public,")) return [];
+  if (subject === "authenticated") return ["ADMIN","EDITOR","REVIEWER"];
+  if (subject === "admin only") return ["ADMIN"];
+  if (subject === "editor/reviewer/admin") return ["ADMIN","EDITOR","REVIEWER"];
+  if (subject === "reviewer/admin") return ["ADMIN","REVIEWER"];
+  return null;
 }
 
 function expressionToken(cell) {
   return [...cell.matchAll(/`([^`]+)`/g)].map((match) => match[1]).find((token) => /^(?:DataResponse|ListResponse)</.test(token) || /^\w+$/.test(token)) ?? null;
+}
+
+const responseMedia = new Set(["application/json","text/html","application/xml","text/plain"]);
+
+function plannedResponses(row, model, drift) {
+  const responses = new Map();
+  const segments = row.output.split(";").map((segment) => segment.trim()).filter(Boolean);
+  for (const segment of segments) {
+    const noBody = /^no-body\s+(\d{3})$/i.exec(segment);
+    if (noBody) {
+      responses.set(noBody[1],{ media:null,descriptor:null });
+      continue;
+    }
+    const errors = /^errors\s+(\S+)\s+([0-9,]+)\s+`ApiError`(?:\s+.*)?$/i.exec(segment);
+    if (errors) {
+      if (!responseMedia.has(errors[1])) drift.push(`${row.method} ${row.path}: unsupported planned response media ${errors[1]}`);
+      for (const status of errors[2].split(",")) responses.set(status,{media:errors[1],descriptor:descriptorForExpression("ApiError",model)});
+      continue;
+    }
+    const success = /^(\S+)\s+(\d{3})\s+(.+)$/.exec(segment);
+    if (success) {
+      if (!responseMedia.has(success[1])) drift.push(`${row.method} ${row.path}: unsupported planned response media ${success[1]}`);
+      const token = expressionToken(success[3]);
+      let descriptor = null;
+      if (token) descriptor = descriptorForExpression(token,model);
+      else if (/^string\b/.test(success[3])) descriptor = scalar("string");
+      else if (/^object\b/.test(success[3])) descriptor = object({},[],{ kind:"any" });
+      else drift.push(`${row.method} ${row.path}: unrecognized planned response descriptor "${success[3]}"`);
+      responses.set(success[2],{media:success[1],descriptor});
+      continue;
+    }
+    drift.push(`${row.method} ${row.path}: cannot parse planned response segment "${segment}"`);
+  }
+  if (!responses.size) drift.push(`${row.method} ${row.path}: no exact planned responses`);
+  return responses;
 }
 
 export function contractShapeDrift(markdown, document) {
@@ -243,6 +279,10 @@ export function contractShapeDrift(markdown, document) {
     const operation = document.paths?.[row.path]?.[row.method];
     if (!operation) continue;
     const roles = expectedRoles(row.access);
+    if (roles === null) {
+      drift.push(`${row.method} ${row.path}: unrecognized access grammar "${row.access.split(";",1)[0].trim()}"`);
+      continue;
+    }
     const security = operation.security;
     const exactCookieSecurity = Array.isArray(security) && security.length === 1 && security[0] && Object.keys(security[0]).length === 1 && Array.isArray(security[0].cookieAuth) && security[0].cookieAuth.length === 0;
     if (roles.length === 0 && security !== undefined) drift.push(`${row.method} ${row.path}: public planning row must not declare security`);
@@ -251,8 +291,11 @@ export function contractShapeDrift(markdown, document) {
     const actualRoles = [...(operation["x-allowed-roles"] ?? [])].sort();
     if (roles.length > 0 && JSON.stringify(roles) !== JSON.stringify(actualRoles)) drift.push(`${row.method} ${row.path}: roles expected=[${roles.join(",")}] OpenAPI=[${actualRoles.join(",")}]`);
 
+    const parameters = [...(document.paths?.[row.path]?.parameters ?? []),...(operation.parameters ?? [])];
+    const unsupportedParameters = parameters.filter((parameter) => !["path","query"].includes(parameter.in));
+    if (unsupportedParameters.length) drift.push(`${row.method} ${row.path}: undocumented ${unsupportedParameters.map((parameter) => `${parameter.in}:${parameter.name}`).join(",")} parameters`);
     const pathNames = [...row.path.matchAll(/\{(\w+)\}/g)].map((match) => match[1]).sort();
-    const actualPath = (operation.parameters ?? []).filter((parameter) => parameter.in === "path");
+    const actualPath = parameters.filter((parameter) => parameter.in === "path");
     const actualPathNames = actualPath.map((parameter) => parameter.name).sort();
     if (JSON.stringify(pathNames) !== JSON.stringify(actualPathNames)) drift.push(`${row.method} ${row.path}: path parameters expected=[${pathNames.join(",")}] OpenAPI=[${actualPathNames.join(",")}]`);
     const pathToken = /path\s+`([^`]+)`/i.exec(row.input)?.[1];
@@ -265,7 +308,7 @@ export function contractShapeDrift(markdown, document) {
     }
 
     const queryToken = /query\s+`([^`]+)`/i.exec(row.input)?.[1];
-    const actualQuery = (operation.parameters ?? []).filter((parameter) => parameter.in === "query");
+    const actualQuery = parameters.filter((parameter) => parameter.in === "query");
     if (queryToken) {
       const expected = descriptorForExpression(queryToken,model);
       const actual = object(Object.fromEntries(actualQuery.map((parameter) => [parameter.name,normalizeOpenApi(parameter.schema ?? {},document)])),actualQuery.filter((parameter) => parameter.required).map((parameter) => parameter.name),"none");
@@ -275,38 +318,34 @@ export function contractShapeDrift(markdown, document) {
       drift.push(`${row.method} ${row.path}: OpenAPI has undocumented query parameters [${actualQuery.map((parameter) => parameter.name).join(",")}]`);
     }
 
-    if (["post","put","patch","delete"].includes(row.method)) {
-      const bodyToken = [...row.input.matchAll(/`([^`]+)`/g)].map((match) => match[1]).find((token) => model.interfaces.has(token) || model.aliases.has(token));
-      const actualBody = operation.requestBody?.content?.["application/json"]?.schema;
-      if (bodyToken) {
-        if (operation.requestBody?.required !== true) drift.push(`${row.method} ${row.path}: JSON requestBody must be required`);
-        const mediaTypes = Object.keys(operation.requestBody?.content ?? {}).sort();
-        if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: request media types must be exactly application/json`);
-        compare(`${row.method} ${row.path} request`,descriptorForExpression(bodyToken,model),actualBody,document,drift);
-      }
-      else if (operation.requestBody) drift.push(`${row.method} ${row.path}: OpenAPI has an undocumented request body`);
+    const bodyInput = row.input.replace(/\b(?:path|query)\s+`[^`]+`/gi,"");
+    const bodyToken = [...bodyInput.matchAll(/`([^`]+)`/g)].map((match) => match[1]).find((token) => model.interfaces.has(token) || model.aliases.has(token));
+    const actualBody = operation.requestBody?.content?.["application/json"]?.schema;
+    if (bodyToken) {
+      if (operation.requestBody?.required !== true) drift.push(`${row.method} ${row.path}: JSON requestBody must be required`);
+      const mediaTypes = Object.keys(operation.requestBody?.content ?? {}).sort();
+      if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: request media types must be exactly application/json`);
+      compare(`${row.method} ${row.path} request`,descriptorForExpression(bodyToken,model),actualBody,document,drift);
+    } else if (operation.requestBody) {
+      drift.push(`${row.method} ${row.path}: OpenAPI has an undocumented request body`);
     }
 
-    const outputToken = expressionToken(row.output);
-    const successStatus = /\bstatus\s+(2\d\d)\b/i.exec(row.output)?.[1] ?? "200";
-    const success = operation.responses?.[successStatus]?.content?.["application/json"]?.schema;
-    if (!operation.responses?.[successStatus]) drift.push(`${row.method} ${row.path}: missing planned success response ${successStatus}`);
-    const extraSuccess = Object.keys(operation.responses ?? {}).filter((status) => /^2\d\d$/.test(status) && status !== successStatus);
-    if (extraSuccess.length) drift.push(`${row.method} ${row.path}: undocumented success responses [${extraSuccess.join(",")}]`);
-    if (outputToken && (model.interfaces.has(outputToken) || /^(?:DataResponse|ListResponse)</.test(outputToken))) {
-      const mediaTypes = Object.keys(operation.responses?.[successStatus]?.content ?? {}).sort();
-      if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: success ${successStatus} media types must be exactly application/json`);
-      compare(`${row.method} ${row.path} response`,descriptorForExpression(outputToken,model),success,document,drift);
+    const expectedResponses = plannedResponses(row,model,drift);
+    const expectedStatuses = [...expectedResponses.keys()].sort();
+    const actualStatuses = Object.keys(operation.responses ?? {}).sort();
+    if (JSON.stringify(expectedStatuses) !== JSON.stringify(actualStatuses)) {
+      drift.push(`${row.method} ${row.path}: response statuses expected=[${expectedStatuses.join(",")}] OpenAPI=[${actualStatuses.join(",")}]`);
     }
-    const errorStatuses = [...new Set([...row.output.matchAll(/\b(4\d\d)\b/g)].map((match) => match[1]))];
-    for (const status of errorStatuses) {
-      const errorSchema = operation.responses?.[status]?.content?.["application/json"]?.schema;
-      if (!operation.responses?.[status]) drift.push(`${row.method} ${row.path}: missing planned ApiError response ${status}`);
-      else {
-        const mediaTypes = Object.keys(operation.responses[status]?.content ?? {}).sort();
-        if (JSON.stringify(mediaTypes) !== JSON.stringify(["application/json"])) drift.push(`${row.method} ${row.path}: error ${status} media types must be exactly application/json`);
-        compare(`${row.method} ${row.path} response.${status}`,descriptorForExpression("ApiError",model),errorSchema,document,drift);
+    for (const [status,expected] of expectedResponses) {
+      const actual = operation.responses?.[status];
+      if (!actual) continue;
+      const mediaTypes = Object.keys(actual.content ?? {}).sort();
+      const plannedMedia = expected.media ? [expected.media] : [];
+      if (JSON.stringify(mediaTypes) !== JSON.stringify(plannedMedia)) {
+        drift.push(`${row.method} ${row.path}: response ${status} media types expected=[${plannedMedia.join(",")}] OpenAPI=[${mediaTypes.join(",")}]`);
+        continue;
       }
+      if (expected.descriptor && expected.media) compare(`${row.method} ${row.path} response.${status}`,expected.descriptor,actual.content?.[expected.media]?.schema,document,drift);
     }
   }
   return drift;
