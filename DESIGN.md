@@ -80,6 +80,10 @@ Amended 2026-08-06 for the approved museum-editorial direction: warm archival ne
 deep ink-green text and a restrained vermilion accent. This replaces the default token set
 as one coordinated change; components may not invent per-surface colors.
 
+Accessibility amendment 2026-08-07: `--fg-subtle` was darkened within the same ink-green
+cluster so 9–13 px helper text reaches at least 4.5:1 on both archival page and sidebar
+backgrounds. No component-specific color override is permitted.
+
 | Token | Value | Use |
 |---|---|---|
 | `--bg-base` | `#F8F5EE` | page bg, cards |
@@ -87,7 +91,7 @@ as one coordinated change; components may not invent per-surface colors.
 | `--bg-muted` | `#E8E1D5` | hover, muted chips |
 | `--fg-base` | `#17251F` | primary text, primary buttons |
 | `--fg-muted` | `#48564F` | body, descriptions |
-| `--fg-subtle` | `#6B756F` | helper text, timestamps |
+| `--fg-subtle` | `#606A64` | helper text, timestamps |
 | `--border` | `#D5CDC0` | all 1px borders |
 | `--accent` | `#A3442F` | focus rings, accent links, validate-ok |
 | `--accent-dark` | `#7F3021` | accent hover only |

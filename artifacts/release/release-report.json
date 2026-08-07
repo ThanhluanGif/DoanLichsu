@@ -1,0 +1,169 @@
+{
+  "startedAt": "2026-08-07T16:48:45.705Z",
+  "finishedAt": "2026-08-07T16:51:24.796Z",
+  "version": "0.1.0",
+  "commit": "3013e1c4d9c6ffd192e977c05a75dd1278a6adf2",
+  "passed": true,
+  "steps": [
+    {
+      "name": "clean-install",
+      "command": "npm ci",
+      "durationMs": 24895,
+      "exitCode": 0,
+      "outputSha256": "5e40b0b9459ef11558386d824c399b50c2c860b3cf046a6076475c491a975d3e"
+    },
+    {
+      "name": "migrate",
+      "command": "npm run db:migrate",
+      "durationMs": 1539,
+      "exitCode": 0,
+      "outputSha256": "2640ccd858dbdb7a82be4aca7d7c3bdd74b8ce1795fc94e8273a8fa5858d1b9f"
+    },
+    {
+      "name": "seed",
+      "command": "npm run db:seed",
+      "durationMs": 3318,
+      "exitCode": 0,
+      "outputSha256": "709a8fe36c60379d6f9e9ae032a1ed850a89bceb5a14293be28c6c65205d89aa"
+    },
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "durationMs": 12277,
+      "exitCode": 0,
+      "outputSha256": "098c210bac4e17a06986429c92e7b9e30e5a83bc00c74ad5d55189cebae6c3cc"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "durationMs": 4429,
+      "exitCode": 0,
+      "outputSha256": "69b884b2de217c0fee131423c7b34d42fa601838c2c3c67ef7e3abc2371f9f8b"
+    },
+    {
+      "name": "unit-integration",
+      "command": "npm test -- --testTimeout=15000",
+      "durationMs": 11355,
+      "exitCode": 0,
+      "outputSha256": "752d4b583c9c4d68146df0057421369c518069b2df8608087ebdf9fcc85cd8f8"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "durationMs": 19946,
+      "exitCode": 0,
+      "outputSha256": "a2cdaf5572a862b9edfeaea48cd788790dcff2b7057151d7265f4b858f6e2cef"
+    },
+    {
+      "name": "standalone-artifact",
+      "command": "npm run verify:standalone",
+      "durationMs": 655,
+      "exitCode": 0,
+      "outputSha256": "963a9f7161db6c92f5776d1debd9409adadb91a8017cf2f32f86e285fe716476"
+    },
+    {
+      "name": "contract",
+      "command": "npm run test:contract -- --base-url http://127.0.0.1:3218 --cleanup-database /var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/quan-su-viet-release-check-oAHNL9/release.sqlite --report-dir artifacts/release/contract",
+      "durationMs": 6247,
+      "exitCode": 0,
+      "outputSha256": "56658e3a1bbe54a2b9c9267ea1c8c4747e3a6fe71e23e53d593c357235c20aa6"
+    },
+    {
+      "name": "backup",
+      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/backup.mjs",
+      "durationMs": 303,
+      "exitCode": 0,
+      "outputSha256": "026fe1833ef270d10492d663cca28663a62fda10f7532014f0dd67a9ad175133"
+    },
+    {
+      "name": "restore",
+      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/restore.mjs /var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/quan-su-viet-release-check-oAHNL9/backups/quan-su-viet-2026-08-07T16-50-12-603Z.sqlite",
+      "durationMs": 236,
+      "exitCode": 0,
+      "outputSha256": "a0c23dec2740888775b57efeaca2427cb20c7d5ee984a0b7aaf28f7acf25c88b"
+    },
+    {
+      "name": "dependency-audit",
+      "command": "npm audit --omit=dev --audit-level=high --json",
+      "durationMs": 4278,
+      "exitCode": 0,
+      "outputSha256": "cbf484694bd38e2fb1df5e0049b863ebb2830ce3619123870467a8cb992438e9"
+    },
+    {
+      "name": "https-e2e",
+      "command": "npm run test:e2e",
+      "durationMs": 65041,
+      "exitCode": 0,
+      "outputSha256": "470aa65b78e9e465c2bf470ee8d2f35174a1ab33105524a8b56ceddd68ee9123"
+    }
+  ],
+  "recoveryProof": {
+    "backup": {
+      "sha256": "e96b553285bbbf4b4a7f24b615f5eeb3d09daf08bfd8d1d6dcf3f26cf731726f",
+      "counts": {
+        "contentNodes": 50,
+        "translations": 100,
+        "sources": 50,
+        "media": 10,
+        "users": 3
+      }
+    },
+    "restore": {
+      "database": "/var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/quan-su-viet-release-check-oAHNL9/restored.sqlite",
+      "sha256Verified": true,
+      "schemaVersion": 3,
+      "counts": {
+        "contentNodes": 50,
+        "translations": 100,
+        "sources": 50,
+        "media": 10,
+        "users": 3
+      }
+    },
+    "restoredHttp": {
+      "health": 200,
+      "search": 200,
+      "searchItems": 4
+    }
+  },
+  "dependencyAuditSummary": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "liveProof": {
+    "origin": "https://water-sweet-headphones-tongue.trycloudflare.com",
+    "endpoints": [
+      {
+        "path": "/healthz",
+        "status": 200,
+        "durationMs": 512
+      },
+      {
+        "path": "/openapi.json",
+        "status": 200,
+        "durationMs": 416
+      },
+      {
+        "path": "/api/v1/vi/search?q=dien%20bien%20phu",
+        "status": 200,
+        "durationMs": 101
+      }
+    ]
+  },
+  "logScan": {
+    "configuredSecrets": 4,
+    "exposed": false,
+    "patterns": [
+      "set-cookie:",
+      "qsv_session=",
+      "password_hash",
+      "session_secret",
+      "authorization:"
+    ]
+  },
+  "failure": null
+}

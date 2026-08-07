@@ -59,3 +59,26 @@ Reverse proxy chịu trách nhiệm cung cấp HTTPS; file SQLite và các file 
 cùng nằm trên persistent volume. `APP_VERSION` có thể ghi đè phiên bản hiển thị ở
 `/healthz` cho từng release. Health probe mở SQLite read-only, trả `503` không body nếu
 file/schema chưa sẵn sàng và không tự tạo database ở một đường dẫn cấu hình sai.
+
+## Release v1 và phục hồi
+
+Release container chạy non-root, chỉ publish cổng loopback và giữ SQLite trong named
+volume. Sao chép `.env.example` thành một file env riêng, điền `APP_ORIGIN`,
+`SESSION_SECRET` và ba mật khẩu seed production không trùng nhau, rồi chạy:
+
+```bash
+docker compose --env-file /path/to/release.env build --pull
+docker compose --env-file /path/to/release.env run --rm -e ALLOW_DEMO_SEED=1 app \
+  sh -c 'node scripts/migrate.mjs && node scripts/seed.mjs'
+docker compose --env-file /path/to/release.env up -d
+```
+
+Backup/restore không ghi đè file nguồn hoặc đích có sẵn:
+
+```bash
+npm run db:backup
+npm run db:restore -- /absolute/path/to/snapshot.sqlite
+```
+
+Quy trình HTTPS, restart, release gate, rollback và restore rehearsal chi tiết nằm tại
+[`docs/release-runbook.md`](docs/release-runbook.md).

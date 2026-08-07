@@ -1,0 +1,20 @@
+{
+  "origin": "https://water-sweet-headphones-tongue.trycloudflare.com",
+  "endpoints": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "durationMs": 512
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200,
+      "durationMs": 416
+    },
+    {
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu",
+      "status": 200,
+      "durationMs": 101
+    }
+  ]
+}

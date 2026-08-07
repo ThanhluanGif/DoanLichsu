@@ -35,7 +35,7 @@ export function ContentEditorPage({id}:{id:string}){const {user}=useAdmin();cons
   const reviewLocales=locales.filter((locale)=>detail?.translations[locale]?.translationStatus==="READY_FOR_REVIEW");
   const publishLocales=locales.filter((locale)=>detail?.translations[locale]?.translationStatus==="APPROVED");
   const update=(name:keyof typeof blankTranslation,value:string)=>{setTranslation((current)=>({...current,[name]:value}));setDirty(true);};
-  const mutate=async(path:string,method:"POST"|"PATCH"|"PUT",body:unknown,success:string)=>{try{setError(undefined);await adminSend(path,method,body);setNotice(success);await load();}catch(next){setError(next);setNotice("");}};
+  const mutate=async(path:string,method:"POST"|"PATCH"|"PUT",body:unknown,success:string)=>{try{setError(undefined);await adminSend(path,method,body);await load();setNotice(success);}catch(next){setError(next);setNotice("");}};
   if(!detail)return <div className="admin-page"><p aria-live="polite">{error?adminErrorMessage(error):"Đang tải nội dung…"}</p></div>;
   const existing=detail.translations[activeLocale];const publicTranslation=detail.translations.vi||detail.translations.en;const publicLocale=detail.translations.vi?"vi":"en";const publicHref=publicTranslation?`/${publicLocale}/${kindPaths[publicLocale][detail.type]}/${publicTranslation.slug}`:"";
   return <div className="admin-page editor-page"><div className="admin-editor-top"><nav className="admin-breadcrumb" aria-label="Đường dẫn biên tập"><Link href="/admin/contents">Nội dung</Link><span>/</span><span>{detail.titles.vi||detail.titles.en||"Bản nháp"}</span></nav><button className="button secondary" type="button" onClick={()=>setPreview(true)}>Xem trước</button></div>
