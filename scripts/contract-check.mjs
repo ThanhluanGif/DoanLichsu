@@ -535,7 +535,10 @@ if (identityBound) {
     };
     database.transaction(() => {
       deleteIds("audit_logs",ownedAuditIds);
-      database.prepare("DELETE FROM login_rate_limits WHERE bucket=?").run(`email:${rateEmail}`);
+      // The disposable contract database starts with no rate-limit rows. Both
+      // the email and client-IP buckets are created by this run, so restore the
+      // asserted baseline instead of leaving the IP bucket behind.
+      database.prepare("DELETE FROM login_rate_limits").run();
       deleteIds("content_nodes",contentIds);
       deleteIds("users",userIds);
       deleteIds("sources",sourceIds);
@@ -546,7 +549,7 @@ if (identityBound) {
       database.prepare("SELECT 1 FROM users WHERE email=? LIMIT 1").get(`contract-${runId}@example.test`),
       database.prepare("SELECT 1 FROM sources WHERE url=? LIMIT 1").get(`https://example.test/source/${runId}`),
       database.prepare("SELECT 1 FROM media WHERE url=? LIMIT 1").get(`https://example.test/media/${runId}.jpg`),
-      database.prepare("SELECT 1 FROM login_rate_limits WHERE bucket=? LIMIT 1").get(`email:${rateEmail}`),
+      database.prepare("SELECT 1 FROM login_rate_limits LIMIT 1").get(),
     ].filter(Boolean);
     if (leftovers.length) throw new Error(`${leftovers.length} exact run-owned row groups remain`);
     const counts = databaseCounts(database);

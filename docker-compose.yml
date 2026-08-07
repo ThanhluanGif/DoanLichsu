@@ -1,0 +1,35 @@
+name: quan-su-viet-release
+
+services:
+  app:
+    image: quan-su-viet:${APP_VERSION:-0.1.0}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      NODE_ENV: production
+      APP_VERSION: ${APP_VERSION:-0.1.0}
+      APP_ORIGIN: ${APP_ORIGIN:?APP_ORIGIN is required}
+      SESSION_SECRET: ${SESSION_SECRET:?SESSION_SECRET is required}
+      TRUST_PROXY_HEADERS: ${TRUST_PROXY_HEADERS:-0}
+      DATABASE_PATH: /data/quan-su-viet.db
+      ALLOW_DEMO_SEED: ${ALLOW_DEMO_SEED:-0}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-}
+      SEED_EDITOR_PASSWORD: ${SEED_EDITOR_PASSWORD:-}
+      SEED_REVIEWER_PASSWORD: ${SEED_REVIEWER_PASSWORD:-}
+    ports:
+      - "127.0.0.1:${RELEASE_PORT:-3002}:3000"
+    volumes:
+      - release-data:/data
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+
+volumes:
+  release-data:

@@ -16,8 +16,14 @@
     "test": "vitest run",
     "test:contract": "node scripts/contract-check.mjs",
     "test:public-ui:axe": "node tests/public-ui/axe-runtime.mjs",
+    "test:e2e": "playwright test",
+    "test:security": "vitest run tests/security",
+    "test:recovery": "vitest run tests/recovery",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "tsx scripts/seed.ts",
+    "db:backup": "node scripts/backup.mjs",
+    "db:restore": "node scripts/restore.mjs",
+    "release:check": "node scripts/release-check.mjs",
     "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/public/images/hero-history.webp','.next/standalone/public/images/hero-history-mobile.webp','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
   },
   "dependencies": {
@@ -32,6 +38,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
+    "@playwright/test": "^1.62.1",
     "@types/better-sqlite3": "^7.6.13",
     "@types/jsdom": "^28.0.3",
     "@types/node": "^22.19.0",

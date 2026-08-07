@@ -1,0 +1,16 @@
+.git
+.next
+node_modules
+coverage
+data
+backups
+artifacts
+test-results
+playwright-report
+.env
+.env.*
+!.env.example
+*.log
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
