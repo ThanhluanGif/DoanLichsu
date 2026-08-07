@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-08-07T16:51:15.668Z",
+  "homeLcpMs": 884,
+  "detailLcpMs": 688,
+  "p95SearchMs": 218.97281300000031,
+  "samples": 25,
+  "budgets": {
+    "lcpMs": 2500,
+    "p95SearchMs": 1000
+  }
+}

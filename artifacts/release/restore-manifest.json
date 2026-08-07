@@ -1,0 +1,16 @@
+{
+  "format": "quan-su-viet-backup-v1",
+  "createdAt": "2026-08-07T16:50:12.635Z",
+  "appVersion": "0.1.0",
+  "snapshot": "quan-su-viet-2026-08-07T16-50-12-603Z.sqlite",
+  "sha256": "e96b553285bbbf4b4a7f24b615f5eeb3d09daf08bfd8d1d6dcf3f26cf731726f",
+  "bytes": 368640,
+  "schemaVersion": 3,
+  "counts": {
+    "contentNodes": 50,
+    "translations": 100,
+    "sources": 50,
+    "media": 10,
+    "users": 3
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-08-07T16:50:52.440Z",
+  "pages": [
+    {
+      "name": "home",
+      "violations": [],
+      "blocking": []
+    },
+    {
+      "name": "search",
+      "violations": [],
+      "blocking": []
+    },
+    {
+      "name": "detail",
+      "violations": [],
+      "blocking": []
+    },
+    {
+      "name": "login",
+      "violations": [],
+      "blocking": []
+    },
+    {
+      "name": "admin-list",
+      "violations": [],
+      "blocking": []
+    },
+    {
+      "name": "review-queue",
+      "violations": [],
+      "blocking": []
+    }
+  ]
+}

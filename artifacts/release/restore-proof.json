@@ -1,0 +1,29 @@
+{
+  "backup": {
+    "sha256": "e96b553285bbbf4b4a7f24b615f5eeb3d09daf08bfd8d1d6dcf3f26cf731726f",
+    "counts": {
+      "contentNodes": 50,
+      "translations": 100,
+      "sources": 50,
+      "media": 10,
+      "users": 3
+    }
+  },
+  "restore": {
+    "database": "/var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/quan-su-viet-release-check-oAHNL9/restored.sqlite",
+    "sha256Verified": true,
+    "schemaVersion": 3,
+    "counts": {
+      "contentNodes": 50,
+      "translations": 100,
+      "sources": 50,
+      "media": 10,
+      "users": 3
+    }
+  },
+  "restoredHttp": {
+    "health": 200,
+    "search": 200,
+    "searchItems": 4
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-08-07T16:53:17Z",
+  "origin": "https://water-sweet-headphones-tongue.trycloudflare.com",
+  "releaseCommit": "3013e1c4d9c6ffd192e977c05a75dd1278a6adf2",
+  "container": {
+    "service": "quan-su-viet-release-app-1",
+    "startedAt": "2026-08-07T16:51:51.099015527Z",
+    "health": "healthy",
+    "pid": 66669
+  },
+  "preservedRecord": {
+    "observedBeforeRestart": {
+      "id": "event-dien-bien-phu",
+      "slug": "chien-dich-dien-bien-phu",
+      "title": "Chiến dịch Điện Biên Phủ"
+    },
+    "observedAfterRestart": {
+      "status": 200,
+      "id": "event-dien-bien-phu",
+      "slug": "chien-dich-dien-bien-phu",
+      "title": "Chiến dịch Điện Biên Phủ"
+    }
+  },
+  "postRestartEndpoints": [
+    { "path": "/healthz", "status": 200, "durationMs": 692, "database": "ok", "version": "0.1.0" },
+    { "path": "/openapi.json", "status": 200, "durationMs": 377, "openapi": "3.1.0", "paths": 32 },
+    { "path": "/api/v1/vi/search?q=dien%20bien%20phu", "status": 200, "durationMs": 389, "count": 4, "firstId": "event-dien-bien-phu" },
+    { "path": "/api/v1/vi/contents/EVENT/chien-dich-dien-bien-phu", "status": 200, "durationMs": 293 }
+  ],
+  "persistentDatabaseAfterRestart": {
+    "contentNodes": 57,
+    "translations": 114,
+    "sources": 57,
+    "users": 3,
+    "newestPublished": {
+      "id": "59ef560c-9531-4dc2-ba1a-4e4983def4dc",
+      "status": "PUBLISHED",
+      "updatedAt": "2026-08-07T16:52:15.117Z"
+    }
+  },
+  "adminJourneyAfterRestart": {
+    "command": "E2E_OUTPUT_DIR=artifacts/release/restart-playwright-output E2E_REPORT_DIR=artifacts/release/restart-playwright-report npm run test:e2e -- tests/e2e/admin-release.spec.ts",
+    "passed": true,
+    "tests": "1/1",
+    "report": "artifacts/release/restart-playwright-report/index.html",
+    "covers": ["editor login", "create bilingual content", "negative RBAC", "reviewer reject", "editor revise", "reviewer approve", "publish", "public detail"]
+  },
+  "browserLocaleAfterRestart": {
+    "interaction": "English to Vietnamese locale link",
+    "url": "https://water-sweet-headphones-tongue.trycloudflare.com/vi",
+    "title": "Theo dòng lịch sử giữ nước của dân tộc Việt Nam · Quân Sử Việt",
+    "heading": "Theo dòng lịch sử giữ nước của dân tộc Việt Nam"
+  },
+  "screenshots": [
+    { "path": "artifacts/release/restart-desktop.png", "width": 1280, "height": 3078, "locale": "vi" },
+    { "path": "artifacts/release/restart-mobile.png", "width": 390, "height": 6125, "locale": "en" }
+  ],
+  "editorRaceRedGreen": {
+    "red": "admin-release.spec.ts failed after showing the save notice because submit-review received a stale optimistic version; UI displayed 'Nội dung đã được cập nhật ở nơi khác.'",
+    "fix": "ContentEditor now awaits detail reload before exposing the success notice.",
+    "green": "The unchanged admin-release.spec.ts passed 1/1 after rebuild and again 1/1 after the final container restart."
+  }
+}
