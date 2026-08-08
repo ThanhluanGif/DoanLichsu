@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-08-08T02:00:06.620Z",
+  "url": "https://site-freelance-contests-diary.trycloudflare.com",
+  "journey": {
+    "desktop": [
+      "/vi",
+      "/vi/timeline",
+      "/vi/su-kien/khoi-nghia-hai-ba-trung"
+    ],
+    "mobile": [
+      "/vi",
+      "/vi/timeline",
+      "/vi/su-kien/khoi-nghia-hai-ba-trung"
+    ]
+  },
+  "normal": {
+    "route": {
+      "animationName": "route-enter",
+      "animationDuration": "0.32s",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "translate": "0px"
+    },
+    "period": {
+      "beforeReveal": {
+        "animationName": "content-reveal",
+        "animationDuration": "0.001s",
+        "animationTimeline": "view()",
+        "opacity": "0",
+        "translate": "0px 16px"
+      },
+      "afterReveal": {
+        "animationName": "content-reveal",
+        "animationDuration": "0.001s",
+        "animationTimeline": "view()",
+        "opacity": "1",
+        "translate": "0px"
+      }
+    },
+    "contentCard": {
+      "animationName": "content-reveal",
+      "animationDuration": "0.001s",
+      "animationTimeline": "view()",
+      "opacity": "0",
+      "translate": "0px 16px"
+    },
+    "sourcePromise": {
+      "animationName": "content-reveal",
+      "animationDuration": "0.001s",
+      "animationTimeline": "view()",
+      "opacity": "0",
+      "translate": "0px 16px"
+    },
+    "timelineEntry": {
+      "animationName": "content-reveal",
+      "animationDuration": "0.001s",
+      "animationTimeline": "view()",
+      "opacity": "0.99999",
+      "translate": "0px 0.000157622px"
+    }
+  },
+  "reducedMotion": {
+    "route": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "translate": "none"
+    },
+    "period": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "translate": "none"
+    },
+    "timelineEntry": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "translate": "none"
+    }
+  },
+  "mobileViewport": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  "performance": {
+    "homeLcpMs": 640,
+    "detailLcpMs": 424,
+    "p95SearchMs": 119.33699200000046,
+    "samples": 25,
+    "budgets": {
+      "lcpMs": 2500,
+      "p95SearchMs": 1000
+    }
+  },
+  "screenshots": [
+    "artifacts/motion/desktop.png",
+    "artifacts/motion/mobile.png"
+  ]
+}

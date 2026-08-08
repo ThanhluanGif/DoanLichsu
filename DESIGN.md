@@ -123,6 +123,29 @@ tables, form inputs, sidebars, page backgrounds, or body rows.
 Hover on gradient cards: lift `translateY(-1px)` + `box-shadow: 0 8px 24px rgba(9,9,11,.06)`;
 no hard accent border.
 
+## Motion policy
+
+Amended 2026-08-08 for public-route transitions and viewport reveals. Motion supports
+reading order; it never delays access to content or takes control of scrolling.
+
+| Token | Value | Use |
+|---|---|---|
+| `--motion-duration-route` | `320ms` | Public page entry only |
+| `--motion-duration-reveal` | `1ms` | View-timeline attachment; progress comes from scroll |
+| `--motion-ease-out` | `cubic-bezier(.22, 1, .36, 1)` | Calm deceleration |
+| `--motion-route-distance` | `8px` | Maximum page-entry offset |
+| `--motion-reveal-distance` | `16px` | Maximum card/entry reveal offset |
+
+- Route entry is at most 360ms and 8px; viewport reveal is at most 16px.
+- Route entry keeps a non-zero starting opacity so the main content remains eligible for
+  Largest Contentful Paint measurement.
+- Animate only `opacity` and the individual `translate` property. Never animate layout
+  properties, hijack scrolling, or compete with the existing card hover transform.
+- Viewport reveal is progressive enhancement: content stays visible when view timelines
+  are unsupported.
+- `prefers-reduced-motion: reduce` disables these effects completely and restores every
+  animated public element to `opacity: 1` and `translate: none`.
+
 ## Forms
 
 - Max 6 visible fields on any create/edit page; more → disclosure.
