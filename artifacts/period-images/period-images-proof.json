@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-08-09T01:38:47.189Z",
+  "url": "https://oil-argument-produce-forwarding.trycloudflare.com",
+  "images": [
+    {
+      "id": "period-early",
+      "src": "/images/periods/early-self-rule.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    },
+    {
+      "id": "period-dynasties",
+      "src": "/images/periods/dynastic-defense.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    },
+    {
+      "id": "period-colonial",
+      "src": "/images/periods/anti-colonial-resistance.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    },
+    {
+      "id": "period-independence-wars",
+      "src": "/images/periods/independence-reunification.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    },
+    {
+      "id": "period-border",
+      "src": "/images/periods/post-1975-border-defense.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    },
+    {
+      "id": "period-memory",
+      "src": "/images/periods/contemporary-memory.webp",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 257.75
+    }
+  ],
+  "transfers": [
+    {
+      "src": "/images/periods/early-self-rule.webp",
+      "bytes": 167022,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/periods/dynastic-defense.webp",
+      "bytes": 206750,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/periods/anti-colonial-resistance.webp",
+      "bytes": 201244,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/periods/independence-reunification.webp",
+      "bytes": 162464,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/periods/post-1975-border-defense.webp",
+      "bytes": 164682,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/periods/contemporary-memory.webp",
+      "bytes": 155248,
+      "contentType": "image/webp"
+    }
+  ],
+  "totalTransferBytes": 1057410,
+  "metrics": {
+    "cumulativeLayoutShift": 0,
+    "homeLcpMs": 1308,
+    "clientWidth": 1440,
+    "scrollWidth": 1440
+  },
+  "mobileViewport": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  "screenshots": [
+    "artifacts/period-images/desktop.png",
+    "artifacts/period-images/mobile.png"
+  ]
+}

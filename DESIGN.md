@@ -123,6 +123,23 @@ tables, form inputs, sidebars, page backgrounds, or body rows.
 Hover on gradient cards: lift `translateY(-1px)` + `box-shadow: 0 8px 24px rgba(9,9,11,.06)`;
 no hard accent border.
 
+## Historical illustration policy
+
+Amended 2026-08-09 for period-card artwork. Generated imagery is an editorial aid,
+never evidence: every collection carries a visible bilingual disclosure that it is an
+original illustration rather than a historical document.
+
+- Period artwork uses the same warm archival paper, etched ink, deep green and restrained
+  vermilion collage language as the approved hero; it may not imitate a photograph or
+  introduce legible labels, logos or watermarks.
+- Every published period has one distinct static asset and a locale-specific descriptive
+  alt. Decorative era names stay in nearby HTML and are not baked into the image.
+- Masters use a consistent 3:2 frame and remain safely crop-able at 16:10. Cards reserve
+  the image aspect ratio before loading, use `object-fit: cover`, and lazy-load below-fold
+  artwork so the hero remains the LCP candidate.
+- Six period assets together stay at or below 1.8 MB. Generated source files remain outside
+  the runtime bundle; the website ships optimized WebP derivatives only.
+
 ## Motion policy
 
 Amended 2026-08-08 for public-route transitions and viewport reveals. Motion supports
