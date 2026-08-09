@@ -1,0 +1,198 @@
+{
+  "generatedAt": "2026-08-09T17:34:26.147Z",
+  "url": "https://backed-bar-acc-hang.trycloudflare.com",
+  "portraits": [
+    {
+      "id": "person-trung-sisters",
+      "src": "/images/people/trung-sisters-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-ho-chi-minh",
+      "src": "/images/people/ho-chi-minh-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-le-loi",
+      "src": "/images/people/le-loi-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-ngo-quyen",
+      "src": "/images/people/ngo-quyen-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-nguyen-thi-dinh",
+      "src": "/images/people/nguyen-thi-dinh-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-phan-dinh-phung",
+      "src": "/images/people/phan-dinh-phung-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-quang-trung",
+      "src": "/images/people/quang-trung-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-tran-hung-dao",
+      "src": "/images/people/tran-hung-dao-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-truong-dinh",
+      "src": "/images/people/truong-dinh-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    },
+    {
+      "id": "person-vo-nguyen-giap",
+      "src": "/images/people/vo-nguyen-giap-relief-v1.webp",
+      "alt": "",
+      "naturalWidth": 1280,
+      "naturalHeight": 853
+    }
+  ],
+  "transfers": [
+    {
+      "src": "/images/people/trung-sisters-relief-v1.webp",
+      "bytes": 198876
+    },
+    {
+      "src": "/images/people/ho-chi-minh-relief-v1.webp",
+      "bytes": 182434
+    },
+    {
+      "src": "/images/people/le-loi-relief-v1.webp",
+      "bytes": 238400
+    },
+    {
+      "src": "/images/people/ngo-quyen-relief-v1.webp",
+      "bytes": 207002
+    },
+    {
+      "src": "/images/people/nguyen-thi-dinh-relief-v1.webp",
+      "bytes": 178804
+    },
+    {
+      "src": "/images/people/phan-dinh-phung-relief-v1.webp",
+      "bytes": 239436
+    },
+    {
+      "src": "/images/people/quang-trung-relief-v1.webp",
+      "bytes": 233046
+    },
+    {
+      "src": "/images/people/tran-hung-dao-relief-v1.webp",
+      "bytes": 240668
+    },
+    {
+      "src": "/images/people/truong-dinh-relief-v1.webp",
+      "bytes": 238042
+    },
+    {
+      "src": "/images/people/vo-nguyen-giap-relief-v1.webp",
+      "bytes": 218866
+    }
+  ],
+  "totalTransferBytes": 2175574,
+  "budgetBytes": 2500000,
+  "normalMotion": {
+    "route": {
+      "animationName": "route-enter",
+      "perspective": "1400px",
+      "transformStyle": "preserve-3d",
+      "translate": "0px",
+      "rotate": "x 0deg",
+      "transform": "none"
+    },
+    "grid": {
+      "animationName": "none",
+      "perspective": "1300px",
+      "transformStyle": "flat",
+      "translate": "none",
+      "rotate": "none",
+      "transform": "none"
+    },
+    "cardHover": {
+      "animationName": "content-reveal",
+      "perspective": "none",
+      "transformStyle": "preserve-3d",
+      "translate": "0px",
+      "rotate": "x 0deg",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    }
+  },
+  "reducedMotion": {
+    "route": {
+      "animationName": "none",
+      "perspective": "1400px",
+      "transformStyle": "preserve-3d",
+      "translate": "none",
+      "rotate": "none",
+      "transform": "none"
+    },
+    "card": {
+      "animationName": "none",
+      "perspective": "none",
+      "transformStyle": "preserve-3d",
+      "translate": "none",
+      "rotate": "none",
+      "transform": "none"
+    },
+    "image": {
+      "animationName": "none",
+      "perspective": "none",
+      "transformStyle": "flat",
+      "translate": "none",
+      "rotate": "none",
+      "transform": "none"
+    }
+  },
+  "journey": {
+    "collection": "/vi/nhan-vat",
+    "detail": "/vi/nhan-vat/hai-ba-trung",
+    "title": "Hai Bà Trưng",
+    "keyboard": true,
+    "back": true,
+    "reusedAsset": "/images/people/trung-sisters-relief-v1.webp"
+  },
+  "accessibility": {
+    "criticalOrSerious": 0
+  },
+  "viewport": {
+    "desktop": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "mobile": {
+      "clientWidth": 390,
+      "scrollWidth": 390
+    }
+  },
+  "lcpMs": 1500,
+  "screenshots": [
+    "artifacts/immersive-visuals/immersive-visuals-desktop.png",
+    "artifacts/immersive-visuals/immersive-visuals-mobile.png"
+  ]
+}

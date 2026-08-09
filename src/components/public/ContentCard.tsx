@@ -6,10 +6,11 @@ import { contentArtwork } from "@/lib/public-client/artwork";
 import { contentPath } from "@/lib/public-client/paths";
 import { formatDateRange,typeLabel } from "@/lib/public-client/presentation";
 
-export function ContentCard({item,locale,variant="default"}:{item:ContentListItem;locale:Locale;variant?:"default"|"compact"}) {
+export function ContentCard({item,locale,variant="default",priority=false}:{item:ContentListItem;locale:Locale;variant?:"default"|"compact";priority?:boolean}) {
   const artwork=contentArtwork(item.id,locale);
+  const imageLoading=priority?{loading:"eager" as const,fetchPriority:"high" as const}:{};
   return <article className={`content-card ${variant}`}>
-    <div className={`content-card-art type-${item.type.toLowerCase()}${artwork?" has-image":""}`} aria-hidden="true">{artwork?<Image unoptimized src={artwork.src} alt="" width="1280" height="853" loading="lazy" decoding="async" data-featured-art={item.id}/>:null}<span>{typeLabel(locale,item.type)}</span></div>
+    <div className={`content-card-art type-${item.type.toLowerCase()}${artwork?" has-image":""}`} aria-hidden="true">{artwork?<Image unoptimized src={artwork.src} alt="" width="1280" height="853" loading="lazy" decoding="async" {...imageLoading} data-featured-art={item.id}/>:null}<span>{typeLabel(locale,item.type)}</span></div>
     <div className="content-card-copy">
       <p className="content-meta"><span>{typeLabel(locale,item.type)}</span>{item.startDate ? <time dateTime={item.startDate}>{formatDateRange(item,locale)}</time> : null}</p>
       <h3><Link href={contentPath(locale,item.type,item.slug)}>{item.title}</Link></h3>
