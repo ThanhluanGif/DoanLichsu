@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-08T02:00:06.620Z",
-  "url": "https://site-freelance-contests-diary.trycloudflare.com",
+  "generatedAt": "2026-08-09T00:04:53.195Z",
+  "url": "https://rocky-hdtv-herald-pharmaceutical.trycloudflare.com",
   "journey": {
     "desktop": [
       "/vi",
@@ -87,9 +87,9 @@
     "scrollWidth": 390
   },
   "performance": {
-    "homeLcpMs": 640,
-    "detailLcpMs": 424,
-    "p95SearchMs": 119.33699200000046,
+    "homeLcpMs": 476,
+    "detailLcpMs": 420,
+    "p95SearchMs": 99.12762800000019,
     "samples": 25,
     "budgets": {
       "lcpMs": 2500,
