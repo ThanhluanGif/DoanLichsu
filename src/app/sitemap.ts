@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import type { ContentListItem,Locale } from "@/lib/content/types";
+import { contentTypes,type ContentListItem,type Locale } from "@/lib/content/types";
 import { getPublicClient } from "@/lib/public-client/client";
-import { absolutePublicUrl,contentPath,homePath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
+import { absolutePublicUrl,contentCollectionPath,contentPath,homePath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +11,7 @@ export function buildSitemap(items:Record<Locale,ContentListItem[]>):MetadataRou
     entries.push({url:absolutePublicUrl(homePath(locale)),changeFrequency:"weekly",priority:1});
     entries.push({url:absolutePublicUrl(timelinePath(locale)),changeFrequency:"weekly",priority:.8});
     entries.push({url:absolutePublicUrl(sourcesPath(locale)),changeFrequency:"weekly",priority:.7});
+    for(const type of contentTypes)entries.push({url:absolutePublicUrl(contentCollectionPath(locale,type)),changeFrequency:"weekly",priority:type==="EVENT"?.8:.7});
     for(const item of items[locale])entries.push({url:absolutePublicUrl(contentPath(locale,item.type,item.slug)),changeFrequency:"monthly",priority:item.type==="EVENT"?.7:.6});
   }
   return entries;

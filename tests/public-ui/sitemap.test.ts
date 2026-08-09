@@ -15,8 +15,14 @@ describe("public sitemap",()=>{
     expect(urls).toEqual(expect.arrayContaining([
       "https://history.example/vi","https://history.example/en","https://history.example/vi/timeline","https://history.example/en/timeline",
       "https://history.example/vi/sources","https://history.example/en/sources",
+      "https://history.example/vi/thoi-ky","https://history.example/en/periods",
+      "https://history.example/vi/su-kien","https://history.example/en/events",
+      "https://history.example/vi/nhan-vat","https://history.example/en/people",
+      "https://history.example/vi/hien-vat","https://history.example/en/artifacts",
+      "https://history.example/vi/chu-de","https://history.example/en/topics",
       "https://history.example/vi/su-kien/chien-dich-dien-bien-phu","https://history.example/en/events/battle-of-dien-bien-phu",
     ]));
+    expect(urls).toHaveLength(18);
     expect(urls.join("\n")).not.toMatch(/\/api\/|\/admin|\.json/);
   });
 

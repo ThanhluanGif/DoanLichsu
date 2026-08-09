@@ -7,7 +7,7 @@ import { ContentCard } from "@/components/public/ContentCard";
 import { ArrowRightIcon,BookIcon,CalendarIcon,SearchIcon } from "@/components/icons";
 import { isPublicLocale,t } from "@/lib/i18n/config";
 import { getPublicClient } from "@/lib/public-client/client";
-import { homePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
+import { contentCollectionPath,homePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 
 const periodArtwork:Record<string,{src:string;alt:{vi:string;en:string}}>={
   "period-early":{src:"/images/periods/early-self-rule.webp",alt:{vi:"Minh họa thuyền, bãi cọc và thành lũy bên sông trong buổi đầu tự chủ",en:"Illustration of boats, river stakes, and fortifications in the early era of self-rule"}},
@@ -28,7 +28,7 @@ export async function generateMetadata({params}:{params:Promise<{locale:string}>
 
 export default async function PublicHome({params}:{params:Promise<{locale:string}>}) {
   const {locale:raw}=await params;if(!isPublicLocale(raw)) notFound();const locale=raw;const copy=t(locale);
-  const home=await getPublicClient().home(locale);const other=locale==="vi"?"en":"vi";
+  const home=await getPublicClient().home(locale);const other=locale==="vi"?"en":"vi";const collectionUnits={PERIOD:copy.periodUnit,EVENT:copy.eventUnit,PERSON:copy.personUnit,ARTIFACT:copy.artifactUnit} as const;
   return <PublicShell locale={locale} localeHref={homePath(other)}>
     <main id="noi-dung">
       <section className="hero" aria-labelledby="hero-title">
@@ -39,7 +39,7 @@ export default async function PublicHome({params}:{params:Promise<{locale:string
         <figure className="hero-art"><picture><source media="(max-width: 760px)" srcSet="/images/hero-history-mobile.webp" type="image/webp"/><source srcSet="/images/hero-history.webp" type="image/webp"/><img src="/images/hero-history.png" width="1536" height="1024" fetchPriority="high" decoding="async" alt={locale==="vi"?"Minh họa lớp bản đồ, núi, thành cổ và hoa văn trống đồng":"Illustrated layers of a map, mountains, citadel, and bronze drum patterns"}/></picture><figcaption>{locale==="vi"?"Minh họa nguyên bản, không phải tư liệu lịch sử":"Original illustration, not a historical document"}</figcaption></figure>
       </section>
       <section className="pulse-strip" aria-label={locale==="vi"?"Quy mô kho tư liệu":"Archive coverage"}>
-        <div><strong>{home.counts.PERIOD}</strong><span>{copy.periodUnit}</span></div><div><strong>{home.counts.EVENT}</strong><span>{copy.eventUnit}</span></div><div><strong>{home.counts.PERSON}</strong><span>{copy.personUnit}</span></div><div><strong>{home.counts.ARTIFACT}</strong><span>{copy.artifactUnit}</span></div><p><BookIcon/>{locale==="vi"?"Mỗi nội dung đã xuất bản đều có nguồn":"Every published entry includes a source"}</p>
+        {(["PERIOD","EVENT","PERSON","ARTIFACT"] as const).map((type)=><Link href={contentCollectionPath(locale,type)} aria-label={`${locale==="vi"?"Xem":"Browse"} ${home.counts[type]} ${collectionUnits[type]}`} key={type}><strong>{home.counts[type]}</strong><span>{collectionUnits[type]}</span><ArrowRightIcon/></Link>)}<p><BookIcon/>{locale==="vi"?"Mỗi nội dung đã xuất bản đều có nguồn":"Every published entry includes a source"}</p>
       </section>
       <section className="section-shell" aria-labelledby="period-title"><div className="section-heading"><div><p className="eyebrow">{copy.timelineEyebrow}</p><h2 id="period-title">{copy.timelineTitle}</h2></div><Link className="text-link" href={timelinePath(locale)}>{copy.allPeriods}<ArrowRightIcon/></Link></div>
         <div className="period-grid">{home.periods.filter((period)=>period.contentCount>0).map((period)=>{const artwork=periodArtwork[period.id];return <article className="period-card" key={period.id}>{artwork?<figure className="period-art"><Image unoptimized data-period-art={period.id} src={artwork.src} width="1280" height="853" loading="lazy" decoding="async" alt={artwork.alt[locale]}/></figure>:null}<div className="period-card-body"><p className="period-years">{period.startYear}–{period.endYear}</p><h3>{period.title}</h3><p>{period.summary}</p><Link href={timelinePath(locale,`?period=${encodeURIComponent(period.slug)}`)}>{period.contentCount} {copy.eventUnit}<ArrowRightIcon/></Link></div></article>;})}</div>

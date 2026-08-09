@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-08-09T07:30:42.244Z",
+  "url": "https://communications-ecommerce-feelings-tactics.trycloudflare.com",
+  "routes": {
+    "vi:PERIOD": {
+      "page": 1,
+      "apiItems": 6,
+      "allItemsMatchType": true
+    },
+    "vi:EVENT": {
+      "page": 1,
+      "apiItems": 12,
+      "allItemsMatchType": true
+    },
+    "vi:PERSON": {
+      "page": 1,
+      "apiItems": 10,
+      "allItemsMatchType": true
+    },
+    "vi:ARTIFACT": {
+      "page": 1,
+      "apiItems": 10,
+      "allItemsMatchType": true
+    },
+    "vi:TOPIC": {
+      "page": 1,
+      "apiItems": 4,
+      "allItemsMatchType": true
+    },
+    "en:PERIOD": {
+      "page": 1,
+      "apiItems": 6,
+      "allItemsMatchType": true
+    },
+    "en:EVENT": {
+      "page": 1,
+      "apiItems": 12,
+      "allItemsMatchType": true
+    },
+    "en:PERSON": {
+      "page": 1,
+      "apiItems": 10,
+      "allItemsMatchType": true
+    },
+    "en:ARTIFACT": {
+      "page": 1,
+      "apiItems": 9,
+      "allItemsMatchType": true
+    },
+    "en:TOPIC": {
+      "page": 1,
+      "apiItems": 4,
+      "allItemsMatchType": true
+    }
+  },
+  "homeLinks": [
+    "PERIOD",
+    "EVENT",
+    "PERSON",
+    "ARTIFACT"
+  ],
+  "sitemapCollections": 10,
+  "pointer": {
+    "from": "/vi",
+    "collection": "/vi/su-kien",
+    "detail": "/vi/su-kien/khoi-nghia-hai-ba-trung",
+    "breadcrumb": "/vi/su-kien",
+    "localeSwitch": "/en/events"
+  },
+  "keyboard": {
+    "from": "/en",
+    "collection": "/en/people",
+    "detail": "/en/people/emperor-quang-trung",
+    "breadcrumb": "/en/people"
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 1224
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 872
+  },
+  "screenshots": [
+    "artifacts/collections/collections-desktop.png",
+    "artifacts/collections/collections-mobile.png"
+  ]
+}

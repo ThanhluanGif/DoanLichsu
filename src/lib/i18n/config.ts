@@ -16,6 +16,23 @@ export const contentTypeLabels: Record<Locale, Record<ContentType, string>> = {
   en: { PERIOD:"Period",EVENT:"Event",PERSON:"Person",ARTIFACT:"Artifact",TOPIC:"Topic" },
 };
 
+export const contentCollectionMessages:Record<Locale,Record<ContentType,{eyebrow:string;title:string;lead:string}>>={
+  vi:{
+    PERIOD:{eyebrow:"Khám phá theo giai đoạn",title:"Các thời kỳ lịch sử",lead:"Duyệt những giai đoạn đã xuất bản và mở từng nội dung để đọc bối cảnh, niên đại cùng nguồn tham khảo."},
+    EVENT:{eyebrow:"Những mốc đã đối chiếu",title:"Sự kiện và chiến dịch",lead:"Duyệt các sự kiện đã xuất bản theo trình tự thời gian, từ mỗi mốc đi tiếp tới nội dung và nguồn liên quan."},
+    PERSON:{eyebrow:"Con người trong lịch sử",title:"Nhân vật",lead:"Tìm hiểu những nhân vật đã xuất bản, vai trò của họ và các nội dung lịch sử có liên quan."},
+    ARTIFACT:{eyebrow:"Dấu tích còn lưu lại",title:"Hiện vật và tư liệu",lead:"Khám phá hiện vật đã xuất bản cùng bối cảnh, nơi lưu giữ và thông tin nguồn được kiểm tra."},
+    TOPIC:{eyebrow:"Đọc theo chủ đề",title:"Chủ đề",lead:"Theo các chủ đề đã xuất bản để kết nối nhiều thời kỳ, sự kiện, nhân vật và hiện vật trong cùng một mạch đọc."},
+  },
+  en:{
+    PERIOD:{eyebrow:"Explore by era",title:"Historical periods",lead:"Browse published periods, then open each entry for its context, chronology, and checked references."},
+    EVENT:{eyebrow:"Source-checked milestones",title:"Events and campaigns",lead:"Browse published events chronologically, with a path from each milestone to its account and related sources."},
+    PERSON:{eyebrow:"People in history",title:"People",lead:"Explore published people, their roles, and the historical entries connected to them."},
+    ARTIFACT:{eyebrow:"Material traces",title:"Artifacts and records",lead:"Browse published artifacts with their context, holding place, and checked source information."},
+    TOPIC:{eyebrow:"Read by theme",title:"Topics",lead:"Follow published topics that connect periods, events, people, and artifacts into a wider reading path."},
+  },
+};
+
 export const messages = {
   vi: {
     brandSubtitle:"Vietnamese Military History",navTimeline:"Dòng thời gian",navExplore:"Khám phá",navSources:"Nguồn tư liệu",

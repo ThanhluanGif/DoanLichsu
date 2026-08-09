@@ -1,11 +1,13 @@
 import { afterEach,beforeEach,describe,expect,it,vi } from "vitest";
-import { alternateApiToPublicPath,contentPath,contentTypeFromLocaleSegment,searchPath,timelinePath,withQuery } from "@/lib/public-client/paths";
+import { alternateApiToPublicPath,contentCollectionPath,contentPath,contentTypeFromLocaleSegment,searchPath,timelinePath,withQuery } from "@/lib/public-client/paths";
 import { createPublicClient,PublicClientError } from "@/lib/public-client/client";
 
 describe("public bilingual navigation contract",()=>{
   it("maps canonical paths without leaking API URLs",()=>{
     expect(contentPath("vi","EVENT","chien-dich-dien-bien-phu")).toBe("/vi/su-kien/chien-dich-dien-bien-phu");
     expect(contentPath("en","EVENT","battle-of-dien-bien-phu")).toBe("/en/events/battle-of-dien-bien-phu");
+    expect(contentCollectionPath("vi","PERSON")).toBe("/vi/nhan-vat");
+    expect(contentCollectionPath("en","ARTIFACT","?page=2")).toBe("/en/artifacts?page=2");
     expect(contentTypeFromLocaleSegment("vi","su-kien")).toBe("EVENT");
     expect(contentTypeFromLocaleSegment("en","su-kien")).toBeNull();
     expect(alternateApiToPublicPath("/api/v1/en/contents/EVENT/battle-of-dien-bien-phu")).toBe("/en/events/battle-of-dien-bien-phu");
