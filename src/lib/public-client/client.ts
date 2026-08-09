@@ -1,4 +1,4 @@
-import type { ContentDetail,ContentListItem,DataResponse,HomeView,ListResponse,Locale,PeriodView,SearchResult,TaxonomyView,TimelineItem } from "./types";
+import type { ContentDetail,ContentListItem,DataResponse,HomeView,ListResponse,Locale,PeriodView,PublicSourceItem,SearchResult,TaxonomyView,TimelineItem } from "./types";
 
 export class PublicClientError extends Error {
   constructor(public readonly status:number,public readonly code:string,message:string) { super(message); }
@@ -31,6 +31,7 @@ export function createPublicClient(options: {origin?:string;fetcher?:Fetcher} = 
     timeline:async(locale:Locale,query:URLSearchParams) => request<ListResponse<TimelineItem>>(`/api/v1/${locale}/timeline?${query}`),
     contents:async(locale:Locale,query:URLSearchParams) => request<ListResponse<ContentListItem>>(`/api/v1/${locale}/contents?${query}`),
     search:async(locale:Locale,query:URLSearchParams) => request<ListResponse<SearchResult>>(`/api/v1/${locale}/search?${query}`),
+    sources:async(locale:Locale,query:URLSearchParams) => request<ListResponse<PublicSourceItem>>(`/api/v1/${locale}/sources?${query}`),
     taxonomies:async(locale:Locale) => (await request<DataResponse<TaxonomyView>>(`/api/v1/${locale}/taxonomies`)).data,
     detail:async(locale:Locale,type:string,slug:string) => (await request<DataResponse<ContentDetail>>(`/api/v1/${locale}/contents/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`)).data,
   };

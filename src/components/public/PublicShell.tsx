@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/content/types";
 import { t } from "@/lib/i18n/config";
-import { homePath,searchPath,timelinePath } from "@/lib/public-client/paths";
+import { homePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 import { SearchIcon } from "@/components/icons";
 
 export function PublicShell({locale,localeHref,children}:{locale:Locale;localeHref:string|null;children:React.ReactNode}) {
@@ -15,9 +15,10 @@ export function PublicShell({locale,localeHref,children}:{locale:Locale;localeHr
         <span><strong>Quân Sử Việt</strong><small>{copy.brandSubtitle}</small></span>
       </Link>
       <nav className="primary-nav" aria-label={locale === "vi" ? "Điều hướng chính" : "Primary navigation"}>
+        <Link href={homePath(locale)}>{copy.home}</Link>
         <Link href={timelinePath(locale)}>{copy.navTimeline}</Link>
         <Link href={searchPath(locale)}>{copy.navExplore}</Link>
-        <Link href={`${homePath(locale)}#nguon-tu-lieu`}>{copy.navSources}</Link>
+        <Link href={sourcesPath(locale)}>{copy.navSources}</Link>
       </nav>
       <div className="header-actions">
         <Link className="header-search" href={searchPath(locale)} aria-label={copy.search}><SearchIcon/></Link>

@@ -35,6 +35,10 @@ export interface SourceView {
   citationNote: string | null;
 }
 
+export interface PublicSourceItem extends SourceView {
+  contentCount: number;
+}
+
 export interface PeriodRef { id: string; title: string; slug: string }
 
 export interface ContentListItem {

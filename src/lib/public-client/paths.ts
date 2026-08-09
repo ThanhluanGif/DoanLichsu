@@ -12,6 +12,7 @@ const segmentTypes = new Map<string,ContentType>(Object.values(typeSegments).fla
 export function homePath(locale: Locale) { return `/${locale}`; }
 export function timelinePath(locale: Locale, query = "") { return `/${locale}/timeline${query}`; }
 export function searchPath(locale: Locale, query = "") { return `/${locale}/${locale === "vi" ? "tim-kiem" : "search"}${query}`; }
+export function sourcesPath(locale: Locale, query = "") { return `/${locale}/sources${query}`; }
 export function contentPath(locale: Locale, type: ContentType, slug: string) { return `/${locale}/${typeSegments[locale][type]}/${encodeURIComponent(slug)}`; }
 
 export function contentTypeFromSegment(segment: string): ContentType | null {

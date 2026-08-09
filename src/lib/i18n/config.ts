@@ -35,6 +35,7 @@ export const messages = {
     readEnglish:"Đọc bản tiếng Anh",readVietnamese:"Đọc bản tiếng Việt",alternateMissing:"Bản tiếng Anh của nội dung này chưa được xuất bản.",
     alternateMissingEn:"The Vietnamese edition of this content is not published yet.",copyLink:"Sao chép liên kết",copied:"Đã sao chép",backToTimeline:"Trở lại dòng thời gian",
     loading:"Đang tải nội dung đã xuất bản…",errorTitle:"Không thể tải kho tư liệu",errorCopy:"Vui lòng thử lại sau ít phút.",retry:"Thử lại",
+    sourcesEyebrow:"Tài liệu đã đối chiếu",sourcesTitlePage:"Danh mục nguồn tư liệu",sourcesLead:"Tra cứu các tài liệu tham khảo đang được dùng trong nội dung đã xuất bản. Mỗi đường dẫn chỉ xuất hiện một lần.",sourceUsedByOne:"nội dung sử dụng",sourceUsedByMany:"nội dung sử dụng",sourcesAccessed:"Truy cập",openSource:"Mở nguồn",sourceDirectoryCta:"Xem danh mục nguồn",
     footer:"Ưu tiên nguồn rõ ràng, ngôn ngữ nhất quán và khả năng tiếp cận.",emptyTimeline:"Chưa có sự kiện đã xuất bản cho bộ lọc này.",
   },
   en: {
@@ -55,6 +56,7 @@ export const messages = {
     readEnglish:"Read in English",readVietnamese:"Đọc bản tiếng Việt",alternateMissing:"The other language edition of this content is not published yet.",
     alternateMissingEn:"The Vietnamese edition of this content is not published yet.",copyLink:"Copy link",copied:"Copied",backToTimeline:"Back to timeline",
     loading:"Loading published content…",errorTitle:"The archive could not be loaded",errorCopy:"Please try again in a moment.",retry:"Try again",
+    sourcesEyebrow:"Checked references",sourcesTitlePage:"Source directory",sourcesLead:"Browse the references used by published entries. Each destination appears only once.",sourceUsedByOne:"published entry",sourceUsedByMany:"published entries",sourcesAccessed:"Accessed",openSource:"Open source",sourceDirectoryCta:"View source directory",
     footer:"Clear sources, consistent language, and accessible reading come first.",emptyTimeline:"No published events match this filter yet.",
   },
 } as const;

@@ -1,6 +1,6 @@
 import type { SqliteDatabase } from "@/lib/db/connection";
 import { normalizeSearchText } from "@/lib/search/normalize";
-import { contentTypes, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type SearchResult, type TimelineItem } from "./types";
+import { contentTypes, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -258,6 +258,31 @@ export function getTaxonomies(database: SqliteDatabase, locale: Locale, kind: st
   `).all(locale, locale) as Array<{ id: string; name: string; slug: string }> : [];
   const usedTypes = kind === null || kind === "type" ? contentTypes.filter((type) => database.prepare(`${publicSelect} AND t.locale = ? AND n.type = ? LIMIT 1`).get(locale, type)) : [];
   return { data: { periods, tags: tagRows, types: usedTypes } };
+}
+
+export function getSources(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
+  const { page, pageSize } = parsePage(search);
+  const rows = database.prepare(`
+    WITH eligible AS (
+      SELECT s.id, s.url, cs.content_id
+      FROM sources s
+      JOIN content_sources cs ON cs.source_id = s.id
+      JOIN content_nodes n ON n.id = cs.content_id
+      JOIN content_translations t ON t.node_id = n.id
+      WHERE n.status = 'PUBLISHED' AND t.locale = ? AND t.translation_status = 'PUBLISHED'
+    ), representatives AS (
+      SELECT url, MIN(id) AS id, COUNT(DISTINCT content_id) AS contentCount
+      FROM eligible
+      GROUP BY url
+    )
+    SELECT s.id, s.title, s.author, s.publisher, s.year, s.url,
+      s.accessed_at AS accessedAt, s.citation_note AS citationNote, r.contentCount
+    FROM representatives r
+    JOIN sources s ON s.id = r.id
+    ORDER BY s.title COLLATE NOCASE, s.id
+  `).all(locale) as PublicSourceItem[];
+  const total = rows.length;
+  return { data: rows.slice((page - 1) * pageSize, page * pageSize), meta: pageMeta(page, pageSize, total) };
 }
 
 export function getAlternate(database: SqliteDatabase, id: string, locale: Locale) {

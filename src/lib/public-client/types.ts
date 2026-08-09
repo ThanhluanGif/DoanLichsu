@@ -1,6 +1,6 @@
-import type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,SearchResult,TimelineItem } from "@/lib/content/types";
+import type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,PublicSourceItem,SearchResult,TimelineItem } from "@/lib/content/types";
 
-export type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,SearchResult,TimelineItem };
+export type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,PublicSourceItem,SearchResult,TimelineItem };
 
 export interface HomeView {
   featured: ContentListItem[];

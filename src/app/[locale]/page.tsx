@@ -7,7 +7,7 @@ import { ContentCard } from "@/components/public/ContentCard";
 import { ArrowRightIcon,BookIcon,CalendarIcon,SearchIcon } from "@/components/icons";
 import { isPublicLocale,t } from "@/lib/i18n/config";
 import { getPublicClient } from "@/lib/public-client/client";
-import { contentPath,homePath,searchPath,timelinePath } from "@/lib/public-client/paths";
+import { homePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 
 const periodArtwork:Record<string,{src:string;alt:{vi:string;en:string}}>={
   "period-early":{src:"/images/periods/early-self-rule.webp",alt:{vi:"Minh họa thuyền, bãi cọc và thành lũy bên sông trong buổi đầu tự chủ",en:"Illustration of boats, river stakes, and fortifications in the early era of self-rule"}},
@@ -46,7 +46,7 @@ export default async function PublicHome({params}:{params:Promise<{locale:string
         <p className="period-art-note">{locale==="vi"?"Các hình ảnh trong phần này là minh họa nguyên bản, không phải tư liệu lịch sử.":"Images in this section are original illustrations, not historical documents."}</p>
       </section>
       <section className="feature-section" aria-labelledby="featured-title"><div className="section-heading"><div><p className="eyebrow">{copy.featuredEyebrow}</p><h2 id="featured-title">{copy.featuredTitle}</h2></div><Link className="text-link" href={searchPath(locale)}>{copy.lookup}<ArrowRightIcon/></Link></div><div className="content-grid">{home.featured.slice(0,6).map((item)=><ContentCard item={item} locale={locale} key={item.id}/>)}</div></section>
-      <section className="source-promise" id="nguon-tu-lieu"><BookIcon/><div><p className="eyebrow">{copy.navSources}</p><h2>{locale==="vi"?"Đọc lịch sử, lần về tài liệu":"Read the account, trace the evidence"}</h2><p>{locale==="vi"?"Mỗi trang chi tiết đưa nguồn tham khảo, ngày truy cập và nội dung liên quan vào đúng ngữ cảnh.":"Every detail page keeps references, access dates, and related content in context."}</p></div><Link className="button secondary" href={home.featured[0]?contentPath(locale,home.featured[0].type,home.featured[0].slug):searchPath(locale)}>{locale==="vi"?"Mở một nội dung":"Open an entry"}</Link></section>
+      <section className="source-promise" id="nguon-tu-lieu"><BookIcon/><div><p className="eyebrow">{copy.navSources}</p><h2>{locale==="vi"?"Đọc lịch sử, lần về tài liệu":"Read the account, trace the evidence"}</h2><p>{locale==="vi"?"Trang danh mục tập hợp các nguồn tham khảo đã dùng trong nội dung xuất bản, mỗi đường dẫn chỉ xuất hiện một lần.":"The directory gathers references used by published entries, with each destination shown once."}</p></div><Link className="button secondary" href={sourcesPath(locale)}>{copy.sourceDirectoryCta}</Link></section>
     </main>
   </PublicShell>;
 }

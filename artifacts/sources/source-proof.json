@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-08-09T05:46:34.113Z",
+  "url": "https://oil-argument-produce-forwarding.trycloudflare.com",
+  "sourceCount": 14,
+  "firstPageCount": 14,
+  "uniqueFirstPageUrls": 14,
+  "navigation": {
+    "homeSourceCta": "/vi/sources",
+    "viHome": "/vi",
+    "localeSwitch": "/en/sources",
+    "keyboardHome": "/en"
+  },
+  "sitemap": {
+    "vi": true,
+    "en": true
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 2140
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 748
+  },
+  "screenshots": [
+    "artifacts/sources/sources-desktop.png",
+    "artifacts/sources/sources-mobile.png"
+  ]
+}

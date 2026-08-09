@@ -1,0 +1,26 @@
+import { resolve } from "node:path";
+import { mkdir,writeFile } from "node:fs/promises";
+import { expect,test,type Page } from "@playwright/test";
+
+const axePath=resolve("node_modules/axe-core/axe.min.js");
+async function blockingAxe(page:Page){await page.addScriptTag({path:axePath});return page.evaluate(async()=>{const axe=(window as unknown as {axe:{run:(root:Document,options:unknown)=>Promise<{violations:Array<{id:string;impact:string|null}>}>}}).axe;const result=await axe.run(document,{runOnly:{type:"tag",values:["wcag2a","wcag2aa","wcag21aa"]}});return result.violations.filter(({impact})=>impact==="critical"||impact==="serious");});}
+async function metrics(page:Page){return page.evaluate(()=>({clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth,lcpMs:(globalThis as typeof globalThis&{__sourcesLcp?:number}).__sourcesLcp??0}));}
+async function trackLcp(page:Page){await page.addInitScript(()=>{(globalThis as typeof globalThis&{__sourcesLcp?:number}).__sourcesLcp=0;new PerformanceObserver((list)=>{for(const entry of list.getEntries())(globalThis as typeof globalThis&{__sourcesLcp?:number}).__sourcesLcp=Math.max((globalThis as typeof globalThis&{__sourcesLcp?:number}).__sourcesLcp??0,entry.startTime);}).observe({type:"largest-contentful-paint",buffered:true});});}
+
+test("standalone source directory connects every public page to home",async({browser,baseURL})=>{
+  test.setTimeout(120_000);if(!baseURL)throw new Error("baseURL is required");await mkdir("artifacts/sources",{recursive:true});
+  const desktopContext=await browser.newContext({viewport:{width:1440,height:1000}});const desktop=await desktopContext.newPage();await trackLcp(desktop);await desktop.goto(`${baseURL}/vi`,{waitUntil:"networkidle"});
+  const homeSourceCta=desktop.locator(".source-promise a");await expect(homeSourceCta).toHaveAttribute("href","/vi/sources");await desktop.getByRole("link",{name:"Nguồn tư liệu",exact:true}).click();await expect(desktop).toHaveURL(`${baseURL}/vi/sources`);
+  await expect(desktop.getByRole("heading",{level:1,name:"Danh mục nguồn tư liệu"})).toBeVisible();await expect(desktop.getByRole("link",{name:"Trang chủ",exact:true}).first()).toHaveAttribute("href","/vi");
+  const rows=desktop.locator(".source-directory-item");expect(await rows.count()).toBeGreaterThan(0);const urls=await rows.evaluateAll((items)=>items.map((item)=>item.getAttribute("data-source-url")));expect(new Set(urls).size).toBe(urls.length);
+  const api=await desktop.request.get(`${baseURL}/api/v1/vi/sources?page=1&pageSize=20`);expect(api.ok()).toBe(true);const apiBody=await api.json();expect(apiBody.data.map((item:{url:string})=>item.url)).toEqual(urls);
+  const firstExternal=rows.first().locator(".source-directory-meta a");expect(await firstExternal.getAttribute("href")).toMatch(/^https:\/\//);expect(await firstExternal.getAttribute("target")).toBe("_blank");
+  const desktopAxe=await blockingAxe(desktop);expect(desktopAxe).toEqual([]);await desktop.waitForTimeout(400);const desktopMetrics=await metrics(desktop);expect(desktopMetrics.scrollWidth).toBe(desktopMetrics.clientWidth);expect(desktopMetrics.lcpMs).toBeLessThanOrEqual(2500);await desktop.screenshot({path:"artifacts/sources/sources-desktop.png",fullPage:true});
+  await desktop.getByRole("link",{name:"Chuyển sang tiếng Anh"}).click();await expect(desktop).toHaveURL(`${baseURL}/en/sources`);await expect(desktop.getByRole("heading",{level:1,name:"Source directory"})).toBeVisible();
+  await desktop.getByRole("link",{name:"Home",exact:true}).first().focus();await desktop.keyboard.press("Enter");await expect(desktop).toHaveURL(`${baseURL}/en`);await desktopContext.close();
+
+  const mobileContext=await browser.newContext({viewport:{width:390,height:844}});const mobile=await mobileContext.newPage();await trackLcp(mobile);await mobile.goto(`${baseURL}/vi/sources`,{waitUntil:"networkidle"});await expect(mobile.getByRole("link",{name:"Trang chủ",exact:true}).first()).toBeVisible();await expect(mobile.getByRole("link",{name:"Nguồn tư liệu",exact:true})).toHaveAttribute("href","/vi/sources");const mobileAxe=await blockingAxe(mobile);expect(mobileAxe).toEqual([]);await mobile.waitForTimeout(400);const mobileMetrics=await metrics(mobile);expect(mobileMetrics.scrollWidth).toBe(mobileMetrics.clientWidth);expect(mobileMetrics.lcpMs).toBeLessThanOrEqual(2500);await mobile.screenshot({path:"artifacts/sources/sources-mobile.png",fullPage:true});await mobileContext.close();
+
+  const sitemap=await (await fetch(`${baseURL}/sitemap.xml`)).text();expect(sitemap).toContain(`${baseURL}/vi/sources`);expect(sitemap).toContain(`${baseURL}/en/sources`);expect(sitemap).not.toMatch(/\/api\/|\/admin/);
+  const proof={generatedAt:new Date().toISOString(),url:new URL(baseURL).origin,sourceCount:apiBody.meta.total,firstPageCount:urls.length,uniqueFirstPageUrls:new Set(urls).size,navigation:{homeSourceCta:"/vi/sources",viHome:"/vi",localeSwitch:"/en/sources",keyboardHome:"/en"},sitemap:{vi:true,en:true},accessibility:{desktopCriticalOrSerious:desktopAxe.length,mobileCriticalOrSerious:mobileAxe.length},desktopMetrics,mobileMetrics,screenshots:["artifacts/sources/sources-desktop.png","artifacts/sources/sources-mobile.png"]};await writeFile("artifacts/sources/source-proof.json",`${JSON.stringify(proof,null,2)}\n`);
+});

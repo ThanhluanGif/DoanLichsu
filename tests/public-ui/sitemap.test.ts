@@ -14,6 +14,7 @@ describe("public sitemap",()=>{
     const urls=entries.map(({url})=>url);
     expect(urls).toEqual(expect.arrayContaining([
       "https://history.example/vi","https://history.example/en","https://history.example/vi/timeline","https://history.example/en/timeline",
+      "https://history.example/vi/sources","https://history.example/en/sources",
       "https://history.example/vi/su-kien/chien-dich-dien-bien-phu","https://history.example/en/events/battle-of-dien-bien-phu",
     ]));
     expect(urls.join("\n")).not.toMatch(/\/api\/|\/admin|\.json/);
