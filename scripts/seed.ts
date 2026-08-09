@@ -96,6 +96,22 @@ function englishMetadata(metadata: Record<string, string> | undefined) {
   );
 }
 
+function sourceGovernance(url: string, publisher: string) {
+  if (url.includes("btlsqsvn.mod.gov.vn") || url.includes("vnmh.com.vn")) {
+    return { sourceType: "MUSEUM_CATALOG", qualityTier: "TIER_2_INSTITUTIONAL", institution: publisher };
+  }
+  if (url.includes("whc.unesco.org")) {
+    return { sourceType: "ARCHIVE_CATALOG", qualityTier: "TIER_2_INSTITUTIONAL", institution: publisher };
+  }
+  if (url.includes("iwm.org.uk")) {
+    return { sourceType: "REFERENCE_WORK", qualityTier: "TIER_2_INSTITUTIONAL", institution: publisher };
+  }
+  if (url.includes("britannica.com")) {
+    return { sourceType: "REFERENCE_WORK", qualityTier: "TIER_4_CONTEXTUAL", institution: publisher };
+  }
+  return { sourceType: "DISCOVERY_ONLY", qualityTier: "TIER_5_DISCOVERY", institution: publisher };
+}
+
 function assertOnlyDemoData(): void {
   if (allowReplacement) return;
   const expected: Record<string, Set<string>> = {
@@ -133,6 +149,8 @@ try {
     database.exec(`
       DELETE FROM login_rate_limits;
       DELETE FROM audit_logs;
+      DELETE FROM claim_evidence;
+      DELETE FROM content_claims;
       DELETE FROM content_relations;
       DELETE FROM content_tags;
       DELETE FROM content_media;
@@ -175,8 +193,9 @@ try {
     `);
     const insertSource = database.prepare(`
       INSERT INTO sources (
-        id, title, author, publisher, year, url, accessed_at, citation_note, created_at, updated_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        id, title, author, publisher, year, url, accessed_at, citation_note,
+        source_type, quality_tier, institution, created_at, updated_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     const attachSource = database.prepare(
       "INSERT INTO content_sources (content_id, source_id, sort_order) VALUES (?, ?, 0)",
@@ -243,6 +262,7 @@ try {
       }
 
       const sourceId = `source-${item.id}`;
+      const governance = sourceGovernance(item.sourceUrl, item.sourcePublisher);
       insertSource.run(
         sourceId,
         item.sourceTitle,
@@ -252,6 +272,9 @@ try {
         item.sourceUrl,
         now,
         null,
+        governance.sourceType,
+        governance.qualityTier,
+        governance.institution,
         now,
         now,
       );

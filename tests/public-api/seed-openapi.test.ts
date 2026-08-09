@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3], currentVersion: 3 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4], currentVersion: 4 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",
@@ -29,6 +29,8 @@ describe("public seed and runtime contract", () => {
     expect(database.prepare("SELECT COUNT(*) AS count FROM content_nodes").get()).toEqual({ count: 50 });
     expect(database.prepare("SELECT COUNT(*) AS count FROM content_translations").get()).toEqual({ count: 100 });
     expect(database.prepare("SELECT COUNT(*) AS count FROM sources WHERE url LIKE 'https://%'").get()).toEqual({ count: 50 });
+    expect(database.prepare("SELECT verification_status, COUNT(*) AS count FROM sources GROUP BY verification_status").all()).toEqual([{ verification_status: "NEEDS_REVIEW", count: 50 }]);
+    expect(database.prepare("SELECT COUNT(*) AS count FROM content_claims").get()).toEqual({ count: 0 });
     expect(database.prepare("SELECT type, COUNT(*) AS count FROM content_nodes GROUP BY type ORDER BY type").all()).toEqual([
       { type: "ARTIFACT", count: 10 }, { type: "EVENT", count: 20 }, { type: "PERIOD", count: 6 },
       { type: "PERSON", count: 10 }, { type: "TOPIC", count: 4 },
@@ -68,7 +70,7 @@ describe("public seed and runtime contract", () => {
     expect(openApiDocument.components.schemas.ContentListItem.required).toEqual([
       "id", "type", "locale", "title", "slug", "summary", "thumbnail", "startDate", "endDate", "datePrecision", "period", "tags",
     ]);
-    expect(openApiDocument.components.schemas.ContentDetail.required).toEqual(expect.arrayContaining(["body", "sources", "related", "alternate", "reviewedBy", "publishedAt", "updatedAt"]));
+    expect(openApiDocument.components.schemas.ContentDetail.required).toEqual(expect.arrayContaining(["body", "sources", "claims", "related", "alternate", "reviewedBy", "publishedAt", "updatedAt"]));
     expect(openApiDocument.components.schemas.ApiError.required).toEqual(["code", "message", "requestId"]);
     expect(openApiDocument.components.schemas.ApiError.properties.details.additionalProperties).toBe(false);
     const searchParameters = openApiDocument.paths["/api/v1/{locale}/search"].get.parameters;

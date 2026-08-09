@@ -16,6 +16,8 @@ function databaseCounts(database){return {
   contentNodes:database.prepare("SELECT count(*) AS count FROM content_nodes").get().count,
   translations:database.prepare("SELECT count(*) AS count FROM content_translations").get().count,
   sources:database.prepare("SELECT count(*) AS count FROM sources").get().count,
+  claims:database.prepare("SELECT count(*) AS count FROM content_claims").get().count,
+  claimEvidence:database.prepare("SELECT count(*) AS count FROM claim_evidence").get().count,
   media:database.prepare("SELECT count(*) AS count FROM media").get().count,
   users:database.prepare("SELECT count(*) AS count FROM users").get().count,
 };}

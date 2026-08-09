@@ -66,16 +66,21 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; no write | path `{ id: string }` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 401,404,500 `ApiError` |
 | PATCH | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; update allowed fields + audit; cannot publish | path `{ id: string }`; `ContentUpdateInput` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | PUT | `/api/v1/admin/contents/{id}/translations/{locale}` | Editor/Reviewer/Admin; upsert translation + audit | path `{ id: string; locale: Locale }`; `TranslationInput` | application/json 200 `DataResponse<AdminTranslation>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| GET | `/api/v1/admin/contents/{id}/claims` | Editor/Reviewer/Admin; no write | path `{ id: string }`; query `ClaimListQuery` | application/json 200 `ListResponse<AdminClaimView>`; errors application/json 400,401,404,500 `ApiError` |
+| POST | `/api/v1/admin/contents/{id}/claims` | Editor/Reviewer/Admin; create DRAFT claim/evidence + audit | path `{ id: string }`; `ClaimInput` | application/json 201 `DataResponse<AdminClaimView>`; errors application/json 400,401,403,404,422,500 `ApiError` |
+| PATCH | `/api/v1/admin/contents/{id}/claims/{claimId}` | Editor/Reviewer/Admin; replace claim/evidence, reset verification to DRAFT + audit | path `{ id: string; claimId: string }`; `ClaimUpdateInput` | application/json 200 `DataResponse<AdminClaimView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| POST | `/api/v1/admin/contents/{id}/claims/{claimId}/verification` | Editor/Reviewer/Admin; any role may submit DRAFT/REJECTED as NEEDS_REVIEW; only Reviewer/Admin may set VERIFIED/REJECTED; VERIFIED requires all evidence sources VERIFIED + audit | path `{ id: string; claimId: string }`; `VerificationInput` | application/json 200 `DataResponse<AdminClaimView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | GET | `/api/v1/admin/sources` | Editor/Reviewer/Admin; no write | query `SourceListQuery` | application/json 200 `ListResponse<AdminSourceView>`; errors application/json 400,401,500 `ApiError` |
 | POST | `/api/v1/admin/sources` | Editor/Reviewer/Admin; create source + audit | `SourceInput` | application/json 201 `DataResponse<AdminSourceView>`; errors application/json 400,401,403,500 `ApiError` |
-| PATCH | `/api/v1/admin/sources/{id}` | Editor/Reviewer/Admin; update source + audit only while not attached to any PUBLISHED content; published references are immutable | path `{ id: string }`; `SourceUpdateInput` | application/json 200 `DataResponse<AdminSourceView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| PATCH | `/api/v1/admin/sources/{id}` | Editor/Reviewer/Admin; update source + audit only while not attached to PUBLISHED content; reset verification to DRAFT and demote dependent verified claims | path `{ id: string }`; `SourceUpdateInput` | application/json 200 `DataResponse<AdminSourceView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| POST | `/api/v1/admin/sources/{id}/verification` | Editor/Reviewer/Admin; any role may submit DRAFT/REJECTED as NEEDS_REVIEW; only Reviewer/Admin may set VERIFIED/REJECTED; discovery-only sources cannot be VERIFIED; rejection demotes dependent verified claims + audit | path `{ id: string }`; `VerificationInput` | application/json 200 `DataResponse<AdminSourceView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | GET | `/api/v1/admin/media` | Editor/Reviewer/Admin; no write | query `MediaListQuery` | application/json 200 `ListResponse<AdminMediaView>`; errors application/json 400,401,500 `ApiError` |
 | POST | `/api/v1/admin/media` | Editor/Reviewer/Admin; metadata-only create + audit | `MediaInput` | application/json 201 `DataResponse<AdminMediaView>`; errors application/json 400,401,403,500 `ApiError` |
 | PATCH | `/api/v1/admin/media/{id}` | Editor/Reviewer/Admin; metadata-only update + audit only while not attached to any PUBLISHED content; published media are immutable | path `{ id: string }`; `MediaUpdateInput` | application/json 200 `DataResponse<AdminMediaView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | POST | `/api/v1/admin/contents/{id}/submit-review` | Editor/Reviewer/Admin; selected translations must be TRANSLATING and become READY_FOR_REVIEW; node → IN_REVIEW unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | path `{ id: string }`; `LocaleWorkflowInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | POST | `/api/v1/admin/contents/{id}/approve` | Reviewer/Admin; selected READY_FOR_REVIEW locales → APPROVED + reviewer/time; node → APPROVED unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | path `{ id: string }`; `ReviewInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | POST | `/api/v1/admin/contents/{id}/reject` | Reviewer/Admin; selected READY_FOR_REVIEW locales → TRANSLATING + required reason; node → REJECTED unless another locale is already PUBLISHED, in which case node remains PUBLISHED + audit | path `{ id: string }`; `RejectInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
-| POST | `/api/v1/admin/contents/{id}/publish` | Reviewer/Admin; publish selected approved locales after source/translation/media validation; node becomes PUBLISHED when ≥1 locale is published; audit | path `{ id: string }`; `LocaleWorkflowInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` with optional `details.violations` |
+| POST | `/api/v1/admin/contents/{id}/publish` | Reviewer/Admin; publish selected approved locales only when every attached source is VERIFIED, ≥1 claim is VERIFIED, verified claim types cover every populated date/place/person-role/outcome field, and translation/media validation passes; node becomes PUBLISHED when ≥1 locale is published; audit | path `{ id: string }`; `LocaleWorkflowInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` with optional `details.violations` |
 | POST | `/api/v1/admin/contents/{id}/archive` | Reviewer/Admin; non-deleted row → ARCHIVED + audit | path `{ id: string }`; `VersionInput` | application/json 200 `DataResponse<WorkflowResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | GET | `/api/v1/admin/users` | Admin only; no password hash returned | query `UserListQuery` | application/json 200 `ListResponse<UserView>`; errors application/json 400,401,403,500 `ApiError` |
 | POST | `/api/v1/admin/users` | Admin only; create disabled/public-login-free user + audit | `UserCreateInput` | application/json 201 `DataResponse<UserView>`; errors application/json 400,401,403,409,500 `ApiError` |
@@ -95,6 +100,11 @@ type TranslationStatus = "NOT_STARTED" | "TRANSLATING" | "READY_FOR_REVIEW" | "A
 type Role = "ADMIN" | "EDITOR" | "REVIEWER";
 type DatePrecision = "DAY" | "MONTH" | "YEAR" | "APPROXIMATE";
 type TaxonomyKind = "period" | "tag" | "type";
+type VerificationStatus = "DRAFT" | "NEEDS_REVIEW" | "VERIFIED" | "REJECTED";
+type SourceType = "PRIMARY_RECORD" | "ARCHIVE_CATALOG" | "MUSEUM_CATALOG" | "SCHOLARLY_BOOK" | "PEER_REVIEWED_ARTICLE" | "REFERENCE_WORK" | "CONTEMPORARY_PRESS" | "ORAL_HISTORY" | "DISCOVERY_ONLY";
+type SourceQualityTier = "TIER_1_PRIMARY" | "TIER_2_INSTITUTIONAL" | "TIER_3_SCHOLARLY" | "TIER_4_CONTEXTUAL" | "TIER_5_DISCOVERY";
+type ClaimType = "DATE" | "PLACE" | "PERSON_ROLE" | "OUTCOME" | "INTERPRETATION" | "CONTEXT";
+type ClaimAssessment = "CONFIRMED" | "DISPUTED";
 
 interface DataResponse<T> { data: T }
 interface PageMeta { page: number; pageSize: number; total: number; totalPages: number }
@@ -114,7 +124,13 @@ interface MediaView {
 interface SourceView {
   id: string; title: string; author: string | null; publisher: string | null;
   year: number | null; url: string; accessedAt: string; citationNote: string | null;
+  sourceType: SourceType; qualityTier: SourceQualityTier; institution: string | null;
+  identifier: string | null; edition: string | null; archivedUrl: string | null;
+  checksum: string | null; verificationStatus: VerificationStatus;
+  verifiedBy: string | null; verifiedAt: string | null; verificationNote: string | null;
 }
+interface ClaimEvidenceView { source: SourceView; locator: string; quote: string | null; note: string | null }
+interface ClaimView { id: string; claimType: ClaimType; assessment: ClaimAssessment; statement: string; evidence: ClaimEvidenceView[] }
 interface SourceContentRef { id: string; type: ContentType; title: string; slug: string }
 interface PublicSourceItem extends SourceView { contentCount: number; contents: SourceContentRef[] }
 interface PeriodRef { id: string; title: string; slug: string }
@@ -125,7 +141,7 @@ interface ContentListItem {
 }
 interface ContentDetail extends ContentListItem {
   body: string; location: string | null; result: string | null; role: string | null;
-  artifactMeta: Record<string, string> | null; media: MediaView[]; sources: SourceView[];
+  artifactMeta: Record<string, string> | null; media: MediaView[]; sources: SourceView[]; claims: ClaimView[];
   related: ContentListItem[]; alternate: { locale: Locale; url: string } | null;
   reviewedBy: string; publishedAt: string; updatedAt: string;
 }
@@ -158,12 +174,27 @@ interface TranslationInput {
   seoTitle: string; seoDescription: string;
   translationStatus: "NOT_STARTED" | "TRANSLATING" | "READY_FOR_REVIEW";
 }
-interface SourceInput { title: string; author?: string; publisher?: string; year?: number; url: string; accessedAt: string; citationNote?: string }
+interface SourceInput {
+  title: string; author?: string; publisher?: string; year?: number; url: string;
+  accessedAt: string; citationNote?: string; sourceType: SourceType;
+  qualityTier: SourceQualityTier; institution?: string; identifier?: string;
+  edition?: string; archivedUrl?: string; checksum?: string;
+}
 interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string }
 interface AdminSourceView extends SourceView { version: number }
 interface AdminMediaView extends MediaView { version: number; altVi: string; altEn: string; captionVi: string | null; captionEn: string | null }
 interface SourceUpdateInput extends SourceInput { version: number }
 interface MediaUpdateInput extends MediaInput { version: number }
+interface VerificationInput { version: number; status: "NEEDS_REVIEW" | "VERIFIED" | "REJECTED"; note?: string }
+interface ClaimEvidenceInput { sourceId: string; locator: string; quote?: string; note?: string }
+interface ClaimInput { claimType: ClaimType; assessment: ClaimAssessment; statementVi: string; statementEn: string; evidence: ClaimEvidenceInput[] }
+interface ClaimUpdateInput extends ClaimInput { version: number }
+interface AdminClaimView {
+  id: string; contentId: string; claimType: ClaimType; assessment: ClaimAssessment;
+  statementVi: string; statementEn: string; verificationStatus: VerificationStatus;
+  version: number; verifiedBy: string | null; verifiedAt: string | null;
+  verificationNote: string | null; evidence: ClaimEvidenceView[];
+}
 interface ContentCreateInput {
   type: ContentType; featured?: boolean; startDate?: string; endDate?: string; datePrecision?: DatePrecision;
   periodId?: string; location?: string; result?: string; role?: string; artifactMeta?: Record<string, string>;
@@ -185,7 +216,8 @@ interface AdminContentDetail extends AdminContentListItem {
 interface AdminContentListQuery extends PageQuery { type?: ContentType; status?: WorkflowStatus; locale?: Locale; q?: string }
 interface RecentActivityView { action: string; objectType: string; objectId: string | null; createdAt: string }
 interface DashboardView { countsByStatus: Record<WorkflowStatus, number>; countsByType: Record<ContentType, number>; recentAudit: RecentActivityView[] }
-interface SourceListQuery extends PageQuery { q?: string }
+interface SourceListQuery extends PageQuery { q?: string; sourceType?: SourceType; qualityTier?: SourceQualityTier; verificationStatus?: VerificationStatus }
+interface ClaimListQuery extends PageQuery { claimType?: ClaimType; verificationStatus?: VerificationStatus }
 interface MediaListQuery extends PageQuery { q?: string; kind?: "IMAGE" | "DOCUMENT" }
 interface UserListQuery extends PageQuery { q?: string; role?: Role; active?: boolean }
 interface UserView { id: string; email: string; displayName: string; role: Role; active: boolean; version: number; createdAt: string; updatedAt: string }
@@ -204,6 +236,8 @@ Contract rules:
 - All timestamps are ISO-8601 UTC strings; IDs are opaque strings; list ordering is deterministic with `id` as the final tie-breaker.
 - Unknown locale/type returns `ApiError` 404; invalid input returns 400; unauthenticated 401; forbidden role 403; illegal workflow/validation 422; stale version 409.
 - Public content reads only rows with node status `PUBLISHED` and the requested translation status `PUBLISHED`; a node may have one published locale, which is why alternate can be `null`. Admin responses never return password hashes or session secrets.
+- Public source metadata exposes its verification status for transparency, but public `claims` includes only `VERIFIED` claims whose every evidence row points to a `VERIFIED` source. `verifiedBy` is a display name, never a user id.
+- Existing sources migrated into this model remain `NEEDS_REVIEW`; migration or seed may classify type/tier but never manufacture a reviewer decision. A source or claim mutation clears its prior verification; rejecting/updating a source demotes dependent verified claims.
 - Mutation bodies use JSON and require same-origin session plus Origin check; no endpoint accepts raw HTML or binary upload in v1.
 
 ## Feature → interface map
@@ -213,7 +247,7 @@ Reference each PRD feature by its `FRn` id so the mapping is machine-checkable
 
 - FR1 → `GET /api/v1/{locale}/home`
 - FR2 → `GET /api/v1/{locale}/periods`, `GET /api/v1/{locale}/timeline`
-- FR3 → `GET /api/v1/{locale}/contents`, `GET /api/v1/{locale}/contents/{type}/{slug}` with `type=EVENT`
+- FR3 → `GET /api/v1/{locale}/contents`, `GET /api/v1/{locale}/contents/{type}/{slug}` with `type=EVENT` including verified claim/evidence shape
 - FR4 → `GET /api/v1/{locale}/contents`, `GET /api/v1/{locale}/contents/{type}/{slug}` with `type=PERSON`
 - FR5 → `GET /api/v1/{locale}/contents`, `GET /api/v1/{locale}/contents/{type}/{slug}` with `type=ARTIFACT`
 - FR6 → `GET /api/v1/{locale}/search`, `GET /api/v1/{locale}/taxonomies`
@@ -221,7 +255,7 @@ Reference each PRD feature by its `FRn` id so the mapping is machine-checkable
 - FR8 → `POST /api/v1/auth/login`, `POST /api/v1/auth/logout`, `GET /api/v1/auth/me` plus access rules on every admin interface
 - FR9 → admin content list/create/get/patch and translation PUT interfaces
 - FR10 → submit-review, approve, reject, publish and archive interfaces
-- FR11 → admin source/media GET/POST/PATCH plus publish validation contract; public `GET /api/v1/{locale}/sources`
+- FR11 → admin source GET/POST/PATCH/verification, admin claim GET/POST/PATCH/verification, admin media GET/POST/PATCH and publish validation contract; public detail claims and `GET /api/v1/{locale}/sources`
 - FR12 → public home/detail/source interfaces, `GET /sitemap.xml`, `GET /robots.txt`, metadata generated by public page routes
 - FR13 → `GET /api/v1/admin/audit-logs`; every listed mutation writes the named audit event
 - FR14 → `npm run db:seed`, `npm run db:backup`, `npm run db:restore -- <snapshot>`

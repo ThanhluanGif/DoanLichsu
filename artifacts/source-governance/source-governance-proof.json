@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-08-09T15:01:05.767Z",
+  "liveBaseUrl": "https://forecast-bachelor-sacrifice-elliott.trycloudflare.com",
+  "deployment": {
+    "container": "quan-su-viet-release-app-1",
+    "image": "sha256:c8f905c10edec165dca17dfdcacb13751c845a2f542651240f06fb43b1d26ae2",
+    "status": "healthy",
+    "health": {
+      "status": "ok",
+      "version": "0.1.0",
+      "database": "ok"
+    },
+    "firstStartMigration": {
+      "applied": [4],
+      "currentVersion": 4
+    },
+    "restartMigration": {
+      "applied": [],
+      "currentVersion": 4
+    }
+  },
+  "qualityGates": {
+    "lint": "exit 0",
+    "typecheck": "exit 0",
+    "tests": {
+      "files": 27,
+      "passed": 134,
+      "failed": 0
+    },
+    "build": "exit 0",
+    "standaloneArtifact": "exit 0 including migrations/0004_source_governance.sql",
+    "dependencyAudit": {
+      "high": 0,
+      "critical": 0
+    },
+    "contractRuntime": {
+      "operations": "43/43",
+      "cases": "217/217",
+      "shapeDrift": 0,
+      "report": "artifacts/source-governance/contract/latest.json"
+    }
+  },
+  "liveHttps": {
+    "openapi": {
+      "version": "3.1.0",
+      "governancePaths": [
+        "/api/v1/admin/contents/{id}/claims",
+        "/api/v1/admin/contents/{id}/claims/{claimId}",
+        "/api/v1/admin/contents/{id}/claims/{claimId}/verification",
+        "/api/v1/admin/sources/{id}/verification"
+      ],
+      "contentDetailClaimsSchema": "array<ClaimView>"
+    },
+    "publicDetail": {
+      "path": "/api/v1/vi/contents/EVENT/chien-dich-dien-bien-phu",
+      "contentId": "event-dien-bien-phu",
+      "claims": [],
+      "source": {
+        "sourceType": "REFERENCE_WORK",
+        "qualityTier": "TIER_4_CONTEXTUAL",
+        "verificationStatus": "NEEDS_REVIEW",
+        "verifiedBy": null,
+        "verifiedAt": null
+      }
+    },
+    "unauthenticatedGovernanceEndpoints": {
+      "checked": 4,
+      "expectedStatus": 401,
+      "actualStatuses": [401, 401, 401, 401],
+      "code": "UNAUTHENTICATED"
+    }
+  },
+  "databaseWorldState": {
+    "access": "read-only query inside the healthy release container",
+    "integrity": "ok",
+    "schemaVersion": 4,
+    "migration": "0004_source_governance.sql",
+    "sourceStatuses": [
+      {
+        "status": "NEEDS_REVIEW",
+        "count": 57
+      }
+    ],
+    "claims": 0,
+    "claimEvidence": 0,
+    "verifiedBackfillPerformed": false
+  },
+  "recovery": {
+    "preMigrationSnapshot": {
+      "path": "/data/backups/quan-su-viet-2026-08-09T14-56-12-052Z.sqlite",
+      "sha256": "e8e03e36e1ba97b150739c565ab4da20fa909a9f79d5f0f8909ce663ec31b25f"
+    },
+    "postMigrationSnapshot": {
+      "path": "/data/backups/quan-su-viet-2026-08-09T15-00-40-971Z.sqlite",
+      "sha256": "9d09428965aa20f97be42dae84e4981c903f73e96e9344827a77070700c1a02f",
+      "counts": {
+        "contentNodes": 57,
+        "translations": 114,
+        "sources": 57,
+        "claims": 0,
+        "claimEvidence": 0,
+        "media": 17,
+        "users": 3
+      }
+    },
+    "restore": {
+      "sha256Verified": true,
+      "schemaVersion": 4,
+      "countsMatched": true
+    }
+  },
+  "credentialHandling": {
+    "productionCredentialAvailableToGate": false,
+    "adminApiProof": "localhost contract runtime with disposable identities; 217/217 cases",
+    "liveAdminStateProof": "read-only SQLite query plus public HTTPS verification-status response",
+    "secretsWrittenToArtifact": false
+  }
+}

@@ -22,6 +22,9 @@ import { POST as rejectRoute } from "@/app/api/v1/admin/contents/[id]/reject/rou
 import { POST as publishRoute } from "@/app/api/v1/admin/contents/[id]/publish/route";
 import { POST as archiveRoute } from "@/app/api/v1/admin/contents/[id]/archive/route";
 import { PATCH as updateSourceRoute } from "@/app/api/v1/admin/sources/[id]/route";
+import { POST as verifySourceRoute } from "@/app/api/v1/admin/sources/[id]/verification/route";
+import { POST as createClaimRoute } from "@/app/api/v1/admin/contents/[id]/claims/route";
+import { POST as verifyClaimRoute } from "@/app/api/v1/admin/contents/[id]/claims/[claimId]/verification/route";
 import { GET as auditRoute } from "@/app/api/v1/admin/audit-logs/route";
 import { GET as dashboardRoute } from "@/app/api/v1/admin/dashboard/route";
 import { openApiDocument } from "@/lib/openapi/document";
@@ -158,11 +161,17 @@ describe("RBAC and locale workflow", () => {
     const editor = await login("editor@quansuviet.local", "Editor-Demo-2026!");
     const reviewer = await login("reviewer@quansuviet.local", "Reviewer-Demo-2026!");
 
+    const verifiedSeedSource = await verifySourceRoute(request("POST", "/api/v1/admin/sources/source-event-dien-bien-phu/verification", {
+      version: 1, status: "VERIFIED", note: "Nguồn tham chiếu được duyệt cho kiểm thử workflow.",
+    }, reviewer), context("source-event-dien-bien-phu"));
+    expect(verifiedSeedSource.status).toBe(200);
+
     const editorDashboard = await dashboardRoute(request("GET", "/api/v1/admin/dashboard", undefined, editor));
     expect(editorDashboard.status).toBe(200);
     expect(JSON.stringify(await editorDashboard.json())).not.toMatch(/email|metadata|ip/i);
     const publishedSourceMutation = await updateSourceRoute(request("PATCH", "/api/v1/admin/sources/source-event-dien-bien-phu", {
-      version: 1, title: "Editor changed published citation", url: "https://example.test/changed", accessedAt: "2026-08-06T00:00:00.000Z",
+      version: 2, title: "Editor changed published citation", url: "https://example.test/changed", accessedAt: "2026-08-06T00:00:00.000Z",
+      sourceType: "REFERENCE_WORK", qualityTier: "TIER_4_CONTEXTUAL",
     }, editor), context("source-event-dien-bien-phu"));
     expect(publishedSourceMutation.status).toBe(422);
     const sourceDatabase = new Database(databasePath, { readonly: true });
@@ -231,6 +240,14 @@ describe("RBAC and locale workflow", () => {
 
     const patched = await updateContentRoute(request("PATCH", `/api/v1/admin/contents/${draft.id}`, { version: 5, sourceIds: ["source-event-dien-bien-phu"] }, editor), context(draft.id));
     expect(patched.status).toBe(200);
+    const claimResponse = await createClaimRoute(request("POST", `/api/v1/admin/contents/${draft.id}/claims`, {
+      claimType: "CONTEXT", assessment: "CONFIRMED", statementVi: "Nội dung thử nghiệm có bằng chứng đã kiểm chứng.",
+      statementEn: "The test content has verified evidence.", evidence: [{ sourceId: "source-event-dien-bien-phu", locator: "Overview" }],
+    }, editor), context(draft.id));
+    expect(claimResponse.status).toBe(201);
+    const claim = (await claimResponse.json()).data;
+    expect((await verifyClaimRoute(request("POST", `/api/v1/admin/contents/${draft.id}/claims/${claim.id}/verification`, { version: 1, status: "NEEDS_REVIEW" }, editor), { params: Promise.resolve({ id: draft.id as string, claimId: claim.id as string }) })).status).toBe(200);
+    expect((await verifyClaimRoute(request("POST", `/api/v1/admin/contents/${draft.id}/claims/${claim.id}/verification`, { version: 2, status: "VERIFIED" }, reviewer), { params: Promise.resolve({ id: draft.id as string, claimId: claim.id as string }) })).status).toBe(200);
     const stale = await publishRoute(request("POST", `/api/v1/admin/contents/${draft.id}/publish`, { version: 5, locales: ["vi"] }, reviewer), context(draft.id));
     expect(stale.status).toBe(409);
     const publishedVi = await publishRoute(request("POST", `/api/v1/admin/contents/${draft.id}/publish`, { version: 6, locales: ["vi"] }, reviewer), context(draft.id));
@@ -270,6 +287,13 @@ describe("RBAC and locale workflow", () => {
       } },
     }, editor));
     const mediaDraft = (await mediaDraftResponse.json()).data;
+    const mediaClaimResponse = await createClaimRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/claims`, {
+      claimType: "CONTEXT", assessment: "CONFIRMED", statementVi: "Luận điểm kiểm tra metadata media.",
+      statementEn: "Claim used to test media metadata.", evidence: [{ sourceId: "source-event-dien-bien-phu", locator: "Overview" }],
+    }, editor), context(mediaDraft.id));
+    const mediaClaim = (await mediaClaimResponse.json()).data;
+    await verifyClaimRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/claims/${mediaClaim.id}/verification`, { version: 1, status: "NEEDS_REVIEW" }, editor), { params: Promise.resolve({ id: mediaDraft.id as string, claimId: mediaClaim.id as string }) });
+    await verifyClaimRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/claims/${mediaClaim.id}/verification`, { version: 2, status: "VERIFIED" }, reviewer), { params: Promise.resolve({ id: mediaDraft.id as string, claimId: mediaClaim.id as string }) });
     expect((await submitRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/submit-review`, { version: 1, locales: ["vi"] }, editor), context(mediaDraft.id))).status).toBe(200);
     expect((await approveRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/approve`, { version: 2, locales: ["vi"] }, reviewer), context(mediaDraft.id))).status).toBe(200);
     const incompleteMedia = await publishRoute(request("POST", `/api/v1/admin/contents/${mediaDraft.id}/publish`, { version: 3, locales: ["vi"] }, reviewer), context(mediaDraft.id));
@@ -315,7 +339,8 @@ describe("RBAC and locale workflow", () => {
     for (const path of [
       "/api/v1/auth/login", "/api/v1/auth/logout", "/api/v1/auth/me", "/api/v1/admin/dashboard",
       "/api/v1/admin/contents", "/api/v1/admin/contents/{id}", "/api/v1/admin/contents/{id}/translations/{locale}",
-      "/api/v1/admin/sources", "/api/v1/admin/sources/{id}", "/api/v1/admin/media", "/api/v1/admin/media/{id}",
+      "/api/v1/admin/contents/{id}/claims", "/api/v1/admin/contents/{id}/claims/{claimId}", "/api/v1/admin/contents/{id}/claims/{claimId}/verification",
+      "/api/v1/admin/sources", "/api/v1/admin/sources/{id}", "/api/v1/admin/sources/{id}/verification", "/api/v1/admin/media", "/api/v1/admin/media/{id}",
       "/api/v1/admin/contents/{id}/submit-review", "/api/v1/admin/contents/{id}/approve", "/api/v1/admin/contents/{id}/reject",
       "/api/v1/admin/contents/{id}/publish", "/api/v1/admin/contents/{id}/archive", "/api/v1/admin/users",
       "/api/v1/admin/users/{id}", "/api/v1/admin/audit-logs",

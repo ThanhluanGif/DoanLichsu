@@ -20,6 +20,9 @@ describe("planning to OpenAPI deep-shape audit",() => {
 
   it.each([
     ["missing optional field",(document:MutableObject) => { delete objectAt(document,["components","schemas","SourceInput","properties"]).author; }],
+    ["missing source governance field",(document:MutableObject) => { delete objectAt(document,["components","schemas","SourceInput","properties"]).sourceType; }],
+    ["missing public claims field",(document:MutableObject) => { delete objectAt(document,["components","schemas","ContentDetail","properties"]).claims; }],
+    ["claim evidence item drift",(document:MutableObject) => { objectAt(document,["components","schemas","ClaimInput","properties","evidence"]).items = { type:"string" }; }],
     ["extra secret field",(document:MutableObject) => { objectAt(document,["components","schemas","UserView","properties"]).passwordHash = { type:"string" }; }],
     ["aliased enum drift",(document:MutableObject) => { objectAt(document,["components","schemas","AuthUser","properties","role"]).enum = ["ADMIN","EDITOR"]; }],
     ["nested array item drift",(document:MutableObject) => { objectAt(document,["components","schemas","ContentListItem","properties","tags"]).items = { type:"number" }; }],

@@ -1,6 +1,6 @@
 import type { SqliteDatabase } from "@/lib/db/connection";
 import { normalizeSearchText } from "@/lib/search/normalize";
-import { contentTypes, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type SourceContentRef, type TimelineItem } from "./types";
+import { contentTypes, type ClaimView, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type SourceContentRef, type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -224,10 +224,57 @@ export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: s
   const item = listItem(database, row, locale);
   const sources = database.prepare(`
     SELECT s.id, s.title, s.author, s.publisher, s.year, s.url,
-      s.accessed_at AS accessedAt, s.citation_note AS citationNote
+      s.accessed_at AS accessedAt, s.citation_note AS citationNote,
+      s.source_type AS sourceType, s.quality_tier AS qualityTier,
+      s.institution, s.identifier, s.edition, s.archived_url AS archivedUrl,
+      s.checksum, s.verification_status AS verificationStatus,
+      verifier.display_name AS verifiedBy, s.verified_at AS verifiedAt,
+      s.verification_note AS verificationNote
     FROM content_sources cs JOIN sources s ON s.id = cs.source_id
+    LEFT JOIN users verifier ON verifier.id = s.verified_by
     WHERE cs.content_id = ? ORDER BY cs.sort_order, s.id
   `).all(row.id);
+  const claimRows = database.prepare(`
+    SELECT c.id, c.claim_type AS claimType, c.assessment, c.statement_vi, c.statement_en
+    FROM content_claims c
+    WHERE c.content_id = ? AND c.verification_status = 'VERIFIED'
+      AND EXISTS (SELECT 1 FROM claim_evidence ce WHERE ce.claim_id = c.id)
+      AND NOT EXISTS (
+        SELECT 1 FROM claim_evidence ce
+        JOIN sources evidence_source ON evidence_source.id = ce.source_id
+        WHERE ce.claim_id = c.id AND evidence_source.verification_status <> 'VERIFIED'
+      )
+    ORDER BY c.claim_type, c.id
+  `).all(row.id) as Array<Record<string, unknown>>;
+  const claims: ClaimView[] = claimRows.map((claim) => {
+    const evidence = database.prepare(`
+      SELECT s.id, s.title, s.author, s.publisher, s.year, s.url,
+        s.accessed_at AS accessedAt, s.citation_note AS citationNote,
+        s.source_type AS sourceType, s.quality_tier AS qualityTier,
+        s.institution, s.identifier, s.edition, s.archived_url AS archivedUrl,
+        s.checksum, s.verification_status AS verificationStatus,
+        verifier.display_name AS verifiedBy, s.verified_at AS verifiedAt,
+        s.verification_note AS verificationNote,
+        ce.locator, ce.quote, ce.note
+      FROM claim_evidence ce
+      JOIN sources s ON s.id = ce.source_id
+      LEFT JOIN users verifier ON verifier.id = s.verified_by
+      WHERE ce.claim_id = ? AND s.verification_status = 'VERIFIED'
+      ORDER BY ce.sort_order, s.id
+    `).all(claim.id) as Array<Record<string, unknown>>;
+    return {
+      id: claim.id as string,
+      claimType: claim.claimType as ClaimView["claimType"],
+      assessment: claim.assessment as ClaimView["assessment"],
+      statement: (locale === "vi" ? claim.statement_vi : claim.statement_en) as string,
+      evidence: evidence.map(({ locator, quote, note, ...source }) => ({
+        source: source as unknown as ClaimView["evidence"][number]["source"],
+        locator: locator as string,
+        quote: quote as string | null,
+        note: note as string | null,
+      })),
+    };
+  });
   const relatedRows = database.prepare(`
     ${publicSelect} AND t.locale = ? AND n.id IN (
       SELECT related_id FROM content_relations WHERE content_id = ?
@@ -236,7 +283,7 @@ export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: s
   const data: ContentDetail = {
     ...item, body: row.body, location: row.location, result: row.result, role: row.role,
     artifactMeta: row.artifact_meta ? JSON.parse(row.artifact_meta) as Record<string, string> : null,
-    media: media(database, row.id, locale), sources: sources as ContentDetail["sources"],
+    media: media(database, row.id, locale), sources: sources as ContentDetail["sources"], claims,
     related: relatedRows.map((related) => listItem(database, related, locale)),
     alternate: alternateFor(database, row.id, locale), reviewedBy: row.reviewed_by,
     publishedAt: row.published_at, updatedAt: row.updated_at,
@@ -276,9 +323,15 @@ export function getSources(database: SqliteDatabase, locale: Locale, search: URL
       GROUP BY url
     )
     SELECT s.id, s.title, s.author, s.publisher, s.year, s.url,
-      s.accessed_at AS accessedAt, s.citation_note AS citationNote, r.contentCount
+      s.accessed_at AS accessedAt, s.citation_note AS citationNote,
+      s.source_type AS sourceType, s.quality_tier AS qualityTier,
+      s.institution, s.identifier, s.edition, s.archived_url AS archivedUrl,
+      s.checksum, s.verification_status AS verificationStatus,
+      verifier.display_name AS verifiedBy, s.verified_at AS verifiedAt,
+      s.verification_note AS verificationNote, r.contentCount
     FROM representatives r
     JOIN sources s ON s.id = r.id
+    LEFT JOIN users verifier ON verifier.id = s.verified_by
     ORDER BY s.title COLLATE NOCASE, s.id
   `).all(locale) as Array<Omit<PublicSourceItem,"contents">>;
   const total = rows.length;

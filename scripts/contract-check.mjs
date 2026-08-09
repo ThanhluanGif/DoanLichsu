@@ -54,7 +54,7 @@ let cleanupState = "not-run";
 let roleProbeIds = null;
 
 const digestTables = [
-  "schema_migrations","app_metadata","content_nodes","content_translations","sources","media","tags","content_sources","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
+  "schema_migrations","app_metadata","content_nodes","content_translations","sources","media","tags","content_sources","content_claims","claim_evidence","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
 ];
 
 function databaseCounts(database) {
@@ -62,6 +62,8 @@ function databaseCounts(database) {
     contentNodes:database.prepare("SELECT count(*) AS count FROM content_nodes").get().count,
     translations:database.prepare("SELECT count(*) AS count FROM content_translations").get().count,
     sources:database.prepare("SELECT count(*) AS count FROM sources").get().count,
+    claims:database.prepare("SELECT count(*) AS count FROM content_claims").get().count,
+    claimEvidence:database.prepare("SELECT count(*) AS count FROM claim_evidence").get().count,
     media:database.prepare("SELECT count(*) AS count FROM media").get().count,
     users:database.prepare("SELECT count(*) AS count FROM users").get().count,
     auditLogs:database.prepare("SELECT count(*) AS count FROM audit_logs").get().count,
@@ -101,7 +103,7 @@ async function proveDatabaseIdentity() {
   database.pragma("foreign_keys=ON");
   try {
     baselineCounts = databaseCounts(database);
-    const expected = { contentNodes:50,translations:100,sources:50,media:10,users:3,auditLogs:0,rateLimits:0,schemaVersion:3 };
+    const expected = { contentNodes:50,translations:100,sources:50,claims:0,claimEvidence:0,media:10,users:3,auditLogs:0,rateLimits:0,schemaVersion:4 };
     const drift = Object.entries(expected).filter(([name,count]) => baselineCounts[name] !== count).map(([name,count]) => `${name}=${baselineCounts[name]} expected ${count}`);
     if (drift.length) throw new Error(`database is not a pristine disposable seed: ${drift.join(", ")}`);
     baselineDigest = databaseDigest(database);
@@ -138,6 +140,7 @@ async function proveDatabaseIdentity() {
     roleProbeIds = {
       content:row.node_id,
       source:database.prepare("SELECT id FROM sources ORDER BY id LIMIT 1").get().id,
+      claim:"not-a-real-claim",
       media:database.prepare("SELECT id FROM media ORDER BY id LIMIT 1").get().id,
       user:authFixtures.ADMIN.id,
     };
@@ -352,6 +355,7 @@ if (sitemapResult) {
     en:{ PERIOD:"periods",EVENT:"events",PERSON:"people",ARTIFACT:"artifacts",TOPIC:"topics" },
   };
   const expectedLocations = new Set([`${origin}/vi`,`${origin}/vi/timeline`,`${origin}/en`,`${origin}/en/timeline`]);
+  for(const locale of ["vi","en"]){expectedLocations.add(`${origin}/${locale}/sources`);for(const segment of Object.values(typeSegments[locale]))expectedLocations.add(`${origin}/${locale}/${segment}`);}
   for (const [locale,result] of [["vi",viContents],["en",enContents]]) {
     for (const item of result.body.data) expectedLocations.add(`${origin}/${locale}/${typeSegments[locale][item.type]}/${item.slug}`);
   }
@@ -384,7 +388,7 @@ if (titleList) {
   const passed = actualIds.length > 1 && JSON.stringify(actualIds) === JSON.stringify(expectedIds);
   cases.push({ name:"public.pagination.title-order",passed,status:200,durationMs:0,...(passed?{}:{diff:`sort=title order differs from title(locale=vi),id: ${JSON.stringify(actualIds)}`}) });
 }
-await check("public.detail", 200, () => http("/api/v1/vi/contents/EVENT/chien-dich-dien-bien-phu"), ["data.id","data.title","data.body","data.sources","data.alternate","data.reviewedBy","data.publishedAt"]);
+await check("public.detail", 200, () => http("/api/v1/vi/contents/EVENT/chien-dich-dien-bien-phu"), ["data.id","data.title","data.body","data.sources","data.claims","data.alternate","data.reviewedBy","data.publishedAt"]);
 await check("public.search", 200, () => http("/api/v1/vi/search?q=dien%20bien%20phu"), ["data","meta.total"]);
 await check("public.taxonomies", 200, () => http("/api/v1/vi/taxonomies"), ["data.periods","data.tags","data.types"]);
 await check("public.alternate", 200, () => http("/api/v1/contents/event-dien-bien-phu/alternate?locale=vi"), ["data.id","data.current","data.alternate"]);
@@ -395,7 +399,7 @@ await check("error.404.unknown-type", 404, () => http("/api/v1/vi/contents/UNKNO
 await check("error.401.no-session", 401, () => http("/api/v1/auth/me"), ["code","message","requestId"]);
 
 const protectedOperations = Object.entries(openApi.paths ?? {}).flatMap(([path,item]) => Object.entries(item).filter(([method,operation]) => ["get","post","put","patch","delete"].includes(method) && Array.isArray(operation["x-allowed-roles"])).map(([method,operation]) => ({ method,path,roles:operation["x-allowed-roles"] })));
-const materializePath = (path) => path.replaceAll("{locale}","vi").replaceAll("{type}","EVENT").replaceAll("{slug}","not-a-real-slug").replaceAll("{id}","not-a-real-id");
+const materializePath = (path) => path.replaceAll("{locale}","vi").replaceAll("{type}","EVENT").replaceAll("{slug}","not-a-real-slug").replaceAll("{claimId}","not-a-real-claim").replaceAll("{id}","not-a-real-id");
 for (const operation of protectedOperations) {
   await check(`rbac.unauthenticated.${operation.method}.${operation.path}`,401,() => http(materializePath(operation.path),{
     method:operation.method.toUpperCase(),...(["post","put","patch","delete"].includes(operation.method)?{body:{}}:{}),
@@ -417,7 +421,7 @@ const materializeAllowedPath = (path) => {
     : value.includes("/admin/media/") ? roleProbeIds.media
     : value.includes("/admin/users/") ? roleProbeIds.user
     : roleProbeIds.content;
-  return value.replaceAll("{id}",id);
+  return value.replaceAll("{claimId}",roleProbeIds.claim).replaceAll("{id}",id);
 };
 for (const operation of protectedOperations.filter((candidate) => candidate.path !== "/api/v1/auth/logout")) {
   for (const [role,cookie] of Object.entries(roleCookies)) {
@@ -443,9 +447,12 @@ await check("admin.media.list", 200, () => http("/api/v1/admin/media?page=1&page
 await check("admin.users.list", 200, () => http("/api/v1/admin/users?page=1&pageSize=5", { cookie:adminCookie }), ["data","meta.total"]);
 await check("admin.audit.list", 200, () => http("/api/v1/admin/audit-logs?page=1&pageSize=10", { cookie:adminCookie }), ["data","meta.total"]);
 
-const sourceCreated = await check("admin.source.create", 201, () => http("/api/v1/admin/sources", { method:"POST",cookie:editorCookie,body:{ title:`Contract source ${runId}`,url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString() } }), ["data.id","data.version","data.url"]);
+const sourceCreated = await check("admin.source.create", 201, () => http("/api/v1/admin/sources", { method:"POST",cookie:editorCookie,body:{ title:`Contract source ${runId}`,publisher:"Contract archive",institution:"Contract archive",url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString(),sourceType:"ARCHIVE_CATALOG",qualityTier:"TIER_2_INSTITUTIONAL" } }), ["data.id","data.version","data.url","data.verificationStatus"]);
 const sourceId = sourceCreated?.body.data.id;
-const sourcePatched = sourceId ? await check("admin.source.patch", 200, () => http(`/api/v1/admin/sources/${sourceId}`, { method:"PATCH",cookie:editorCookie,body:{ version:1,title:`Contract source updated ${runId}`,url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString() } }), ["data.id","data.version"]) : null;
+if(sourceId) await check("admin.source.patch", 200, () => http(`/api/v1/admin/sources/${sourceId}`, { method:"PATCH",cookie:editorCookie,body:{ version:1,title:`Contract source updated ${runId}`,publisher:"Contract archive",institution:"Contract archive",url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString(),sourceType:"ARCHIVE_CATALOG",qualityTier:"TIER_2_INSTITUTIONAL" } }), ["data.id","data.version","data.verificationStatus"]);
+if(sourceId) await check("admin.source.submit-review",200,()=>http(`/api/v1/admin/sources/${sourceId}/verification`,{method:"POST",cookie:editorCookie,body:{version:2,status:"NEEDS_REVIEW"}}),["data.id","data.version","data.verificationStatus"]);
+if(sourceId) await check("workflow.editor-source-verify-forbidden",403,()=>http(`/api/v1/admin/sources/${sourceId}/verification`,{method:"POST",cookie:editorCookie,body:{version:3,status:"VERIFIED"}}),["code","requestId"]);
+if(sourceId) await check("admin.source.verify",200,()=>http(`/api/v1/admin/sources/${sourceId}/verification`,{method:"POST",cookie:reviewerCookie,body:{version:3,status:"VERIFIED",note:"Contract verification"}}),["data.id","data.version","data.verificationStatus","data.verifiedAt"]);
 
 const mediaCreated = await check("admin.media.create", 201, () => http("/api/v1/admin/media", { method:"POST",cookie:editorCookie,body:{ url:`https://example.test/media/${runId}.jpg`,kind:"IMAGE",credit:"Contract suite",license:"CC BY 4.0",altVi:"Ảnh kiểm thử contract",altEn:"Contract test image" } }), ["data.id","data.version","data.credit"]);
 const mediaId = mediaCreated?.body.data.id;
@@ -484,11 +491,17 @@ if (contentId) {
   await check("workflow.approve", 200, () => http(`/api/v1/admin/contents/${contentId}/approve`, { method:"POST",cookie:reviewerCookie,body:{ version:5,locales:["vi","en"] } }), ["data.status","data.version","data.reviewedAt"]);
   await check("error.422.publish-source", 422, () => http(`/api/v1/admin/contents/${contentId}/publish`, { method:"POST",cookie:reviewerCookie,body:{ version:6,locales:["vi","en"] } }), ["code","details.violations","requestId"]);
   if (sourceId) await check("admin.content.patch", 200, () => http(`/api/v1/admin/contents/${contentId}`, { method:"PATCH",cookie:editorCookie,body:{ version:6,sourceIds:[sourceId],mediaIds:[mediaId] } }), ["data.id","data.version","data.sourceIds"]);
+  let claimId=null;
+  if(sourceId){const claimCreated=await check("admin.claim.create",201,()=>http(`/api/v1/admin/contents/${contentId}/claims`,{method:"POST",cookie:editorCookie,body:{claimType:"CONTEXT",assessment:"CONFIRMED",statementVi:"Luận điểm contract có bằng chứng.",statementEn:"Contract claim has evidence.",evidence:[{sourceId,locator:"Contract section",quote:"Contract evidence excerpt."}]}}),["data.id","data.version","data.evidence"]);claimId=claimCreated?.body.data.id??null;}
+  if(claimId)await check("admin.claim.list",200,()=>http(`/api/v1/admin/contents/${contentId}/claims?verificationStatus=DRAFT`,{cookie:reviewerCookie}),["data","meta.total"]);
+  if(claimId)await check("admin.claim.submit-review",200,()=>http(`/api/v1/admin/contents/${contentId}/claims/${claimId}/verification`,{method:"POST",cookie:editorCookie,body:{version:1,status:"NEEDS_REVIEW"}}),["data.id","data.version","data.verificationStatus"]);
+  if(claimId)await check("workflow.editor-claim-verify-forbidden",403,()=>http(`/api/v1/admin/contents/${contentId}/claims/${claimId}/verification`,{method:"POST",cookie:editorCookie,body:{version:2,status:"VERIFIED"}}),["code","requestId"]);
+  if(claimId)await check("admin.claim.verify",200,()=>http(`/api/v1/admin/contents/${contentId}/claims/${claimId}/verification`,{method:"POST",cookie:reviewerCookie,body:{version:2,status:"VERIFIED",note:"Contract verification"}}),["data.id","data.version","data.verificationStatus","data.evidence"]);
   await check("workflow.editor-publish-forbidden", 403, () => http(`/api/v1/admin/contents/${contentId}/publish`, { method:"POST",cookie:editorCookie,body:{ version:7,locales:["vi","en"] } }), ["code","requestId"]);
   await check("workflow.publish", 200, () => http(`/api/v1/admin/contents/${contentId}/publish`, { method:"POST",cookie:reviewerCookie,body:{ version:7,locales:["vi","en"] } }), ["data.status","data.version","data.publishedAt"]);
-  await check("public.created-detail", 200, () => http(`/api/v1/vi/contents/EVENT/${viSlug}`), ["data.id","data.sources","data.media","data.alternate"]);
+  await check("public.created-detail", 200, () => http(`/api/v1/vi/contents/EVENT/${viSlug}`), ["data.id","data.sources","data.claims","data.media","data.alternate"]);
   await check("public.created-alternate", 200, () => http(`/api/v1/contents/${contentId}/alternate?locale=vi`), ["data.current","data.alternate"]);
-  if (sourceId) await check("workflow.published-source-immutable", 422, () => http(`/api/v1/admin/sources/${sourceId}`, { method:"PATCH",cookie:editorCookie,body:{ version:sourcePatched?.body.data.version ?? 2,title:"Must not mutate",url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString() } }), ["code","requestId"]);
+  if (sourceId) await check("workflow.published-source-immutable", 422, () => http(`/api/v1/admin/sources/${sourceId}`, { method:"PATCH",cookie:editorCookie,body:{ version:4,title:"Must not mutate",publisher:"Contract archive",institution:"Contract archive",url:`https://example.test/source/${runId}`,accessedAt:new Date().toISOString(),sourceType:"ARCHIVE_CATALOG",qualityTier:"TIER_2_INSTITUTIONAL" } }), ["code","requestId"]);
   if (mediaId) await check("workflow.published-media-immutable", 422, () => http(`/api/v1/admin/media/${mediaId}`, { method:"PATCH",cookie:editorCookie,body:{ version:mediaPatched?.body.data.version ?? 2,url:`https://example.test/media/${runId}.jpg`,kind:"IMAGE",credit:"Must not mutate",license:"CC BY 4.0",altVi:"Không đổi",altEn:"No change" } }), ["code","requestId"]);
   await check("admin.audit.object", 200, () => http(`/api/v1/admin/audit-logs?objectId=${contentId}&pageSize=100`, { cookie:adminCookie }), ["data","meta.total"]);
   await check("cleanup.content.archive", 200, () => http(`/api/v1/admin/contents/${contentId}/archive`, { method:"POST",cookie:reviewerCookie,body:{ version:8 } }), ["data.status","data.version"]);
@@ -516,11 +529,12 @@ if (identityBound) {
     database = new Database(dedicatedDatabasePath(cleanupDatabasePath));
     database.pragma("foreign_keys=ON");
     const contentIds = database.prepare("SELECT DISTINCT node_id AS id FROM content_translations WHERE slug IN (?,?)").all(`contract-live-${runId}`,`contract-en-${runId}`).map((row) => row.id);
+    const claimIds = contentIds.length ? database.prepare(`SELECT id FROM content_claims WHERE content_id IN (${contentIds.map(() => "?").join(",")})`).all(...contentIds).map((row) => row.id) : [];
     const sourceIds = database.prepare("SELECT id FROM sources WHERE url=?").all(`https://example.test/source/${runId}`).map((row) => row.id);
     const mediaIds = database.prepare("SELECT id FROM media WHERE url=?").all(`https://example.test/media/${runId}.jpg`).map((row) => row.id);
     const fixtureIds = Object.values(authFixtures).map((fixture) => fixture.id);
     const userIds = database.prepare(`SELECT id FROM users WHERE email=? OR id IN (${fixtureIds.map(() => "?").join(",")})`).all(`contract-${runId}@example.test`,...fixtureIds).map((row) => row.id);
-    const objectIds = new Set([...contentIds,...sourceIds,...mediaIds,...userIds]);
+    const objectIds = new Set([...contentIds,...claimIds,...sourceIds,...mediaIds,...userIds]);
     const audits = database.prepare("SELECT id,action,object_id,metadata FROM audit_logs ORDER BY id").all();
     const ownedAuditIds = [];
     const unownedAudits = [];
