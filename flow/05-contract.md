@@ -52,7 +52,12 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/{locale}/contents` | Public; published rows only | path `{ locale: Locale }`; query `ContentListQuery` | application/json 200 `ListResponse<ContentListItem>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/{locale}/contents/{type}/{slug}` | Public; published row only | path `{ locale: Locale; type: ContentType; slug: string }` | application/json 200 `DataResponse<ContentDetail>`; errors application/json 404,500 `ApiError` |
 | GET | `/api/v1/{locale}/search` | Public; published rows only | path `{ locale: Locale }`; query `SearchQuery` | application/json 200 `ListResponse<SearchResult>`; errors application/json 400,404,500 `ApiError` |
-| GET | `/api/v1/{locale}/taxonomies` | Public; published-used terms only | path `{ locale: Locale }`; query `{ kind?: TaxonomyKind }` | application/json 200 `DataResponse<TaxonomyView>`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/taxonomies` | Public; published-used terms only | path `{ locale: Locale }`; query `FacetQuery` | application/json 200 `DataResponse<FacetView>`; every returned option has `publishedCount > 0`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/curriculum` | Public; grades with published lessons only | path `{ locale: Locale }`; query `{ track?: CurriculumTrack }` | application/json 200 `DataResponse<CurriculumCatalogView>`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/curriculum/{grade}` | Public; published lessons/requirements only | path `{ locale: Locale; grade: Grade }`; query `{ track?: CurriculumTrack; topic?: string; page?: number; pageSize?: number }` | application/json 200 `DataResponse<CurriculumGradeView>`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/places` | Public; places attached to published content only | path `{ locale: Locale }`; query `PlaceQuery` | application/json 200 `ListResponse<PlaceView>`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/reconstructions` | Public; reviewed/published reconstruction summaries only | path `{ locale: Locale }`; query `PageQuery` | application/json 200 `ListResponse<ReconstructionListItem>`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/reconstructions/{slug}` | Public; one reviewed/published scene; no write | path `{ locale: Locale; slug: string }` | application/json 200 `DataResponse<ReconstructionView>`; errors application/json 404,500 `ApiError` |
 | GET | `/api/v1/{locale}/sources` | Public; sources used by published content with a published requested-locale translation only; unique by URL | path `{ locale: Locale }`; query `PageQuery` | application/json 200 `ListResponse<PublicSourceItem>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/contents/{id}/alternate` | Public; published translations only | path `{ id: string }`; query `{ locale: Locale }` | application/json 200 `DataResponse<AlternateView>` where `alternate` may be `null`; errors application/json 400,404,500 `ApiError` |
 | GET | `/sitemap.xml` | Public; no write | none | application/xml 200 string URL set, empty through C-005 because canonical published VI/EN HTML routes ship in C-006, then populated only with those canonical pages |
@@ -66,6 +71,8 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; no write | path `{ id: string }` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 401,404,500 `ApiError` |
 | PATCH | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; update allowed fields + audit; cannot publish | path `{ id: string }`; `ContentUpdateInput` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | PUT | `/api/v1/admin/contents/{id}/translations/{locale}` | Editor/Reviewer/Admin; upsert translation + audit | path `{ id: string; locale: Locale }`; `TranslationInput` | application/json 200 `DataResponse<AdminTranslation>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| PUT | `/api/v1/admin/contents/{id}/curriculum` | Editor/Reviewer/Admin; replace curriculum mappings + audit; no verification effect by itself | path `{ id: string }`; `CurriculumMappingInput` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
+| GET | `/api/v1/admin/curriculum/coverage` | Editor/Reviewer/Admin; all requirements including missing/draft; no write | query `{ grade?: Grade; track?: CurriculumTrack; status?: CoverageStatus }` | application/json 200 `DataResponse<AdminCurriculumCoverageView>`; errors application/json 400,401,500 `ApiError` |
 | GET | `/api/v1/admin/contents/{id}/claims` | Editor/Reviewer/Admin; no write | path `{ id: string }`; query `ClaimListQuery` | application/json 200 `ListResponse<AdminClaimView>`; errors application/json 400,401,404,500 `ApiError` |
 | POST | `/api/v1/admin/contents/{id}/claims` | Editor/Reviewer/Admin; create DRAFT claim/evidence + audit | path `{ id: string }`; `ClaimInput` | application/json 201 `DataResponse<AdminClaimView>`; errors application/json 400,401,403,404,422,500 `ApiError` |
 | PATCH | `/api/v1/admin/contents/{id}/claims/{claimId}` | Editor/Reviewer/Admin; replace claim/evidence, reset verification to DRAFT + audit | path `{ id: string; claimId: string }`; `ClaimUpdateInput` | application/json 200 `DataResponse<AdminClaimView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
@@ -105,6 +112,11 @@ type SourceType = "PRIMARY_RECORD" | "ARCHIVE_CATALOG" | "MUSEUM_CATALOG" | "SCH
 type SourceQualityTier = "TIER_1_PRIMARY" | "TIER_2_INSTITUTIONAL" | "TIER_3_SCHOLARLY" | "TIER_4_CONTEXTUAL" | "TIER_5_DISCOVERY";
 type ClaimType = "DATE" | "PLACE" | "PERSON_ROLE" | "OUTCOME" | "INTERPRETATION" | "CONTEXT";
 type ClaimAssessment = "CONFIRMED" | "DISPUTED";
+type Grade = 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type CurriculumTrack = "MANDATORY" | "ELECTIVE";
+type CoverageStatus = "MISSING" | "DRAFT" | "PUBLISHED" | "VERIFIED";
+type RightsStatus = "UNKNOWN" | "LINK_ONLY" | "PERMITTED" | "PUBLIC_DOMAIN";
+type ReconstructionConfidence = "HIGH" | "MEDIUM" | "LOW";
 
 interface DataResponse<T> { data: T }
 interface PageMeta { page: number; pageSize: number; total: number; totalPages: number }
@@ -120,6 +132,12 @@ interface HealthResponse { status: "ok"; version: string; database: "ok"; timest
 interface MediaView {
   id: string; url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string;
   alt: string; caption: string | null; width: number | null; height: number | null;
+  provenance: AssetProvenanceView | null;
+}
+interface AssetProvenanceView {
+  holdingInstitution: string; inventoryId: string | null; origin: string;
+  rightsStatus: RightsStatus; permissionDocument: string | null;
+  creditLine: string; checksum: string | null;
 }
 interface SourceView {
   id: string; title: string; author: string | null; publisher: string | null;
@@ -143,19 +161,82 @@ interface ContentDetail extends ContentListItem {
   body: string; location: string | null; result: string | null; role: string | null;
   artifactMeta: Record<string, string> | null; media: MediaView[]; sources: SourceView[]; claims: ClaimView[];
   related: ContentListItem[]; alternate: { locale: Locale; url: string } | null;
+  curriculum: CurriculumRequirementRef[]; lesson: LessonView | null; asOf: string | null;
   reviewedBy: string; publishedAt: string; updatedAt: string;
 }
 interface TimelineItem { id: string; title: string; slug: string; startDate: string | null; endDate: string | null; datePrecision: DatePrecision; period: PeriodRef | null; summary: string }
 interface SearchResult extends ContentListItem { matchedOn: "title" | "summary" | "body" }
 interface HomeView { featured: ContentListItem[]; periods: PeriodView[]; latest: ContentListItem[]; counts: Record<ContentType, number> }
 interface PeriodView extends PeriodRef { summary: string; startYear: number; endYear: number; contentCount: number }
-interface TaxonomyView { periods: PeriodRef[]; tags: { id: string; name: string; slug: string }[]; types: ContentType[] }
+interface FacetOption { value: string; label: string; publishedCount: number; verifiedCount: number }
+interface FacetView {
+  grades: FacetOption[]; topics: FacetOption[]; periods: FacetOption[];
+  tags: FacetOption[]; types: FacetOption[];
+}
 interface AlternateView { id: string; current: { locale: Locale; url: string }; alternate: { locale: Locale; url: string } | null }
 
+interface CurriculumRequirementRef {
+  id: string; grade: Grade; track: CurriculumTrack; topic: string; slug: string;
+  officialProgramRef: string; publishedCount: number; verifiedCount: number;
+  coverageStatus: CoverageStatus;
+}
+interface CurriculumRequirementView extends CurriculumRequirementRef {
+  periodStart: number | null; periodEnd: number | null; requiredOutcomes: string[];
+  lessons: ContentListItem[];
+}
+interface GradeCoverageSummary {
+  requirementCount: number; publishedRequirementCount: number;
+  verifiedRequirementCount: number; fullCoverage: boolean;
+}
+interface CurriculumGradeSummary extends GradeCoverageSummary {
+  grade: Grade; label: string; publishedLessonCount: number;
+}
+interface CurriculumCatalogView { asOf: string; grades: CurriculumGradeSummary[] }
+interface CurriculumGradeView {
+  grade: Grade; label: string; summary: GradeCoverageSummary;
+  requirements: CurriculumRequirementView[];
+}
+interface LessonView {
+  learningObjectives: string[]; originalSummary: string; analysis: string;
+  debates: { title: string; summary: string; claimIds: string[] }[];
+}
+interface AdminCurriculumCoverageView {
+  asOf: string; grades: (CurriculumGradeSummary & { requirements: CurriculumRequirementRef[] })[];
+}
+
+interface GeoPoint { longitude: number; latitude: number }
+interface PlaceView {
+  id: string; slug: string; title: string; summary: string; point: GeoPoint;
+  precision: "EXACT" | "APPROXIMATE"; related: ContentListItem[];
+}
+interface ReconstructionListItem {
+  id: string; slug: string; title: string; summary: string;
+  label: "EDUCATIONAL_RECONSTRUCTION"; confidence: ReconstructionConfidence;
+  thumbnail: MediaView | null;
+}
+interface ReconstructionMove {
+  id: string; side: string; label: string; from: GeoPoint; to: GeoPoint;
+  confidence: ReconstructionConfidence; sourceIds: string[];
+}
+interface ReconstructionPhase {
+  id: string; order: number; title: string; narrative: string;
+  dateLabel: string; focusPlaceIds: string[]; moves: ReconstructionMove[];
+}
+interface ReconstructionView extends ReconstructionListItem {
+  content: ContentListItem; assumptions: string[]; sources: SourceView[];
+  places: PlaceView[]; phases: ReconstructionPhase[];
+  fallback: { image: string | null; narrative: string };
+}
+
 interface PageQuery { page?: number; pageSize?: number }
-interface ContentListQuery extends PageQuery { type?: ContentType; period?: string; tag?: string; sort?: "chronology" | "updated" | "title" }
+interface ContentListQuery extends PageQuery { type?: ContentType; period?: string; tag?: string; grade?: Grade; topic?: string; sort?: "chronology" | "updated" | "title" }
 interface TimelineQuery extends PageQuery { period?: string; tag?: string; fromYear?: number; toYear?: number }
 interface SearchQuery extends ContentListQuery { q: string }
+interface FacetQuery {
+  kind?: TaxonomyKind; q?: string; type?: ContentType; period?: string;
+  tag?: string; grade?: Grade; topic?: string;
+}
+interface PlaceQuery extends PageQuery { period?: string; grade?: Grade; contentId?: string }
 
 interface LoginInput { email: string; password: string }
 interface AuthUser { id: string; email: string; displayName: string; role: Role }
@@ -180,7 +261,11 @@ interface SourceInput {
   qualityTier: SourceQualityTier; institution?: string; identifier?: string;
   edition?: string; archivedUrl?: string; checksum?: string;
 }
-interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string }
+interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string; provenance?: AssetProvenanceInput }
+interface AssetProvenanceInput {
+  holdingInstitution: string; inventoryId?: string; origin: string;
+  rightsStatus: RightsStatus; permissionDocument?: string; creditLine: string; checksum?: string;
+}
 interface AdminSourceView extends SourceView { version: number }
 interface AdminMediaView extends MediaView { version: number; altVi: string; altEn: string; captionVi: string | null; captionEn: string | null }
 interface SourceUpdateInput extends SourceInput { version: number }
@@ -202,6 +287,7 @@ interface ContentCreateInput {
   translations: Partial<Record<Locale, Omit<TranslationInput, "version">>>;
 }
 interface ContentUpdateInput extends Partial<Omit<ContentCreateInput, "type" | "translations">> { version: number }
+interface CurriculumMappingInput { version: number; requirementIds: string[]; asOf?: string }
 interface AdminTranslation {
   locale: Locale; id: string; version: number; title: string; slug: string; summary: string; body: string;
   seoTitle: string; seoDescription: string; translationStatus: TranslationStatus; updatedAt: string;
@@ -211,7 +297,8 @@ interface AdminContentDetail extends AdminContentListItem {
   startDate: string | null; endDate: string | null; datePrecision: DatePrecision | null;
   periodId: string | null; location: string | null; result: string | null; role: string | null;
   artifactMeta: Record<string, string> | null; tagIds: string[]; relatedIds: string[];
-  sourceIds: string[]; mediaIds: string[]; translations: Partial<Record<Locale, AdminTranslation>>;
+  sourceIds: string[]; mediaIds: string[]; curriculumRequirementIds: string[];
+  translations: Partial<Record<Locale, AdminTranslation>>;
 }
 interface AdminContentListQuery extends PageQuery { type?: ContentType; status?: WorkflowStatus; locale?: Locale; q?: string }
 interface RecentActivityView { action: string; objectType: string; objectId: string | null; createdAt: string }
@@ -239,6 +326,18 @@ Contract rules:
 - Public source metadata exposes its verification status for transparency, but public `claims` includes only `VERIFIED` claims whose every evidence row points to a `VERIFIED` source. `verifiedBy` is a display name, never a user id.
 - Existing sources migrated into this model remain `NEEDS_REVIEW`; migration or seed may classify type/tier but never manufacture a reviewer decision. A source or claim mutation clears its prior verification; rejecting/updating a source demotes dependent verified claims.
 - Mutation bodies use JSON and require same-origin session plus Origin check; no endpoint accepts raw HTML or binary upload in v1.
+- Public curriculum/facet arrays omit entries whose `publishedCount` is 0. `verifiedCount`
+  counts only lessons having at least one `VERIFIED` claim backed exclusively by `VERIFIED`
+  sources; mapping or publishing alone never increments it. Missing requirements remain
+  available through the protected coverage interface, not as dead public controls.
+- `track=ELECTIVE` is always labelled as a selected specialism; it is never combined with
+  mandatory coverage. `asOf` is ISO-8601 and required for post-programme current updates.
+- A reconstruction is an educational interpretation, never documentary fact. Every phase
+  carries sources and assumptions/confidence; consumers must render the HTML/image fallback
+  when WebGL is unavailable or reduced motion is requested.
+- Media with `rightsStatus=UNKNOWN|LINK_ONLY` may expose citation metadata and the original
+  source link but the app must not proxy, copy or serve the referenced binary. Only
+  `PERMITTED|PUBLIC_DOMAIN` assets may be served by this project.
 
 ## Feature → interface map
 
@@ -259,3 +358,11 @@ Reference each PRD feature by its `FRn` id so the mapping is machine-checkable
 - FR12 → public home/detail/source interfaces, `GET /sitemap.xml`, `GET /robots.txt`, metadata generated by public page routes
 - FR13 → `GET /api/v1/admin/audit-logs`; every listed mutation writes the named audit event
 - FR14 → `npm run db:seed`, `npm run db:backup`, `npm run db:restore -- <snapshot>`
+- FR15 → `GET /api/v1/{locale}/curriculum`, `GET /api/v1/{locale}/curriculum/{grade}`, `GET /api/v1/admin/curriculum/coverage`, `PUT /api/v1/admin/contents/{id}/curriculum`
+- FR16 → contextual `GET /api/v1/{locale}/taxonomies`, public collection/search/timeline routes consuming `FacetView`
+- FR17 → `GET /api/v1/{locale}/contents/{type}/{slug}` fields `lesson`, `curriculum`, `asOf`, `claims` and `sources`
+- FR18 → admin content/translation/source/claim/workflow interfaces plus curriculum mapping and protected coverage interface
+- FR19 → `GET /api/v1/{locale}/places`, content detail related place links and public HTML map routes
+- FR20 → reconstruction list/detail interfaces and public HTML/WebGL-enhanced reconstruction routes
+- FR21 → Next.js `/{locale}/loading` and public HTML route/template interfaces; no API mutation
+- FR22 → public sources/content detail, `MediaView.provenance`, admin source/media interfaces and rights-serving rule

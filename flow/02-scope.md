@@ -66,6 +66,36 @@ When a C feature is the real need, three honest paths:
 - **FR14 Backup/restore có diễn tập** — Impact M (giảm rủi ro mất dữ liệu trước bảo vệ) — Grade B (script snapshot/restore chuẩn của datastore, checksum và smoke verification).
 - **50 bản ghi demo Việt–Anh có ít nhất một nguồn** — Impact H (không có dữ liệu thì toàn bộ trải nghiệm rỗng) — Grade B (seed có cấu trúc + kiểm tra tự động; nội dung ngắn và nguồn rõ, không viết 50 chuyên khảo dài).
 
+## Scope mở rộng V2 đã được người vận hành chốt ngày 10/08/2026
+
+V1 đã hoàn tất và chạy thật. V2 là chương trình nhiều đợt, không phải lời hứa hoàn thành
+toàn bộ sử liệu trong một card. Rủi ro C cốt lõi là công việc biên tập/kiểm chứng quy mô
+chương trình; vì đây chính là giá trị sản phẩm, nó đi trước bằng ma trận coverage rồi mới
+cho phép các batch nội dung nhận trạng thái hoàn tất.
+
+- **FR15 Ma trận chương trình và Học theo lớp 6–12** — Impact H (lời hứa học tập mới) —
+  Grade C, path 1: làm trục sản phẩm trước; phân biệt bắt buộc/lựa chọn và không gọi đủ
+  khi còn requirement chưa có bài đã duyệt.
+- **FR16 Facet theo count của đúng ngữ cảnh** — Impact H (ngăn người dùng chọn vào 0 kết
+  quả) — Grade B (aggregate query + URL state/back-forward/copy-link).
+- **FR17 Trang bài học có phân tích và provenance** — Impact H (biến record demo thành
+  nội dung học được) — Grade B (layout có tóm tắt, phân tích, luận điểm, nguồn và as-of).
+- **FR18 Nội dung gốc lớp 6–12 theo batch kiểm duyệt** — Impact H (giá trị cốt lõi) —
+  Grade C, path 1: chia theo từng lớp/chủ đề, mỗi batch phải qua source/claim gate; không
+  sao chép nguyên sách giáo khoa và không tạo một card “viết tất cả”.
+- **FR19 Khám phá địa danh và bản đồ** — Impact H (đưa sự kiện vào không gian) — Grade B
+  theo path 2: GeoJSON cục bộ, progressive enhancement và narrative HTML; không phụ
+  thuộc tile/service ngoài để đọc nội dung cốt lõi.
+- **FR20 Một trận đánh tái dựng 3D có kiểm chứng** — Impact H (chứng minh trải nghiệm khám
+  phá) — Grade B theo path 2: một scene định trước, renderer tải lười, không game/realtime
+  physics; các scene khác chỉ vào scope sau khi prototype đạt accuracy/performance/a11y.
+- **FR21 Chuyển cảnh giàu hơn và logo loading** — Impact M (giữ nhịp khám phá, phản hồi
+  rõ khi đổi trang) — Grade A cho loader, B cho scene motion; mọi nội dung đọc được ngay
+  và reduced-motion trả về trạng thái tĩnh.
+- **FR22 Kho hiện vật/tư liệu quý có quyền rõ** — Impact H (khác biệt về độ tin cậy) —
+  Grade C, path 2: trước mắt lưu metadata/provenance và liên kết; chỉ phục vụ asset khi có
+  quyền bằng văn bản, không xây pipeline số hóa hoặc tuyên bố sở hữu.
+
 ## Suggested features (impact-first — proposed, not decided)
 
 Up to 3 features NOT in the original idea, each chosen for business impact (how does this
@@ -81,14 +111,19 @@ decision.
 ## Cut list (NOT in v1 — deferred, not deleted)
 
 - AI chatbot/RAG, tự dịch rồi tự xuất bản — rủi ro sai sử liệu và là C; không cần để chứng minh promise.
-- VR/AR, tour 3D, GIS nâng cao, mô phỏng trận đánh realtime — các C sibling bị cắt để giữ timeline/search thực dụng.
+- VR/AR, tour 3D toàn kho, GIS nâng cao, game/realtime physics và mô phỏng hàng loạt vẫn
+  bị cắt; V2 chỉ nhận một bản đồ dữ liệu cục bộ và một scene tái dựng định trước.
 - Tài khoản công chúng, bình luận, đóng góp, danh sách đã lưu, thông báo — không cần cho ba journey cốt lõi và làm rộng auth/moderation.
 - Thanh toán, bán vé, thương mại điện tử và ứng dụng mobile native — ngoài đề tài tra cứu.
 - Upload file binary tùy ý và xử lý ảnh trên object storage — v1 chỉ nhận media URL đã được kiểm tra cùng credit/license/alt; tránh surface upload bảo mật cao.
 - Autosave realtime, collaborative editing, revision diff toàn văn — thay bằng cảnh báo unsaved changes, updated timestamp và audit log.
-- Animation timeline nâng cao, bản đồ chiến thuật, dashboard analytics đẹp — chỉ làm sau khi nội dung, source, locale và quyền hoạt động đúng.
+- Motion trang/scene chỉ được mở rộng theo ngân sách hiệu năng và reduced-motion; hiệu
+  ứng trang trí không có mục đích học tập và dashboard analytics đẹp vẫn bị cắt.
 - Nội dung học thuật dài và quyền ảnh bên thứ ba không rõ — seed v1 dùng mô tả ngắn, nguồn công khai rõ; không giả vờ có giấy phép ảnh.
 
 ## Decision
 
-**GO** — nghiên cứu xác nhận nhu cầu rõ về nguồn đáng tin, chronology và bản tiếng Anh nhất quán; phạm vi v1 giữ các feature H-impact, re-architect auth/media về B và cắt toàn bộ C không phục vụ trực tiếp ba user journey.
+**GO V2** — thông điệp ngày 10/08/2026 là scope sign-off cho lớp 6–12, bản đồ, một
+prototype 3D, tư liệu provenance và loading logo. Trình tự bắt buộc là contract → loader
+nhận diện → facet hiện tại không rỗng → coverage/curriculum → nội dung theo batch →
+map/scene; không gộp độ sâu học thuật và hiệu ứng thành một lời hứa “đầy đủ” thiếu bằng chứng.

@@ -53,3 +53,30 @@ Nhóm sinh viên sẽ chuyển từ việc mở nhiều kết quả tìm kiếm 
 
 - Free (solved by libraries/platforms): Next.js hỗ trợ route/SSR và metadata; SQLite/PostgreSQL hỗ trợ lưu trữ, index và migration; thư viện chuẩn hóa Unicode xử lý truy vấn không dấu; Playwright/Vitest kiểm thử; nền tảng hosting cung cấp HTTPS, preview deploy và log cơ bản. Các phần này giảm công dựng hạ tầng nhưng không tự tạo ra nội dung đúng.
 - Hard (custom work, real risk): mô hình hóa ngày lịch sử không chính xác tuyệt đối và quan hệ giữa thực thể; duy trì cặp dịch Việt–Anh cùng trạng thái; ép nguồn/credit/license trước publish; RBAC và workflow không vượt quyền; search tiếng Việt có ranking hữu ích; biên soạn dữ liệu có kiểm chứng; và chứng minh website chạy thật trong môi trường triển khai. Đây là rủi ro sản phẩm/nội dung, không thể giải quyết chỉ bằng chọn framework.
+
+## Nghiên cứu mở rộng chương trình lớp 6–12 — 10/08/2026
+
+Yêu cầu mở rộng đã được đối chiếu với văn bản chương trình thay vì suy từ mục lục của một
+bộ sách giáo khoa. Nguồn chuẩn là [Chương trình môn Lịch sử hợp nhất của Bộ GDĐT](https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-mon-lich-su.pdf),
+[Chương trình tổng thể hợp nhất](https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-tong-the.pdf)
+và [Thông tư 13/2022/TT-BGDĐT](https://vanban.chinhphu.vn/?docid=206343&pageid=27160).
+
+- Lớp 6–9 học phần Lịch sử trong môn Lịch sử và Địa lí bắt buộc, đi từ tiền sử đến hiện
+  đại. Lớp 10–12 học Lịch sử bắt buộc 52 tiết/năm theo chủ đề; chuyên đề 35 tiết/năm là
+  lựa chọn, nên dữ liệu phải phân biệt `MANDATORY` và `ELECTIVE`.
+- Trục tối thiểu: lớp 6 (tiền sử–khoảng thế kỷ X), lớp 7 (thế kỷ X–đầu XVI), lớp 8
+  (đầu XVI–1918), lớp 9 (1918–hiện tại), lớp 10 (Sử học, văn minh trên đất Việt Nam,
+  cộng đồng dân tộc), lớp 11 (bảo vệ Tổ quốc trước 1945, làng xã, cải cách, Biển Đông),
+  lớp 12 (1945–hiện tại, Đổi mới, đối ngoại, Hồ Chí Minh).
+- “Đến hiện tại” là lớp cập nhật có `asOf` và nguồn theo ngày kiểm chứng; nó không âm
+  thầm thay đổi yêu cầu cốt lõi của chương trình.
+- Không có cơ sở gọi kho hiện tại là đầy đủ: 50 record demo không có grade/unit/lesson,
+  body còn là mô tả ngắn và chỉ dựa trên chín URL gốc. Coverage phải là ma trận riêng;
+  ô thiếu chỉ hiện ở trang quản trị/roadmap, không sinh option rỗng trong public filter.
+- Tư liệu quý ưu tiên [Cục Văn thư và Lưu trữ Nhà nước](https://moha.gov.vn/chuyen-muc/van-thu-va-luu-tru-nha-nuoc---id441),
+  [thủ tục khai thác tài liệu lưu trữ](https://dvcluutru.moha.gov.vn/Tructuyen/thutuckhaithac.aspx?Id=2)
+  và [Bảo tàng Lịch sử Quốc gia](https://baotanglichsu.vn/vi/articles/1002/hien-vat-tu-lieu/Page13).
+  URL công khai không đồng nghĩa được phép sao chép: asset cần cơ quan lưu giữ, mã hồ
+  sơ/kiểm kê, xuất xứ, quyền sử dụng, credit, checksum và bằng chứng cho phép.
+- Bản đồ/trận đánh là **tái dựng giáo dục**: mỗi scene công khai nguồn, giả định và mức
+  độ chắc chắn; luôn có narrative 2D/HTML thay thế và không dùng cụm “chính xác tuyệt đối”.
