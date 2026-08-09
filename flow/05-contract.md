@@ -115,7 +115,8 @@ interface SourceView {
   id: string; title: string; author: string | null; publisher: string | null;
   year: number | null; url: string; accessedAt: string; citationNote: string | null;
 }
-interface PublicSourceItem extends SourceView { contentCount: number }
+interface SourceContentRef { id: string; type: ContentType; title: string; slug: string }
+interface PublicSourceItem extends SourceView { contentCount: number; contents: SourceContentRef[] }
 interface PeriodRef { id: string; title: string; slug: string }
 interface ContentListItem {
   id: string; type: ContentType; locale: Locale; title: string; slug: string; summary: string;

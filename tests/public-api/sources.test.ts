@@ -29,17 +29,18 @@ describe("public source directory API",()=>{
   it("returns exact paginated shape with one row per URL and deterministic ordering",async()=>{
     const first=await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=5"),context("vi"));const body=await first.json();
     expect(first.status).toBe(200);expect(Object.keys(body)).toEqual(["data","meta"]);expect(body.meta).toEqual({page:1,pageSize:5,total:9,totalPages:2});
-    expect(Object.keys(body.data[0])).toEqual(["id","title","author","publisher","year","url","accessedAt","citationNote","contentCount"]);
+    expect(Object.keys(body.data[0])).toEqual(["id","title","author","publisher","year","url","accessedAt","citationNote","contentCount","contents"]);
     const all=await (await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=50"),context("vi"))).json();
     expect(new Set(all.data.map((item:{url:string})=>item.url)).size).toBe(all.data.length);
     const repeated=await (await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=5"),context("vi"))).json();expect(repeated.data.map((item:{id:string})=>item.id)).toEqual(body.data.map((item:{id:string})=>item.id));
-    expect(all.data.find((item:{url:string})=>item.url==="https://www.britannica.com/event/Battle-of-Dien-Bien-Phu").contentCount).toBeGreaterThanOrEqual(2);
+    for(const item of all.data as Array<{contentCount:number;contents:Array<{id:string;type:string;title:string;slug:string}>}>){expect(item.contentCount).toBe(item.contents.length);expect(new Set(item.contents.map(({id})=>id)).size).toBe(item.contents.length);expect(Object.keys(item.contents[0])).toEqual(["id","type","title","slug"]);}
+    const shared=all.data.find((item:{url:string})=>item.url==="https://www.britannica.com/event/Battle-of-Dien-Bien-Phu");expect(shared.contentCount).toBeGreaterThanOrEqual(2);expect(shared.contents.map((item:{id:string})=>item.id)).toEqual(expect.arrayContaining(["event-dien-bien-phu","event-bach-dang-938"]));
   });
 
   it("excludes a source when the requested-locale translation is not published",async()=>{
     const vi=await (await sources(new Request("http://local/api/v1/vi/sources?pageSize=50"),context("vi"))).json();
     const en=await (await sources(new Request("http://local/api/v1/en/sources?pageSize=50"),context("en"))).json();
-    expect(vi.data.some((item:{id:string})=>item.id==="source-locale-only")).toBe(true);
+    expect(vi.data.find((item:{id:string})=>item.id==="source-locale-only").contents).toEqual([{id:"artifact-mig21-4324",type:"ARTIFACT",title:"Máy bay MiG-21 số hiệu 4324",slug:"may-bay-mig-21-4324"}]);
     expect(en.data.some((item:{id:string})=>item.id==="source-locale-only")).toBe(false);
     expect(en.meta.total).toBe(8);
   });
@@ -53,6 +54,8 @@ describe("public source directory API",()=>{
     const endpoint=openApiDocument.paths["/api/v1/{locale}/sources"].get;
     const responseSchema=endpoint.responses["200"].content["application/json"].schema as {properties:{data:{items:{$ref:string}}}};
     expect(endpoint.operationId).toBe("listPublicSources");expect(responseSchema.properties.data.items.$ref).toBe("#/components/schemas/PublicSourceItem");
-    expect(openApiDocument.components.schemas.PublicSourceItem.required).toContain("contentCount");
+    expect(openApiDocument.components.schemas.PublicSourceItem.required).toEqual(expect.arrayContaining(["contentCount","contents"]));
+    expect(openApiDocument.components.schemas.PublicSourceItem.properties.contents.items.$ref).toBe("#/components/schemas/SourceContentRef");
+    expect(openApiDocument.components.schemas.SourceContentRef.required).toEqual(["id","type","title","slug"]);
   });
 });

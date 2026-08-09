@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-08-09T07:11:37.640Z",
+  "url": "https://communications-ecommerce-feelings-tactics.trycloudflare.com",
+  "locales": {
+    "vi": {
+      "sources": 14,
+      "totalContentLinks": 56,
+      "allCountsMatch": true,
+      "allContentIdsUnique": true,
+      "publishedRoutes": {
+        "count": 56,
+        "allResolve": true
+      }
+    },
+    "en": {
+      "sources": 14,
+      "totalContentLinks": 55,
+      "allCountsMatch": true,
+      "allContentIdsUnique": true,
+      "publishedRoutes": {
+        "count": 55,
+        "allResolve": true
+      }
+    }
+  },
+  "pointer": {
+    "source": "Bảo tàng Lịch sử Quân sự Việt Nam",
+    "count": 7,
+    "href": "/vi/hien-vat/co-quyet-chien-quyet-thang-dien-bien-phu",
+    "back": "/vi/sources"
+  },
+  "keyboard": {
+    "source": "Bảo tàng Lịch sử Quân sự Việt Nam",
+    "count": 6,
+    "href": "/en/periods/contemporary-military-memory-and-heritage",
+    "back": "/en/sources"
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 1876
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 884
+  },
+  "screenshots": [
+    "artifacts/source-usage/source-usage-desktop.png",
+    "artifacts/source-usage/source-usage-mobile.png"
+  ]
+}

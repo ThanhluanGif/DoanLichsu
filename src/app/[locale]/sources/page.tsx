@@ -6,8 +6,8 @@ import { PublicShell } from "@/components/public/PublicShell";
 import { BookIcon } from "@/components/icons";
 import { isPublicLocale,t } from "@/lib/i18n/config";
 import { getPublicClient } from "@/lib/public-client/client";
-import { homePath,sourcesPath } from "@/lib/public-client/paths";
-import { formatIsoDate } from "@/lib/public-client/presentation";
+import { contentPath,homePath,sourcesPath } from "@/lib/public-client/paths";
+import { formatIsoDate,typeLabel } from "@/lib/public-client/presentation";
 
 export const dynamic = "force-dynamic";
 type Query = Record<string,string|string[]|undefined>;
@@ -29,7 +29,7 @@ export default async function SourcesPage({params,searchParams}:{params:Promise<
     <ol className="source-directory-list" start={(sources.meta.page-1)*sources.meta.pageSize+1}>
       {sources.data.map((source)=><li className="source-directory-item" key={source.id} data-source-url={source.url}>
         <div><h2><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></h2><p>{[source.author,source.publisher,source.year].filter(Boolean).join(" · ")}</p></div>
-        <div className="source-directory-meta"><span>{source.contentCount} {source.contentCount===1?copy.sourceUsedByOne:copy.sourceUsedByMany}</span><time dateTime={source.accessedAt}>{copy.sourcesAccessed} {formatIsoDate(source.accessedAt,locale)}</time><a href={source.url} target="_blank" rel="noreferrer" aria-label={`${copy.openSource}: ${source.title}`}>{new URL(source.url).hostname.replace(/^www\./,"")}</a></div>
+        <div className="source-directory-meta"><details className="source-usage"><summary>{source.contentCount} {source.contentCount===1?copy.sourceUsedByOne:copy.sourceUsedByMany}</summary><ul>{source.contents.map((item)=><li key={item.id}><span>{typeLabel(locale,item.type)}</span><Link href={contentPath(locale,item.type,item.slug)}>{item.title}</Link></li>)}</ul></details><time dateTime={source.accessedAt}>{copy.sourcesAccessed} {formatIsoDate(source.accessedAt,locale)}</time><a href={source.url} target="_blank" rel="noreferrer" aria-label={`${copy.openSource}: ${source.title}`}>{new URL(source.url).hostname.replace(/^www\./,"")}</a></div>
       </li>)}
     </ol>
     <Pagination meta={sources.meta} locale={locale} path={sourcesPath(locale)} query={paginationQuery}/>

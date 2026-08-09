@@ -244,9 +244,16 @@ code { font-family: var(--mono); }
 .source-directory-item h2 a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .source-directory-item p { margin: 8px 0 0; color: var(--fg-muted); font-size: 13px; }
 .source-directory-meta { display: grid; gap: 7px; color: var(--fg-subtle); font-size: 11px; }
-.source-directory-meta span { color: var(--accent-success); font-weight: 750; }
 .source-directory-meta time { font-family: var(--mono); }
 .source-directory-meta a { width: fit-content; max-width: 100%; overflow-wrap: anywhere; color: var(--accent); font-weight: 700; }
+.source-usage summary { display: flex; width: fit-content; align-items: center; gap: 8px; color: var(--accent-success); font-weight: 750; cursor: pointer; list-style: none; }
+.source-usage summary::-webkit-details-marker { display: none; }
+.source-usage summary::after { content: "+"; display: grid; width: 18px; height: 18px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--fg-muted); font-family: var(--mono); font-size: 12px; }
+.source-usage[open] summary::after { content: "−"; }
+.source-usage ul { display: grid; gap: 7px; margin: 11px 0 5px; padding: 0; list-style: none; }
+.source-usage li { display: grid; grid-template-columns: 72px minmax(0,1fr); gap: 8px; align-items: baseline; }
+.source-usage li span { color: var(--fg-subtle); font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
+.source-usage li a { color: var(--fg-base); font-size: 11px; font-weight: 650; }
 
 .listing-main,.search-main,.detail-shell { width: min(1240px,calc(100% - 10vw)); margin: 0 auto; padding: 34px 0 110px; }
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--fg-subtle); font-size: 11px; }

@@ -1,6 +1,6 @@
 import type { SqliteDatabase } from "@/lib/db/connection";
 import { normalizeSearchText } from "@/lib/search/normalize";
-import { contentTypes, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type TimelineItem } from "./types";
+import { contentTypes, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type SourceContentRef, type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -280,9 +280,21 @@ export function getSources(database: SqliteDatabase, locale: Locale, search: URL
     FROM representatives r
     JOIN sources s ON s.id = r.id
     ORDER BY s.title COLLATE NOCASE, s.id
-  `).all(locale) as PublicSourceItem[];
+  `).all(locale) as Array<Omit<PublicSourceItem,"contents">>;
   const total = rows.length;
-  return { data: rows.slice((page - 1) * pageSize, page * pageSize), meta: pageMeta(page, pageSize, total) };
+  const data=rows.slice((page - 1) * pageSize, page * pageSize).map((source)=>{
+    const contents=database.prepare(`
+      SELECT DISTINCT n.id, n.type, t.title, t.slug
+      FROM sources s
+      JOIN content_sources cs ON cs.source_id = s.id
+      JOIN content_nodes n ON n.id = cs.content_id
+      JOIN content_translations t ON t.node_id = n.id
+      WHERE s.url = ? AND n.status = 'PUBLISHED' AND t.locale = ? AND t.translation_status = 'PUBLISHED'
+      ORDER BY t.title COLLATE NOCASE, n.id
+    `).all(source.url,locale) as SourceContentRef[];
+    return {...source,contents};
+  });
+  return { data, meta: pageMeta(page, pageSize, total) };
 }
 
 export function getAlternate(database: SqliteDatabase, id: string, locale: Locale) {
