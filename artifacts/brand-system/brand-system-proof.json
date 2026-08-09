@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-08-09T13:57:11.295Z",
+  "url": "https://forecast-bachelor-sacrifice-elliott.trycloudflare.com",
+  "surfaces": {
+    "publicHeader": true,
+    "publicFooter": true,
+    "adminLogin": true,
+    "adminSidebarStatic": true,
+    "docs": true
+  },
+  "geometry": {
+    "viewBox": "0 0 48 48",
+    "outerCircle": "24,24,21",
+    "sun": true,
+    "historyFlow": true,
+    "strokeWidth": 1.8,
+    "currentColor": true
+  },
+  "navigation": {
+    "pointer": "/vi",
+    "keyboard": "/en"
+  },
+  "favicon": {
+    "path": "/icon.svg",
+    "status": 200,
+    "contentType": "image/svg+xml"
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 1456
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 1428
+  },
+  "screenshots": [
+    "artifacts/brand-system/brand-system-desktop.png",
+    "artifacts/brand-system/brand-system-mobile.png"
+  ]
+}

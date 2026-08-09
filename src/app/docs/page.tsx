@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrandMark } from "@/components/BrandMark";
 import { openApiDocument } from "@/lib/openapi/document";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default function ApiDocsPage() {
     <main className="docs-shell" id="noi-dung">
       <header className="docs-header">
         <Link className="brand" href="/" aria-label="Quân Sử Việt, trang chủ">
-          <span className="brand-mark" aria-hidden="true">QS</span>
+          <BrandMark/>
           <span>
             <strong>Quân Sử Việt</strong>
             <small>Tài liệu API</small>

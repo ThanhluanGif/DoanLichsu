@@ -6,6 +6,7 @@ import { createContext,useCallback,useContext,useEffect,useState } from "react";
 import { adminGet,adminSend,AdminRequestError,data } from "@/lib/admin-client/client";
 import { navigationFor,navigationSelected } from "@/lib/admin-client/navigation";
 import type { AuthUser,DataResponse } from "@/lib/admin-client/types";
+import { BrandMark } from "@/components/BrandMark";
 
 type AdminContextValue={user:AuthUser;refreshUser:()=>Promise<void>};
 const AdminContext=createContext<AdminContextValue|null>(null);
@@ -22,7 +23,7 @@ export function AdminShell({children}:{children:React.ReactNode}){
   const links=navigationFor(user.role);
   return <AdminContext.Provider value={{user,refreshUser}}><div className="admin-app">
     <a className="skip-link" href="#admin-main">Chuyển đến nội dung</a>
-    <aside className="admin-sidebar"><Link className="admin-logo" href="/admin"><span aria-hidden="true">QS</span><strong>Không gian biên tập</strong></Link>
+    <aside className="admin-sidebar"><Link className="admin-logo" href="/admin"><BrandMark/><strong>Không gian biên tập</strong></Link>
       <nav aria-label="Điều hướng biên tập">{links.map((item)=><Link className={navigationSelected(pathname,item.href)?"selected":""} href={item.href} key={item.href}>{item.label}</Link>)}</nav>
       <div className="admin-account"><span className="admin-avatar" aria-hidden="true">{user.displayName.split(/\s+/).map((part)=>part[0]).slice(-2).join("")}</span><span><strong>{user.displayName}</strong><small>{user.role}</small></span><button type="button" onClick={async()=>{try{await adminSend("/api/v1/auth/logout","POST");}finally{window.location.replace("/admin/login");}}}>Đăng xuất</button></div>
     </aside>
