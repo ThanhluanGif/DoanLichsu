@@ -38,7 +38,7 @@ it; if a pain has no feature, it goes to the "not addressed" list — honestly.
 | P8 | Admin | Khu quản trị có thể bị dùng trái quyền | Risk register kế hoạch gốc | Chia sẻ một tài khoản chung | FR08 | Mỗi role chỉ thấy và gọi được action được phép, deny ở server |
 | P9 | Editor | Sửa nội dung phải chạm code/hai bản dịch dễ lệch | Quan sát biên tập trong kế hoạch gốc | Sửa file thủ công | FR09 | Form lưu VI/EN, source, media và preview với validation rõ |
 | P10 | Reviewer | Nội dung chưa kiểm chứng có thể xuất hiện công khai | Yêu cầu cốt lõi trong phiếu/kế hoạch | Duyệt qua tin nhắn | FR10 | Chỉ transition hợp lệ mới publish; reject bắt buộc lý do |
-| P11 | Reviewer | Không biết bài/ảnh đã có nguồn và quyền chưa | AskHistorians + checklist học thuật kế hoạch | Kiểm tra bằng bảng tính | FR11 | Publish bị chặn nếu thiếu source hoặc metadata media bắt buộc |
+| P11 | Reviewer | Không biết từng luận điểm dùng nguồn nào, nguồn đã được kiểm chứng hay chỉ là link tham khảo | AskHistorians + checklist học thuật kế hoạch | Kiểm tra bằng bảng tính và suy ngược từ danh sách nguồn cuối bài | FR11 | Mỗi luận điểm có locator/quote và trạng thái duyệt; publish bị chặn nếu nguồn, claim hoặc metadata media chưa đạt gate |
 | P12 | Người quốc tế | Khó tìm website/chọn đúng bản locale | Reddit: “I couldn't find the official site”; Stage 01 | Dò nhiều trang/kết quả | FR12 | Sitemap, canonical và hreflang chỉ tới URL VI/EN hợp lệ |
 | P13 | Admin | Không biết ai đã duyệt/xuất bản | Quan sát workflow kế hoạch gốc | Hỏi trong nhóm chat | FR13 | Audit log trả actor, action, object và timestamp |
 | P14 | Sinh viên thực hiện | Sợ mất dữ liệu ngay trước demo | Risk register kế hoạch gốc | Copy file không kiểm chứng | FR14 | Tạo snapshot, restore sang file sạch và kiểm tra count/checksum |
@@ -62,7 +62,7 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 
 - **FR1:** Là người đọc, tôi mở `/{locale}` và thấy giới thiệu, nội dung nổi bật cùng CTA tới timeline lấy từ dữ liệu thật.
 - **FR2:** Là người đọc, tôi chọn một thời kỳ trên timeline và thấy các sự kiện được sắp theo mốc có date precision, mở được detail liên quan.
-- **FR3:** Là người đọc, tôi duyệt/lọc sự kiện rồi mở detail và thấy thời gian, địa điểm, body, source, media, quan hệ và ngày cập nhật.
+- **FR3:** Là người đọc, tôi duyệt/lọc sự kiện rồi mở detail và thấy thời gian, địa điểm, body, source, media, quan hệ, các luận điểm đã kiểm chứng kèm locator/quote và ngày cập nhật.
 - **FR4:** Là người đọc, tôi duyệt/lọc nhân vật rồi mở detail và thấy tiểu sử ngắn, vai trò, source và nội dung liên quan.
 - **FR5:** Là người đọc, tôi duyệt/lọc hiện vật rồi mở detail và thấy metadata, nơi lưu giữ, source, credit/license/alt của media.
 - **FR6:** Là người đọc, tôi tìm bằng chuỗi có/không dấu, chọn type/period/tag/page và thấy kết quả phân trang ổn định; filter tồn tại trong URL.
@@ -70,7 +70,7 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 - **FR8:** Là Admin/Editor/Reviewer, tôi đăng nhập/đăng xuất và chỉ gọi được endpoint/action thuộc quyền server-side của role mình.
 - **FR9:** Là Editor, tôi tạo/sửa content, hai translation, source, media metadata và quan hệ; validation lỗi nằm cạnh trường và preview dùng cùng dữ liệu public.
 - **FR10:** Là Editor/Reviewer, tôi gửi duyệt, approve/reject/publish theo state machine; chỉ Reviewer/Admin publish và reject phải có lý do.
-- **FR11:** Là Reviewer, tôi quản lý source/media metadata và bị chặn publish khi thiếu source, translation bắt buộc hoặc credit/license/alt của media đã gắn.
+- **FR11:** Là Reviewer, tôi phân loại và duyệt source, duyệt từng luận điểm cùng evidence locator/quote; tôi bị chặn publish khi source/claim chưa `VERIFIED`, claim không phủ dữ kiện có cấu trúc, translation bắt buộc hoặc credit/license/alt của media đã gắn bị thiếu.
 - **FR12:** Là máy tìm kiếm/người chia sẻ, tôi nhận title/description/canonical/hreflang/Open Graph/JSON-LD, sitemap và robots đúng theo locale/content.
 - **FR13:** Là Admin, tôi lọc audit log theo actor/action/date/object và thấy login, create/update, review, publish, archive, role change mà không thấy secret/token.
 - **FR14:** Là người vận hành, tôi chạy lệnh backup/restore và nhận snapshot có checksum; bản restore mở được, giữ nguyên số content/translation/source/user.
@@ -79,7 +79,8 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 
 - Responsive từ 360 px; keyboard/focus/label/heading/contrast theo WCAG 2.2 AA cho luồng chính; không dùng ảnh thiếu alt.
 - LCP production-like ≤ 2,5 giây cho home/detail; p95 API đọc ≤ 500 ms và search ≤ 1 giây với 50 records.
-- Public API chỉ trả `PUBLISHED`; 100% published translations có title/summary/body/SEO và ≥1 source.
+- Public API chỉ trả `PUBLISHED`; 100% publish mới có title/summary/body/SEO, ≥1 source
+  `VERIFIED`, ≥1 claim `VERIFIED`, và mọi claim công khai chỉ dùng evidence source `VERIFIED`.
 - Password dùng Argon2id qua thư viện; session cookie HttpOnly/SameSite/Secure khi HTTPS; login rate-limit; mọi RBAC check ở server; 0 Critical/High issue còn mở.
 - Không log password/token; validation schema ở mọi mutation; HTML nội dung được render dưới dạng text/Markdown an toàn, không chèn script tùy ý.
 - `vi` và `en` là locale duy nhất; slug duy nhất theo `(locale,type)`; ngày có precision `DAY|MONTH|YEAR|APPROXIMATE`.
@@ -91,4 +92,4 @@ Next.js App Router + TypeScript cho public/admin/API trong một deployable unit
 
 ## Success metric (numbers only)
 
-10/10 người trong nhóm test hoàn thành “tìm một sự kiện → mở source → đổi locale” trong ≤3 phút; 50/50 content nodes có 2 translation và ≥1 source; 100% test RBAC negative bị từ chối; 0 Critical/High issue; LCP ≤2,5 giây và p95 search ≤1 giây trên bộ seed 50 records.
+10/10 người trong nhóm test hoàn thành “tìm một sự kiện → mở source → đổi locale” trong ≤3 phút; 50/50 content nodes có 2 translation và ≥1 source; 100% publish mới bị chặn nếu còn source/claim chưa xác minh; 100% test RBAC negative bị từ chối; 0 Critical/High issue; LCP ≤2,5 giây và p95 search ≤1 giây trên bộ seed 50 records.

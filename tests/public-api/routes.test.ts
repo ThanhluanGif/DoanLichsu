@@ -65,14 +65,19 @@ describe("public read API", () => {
     expect(detailResponse.status).toBe(200);
     expect(Object.keys(detailBody.data)).toEqual([
       "id", "type", "locale", "title", "slug", "summary", "thumbnail", "startDate", "endDate", "datePrecision", "period", "tags",
-      "body", "location", "result", "role", "artifactMeta", "media", "sources", "related", "alternate", "reviewedBy", "publishedAt", "updatedAt",
+      "body", "location", "result", "role", "artifactMeta", "media", "sources", "claims", "related", "alternate", "reviewedBy", "publishedAt", "updatedAt",
     ]);
     expect(detailBody.data.sources[0]).toEqual({
       id: expect.any(String), title: expect.any(String), author: null,
       publisher: "Encyclopaedia Britannica", year: null,
       url: "https://www.britannica.com/event/Battle-of-Dien-Bien-Phu",
       accessedAt: "2026-08-06T00:00:00.000Z", citationNote: null,
+      sourceType: "REFERENCE_WORK", qualityTier: "TIER_4_CONTEXTUAL",
+      institution: "Encyclopaedia Britannica", identifier: null, edition: null,
+      archivedUrl: null, checksum: null, verificationStatus: "NEEDS_REVIEW",
+      verifiedBy: null, verifiedAt: null, verificationNote: null,
     });
+    expect(detailBody.data.claims).toEqual([]);
 
     const englishDetail = await detail(
       new Request("http://local/api/v1/en/contents/EVENT/battle-of-dien-bien-phu"),

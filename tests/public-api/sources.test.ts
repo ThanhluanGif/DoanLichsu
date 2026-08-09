@@ -29,7 +29,7 @@ describe("public source directory API",()=>{
   it("returns exact paginated shape with one row per URL and deterministic ordering",async()=>{
     const first=await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=5"),context("vi"));const body=await first.json();
     expect(first.status).toBe(200);expect(Object.keys(body)).toEqual(["data","meta"]);expect(body.meta).toEqual({page:1,pageSize:5,total:9,totalPages:2});
-    expect(Object.keys(body.data[0])).toEqual(["id","title","author","publisher","year","url","accessedAt","citationNote","contentCount","contents"]);
+    expect(Object.keys(body.data[0])).toEqual(["id","title","author","publisher","year","url","accessedAt","citationNote","sourceType","qualityTier","institution","identifier","edition","archivedUrl","checksum","verificationStatus","verifiedBy","verifiedAt","verificationNote","contentCount","contents"]);
     const all=await (await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=50"),context("vi"))).json();
     expect(new Set(all.data.map((item:{url:string})=>item.url)).size).toBe(all.data.length);
     const repeated=await (await sources(new Request("http://local/api/v1/vi/sources?page=1&pageSize=5"),context("vi"))).json();expect(repeated.data.map((item:{id:string})=>item.id)).toEqual(body.data.map((item:{id:string})=>item.id));

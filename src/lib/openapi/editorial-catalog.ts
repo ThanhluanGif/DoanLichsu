@@ -7,10 +7,12 @@ const allRoles = ["ADMIN","EDITOR","REVIEWER"] as const;
 const reviewerRoles = ["ADMIN","REVIEWER"] as const;
 const adminRoles = ["ADMIN"] as const;
 const id = { name: "id", in: "path", required: true, schema: { type: "string" } } as const;
+const claimId = { name: "claimId", in: "path", required: true, schema: { type: "string" } } as const;
 const locale = { name: "locale", in: "path", required: true, schema: { type: "string", enum: ["vi", "en"] } } as const;
 const page = [{ name: "page", in: "query", schema: { type: "integer", minimum: 1 } }, { name: "pageSize", in: "query", schema: { type: "integer", minimum: 1, maximum: 100 } }] as const;
 const contentFilters = [...page, { name:"type",in:"query",schema:{type:"string",enum:["PERIOD","EVENT","PERSON","ARTIFACT","TOPIC"]} }, { name:"status",in:"query",schema:{type:"string",enum:["DRAFT","IN_REVIEW","APPROVED","PUBLISHED","REJECTED","ARCHIVED"]} }, { name:"locale",in:"query",schema:{type:"string",enum:["vi","en"]} }, { name:"q",in:"query",schema:{type:"string"} }] as const;
-const sourceFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }] as const;
+const sourceFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"sourceType",in:"query",schema:{type:"string",enum:sourceTypes} }, { name:"qualityTier",in:"query",schema:{type:"string",enum:sourceQualityTiers} }, { name:"verificationStatus",in:"query",schema:{type:"string",enum:verificationStatuses} }] as const;
+const claimFilters = [...page, { name:"claimType",in:"query",schema:{type:"string",enum:claimTypes} }, { name:"verificationStatus",in:"query",schema:{type:"string",enum:verificationStatuses} }] as const;
 const mediaFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"kind",in:"query",schema:{type:"string",enum:["IMAGE","DOCUMENT"]} }] as const;
 const userFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"role",in:"query",schema:{type:"string",enum:["ADMIN","EDITOR","REVIEWER"]} }, { name:"active",in:"query",schema:{type:"boolean"} }] as const;
 const auditFilters = [...page, ...["actorId","action","objectType","objectId","from","to"].map((name)=>({name,in:"query",schema:{type:"string"}}))] as const;
@@ -49,11 +51,18 @@ export const editorialOpenApiPaths = {
     patch: operation("updateContent", "Cập nhật nội dung", { request: "ContentUpdateInput", response: "AdminContentDetail", parameters: [id],errors:["400","401","403","404","409","422","500"] }),
   },
   "/api/v1/admin/contents/{id}/translations/{locale}": { put: operation("putTranslation", "Upsert bản dịch", { request: "TranslationInput", response: "AdminTranslation", parameters: [id, locale],errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/claims": {
+    get: operation("listAdminClaims", "Liệt kê luận điểm", { response: "List:AdminClaimView", parameters: [id,...claimFilters],errors:["400","401","404","500"] }),
+    post: operation("createClaim", "Tạo luận điểm và bằng chứng", { request: "ClaimInput", response: "AdminClaimView", parameters: [id],status:"201",errors:["400","401","403","404","422","500"] }),
+  },
+  "/api/v1/admin/contents/{id}/claims/{claimId}": { patch: operation("updateClaim", "Cập nhật luận điểm và bằng chứng", { request: "ClaimUpdateInput", response: "AdminClaimView", parameters: [id,claimId],errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/claims/{claimId}/verification": { post: operation("verifyClaim", "Chuyển trạng thái kiểm chứng luận điểm", { request: "VerificationInput", response: "AdminClaimView", parameters: [id,claimId],errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/sources": {
     get: operation("listAdminSources", "Liệt kê nguồn", { response: "List:AdminSourceView", parameters: sourceFilters,errors:["400","401","500"] }),
     post: operation("createSource", "Tạo nguồn", { request: "SourceInput", response: "AdminSourceView", status: "201",errors:["400","401","403","500"] }),
   },
   "/api/v1/admin/sources/{id}": { patch: operation("updateSource", "Cập nhật nguồn", { request: "SourceUpdateInput", response: "AdminSourceView", parameters: [id],errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/sources/{id}/verification": { post: operation("verifySource", "Chuyển trạng thái kiểm chứng nguồn", { request: "VerificationInput", response: "AdminSourceView", parameters: [id],errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/media": {
     get: operation("listAdminMedia", "Liệt kê media", { response: "List:AdminMediaView", parameters: mediaFilters,errors:["400","401","500"] }),
     post: operation("createMedia", "Tạo metadata media", { request: "MediaInput", response: "AdminMediaView", status: "201",errors:["400","401","403","500"] }),
@@ -83,7 +92,8 @@ const object = (required: readonly string[], properties: Record<string, object>)
 const partialLocaleRecord = (value: object) => object([], { vi:value,en:value });
 const exactEnumRecord = (keys: readonly string[]) => object(keys,Object.fromEntries(keys.map((key) => [key,{ type:"integer" }])));
 const httpsUri = { type:"string",format:"uri",pattern:"^https://" } as const;
-const sourceProperties = { id:string,title:string,author:nullableString,publisher:nullableString,year:{anyOf:[{type:"integer"},{type:"null"}]},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:nullableString,version };
+const sourceBaseProperties = { id:string,title:string,author:nullableString,publisher:nullableString,year:{anyOf:[{type:"integer"},{type:"null"}]},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:nullableString,sourceType:{type:"string",enum:sourceTypes},qualityTier:{type:"string",enum:sourceQualityTiers},institution:nullableString,identifier:nullableString,edition:nullableString,archivedUrl:{anyOf:[httpsUri,{type:"null"}]},checksum:nullableString,verificationStatus:{type:"string",enum:verificationStatuses},verifiedBy:nullableString,verifiedAt:nullableString,verificationNote:nullableString };
+const sourceProperties = { ...sourceBaseProperties,version };
 const mediaProperties = { id:string,url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,alt:string,caption:nullableString,width:{anyOf:[{type:"integer"},{type:"null"}]},height:{anyOf:[{type:"integer"},{type:"null"}]},version,altVi:string,altEn:string,captionVi:nullableString,captionEn:nullableString };
 const idArray = { type:"array",uniqueItems:true,items:string } as const;
 const translationEditableProperties = { title:string,slug:string,summary:string,body:string,seoTitle:string,seoDescription:string,translationStatus:{type:"string",enum:["NOT_STARTED","TRANSLATING","READY_FOR_REVIEW"]} } as const;
@@ -106,9 +116,14 @@ export const editorialOpenApiSchemas = {
   ContentUpdateInput: object(["version"], { version,...contentEditableProperties }),
   AdminContentListItem: object(["id","type","status","featured","version","titles","updatedAt","updatedBy"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:partialLocaleRecord(string),updatedAt:string,updatedBy:string }),
   AdminContentDetail: object(["id","type","status","featured","version","titles","updatedAt","updatedBy","startDate","endDate","datePrecision","periodId","location","result","role","artifactMeta","tagIds","relatedIds","sourceIds","mediaIds","translations"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},featured:{type:"boolean"},version,titles:partialLocaleRecord(string),updatedAt:string,updatedBy:string,startDate:nullableString,endDate:nullableString,datePrecision:{anyOf:[{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},{type:"null"}]},periodId:nullableString,location:nullableString,result:nullableString,role:nullableString,artifactMeta:{anyOf:[{type:"object",additionalProperties:string},{type:"null"}]},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray,translations:partialLocaleRecord({$ref:"#/components/schemas/AdminTranslation"}) }),
-  SourceInput: object(["title","url","accessedAt"], { title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string }),
-  SourceUpdateInput: object(["version","title","url","accessedAt"], { version,title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string }),
-  AdminSourceView: object(["id","title","author","publisher","year","url","accessedAt","citationNote","version"],sourceProperties),
+  SourceInput: object(["title","url","accessedAt","sourceType","qualityTier"], { title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string,sourceType:{type:"string",enum:sourceTypes},qualityTier:{type:"string",enum:sourceQualityTiers},institution:string,identifier:string,edition:string,archivedUrl:httpsUri,checksum:{type:"string",pattern:"^[a-f0-9]{64}$"} }),
+  SourceUpdateInput: object(["version","title","url","accessedAt","sourceType","qualityTier"], { version,title:string,author:string,publisher:string,year:{type:"integer"},url:httpsUri,accessedAt:{type:"string",format:"date-time"},citationNote:string,sourceType:{type:"string",enum:sourceTypes},qualityTier:{type:"string",enum:sourceQualityTiers},institution:string,identifier:string,edition:string,archivedUrl:httpsUri,checksum:{type:"string",pattern:"^[a-f0-9]{64}$"} }),
+  VerificationInput: object(["version","status"],{version,status:{type:"string",enum:["NEEDS_REVIEW","VERIFIED","REJECTED"]},note:string}),
+  ClaimEvidenceInput: object(["sourceId","locator"],{sourceId:string,locator:string,quote:string,note:string}),
+  ClaimInput: object(["claimType","assessment","statementVi","statementEn","evidence"],{claimType:{type:"string",enum:claimTypes},assessment:{type:"string",enum:claimAssessments},statementVi:string,statementEn:string,evidence:{type:"array",minItems:1,maxItems:20,items:{$ref:"#/components/schemas/ClaimEvidenceInput"}}}),
+  ClaimUpdateInput: object(["version","claimType","assessment","statementVi","statementEn","evidence"],{version,claimType:{type:"string",enum:claimTypes},assessment:{type:"string",enum:claimAssessments},statementVi:string,statementEn:string,evidence:{type:"array",minItems:1,maxItems:20,items:{$ref:"#/components/schemas/ClaimEvidenceInput"}}}),
+  AdminClaimView: object(["id","contentId","claimType","assessment","statementVi","statementEn","verificationStatus","version","verifiedBy","verifiedAt","verificationNote","evidence"],{id:string,contentId:string,claimType:{type:"string",enum:claimTypes},assessment:{type:"string",enum:claimAssessments},statementVi:string,statementEn:string,verificationStatus:{type:"string",enum:verificationStatuses},version,verifiedBy:nullableString,verifiedAt:nullableString,verificationNote:nullableString,evidence:{type:"array",items:{$ref:"#/components/schemas/ClaimEvidenceView"}}}),
+  AdminSourceView: object(Object.keys(sourceProperties),sourceProperties),
   MediaInput: object(["url","kind","credit","license","altVi","altEn"], { url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
   MediaUpdateInput: object(["version","url","kind","credit","license","altVi","altEn"], { version,url:httpsUri,kind:{type:"string",enum:["IMAGE","DOCUMENT"]},credit:string,license:string,altVi:string,altEn:string,captionVi:string,captionEn:string }),
   AdminMediaView: object(["id","url","kind","credit","license","alt","caption","width","height","version","altVi","altEn","captionVi","captionEn"],mediaProperties),
@@ -119,3 +134,4 @@ export const editorialOpenApiSchemas = {
   RecentActivityView: object(["action","objectType","objectId","createdAt"], { action:string,objectType:string,objectId:nullableString,createdAt:string }),
   DashboardView: object(["countsByStatus","countsByType","recentAudit"], { countsByStatus:exactEnumRecord(workflow),countsByType:exactEnumRecord(types),recentAudit:{type:"array",items:{$ref:"#/components/schemas/RecentActivityView"}} }),
 } as const;
+import { claimAssessments,claimTypes,sourceQualityTiers,sourceTypes,verificationStatuses } from "@/lib/content/types";
