@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-08-09T05:18:58.653Z",
+  "url": "https://oil-argument-produce-forwarding.trycloudflare.com",
+  "desktop": {
+    "start": {
+      "animationName": "timeline-progress",
+      "animationTimeline": "view()",
+      "opacity": "0.599044",
+      "scale": "1 0.108987",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "middle": {
+      "animationName": "timeline-progress",
+      "animationTimeline": "view()",
+      "opacity": "0.776064",
+      "scale": "1 0.502365",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "end": {
+      "animationName": "timeline-progress",
+      "animationTimeline": "view()",
+      "opacity": "0.907668",
+      "scale": "1 0.794817",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "activeIndex": 6,
+    "activeDot": {
+      "animationName": "timeline-focus",
+      "animationTimeline": "view()",
+      "opacity": "1",
+      "scale": "1.45",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "metrics": {
+      "cumulativeLayoutShift": 0,
+      "lcpMs": 1516,
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "keyboardHref": "/vi/su-kien/tan-cong-da-nang-1858",
+    "axeCriticalOrSerious": 0
+  },
+  "mobile": {
+    "progress": {
+      "animationName": "timeline-progress",
+      "animationTimeline": "view()",
+      "opacity": "0.775955",
+      "scale": "1 0.502122",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "activeIndex": 5,
+    "activeDot": {
+      "animationName": "timeline-focus",
+      "animationTimeline": "view()",
+      "opacity": "0.857087",
+      "scale": "1.22032",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "viewport": {
+      "clientWidth": 390,
+      "scrollWidth": 390
+    }
+  },
+  "reducedMotion": {
+    "progress": {
+      "animationName": "none",
+      "animationTimeline": "auto",
+      "opacity": "0",
+      "scale": "none",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "dot": {
+      "animationName": "none",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "scale": "none",
+      "backgroundColor": "rgb(163, 68, 47)"
+    },
+    "baseLine": {
+      "animationName": "none",
+      "animationTimeline": "auto",
+      "opacity": "1",
+      "scale": "none",
+      "backgroundColor": "rgb(213, 205, 192)"
+    }
+  },
+  "screenshots": [
+    "artifacts/timeline-progress/desktop.png",
+    "artifacts/timeline-progress/mobile.png",
+    "artifacts/timeline-progress/reduced-motion.png"
+  ]
+}

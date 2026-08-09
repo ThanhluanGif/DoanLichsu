@@ -167,6 +167,9 @@ reading order; it never delays access to content or takes control of scrolling.
   Largest Contentful Paint measurement.
 - Animate only `opacity` and the individual `translate` property. Never animate layout
   properties, hijack scrolling, or compete with the existing card hover transform.
+- The public timeline may additionally animate individual `scale` on its decorative
+  progress line and dots only. The line scales from its top origin and a focused dot stays
+  at or below `1.45`; event copy, links and layout never scale.
 - Viewport reveal is progressive enhancement: content stays visible when view timelines
   are unsupported.
 - Control feedback changes only color, border, shadow, opacity or individual `translate`;
@@ -175,7 +178,8 @@ reading order; it never delays access to content or takes control of scrolling.
   remains the existing visible outline and is never replaced by motion alone.
 - `prefers-reduced-motion: reduce` disables these effects completely and restores every
   animated public element to `opacity: 1` and `translate: none`, with public control
-  transition duration set to `0s`.
+  transition duration set to `0s`. Timeline progress/focus animation is removed too; the
+  original static chronology line remains visible.
 
 ## Forms
 
