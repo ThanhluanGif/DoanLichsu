@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-08-09T08:39:12.933Z",
+  "url": "https://parish-costs-serial-somehow.trycloudflare.com",
+  "invalidQueryFallback": {
+    "sort": "chronology",
+    "period": null,
+    "apiItems": 12
+  },
+  "periodMapping": {
+    "id": "period-early",
+    "viSlug": "khoi-nghia-va-buoi-dau-tu-chu",
+    "enSlug": "uprisings-and-first-independence"
+  },
+  "pointer": {
+    "sort": "title",
+    "paginationBackForward": true,
+    "period": "khoi-nghia-va-buoi-dau-tu-chu",
+    "copiedUrl": "https://parish-costs-serial-somehow.trycloudflare.com/vi/su-kien?sort=title&period=khoi-nghia-va-buoi-dau-tu-chu",
+    "copyRestored": true,
+    "detail": "/vi/su-kien/chien-thang-bach-dang-938",
+    "localeSwitch": "/en/events?period=uprisings-and-first-independence&sort=title",
+    "apiItems": 2
+  },
+  "keyboard": {
+    "sort": "updated",
+    "period": "defending-the-dynastic-state",
+    "collection": "/en/artifacts",
+    "detail": "/en/artifacts/bach-dang-wooden-stakes",
+    "apiItems": 2
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 668
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 488
+  },
+  "screenshots": [
+    "artifacts/collection-filters/collection-filters-desktop.png",
+    "artifacts/collection-filters/collection-filters-mobile.png"
+  ]
+}
