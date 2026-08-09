@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-08-09T13:40:05.364Z",
+  "url": "https://forecast-bachelor-sacrifice-elliott.trycloudflare.com",
+  "vi": {
+    "href": "/admin/login",
+    "copy": "Tài khoản do quản trị viên cấp; không có đăng ký công khai.",
+    "pointer": true,
+    "back": "/vi"
+  },
+  "en": {
+    "href": "/admin/login",
+    "copy": "Accounts are issued by an administrator; public registration is not available.",
+    "keyboard": true,
+    "back": "/en"
+  },
+  "protection": {
+    "unauthenticatedAdminRedirect": "/admin/login",
+    "loginNoindex": true,
+    "sitemapExcludesAdmin": true,
+    "registerStatus": 404,
+    "adminRegisterStatus": 404
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 1644
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 924
+  },
+  "screenshots": [
+    "artifacts/editorial-entry/editorial-entry-desktop.png",
+    "artifacts/editorial-entry/editorial-entry-mobile.png"
+  ]
+}
