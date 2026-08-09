@@ -7,7 +7,7 @@ export class PublicClientError extends Error {
 type Fetcher = typeof fetch;
 
 export function publicApiOrigin(source: NodeJS.ProcessEnv = process.env) {
-  const configured = source.APP_ORIGIN?.trim();
+  const configured = source.INTERNAL_API_ORIGIN?.trim() || source.APP_ORIGIN?.trim();
   if (configured) return new URL(configured).origin;
   if (source.NODE_ENV === "production") throw new Error("APP_ORIGIN is required for the public HTTP client in production.");
   return `http://127.0.0.1:${source.PORT?.trim() || "3000"}`;
