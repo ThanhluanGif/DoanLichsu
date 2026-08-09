@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-08-09T00:26:29.841Z",
+  "url": "https://worlds-mysterious-queen-labs.trycloudflare.com",
+  "detailPath": "/vi/su-kien/chien-dich-dien-bien-phu",
+  "pointer": {
+    "layoutBefore": {
+      "offsetTop": 556,
+      "offsetLeft": 72,
+      "offsetWidth": 156,
+      "offsetHeight": 40
+    },
+    "layoutAfter": {
+      "offsetTop": 556,
+      "offsetLeft": 72,
+      "offsetWidth": 156,
+      "offsetHeight": 40
+    },
+    "hoverStyle": {
+      "animationName": "none",
+      "transitionDuration": "0.16s",
+      "transitionProperty": "color, background-color, border-color, box-shadow, opacity, translate",
+      "opacity": "1",
+      "translate": "0px -1px"
+    },
+    "pressStyle": {
+      "animationName": "none",
+      "transitionDuration": "0.08s",
+      "transitionProperty": "color, background-color, border-color, box-shadow, opacity, translate",
+      "opacity": "1",
+      "translate": "0px 1px"
+    },
+    "confirmStyle": {
+      "animationName": "copy-confirm",
+      "transitionDuration": "0s",
+      "transitionProperty": "all",
+      "opacity": "1",
+      "translate": "0px"
+    }
+  },
+  "keyboard": {
+    "tabPresses": 9,
+    "copied": true
+  },
+  "filter": {
+    "animationName": "none",
+    "transitionDuration": "0.16s",
+    "transitionProperty": "background-color, border-color, box-shadow",
+    "opacity": "1",
+    "translate": "none"
+  },
+  "reducedMotion": {
+    "control": {
+      "animationName": "none",
+      "transitionDuration": "0s",
+      "transitionProperty": "color, background-color, border-color, box-shadow, opacity, translate",
+      "opacity": "1",
+      "translate": "none"
+    },
+    "confirmation": {
+      "animationName": "none",
+      "transitionDuration": "0s",
+      "transitionProperty": "all",
+      "opacity": "1",
+      "translate": "none"
+    }
+  },
+  "mobileViewport": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  "performance": {
+    "homeLcpMs": 1008,
+    "detailLcpMs": 1024,
+    "p95SearchMs": 93.93484200000239,
+    "samples": 25,
+    "budgets": {
+      "lcpMs": 2500,
+      "p95SearchMs": 1000
+    }
+  },
+  "screenshots": [
+    "artifacts/interactions/desktop.png",
+    "artifacts/interactions/mobile.png"
+  ]
+}

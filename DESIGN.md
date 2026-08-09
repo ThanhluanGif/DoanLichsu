@@ -132,6 +132,8 @@ reading order; it never delays access to content or takes control of scrolling.
 |---|---|---|
 | `--motion-duration-route` | `320ms` | Public page entry only |
 | `--motion-duration-reveal` | `1ms` | View-timeline attachment; progress comes from scroll |
+| `--motion-duration-feedback` | `160ms` | Hover/focus/press feedback on public controls |
+| `--motion-duration-confirm` | `220ms` | One-shot confirmation such as copied-link feedback |
 | `--motion-ease-out` | `cubic-bezier(.22, 1, .36, 1)` | Calm deceleration |
 | `--motion-route-distance` | `8px` | Maximum page-entry offset |
 | `--motion-reveal-distance` | `16px` | Maximum card/entry reveal offset |
@@ -143,8 +145,13 @@ reading order; it never delays access to content or takes control of scrolling.
   properties, hijack scrolling, or compete with the existing card hover transform.
 - Viewport reveal is progressive enhancement: content stays visible when view timelines
   are unsupported.
+- Control feedback changes only color, border, shadow, opacity or individual `translate`;
+  hover motion is guarded by `(hover: hover)`, lifts at most 1px and never moves layout.
+- Keyboard activation receives the same state confirmation as pointer activation; focus
+  remains the existing visible outline and is never replaced by motion alone.
 - `prefers-reduced-motion: reduce` disables these effects completely and restores every
-  animated public element to `opacity: 1` and `translate: none`.
+  animated public element to `opacity: 1` and `translate: none`, with public control
+  transition duration set to `0s`.
 
 ## Forms
 
