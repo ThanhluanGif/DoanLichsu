@@ -125,7 +125,7 @@ no hard accent border.
 
 ## Historical illustration policy
 
-Amended 2026-08-09 for period-card artwork. Generated imagery is an editorial aid,
+Amended 2026-08-09 for period and featured-content artwork. Generated imagery is an editorial aid,
 never evidence: every collection carries a visible bilingual disclosure that it is an
 original illustration rather than a historical document.
 
@@ -139,6 +139,13 @@ original illustration rather than a historical document.
   artwork so the hero remains the LCP candidate.
 - Six period assets together stay at or below 1.8 MB. Generated source files remain outside
   the runtime bundle; the website ships optimized WebP derivatives only.
+- Each featured content id maps to one static asset reused by its card, detail page and
+  Open Graph fallback. The card image is decorative because its type and title remain in
+  HTML; the detail image has locale-specific alt text and a visible disclosure that it is
+  not a historical photograph or artifact reproduction.
+- Featured content without a mapping retains the type gradient. The six mapped assets stay
+  at or below 1.8 MB together, reserve their 3:2 geometry, lazy-load on cards and receive
+  priority only on the detail page.
 
 ## Motion policy
 

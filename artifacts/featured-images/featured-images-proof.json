@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-08-09T03:03:18.749Z",
+  "url": "https://oil-argument-produce-forwarding.trycloudflare.com",
+  "images": [
+    {
+      "id": "artifact-bach-dang-stakes",
+      "src": "/images/featured/bach-dang-stakes.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    },
+    {
+      "id": "artifact-dien-bien-flag",
+      "src": "/images/featured/dien-bien-victory-flag.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    },
+    {
+      "id": "event-august-revolution",
+      "src": "/images/featured/august-revolution.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    },
+    {
+      "id": "event-bach-dang-1288",
+      "src": "/images/featured/bach-dang-1288.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    },
+    {
+      "id": "event-bach-dang-938",
+      "src": "/images/featured/bach-dang-938.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    },
+    {
+      "id": "event-dien-bien-phu",
+      "src": "/images/featured/dien-bien-phu.webp",
+      "alt": "",
+      "complete": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 853,
+      "renderedWidth": 414,
+      "renderedHeight": 258.75
+    }
+  ],
+  "transfers": [
+    {
+      "src": "/images/featured/bach-dang-stakes.webp",
+      "bytes": 162242,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/featured/dien-bien-victory-flag.webp",
+      "bytes": 151622,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/featured/august-revolution.webp",
+      "bytes": 211216,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/featured/bach-dang-1288.webp",
+      "bytes": 172332,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/featured/bach-dang-938.webp",
+      "bytes": 146558,
+      "contentType": "image/webp"
+    },
+    {
+      "src": "/images/featured/dien-bien-phu.webp",
+      "bytes": 214984,
+      "contentType": "image/webp"
+    }
+  ],
+  "totalTransferBytes": 1058954,
+  "homeMetrics": {
+    "cumulativeLayoutShift": 0,
+    "lcpMs": 1292,
+    "clientWidth": 1440,
+    "scrollWidth": 1440
+  },
+  "mobileViewport": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  "journeys": {
+    "event": {
+      "href": "/vi/su-kien/chien-dich-dien-bien-phu",
+      "cardSrc": "/images/featured/dien-bien-phu.webp",
+      "detail": {
+        "id": "event-dien-bien-phu",
+        "src": "/images/featured/dien-bien-phu.webp",
+        "alt": "Minh họa chiến hào, trận địa và tuyến hậu cần trong thung lũng Điện Biên năm 1954",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 853,
+        "renderedWidth": 865.203125,
+        "renderedHeight": 576.796875
+      }
+    },
+    "artifact": {
+      "href": "/vi/hien-vat/coc-go-bach-dang",
+      "cardSrc": "/images/featured/bach-dang-stakes.webp",
+      "detail": {
+        "id": "artifact-bach-dang-stakes",
+        "src": "/images/featured/bach-dang-stakes.webp",
+        "alt": "Minh họa cọc gỗ Bạch Đằng trong lớp trầm tích ven sông",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 853,
+        "renderedWidth": 865.203125,
+        "renderedHeight": 576.796875
+      }
+    },
+    "english": {
+      "href": "/en/events/battle-of-bach-dang-938",
+      "cardSrc": "/images/featured/bach-dang-938.webp",
+      "detail": {
+        "id": "event-bach-dang-938",
+        "src": "/images/featured/bach-dang-938.webp",
+        "alt": "Illustration of boats entering the stake field on the Bạch Đằng River in 938",
+        "complete": true,
+        "naturalWidth": 1280,
+        "naturalHeight": 853,
+        "renderedWidth": 354,
+        "renderedHeight": 236
+      }
+    }
+  },
+  "accessibility": {
+    "criticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/featured-images/desktop.png",
+    "artifacts/featured-images/mobile.png",
+    "artifacts/featured-images/detail.png"
+  ]
+}
