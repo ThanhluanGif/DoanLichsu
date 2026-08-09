@@ -62,9 +62,21 @@ export const publicOpenApiPaths = {
     responses: { "200": jsonResponse(listRef("SearchResult")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/taxonomies": { get: {
-    operationId: "getPublicTaxonomies", summary: "Đọc taxonomy", description: "Trả period, tag và type thực sự được nội dung đã xuất bản sử dụng.", tags: ["Public"],
-    parameters: [localeParameter, { name: "kind", in: "query", schema: { type: "string", enum: ["period", "tag", "type"] } }],
-    responses: { "200": jsonResponse(dataRef("TaxonomyView")), ...errors("400","404","500") },
+    operationId: "getPublicTaxonomies", summary: "Đọc facet theo ngữ cảnh", description: "Trả grade, topic, period, tag và type có publishedCount dương trong đúng tập kết quả của consumer.", tags: ["Public"],
+    parameters: [
+      localeParameter,
+      { name: "kind", in: "query", schema: { type: "string", enum: ["period", "tag", "type"] } },
+      { name: "scope", in: "query", schema: { type: "string", enum: ["contents", "timeline", "search"], default: "contents" } },
+      { name: "q", in: "query", schema: { type: "string", minLength: 1, maxLength: 200 } },
+      { name: "type", in: "query", schema: { type: "string", enum: contentTypes } },
+      { name: "period", in: "query", schema: { type: "string" } },
+      { name: "tag", in: "query", schema: { type: "string" } },
+      { name: "grade", in: "query", schema: { anyOf: [6,7,8,9,10,11,12].map((grade)=>({type:"integer",const:grade})) } },
+      { name: "topic", in: "query", schema: { type: "string" } },
+      { name: "fromYear", in: "query", schema: { type: "integer" } },
+      { name: "toYear", in: "query", schema: { type: "integer" } },
+    ],
+    responses: { "200": jsonResponse(dataRef("FacetView")), ...errors("400","404","500") },
   } },
   "/api/v1/{locale}/sources": { get: {
     operationId: "listPublicSources", summary: "Liệt kê nguồn tư liệu", description: "Trả nguồn được nội dung và bản dịch đã xuất bản sử dụng, khử trùng theo URL và phân trang ổn định.", tags: ["Public"],
@@ -118,7 +130,14 @@ export const publicOpenApiSchemas = {
   SearchResult: { type: "object", additionalProperties: false, required: [...contentListRequired, "matchedOn"], properties: { ...contentListProperties, matchedOn: { type: "string", enum: ["title", "summary", "body"] } } },
   PeriodView: { type: "object", additionalProperties: false, required: ["id", "title", "slug", "summary", "startYear", "endYear", "contentCount"], properties: { ...periodRef.properties, summary: { type: "string" }, startYear: { type: "integer" }, endYear: { type: "integer" }, contentCount: { type: "integer", minimum: 0 } } },
   HomeView: { type: "object", additionalProperties: false, required: ["featured", "periods", "latest", "counts"], properties: { featured: { type: "array", items: { $ref: "#/components/schemas/ContentListItem" } }, periods: { type: "array", items: { $ref: "#/components/schemas/PeriodView" } }, latest: { type: "array", items: { $ref: "#/components/schemas/ContentListItem" } }, counts: { type: "object", additionalProperties: false, required: contentTypes, properties: Object.fromEntries(contentTypes.map((type) => [type, { type: "integer", minimum: 0 }])) } } },
-  TaxonomyView: { type: "object", additionalProperties: false, required: ["periods", "tags", "types"], properties: { periods: { type: "array", items: { $ref: "#/components/schemas/PeriodRef" } }, tags: { type: "array", items: { type: "object", additionalProperties: false, required: ["id", "name", "slug"], properties: { id: { type: "string" }, name: { type: "string" }, slug: { type: "string" } } } }, types: { type: "array", items: { type: "string", enum: contentTypes } } } },
+  FacetOption: { type: "object", additionalProperties: false, required: ["value", "label", "publishedCount", "verifiedCount"], properties: { value: { type: "string" }, label: { type: "string" }, publishedCount: { type: "integer", minimum: 1 }, verifiedCount: { type: "integer", minimum: 0 } } },
+  FacetView: { type: "object", additionalProperties: false, required: ["grades", "topics", "periods", "tags", "types"], properties: {
+    grades: { type: "array", items: { $ref: "#/components/schemas/FacetOption" } },
+    topics: { type: "array", items: { $ref: "#/components/schemas/FacetOption" } },
+    periods: { type: "array", items: { $ref: "#/components/schemas/FacetOption" } },
+    tags: { type: "array", items: { $ref: "#/components/schemas/FacetOption" } },
+    types: { type: "array", items: { $ref: "#/components/schemas/FacetOption" } },
+  } },
   AlternateView: { type: "object", additionalProperties: false, required: ["id", "current", "alternate"], properties: { id: { type: "string" }, current: { type: "object", additionalProperties: false, required: ["locale", "url"], properties: { locale: { type: "string", enum: ["vi", "en"] }, url: { type: "string" } } }, alternate: { anyOf: [{ type: "object", additionalProperties: false, required: ["locale", "url"], properties: { locale: { type: "string", enum: ["vi", "en"] }, url: { type: "string" } } }, { type: "null" }] } } },
 } as const;
 import { claimAssessments,claimTypes,sourceQualityTiers,sourceTypes,verificationStatuses } from "@/lib/content/types";

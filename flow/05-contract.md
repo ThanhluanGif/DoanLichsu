@@ -52,7 +52,7 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/{locale}/contents` | Public; published rows only | path `{ locale: Locale }`; query `ContentListQuery` | application/json 200 `ListResponse<ContentListItem>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/{locale}/contents/{type}/{slug}` | Public; published row only | path `{ locale: Locale; type: ContentType; slug: string }` | application/json 200 `DataResponse<ContentDetail>`; errors application/json 404,500 `ApiError` |
 | GET | `/api/v1/{locale}/search` | Public; published rows only | path `{ locale: Locale }`; query `SearchQuery` | application/json 200 `ListResponse<SearchResult>`; errors application/json 400,404,500 `ApiError` |
-| GET | `/api/v1/{locale}/taxonomies` | Public; published-used terms only | path `{ locale: Locale }`; query `FacetQuery` | application/json 200 `DataResponse<FacetView>`; every returned option has `publishedCount > 0`; errors application/json 400,404,500 `ApiError` |
+| GET | `/api/v1/{locale}/taxonomies` | Public; published-used contextual facets only; no write | path `{ locale: Locale }`; query `FacetQuery` | application/json 200 `DataResponse<FacetView>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/{locale}/curriculum` | Public; grades with published lessons only | path `{ locale: Locale }`; query `{ track?: CurriculumTrack }` | application/json 200 `DataResponse<CurriculumCatalogView>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/{locale}/curriculum/{grade}` | Public; published lessons/requirements only | path `{ locale: Locale; grade: Grade }`; query `{ track?: CurriculumTrack; topic?: string; page?: number; pageSize?: number }` | application/json 200 `DataResponse<CurriculumGradeView>`; errors application/json 400,404,500 `ApiError` |
 | GET | `/api/v1/{locale}/places` | Public; places attached to published content only | path `{ locale: Locale }`; query `PlaceQuery` | application/json 200 `ListResponse<PlaceView>`; errors application/json 400,404,500 `ApiError` |
@@ -107,6 +107,7 @@ type TranslationStatus = "NOT_STARTED" | "TRANSLATING" | "READY_FOR_REVIEW" | "A
 type Role = "ADMIN" | "EDITOR" | "REVIEWER";
 type DatePrecision = "DAY" | "MONTH" | "YEAR" | "APPROXIMATE";
 type TaxonomyKind = "period" | "tag" | "type";
+type FacetScope = "contents" | "timeline" | "search";
 type VerificationStatus = "DRAFT" | "NEEDS_REVIEW" | "VERIFIED" | "REJECTED";
 type SourceType = "PRIMARY_RECORD" | "ARCHIVE_CATALOG" | "MUSEUM_CATALOG" | "SCHOLARLY_BOOK" | "PEER_REVIEWED_ARTICLE" | "REFERENCE_WORK" | "CONTEMPORARY_PRESS" | "ORAL_HISTORY" | "DISCOVERY_ONLY";
 type SourceQualityTier = "TIER_1_PRIMARY" | "TIER_2_INSTITUTIONAL" | "TIER_3_SCHOLARLY" | "TIER_4_CONTEXTUAL" | "TIER_5_DISCOVERY";
@@ -233,8 +234,9 @@ interface ContentListQuery extends PageQuery { type?: ContentType; period?: stri
 interface TimelineQuery extends PageQuery { period?: string; tag?: string; fromYear?: number; toYear?: number }
 interface SearchQuery extends ContentListQuery { q: string }
 interface FacetQuery {
-  kind?: TaxonomyKind; q?: string; type?: ContentType; period?: string;
-  tag?: string; grade?: Grade; topic?: string;
+  kind?: TaxonomyKind; scope?: FacetScope; q?: string; type?: ContentType;
+  period?: string; tag?: string; grade?: Grade; topic?: string;
+  fromYear?: number; toYear?: number;
 }
 interface PlaceQuery extends PageQuery { period?: string; grade?: Grade; contentId?: string }
 
@@ -330,6 +332,16 @@ Contract rules:
   counts only lessons having at least one `VERIFIED` claim backed exclusively by `VERIFIED`
   sources; mapping or publishing alone never increments it. Missing requirements remain
   available through the protected coverage interface, not as dead public controls.
+- Facets are disjunctive: each array applies every active filter except its own dimension.
+  `scope=contents` (the default) uses the public contents candidate set; `scope=timeline`
+  additionally requires `EVENT` plus non-null date precision and applies `fromYear/toYear`;
+  `scope=search` uses the same normalized-token predicate as public search; `q` is ignored
+  outside search scope because the contents/timeline consumers do not accept it. `kind` is a
+  compatibility projection: unrequested arrays remain present but empty. Options are
+  deterministic (period chronology, tag slug, then declared content-type order), and public
+  HTML never keeps an unknown period/tag selected. Before C-024, grade/topic output arrays
+  remain empty, every `verifiedCount` remains 0 because no lesson mapping exists, and no
+  grade/topic control is rendered.
 - `track=ELECTIVE` is always labelled as a selected specialism; it is never combined with
   mandatory coverage. `asOf` is ISO-8601 and required for post-programme current updates.
 - A reconstruction is an educational interpretation, never documentary fact. Every phase

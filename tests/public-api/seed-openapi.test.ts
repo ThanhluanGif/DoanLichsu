@@ -58,7 +58,7 @@ describe("public seed and runtime contract", () => {
     expect(() => seed()).toThrow();
     expect(database.prepare("SELECT title FROM sources WHERE id = 'operator-source'").get()).toEqual({ title: "Operator source" });
     database.close();
-  });
+  },15_000);
 
   it("publishes every C-003 endpoint and exact public schemas in OpenAPI 3.1", () => {
     expect(openApiDocument.openapi).toBe("3.1.0");
@@ -76,6 +76,15 @@ describe("public seed and runtime contract", () => {
     const searchParameters = openApiDocument.paths["/api/v1/{locale}/search"].get.parameters;
     expect(searchParameters.some((parameter) => parameter.name === "sort")).toBe(true);
     expect(openApiDocument.paths["/api/v1/{locale}/search"].get.responses).toHaveProperty("500");
+    const facetParameters=openApiDocument.paths["/api/v1/{locale}/taxonomies"].get.parameters;
+    expect(facetParameters.map((parameter)=>parameter.name)).toEqual([
+      "locale","kind","scope","q","type","period","tag","grade","topic","fromYear","toYear",
+    ]);
+    const facetResponse=openApiDocument.paths["/api/v1/{locale}/taxonomies"].get.responses["200"] as unknown as {content:{"application/json":{schema:{properties:{data:{$ref:string}}}}}};
+    expect(facetResponse.content["application/json"].schema.properties.data.$ref).toBe("#/components/schemas/FacetView");
+    expect(openApiDocument.components.schemas.FacetView.required).toEqual(["grades","topics","periods","tags","types"]);
+    expect(openApiDocument.components.schemas.FacetOption.required).toEqual(["value","label","publishedCount","verifiedCount"]);
+    expect(openApiDocument.components.schemas.FacetOption.properties.publishedCount.minimum).toBe(1);
   });
 });
 

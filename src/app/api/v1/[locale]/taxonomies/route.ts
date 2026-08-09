@@ -6,6 +6,6 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request, context: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await context.params;
-  const kind = new URL(request.url).searchParams.get("kind");
-  return withPublicDatabase((database) => getTaxonomies(database, parseLocale(rawLocale), kind));
+  const search = new URL(request.url).searchParams;
+  return withPublicDatabase((database) => getTaxonomies(database, parseLocale(rawLocale), search));
 }

@@ -9,10 +9,13 @@ export interface HomeView {
   counts: Record<ContentType,number>;
 }
 
-export interface TaxonomyView {
-  periods: Array<{id:string;title:string;slug:string}>;
-  tags: Array<{id:string;name:string;slug:string}>;
-  types: ContentType[];
+export interface FacetOption { value:string;label:string;publishedCount:number;verifiedCount:number }
+export interface FacetView {
+  grades:FacetOption[];
+  topics:FacetOption[];
+  periods:FacetOption[];
+  tags:FacetOption[];
+  types:FacetOption[];
 }
 
 export interface DataResponse<T> { data:T }

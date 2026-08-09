@@ -1,0 +1,295 @@
+{
+  "generatedAt": "2026-08-09T21:55:24.469Z",
+  "url": "https://backed-bar-acc-hang.trycloudflare.com",
+  "api": {
+    "collection": {
+      "periods": [
+        {
+          "value": "khoi-nghia-va-buoi-dau-tu-chu",
+          "label": "Khởi nghĩa và buổi đầu tự chủ",
+          "publishedCount": 2,
+          "verifiedCount": 0
+        },
+        {
+          "value": "bao-ve-quoc-gia-thoi-quan-chu",
+          "label": "Bảo vệ quốc gia thời quân chủ",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        },
+        {
+          "value": "khang-chien-chong-thuc-dan",
+          "label": "Kháng chiến chống thực dân",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        },
+        {
+          "value": "chien-tranh-gianh-doc-lap-va-thong-nhat",
+          "label": "Các cuộc chiến tranh giành độc lập và thống nhất",
+          "publishedCount": 7,
+          "verifiedCount": 0
+        },
+        {
+          "value": "bao-ve-bien-gioi-sau-1975",
+          "label": "Bảo vệ biên giới sau năm 1975",
+          "publishedCount": 3,
+          "verifiedCount": 0
+        }
+      ],
+      "tags": [
+        {
+          "value": "early-history",
+          "label": "Lịch sử cổ-trung đại",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        },
+        {
+          "value": "independence",
+          "label": "Độc lập",
+          "publishedCount": 7,
+          "verifiedCount": 0
+        },
+        {
+          "value": "leadership",
+          "label": "Chỉ huy",
+          "publishedCount": 1,
+          "verifiedCount": 0
+        },
+        {
+          "value": "logistics",
+          "label": "Hậu cần",
+          "publishedCount": 3,
+          "verifiedCount": 0
+        },
+        {
+          "value": "resistance",
+          "label": "Kháng chiến",
+          "publishedCount": 14,
+          "verifiedCount": 0
+        }
+      ],
+      "types": [
+        {
+          "value": "PERIOD",
+          "label": "Thời kỳ",
+          "publishedCount": 6,
+          "verifiedCount": 0
+        },
+        {
+          "value": "EVENT",
+          "label": "Sự kiện",
+          "publishedCount": 26,
+          "verifiedCount": 0
+        },
+        {
+          "value": "PERSON",
+          "label": "Nhân vật",
+          "publishedCount": 10,
+          "verifiedCount": 0
+        },
+        {
+          "value": "ARTIFACT",
+          "label": "Hiện vật",
+          "publishedCount": 10,
+          "verifiedCount": 0
+        },
+        {
+          "value": "TOPIC",
+          "label": "Chủ đề",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        }
+      ],
+      "selectedContext": {
+        "period": "khoi-nghia-va-buoi-dau-tu-chu",
+        "tags": [
+          {
+            "value": "early-history",
+            "label": "Lịch sử cổ-trung đại",
+            "publishedCount": 2,
+            "verifiedCount": 0
+          },
+          {
+            "value": "independence",
+            "label": "Độc lập",
+            "publishedCount": 2,
+            "verifiedCount": 0
+          }
+        ],
+        "selectedTag": {
+          "value": "early-history",
+          "label": "Lịch sử cổ-trung đại",
+          "publishedCount": 2,
+          "verifiedCount": 0
+        },
+        "consumerTotal": 2
+      }
+    },
+    "timeline": {
+      "periods": [
+        {
+          "value": "khoi-nghia-va-buoi-dau-tu-chu",
+          "label": "Khởi nghĩa và buổi đầu tự chủ",
+          "publishedCount": 2,
+          "verifiedCount": 0
+        },
+        {
+          "value": "bao-ve-quoc-gia-thoi-quan-chu",
+          "label": "Bảo vệ quốc gia thời quân chủ",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        },
+        {
+          "value": "khang-chien-chong-thuc-dan",
+          "label": "Kháng chiến chống thực dân",
+          "publishedCount": 4,
+          "verifiedCount": 0
+        },
+        {
+          "value": "chien-tranh-gianh-doc-lap-va-thong-nhat",
+          "label": "Các cuộc chiến tranh giành độc lập và thống nhất",
+          "publishedCount": 7,
+          "verifiedCount": 0
+        },
+        {
+          "value": "bao-ve-bien-gioi-sau-1975",
+          "label": "Bảo vệ biên giới sau năm 1975",
+          "publishedCount": 3,
+          "verifiedCount": 0
+        }
+      ],
+      "selected": {
+        "option": {
+          "value": "khoi-nghia-va-buoi-dau-tu-chu",
+          "label": "Khởi nghĩa và buổi đầu tự chủ",
+          "publishedCount": 2,
+          "verifiedCount": 0
+        },
+        "consumerTotal": 2
+      }
+    },
+    "search": {
+      "types": [
+        {
+          "value": "EVENT",
+          "label": "Sự kiện",
+          "publishedCount": 1,
+          "verifiedCount": 0
+        },
+        {
+          "value": "PERSON",
+          "label": "Nhân vật",
+          "publishedCount": 1,
+          "verifiedCount": 0
+        },
+        {
+          "value": "ARTIFACT",
+          "label": "Hiện vật",
+          "publishedCount": 2,
+          "verifiedCount": 0
+        }
+      ],
+      "selected": {
+        "option": {
+          "value": "EVENT",
+          "label": "Sự kiện",
+          "publishedCount": 1,
+          "verifiedCount": 0
+        },
+        "consumerTotal": 1
+      }
+    },
+    "gradeTopicStub": {
+      "grades": [],
+      "topics": []
+    }
+  },
+  "desktopKeyboardOnly": {
+    "collection": {
+      "periodUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/su-kien?sort=chronology&period=khoi-nghia-va-buoi-dau-tu-chu&tag=",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/su-kien?sort=chronology&period=khoi-nghia-va-buoi-dau-tu-chu&tag=early-history",
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/vi/su-kien?sort=chronology&period=khoi-nghia-va-buoi-dau-tu-chu&tag=early-history",
+      "backForward": true,
+      "restored": true,
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    "timeline": {
+      "baseUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/timeline",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/timeline?period=khoi-nghia-va-buoi-dau-tu-chu&tag=",
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/vi/timeline?period=khoi-nghia-va-buoi-dau-tu-chu&tag=",
+      "backForward": true,
+      "restored": true,
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    "search": {
+      "queryOnlyUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/tim-kiem?q=dien+bien+phu",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/vi/tim-kiem?q=dien+bien+phu&type=EVENT",
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/vi/tim-kiem?q=dien+bien+phu&type=EVENT",
+      "backForward": true,
+      "restored": true,
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    "journey": "Tab, native type-to-select, Enter only"
+  },
+  "mobileKeyboardOnly": {
+    "collection": {
+      "baseUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/events",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/events?sort=chronology&period=uprisings-and-first-independence&tag=",
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/en/events?sort=chronology&period=uprisings-and-first-independence&tag=",
+      "backForward": true,
+      "restored": true,
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    "timeline": {
+      "baseUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/timeline",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/timeline?period=uprisings-and-first-independence&tag=",
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/en/timeline?period=uprisings-and-first-independence&tag=",
+      "backForward": true,
+      "restored": true,
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    "search": {
+      "queryOnlyUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/search?q=dien+bien+phu",
+      "filteredUrl": "https://backed-bar-acc-hang.trycloudflare.com/en/search?q=dien+bien+phu&type=EVENT",
+      "type": "EVENT",
+      "backForward": true,
+      "clipboard": "https://backed-bar-acc-hang.trycloudflare.com/en/search?q=dien+bien+phu&type=EVENT",
+      "restored": true,
+      "cardLayout": {
+        "artRight": 114,
+        "copyLeft": 114,
+        "copyRight": 371,
+        "cardRight": 372
+      },
+      "axeCriticalOrSerious": 0,
+      "viewport": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    "journey": "Tab, native type-to-select, Enter only"
+  },
+  "screenshots": [
+    "artifacts/contextual-facets/contextual-facets-desktop.png",
+    "artifacts/contextual-facets/contextual-facets-mobile.png"
+  ]
+}

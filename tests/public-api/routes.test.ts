@@ -45,10 +45,91 @@ describe("public read API", () => {
     expect(periodsBody.data).toHaveLength(6);
     expect(Object.keys(periodsBody.data[0])).toEqual(["id", "title", "slug", "summary", "startYear", "endYear", "contentCount"]);
 
-    const taxonomyResponse = await taxonomies(new Request("http://local/api/v1/vi/taxonomies"), localeContext("vi"));
+    const taxonomyResponse = await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=contents"), localeContext("vi"));
     const taxonomyBody = await taxonomyResponse.json();
-    expect(Object.keys(taxonomyBody.data)).toEqual(["periods", "tags", "types"]);
-    expect(taxonomyBody.data.types).toEqual(["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"]);
+    expect(Object.keys(taxonomyBody.data)).toEqual(["grades", "topics", "periods", "tags", "types"]);
+    expect(taxonomyBody.data.grades).toEqual([]);
+    expect(taxonomyBody.data.topics).toEqual([]);
+    expect(taxonomyBody.data.types.map((option: { value: string }) => option.value)).toEqual(["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"]);
+    for (const group of [taxonomyBody.data.periods,taxonomyBody.data.tags,taxonomyBody.data.types]) {
+      expect(group.length).toBeGreaterThan(0);
+      expect(group.every((option: { publishedCount: number; verifiedCount: number }) => option.publishedCount > 0 && option.verifiedCount === 0)).toBe(true);
+    }
+  });
+
+  it("returns disjunctive contextual facet counts matching contents, timeline and search", async () => {
+    const eventFacetResponse = await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=contents&type=EVENT"), localeContext("vi"));
+    const eventFacets = (await eventFacetResponse.json()).data as {
+      grades: unknown[];topics: unknown[];
+      periods: Array<{value:string;publishedCount:number;verifiedCount:number}>;
+      tags: Array<{value:string;publishedCount:number;verifiedCount:number}>;
+      types: Array<{value:string;publishedCount:number;verifiedCount:number}>;
+    };
+    expect(eventFacets.grades).toEqual([]);
+    expect(eventFacets.topics).toEqual([]);
+    for (const option of eventFacets.periods) {
+      const response=await contents(new Request(`http://local/api/v1/vi/contents?type=EVENT&period=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+      expect(option.verifiedCount).toBe(0);
+    }
+    for (const option of eventFacets.tags) {
+      const response=await contents(new Request(`http://local/api/v1/vi/contents?type=EVENT&tag=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+
+    const selectedPeriod=eventFacets.periods[0];
+    const selectedResponse=await taxonomies(new Request(`http://local/api/v1/vi/taxonomies?scope=contents&type=EVENT&period=${encodeURIComponent(selectedPeriod.value)}`),localeContext("vi"));
+    const selectedFacets=(await selectedResponse.json()).data as typeof eventFacets;
+    expect(selectedFacets.periods.find((option)=>option.value===selectedPeriod.value)?.publishedCount).toBe(selectedPeriod.publishedCount);
+
+    for(const [name,value] of [["period",` ${selectedPeriod.value} `],["period","   "],["tag",` ${eventFacets.tags[0].value} `],["tag","   "]] as const){
+      const encoded=encodeURIComponent(value);
+      const facetResponse=await taxonomies(new Request(`http://local/api/v1/vi/taxonomies?scope=contents&type=EVENT&${name}=${encoded}`),localeContext("vi"));
+      const facets=(await facetResponse.json()).data as typeof eventFacets;
+      const eventCount=facets.types.find((option)=>option.value==="EVENT")?.publishedCount??0;
+      const consumerResponse=await contents(new Request(`http://local/api/v1/vi/contents?type=EVENT&${name}=${encoded}&pageSize=50`),localeContext("vi"));
+      expect((await consumerResponse.json()).meta.total).toBe(eventCount);
+    }
+
+    const timelineFacetResponse=await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=timeline"),localeContext("vi"));
+    const timelineFacets=(await timelineFacetResponse.json()).data as typeof eventFacets;
+    for (const option of timelineFacets.periods) {
+      const response=await timeline(new Request(`http://local/api/v1/vi/timeline?period=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+    for (const option of timelineFacets.tags) {
+      const response=await timeline(new Request(`http://local/api/v1/vi/timeline?tag=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+
+    const contentsIgnoringQ=await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=contents&q=dien%20bien%20phu"),localeContext("vi"));
+    const contentsIgnoringQFacets=(await contentsIgnoringQ.json()).data as typeof eventFacets;
+    const allContents=await contents(new Request("http://local/api/v1/vi/contents?pageSize=50"),localeContext("vi"));
+    expect(contentsIgnoringQFacets.types.reduce((total,option)=>total+option.publishedCount,0)).toBe((await allContents.json()).meta.total);
+    const timelineIgnoringQ=await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=timeline&q=dien%20bien%20phu"),localeContext("vi"));
+    const timelineIgnoringQFacets=(await timelineIgnoringQ.json()).data as typeof eventFacets;
+    const allTimeline=await timeline(new Request("http://local/api/v1/vi/timeline?pageSize=50"),localeContext("vi"));
+    expect(timelineIgnoringQFacets.types.reduce((total,option)=>total+option.publishedCount,0)).toBe((await allTimeline.json()).meta.total);
+
+    const searchFacetResponse=await taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=search&q=dien%20bien%20phu"),localeContext("vi"));
+    const searchFacets=(await searchFacetResponse.json()).data as typeof eventFacets;
+    expect(searchFacets.types.length).toBeGreaterThan(0);
+    expect([...searchFacets.periods,...searchFacets.tags,...searchFacets.types].every((option)=>option.verifiedCount===0)).toBe(true);
+    for (const option of searchFacets.types) {
+      const response=await search(new Request(`http://local/api/v1/vi/search?q=dien%20bien%20phu&type=${option.value}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+    for (const option of searchFacets.periods) {
+      const response=await search(new Request(`http://local/api/v1/vi/search?q=dien%20bien%20phu&period=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+    for (const option of searchFacets.tags) {
+      const response=await search(new Request(`http://local/api/v1/vi/search?q=dien%20bien%20phu&tag=${encodeURIComponent(option.value)}&pageSize=50`),localeContext("vi"));
+      expect((await response.json()).meta.total).toBe(option.publishedCount);
+    }
+
+    const periodOnly=await taxonomies(new Request("http://local/api/v1/vi/taxonomies?kind=period&type=EVENT"),localeContext("vi"));
+    expect(await periodOnly.json()).toMatchObject({data:{grades:[],topics:[],tags:[],types:[]}});
   });
 
   it("returns exact list/detail shapes, sources and only published translations", async () => {
@@ -159,6 +240,14 @@ describe("public read API", () => {
     ["unsafe page integer", () => contents(new Request("http://local/api/v1/vi/contents?page=999999999999999999999999999"), localeContext("vi")), 400, "INVALID_QUERY"],
     ["missing search query", () => search(new Request("http://local/api/v1/vi/search"), localeContext("vi")), 400, "INVALID_QUERY"],
     ["oversized search query", () => search(new Request(`http://local/api/v1/vi/search?q=${"a".repeat(201)}`), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["unknown facet scope", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=map"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["missing scoped facet query", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?scope=search"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["non-numeric facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=banana"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["out-of-range facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=5"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["exponential facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=6e0"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["zero-padded facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=06"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["hex facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=0x6"), localeContext("vi")), 400, "INVALID_QUERY"],
+    ["space-padded facet grade", () => taxonomies(new Request("http://local/api/v1/vi/taxonomies?grade=%206%20"), localeContext("vi")), 400, "INVALID_QUERY"],
   ])("rejects %s with the shared ApiError shape", async (_label, call, status, code) => {
     const response = await call();
     const body = await response.json();

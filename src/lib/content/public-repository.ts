@@ -1,4 +1,5 @@
 import type { SqliteDatabase } from "@/lib/db/connection";
+import { contentTypeLabels } from "@/lib/i18n/config";
 import { normalizeSearchText } from "@/lib/search/normalize";
 import { contentTypes, type ClaimView, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type SourceContentRef, type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
@@ -92,7 +93,7 @@ function filterRows(database: SqliteDatabase, locale: Locale, search: URLSearchP
     const type = parseContentType(typeValue);
     rows = rows.filter((row) => row.type === type);
   }
-  const period = search.get("period");
+  const period = search.get("period")?.trim();
   if (period) {
     const periodId = database.prepare(`
       SELECT n.id FROM content_nodes n JOIN content_translations t ON t.node_id = n.id
@@ -101,7 +102,7 @@ function filterRows(database: SqliteDatabase, locale: Locale, search: URLSearchP
     `).get(locale, period) as { id: string } | undefined;
     rows = rows.filter((row) => row.period_id === periodId?.id);
   }
-  const tag = search.get("tag");
+  const tag = search.get("tag")?.trim();
   if (tag) {
     const ids = new Set((database.prepare(`
       SELECT ct.content_id AS id FROM content_tags ct JOIN tags tag ON tag.id = ct.tag_id
@@ -155,15 +156,24 @@ export function getTimeline(database: SqliteDatabase, locale: Locale, search: UR
   return { data, meta: pageMeta(page, pageSize, total) };
 }
 
+function periodViews(publicRows:BaseRow[],includeEmpty:boolean):PeriodView[]{
+  const counts = new Map<string,number>();
+  for (const row of publicRows) {
+    if(row.period_id)counts.set(row.period_id,(counts.get(row.period_id)??0)+1);
+  }
+  return publicRows
+    .filter((row)=>row.type==="PERIOD")
+    .sort((left,right)=>(left.start_date??"").localeCompare(right.start_date??"")||left.id.localeCompare(right.id,"en"))
+    .map((row)=>({
+      id:row.id,title:row.title,slug:row.slug,summary:row.summary,
+      startYear:Number(row.start_date!.slice(0,4)),endYear:Number(row.end_date!.slice(0,4)),
+      contentCount:counts.get(row.id)??0,
+    }))
+    .filter((period)=>includeEmpty||period.contentCount>0);
+}
+
 export function getPeriods(database: SqliteDatabase, locale: Locale, includeEmpty: boolean) {
-  const rows = (database.prepare(`${publicSelect} AND t.locale = ? AND n.type = 'PERIOD' ORDER BY n.start_date, n.id`).all(locale) as BaseRow[]);
-  const data: PeriodView[] = rows.map((row) => {
-    const count = database.prepare(`
-      SELECT COUNT(*) AS count FROM content_nodes n JOIN content_translations t ON t.node_id = n.id
-      WHERE n.period_id = ? AND n.status = 'PUBLISHED' AND t.locale = ? AND t.translation_status = 'PUBLISHED'
-    `).get(row.id, locale) as { count: number };
-    return { id: row.id, title: row.title, slug: row.slug, summary: row.summary, startYear: Number(row.start_date!.slice(0, 4)), endYear: Number(row.end_date!.slice(0, 4)), contentCount: count.count };
-  }).filter((period) => includeEmpty || period.contentCount > 0);
+  const data=periodViews(baseRows(database,locale),includeEmpty);
   return { data, meta: pageMeta(1, data.length, data.length) };
 }
 
@@ -173,7 +183,7 @@ export function getHome(database: SqliteDatabase, locale: Locale) {
   const featuredIds = new Set((database.prepare("SELECT id FROM content_nodes WHERE status = 'PUBLISHED' AND featured = 1 ORDER BY id").all() as Array<{ id: string }>).map(({ id }) => id));
   const featuredRows = rows.filter((row) => featuredIds.has(row.id)).sort((a, b) => a.id.localeCompare(b.id)).slice(0, 6);
   const latestRows = sortRows([...rows], "updated").slice(0, 6);
-  return { data: { featured: featuredRows.map((row) => listItem(database, row, locale)), periods: getPeriods(database, locale, true).data, latest: latestRows.map((row) => listItem(database, row, locale)), counts } };
+  return { data: { featured: featuredRows.map((row) => listItem(database, row, locale)), periods: periodViews(rows,true), latest: latestRows.map((row) => listItem(database, row, locale)), counts } };
 }
 
 export function getSearch(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
@@ -291,20 +301,179 @@ export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: s
   return { data };
 }
 
-export function getTaxonomies(database: SqliteDatabase, locale: Locale, kind: string | null) {
-  if (kind !== null && !["period", "tag", "type"].includes(kind)) {
+type FacetDimension = "period" | "tag" | "type";
+type FacetScope = "contents" | "timeline" | "search";
+type FacetContext = {
+  kind: FacetDimension | null;
+  scope: FacetScope;
+  tokens: string[];
+  type?: ContentType;
+  periodRequested: boolean;
+  periodId?: string;
+  tag?: string;
+  fromYear?: number;
+  toYear?: number;
+  curriculumFilterRequested: boolean;
+};
+type FacetOption = { value: string; label: string; publishedCount: number; verifiedCount: number };
+
+function facetContext(database: SqliteDatabase, locale: Locale, search: URLSearchParams): FacetContext {
+  const kindValue = search.get("kind");
+  if (kindValue !== null && !["period", "tag", "type"].includes(kindValue)) {
     throw new PublicApiError(400, "INVALID_QUERY", "Loại taxonomy không hợp lệ.", { fieldErrors: { kind: ["Chỉ nhận period, tag hoặc type."] } });
   }
-  const periods = kind === null || kind === "period" ? getPeriods(database, locale, false).data.map(({ id, title, slug }) => ({ id, title, slug })) : [];
-  const tagRows = kind === null || kind === "tag" ? database.prepare(`
-    SELECT DISTINCT tag.id, CASE WHEN ? = 'vi' THEN tag.name_vi ELSE tag.name_en END AS name, tag.slug
-    FROM tags tag JOIN content_tags ct ON ct.tag_id = tag.id JOIN content_nodes n ON n.id = ct.content_id
-    JOIN content_translations t ON t.node_id = n.id
-    WHERE n.status = 'PUBLISHED' AND t.locale = ? AND t.translation_status = 'PUBLISHED'
-    ORDER BY tag.slug, tag.id
-  `).all(locale, locale) as Array<{ id: string; name: string; slug: string }> : [];
-  const usedTypes = kind === null || kind === "type" ? contentTypes.filter((type) => database.prepare(`${publicSelect} AND t.locale = ? AND n.type = ? LIMIT 1`).get(locale, type)) : [];
-  return { data: { periods, tags: tagRows, types: usedTypes } };
+  const scopeValue = search.get("scope") ?? "contents";
+  if (!["contents", "timeline", "search"].includes(scopeValue)) {
+    throw new PublicApiError(400, "INVALID_QUERY", "Phạm vi facet không hợp lệ.", { fieldErrors: { scope: ["Chỉ nhận contents, timeline hoặc search."] } });
+  }
+  const query = search.get("q")?.trim() ?? "";
+  let tokens:string[]=[];
+  if(scopeValue==="search"){
+    if (query.length > 200) {
+      throw new PublicApiError(400, "INVALID_QUERY", "Từ khóa tìm kiếm quá dài.", { fieldErrors: { q: ["Tối đa 200 ký tự."] } });
+    }
+    const normalized=query?normalizeSearchText(query):"";
+    if (!normalized) {
+      throw new PublicApiError(400, "INVALID_QUERY", query?"Từ khóa tìm kiếm phải chứa chữ hoặc số.":"Từ khóa tìm kiếm là bắt buộc trong phạm vi search.", { fieldErrors: { q: [query?"Không có từ khóa có thể tìm kiếm.":"Không được để trống."] } });
+    }
+    tokens=normalized.split(" ").filter(Boolean);
+  }
+  const fromYear = optionalYear(search, "fromYear");
+  const toYear = optionalYear(search, "toYear");
+  if (fromYear !== undefined && toYear !== undefined && fromYear > toYear) {
+    throw new PublicApiError(400, "INVALID_QUERY", "Khoảng năm không hợp lệ.", { fieldErrors: { fromYear: ["Không được lớn hơn toYear."] } });
+  }
+  const typeValue = search.get("type");
+  const type = typeValue === null ? undefined : parseContentType(typeValue);
+  const period = search.get("period")?.trim();
+  const periodRow = period ? database.prepare(`
+    SELECT n.id FROM content_nodes n JOIN content_translations t ON t.node_id = n.id
+    WHERE n.type = 'PERIOD' AND n.status = 'PUBLISHED' AND t.locale = ?
+      AND t.translation_status = 'PUBLISHED' AND t.slug = ?
+  `).get(locale, period) as { id: string } | undefined : undefined;
+  const tag = search.get("tag")?.trim() || undefined;
+  const gradeValue=search.get("grade");
+  if(gradeValue!==null&&!/^(?:6|7|8|9|10|11|12)$/.test(gradeValue)){
+    throw new PublicApiError(400,"INVALID_QUERY","Lớp học không hợp lệ.",{fieldErrors:{grade:["Chỉ nhận lớp 6 đến lớp 12."]}});
+  }
+  return {
+    kind: kindValue as FacetDimension | null,
+    scope: scopeValue as FacetScope,
+    tokens,
+    type,
+    periodRequested: Boolean(period),
+    periodId: periodRow?.id,
+    tag,
+    fromYear,
+    toYear,
+    curriculumFilterRequested: Boolean(gradeValue!==null || search.get("topic")?.trim()),
+  };
+}
+
+type FacetTag = { slug: string; label: string };
+
+function facetTagsByContent(database: SqliteDatabase, locale: Locale): Map<string, FacetTag[]> {
+  const tagsByContent = new Map<string, FacetTag[]>();
+  const tags = database.prepare(`
+    SELECT content_tag.content_id AS contentId, tag.slug,
+      CASE WHEN ? = 'vi' THEN tag.name_vi ELSE tag.name_en END AS label
+    FROM content_tags content_tag
+    JOIN tags tag ON tag.id = content_tag.tag_id
+    JOIN content_nodes node ON node.id = content_tag.content_id
+    JOIN content_translations translation ON translation.node_id = node.id
+    WHERE node.status = 'PUBLISHED' AND translation.locale = ?
+      AND translation.translation_status = 'PUBLISHED'
+    ORDER BY content_tag.content_id, tag.slug, tag.id
+  `).all(locale, locale) as Array<{ contentId: string } & FacetTag>;
+  for (const { contentId, ...tag } of tags) {
+    const contentTags = tagsByContent.get(contentId) ?? [];
+    contentTags.push(tag);
+    tagsByContent.set(contentId, contentTags);
+  }
+  return tagsByContent;
+}
+
+function facetRows(rows: BaseRow[], context: FacetContext, omit: FacetDimension, tagContentIds: Set<string>): BaseRow[] {
+  if (context.curriculumFilterRequested) return [];
+  if (context.scope === "timeline") rows = rows.filter((row) => row.type === "EVENT" && row.date_precision !== null);
+  if (context.tokens.length) rows = rows.filter((row) => context.tokens.every((token) => row.search_text.includes(token)));
+  if (context.scope === "timeline") {
+    rows = rows.filter((row) => {
+      const start = Number((row.start_date ?? "9999").slice(0, 4));
+      const end = Number((row.end_date ?? row.start_date ?? "9999").slice(0, 4));
+      return (context.fromYear === undefined || end >= context.fromYear) && (context.toYear === undefined || start <= context.toYear);
+    });
+  }
+  if (omit !== "type" && context.type) rows = rows.filter((row) => row.type === context.type);
+  if (omit !== "period" && context.periodRequested) {
+    rows = context.periodId ? rows.filter((row) => row.period_id === context.periodId) : [];
+  }
+  if (omit !== "tag" && context.tag) {
+    rows = rows.filter((row) => tagContentIds.has(row.id));
+  }
+  return rows;
+}
+
+function facetPeriods(periodLabels: BaseRow[], rows: BaseRow[]): FacetOption[] {
+  const counts = new Map<string, { publishedCount: number; verifiedCount: number }>();
+  for (const row of rows) {
+    if (!row.period_id) continue;
+    const current = counts.get(row.period_id) ?? { publishedCount: 0, verifiedCount: 0 };
+    current.publishedCount += 1;
+    counts.set(row.period_id, current);
+  }
+  return periodLabels.flatMap((period) => {
+    const count = counts.get(period.id);
+    return count ? [{ value: period.slug, label: period.title, ...count }] : [];
+  });
+}
+
+function facetTags(tagsByContent: Map<string, FacetTag[]>, rows: BaseRow[]): FacetOption[] {
+  const counts = new Map<string, FacetOption>();
+  for (const row of rows) {
+    for (const tag of tagsByContent.get(row.id) ?? []) {
+      const current = counts.get(tag.slug) ?? { value: tag.slug, label: tag.label, publishedCount: 0, verifiedCount: 0 };
+      current.publishedCount += 1;
+      counts.set(tag.slug, current);
+    }
+  }
+  return [...counts.values()].sort((left, right) => left.value.localeCompare(right.value, "en"));
+}
+
+function facetTypes(rows: BaseRow[], locale: Locale): FacetOption[] {
+  return contentTypes.flatMap((type) => {
+    const matching = rows.filter((row) => row.type === type);
+    return matching.length ? [{
+      value: type,
+      label: contentTypeLabels[locale][type],
+      publishedCount: matching.length,
+      verifiedCount: 0,
+    }] : [];
+  });
+}
+
+export function getTaxonomies(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
+  const context = facetContext(database, locale, search);
+  const include = (dimension: FacetDimension) => context.kind === null || context.kind === dimension;
+  const rows = context.curriculumFilterRequested ? [] : baseRows(database, locale);
+  const tagsByContent = !context.curriculumFilterRequested && (include("tag") || context.tag)
+    ? facetTagsByContent(database, locale)
+    : new Map<string, FacetTag[]>();
+  const tagContentIds = context.tag
+    ? new Set([...tagsByContent].flatMap(([contentId, tags]) => tags.some((tag) => tag.slug === context.tag) ? [contentId] : []))
+    : new Set<string>();
+  const periodLabels = rows.filter((row) => row.type === "PERIOD").sort((left, right) => {
+    if (left.start_date === null) return right.start_date === null ? left.id.localeCompare(right.id, "en") : -1;
+    if (right.start_date === null) return 1;
+    return left.start_date.localeCompare(right.start_date) || left.id.localeCompare(right.id, "en");
+  });
+  return { data: {
+    grades: [],
+    topics: [],
+    periods: include("period") ? facetPeriods(periodLabels, facetRows(rows, context, "period", tagContentIds)) : [],
+    tags: include("tag") ? facetTags(tagsByContent, facetRows(rows, context, "tag", tagContentIds)) : [],
+    types: include("type") ? facetTypes(facetRows(rows, context, "type", tagContentIds), locale) : [],
+  } };
 }
 
 export function getSources(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
