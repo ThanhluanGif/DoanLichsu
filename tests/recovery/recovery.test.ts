@@ -20,7 +20,7 @@ describe("backup and restore rehearsal",()=>{
     expect(backup.counts).toMatchObject({contentNodes:50,translations:100,sources:50,claims:0,claimEvidence:0,users:3,curriculumRequirements:55,curriculumMappings:23});expect(backup.sha256).toMatch(/^[a-f0-9]{64}$/);
     const restoredPath=join(directory,"restored.sqlite");
     const restore=JSON.parse(run(process.execPath,["scripts/restore.mjs",backup.snapshot],{RESTORE_DATABASE_PATH:restoredPath}));
-    expect(restore).toMatchObject({database:restoredPath,sha256Verified:true,schemaVersion:6,counts:backup.counts});
+    expect(restore).toMatchObject({database:restoredPath,sha256Verified:true,schemaVersion:7,counts:backup.counts});
     const restored=new Database(restoredPath,{readonly:true});
     try{expect(restored.prepare("SELECT count(*) AS count FROM content_nodes WHERE status='PUBLISHED'").get()).toEqual({count:50});}finally{restored.close();}
   },15_000);

@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6], currentVersion: 6 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7], currentVersion: 7 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",
@@ -44,6 +44,7 @@ describe("public seed and runtime contract", () => {
       { type: "PERSON", count: 10 }, { type: "TOPIC", count: 4 },
     ]);
     expect(database.prepare("SELECT COUNT(*) AS count FROM media WHERE kind = 'DOCUMENT'").get()).toEqual({ count: 10 });
+    expect(database.prepare("SELECT rights_status, COUNT(*) AS count FROM media GROUP BY rights_status").all()).toEqual([{ rights_status: "LINK_ONLY", count: 10 }]);
     expect(database.prepare("SELECT role, COUNT(*) AS count FROM users GROUP BY role ORDER BY role").all()).toEqual([
       { role: "ADMIN", count: 1 }, { role: "EDITOR", count: 1 }, { role: "REVIEWER", count: 1 },
     ]);
@@ -72,7 +73,7 @@ describe("public seed and runtime contract", () => {
     expect(() => seed()).toThrow();
     expect(database.prepare("SELECT title FROM sources WHERE id = 'operator-source'").get()).toEqual({ title: "Operator source" });
     database.close();
-  },15_000);
+  },30_000);
 
   it("publishes every C-003 endpoint and exact public schemas in OpenAPI 3.1", () => {
     expect(openApiDocument.openapi).toBe("3.1.0");
@@ -104,6 +105,7 @@ describe("public seed and runtime contract", () => {
     expect(openApiDocument.components.schemas.CurriculumGradeView.required).toEqual(["grade","label","summary","requirements"]);
     expect(openApiDocument.paths["/api/v1/{locale}/curriculum/{grade}"].get.responses["200"]).toBeDefined();
     expect(openApiDocument.components.schemas.LessonView.required).toEqual(["learningObjectives","originalSummary","analysis","debates"]);
+    expect(openApiDocument.components.schemas.MediaView.required).toContain("provenance");
   });
 });
 

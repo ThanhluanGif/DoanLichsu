@@ -22,7 +22,7 @@ describe("public sitemap",()=>{
       "https://history.example/vi/chu-de","https://history.example/en/topics",
       "https://history.example/vi/su-kien/chien-dich-dien-bien-phu","https://history.example/en/events/battle-of-dien-bien-phu",
     ]));
-    expect(urls).toHaveLength(18);
+    expect(urls).toHaveLength(20);
     expect(urls.join("\n")).not.toMatch(/\/api\/|\/admin|\.json/);
   });
 

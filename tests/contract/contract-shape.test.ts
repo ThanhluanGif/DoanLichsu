@@ -7,31 +7,7 @@ type MutableObject = Record<string,unknown>;
 
 const contract = readFileSync(new URL("../../flow/05-contract.md",import.meta.url),"utf8");
 const objectAt = (root:unknown,path:string[]) => path.reduce<unknown>((value,key) => (value as MutableObject)[key],root) as MutableObject;
-const cardStatus = (card:string) => /^status:\s*(\w+)/m.exec(readFileSync(new URL(`../../cards/${card}.md`,import.meta.url),"utf8"))?.[1] ?? "missing";
-const futureContractStages = [
-  {card:"C-027",edits:[
-    ['  provenance: AssetProvenanceView | null;\n',''],
-    [
-      'interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string; provenance?: AssetProvenanceInput }',
-      'interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string }',
-    ],
-  ]},
-] as const;
-const replaceExactly=(source:string,before:string,after:string,owner:string)=>{
-  const index=source.indexOf(before);
-  if(index<0||source.indexOf(before,index+before.length)>=0)throw new Error(`${owner} staged contract edit is missing or ambiguous`);
-  return `${source.slice(0,index)}${after}${source.slice(index+before.length)}`;
-};
-const stagedContract=(source:string,statuses:Record<string,string>={})=>{
-  let staged=source;
-  for(const {card,edits} of futureContractStages){
-    if((statuses[card]??cardStatus(card))!=="todo")continue;
-    for(const [before,after] of edits)staged=replaceExactly(staged,before,after,card);
-  }
-  return staged;
-};
-const actionableDrift = (contractSource:string,document:unknown,statuses:Record<string,string>={}) =>
-  contractShapeDrift(stagedContract(contractSource,statuses),document);
+const actionableDrift = (contractSource:string,document:unknown) => contractShapeDrift(contractSource,document);
 const mutate = (change:(document:MutableObject)=>void) => {
   const document = structuredClone(openApiDocument) as unknown as MutableObject;
   change(document);
@@ -41,12 +17,6 @@ const mutate = (change:(document:MutableObject)=>void) => {
 describe("planning to OpenAPI deep-shape audit",() => {
   it("accepts the unmodified runtime document",() => {
     expect(actionableDrift(contract,openApiDocument)).toEqual([]);
-  });
-
-  it.each(["done","missing","in_progress","malformed"])("fails closed when a future-card owner is %s",(status) => {
-    expect(actionableDrift(contract,openApiDocument,{"C-027":status})).toEqual(expect.arrayContaining([
-      expect.stringMatching(/MediaView|provenance/),
-    ]));
   });
 
   it("audits implemented C-024 fields without an allowance",() => {

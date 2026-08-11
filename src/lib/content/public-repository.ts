@@ -44,26 +44,36 @@ function tags(database: SqliteDatabase, id: string, locale: Locale): string[] {
 }
 
 function media(database: SqliteDatabase, id: string, locale: Locale): MediaView[] {
-  return (database.prepare(`
+  const rows=database.prepare(`
     SELECT m.id, m.url, m.kind, m.credit, m.license,
       CASE WHEN ? = 'vi' THEN m.alt_vi ELSE m.alt_en END AS alt,
       CASE WHEN ? = 'vi' THEN m.caption_vi ELSE m.caption_en END AS caption,
-      m.width, m.height
+      m.width, m.height, m.holding_institution AS holdingInstitution,
+      m.inventory_id AS inventoryId, m.origin, m.rights_status AS rightsStatus,
+      m.permission_document AS permissionDocument, m.credit_line AS creditLine,
+      m.checksum
     FROM content_media cm JOIN media m ON m.id = cm.media_id
     WHERE cm.content_id = ? ORDER BY cm.sort_order, m.id
-  `).all(locale, locale, id) as MediaView[]);
+  `).all(locale, locale, id) as Array<Omit<MediaView,"provenance"> & { holdingInstitution:string; inventoryId:string|null; origin:string; rightsStatus:MediaView["provenance"]["rightsStatus"]; permissionDocument:string|null; creditLine:string; checksum:string|null }>;
+  return rows.map(({holdingInstitution,inventoryId,origin,rightsStatus,permissionDocument,creditLine,checksum,...item})=>({...item,provenance:{holdingInstitution,inventoryId,origin,rightsStatus,permissionDocument,creditLine,checksum}}));
 }
 
 function thumbnail(database: SqliteDatabase, id: string, locale: Locale): MediaView | null {
-  return (database.prepare(`
+  const row=database.prepare(`
     SELECT m.id, m.url, m.kind, m.credit, m.license,
       CASE WHEN ? = 'vi' THEN m.alt_vi ELSE m.alt_en END AS alt,
       CASE WHEN ? = 'vi' THEN m.caption_vi ELSE m.caption_en END AS caption,
-      m.width, m.height
+      m.width, m.height, m.holding_institution AS holdingInstitution,
+      m.inventory_id AS inventoryId, m.origin, m.rights_status AS rightsStatus,
+      m.permission_document AS permissionDocument, m.credit_line AS creditLine,
+      m.checksum
     FROM content_media cm JOIN media m ON m.id = cm.media_id
     WHERE cm.content_id = ? AND cm.is_thumbnail = 1
     ORDER BY cm.sort_order, m.id LIMIT 1
-  `).get(locale, locale, id) as MediaView | undefined) ?? null;
+  `).get(locale, locale, id) as (Omit<MediaView,"provenance"> & { holdingInstitution:string; inventoryId:string|null; origin:string; rightsStatus:MediaView["provenance"]["rightsStatus"]; permissionDocument:string|null; creditLine:string; checksum:string|null }) | undefined;
+  if(!row)return null;
+  const {holdingInstitution,inventoryId,origin,rightsStatus,permissionDocument,creditLine,checksum,...item}=row;
+  return {...item,provenance:{holdingInstitution,inventoryId,origin,rightsStatus,permissionDocument,creditLine,checksum}};
 }
 
 function listItem(database: SqliteDatabase, row: BaseRow, locale: Locale): ContentListItem {

@@ -17,6 +17,8 @@ export const sourceQualityTiers = [
   "TIER_4_CONTEXTUAL", "TIER_5_DISCOVERY",
 ] as const;
 export type SourceQualityTier = (typeof sourceQualityTiers)[number];
+export const rightsStatuses = ["UNKNOWN", "LINK_ONLY", "PERMITTED", "PUBLIC_DOMAIN"] as const;
+export type RightsStatus = (typeof rightsStatuses)[number];
 export const claimTypes = ["DATE", "PLACE", "PERSON_ROLE", "OUTCOME", "INTERPRETATION", "CONTEXT"] as const;
 export type ClaimType = (typeof claimTypes)[number];
 export const claimAssessments = ["CONFIRMED", "DISPUTED"] as const;
@@ -45,6 +47,17 @@ export interface MediaView {
   caption: string | null;
   width: number | null;
   height: number | null;
+  provenance: AssetProvenanceView;
+}
+
+export interface AssetProvenanceView {
+  holdingInstitution: string;
+  inventoryId: string | null;
+  origin: string;
+  rightsStatus: RightsStatus;
+  permissionDocument: string | null;
+  creditLine: string;
+  checksum: string | null;
 }
 
 export interface SourceView {

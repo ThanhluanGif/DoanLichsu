@@ -106,7 +106,7 @@ async function proveDatabaseIdentity() {
   database.pragma("foreign_keys=ON");
   try {
     baselineCounts = databaseCounts(database);
-    const expected = { contentNodes:50,translations:100,lessonTranslations:2,sources:50,claims:0,claimEvidence:0,media:10,users:3,auditLogs:0,rateLimits:0,curriculumRequirements:55,curriculumMappings:23,schemaVersion:6 };
+    const expected = { contentNodes:50,translations:100,lessonTranslations:2,sources:50,claims:0,claimEvidence:0,media:10,users:3,auditLogs:0,rateLimits:0,curriculumRequirements:55,curriculumMappings:23,schemaVersion:7 };
     const drift = Object.entries(expected).filter(([name,count]) => baselineCounts[name] !== count).map(([name,count]) => `${name}=${baselineCounts[name]} expected ${count}`);
     if (drift.length) throw new Error(`database is not a pristine disposable seed: ${drift.join(", ")}`);
     baselineDigest = databaseDigest(database);

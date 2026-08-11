@@ -133,7 +133,7 @@ interface HealthResponse { status: "ok"; version: string; database: "ok"; timest
 interface MediaView {
   id: string; url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string;
   alt: string; caption: string | null; width: number | null; height: number | null;
-  provenance: AssetProvenanceView | null;
+  provenance: AssetProvenanceView;
 }
 interface AssetProvenanceView {
   holdingInstitution: string; inventoryId: string | null; origin: string;
@@ -266,10 +266,11 @@ interface SourceInput {
   qualityTier: SourceQualityTier; institution?: string; identifier?: string;
   edition?: string; archivedUrl?: string; checksum?: string;
 }
-interface MediaInput { url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string; altVi: string; altEn: string; captionVi?: string; captionEn?: string; provenance?: AssetProvenanceInput }
-interface AssetProvenanceInput {
-  holdingInstitution: string; inventoryId?: string; origin: string;
-  rightsStatus: RightsStatus; permissionDocument?: string; creditLine: string; checksum?: string;
+interface MediaInput {
+  url: string; kind: "IMAGE" | "DOCUMENT"; credit: string; license: string;
+  altVi: string; altEn: string; captionVi?: string; captionEn?: string;
+  holdingInstitution?: string; inventoryId?: string; origin?: string;
+  rightsStatus?: RightsStatus; permissionDocument?: string; creditLine?: string; checksum?: string;
 }
 interface AdminSourceView extends SourceView { version: number }
 interface AdminMediaView extends MediaView { version: number; altVi: string; altEn: string; captionVi: string | null; captionEn: string | null }
@@ -365,6 +366,10 @@ Contract rules:
 - Media with `rightsStatus=UNKNOWN|LINK_ONLY` may expose citation metadata and the original
   source link but the app must not proxy, copy or serve the referenced binary. Only
   `PERMITTED|PUBLIC_DOMAIN` assets may be served by this project.
+- Media provenance is required at the metadata seam: holding institution, optional inventory
+  id, origin, rights status, permission-document link, credit line and optional SHA-256
+  checksum. A link-only record is a writing/reference input and must remain visibly distinct
+  from an asset that the project is allowed to serve.
 
 ## Feature → interface map
 

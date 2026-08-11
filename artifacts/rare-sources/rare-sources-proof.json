@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-08-11T08:53:29.640Z",
+  "url": "https://temporary-breed-mpegs-controller.trycloudflare.com",
+  "api": {
+    "total": 14,
+    "institution": "Encyclopaedia Britannica",
+    "sourceUrl": "https://www.britannica.com/event/Battle-of-Dien-Bien-Phu",
+    "contentLinks": 2
+  },
+  "desktop": {
+    "filtered": true,
+    "keyboard": true,
+    "axeCriticalOrSerious": 0,
+    "viewport": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    }
+  },
+  "mobile": {
+    "keyboard": true,
+    "axeCriticalOrSerious": 0,
+    "viewport": {
+      "clientWidth": 390,
+      "scrollWidth": 390
+    }
+  },
+  "rightsRule": "link-only citation is displayed as an original external link; no binary proxy route exists",
+  "screenshots": [
+    "artifacts/rare-sources/archive-desktop.png",
+    "artifacts/rare-sources/archive-mobile.png"
+  ]
+}
