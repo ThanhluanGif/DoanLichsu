@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-08-11T11:31:00.000Z",
+  "database": "/tmp/qsv-c030-live-019ff012.sqlite",
+  "liveOrigin": "https://drawings-fruits-foster-men.trycloudflare.com",
+  "asOf": "2026-08-11T00:00:00.000Z",
+  "reviewDisclosure": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+  "counts": {
+    "publishedLessons": 7,
+    "publishedTranslations": 14,
+    "lessonTranslations": 14,
+    "verifiedSources": 27,
+    "verifiedClaims": 14,
+    "locatedEvidenceWithoutQuotes": 14,
+    "mappings": 7,
+    "mediaAttachments": 0
+  },
+  "requirements": [
+    {
+      "id": "g8-early-modern-revolutions",
+      "periodStart": 1566,
+      "periodEnd": 1871,
+      "lessonId": "lesson-g8-early-modern-revolutions",
+      "verifiedClaims": 2,
+      "verifiedSources": 5
+    },
+    {
+      "id": "g8-industrial-revolution",
+      "periodStart": 1750,
+      "periodEnd": 1914,
+      "lessonId": "lesson-g8-industrial-revolution",
+      "verifiedClaims": 2,
+      "verifiedSources": 4
+    },
+    {
+      "id": "g8-southeast-asia-sixteenth-nineteenth",
+      "periodStart": 1500,
+      "periodEnd": 1900,
+      "lessonId": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "verifiedClaims": 2,
+      "verifiedSources": 5
+    },
+    {
+      "id": "g8-vietnam-sixteenth-eighteenth",
+      "periodStart": 1527,
+      "periodEnd": 1802,
+      "lessonId": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "verifiedClaims": 2,
+      "verifiedSources": 3
+    },
+    {
+      "id": "g8-vietnam-nguyen-dynasty",
+      "periodStart": 1802,
+      "periodEnd": 1858,
+      "lessonId": "lesson-g8-vietnam-nguyen-dynasty",
+      "verifiedClaims": 2,
+      "verifiedSources": 3
+    },
+    {
+      "id": "g8-vietnam-anti-colonial-1858-1884",
+      "periodStart": 1858,
+      "periodEnd": 1884,
+      "lessonId": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "verifiedClaims": 2,
+      "verifiedSources": 3
+    },
+    {
+      "id": "g8-vietnam-1885-1918",
+      "periodStart": 1885,
+      "periodEnd": 1918,
+      "lessonId": "lesson-g8-vietnam-1885-1918",
+      "verifiedClaims": 2,
+      "verifiedSources": 4
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-11T11:42:30.103Z",
+  "url": "https://drawings-fruits-foster-men.trycloudflare.com",
+  "coverage": {
+    "requirements": 7,
+    "published": 7,
+    "verified": 7,
+    "fullCoverage": true,
+    "locales": [
+      "vi",
+      "en"
+    ]
+  },
+  "desktop": {
+    "path": "/vi/chu-de/cac-cuoc-cach-mang-can-dai-quyen-luc-quyen-con-nguoi-va-quoc-gia",
+    "lesson": "Các cuộc cách mạng cận đại: quyền lực, quyền con người và quốc gia",
+    "claims": 2,
+    "sources": 5,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1712
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/vietnam-1885-1918-can-vuong-yen-the-and-new-strategies",
+    "lesson": "Vietnam, 1885–1918: Cần Vương, Yên Thế, and new strategies",
+    "claims": 2,
+    "sources": 4,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 1568
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-8/grade-8-coverage-desktop.png",
+    "artifacts/curriculum/grade-8/grade-8-desktop.png",
+    "artifacts/curriculum/grade-8/grade-8-coverage-mobile.png",
+    "artifacts/curriculum/grade-8/grade-8-mobile.png"
+  ]
+}
