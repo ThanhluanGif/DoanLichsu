@@ -16,6 +16,8 @@ function databaseCounts(database){return {
   claimEvidence:database.prepare("SELECT count(*) AS count FROM claim_evidence").get().count,
   media:database.prepare("SELECT count(*) AS count FROM media").get().count,
   users:database.prepare("SELECT count(*) AS count FROM users").get().count,
+  curriculumRequirements:database.prepare("SELECT count(*) AS count FROM curriculum_requirements").get().count,
+  curriculumMappings:database.prepare("SELECT count(*) AS count FROM content_curriculum").get().count,
 };}
 
 function schemaVersion(database){return database.prepare("SELECT COALESCE(MAX(version),0) AS version FROM schema_migrations").get().version;}

@@ -141,8 +141,30 @@ export function adminContentDetail(database: SqliteDatabase, id: string) {
     artifactMeta: row.artifact_meta ? JSON.parse(row.artifact_meta as string) : null,
     tagIds: ids("content_tags", "tag_id"), relatedIds: ids("content_relations", "related_id"),
     sourceIds: ids("content_sources", "source_id"), mediaIds: ids("content_media", "media_id"),
+    curriculumRequirementIds:(database.prepare("SELECT requirement_id AS id FROM content_curriculum WHERE content_id=? ORDER BY requirement_id").all(id) as Array<{id:string}>).map(({id})=>id),
     translations,
   };
+}
+
+export function replaceCurriculumMappings(database:SqliteDatabase,id:string,input:Record<string,unknown>,actor:AuthUser){
+  const version=numberField(input,"version",true)!;
+  const requirementIds=stringArrayField(input,"requirementIds");
+  if(!requirementIds)invalidField("requirementIds","Bắt buộc.");
+  const asOf=stringField(input,"asOf",{max:64});
+  if(asOf&&(!asOf.endsWith("Z")||Number.isNaN(Date.parse(asOf))||new Date(asOf).toISOString()!==asOf))invalidField("asOf","Phải là ISO-8601 UTC chuẩn.");
+  ensureReferences(database,"curriculum_requirements",requirementIds,"requirementIds");
+  const now=new Date().toISOString();
+  database.transaction(()=>{
+    const row=contentRow(database,id);
+    if(row.version!==version)throw new ApiError(409,"STALE_VERSION","Phiên bản nội dung đã thay đổi.");
+    const previous=(database.prepare("SELECT requirement_id AS id FROM content_curriculum WHERE content_id=? ORDER BY requirement_id").all(id) as Array<{id:string}>).map(({id})=>id);
+    database.prepare("DELETE FROM content_curriculum WHERE content_id=?").run(id);
+    const insert=database.prepare("INSERT INTO content_curriculum(content_id,requirement_id,as_of,mapped_by,mapped_at) VALUES(?,?,?,?,?)");
+    for(const requirementId of requirementIds.sort())insert.run(id,requirementId,asOf??null,actor.id,now);
+    database.prepare("UPDATE content_nodes SET version=version+1,updated_at=?,updated_by=? WHERE id=?").run(now,actor.id,id);
+    writeAudit(database,{actorId:actor.id,action:"content.curriculum.replace",objectType:"content",objectId:id,metadata:{previousRequirementIds:previous,requirementIds,asOf:asOf??null}});
+  }).immediate();
+  return adminContentDetail(database,id);
 }
 
 export function listAdminContents(database: SqliteDatabase, search: URLSearchParams) {

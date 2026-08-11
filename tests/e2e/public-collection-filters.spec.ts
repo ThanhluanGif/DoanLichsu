@@ -18,10 +18,10 @@ async function facetView(page:Page,baseURL:string,locale:"vi"|"en",values:Record
   return (await json<{data:FacetView}>(page,`${baseURL}/api/v1/${locale}/taxonomies?${query}`)).data;
 }
 
-function assertPositiveFacets(facets:FacetView){
-  expect(facets.grades).toEqual([]);
-  expect(facets.topics).toEqual([]);
-  for(const group of [facets.periods,facets.tags,facets.types]){
+function assertPositiveFacets(facets:FacetView,curriculum:boolean){
+  if(curriculum){expect(facets.grades.length).toBeGreaterThan(0);expect(facets.topics.length).toBeGreaterThan(0);}
+  else{expect(facets.grades).toEqual([]);expect(facets.topics).toEqual([]);}
+  for(const group of [facets.grades,facets.topics,facets.periods,facets.tags,facets.types]){
     expect(group.every((option)=>option.publishedCount>0&&option.verifiedCount===0)).toBe(true);
   }
 }
@@ -92,7 +92,9 @@ test("contextual facets keep collection, timeline and search URLs restorable",as
   const collectionFacets=await facetView(desktop,baseURL,"vi",{scope:"contents",type:"EVENT"});
   const timelineFacets=await facetView(desktop,baseURL,"vi",{scope:"timeline"});
   const searchFacets=await facetView(desktop,baseURL,"vi",{scope:"search",q:"dien bien phu"});
-  for(const facets of [collectionFacets,timelineFacets,searchFacets])assertPositiveFacets(facets);
+  assertPositiveFacets(collectionFacets,true);
+  assertPositiveFacets(timelineFacets,false);
+  assertPositiveFacets(searchFacets,true);
   expect(collectionFacets.periods.length).toBeGreaterThan(0);
   expect(timelineFacets.periods.length).toBeGreaterThan(0);
   expect(searchFacets.types.length).toBeGreaterThan(0);

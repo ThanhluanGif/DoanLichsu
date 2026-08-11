@@ -1,7 +1,8 @@
 import type { SqliteDatabase } from "@/lib/db/connection";
 import { contentTypeLabels } from "@/lib/i18n/config";
 import { normalizeSearchText } from "@/lib/search/normalize";
-import { contentTypes, type ClaimView, type ContentDetail, type ContentListItem, type ContentType, type Locale, type MediaView, type PeriodRef, type PeriodView, type PublicSourceItem, type SearchResult, type SourceContentRef, type TimelineItem } from "./types";
+import { curriculumContentIds,curriculumCounts,curriculumRefsForContent,programmeAsOf,publicGrade,publicTrack,requirementRef,requirementRows,verifiedCurriculumContentIds,type CurriculumRequirementRow } from "./curriculum";
+import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -109,6 +110,12 @@ function filterRows(database: SqliteDatabase, locale: Locale, search: URLSearchP
       WHERE tag.slug = ?
     `).all(tag) as Array<{ id: string }>).map(({ id }) => id));
     rows = rows.filter((row) => ids.has(row.id));
+  }
+  const grade=publicGrade(search.get("grade"));
+  const topic=search.get("topic")?.trim()||undefined;
+  if(grade!==undefined||topic){
+    const ids=curriculumContentIds(database,locale,grade,topic);
+    rows=rows.filter((row)=>ids.has(row.id));
   }
   return rows;
 }
@@ -295,32 +302,33 @@ export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: s
     artifactMeta: row.artifact_meta ? JSON.parse(row.artifact_meta) as Record<string, string> : null,
     media: media(database, row.id, locale), sources: sources as ContentDetail["sources"], claims,
     related: relatedRows.map((related) => listItem(database, related, locale)),
-    alternate: alternateFor(database, row.id, locale), reviewedBy: row.reviewed_by,
+    alternate: alternateFor(database, row.id, locale),curriculum:curriculumRefsForContent(database,row.id,locale),lesson:null,asOf:null,reviewedBy: row.reviewed_by,
     publishedAt: row.published_at, updatedAt: row.updated_at,
   };
   return { data };
 }
 
-type FacetDimension = "period" | "tag" | "type";
+type FacetDimension = "grade" | "topic" | "period" | "tag" | "type";
 type FacetScope = "contents" | "timeline" | "search";
 type FacetContext = {
   kind: FacetDimension | null;
   scope: FacetScope;
   tokens: string[];
   type?: ContentType;
+  grade?:Grade;
+  topic?:string;
   periodRequested: boolean;
   periodId?: string;
   tag?: string;
   fromYear?: number;
   toYear?: number;
-  curriculumFilterRequested: boolean;
 };
 type FacetOption = { value: string; label: string; publishedCount: number; verifiedCount: number };
 
 function facetContext(database: SqliteDatabase, locale: Locale, search: URLSearchParams): FacetContext {
   const kindValue = search.get("kind");
-  if (kindValue !== null && !["period", "tag", "type"].includes(kindValue)) {
-    throw new PublicApiError(400, "INVALID_QUERY", "Loại taxonomy không hợp lệ.", { fieldErrors: { kind: ["Chỉ nhận period, tag hoặc type."] } });
+  if (kindValue !== null && !["grade","topic","period", "tag", "type"].includes(kindValue)) {
+    throw new PublicApiError(400, "INVALID_QUERY", "Loại taxonomy không hợp lệ.", { fieldErrors: { kind: ["Chỉ nhận grade, topic, period, tag hoặc type."] } });
   }
   const scopeValue = search.get("scope") ?? "contents";
   if (!["contents", "timeline", "search"].includes(scopeValue)) {
@@ -352,21 +360,20 @@ function facetContext(database: SqliteDatabase, locale: Locale, search: URLSearc
       AND t.translation_status = 'PUBLISHED' AND t.slug = ?
   `).get(locale, period) as { id: string } | undefined : undefined;
   const tag = search.get("tag")?.trim() || undefined;
-  const gradeValue=search.get("grade");
-  if(gradeValue!==null&&!/^(?:6|7|8|9|10|11|12)$/.test(gradeValue)){
-    throw new PublicApiError(400,"INVALID_QUERY","Lớp học không hợp lệ.",{fieldErrors:{grade:["Chỉ nhận lớp 6 đến lớp 12."]}});
-  }
+  const grade=publicGrade(search.get("grade"));
+  const topic=search.get("topic")?.trim()||undefined;
   return {
     kind: kindValue as FacetDimension | null,
     scope: scopeValue as FacetScope,
     tokens,
     type,
+    grade,
+    topic,
     periodRequested: Boolean(period),
     periodId: periodRow?.id,
     tag,
     fromYear,
     toYear,
-    curriculumFilterRequested: Boolean(gradeValue!==null || search.get("topic")?.trim()),
   };
 }
 
@@ -393,8 +400,7 @@ function facetTagsByContent(database: SqliteDatabase, locale: Locale): Map<strin
   return tagsByContent;
 }
 
-function facetRows(rows: BaseRow[], context: FacetContext, omit: FacetDimension, tagContentIds: Set<string>): BaseRow[] {
-  if (context.curriculumFilterRequested) return [];
+function facetRows(rows: BaseRow[], context: FacetContext, omit: FacetDimension, tagContentIds: Set<string>,gradeContentIds:Set<string>,topicContentIds:Set<string>): BaseRow[] {
   if (context.scope === "timeline") rows = rows.filter((row) => row.type === "EVENT" && row.date_precision !== null);
   if (context.tokens.length) rows = rows.filter((row) => context.tokens.every((token) => row.search_text.includes(token)));
   if (context.scope === "timeline") {
@@ -411,15 +417,20 @@ function facetRows(rows: BaseRow[], context: FacetContext, omit: FacetDimension,
   if (omit !== "tag" && context.tag) {
     rows = rows.filter((row) => tagContentIds.has(row.id));
   }
+  if(context.scope!=="timeline"){
+    if(omit!=="grade"&&context.grade!==undefined)rows=rows.filter((row)=>gradeContentIds.has(row.id));
+    if(omit!=="topic"&&context.topic)rows=rows.filter((row)=>topicContentIds.has(row.id));
+  }
   return rows;
 }
 
-function facetPeriods(periodLabels: BaseRow[], rows: BaseRow[]): FacetOption[] {
+function facetPeriods(periodLabels: BaseRow[], rows: BaseRow[],verifiedIds:Set<string>): FacetOption[] {
   const counts = new Map<string, { publishedCount: number; verifiedCount: number }>();
   for (const row of rows) {
     if (!row.period_id) continue;
     const current = counts.get(row.period_id) ?? { publishedCount: 0, verifiedCount: 0 };
     current.publishedCount += 1;
+    if(verifiedIds.has(row.id))current.verifiedCount+=1;
     counts.set(row.period_id, current);
   }
   return periodLabels.flatMap((period) => {
@@ -428,52 +439,150 @@ function facetPeriods(periodLabels: BaseRow[], rows: BaseRow[]): FacetOption[] {
   });
 }
 
-function facetTags(tagsByContent: Map<string, FacetTag[]>, rows: BaseRow[]): FacetOption[] {
+function facetTags(tagsByContent: Map<string, FacetTag[]>, rows: BaseRow[],verifiedIds:Set<string>): FacetOption[] {
   const counts = new Map<string, FacetOption>();
   for (const row of rows) {
     for (const tag of tagsByContent.get(row.id) ?? []) {
       const current = counts.get(tag.slug) ?? { value: tag.slug, label: tag.label, publishedCount: 0, verifiedCount: 0 };
       current.publishedCount += 1;
+      if(verifiedIds.has(row.id))current.verifiedCount+=1;
       counts.set(tag.slug, current);
     }
   }
   return [...counts.values()].sort((left, right) => left.value.localeCompare(right.value, "en"));
 }
 
-function facetTypes(rows: BaseRow[], locale: Locale): FacetOption[] {
+function facetTypes(rows: BaseRow[], locale: Locale,verifiedIds:Set<string>): FacetOption[] {
   return contentTypes.flatMap((type) => {
     const matching = rows.filter((row) => row.type === type);
     return matching.length ? [{
       value: type,
       label: contentTypeLabels[locale][type],
       publishedCount: matching.length,
-      verifiedCount: 0,
+      verifiedCount: matching.filter((row)=>verifiedIds.has(row.id)).length,
     }] : [];
   });
+}
+
+type FacetCurriculum={grade:Grade;slug:string;label:string};
+function facetCurriculumByContent(database:SqliteDatabase,locale:Locale):Map<string,FacetCurriculum[]>{
+  const grouped=new Map<string,FacetCurriculum[]>();
+  const rows=database.prepare(`
+    SELECT mapping.content_id AS contentId,requirement.grade,
+      CASE WHEN ?='vi' THEN requirement.slug_vi ELSE requirement.slug_en END AS slug,
+      CASE WHEN ?='vi' THEN requirement.topic_vi ELSE requirement.topic_en END AS label
+    FROM content_curriculum mapping
+    JOIN curriculum_requirements requirement ON requirement.id=mapping.requirement_id
+    ORDER BY mapping.content_id,requirement.grade,requirement.sort_order,requirement.id
+  `).all(locale,locale) as Array<{contentId:string}&FacetCurriculum>;
+  for(const{contentId,...item}of rows)grouped.set(contentId,[...(grouped.get(contentId)??[]),item]);
+  return grouped;
+}
+
+function facetGrades(curriculum:Map<string,FacetCurriculum[]>,rows:BaseRow[],locale:Locale,verifiedIds:Set<string>):FacetOption[]{
+  const counts=new Map<Grade,{publishedCount:number;verifiedCount:number}>();
+  for(const row of rows){
+    for(const grade of new Set((curriculum.get(row.id)??[]).map((item)=>item.grade))){
+      const current=counts.get(grade)??{publishedCount:0,verifiedCount:0};current.publishedCount+=1;
+      if(verifiedIds.has(row.id))current.verifiedCount+=1;counts.set(grade,current);
+    }
+  }
+  return grades.flatMap((grade)=>{const count=counts.get(grade);return count?[{value:String(grade),label:locale==="vi"?`Lớp ${grade}`:`Grade ${grade}`,...count}]:[];});
+}
+
+function facetTopics(curriculum:Map<string,FacetCurriculum[]>,rows:BaseRow[],verifiedIds:Set<string>):FacetOption[]{
+  const counts=new Map<string,FacetOption>();
+  for(const row of rows){
+    const topics=new Map((curriculum.get(row.id)??[]).map((item)=>[item.slug,item]));
+    for(const item of topics.values()){
+      const current=counts.get(item.slug)??{value:item.slug,label:item.label,publishedCount:0,verifiedCount:0};
+      current.publishedCount+=1;if(verifiedIds.has(row.id))current.verifiedCount+=1;counts.set(item.slug,current);
+    }
+  }
+  return[...counts.values()].sort((left,right)=>left.value.localeCompare(right.value,"en"));
 }
 
 export function getTaxonomies(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
   const context = facetContext(database, locale, search);
   const include = (dimension: FacetDimension) => context.kind === null || context.kind === dimension;
-  const rows = context.curriculumFilterRequested ? [] : baseRows(database, locale);
-  const tagsByContent = !context.curriculumFilterRequested && (include("tag") || context.tag)
+  const rows = baseRows(database, locale);
+  const tagsByContent = (include("tag") || context.tag)
     ? facetTagsByContent(database, locale)
     : new Map<string, FacetTag[]>();
   const tagContentIds = context.tag
     ? new Set([...tagsByContent].flatMap(([contentId, tags]) => tags.some((tag) => tag.slug === context.tag) ? [contentId] : []))
     : new Set<string>();
+  const gradeContentIds=context.grade===undefined?new Set<string>():curriculumContentIds(database,locale,context.grade,undefined);
+  const topicContentIds=context.topic?curriculumContentIds(database,locale,undefined,context.topic):new Set<string>();
+  const curriculum=facetCurriculumByContent(database,locale);
+  const verifiedIds=verifiedCurriculumContentIds(database,locale);
   const periodLabels = rows.filter((row) => row.type === "PERIOD").sort((left, right) => {
     if (left.start_date === null) return right.start_date === null ? left.id.localeCompare(right.id, "en") : -1;
     if (right.start_date === null) return 1;
     return left.start_date.localeCompare(right.start_date) || left.id.localeCompare(right.id, "en");
   });
   return { data: {
-    grades: [],
-    topics: [],
-    periods: include("period") ? facetPeriods(periodLabels, facetRows(rows, context, "period", tagContentIds)) : [],
-    tags: include("tag") ? facetTags(tagsByContent, facetRows(rows, context, "tag", tagContentIds)) : [],
-    types: include("type") ? facetTypes(facetRows(rows, context, "type", tagContentIds), locale) : [],
+    grades: context.scope!=="timeline"&&include("grade")?facetGrades(curriculum,facetRows(rows,context,"grade",tagContentIds,gradeContentIds,topicContentIds),locale,verifiedIds):[],
+    topics: context.scope!=="timeline"&&include("topic")?facetTopics(curriculum,facetRows(rows,context,"topic",tagContentIds,gradeContentIds,topicContentIds),verifiedIds):[],
+    periods: include("period") ? facetPeriods(periodLabels, facetRows(rows, context, "period", tagContentIds,gradeContentIds,topicContentIds),verifiedIds) : [],
+    tags: include("tag") ? facetTags(tagsByContent, facetRows(rows, context, "tag", tagContentIds,gradeContentIds,topicContentIds),verifiedIds) : [],
+    types: include("type") ? facetTypes(facetRows(rows, context, "type", tagContentIds,gradeContentIds,topicContentIds), locale,verifiedIds) : [],
   } };
+}
+
+function curriculumGradeLabel(locale:Locale,grade:Grade){return locale==="vi"?`Lớp ${grade}`:`Grade ${grade}`;}
+
+function publicCurriculumSummary(database:SqliteDatabase,locale:Locale,grade:Grade,rows:CurriculumRequirementRow[]):CurriculumGradeSummary{
+  const measured=rows.map((row)=>({row,counts:curriculumCounts(database,row.id,locale)}));
+  const requirementIds=new Set(rows.map(({id})=>id));
+  const publishedLessonCount=new Set((database.prepare(`
+    SELECT DISTINCT mapping.content_id AS id FROM content_curriculum mapping
+    JOIN content_nodes node ON node.id=mapping.content_id
+    JOIN content_translations translation ON translation.node_id=node.id
+    WHERE mapping.requirement_id IN (SELECT id FROM curriculum_requirements WHERE grade=? )
+      AND node.status='PUBLISHED' AND translation.locale=? AND translation.translation_status='PUBLISHED'
+    ORDER BY mapping.content_id
+  `).all(grade,locale) as Array<{id:string}>).filter(({id})=>{
+    const mapped=database.prepare("SELECT requirement_id AS id FROM content_curriculum WHERE content_id=?").all(id) as Array<{id:string}>;
+    return mapped.some((item)=>requirementIds.has(item.id));
+  }).map(({id})=>id)).size;
+  const requirementCount=measured.length;
+  const publishedRequirementCount=measured.filter(({counts})=>counts.publishedCount>0).length;
+  const verifiedRequirementCount=measured.filter(({counts})=>counts.verifiedCount>0).length;
+  return{grade,label:curriculumGradeLabel(locale,grade),requirementCount,publishedRequirementCount,
+    verifiedRequirementCount,fullCoverage:requirementCount>0&&verifiedRequirementCount===requirementCount,publishedLessonCount};
+}
+
+export function getCurriculumCatalog(database:SqliteDatabase,locale:Locale,search:URLSearchParams){
+  const track=publicTrack(search.get("track"));
+  const data=grades.flatMap((grade)=>{
+    const rows=requirementRows(database,{grade,track});
+    if(!rows.length)return[];
+    const gradeSummary=publicCurriculumSummary(database,locale,grade,rows);
+    return gradeSummary.publishedLessonCount>0?[gradeSummary]:[];
+  });
+  return{data:{asOf:programmeAsOf(database),grades:data}};
+}
+
+export function getCurriculumGrade(database:SqliteDatabase,locale:Locale,gradeValue:string,search:URLSearchParams){
+  const grade=publicGrade(gradeValue,true)!;
+  const track=publicTrack(search.get("track"));
+  const topic=search.get("topic")?.trim()||undefined;
+  const allRows=requirementRows(database,{grade,track}).filter((row)=>!topic||(locale==="vi"?row.slug_vi:row.slug_en)===topic);
+  const summary=publicCurriculumSummary(database,locale,grade,allRows);
+  const{page,pageSize}=parsePage(search);
+  const publicRows=allRows.flatMap((row)=>{
+    const counts=curriculumCounts(database,row.id,locale);return counts.publishedCount>0?[{row,counts}]:[];
+  });
+  const requirements:CurriculumRequirementView[]=publicRows.slice((page-1)*pageSize,page*pageSize).map(({row,counts})=>{
+    const lessonIds=new Set((database.prepare("SELECT content_id AS id FROM content_curriculum WHERE requirement_id=? ORDER BY content_id").all(row.id) as Array<{id:string}>).map(({id})=>id));
+    const lessons=baseRows(database,locale).filter((item)=>lessonIds.has(item.id)).map((item)=>listItem(database,item,locale));
+    return{...requirementRef(row,counts,locale),periodStart:row.period_start,periodEnd:row.period_end,
+      requiredOutcomes:JSON.parse(locale==="vi"?row.required_outcomes_vi:row.required_outcomes_en) as string[],lessons};
+  });
+  return{data:{grade,label:curriculumGradeLabel(locale,grade),summary:{requirementCount:summary.requirementCount,
+    publishedRequirementCount:summary.publishedRequirementCount,verifiedRequirementCount:summary.verifiedRequirementCount,
+    fullCoverage:summary.fullCoverage},requirements}};
 }
 
 export function getSources(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {

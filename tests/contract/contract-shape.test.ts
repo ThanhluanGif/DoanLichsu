@@ -9,20 +9,6 @@ const contract = readFileSync(new URL("../../flow/05-contract.md",import.meta.ur
 const objectAt = (root:unknown,path:string[]) => path.reduce<unknown>((value,key) => (value as MutableObject)[key],root) as MutableObject;
 const cardStatus = (card:string) => /^status:\s*(\w+)/m.exec(readFileSync(new URL(`../../cards/${card}.md`,import.meta.url),"utf8"))?.[1] ?? "missing";
 const futureContractStages = [
-  {card:"C-024",edits:[
-    [
-      'interface ContentListQuery extends PageQuery { type?: ContentType; period?: string; tag?: string; grade?: Grade; topic?: string; sort?: "chronology" | "updated" | "title" }',
-      'interface ContentListQuery extends PageQuery { type?: ContentType; period?: string; tag?: string; sort?: "chronology" | "updated" | "title" }',
-    ],
-    [
-      '  sourceIds: string[]; mediaIds: string[]; curriculumRequirementIds: string[];\n',
-      '  sourceIds: string[]; mediaIds: string[];\n',
-    ],
-  ]},
-  {card:"C-026",edits:[[
-    '  curriculum: CurriculumRequirementRef[]; lesson: LessonView | null; asOf: string | null;\n',
-    '',
-  ]]},
   {card:"C-027",edits:[
     ['  provenance: AssetProvenanceView | null;\n',''],
     [
@@ -58,12 +44,12 @@ describe("planning to OpenAPI deep-shape audit",() => {
   });
 
   it.each(["done","missing","in_progress","malformed"])("fails closed when a future-card owner is %s",(status) => {
-    expect(actionableDrift(contract,openApiDocument,{"C-024":status})).toEqual(expect.arrayContaining([
-      expect.stringMatching(/AdminContentDetail|contents query|search query/),
+    expect(actionableDrift(contract,openApiDocument,{"C-027":status})).toEqual(expect.arrayContaining([
+      expect.stringMatching(/MediaView|provenance/),
     ]));
   });
 
-  it("keeps existing fields audited within a staged C-024 shape",() => {
+  it("audits implemented C-024 fields without an allowance",() => {
     const drift = mutate((document) => {
       const detail = objectAt(document,["components","schemas","AdminContentDetail"]);
       const properties = detail.properties as MutableObject;
@@ -72,7 +58,7 @@ describe("planning to OpenAPI deep-shape audit",() => {
     expect(drift).toContain("schema AdminContentDetail.type: expected string, OpenAPI number");
   });
 
-  it("does not let a staged C-024 query field hide an existing query drift",() => {
+  it("keeps implemented curriculum query fields beside existing query checks",() => {
     const drift=mutate((document)=>{
       const parameters=objectAt(document,["paths","/api/v1/{locale}/contents","get"]).parameters as MutableObject[];
       const period=parameters.find((parameter)=>parameter.name==="period");
@@ -81,7 +67,7 @@ describe("planning to OpenAPI deep-shape audit",() => {
     expect(drift.join("\n")).toMatch(/contents query\.period: expected string, OpenAPI number/);
   });
 
-  it("keeps existing C-026 and C-027 fields audited while their additions are staged",() => {
+  it("keeps implemented lesson stubs and existing C-027 fields audited",() => {
     const drift=mutate((document)=>{
       (objectAt(document,["components","schemas","ContentDetail","properties","body"])).type="number";
       (objectAt(document,["components","schemas","MediaView","properties","url"])).type="number";

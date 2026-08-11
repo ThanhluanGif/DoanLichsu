@@ -339,6 +339,7 @@ describe("RBAC and locale workflow", () => {
     for (const path of [
       "/api/v1/auth/login", "/api/v1/auth/logout", "/api/v1/auth/me", "/api/v1/admin/dashboard",
       "/api/v1/admin/contents", "/api/v1/admin/contents/{id}", "/api/v1/admin/contents/{id}/translations/{locale}",
+      "/api/v1/admin/contents/{id}/curriculum","/api/v1/admin/curriculum/coverage",
       "/api/v1/admin/contents/{id}/claims", "/api/v1/admin/contents/{id}/claims/{claimId}", "/api/v1/admin/contents/{id}/claims/{claimId}/verification",
       "/api/v1/admin/sources", "/api/v1/admin/sources/{id}", "/api/v1/admin/sources/{id}/verification", "/api/v1/admin/media", "/api/v1/admin/media/{id}",
       "/api/v1/admin/contents/{id}/submit-review", "/api/v1/admin/contents/{id}/approve", "/api/v1/admin/contents/{id}/reject",
@@ -350,6 +351,7 @@ describe("RBAC and locale workflow", () => {
     expect(openApiDocument.components.securitySchemes.cookieAuth).toEqual({ type: "apiKey", in: "cookie", name: "qsv_session" });
     expect(openApiDocument.components.schemas.ContentCreateInput.properties).toHaveProperty("startDate");
     expect(openApiDocument.components.schemas.AdminContentDetail.additionalProperties).toBe(false);
+    expect(openApiDocument.components.schemas.AdminContentDetail.required).toContain("curriculumRequirementIds");
     const contentParameters = openApiDocument.paths["/api/v1/admin/contents"].get.parameters as readonly { name:string }[];
     expect(contentParameters.some((parameter) => parameter.name === "status")).toBe(true);
     expect((openApiDocument.components.schemas.SourceInput.properties.url as { pattern:string }).pattern).toBe("^https://");

@@ -4,8 +4,11 @@ import { demoContent, demoTags, unpublishedEnglishNodeId } from "../src/data/dem
 import { normalizeSearchText } from "../src/lib/search/normalize";
 import { readEnv } from "../src/lib/env";
 import { hashPassword } from "../src/lib/auth/password";
+import { curriculumMappings,curriculumProgrammeAsOf,curriculumRequirements } from "../src/data/curriculum/requirements";
 
-if (process.env.NODE_ENV === "production") {
+const curriculumOnly=process.env.CURRICULUM_SEED_ONLY==="1";
+
+if (process.env.NODE_ENV === "production"&&!curriculumOnly) {
   if (process.env.ALLOW_DEMO_SEED !== "1") {
     throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
   }
@@ -27,7 +30,9 @@ const demoUsers = [
   { id: "user-editor", email: "editor@quansuviet.local", displayName: "Biên tập viên", role: "EDITOR", password: process.env.SEED_EDITOR_PASSWORD ?? "Editor-Demo-2026!" },
   { id: "user-reviewer", email: "reviewer@quansuviet.local", displayName: "Kiểm duyệt viên", role: "REVIEWER", password: process.env.SEED_REVIEWER_PASSWORD ?? "Reviewer-Demo-2026!" },
 ] as const;
-const passwordHashes = new Map(await Promise.all(demoUsers.map(async (user) => [user.id, await hashPassword(user.password)] as const)));
+const passwordHashes:Map<string,string>=curriculumOnly
+  ?new Map()
+  :new Map(await Promise.all(demoUsers.map(async(user)=>[user.id,await hashPassword(user.password)] as const)));
 
 const englishLocations: Record<string, string> = {
   "Biên giới Tây Nam": "Southwestern border",
@@ -121,6 +126,7 @@ function assertOnlyDemoData(): void {
     media: new Set(demoContent.filter(({ type }) => type === "ARTIFACT").map(({ id }) => `media-${id}`)),
     tags: new Set(demoTags.map(({ id }) => id)),
     users: new Set(demoUsers.map(({ id }) => id)),
+    curriculum_requirements: new Set(curriculumRequirements.map(({ id }) => id)),
   };
   for (const [table, expectedIds] of Object.entries(expected)) {
     const rows = database.prepare(`SELECT id FROM ${table}`).all() as Array<{ id: string }>;
@@ -129,7 +135,10 @@ function assertOnlyDemoData(): void {
       throw new Error(`Refusing to replace non-demo row ${table}.${unknown.id}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
     }
   }
-  for (const table of ["content_nodes", "content_translations", "sources", "media", "users"]) {
+  const expectedMappings=new Set(curriculumMappings.map(({contentId,requirementId})=>`${contentId}|${requirementId}`));
+  const unknownMapping=(database.prepare("SELECT content_id AS contentId,requirement_id AS requirementId FROM content_curriculum").all() as Array<{contentId:string;requirementId:string}>).find(({contentId,requirementId})=>!expectedMappings.has(`${contentId}|${requirementId}`));
+  if(unknownMapping)throw new Error(`Refusing to replace non-demo curriculum mapping ${unknownMapping.contentId}|${unknownMapping.requirementId}; set ALLOW_DEMO_SEED=1 to reset explicitly.`);
+  for (const table of ["content_nodes", "content_translations", "sources", "media", "users", "curriculum_requirements"]) {
     const changed = database.prepare(
       `SELECT id FROM ${table} WHERE updated_at <> ? LIMIT 1`,
     ).get(now) as { id: string } | undefined;
@@ -143,7 +152,41 @@ function assertOnlyDemoData(): void {
   }
 }
 
-try {
+if(curriculumOnly){
+  try{
+    const result=database.transaction(()=>{
+      const upsert=database.prepare(`
+        INSERT INTO curriculum_requirements(
+          id,grade,track,topic_vi,topic_en,slug_vi,slug_en,official_program_ref,
+          period_start,period_end,required_outcomes_vi,required_outcomes_en,sort_order,
+          programme_as_of,created_at,updated_at
+        ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        ON CONFLICT(id) DO UPDATE SET
+          grade=excluded.grade,track=excluded.track,topic_vi=excluded.topic_vi,topic_en=excluded.topic_en,
+          slug_vi=excluded.slug_vi,slug_en=excluded.slug_en,official_program_ref=excluded.official_program_ref,
+          period_start=excluded.period_start,period_end=excluded.period_end,
+          required_outcomes_vi=excluded.required_outcomes_vi,required_outcomes_en=excluded.required_outcomes_en,
+          sort_order=excluded.sort_order,programme_as_of=excluded.programme_as_of,updated_at=excluded.updated_at
+      `);
+      for(const requirement of curriculumRequirements)upsert.run(requirement.id,requirement.grade,requirement.track,
+        requirement.topicVi,requirement.topicEn,requirement.slugVi,requirement.slugEn,
+        requirement.officialProgramRef,requirement.periodStart,requirement.periodEnd,
+        JSON.stringify(requirement.requiredOutcomesVi),JSON.stringify(requirement.requiredOutcomesEn),
+        requirement.sortOrder,curriculumProgrammeAsOf,now,now);
+      const attach=database.prepare(`
+        INSERT OR IGNORE INTO content_curriculum(content_id,requirement_id,as_of,mapped_by,mapped_at)
+        SELECT ?,?,?,NULL,? WHERE EXISTS(SELECT 1 FROM content_nodes WHERE id=?)
+      `);
+      for(const mapping of curriculumMappings)attach.run(mapping.contentId,mapping.requirementId,mapping.asOf,now,mapping.contentId);
+      return{
+        mode:"curriculum-only",
+        curriculumRequirements:(database.prepare("SELECT COUNT(*) AS count FROM curriculum_requirements").get() as {count:number}).count,
+        curriculumMappings:(database.prepare("SELECT COUNT(*) AS count FROM content_curriculum").get() as {count:number}).count,
+      };
+    }).immediate();
+    console.log(JSON.stringify(result));
+  }finally{database.close();}
+}else try {
   assertOnlyDemoData();
   const seed = database.transaction(() => {
     database.exec(`
@@ -151,6 +194,7 @@ try {
       DELETE FROM audit_logs;
       DELETE FROM claim_evidence;
       DELETE FROM content_claims;
+      DELETE FROM content_curriculum;
       DELETE FROM content_relations;
       DELETE FROM content_tags;
       DELETE FROM content_media;
@@ -159,6 +203,7 @@ try {
       DELETE FROM sources;
       DELETE FROM content_translations;
       DELETE FROM content_nodes;
+      DELETE FROM curriculum_requirements;
       DELETE FROM tags;
       DELETE FROM users;
     `);
@@ -169,6 +214,21 @@ try {
     `);
     for (const user of demoUsers) {
       insertUser.run(user.id, user.email, user.displayName, user.role, passwordHashes.get(user.id), now, now);
+    }
+
+    const insertRequirement=database.prepare(`
+      INSERT INTO curriculum_requirements(
+        id,grade,track,topic_vi,topic_en,slug_vi,slug_en,official_program_ref,
+        period_start,period_end,required_outcomes_vi,required_outcomes_en,sort_order,
+        programme_as_of,created_at,updated_at
+      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    `);
+    for(const requirement of curriculumRequirements){
+      insertRequirement.run(requirement.id,requirement.grade,requirement.track,
+        requirement.topicVi,requirement.topicEn,requirement.slugVi,requirement.slugEn,
+        requirement.officialProgramRef,requirement.periodStart,requirement.periodEnd,
+        JSON.stringify(requirement.requiredOutcomesVi),JSON.stringify(requirement.requiredOutcomesEn),
+        requirement.sortOrder,curriculumProgrammeAsOf,now,now);
     }
 
     const insertTag = database.prepare(
@@ -315,22 +375,30 @@ try {
     );
     relations.forEach(([from, to], index) => insertRelation.run(from, to, index));
 
+    const attachCurriculum=database.prepare(`
+      INSERT INTO content_curriculum(content_id,requirement_id,as_of,mapped_by,mapped_at)
+      VALUES(?,?,?,?,?)
+    `);
+    for(const mapping of curriculumMappings)attachCurriculum.run(mapping.contentId,mapping.requirementId,mapping.asOf,"user-admin",now);
+
     const counts = database
       .prepare(`
         SELECT
           (SELECT COUNT(*) FROM content_nodes) AS contentNodes,
           (SELECT COUNT(*) FROM content_translations) AS translations,
           (SELECT COUNT(*) FROM sources) AS sources,
-          (SELECT COUNT(*) FROM users) AS users
+          (SELECT COUNT(*) FROM users) AS users,
+          (SELECT COUNT(*) FROM curriculum_requirements) AS curriculumRequirements,
+          (SELECT COUNT(*) FROM content_curriculum) AS curriculumMappings
       `)
-      .get() as { contentNodes: number; translations: number; sources: number; users: number };
+      .get() as { contentNodes: number; translations: number; sources: number; users: number; curriculumRequirements:number;curriculumMappings:number };
     const distribution = Object.fromEntries(
       (database
         .prepare("SELECT type, COUNT(*) AS count FROM content_nodes GROUP BY type ORDER BY type")
         .all() as Array<{ type: string; count: number }>).map(({ type, count }) => [type, count]),
     );
 
-    if (counts.contentNodes !== 50 || counts.translations !== 100 || counts.sources < 50 || counts.users !== 3) {
+    if (counts.contentNodes !== 50 || counts.translations !== 100 || counts.sources < 50 || counts.users !== 3 || counts.curriculumRequirements!==curriculumRequirements.length || counts.curriculumMappings!==curriculumMappings.length) {
       throw new Error(`Seed invariant failed: ${JSON.stringify(counts)}`);
     }
     const expectedDistribution = { ARTIFACT: 10, EVENT: 20, PERIOD: 6, PERSON: 10, TOPIC: 4 };

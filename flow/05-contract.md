@@ -106,7 +106,7 @@ type WorkflowStatus = "DRAFT" | "IN_REVIEW" | "APPROVED" | "PUBLISHED" | "REJECT
 type TranslationStatus = "NOT_STARTED" | "TRANSLATING" | "READY_FOR_REVIEW" | "APPROVED" | "PUBLISHED";
 type Role = "ADMIN" | "EDITOR" | "REVIEWER";
 type DatePrecision = "DAY" | "MONTH" | "YEAR" | "APPROXIMATE";
-type TaxonomyKind = "period" | "tag" | "type";
+type TaxonomyKind = "grade" | "topic" | "period" | "tag" | "type";
 type FacetScope = "contents" | "timeline" | "search";
 type VerificationStatus = "DRAFT" | "NEEDS_REVIEW" | "VERIFIED" | "REJECTED";
 type SourceType = "PRIMARY_RECORD" | "ARCHIVE_CATALOG" | "MUSEUM_CATALOG" | "SCHOLARLY_BOOK" | "PEER_REVIEWED_ARTICLE" | "REFERENCE_WORK" | "CONTEMPORARY_PRESS" | "ORAL_HISTORY" | "DISCOVERY_ONLY";
@@ -201,8 +201,11 @@ interface LessonView {
   learningObjectives: string[]; originalSummary: string; analysis: string;
   debates: { title: string; summary: string; claimIds: string[] }[];
 }
+interface AdminCurriculumGradeCoverageView extends CurriculumGradeSummary {
+  requirements: CurriculumRequirementRef[];
+}
 interface AdminCurriculumCoverageView {
-  asOf: string; grades: (CurriculumGradeSummary & { requirements: CurriculumRequirementRef[] })[];
+  asOf: string; grades: AdminCurriculumGradeCoverageView[];
 }
 
 interface GeoPoint { longitude: number; latitude: number }
@@ -332,16 +335,25 @@ Contract rules:
   counts only lessons having at least one `VERIFIED` claim backed exclusively by `VERIFIED`
   sources; mapping or publishing alone never increments it. Missing requirements remain
   available through the protected coverage interface, not as dead public controls.
+- Curriculum requirements are an editorial index of the Ministry programme, not a copied
+  textbook. Rows cite the consolidated programme and its effective amendments through
+  `17/2025/TT-BGDĐT`; `officialProgramRef` identifies that authority and section, while
+  localized outcomes are concise indexing summaries. `MISSING` means no mapping, `DRAFT`
+  means mapped content exists but no requested-locale lesson is public, `PUBLISHED` means at
+  least one lesson is public but none qualifies as verified, and `VERIFIED` means at least
+  one public lesson satisfies the verified-claim/evidence rule. `fullCoverage` requires every
+  requirement in the selected grade/track to be `VERIFIED`.
 - Facets are disjunctive: each array applies every active filter except its own dimension.
   `scope=contents` (the default) uses the public contents candidate set; `scope=timeline`
   additionally requires `EVENT` plus non-null date precision and applies `fromYear/toYear`;
   `scope=search` uses the same normalized-token predicate as public search; `q` is ignored
   outside search scope because the contents/timeline consumers do not accept it. `kind` is a
   compatibility projection: unrequested arrays remain present but empty. Options are
-  deterministic (period chronology, tag slug, then declared content-type order), and public
-  HTML never keeps an unknown period/tag selected. Before C-024, grade/topic output arrays
-  remain empty, every `verifiedCount` remains 0 because no lesson mapping exists, and no
-  grade/topic control is rendered.
+  deterministic (grade, topic slug, period chronology, tag slug, then declared content-type
+  order), and public HTML never keeps an unknown filter selected. Grade/topic filters use
+  curriculum mappings on contents/search; timeline leaves those two arrays empty because
+  `TimelineQuery` does not accept them. Content detail returns mapped curriculum refs while
+  `lesson=null` and `asOf=null` until C-026 supplies lesson fields.
 - `track=ELECTIVE` is always labelled as a selected specialism; it is never combined with
   mandatory coverage. `asOf` is ISO-8601 and required for post-programme current updates.
 - A reconstruction is an educational interpretation, never documentary fact. Every phase
