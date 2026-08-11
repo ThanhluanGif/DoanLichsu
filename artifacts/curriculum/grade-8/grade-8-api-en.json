@@ -1,0 +1,319 @@
+{
+  "data": {
+    "grade": 8,
+    "label": "Grade 8",
+    "summary": {
+      "requirementCount": 7,
+      "publishedRequirementCount": 7,
+      "verifiedRequirementCount": 7,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g8-early-modern-revolutions",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Early modern bourgeois revolutions",
+        "slug": "early-modern-revolutions",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Các cuộc cách mạng tư sản thời cận đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1566,
+        "periodEnd": 1871,
+        "requiredOutcomes": [
+          "Identify causes, major developments, and significance of representative revolutions."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g8-early-modern-revolutions",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Early modern revolutions: power, rights, and nations",
+            "slug": "early-modern-revolutions-power-rights-and-nations",
+            "summary": "From the Dutch Revolt in 1566 to the upheavals of 1848 and the German nation-state of 1871, modern revolutions transformed government without following one template.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-industrial-revolution",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "The Industrial Revolution",
+        "slug": "industrial-revolution",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Cách mạng công nghiệp",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1750,
+        "periodEnd": 1914,
+        "requiredOutcomes": [
+          "Outline achievements and economic and social effects of industrialisation."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g8-industrial-revolution",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The Industrial Revolution: machines, energy, and a new society",
+            "slug": "industrial-revolution-machines-energy-and-a-new-society",
+            "summary": "From about 1750 to 1914, industrialisation linked machinery, fuels, factories, transport, and markets while producing both growth and major social costs.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-southeast-asia-sixteenth-nineteenth",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Southeast Asia from the sixteenth to nineteenth century",
+        "slug": "southeast-asia-sixteenth-nineteenth",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1500,
+        "periodEnd": 1900,
+        "requiredOutcomes": [
+          "Explain colonial expansion and regional responses."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Southeast Asia, sixteenth–nineteenth centuries: trade, conquest, and varied responses",
+            "slug": "southeast-asia-sixteenth-nineteenth-centuries-trade-conquest-responses",
+            "summary": "From about 1500 to 1900, European companies and empires entered Southeast Asian trading networks, while regional states and communities responded in multiple ways.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-vietnam-sixteenth-eighteenth",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Vietnam from the sixteenth to eighteenth century",
+        "slug": "vietnam-sixteenth-eighteenth",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ đầu thế kỉ XVI đến thế kỉ XVIII",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1527,
+        "periodEnd": 1802,
+        "requiredOutcomes": [
+          "Outline political change, territorial expansion, and the Tây Sơn movement."
+        ],
+        "lessons": [
+          {
+            "id": "event-ngoc-hoi",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Ngọc Hồi–Đống Đa victory",
+            "slug": "ngoc-hoi-dong-da-victory",
+            "summary": "Tây Sơn forces led by Quang Trung advanced on Thăng Long and defeated the Qing army in early 1789.",
+            "thumbnail": null,
+            "startDate": "1789-01-01",
+            "endDate": null,
+            "datePrecision": "MONTH",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Leadership",
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1527–1802: division, southward expansion, and Tây Sơn",
+            "slug": "vietnam-1527-1802-division-southward-expansion-and-tay-son",
+            "summary": "From the Mạc takeover in 1527 through north–south rivalries, southward expansion, Tây Sơn, and 1802, Đại Việt's territory and political power changed profoundly.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-vietnam-nguyen-dynasty",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Vietnam in the first half of the nineteenth century",
+        "slug": "vietnam-nguyen-dynasty",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam nửa đầu thế kỉ XIX",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1802,
+        "periodEnd": 1858,
+        "requiredOutcomes": [
+          "Recognise Nguyễn administration and economic, social, and cultural life."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g8-vietnam-nguyen-dynasty",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1802–1858: the Nguyễn and the challenge of governing a unified state",
+            "slug": "vietnam-1802-1858-nguyen-governing-a-unified-state",
+            "summary": "From Gia Long's foundation of the Nguyễn dynasty in 1802 to the eve of invasion in 1858, a unified state strengthened government, economy, and culture while facing serious limits.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-vietnam-anti-colonial-1858-1884",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Vietnamese resistance to French conquest, 1858–1884",
+        "slug": "vietnam-anti-colonial-1858-1884",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam chống thực dân Pháp xâm lược 1858–1884",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1858,
+        "periodEnd": 1884,
+        "requiredOutcomes": [
+          "Outline the conquest and representative resistance movements."
+        ],
+        "lessons": [
+          {
+            "id": "event-da-nang-1858",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Franco-Spanish attack on Đà Nẵng",
+            "slug": "attack-on-da-nang-1858",
+            "summary": "The attack of 1 September 1858 began France's colonial conquest of Vietnam.",
+            "thumbnail": null,
+            "startDate": "1858-09-01",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-colonial",
+              "title": "Anti-colonial resistance",
+              "slug": "anti-colonial-resistance"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnamese resistance to French conquest, 1858–1884",
+            "slug": "vietnamese-resistance-to-french-conquest-1858-1884",
+            "summary": "From the attack on Da Nang in 1858 to the treaties of 1883–1884, court armies and diverse local forces resisted through a prolonged and uneven war.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g8-vietnam-1885-1918",
+        "grade": 8,
+        "track": "MANDATORY",
+        "topic": "Vietnam from 1885 to 1918",
+        "slug": "vietnam-1885-1918",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ năm 1885 đến năm 1918",
+        "publishedCount": 3,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1885,
+        "periodEnd": 1918,
+        "requiredOutcomes": [
+          "Analyse Cần Vương, Yên Thế, and early twentieth-century changes."
+        ],
+        "lessons": [
+          {
+            "id": "event-can-vuong",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Cần Vương movement",
+            "slug": "can-vuong-movement",
+            "summary": "The 1885 Cần Vương edict inspired multiple anti-French uprisings in support of the emperor.",
+            "thumbnail": null,
+            "startDate": "1885-07-01",
+            "endDate": "1896-01-01",
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-colonial",
+              "title": "Anti-colonial resistance",
+              "slug": "anti-colonial-resistance"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g8-vietnam-1885-1918",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1885–1918: Cần Vương, Yên Thế, and new strategies",
+            "slug": "vietnam-1885-1918-can-vuong-yen-the-and-new-strategies",
+            "summary": "From the Hue crisis and Cần Vương in 1885 through Yên Thế, Đông Du, Đông Kinh Nghĩa Thục, and social change by 1918, multiple anti-colonial strategies coexisted.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "event-yen-the",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Yên Thế uprising",
+            "slug": "yen-the-uprising",
+            "summary": "Insurgents in Yên Thế sustained resistance to colonial rule for several decades.",
+            "thumbnail": null,
+            "startDate": "1884-01-01",
+            "endDate": "1913-02-10",
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-colonial",
+              "title": "Anti-colonial resistance",
+              "slug": "anti-colonial-resistance"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
