@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5], currentVersion: 5 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6], currentVersion: 6 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",
@@ -31,6 +31,7 @@ describe("public seed and runtime contract", () => {
     expect(database.prepare("SELECT COUNT(*) AS count FROM sources WHERE url LIKE 'https://%'").get()).toEqual({ count: 50 });
     expect(database.prepare("SELECT verification_status, COUNT(*) AS count FROM sources GROUP BY verification_status").all()).toEqual([{ verification_status: "NEEDS_REVIEW", count: 50 }]);
     expect(database.prepare("SELECT COUNT(*) AS count FROM content_claims").get()).toEqual({ count: 0 });
+    expect(database.prepare("SELECT locale, COUNT(*) AS count FROM lesson_translations GROUP BY locale ORDER BY locale").all()).toEqual([{ locale: "en", count: 1 }, { locale: "vi", count: 1 }]);
     expect(database.prepare("SELECT COUNT(*) AS count FROM curriculum_requirements").get()).toEqual({count:55});
     expect(database.prepare("SELECT COUNT(*) AS count FROM content_curriculum").get()).toEqual({count:23});
     expect(database.prepare("SELECT grade,COUNT(*) AS count FROM curriculum_requirements GROUP BY grade ORDER BY grade").all()).toEqual([
@@ -102,6 +103,7 @@ describe("public seed and runtime contract", () => {
     expect(openApiDocument.components.schemas.CurriculumRequirementRef.required).toEqual(["id","grade","track","topic","slug","officialProgramRef","publishedCount","verifiedCount","coverageStatus"]);
     expect(openApiDocument.components.schemas.CurriculumGradeView.required).toEqual(["grade","label","summary","requirements"]);
     expect(openApiDocument.paths["/api/v1/{locale}/curriculum/{grade}"].get.responses["200"]).toBeDefined();
+    expect(openApiDocument.components.schemas.LessonView.required).toEqual(["learningObjectives","originalSummary","analysis","debates"]);
   });
 });
 

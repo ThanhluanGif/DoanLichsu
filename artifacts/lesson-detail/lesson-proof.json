@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-08-11T08:04:45.383Z",
+  "url": "https://automobile-sunglasses-swimming-monitored.trycloudflare.com",
+  "lesson": {
+    "vi": "/vi/su-kien/chien-dich-dien-bien-phu",
+    "en": "/en/events/battle-of-dien-bien-phu",
+    "objectives": 3,
+    "debates": 2,
+    "asOf": "2026-08-10T00:00:00.000Z",
+    "claimsPublished": 0,
+    "sources": 1,
+    "copyLink": true,
+    "backForward": true,
+    "keyboard": true
+  },
+  "nonLesson": {
+    "path": "/en/people/vo-nguyen-giap-en",
+    "lesson": null
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopViewport": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440
+  },
+  "mobileViewport": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  "screenshots": [
+    "artifacts/lesson-detail/lesson-desktop.png",
+    "artifacts/lesson-detail/lesson-mobile.png"
+  ]
+}

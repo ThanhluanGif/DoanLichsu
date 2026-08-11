@@ -352,8 +352,11 @@ Contract rules:
   deterministic (grade, topic slug, period chronology, tag slug, then declared content-type
   order), and public HTML never keeps an unknown filter selected. Grade/topic filters use
   curriculum mappings on contents/search; timeline leaves those two arrays empty because
-  `TimelineQuery` does not accept them. Content detail returns mapped curriculum refs while
-  `lesson=null` and `asOf=null` until C-026 supplies lesson fields.
+  `TimelineQuery` does not accept them. Content detail returns mapped curriculum refs and a
+  `LessonView` only when a requested-locale lesson translation is published; non-lesson detail
+  keeps `lesson=null` and `asOf=null`. A published lesson always carries non-empty objectives,
+  original summary, analysis, debates and an ISO-8601 UTC `asOf`; public claims still obey the
+  verified-claim/evidence rule independently of the lesson text.
 - `track=ELECTIVE` is always labelled as a selected specialism; it is never combined with
   mandatory coverage. `asOf` is ISO-8601 and required for post-programme current updates.
 - A reconstruction is an educational interpretation, never documentary fact. Every phase

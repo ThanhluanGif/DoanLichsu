@@ -2,7 +2,7 @@ import type { SqliteDatabase } from "@/lib/db/connection";
 import { contentTypeLabels } from "@/lib/i18n/config";
 import { normalizeSearchText } from "@/lib/search/normalize";
 import { curriculumContentIds,curriculumCounts,curriculumRefsForContent,programmeAsOf,publicGrade,publicTrack,requirementRef,requirementRows,verifiedCurriculumContentIds,type CurriculumRequirementRow } from "./curriculum";
-import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem } from "./types";
+import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type LessonView,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem } from "./types";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -234,6 +234,23 @@ function alternateFor(database: SqliteDatabase, id: string, locale: Locale) {
   return translation ? { locale: other, url: `/api/v1/${other}/contents/${translation.type}/${translation.slug}` } : null;
 }
 
+function lessonFor(database: SqliteDatabase, id: string, locale: Locale): { lesson: LessonView; asOf: string } | null {
+  const row = database.prepare(`
+    SELECT learning_objectives, original_summary, analysis, debates, as_of
+    FROM lesson_translations WHERE content_id = ? AND locale = ?
+  `).get(id, locale) as { learning_objectives: string; original_summary: string; analysis: string; debates: string; as_of: string } | undefined;
+  if (!row) return null;
+  return {
+    lesson: {
+      learningObjectives: JSON.parse(row.learning_objectives) as string[],
+      originalSummary: row.original_summary,
+      analysis: row.analysis,
+      debates: JSON.parse(row.debates) as LessonView["debates"],
+    },
+    asOf: row.as_of,
+  };
+}
+
 export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: string, slug: string) {
   const type = parseContentType(typeValue);
   const row = database.prepare(`${publicSelect} AND t.locale = ? AND n.type = ? AND t.slug = ?`).get(locale, type, slug) as BaseRow | undefined;
@@ -297,12 +314,13 @@ export function getDetail(database: SqliteDatabase, locale: Locale, typeValue: s
       SELECT related_id FROM content_relations WHERE content_id = ?
     ) ORDER BY n.start_date, n.id
   `).all(locale, row.id) as BaseRow[];
+  const lessonData = lessonFor(database, row.id, locale);
   const data: ContentDetail = {
     ...item, body: row.body, location: row.location, result: row.result, role: row.role,
     artifactMeta: row.artifact_meta ? JSON.parse(row.artifact_meta) as Record<string, string> : null,
     media: media(database, row.id, locale), sources: sources as ContentDetail["sources"], claims,
     related: relatedRows.map((related) => listItem(database, related, locale)),
-    alternate: alternateFor(database, row.id, locale),curriculum:curriculumRefsForContent(database,row.id,locale),lesson:null,asOf:null,reviewedBy: row.reviewed_by,
+    alternate: alternateFor(database, row.id, locale),curriculum:curriculumRefsForContent(database,row.id,locale),lesson:lessonData?.lesson ?? null,asOf:lessonData?.asOf ?? null,reviewedBy: row.reviewed_by,
     publishedAt: row.published_at, updatedAt: row.updated_at,
   };
   return { data };

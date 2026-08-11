@@ -172,8 +172,13 @@ describe("public read API", () => {
       "curriculum", "lesson", "asOf", "reviewedBy", "publishedAt", "updatedAt",
     ]);
     expect(detailBody.data.curriculum.map((item:{id:string})=>item.id)).toEqual(["g9-vietnam-1945-1991","g12-vietnam-1945-1975"]);
-    expect(detailBody.data.lesson).toBeNull();
-    expect(detailBody.data.asOf).toBeNull();
+    expect(detailBody.data.lesson).toMatchObject({
+      learningObjectives: expect.arrayContaining([expect.stringContaining("diễn biến")]),
+      originalSummary: expect.stringContaining("Điện Biên Phủ"),
+      analysis: expect.stringContaining("hậu cần"),
+      debates: expect.arrayContaining([expect.objectContaining({claimIds: []})]),
+    });
+    expect(detailBody.data.asOf).toBe("2026-08-10T00:00:00.000Z");
     expect(detailBody.data.sources[0]).toEqual({
       id: expect.any(String), title: expect.any(String), author: null,
       publisher: "Encyclopaedia Britannica", year: null,
@@ -199,12 +204,15 @@ describe("public read API", () => {
       new Request("http://local/api/v1/vi/contents/ARTIFACT/xe-dap-tho-dien-bien-phu"),
       { params: Promise.resolve({ locale: "vi", type: "ARTIFACT", slug: "xe-dap-tho-dien-bien-phu" }) },
     );
-    expect((await artifact.json()).data.media[0]).toMatchObject({
+    const artifactBody=await artifact.json();
+    expect(artifactBody.data.media[0]).toMatchObject({
       kind: "DOCUMENT",
       credit: "Encyclopaedia Britannica",
       license: expect.stringContaining("rights remain"),
       alt: expect.stringContaining("Xe đạp thồ"),
     });
+    expect(artifactBody.data.lesson).toBeNull();
+    expect(artifactBody.data.asOf).toBeNull();
 
     const hiddenEnglish = await detail(
       new Request("http://local/api/v1/en/contents/ARTIFACT/mig-21-aircraft-4324"),
