@@ -1,4 +1,4 @@
-import type { ContentType, Locale } from "@/lib/content/types";
+import type { ContentType, Grade, Locale } from "@/lib/content/types";
 
 const typeSegments: Record<Locale, Record<ContentType,string>> = {
   vi:{ PERIOD:"thoi-ky",EVENT:"su-kien",PERSON:"nhan-vat",ARTIFACT:"hien-vat",TOPIC:"chu-de" },
@@ -13,6 +13,7 @@ export function homePath(locale: Locale) { return `/${locale}`; }
 export function timelinePath(locale: Locale, query = "") { return `/${locale}/timeline${query}`; }
 export function searchPath(locale: Locale, query = "") { return `/${locale}/${locale === "vi" ? "tim-kiem" : "search"}${query}`; }
 export function sourcesPath(locale: Locale, query = "") { return `/${locale}/sources${query}`; }
+export function learnByGradePath(locale: Locale, grade?: Grade) { return `/${locale}/${locale === "vi" ? "hoc-theo-lop" : "learn-by-grade"}${grade === undefined ? "" : `/${grade}`}`; }
 export function contentCollectionPath(locale: Locale, type: ContentType, query = "") { return `/${locale}/${typeSegments[locale][type]}${query}`; }
 export function contentPath(locale: Locale, type: ContentType, slug: string) { return `${contentCollectionPath(locale,type)}/${encodeURIComponent(slug)}`; }
 

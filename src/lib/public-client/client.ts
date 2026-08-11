@@ -1,4 +1,4 @@
-import type { ContentDetail,ContentListItem,DataResponse,FacetView,HomeView,ListResponse,Locale,PeriodView,PublicSourceItem,SearchResult,TimelineItem } from "./types";
+import type { ContentDetail,ContentListItem,CurriculumCatalogView,CurriculumGradeView,DataResponse,FacetView,HomeView,ListResponse,Locale,PeriodView,PublicSourceItem,SearchResult,TimelineItem } from "./types";
 
 export class PublicClientError extends Error {
   constructor(public readonly status:number,public readonly code:string,message:string) { super(message); }
@@ -36,6 +36,8 @@ export function createPublicClient(options: {origin?:string;fetcher?:Fetcher} = 
       const suffix=query.toString();
       return (await request<DataResponse<FacetView>>(`/api/v1/${locale}/taxonomies${suffix?`?${suffix}`:""}`)).data;
     },
+    curriculum:async(locale:Locale) => (await request<DataResponse<CurriculumCatalogView>>(`/api/v1/${locale}/curriculum`)).data,
+    curriculumGrade:async(locale:Locale,grade:number) => (await request<DataResponse<CurriculumGradeView>>(`/api/v1/${locale}/curriculum/${grade}`)).data,
     detail:async(locale:Locale,type:string,slug:string) => (await request<DataResponse<ContentDetail>>(`/api/v1/${locale}/contents/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`)).data,
   };
 }

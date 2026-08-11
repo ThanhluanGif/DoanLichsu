@@ -31,4 +31,13 @@ describe("public sitemap",()=>{
     expect(source).toContain('pageSize:"50"');
     expect(source).not.toContain('pageSize:"100"');
   });
+
+  it("adds only grades with published lessons to the curriculum sitemap",()=>{
+    process.env.APP_ORIGIN="https://history.example";
+    const entries=buildSitemap({vi:[],en:[]},{vi:{asOf:"2026-08-10T00:00:00.000Z",grades:[{grade:6,label:"Lớp 6",requirementCount:2,publishedRequirementCount:1,verifiedRequirementCount:0,fullCoverage:false,publishedLessonCount:1},{grade:7,label:"Lớp 7",requirementCount:2,publishedRequirementCount:0,verifiedRequirementCount:0,fullCoverage:false,publishedLessonCount:0}]},en:{asOf:"2026-08-10T00:00:00.000Z",grades:[{grade:6,label:"Grade 6",requirementCount:2,publishedRequirementCount:1,verifiedRequirementCount:0,fullCoverage:false,publishedLessonCount:1},{grade:7,label:"Grade 7",requirementCount:2,publishedRequirementCount:0,verifiedRequirementCount:0,fullCoverage:false,publishedLessonCount:0}]}});
+    const urls=entries.map(({url})=>url);
+    expect(urls).toEqual(expect.arrayContaining(["https://history.example/vi/hoc-theo-lop","https://history.example/en/learn-by-grade","https://history.example/vi/hoc-theo-lop/6","https://history.example/en/learn-by-grade/6"]));
+    expect(urls).not.toContain("https://history.example/vi/hoc-theo-lop/7");
+    expect(urls).not.toContain("https://history.example/en/learn-by-grade/7");
+  });
 });

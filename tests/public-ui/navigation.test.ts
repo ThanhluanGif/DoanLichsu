@@ -1,5 +1,5 @@
 import { afterEach,beforeEach,describe,expect,it,vi } from "vitest";
-import { alternateApiToPublicPath,contentCollectionPath,contentPath,contentTypeFromLocaleSegment,searchPath,timelinePath,withQuery } from "@/lib/public-client/paths";
+import { alternateApiToPublicPath,contentCollectionPath,contentPath,contentTypeFromLocaleSegment,learnByGradePath,searchPath,timelinePath,withQuery } from "@/lib/public-client/paths";
 import { createPublicClient,PublicClientError } from "@/lib/public-client/client";
 
 describe("public bilingual navigation contract",()=>{
@@ -17,6 +17,8 @@ describe("public bilingual navigation contract",()=>{
   it("keeps search and pagination state shareable",()=>{
     expect(searchPath("vi")).toBe("/vi/tim-kiem");
     expect(searchPath("en")).toBe("/en/search");
+    expect(learnByGradePath("vi")).toBe("/vi/hoc-theo-lop");
+    expect(learnByGradePath("en",12)).toBe("/en/learn-by-grade/12");
     expect(timelinePath("vi","?period=period-independence-wars")).toBe("/vi/timeline?period=period-independence-wars");
     expect(withQuery(searchPath("vi"),{q:"dien bien phu",type:"EVENT",period:undefined,page:2})).toBe("/vi/tim-kiem?q=dien+bien+phu&type=EVENT&page=2");
   });
@@ -48,5 +50,15 @@ describe("public HTTP client",()=>{
     const client=createPublicClient({origin:"http://public.test",fetcher});
     await client.contents("vi",new URLSearchParams({type:"EVENT",page:"1",pageSize:"10"}));
     expect(String(fetcher.mock.calls[0][0])).toBe("http://public.test/api/v1/vi/contents?type=EVENT&page=1&pageSize=10");
+  });
+
+  it("requests curriculum catalogue and grade detail through the public contract",async()=>{
+    fetcher.mockResolvedValue(new Response(JSON.stringify({data:{grades:[]}}),{status:200,headers:{"content-type":"application/json"}}));
+    const client=createPublicClient({origin:"http://public.test",fetcher});
+    await client.curriculum("vi");
+    expect(String(fetcher.mock.calls[0][0])).toBe("http://public.test/api/v1/vi/curriculum");
+    fetcher.mockResolvedValue(new Response(JSON.stringify({data:{grade:12}}),{status:200,headers:{"content-type":"application/json"}}));
+    await client.curriculumGrade("en",12);
+    expect(String(fetcher.mock.calls[1][0])).toBe("http://public.test/api/v1/en/curriculum/12");
   });
 });
