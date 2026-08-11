@@ -1,0 +1,10 @@
+import {withPublicDatabase} from "@/app/api/v1/public/response";
+import {getCurriculumCatalog} from "@/lib/content/public-repository";
+import {parseLocale} from "@/lib/content/validation";
+
+export const dynamic="force-dynamic";
+
+export async function GET(request:Request,context:{params:Promise<{locale:string}>}){
+  const{locale:rawLocale}=await context.params;
+  return withPublicDatabase((database)=>getCurriculumCatalog(database,parseLocale(rawLocale),new URL(request.url).searchParams));
+}

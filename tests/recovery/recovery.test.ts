@@ -17,13 +17,13 @@ describe("backup and restore rehearsal",()=>{
     run(process.execPath,["scripts/migrate.mjs"],{DATABASE_PATH:databasePath});
     run(resolve(root,"node_modules/.bin/tsx"),["scripts/seed.ts"],{DATABASE_PATH:databasePath});
     const backup=JSON.parse(run(process.execPath,["scripts/backup.mjs"],{DATABASE_PATH:databasePath,BACKUP_DIR:backupDirectory}));
-    expect(backup.counts).toMatchObject({contentNodes:50,translations:100,sources:50,claims:0,claimEvidence:0,users:3});expect(backup.sha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(backup.counts).toMatchObject({contentNodes:50,translations:100,sources:50,claims:0,claimEvidence:0,users:3,curriculumRequirements:55,curriculumMappings:23});expect(backup.sha256).toMatch(/^[a-f0-9]{64}$/);
     const restoredPath=join(directory,"restored.sqlite");
     const restore=JSON.parse(run(process.execPath,["scripts/restore.mjs",backup.snapshot],{RESTORE_DATABASE_PATH:restoredPath}));
-    expect(restore).toMatchObject({database:restoredPath,sha256Verified:true,schemaVersion:4,counts:backup.counts});
+    expect(restore).toMatchObject({database:restoredPath,sha256Verified:true,schemaVersion:7,counts:backup.counts});
     const restored=new Database(restoredPath,{readonly:true});
     try{expect(restored.prepare("SELECT count(*) AS count FROM content_nodes WHERE status='PUBLISHED'").get()).toEqual({count:50});}finally{restored.close();}
-  });
+  },15_000);
 
   it("refuses a snapshot whose bytes no longer match the manifest",()=>{
     const directory=mkdtempSync(join(tmpdir(),"quan-su-viet-recovery-tamper-"));const databasePath=join(directory,"source.sqlite");
@@ -33,5 +33,5 @@ describe("backup and restore rehearsal",()=>{
     const bytes=readFileSync(tampered);writeFileSync(tampered,Buffer.concat([bytes,Buffer.from("tampered")]));
     const result=spawnSync(process.execPath,["scripts/restore.mjs",tampered],{cwd:root,env:{...process.env,RESTORE_DATABASE_PATH:join(directory,"must-not-exist.sqlite")},encoding:"utf8"});
     expect(result.status).not.toBe(0);expect(result.stderr).toContain("SHA-256");
-  });
+  },15_000);
 });

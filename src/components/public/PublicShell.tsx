@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/content/types";
 import { t } from "@/lib/i18n/config";
-import { homePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
+import { archivePath,homePath,learnByGradePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 import { SearchIcon } from "@/components/icons";
 import { BrandMark } from "@/components/BrandMark";
 
@@ -18,8 +18,10 @@ export function PublicShell({locale,localeHref,children}:{locale:Locale;localeHr
       <nav className="primary-nav" aria-label={locale === "vi" ? "Điều hướng chính" : "Primary navigation"}>
         <Link href={homePath(locale)}>{copy.home}</Link>
         <Link href={timelinePath(locale)}>{copy.navTimeline}</Link>
+        <Link href={learnByGradePath(locale)}>{copy.navCurriculum}</Link>
         <Link href={searchPath(locale)}>{copy.navExplore}</Link>
         <Link href={sourcesPath(locale)}>{copy.navSources}</Link>
+        <Link href={archivePath(locale)}>{locale === "vi" ? "Kho tư liệu" : "Archive"}</Link>
       </nav>
       <div className="header-actions">
         <Link className="header-search" href={searchPath(locale)} aria-label={copy.search}><SearchIcon/></Link>

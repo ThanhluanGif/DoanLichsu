@@ -1,6 +1,6 @@
-import type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,PublicSourceItem,SearchResult,SourceContentRef,TimelineItem } from "@/lib/content/types";
+import type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem } from "@/lib/content/types";
 
-export type { ContentDetail,ContentListItem,ContentType,Locale,PageMeta,PeriodView,PublicSourceItem,SearchResult,SourceContentRef,TimelineItem };
+export type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem };
 
 export interface HomeView {
   featured: ContentListItem[];
@@ -9,10 +9,13 @@ export interface HomeView {
   counts: Record<ContentType,number>;
 }
 
-export interface TaxonomyView {
-  periods: Array<{id:string;title:string;slug:string}>;
-  tags: Array<{id:string;name:string;slug:string}>;
-  types: ContentType[];
+export interface FacetOption { value:string;label:string;publishedCount:number;verifiedCount:number }
+export interface FacetView {
+  grades:FacetOption[];
+  topics:FacetOption[];
+  periods:FacetOption[];
+  tags:FacetOption[];
+  types:FacetOption[];
 }
 
 export interface DataResponse<T> { data:T }

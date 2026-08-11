@@ -17,10 +17,18 @@ export const sourceQualityTiers = [
   "TIER_4_CONTEXTUAL", "TIER_5_DISCOVERY",
 ] as const;
 export type SourceQualityTier = (typeof sourceQualityTiers)[number];
+export const rightsStatuses = ["UNKNOWN", "LINK_ONLY", "PERMITTED", "PUBLIC_DOMAIN"] as const;
+export type RightsStatus = (typeof rightsStatuses)[number];
 export const claimTypes = ["DATE", "PLACE", "PERSON_ROLE", "OUTCOME", "INTERPRETATION", "CONTEXT"] as const;
 export type ClaimType = (typeof claimTypes)[number];
 export const claimAssessments = ["CONFIRMED", "DISPUTED"] as const;
 export type ClaimAssessment = (typeof claimAssessments)[number];
+export const grades = [6,7,8,9,10,11,12] as const;
+export type Grade = (typeof grades)[number];
+export const curriculumTracks = ["MANDATORY","ELECTIVE"] as const;
+export type CurriculumTrack = (typeof curriculumTracks)[number];
+export const coverageStatuses = ["MISSING","DRAFT","PUBLISHED","VERIFIED"] as const;
+export type CoverageStatus = (typeof coverageStatuses)[number];
 
 export interface PageMeta {
   page: number;
@@ -39,6 +47,17 @@ export interface MediaView {
   caption: string | null;
   width: number | null;
   height: number | null;
+  provenance: AssetProvenanceView;
+}
+
+export interface AssetProvenanceView {
+  holdingInstitution: string;
+  inventoryId: string | null;
+  origin: string;
+  rightsStatus: RightsStatus;
+  permissionDocument: string | null;
+  creditLine: string;
+  checksum: string | null;
 }
 
 export interface SourceView {
@@ -118,6 +137,9 @@ export interface ContentDetail extends ContentListItem {
   claims: ClaimView[];
   related: ContentListItem[];
   alternate: { locale: Locale; url: string } | null;
+  curriculum: CurriculumRequirementRef[];
+  lesson: LessonView | null;
+  asOf: string | null;
   reviewedBy: string;
   publishedAt: string;
   updatedAt: string;
@@ -144,3 +166,56 @@ export interface TimelineItem {
 export interface SearchResult extends ContentListItem {
   matchedOn: "title" | "summary" | "body";
 }
+
+export interface CurriculumRequirementRef {
+  id:string;
+  grade:Grade;
+  track:CurriculumTrack;
+  topic:string;
+  slug:string;
+  officialProgramRef:string;
+  publishedCount:number;
+  verifiedCount:number;
+  coverageStatus:CoverageStatus;
+}
+
+export interface CurriculumRequirementView extends CurriculumRequirementRef {
+  periodStart:number|null;
+  periodEnd:number|null;
+  requiredOutcomes:string[];
+  lessons:ContentListItem[];
+}
+
+export interface GradeCoverageSummary {
+  requirementCount:number;
+  publishedRequirementCount:number;
+  verifiedRequirementCount:number;
+  fullCoverage:boolean;
+}
+
+export interface CurriculumGradeSummary extends GradeCoverageSummary {
+  grade:Grade;
+  label:string;
+  publishedLessonCount:number;
+}
+
+export interface CurriculumCatalogView { asOf:string;grades:CurriculumGradeSummary[] }
+
+export interface CurriculumGradeView {
+  grade:Grade;
+  label:string;
+  summary:GradeCoverageSummary;
+  requirements:CurriculumRequirementView[];
+}
+
+export interface LessonView {
+  learningObjectives:string[];
+  originalSummary:string;
+  analysis:string;
+  debates:Array<{title:string;summary:string;claimIds:string[]}>;
+}
+
+export interface AdminCurriculumGradeCoverageView extends CurriculumGradeSummary {
+  requirements:CurriculumRequirementRef[];
+}
+export interface AdminCurriculumCoverageView { asOf:string;grades:AdminCurriculumGradeCoverageView[] }

@@ -158,6 +158,7 @@ reading order; it never delays access to content or takes control of scrolling.
 | `--motion-duration-reveal` | `1ms` | View-timeline attachment; progress comes from scroll |
 | `--motion-duration-feedback` | `160ms` | Hover/focus/press feedback on public controls |
 | `--motion-duration-confirm` | `220ms` | One-shot confirmation such as copied-link feedback |
+| `--motion-duration-loader` | `1400ms` | Brand-loader cycle while a route streams |
 | `--motion-ease-out` | `cubic-bezier(.22, 1, .36, 1)` | Calm deceleration |
 | `--motion-route-distance` | `8px` | Maximum page-entry offset |
 | `--motion-reveal-distance` | `16px` | Maximum card/entry reveal offset |
@@ -165,8 +166,14 @@ reading order; it never delays access to content or takes control of scrolling.
 - Route entry is at most 360ms and 8px; viewport reveal is at most 16px.
 - Route entry keeps a non-zero starting opacity so the main content remains eligible for
   Largest Contentful Paint measurement.
-- Animate only `opacity` and the individual `translate` property. Never animate layout
-  properties, hijack scrolling, or compete with the existing card hover transform.
+- Animate reading content only with `opacity` and the individual `translate` property.
+  The route loader may additionally animate individual `rotate`/`scale` on its decorative
+  rings and SVG mark because they occupy fixed geometry and convey loading state. Never
+  animate layout properties, hijack scrolling, or compete with card hover transforms.
+- The route loader reuses the shared stroke-only `BrandMark`, has no visible loading copy
+  or skeleton, imposes no minimum display time and keeps a bilingual accessible status name.
+  Its fixed frame is centered in the viewport. With reduced motion it is a static mark; a
+  finished route removes it instead of hiding an overlay above content.
 - The public timeline may additionally animate individual `scale` on its decorative
   progress line and dots only. The line scales from its top origin and a focused dot stays
   at or below `1.45`; event copy, links and layout never scale.

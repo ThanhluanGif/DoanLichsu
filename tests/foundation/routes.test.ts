@@ -1,7 +1,8 @@
 import Database from "better-sqlite3";
+import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { GET as getHealth } from "@/app/healthz/route";
 import { GET as getOpenApi } from "@/app/openapi.json/route";
@@ -23,6 +24,15 @@ afterAll(() => {
 });
 
 describe("foundation routes", () => {
+  it("tracks every contracted curriculum route for a clean checkout", () => {
+    const route = "src/app/api/v1/admin/curriculum/coverage/route.ts";
+
+    expect(existsSync(resolve(route))).toBe(true);
+    expect(execFileSync("git", ["ls-files", "--error-unmatch", route], {
+      cwd: resolve("."), encoding: "utf8",
+    }).trim()).toBe(route);
+  });
+
   it("returns the contracted health response", async () => {
     const response = getHealth();
     const body = await response.json();

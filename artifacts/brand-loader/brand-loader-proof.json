@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-08-09T19:01:47.590Z",
+  "url": "http://127.0.0.1:56951",
+  "upstream": "https://backed-bar-acc-hang.trycloudflare.com",
+  "desktop": {
+    "style": {
+      "mark": "brand-loader-breathe",
+      "orbit": "brand-loader-orbit",
+      "ripple": "brand-loader-ripple",
+      "rotate": "0deg",
+      "scale": "0.96"
+    },
+    "viewport": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "layout": {
+      "cls": 0,
+      "emblemCenter": {
+        "x": 720,
+        "y": 500
+      },
+      "viewportCenter": {
+        "x": 720,
+        "y": 500
+      },
+      "destinationTitle": "Cọc gỗ Bạch Đằng · Quân Sử Việt"
+    },
+    "blocking": []
+  },
+  "mobileReducedMotion": {
+    "style": {
+      "mark": "none",
+      "orbit": "none",
+      "ripple": "none",
+      "rotate": "none",
+      "scale": "1"
+    },
+    "viewport": {
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    "layout": {
+      "cls": 0,
+      "emblemCenter": {
+        "x": 195,
+        "y": 422
+      },
+      "viewportCenter": {
+        "x": 195,
+        "y": 422
+      },
+      "destinationTitle": "Cọc gỗ Bạch Đằng · Quân Sử Việt"
+    },
+    "blocking": []
+  },
+  "keyboard": "Tab reached the content link, Enter activated it, then skip-link and header brand received focus in order after loader removal",
+  "screenshots": [
+    "artifacts/brand-loader/brand-loader-desktop.png",
+    "artifacts/brand-loader/brand-loader-mobile.png"
+  ]
+}

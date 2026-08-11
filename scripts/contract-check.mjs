@@ -54,13 +54,14 @@ let cleanupState = "not-run";
 let roleProbeIds = null;
 
 const digestTables = [
-  "schema_migrations","app_metadata","content_nodes","content_translations","sources","media","tags","content_sources","content_claims","claim_evidence","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
+  "schema_migrations","app_metadata","content_nodes","content_translations","lesson_translations","sources","media","tags","curriculum_requirements","content_sources","content_curriculum","content_claims","claim_evidence","content_media","content_tags","content_relations","users","audit_logs","login_rate_limits",
 ];
 
 function databaseCounts(database) {
   return {
     contentNodes:database.prepare("SELECT count(*) AS count FROM content_nodes").get().count,
     translations:database.prepare("SELECT count(*) AS count FROM content_translations").get().count,
+    lessonTranslations:database.prepare("SELECT count(*) AS count FROM lesson_translations").get().count,
     sources:database.prepare("SELECT count(*) AS count FROM sources").get().count,
     claims:database.prepare("SELECT count(*) AS count FROM content_claims").get().count,
     claimEvidence:database.prepare("SELECT count(*) AS count FROM claim_evidence").get().count,
@@ -68,6 +69,8 @@ function databaseCounts(database) {
     users:database.prepare("SELECT count(*) AS count FROM users").get().count,
     auditLogs:database.prepare("SELECT count(*) AS count FROM audit_logs").get().count,
     rateLimits:database.prepare("SELECT count(*) AS count FROM login_rate_limits").get().count,
+    curriculumRequirements:database.prepare("SELECT count(*) AS count FROM curriculum_requirements").get().count,
+    curriculumMappings:database.prepare("SELECT count(*) AS count FROM content_curriculum").get().count,
     schemaVersion:database.prepare("SELECT COALESCE(MAX(version),0) AS version FROM schema_migrations").get().version,
   };
 }
@@ -103,7 +106,7 @@ async function proveDatabaseIdentity() {
   database.pragma("foreign_keys=ON");
   try {
     baselineCounts = databaseCounts(database);
-    const expected = { contentNodes:50,translations:100,sources:50,claims:0,claimEvidence:0,media:10,users:3,auditLogs:0,rateLimits:0,schemaVersion:4 };
+    const expected = { contentNodes:50,translations:100,lessonTranslations:2,sources:50,claims:0,claimEvidence:0,media:10,users:3,auditLogs:0,rateLimits:0,curriculumRequirements:55,curriculumMappings:23,schemaVersion:7 };
     const drift = Object.entries(expected).filter(([name,count]) => baselineCounts[name] !== count).map(([name,count]) => `${name}=${baselineCounts[name]} expected ${count}`);
     if (drift.length) throw new Error(`database is not a pristine disposable seed: ${drift.join(", ")}`);
     baselineDigest = databaseDigest(database);

@@ -42,13 +42,22 @@ it; if a pain has no feature, it goes to the "not addressed" list — honestly.
 | P12 | Người quốc tế | Khó tìm website/chọn đúng bản locale | Reddit: “I couldn't find the official site”; Stage 01 | Dò nhiều trang/kết quả | FR12 | Sitemap, canonical và hreflang chỉ tới URL VI/EN hợp lệ |
 | P13 | Admin | Không biết ai đã duyệt/xuất bản | Quan sát workflow kế hoạch gốc | Hỏi trong nhóm chat | FR13 | Audit log trả actor, action, object và timestamp |
 | P14 | Sinh viên thực hiện | Sợ mất dữ liệu ngay trước demo | Risk register kế hoạch gốc | Copy file không kiểm chứng | FR14 | Tạo snapshot, restore sang file sạch và kiểm tra count/checksum |
+| P15 | Học sinh 6–12 | Không biết nội dung nào thuộc lớp/chủ đề nào và kho đã phủ tới đâu | Chương trình môn Lịch sử hợp nhất của Bộ GDĐT; nghiên cứu mở rộng 10/08/2026 | Dò mục lục nhiều bộ sách | FR15 | Chỉ các lớp/chủ đề có bài public mới vào menu; coverage nội bộ đo được từng requirement |
+| P16 | Người tra cứu | Bộ lọc hiện cho chọn thời kỳ không có record trong collection đang xem | Audit code ngày 10/08/2026: collection/timeline dùng toàn bộ period | Chọn rồi quay lại khi thấy 0 kết quả | FR16 | Mọi option có count >0 trong đúng scope; URL/back/forward/copy-link giữ nguyên |
+| P17 | Học sinh | Body demo ngắn không tách kiến thức, phân tích, bằng chứng và phần còn tranh luận | Audit 50 seed records ngày 10/08/2026 | Mở thêm tab để tự đối chiếu | FR17 | Một bài phân biệt tóm tắt gốc, phân tích, claim/evidence và ngày cập nhật |
+| P18 | Học sinh/Giáo viên | Không có corpus lớp 6–12 đã kiểm chứng | Ma trận Bộ GDĐT đối chiếu seed hiện tại: 0 requirement được map | Dùng riêng từng sách/bài web | FR18 | Mỗi batch lấp requirement bằng bài gốc, nguồn và reviewer; trạng thái thiếu không bị che |
+| P19 | Người khám phá | Địa danh hiện chỉ là chuỗi chữ, không thấy quan hệ không gian | Audit schema ngày 10/08/2026 | Tự mở bản đồ khác | FR19 | Mở địa danh/bản đồ từ bài và vẫn đọc được narrative nếu WebGL không chạy |
+| P20 | Người khám phá | Không hình dung diễn biến trận đánh nhưng video/mô phỏng thường không nói rõ giả định | Yêu cầu người vận hành + rủi ro sử liệu ngày 10/08/2026 | Xem video không có citation | FR20 | Một scene có nguồn, giả định, confidence, scrub keyboard và fallback tĩnh |
+| P21 | Người dùng mobile | Loading hiện là skeleton có chữ, chuyển cảnh chưa mang nhận diện riêng | Audit `loading.tsx`/motion ngày 10/08/2026 | Chờ trạng thái chung chung | FR21 | Logo báo tiến trình ngay, transition hỗ trợ thứ tự đọc và tắt hoàn toàn khi reduced motion |
+| P22 | Người nghiên cứu | URL ảnh/tư liệu không chứng minh quyền tái sử dụng hoặc mã lưu trữ | Hướng dẫn Cục Văn thư/Lưu trữ và catalog bảo tàng; nghiên cứu 10/08/2026 | Lưu link hoặc sao chép thiếu provenance | FR22 | Tư liệu có institution/id/origin/rights/credit; chưa rõ quyền chỉ hiện citation/link |
 
 ### Pains NOT addressed in v1 (deliberate — tie to the scope cut list)
 
 - Người đọc muốn gửi sửa lỗi ngay trên trang → hoãn form feedback để tránh spam/PII; v1 dùng form khảo sát của nhóm test.
 - Người học muốn lưu danh sách cá nhân → hoãn tài khoản công chúng/saved list vì Impact L, Grade B.
 - Editor muốn upload file lớn và cùng sửa realtime → hoãn object-storage upload/collaboration; v1 nhập URL media đã được kiểm tra và cảnh báo thay đổi chưa lưu.
-- Người học muốn bản đồ/VR/AI giải đáp → hoãn các hạng mục C cho sau khi nguồn và workflow được chứng minh.
+- Người học muốn AI tự trả lời/tự xuất bản và VR/AR toàn kho → vẫn hoãn; V2 chỉ làm bản
+  đồ progressive enhancement và một tái dựng 3D có nguồn, giả định và fallback.
 
 ## Problem statement
 
@@ -74,6 +83,26 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 - **FR12:** Là máy tìm kiếm/người chia sẻ, tôi nhận title/description/canonical/hreflang/Open Graph/JSON-LD, sitemap và robots đúng theo locale/content.
 - **FR13:** Là Admin, tôi lọc audit log theo actor/action/date/object và thấy login, create/update, review, publish, archive, role change mà không thấy secret/token.
 - **FR14:** Là người vận hành, tôi chạy lệnh backup/restore và nhận snapshot có checksum; bản restore mở được, giữ nguyên số content/translation/source/user.
+- **FR15:** Là học sinh, tôi mở `/{locale}/hoc-theo-lop`, chỉ thấy lớp 6–12/chủ đề bắt
+  buộc hoặc lựa chọn có bài public; hệ thống theo dõi requirement chính thức và không gắn
+  nhãn “đầy đủ” trước khi 100% requirement bắt buộc có bài đã duyệt.
+- **FR16:** Là người tra cứu, tôi chỉ thấy grade/topic/type/period/tag có count >0 trong
+  đúng tập kết quả hiện tại; thay filter cập nhật URL và back/forward/copy-link khôi phục
+  cùng trạng thái.
+- **FR17:** Là người học, tôi mở bài và thấy mục tiêu, nội dung gốc do dự án biên soạn,
+  phân tích, timeline, luận điểm/evidence, phần tranh luận, nguồn và mốc `asOf` tách bạch.
+- **FR18:** Là Reviewer, tôi đưa từng batch lớp/chủ đề qua workflow; chỉ bài có source,
+  claim và provenance đạt gate mới tăng verified coverage, còn ô thiếu vẫn được báo đúng.
+- **FR19:** Là người khám phá, tôi mở bản đồ địa danh/sự kiện, lọc theo mốc và đi từ marker
+  tới detail; nếu canvas/WebGL lỗi hoặc bị tắt, cùng dữ liệu vẫn đọc/điều hướng bằng HTML.
+- **FR20:** Là người học, tôi mở một trận đánh tái dựng, điều khiển các phase bằng pointer
+  hoặc keyboard và luôn thấy nhãn tái dựng, nguồn, giả định, confidence cùng narrative tĩnh.
+- **FR21:** Là người dùng, tôi thấy brand mark khi route đang stream và transition/feedback
+  có chủ đích; không animation nào chặn nội dung, gây layout shift hoặc tồn tại khi tôi bật
+  `prefers-reduced-motion: reduce`.
+- **FR22:** Là người nghiên cứu, tôi duyệt tư liệu/hiện vật theo cơ quan lưu giữ và mã hồ
+  sơ/kiểm kê; asset chỉ được phục vụ khi rights status cho phép, nếu không trang chỉ citation
+  và link gốc.
 
 ## Non-functional requirements
 
@@ -85,6 +114,12 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 - Không log password/token; validation schema ở mọi mutation; HTML nội dung được render dưới dạng text/Markdown an toàn, không chèn script tùy ý.
 - `vi` và `en` là locale duy nhất; slug duy nhất theo `(locale,type)`; ngày có precision `DAY|MONTH|YEAR|APPROXIMATE`.
 - Seed lặp lại an toàn gồm đúng 50 content nodes, 100 translations và ít nhất 50 source links; không dùng ảnh bên thứ ba thiếu license.
+- Public facet tuyệt đối không trả option có `publishedCount=0`; coverage dùng cả
+  `publishedCount` và `verifiedCount`, không suy verified từ việc record đã `PUBLISHED`.
+- Nội dung lớp 6–12 là tóm tắt/giải thích gốc, không sao chép nguyên sách giáo khoa; mọi
+  requirement lưu URL văn bản chương trình và phân biệt `MANDATORY|ELECTIVE`.
+- Reconstruction và tư liệu phải có provenance; WebGL là enhancement, route vẫn đạt WCAG
+  2.2 AA/keyboard và LCP ≤2,5 giây khi scene bundle chưa tải.
 
 ## Tech stack
 
@@ -92,4 +127,8 @@ Next.js App Router + TypeScript cho public/admin/API trong một deployable unit
 
 ## Success metric (numbers only)
 
-10/10 người trong nhóm test hoàn thành “tìm một sự kiện → mở source → đổi locale” trong ≤3 phút; 50/50 content nodes có 2 translation và ≥1 source; 100% publish mới bị chặn nếu còn source/claim chưa xác minh; 100% test RBAC negative bị từ chối; 0 Critical/High issue; LCP ≤2,5 giây và p95 search ≤1 giây trên bộ seed 50 records.
+10/10 người trong nhóm test hoàn thành “chọn lớp → mở bài → kiểm tra nguồn” trong ≤3 phút;
+7/7 lớp có ít nhất một batch public trước beta và 100% requirement bắt buộc phải đạt
+`verified` trước khi website dùng nhãn “đầy đủ”; 0 facet option có count 0; 1/1 scene 3D
+có narrative fallback, nguồn/giả định/confidence và keyboard; 100% asset tư liệu được phục
+vụ có rights status cho phép; 0 Critical/High issue; LCP ≤2,5 giây, p95 search/facet ≤1 giây.

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-11T10:00:23.957Z",
+  "url": "https://transportation-verification-nominated-biotechnology.trycloudflare.com",
+  "coverage": {
+    "requirements": 8,
+    "published": 8,
+    "verified": 8,
+    "fullCoverage": true,
+    "locales": [
+      "vi",
+      "en"
+    ]
+  },
+  "desktop": {
+    "path": "/vi/chu-de/hoc-lich-su-tu-dau-vet-va-thoi-gian",
+    "lesson": "Học lịch sử từ dấu vết và thời gian",
+    "claims": 2,
+    "sources": 1,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1808
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/funan-and-the-oc-eo-world",
+    "lesson": "Funan and the Oc Eo world",
+    "claims": 2,
+    "sources": 1,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 992
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-6/grade-6-coverage-desktop.png",
+    "artifacts/curriculum/grade-6/grade-6-desktop.png",
+    "artifacts/curriculum/grade-6/grade-6-coverage-mobile.png",
+    "artifacts/curriculum/grade-6/grade-6-mobile.png"
+  ]
+}

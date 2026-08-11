@@ -1,0 +1,150 @@
+{
+  "generatedAt": "2026-08-11T10:00:23.957Z",
+  "liveOrigin": "https://transportation-verification-nominated-biotechnology.trycloudflare.com",
+  "database": {
+    "integrity": "ok",
+    "journalMode": "wal",
+    "contentNodes": 58,
+    "grade6Content": 8,
+    "grade6Translations": 16,
+    "grade6LessonTranslations": 16,
+    "grade6VerifiedSources": 8,
+    "grade6VerifiedClaims": 16,
+    "grade6EvidenceRows": 16,
+    "grade6Mappings": 8
+  },
+  "editorialDisclosure": {
+    "vi": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+    "en": "C-028 internal editorial review (not a substitute for the future historian council)",
+    "editorUserId": "user-editor",
+    "reviewerUserId": "user-reviewer",
+    "asOf": "2026-08-11T00:00:00.000Z"
+  },
+  "officialReference": {
+    "title": "Thông tư 17/2025/TT-BGDĐT và tài liệu Chương trình giáo dục phổ thông",
+    "url": "https://vanban.chinhphu.vn/?docid=215347&pageid=27160&typegroupid=6",
+    "verificationStatus": "VERIFIED",
+    "attachment": "17-bgddt.pdf",
+    "deadLinkReplacementVerifiedAt": "2026-08-11T10:00:23.957Z"
+  },
+  "content": [
+    "lesson-g6-ancient-civilisations",
+    "lesson-g6-champa",
+    "lesson-g6-funan",
+    "lesson-g6-human-origins",
+    "lesson-g6-northern-rule-resistance",
+    "lesson-g6-southeast-asia-to-tenth-century",
+    "lesson-g6-van-lang-au-lac",
+    "lesson-g6-why-study-history"
+  ],
+  "sources": [
+    {
+      "id": "source-g6-british-museum-ancient-world",
+      "institution": "British Museum",
+      "sourceType": "MUSEUM_CATALOG",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-official-programme",
+      "institution": "Bộ Giáo dục và Đào tạo",
+      "sourceType": "PRIMARY_RECORD",
+      "qualityTier": "TIER_1_PRIMARY",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-smithsonian-human-evolution",
+      "institution": "Smithsonian Institution",
+      "sourceType": "MUSEUM_CATALOG",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-unesco-my-son",
+      "institution": "UNESCO World Heritage Centre",
+      "sourceType": "REFERENCE_WORK",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-unesco-silk-roads",
+      "institution": "UNESCO",
+      "sourceType": "REFERENCE_WORK",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-vnmh-dong-son",
+      "institution": "Bảo tàng Lịch sử Quốc gia",
+      "sourceType": "MUSEUM_CATALOG",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-vnmh-funan",
+      "institution": "Bảo tàng Lịch sử Quốc gia",
+      "sourceType": "MUSEUM_CATALOG",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    },
+    {
+      "id": "source-g6-vnmh-independence",
+      "institution": "Bảo tàng Lịch sử Quốc gia",
+      "sourceType": "MUSEUM_CATALOG",
+      "qualityTier": "TIER_2_INSTITUTIONAL",
+      "verificationStatus": "VERIFIED",
+      "verifiedBy": "user-reviewer"
+    }
+  ],
+  "claims": [
+    ["claim-g6-ancient-civilisations-evidence", "lesson-g6-ancient-civilisations", "source-g6-british-museum-ancient-world"],
+    ["claim-g6-ancient-civilisations-exchange", "lesson-g6-ancient-civilisations", "source-g6-unesco-silk-roads"],
+    ["claim-g6-champa-exchange", "lesson-g6-champa", "source-g6-unesco-my-son"],
+    ["claim-g6-champa-my-son", "lesson-g6-champa", "source-g6-unesco-my-son"],
+    ["claim-g6-funan-oc-eo", "lesson-g6-funan", "source-g6-vnmh-funan"],
+    ["claim-g6-funan-trade", "lesson-g6-funan", "source-g6-vnmh-funan"],
+    ["claim-g6-human-origins-branches", "lesson-g6-human-origins", "source-g6-smithsonian-human-evolution"],
+    ["claim-g6-human-origins-evidence", "lesson-g6-human-origins", "source-g6-smithsonian-human-evolution"],
+    ["claim-g6-northern-rule-continuity", "lesson-g6-northern-rule-resistance", "source-g6-vnmh-independence"],
+    ["claim-g6-northern-rule-struggles", "lesson-g6-northern-rule-resistance", "source-g6-vnmh-independence"],
+    ["claim-g6-sea-exchange", "lesson-g6-southeast-asia-to-tenth-century", "source-g6-unesco-silk-roads"],
+    ["claim-g6-sea-local-adaptation", "lesson-g6-southeast-asia-to-tenth-century", "source-g6-unesco-my-son"],
+    ["claim-g6-van-lang-dong-son", "lesson-g6-van-lang-au-lac", "source-g6-vnmh-dong-son"],
+    ["claim-g6-van-lang-material-life", "lesson-g6-van-lang-au-lac", "source-g6-vnmh-dong-son"],
+    ["claim-g6-why-study-history-evidence", "lesson-g6-why-study-history", "source-g6-official-programme"],
+    ["claim-g6-why-study-history-time", "lesson-g6-why-study-history", "source-g6-official-programme"]
+  ],
+  "claimTupleShape": ["claimId", "contentId", "evidenceSourceId"],
+  "claimState": {
+    "verificationStatus": "VERIFIED",
+    "verifiedBy": "user-reviewer",
+    "verifiedAt": "2026-08-11T00:00:00.000Z",
+    "everyEvidenceHasLocator": true,
+    "everyEvidenceQuote": null
+  },
+  "mappings": [
+    ["lesson-g6-ancient-civilisations", "g6-ancient-civilisations"],
+    ["lesson-g6-champa", "g6-champa"],
+    ["lesson-g6-funan", "g6-funan"],
+    ["lesson-g6-human-origins", "g6-human-origins"],
+    ["lesson-g6-northern-rule-resistance", "g6-northern-rule-resistance"],
+    ["lesson-g6-southeast-asia-to-tenth-century", "g6-southeast-asia-to-tenth-century"],
+    ["lesson-g6-van-lang-au-lac", "g6-van-lang-au-lac"],
+    ["lesson-g6-why-study-history", "g6-why-study-history"]
+  ],
+  "mappingTupleShape": ["contentId", "requirementId"],
+  "rights": {
+    "mode": "citation-only",
+    "contentMediaRows": 0,
+    "evidenceQuotes": 0,
+    "thirdPartyBinaries": 0,
+    "citationNote": "Batch C-028 không tải hoặc sao chép tệp nhị phân của bên thứ ba."
+  }
+}

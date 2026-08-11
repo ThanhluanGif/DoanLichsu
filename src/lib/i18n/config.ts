@@ -35,7 +35,7 @@ export const contentCollectionMessages:Record<Locale,Record<ContentType,{eyebrow
 
 export const messages = {
   vi: {
-    brandSubtitle:"Vietnamese Military History",navTimeline:"Dòng thời gian",navExplore:"Khám phá",navSources:"Nguồn tư liệu",
+    brandSubtitle:"Vietnamese Military History",navTimeline:"Dòng thời gian",navExplore:"Khám phá",navSources:"Nguồn tư liệu",navCurriculum:"Học theo lớp",
     switchLabel:"Chuyển sang tiếng Anh",search:"Tìm kiếm",searchPlaceholder:"Nhập sự kiện, nhân vật hoặc hiện vật",skip:"Chuyển đến nội dung",
     homeEyebrow:"Kho tư liệu song ngữ có kiểm chứng",homeTitle:"Theo dòng lịch sử giữ nước của dân tộc Việt Nam",
     homeLead:"Khám phá các thời kỳ, sự kiện, nhân vật và hiện vật qua một dòng thời gian rõ ràng — mỗi nội dung đều dẫn về nguồn tham khảo.",
@@ -54,9 +54,11 @@ export const messages = {
     loading:"Đang tải nội dung đã xuất bản…",errorTitle:"Không thể tải kho tư liệu",errorCopy:"Vui lòng thử lại sau ít phút.",retry:"Thử lại",
     sourcesEyebrow:"Tài liệu đã đối chiếu",sourcesTitlePage:"Danh mục nguồn tư liệu",sourcesLead:"Tra cứu các tài liệu tham khảo đang được dùng trong nội dung đã xuất bản. Mỗi đường dẫn chỉ xuất hiện một lần.",sourceUsedByOne:"nội dung sử dụng",sourceUsedByMany:"nội dung sử dụng",sourcesAccessed:"Truy cập",openSource:"Mở nguồn",sourceDirectoryCta:"Xem danh mục nguồn",
     footer:"Ưu tiên nguồn rõ ràng, ngôn ngữ nhất quán và khả năng tiếp cận.",emptyTimeline:"Chưa có sự kiện đã xuất bản cho bộ lọc này.",
+    curriculumEyebrow:"Lộ trình theo chương trình",curriculumTitle:"Học lịch sử theo lớp",curriculumLead:"Chọn một lớp để xem những chủ đề đã có nội dung xuất bản. Những phần còn thiếu được giữ lại trong không gian biên tập để tiếp tục kiểm chứng.",curriculumGrade:"Lớp",curriculumRequirements:"chủ đề trong chương trình",curriculumPublished:"đã có bài",curriculumVerified:"đã kiểm chứng",curriculumCoveragePending:"Chưa đạt phủ kiểm chứng 100%",curriculumCoverageComplete:"Đã phủ kiểm chứng 100%",curriculumMandatory:"Nội dung bắt buộc",curriculumElective:"Chuyên đề lựa chọn",curriculumPublishedStatus:"Có bài đã xuất bản",curriculumVerifiedStatus:"Đã kiểm chứng",curriculumSource:"Nguồn chương trình",curriculumOutcomes:"Mục tiêu cần đạt",curriculumNoPublished:"Lớp này chưa có chủ đề đã xuất bản.",curriculumBack:"Trở lại danh mục lớp",curriculumAsOf:"Theo ma trận chương trình",
+    lessonEyebrow:"Bài học có đối chiếu",lessonTitle:"Đọc sâu nội dung",lessonObjectives:"Mục tiêu học tập",lessonSummary:"Tóm tắt biên tập",lessonAnalysis:"Phân tích",lessonDebates:"Góc nhìn còn tranh luận",lessonClaims:"Luận điểm đã kiểm chứng",lessonNoClaims:"Chưa có luận điểm đủ bằng chứng đã được kiểm chứng để hiển thị.",lessonAsOf:"Cập nhật bài học",
   },
   en: {
-    brandSubtitle:"Lịch sử quân sự Việt Nam",navTimeline:"Timeline",navExplore:"Explore",navSources:"Sources",
+    brandSubtitle:"Lịch sử quân sự Việt Nam",navTimeline:"Timeline",navExplore:"Explore",navSources:"Sources",navCurriculum:"Learn by grade",
     switchLabel:"Switch to Vietnamese",search:"Search",searchPlaceholder:"Enter an event, person, or artifact",skip:"Skip to content",
     homeEyebrow:"A verified bilingual archive",homeTitle:"Follow Vietnam’s history of national defence",
     homeLead:"Explore periods, events, people, and artifacts through a clear timeline, with every published story connected to its sources.",
@@ -75,6 +77,8 @@ export const messages = {
     loading:"Loading published content…",errorTitle:"The archive could not be loaded",errorCopy:"Please try again in a moment.",retry:"Try again",
     sourcesEyebrow:"Checked references",sourcesTitlePage:"Source directory",sourcesLead:"Browse the references used by published entries. Each destination appears only once.",sourceUsedByOne:"published entry",sourceUsedByMany:"published entries",sourcesAccessed:"Accessed",openSource:"Open source",sourceDirectoryCta:"View source directory",
     footer:"Clear sources, consistent language, and accessible reading come first.",emptyTimeline:"No published events match this filter yet.",
+    curriculumEyebrow:"Curriculum path",curriculumTitle:"Learn history by grade",curriculumLead:"Choose a grade to see topics with published entries. Missing coverage stays visible to editors so it can be researched and checked before publication.",curriculumGrade:"Grade",curriculumRequirements:"curriculum topics",curriculumPublished:"with a published entry",curriculumVerified:"verified",curriculumCoveragePending:"Verified coverage is still in progress",curriculumCoverageComplete:"100% verified coverage",curriculumMandatory:"Mandatory content",curriculumElective:"Elective themes",curriculumPublishedStatus:"Published entry",curriculumVerifiedStatus:"Verified",curriculumSource:"Programme source",curriculumOutcomes:"Required outcomes",curriculumNoPublished:"This grade has no published topics yet.",curriculumBack:"Back to grade catalogue",curriculumAsOf:"Coverage updated",
+    lessonEyebrow:"Source-aware lesson",lessonTitle:"Read the record closely",lessonObjectives:"Learning objectives",lessonSummary:"Editorial summary",lessonAnalysis:"Analysis",lessonDebates:"Interpretations still debated",lessonClaims:"Verified claims",lessonNoClaims:"No claim with fully verified evidence is published here yet.",lessonAsOf:"Lesson updated",
   },
 } as const;
 

@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-08-11T07:26:51.054Z",
+  "url": "https://automobile-sunglasses-swimming-monitored.trycloudflare.com",
+  "publishedGrades": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "gradeDetail": {
+    "grade": 12,
+    "visibleRequirements": 4,
+    "missingVisibleRequirements": 0,
+    "copyLink": true,
+    "backForward": true
+  },
+  "locales": {
+    "vi": "/vi/hoc-theo-lop",
+    "en": "/en/learn-by-grade"
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "desktopMetrics": {
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "lcpMs": 0
+  },
+  "mobileMetrics": {
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "lcpMs": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum-catalog/curriculum-desktop.png",
+    "artifacts/curriculum-catalog/curriculum-mobile.png"
+  ]
+}
