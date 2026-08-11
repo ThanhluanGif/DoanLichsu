@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-11T10:56:39.792Z",
+  "url": "https://alone-occur-doctors-acid.trycloudflare.com",
+  "coverage": {
+    "requirements": 6,
+    "published": 6,
+    "verified": 6,
+    "fullCoverage": true,
+    "locales": [
+      "vi",
+      "en"
+    ]
+  },
+  "desktop": {
+    "path": "/vi/chu-de/tay-au-trung-dai-lanh-dia-do-thi-va-chuyen-doi-tu-tuong",
+    "lesson": "Tây Âu trung đại: lãnh địa, đô thị và những chuyển đổi tư tưởng",
+    "claims": 2,
+    "sources": 3,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1020
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/lam-son-uprising-and-fifteenth-century-dai-viet",
+    "lesson": "The Lam Sơn uprising and fifteenth-century Đại Việt",
+    "claims": 2,
+    "sources": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 916
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-7/grade-7-coverage-desktop.png",
+    "artifacts/curriculum/grade-7/grade-7-desktop.png",
+    "artifacts/curriculum/grade-7/grade-7-coverage-mobile.png",
+    "artifacts/curriculum/grade-7/grade-7-mobile.png"
+  ]
+}

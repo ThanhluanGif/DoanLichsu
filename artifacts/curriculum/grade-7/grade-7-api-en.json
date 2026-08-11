@@ -1,0 +1,269 @@
+{
+  "data": {
+    "grade": 7,
+    "label": "Grade 7",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g7-medieval-western-europe",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Western Europe from the fifth to early sixteenth century",
+        "slug": "medieval-western-europe",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 476,
+        "periodEnd": 1550,
+        "requiredOutcomes": [
+          "Outline feudal society, towns, the Renaissance, and Reformation."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g7-medieval-western-europe",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Medieval Western Europe: estates, towns, and changing ideas",
+            "slug": "medieval-western-europe-estates-towns-and-changing-ideas",
+            "summary": "From the fifth to early sixteenth century, Western Europe changed through landed relations, growing towns, the Renaissance, and religious reform.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g7-medieval-china-india",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Medieval China and India",
+        "slug": "medieval-china-india",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Trung Quốc và Ấn Độ thời trung đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 600,
+        "periodEnd": 1850,
+        "requiredOutcomes": [
+          "Identify major political developments and cultural achievements."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g7-medieval-china-india",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Medieval China and India through states, exchange, and culture",
+            "slug": "medieval-china-and-india-through-states-exchange-and-culture",
+            "summary": "China and the Indian subcontinent experienced multiple dynasties, centres of power, and exchange networks rather than two simple linear stories.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g7-southeast-asia-tenth-sixteenth",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Southeast Asia from the late tenth to early sixteenth century",
+        "slug": "southeast-asia-tenth-sixteenth",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 950,
+        "periodEnd": 1550,
+        "requiredOutcomes": [
+          "Outline the development of regional kingdoms and cultures."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Southeast Asia, tenth–sixteenth centuries: kingdoms, water, and exchange",
+            "slug": "southeast-asia-tenth-sixteenth-centuries-kingdoms-water-and-exchange",
+            "summary": "Southeast Asian kingdoms developed among rivers, plains, islands, and seas; their heritage demonstrates organisation and creative regional exchange.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g7-vietnam-tenth-thirteenth",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Vietnam from the tenth to early thirteenth century",
+        "slug": "vietnam-tenth-thirteenth",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XIII",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 938,
+        "periodEnd": 1225,
+        "requiredOutcomes": [
+          "Outline state-building and defence under the Ngô, Đinh, Early Lê, and Lý."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g7-vietnam-tenth-thirteenth",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "From tenth-century self-rule to Đại Việt under the Lý",
+            "slug": "from-tenth-century-self-rule-to-dai-viet-under-the-ly",
+            "summary": "The Ngô, Đinh, Early Lê, and Lý gradually organised government, established capitals, defended independence, and built foundations for Đại Việt.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "event-ly-song",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Lý–Song war, 1075–1077",
+            "slug": "ly-song-war-1075-1077",
+            "summary": "The Lý court struck first and then held the Như Nguyệt defensive line against Song forces.",
+            "thumbnail": null,
+            "startDate": "1075-01-01",
+            "endDate": "1077-01-01",
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Early history",
+              "Resistance"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "g7-vietnam-tran-ho",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Vietnam under the Trần and Hồ",
+        "slug": "vietnam-tran-ho",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam thời Trần và Hồ",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1226,
+        "periodEnd": 1407,
+        "requiredOutcomes": [
+          "Analyse state-building and resistance to Yuan-Mongol invasions."
+        ],
+        "lessons": [
+          {
+            "id": "event-bach-dang-1288",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Battle of Bạch Đằng, 1288",
+            "slug": "battle-of-bach-dang-1288",
+            "summary": "Trần forces used the tide and a prepared stake field to defeat the withdrawing Yuan-Mongol fleet.",
+            "thumbnail": null,
+            "startDate": "1288-04-09",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Early history",
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g7-vietnam-tran-ho",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Đại Việt under the Trần and Hồ: government, resistance, and reform",
+            "slug": "dai-viet-under-tran-and-ho-government-resistance-and-reform",
+            "summary": "The Trần developed the state and resisted three Mongol-Yuan invasions; late-fourteenth-century Hồ reforms unfolded amid crisis and produced a complex outcome.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g7-lam-son-later-le",
+        "grade": 7,
+        "track": "MANDATORY",
+        "topic": "Lam Sơn uprising and Đại Việt under the Later Lê",
+        "slug": "lam-son-later-le",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1418,
+        "periodEnd": 1527,
+        "requiredOutcomes": [
+          "Outline the Lam Sơn uprising and Đại Việt in the fifteenth century."
+        ],
+        "lessons": [
+          {
+            "id": "event-lam-son",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Lam Sơn uprising",
+            "slug": "lam-son-uprising",
+            "summary": "The Lam Sơn forces grew from a Thanh Hóa base and ended Ming occupation.",
+            "thumbnail": null,
+            "startDate": "1418-01-01",
+            "endDate": "1427-12-31",
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Independence",
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g7-lam-son-later-le",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The Lam Sơn uprising and fifteenth-century Đại Việt",
+            "slug": "lam-son-uprising-and-fifteenth-century-dai-viet",
+            "summary": "The Lam Sơn uprising grew from a Thanh Hóa force into a war for independence; after 1428, the Early Lê rebuilt Đại Việt with achievements and tensions.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

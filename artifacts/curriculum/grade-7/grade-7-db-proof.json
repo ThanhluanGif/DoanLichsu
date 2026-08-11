@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-11T10:56:39.792Z",
+  "database": "/tmp/qsv-c029-live-019ff012.sqlite",
+  "asOf": "2026-08-11T00:00:00.000Z",
+  "reviewDisclosure": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+  "counts": {
+    "publishedLessons": 6,
+    "publishedTranslations": 12,
+    "lessonTranslations": 12,
+    "verifiedSources": 18,
+    "verifiedClaims": 12,
+    "locatedEvidence": 12,
+    "mappings": 6,
+    "mediaAttachments": 0
+  },
+  "lessons": [
+    {
+      "id": "lesson-g7-lam-son-later-le",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "lesson-g7-medieval-china-india",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "lesson-g7-medieval-western-europe",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "lesson-g7-vietnam-tenth-thirteenth",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "lesson-g7-vietnam-tran-ho",
+      "status": "PUBLISHED",
+      "reviewedAt": "2026-08-11T00:00:00.000Z"
+    }
+  ]
+}
