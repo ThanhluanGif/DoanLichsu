@@ -5,10 +5,15 @@ import { normalizeSearchText } from "../src/lib/search/normalize";
 import { readEnv } from "../src/lib/env";
 import { hashPassword } from "../src/lib/auth/password";
 import { curriculumMappings,curriculumProgrammeAsOf,curriculumRequirements } from "../src/data/curriculum/requirements";
+import { grade6BatchAsOf,grade6Lessons,grade6Sources } from "../src/data/curriculum/grade-6/content";
 
 const curriculumOnly=process.env.CURRICULUM_SEED_ONLY==="1";
+const grade6Only=process.env.GRADE_6_SEED_ONLY==="1";
+const allowGrade6Update=process.env.ALLOW_GRADE_6_BATCH_UPDATE==="1";
 
-if (process.env.NODE_ENV === "production"&&!curriculumOnly) {
+if (curriculumOnly&&grade6Only) throw new Error("CURRICULUM_SEED_ONLY and GRADE_6_SEED_ONLY cannot be combined.");
+
+if (process.env.NODE_ENV === "production"&&!curriculumOnly&&!grade6Only) {
   if (process.env.ALLOW_DEMO_SEED !== "1") {
     throw new Error("Refusing to replace production content without ALLOW_DEMO_SEED=1.");
   }
@@ -30,7 +35,7 @@ const demoUsers = [
   { id: "user-editor", email: "editor@quansuviet.local", displayName: "Biên tập viên", role: "EDITOR", password: process.env.SEED_EDITOR_PASSWORD ?? "Editor-Demo-2026!" },
   { id: "user-reviewer", email: "reviewer@quansuviet.local", displayName: "Kiểm duyệt viên", role: "REVIEWER", password: process.env.SEED_REVIEWER_PASSWORD ?? "Reviewer-Demo-2026!" },
 ] as const;
-const passwordHashes:Map<string,string>=curriculumOnly
+const passwordHashes:Map<string,string>=curriculumOnly||grade6Only
   ?new Map()
   :new Map(await Promise.all(demoUsers.map(async(user)=>[user.id,await hashPassword(user.password)] as const)));
 
@@ -152,7 +157,215 @@ function assertOnlyDemoData(): void {
   }
 }
 
-if(curriculumOnly){
+const grade6LessonIds=grade6Lessons.map(({id})=>id);
+const grade6SourceIds=grade6Sources.map(({id})=>id);
+const grade6Claims=grade6Lessons.flatMap(({id,claims})=>claims.map((claim)=>({...claim,contentId:id})));
+const grade6ClaimIds=grade6Claims.map(({id})=>id);
+const grade6RequirementIds=grade6Lessons.map(({requirementId})=>requirementId);
+const grade6ReviewerVi="Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)";
+const grade6ReviewerEn="C-028 internal editorial review (not a substitute for the future historian council)";
+const grade6VerificationNote="Kiểm tra biên tập nội bộ C-028; trạng thái này không phải xác nhận của Hội đồng sử học độc lập.";
+
+function assertUniqueGrade6Ids(values:string[],label:string){
+  if(new Set(values).size!==values.length)throw new Error(`Grade 6 batch has duplicate ${label} ids.`);
+}
+
+function assertGrade6BatchDefinition(){
+  assertUniqueGrade6Ids(grade6LessonIds,"lesson");
+  assertUniqueGrade6Ids(grade6SourceIds,"source");
+  assertUniqueGrade6Ids(grade6ClaimIds,"claim");
+  assertUniqueGrade6Ids(grade6RequirementIds,"requirement");
+  if(grade6Lessons.length!==8||grade6Claims.length!==16||grade6Sources.length!==8){
+    throw new Error(`Grade 6 batch invariant failed: ${JSON.stringify({lessons:grade6Lessons.length,claims:grade6Claims.length,sources:grade6Sources.length})}`);
+  }
+  const sourceIds=new Set(grade6SourceIds);
+  for(const lesson of grade6Lessons){
+    const lessonClaimIds=new Set(lesson.claims.map(({id})=>id));
+    if(!lesson.sourceIds.length)throw new Error(`Grade 6 lesson ${lesson.id} has no source.`);
+    for(const sourceId of lesson.sourceIds)if(!sourceIds.has(sourceId))throw new Error(`Grade 6 lesson ${lesson.id} references unknown source ${sourceId}.`);
+    for(const claim of lesson.claims)if(!lesson.sourceIds.includes(claim.sourceId))throw new Error(`Grade 6 claim ${claim.id} uses a source not attached to ${lesson.id}.`);
+    for(const locale of [lesson.vi,lesson.en])for(const debate of locale.debates){
+      for(const claimId of debate.claimIds)if(!lessonClaimIds.has(claimId))throw new Error(`Grade 6 debate in ${lesson.id} references unknown claim ${claimId}.`);
+    }
+  }
+}
+
+function assertGrade6Prerequisites(){
+  const requiredUsers=[
+    {id:"user-admin",role:"ADMIN"},
+    {id:"user-editor",role:"EDITOR"},
+    {id:"user-reviewer",role:"REVIEWER"},
+  ];
+  for(const expected of requiredUsers){
+    const row=database.prepare("SELECT role,active FROM users WHERE id=?").get(expected.id) as {role:string;active:number}|undefined;
+    if(!row||row.role!==expected.role||row.active!==1)throw new Error(`Grade 6 batch requires active ${expected.id} with role ${expected.role}; run the base seed first.`);
+  }
+  for(const id of grade6RequirementIds){
+    const row=database.prepare("SELECT grade,track FROM curriculum_requirements WHERE id=?").get(id) as {grade:number;track:string}|undefined;
+    if(!row||row.grade!==6||row.track!=="MANDATORY")throw new Error(`Grade 6 batch requires mandatory curriculum requirement ${id}; run the curriculum seed first.`);
+  }
+}
+
+function assertGrade6BatchCanReplace(){
+  if(allowGrade6Update)return;
+  const knownTranslations=new Set(grade6LessonIds.flatMap((id)=>[`${id}-vi`,`${id}-en`]));
+  const knownClaims=new Set(grade6ClaimIds);
+  const expectedSourcesByLesson=new Map(grade6Lessons.map((lesson)=>[lesson.id,new Set(lesson.sourceIds)]));
+  const expectedRequirementByLesson=new Map(grade6Lessons.map((lesson)=>[lesson.id,lesson.requirementId]));
+  for(const lessonId of grade6LessonIds){
+    const node=database.prepare("SELECT updated_at AS updatedAt FROM content_nodes WHERE id=?").get(lessonId) as {updatedAt:string}|undefined;
+    if(node&&node.updatedAt!==grade6BatchAsOf)throw new Error(`Refusing to replace edited Grade 6 row content_nodes.${lessonId}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    for(const row of database.prepare("SELECT id,updated_at AS updatedAt FROM content_translations WHERE node_id=?").all(lessonId) as Array<{id:string;updatedAt:string}>){
+      if(!knownTranslations.has(row.id)||row.updatedAt!==grade6BatchAsOf)throw new Error(`Refusing to replace edited Grade 6 row content_translations.${row.id}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    }
+    for(const row of database.prepare("SELECT id,updated_at AS updatedAt FROM content_claims WHERE content_id=?").all(lessonId) as Array<{id:string;updatedAt:string}>){
+      if(!knownClaims.has(row.id)||row.updatedAt!==grade6BatchAsOf)throw new Error(`Refusing to replace edited Grade 6 row content_claims.${row.id}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    }
+    for(const row of database.prepare("SELECT locale,as_of AS asOf,reviewed_at AS reviewedAt FROM lesson_translations WHERE content_id=?").all(lessonId) as Array<{locale:string;asOf:string;reviewedAt:string}>){
+      if(!["vi","en"].includes(row.locale)||row.asOf!==grade6BatchAsOf||row.reviewedAt!==grade6BatchAsOf)throw new Error(`Refusing to replace edited Grade 6 lesson translation ${lessonId}|${row.locale}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    }
+    const expectedSources=expectedSourcesByLesson.get(lessonId)!;
+    for(const row of database.prepare("SELECT source_id AS sourceId,sort_order AS sortOrder FROM content_sources WHERE content_id=?").all(lessonId) as Array<{sourceId:string;sortOrder:number}>){
+      const expectedSort=grade6Lessons.find(({id})=>id===lessonId)!.sourceIds.indexOf(row.sourceId);
+      if(!expectedSources.has(row.sourceId)||row.sortOrder!==expectedSort)throw new Error(`Refusing to erase a manually attached source from ${lessonId}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    }
+    for(const row of database.prepare("SELECT requirement_id AS requirementId,as_of AS asOf,mapped_at AS mappedAt FROM content_curriculum WHERE content_id=?").all(lessonId) as Array<{requirementId:string;asOf:string|null;mappedAt:string}>){
+      if(row.requirementId!==expectedRequirementByLesson.get(lessonId)||row.asOf!==grade6BatchAsOf||row.mappedAt!==grade6BatchAsOf)throw new Error(`Refusing to erase a manually edited curriculum mapping from ${lessonId}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+    }
+    const attached=(database.prepare(`
+      SELECT
+        (SELECT COUNT(*) FROM content_tags WHERE content_id=?) +
+        (SELECT COUNT(*) FROM content_media WHERE content_id=?) +
+        (SELECT COUNT(*) FROM content_relations WHERE content_id=? OR related_id=?) AS count
+    `).get(lessonId,lessonId,lessonId,lessonId) as {count:number}).count;
+    if(attached)throw new Error(`Refusing to erase manually attached tags, media, or relations from ${lessonId}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+  }
+  for(const sourceId of grade6SourceIds){
+    const row=database.prepare("SELECT updated_at AS updatedAt FROM sources WHERE id=?").get(sourceId) as {updatedAt:string}|undefined;
+    if(row&&row.updatedAt!==grade6BatchAsOf)throw new Error(`Refusing to replace edited Grade 6 row sources.${sourceId}; set ALLOW_GRADE_6_BATCH_UPDATE=1 to update explicitly.`);
+  }
+}
+
+function grade6Count(table:string,column:string,ids:string[]){
+  const placeholders=ids.map(()=>"?").join(",");
+  return(database.prepare(`SELECT COUNT(*) AS count FROM ${table} WHERE ${column} IN (${placeholders})`).get(...ids) as {count:number}).count;
+}
+
+if(grade6Only){
+  try{
+    assertGrade6BatchDefinition();
+    assertGrade6Prerequisites();
+    assertGrade6BatchCanReplace();
+    const result=database.transaction(()=>{
+      const deleteEvidence=database.prepare("DELETE FROM claim_evidence WHERE content_id=?");
+      const deleteClaims=database.prepare("DELETE FROM content_claims WHERE content_id=?");
+      const deleteLessons=database.prepare("DELETE FROM lesson_translations WHERE content_id=?");
+      const deleteMappings=database.prepare("DELETE FROM content_curriculum WHERE content_id=?");
+      const deleteSources=database.prepare("DELETE FROM content_sources WHERE content_id=?");
+      const deleteTranslations=database.prepare("DELETE FROM content_translations WHERE node_id=?");
+      const deleteRelations=database.prepare("DELETE FROM content_relations WHERE content_id=? OR related_id=?");
+      const deleteTags=database.prepare("DELETE FROM content_tags WHERE content_id=?");
+      const deleteMedia=database.prepare("DELETE FROM content_media WHERE content_id=?");
+      const deleteNode=database.prepare("DELETE FROM content_nodes WHERE id=?");
+      for(const id of grade6LessonIds){
+        deleteEvidence.run(id);deleteClaims.run(id);deleteLessons.run(id);deleteMappings.run(id);
+        deleteSources.run(id);deleteTranslations.run(id);deleteRelations.run(id,id);deleteTags.run(id);deleteMedia.run(id);deleteNode.run(id);
+      }
+
+      const upsertSource=database.prepare(`
+        INSERT INTO sources(
+          id,title,author,publisher,year,url,accessed_at,citation_note,created_at,updated_at,version,
+          source_type,quality_tier,institution,identifier,edition,archived_url,checksum,
+          verification_status,verified_by,verified_at,verification_note
+        ) VALUES(?,?,NULL,?,?,?,?,?,?,?,1,?,?,?,?,NULL,NULL,NULL,'VERIFIED','user-reviewer',?,?)
+        ON CONFLICT(id) DO UPDATE SET
+          title=excluded.title,author=excluded.author,publisher=excluded.publisher,year=excluded.year,url=excluded.url,
+          accessed_at=excluded.accessed_at,citation_note=excluded.citation_note,created_at=excluded.created_at,
+          updated_at=excluded.updated_at,version=excluded.version,source_type=excluded.source_type,
+          quality_tier=excluded.quality_tier,institution=excluded.institution,identifier=excluded.identifier,
+          edition=excluded.edition,archived_url=excluded.archived_url,checksum=excluded.checksum,
+          verification_status=excluded.verification_status,verified_by=excluded.verified_by,
+          verified_at=excluded.verified_at,verification_note=excluded.verification_note
+      `);
+      for(const source of grade6Sources)upsertSource.run(
+        source.id,source.title,source.publisher,source.year,source.url,grade6BatchAsOf,
+        "Chỉ dẫn nguồn bên ngoài; batch C-028 không tải hoặc sao chép tệp nhị phân của bên thứ ba.",
+        grade6BatchAsOf,grade6BatchAsOf,source.sourceType,source.qualityTier,source.institution,
+        source.identifier,grade6BatchAsOf,`${source.verificationNote} ${grade6VerificationNote}`,
+      );
+
+      const insertNode=database.prepare(`
+        INSERT INTO content_nodes(
+          id,type,status,featured,reviewed_by,published_at,created_at,updated_at,
+          version,updated_by,reviewed_at
+        ) VALUES(?,'TOPIC','PUBLISHED',0,?,?,?, ?,1,'user-editor',?)
+      `);
+      const insertTranslation=database.prepare(`
+        INSERT INTO content_translations(
+          id,node_id,locale,title,slug,summary,body,seo_title,seo_description,
+          translation_status,search_text,created_at,updated_at,version
+        ) VALUES(?,?,?,?,?,?,?,?,?,'PUBLISHED',?,?,?,1)
+      `);
+      const attachSource=database.prepare("INSERT INTO content_sources(content_id,source_id,sort_order) VALUES(?,?,?)");
+      const insertLesson=database.prepare(`
+        INSERT INTO lesson_translations(
+          content_id,locale,learning_objectives,original_summary,analysis,debates,as_of,reviewed_by,reviewed_at
+        ) VALUES(?,?,?,?,?,?,?,?,?)
+      `);
+      const insertClaim=database.prepare(`
+        INSERT INTO content_claims(
+          id,content_id,claim_type,assessment,statement_vi,statement_en,verification_status,version,
+          verified_by,verified_at,verification_note,created_by,updated_by,created_at,updated_at
+        ) VALUES(?,?,?,?,?,?,'VERIFIED',1,'user-reviewer',?,?, 'user-editor','user-editor',?,?)
+      `);
+      const insertEvidence=database.prepare(`
+        INSERT INTO claim_evidence(claim_id,content_id,source_id,locator,quote,note,sort_order)
+        VALUES(?,?,?,?,NULL,?,0)
+      `);
+      const attachRequirement=database.prepare(`
+        INSERT INTO content_curriculum(content_id,requirement_id,as_of,mapped_by,mapped_at)
+        VALUES(?,?,?,'user-editor',?)
+      `);
+      for(const lesson of grade6Lessons){
+        insertNode.run(lesson.id,grade6ReviewerVi,grade6BatchAsOf,grade6BatchAsOf,grade6BatchAsOf,grade6BatchAsOf);
+        for(const [locale,value] of [["vi",lesson.vi],["en",lesson.en]] as const){
+          insertTranslation.run(
+            `${lesson.id}-${locale}`,lesson.id,locale,value.title,value.slug,value.summary,value.body,
+            value.title,value.summary,normalizeSearchText(`${value.title} ${value.summary} ${value.body}`),
+            grade6BatchAsOf,grade6BatchAsOf,
+          );
+          insertLesson.run(
+            lesson.id,locale,JSON.stringify(value.learningObjectives),value.originalSummary,value.analysis,
+            JSON.stringify(value.debates),grade6BatchAsOf,locale==="vi"?grade6ReviewerVi:grade6ReviewerEn,grade6BatchAsOf,
+          );
+        }
+        lesson.sourceIds.forEach((sourceId,index)=>attachSource.run(lesson.id,sourceId,index));
+        for(const claim of lesson.claims){
+          insertClaim.run(
+            claim.id,lesson.id,claim.claimType,claim.assessment,claim.statementVi,claim.statementEn,
+            grade6BatchAsOf,`${claim.note} ${grade6VerificationNote}`,grade6BatchAsOf,grade6BatchAsOf,
+          );
+          insertEvidence.run(claim.id,lesson.id,claim.sourceId,claim.locator,claim.note);
+        }
+        attachRequirement.run(lesson.id,lesson.requirementId,grade6BatchAsOf,grade6BatchAsOf);
+      }
+
+      const counts={
+        lessons:grade6Count("content_nodes","id",grade6LessonIds),
+        translations:grade6Count("content_translations","node_id",grade6LessonIds),
+        lessonTranslations:grade6Count("lesson_translations","content_id",grade6LessonIds),
+        sources:grade6Count("sources","id",grade6SourceIds),
+        claims:grade6Count("content_claims","id",grade6ClaimIds),
+        evidence:grade6Count("claim_evidence","claim_id",grade6ClaimIds),
+        mappings:grade6Count("content_curriculum","content_id",grade6LessonIds),
+      };
+      const expected={lessons:8,translations:16,lessonTranslations:16,sources:8,claims:16,evidence:16,mappings:8};
+      if(JSON.stringify(counts)!==JSON.stringify(expected))throw new Error(`Grade 6 seed invariant failed: ${JSON.stringify(counts)}`);
+      return{mode:"grade-6-only",asOf:grade6BatchAsOf,review:"internal-c028-not-historian-council",copyright:"citations-only-no-third-party-binaries",...counts};
+    }).immediate();
+    console.log(JSON.stringify(result));
+  }finally{database.close();}
+}else if(curriculumOnly){
   try{
     const result=database.transaction(()=>{
       const upsert=database.prepare(`

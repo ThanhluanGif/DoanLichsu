@@ -1,0 +1,312 @@
+{
+  "data": {
+    "grade": 6,
+    "label": "Grade 6",
+    "summary": {
+      "requirementCount": 8,
+      "publishedRequirementCount": 8,
+      "verifiedRequirementCount": 8,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g6-why-study-history",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Why study history?",
+        "slug": "why-study-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Tại sao cần học Lịch sử?",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Recognise history, historical sources, and historical time."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-why-study-history",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Learning history from evidence and time",
+            "slug": "learning-history-from-evidence-and-time",
+            "summary": "History is studied through different kinds of evidence; learners ask who created a source, in what setting, and how its dates are known.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-human-origins",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Human origins and early society",
+        "slug": "human-origins",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Nguồn gốc loài người và xã hội nguyên thủy",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -3000000,
+        "periodEnd": -4000,
+        "requiredOutcomes": [
+          "Outline human origins, labour, and early social life."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-human-origins",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Human origins and early society",
+            "slug": "human-origins-and-early-society",
+            "summary": "Fossils, tools, footprints, genetics, and dating methods help researchers study human evolution and early ways of life.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-ancient-civilisations",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Ancient societies and civilisations",
+        "slug": "ancient-civilisations",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Các xã hội và nền văn minh cổ đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -4000,
+        "periodEnd": 476,
+        "requiredOutcomes": [
+          "Identify representative achievements of major ancient civilisations."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-ancient-civilisations",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Reading ancient civilisations through achievements and exchange",
+            "slug": "reading-ancient-civilisations-through-achievements-and-exchange",
+            "summary": "Egypt, Mesopotamia, India, China, Greece, and Rome left different achievements in cities, writing, government, science, art, and law.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-southeast-asia-to-tenth-century",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Southeast Asia to the tenth century",
+        "slug": "southeast-asia-to-tenth-century",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1,
+        "periodEnd": 1000,
+        "requiredOutcomes": [
+          "Describe the formation of regional kingdoms and exchange."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-southeast-asia-to-tenth-century",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Southeast Asia to the tenth century: kingdoms and exchange networks",
+            "slug": "southeast-asia-to-the-tenth-century-kingdoms-and-exchange",
+            "summary": "Southeast Asian communities formed multiple centres and kingdoms connected by rivers, seas, and wider cultural networks.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-van-lang-au-lac",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Văn Lang and Âu Lạc",
+        "slug": "van-lang-au-lac",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Văn Lang – Âu Lạc",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -700,
+        "periodEnd": -179,
+        "requiredOutcomes": [
+          "Outline the organisation, life, and legacy of early states in Vietnam."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-van-lang-au-lac",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Van Lang and Au Lac through archaeology and tradition",
+            "slug": "van-lang-and-au-lac-through-archaeology-and-tradition",
+            "summary": "Dong Son sites and objects help investigate the material basis, daily life, and emergence of early states in northern Vietnam.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-northern-rule-resistance",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Northern rule and struggles for independence",
+        "slug": "northern-rule-resistance",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+        "publishedCount": 3,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -179,
+        "periodEnd": 938,
+        "requiredOutcomes": [
+          "Explain major changes and representative independence struggles to the early tenth century."
+        ],
+        "lessons": [
+          {
+            "id": "event-bach-dang-938",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Battle of Bạch Đằng, 938",
+            "slug": "battle-of-bach-dang-938",
+            "summary": "Ngô Quyền defeated the Southern Han fleet on the Bạch Đằng River, opening a durable era of independence.",
+            "thumbnail": null,
+            "startDate": "0938-01-01",
+            "endDate": null,
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-early",
+              "title": "Uprisings and the first independence",
+              "slug": "uprisings-and-first-independence"
+            },
+            "tags": [
+              "Early history",
+              "Independence"
+            ]
+          },
+          {
+            "id": "lesson-g6-northern-rule-resistance",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Northern rule, social change, and the path to self-rule",
+            "slug": "northern-rule-social-change-and-the-path-to-self-rule",
+            "summary": "From the early centuries CE to 938, local communities adapted and preserved culture while repeatedly seeking political self-rule.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "event-trung-sisters",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Trưng Sisters' uprising",
+            "slug": "trung-sisters-uprising",
+            "summary": "The uprising began around 40 CE and briefly gained control of numerous strongholds.",
+            "thumbnail": null,
+            "startDate": "0040-01-01",
+            "endDate": "0043-01-01",
+            "datePrecision": "APPROXIMATE",
+            "period": {
+              "id": "period-early",
+              "title": "Uprisings and the first independence",
+              "slug": "uprisings-and-first-independence"
+            },
+            "tags": [
+              "Early history",
+              "Independence"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "g6-champa",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "The kingdom of Champa",
+        "slug": "champa",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Chăm-pa",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 192,
+        "periodEnd": 1832,
+        "requiredOutcomes": [
+          "Recognise the formation, development, and heritage of Champa."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-champa",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Champa: kingdom, exchange, and the heritage of My Son",
+            "slug": "champa-kingdom-exchange-and-the-heritage-of-my-son",
+            "summary": "Champa developed along central Vietnam, participated in maritime trade, and left architecture, sculpture, inscriptions, and diverse cultural traditions.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-funan",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "The kingdom of Funan",
+        "slug": "funan",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Phù Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1,
+        "periodEnd": 700,
+        "requiredOutcomes": [
+          "Recognise Funan's formation, trade, and culture."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-funan",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Funan and the Oc Eo world",
+            "slug": "funan-and-the-oc-eo-world",
+            "summary": "Oc Eo archaeology in southern Vietnam reveals developed settlement, production, and exchange, helping investigate Funan in the early centuries CE.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

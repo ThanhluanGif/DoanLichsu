@@ -1,0 +1,312 @@
+{
+  "data": {
+    "grade": 6,
+    "label": "Lớp 6",
+    "summary": {
+      "requirementCount": 8,
+      "publishedRequirementCount": 8,
+      "verifiedRequirementCount": 8,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g6-why-study-history",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Tại sao cần học Lịch sử?",
+        "slug": "why-study-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Tại sao cần học Lịch sử?",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Nhận biết lịch sử, tư liệu lịch sử và cách tính thời gian."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-why-study-history",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Học lịch sử từ dấu vết và thời gian",
+            "slug": "hoc-lich-su-tu-dau-vet-va-thoi-gian",
+            "summary": "Lịch sử được tìm hiểu từ nhiều loại tư liệu; người học phải đặt câu hỏi về người tạo nguồn, hoàn cảnh và cách xác định thời gian.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-human-origins",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Nguồn gốc loài người và xã hội nguyên thủy",
+        "slug": "human-origins",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Nguồn gốc loài người và xã hội nguyên thủy",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -3000000,
+        "periodEnd": -4000,
+        "requiredOutcomes": [
+          "Trình bày những nét chính về nguồn gốc, lao động và đời sống người nguyên thủy."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-human-origins",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Nguồn gốc loài người và đời sống nguyên thủy",
+            "slug": "nguon-goc-loai-nguoi-va-doi-song-nguyen-thuy",
+            "summary": "Hóa thạch, công cụ, dấu chân, di truyền và phương pháp định tuổi giúp nghiên cứu quá trình tiến hóa cùng đời sống của người nguyên thủy.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-ancient-civilisations",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Các xã hội và nền văn minh cổ đại",
+        "slug": "ancient-civilisations",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Các xã hội và nền văn minh cổ đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -4000,
+        "periodEnd": 476,
+        "requiredOutcomes": [
+          "Nhận biết thành tựu tiêu biểu của Ai Cập, Lưỡng Hà, Ấn Độ, Trung Hoa, Hy Lạp và La Mã."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-ancient-civilisations",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Đọc các nền văn minh cổ qua thành tựu và giao lưu",
+            "slug": "doc-cac-nen-van-minh-co-qua-thanh-tuu-va-giao-luu",
+            "summary": "Ai Cập, Lưỡng Hà, Ấn Độ, Trung Hoa, Hy Lạp và La Mã để lại những thành tựu khác nhau về đô thị, chữ viết, nhà nước, khoa học, nghệ thuật và luật pháp.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-southeast-asia-to-tenth-century",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+        "slug": "southeast-asia-to-tenth-century",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1,
+        "periodEnd": 1000,
+        "requiredOutcomes": [
+          "Mô tả sự hình thành các vương quốc và giao lưu khu vực."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-southeast-asia-to-tenth-century",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Đông Nam Á đến thế kỉ X: vương quốc và mạng giao lưu",
+            "slug": "dong-nam-a-den-the-ki-x-vuong-quoc-va-mang-giao-luu",
+            "summary": "Các cộng đồng Đông Nam Á hình thành nhiều trung tâm và vương quốc, kết nối bằng sông, biển và những mạng trao đổi văn hóa rộng lớn.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-van-lang-au-lac",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Văn Lang – Âu Lạc",
+        "slug": "van-lang-au-lac",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Văn Lang – Âu Lạc",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -700,
+        "periodEnd": -179,
+        "requiredOutcomes": [
+          "Trình bày tổ chức, đời sống và di sản của các nhà nước đầu tiên trên đất Việt Nam."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-van-lang-au-lac",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Văn Lang – Âu Lạc qua khảo cổ và truyền thống",
+            "slug": "van-lang-au-lac-qua-khao-co-va-truyen-thong",
+            "summary": "Di tích và hiện vật Đông Sơn giúp tìm hiểu cơ sở vật chất, đời sống và quá trình hình thành những nhà nước sơ khai ở miền Bắc Việt Nam.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-northern-rule-resistance",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+        "slug": "northern-rule-resistance",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+        "publishedCount": 3,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -179,
+        "periodEnd": 938,
+        "requiredOutcomes": [
+          "Giải thích những chuyển biến và các cuộc đấu tranh tiêu biểu đến đầu thế kỉ X."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-northern-rule-resistance",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Bắc thuộc, chuyển biến xã hội và hành trình giành tự chủ",
+            "slug": "bac-thuoc-chuyen-bien-xa-hoi-va-hanh-trinh-gianh-tu-chu",
+            "summary": "Từ đầu Công nguyên đến năm 938, cư dân bản địa vừa thích nghi và bảo lưu văn hóa, vừa liên tục đấu tranh để giành lại quyền tự chủ.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "event-bach-dang-938",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Chiến thắng Bạch Đằng năm 938",
+            "slug": "chien-thang-bach-dang-938",
+            "summary": "Ngô Quyền đánh bại quân Nam Hán trên sông Bạch Đằng, mở đầu thời kỳ tự chủ lâu dài.",
+            "thumbnail": null,
+            "startDate": "0938-01-01",
+            "endDate": null,
+            "datePrecision": "YEAR",
+            "period": {
+              "id": "period-early",
+              "title": "Khởi nghĩa và buổi đầu tự chủ",
+              "slug": "khoi-nghia-va-buoi-dau-tu-chu"
+            },
+            "tags": [
+              "Lịch sử cổ-trung đại",
+              "Độc lập"
+            ]
+          },
+          {
+            "id": "event-trung-sisters",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Khởi nghĩa Hai Bà Trưng",
+            "slug": "khoi-nghia-hai-ba-trung",
+            "summary": "Cuộc khởi nghĩa bùng nổ khoảng năm 40 và giành quyền kiểm soát nhiều thành trì trong một thời gian ngắn.",
+            "thumbnail": null,
+            "startDate": "0040-01-01",
+            "endDate": "0043-01-01",
+            "datePrecision": "APPROXIMATE",
+            "period": {
+              "id": "period-early",
+              "title": "Khởi nghĩa và buổi đầu tự chủ",
+              "slug": "khoi-nghia-va-buoi-dau-tu-chu"
+            },
+            "tags": [
+              "Lịch sử cổ-trung đại",
+              "Độc lập"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "g6-champa",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Vương quốc Chăm-pa",
+        "slug": "champa",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Chăm-pa",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 192,
+        "periodEnd": 1832,
+        "requiredOutcomes": [
+          "Nhận biết quá trình hình thành, phát triển và di sản Chăm-pa."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-champa",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chăm-pa: vương quốc, giao lưu và di sản Mỹ Sơn",
+            "slug": "cham-pa-vuong-quoc-giao-luu-va-di-san-my-son",
+            "summary": "Chăm-pa phát triển dọc miền Trung, tham gia giao thương biển và để lại di sản kiến trúc, điêu khắc, bia ký cùng truyền thống văn hóa đa dạng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g6-funan",
+        "grade": 6,
+        "track": "MANDATORY",
+        "topic": "Vương quốc Phù Nam",
+        "slug": "funan",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Phù Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1,
+        "periodEnd": 700,
+        "requiredOutcomes": [
+          "Nhận biết sự hình thành, thương mại và văn hóa Phù Nam."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g6-funan",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Phù Nam và thế giới Óc Eo",
+            "slug": "phu-nam-va-the-gioi-oc-eo",
+            "summary": "Khảo cổ Óc Eo ở Nam Bộ cho thấy một không gian cư trú, sản xuất và giao thương phát triển, giúp nghiên cứu lịch sử Phù Nam trong những thế kỉ đầu Công nguyên.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}
