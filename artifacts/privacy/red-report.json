@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-08-13T08:42:57.012Z",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/editorial-charter.md",
+  "status": "FAIL",
+  "checks": [
+    {
+      "marker": "no-account",
+      "passed": false
+    },
+    {
+      "marker": "Data minimization",
+      "passed": false
+    },
+    {
+      "marker": "deleted within 30 days",
+      "passed": false
+    },
+    {
+      "marker": "deletion/correction",
+      "passed": false
+    },
+    {
+      "marker": "free-form public AI",
+      "passed": false
+    },
+    {
+      "marker": "Incident response",
+      "passed": false
+    },
+    {
+      "marker": "one business day",
+      "passed": false
+    },
+    {
+      "marker": "three business days",
+      "passed": false
+    }
+  ],
+  "publicAi": "DISABLED_PENDING_PRIVACY_REVIEW",
+  "databaseMutation": false
+}

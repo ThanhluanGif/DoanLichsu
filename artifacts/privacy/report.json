@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-08-13T08:42:56.842Z",
+  "input": "/Volumes/sdd anh/Doan1/docs/privacy/dpia.md",
+  "status": "PASS",
+  "checks": [
+    {
+      "marker": "no-account",
+      "passed": true
+    },
+    {
+      "marker": "Data minimization",
+      "passed": true
+    },
+    {
+      "marker": "deleted within 30 days",
+      "passed": true
+    },
+    {
+      "marker": "deletion/correction",
+      "passed": true
+    },
+    {
+      "marker": "free-form public AI",
+      "passed": true
+    },
+    {
+      "marker": "Incident response",
+      "passed": true
+    },
+    {
+      "marker": "one business day",
+      "passed": true
+    },
+    {
+      "marker": "three business days",
+      "passed": true
+    }
+  ],
+  "publicAi": "DISABLED_PENDING_PRIVACY_REVIEW",
+  "databaseMutation": false
+}

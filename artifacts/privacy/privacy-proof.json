@@ -1,0 +1,8 @@
+{
+  "card": "C-048",
+  "generatedAt": "2026-08-13T08:42:57.012Z",
+  "green": {"status":"PASS","controls":8,"report":"artifacts/privacy/report.json"},
+  "red": {"status":"FAIL","exitCode":1,"missingControls":8,"report":"artifacts/privacy/red-report.json"},
+  "publicAi":"DISABLED_PENDING_PRIVACY_REVIEW",
+  "databaseMutation":false
+}
