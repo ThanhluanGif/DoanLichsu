@@ -13,6 +13,7 @@ const corrections = load("artifacts/corrections/report.json");
 const wikimedia = load("artifacts/wikimedia/batch-300-report.json");
 const aiComparison = load("artifacts/ai-eval/config-comparison.json");
 const external = load("artifacts/operations/external-evidence-ledger.json");
+const rightsReview = load("artifacts/wikimedia/rights-review-ledger.json");
 const pending = external.items.filter((item) => item.status !== "PASS").map((item) => item.id);
 const report = {
   dashboardVersion: "transparency-v2",
@@ -25,7 +26,7 @@ const report = {
   privacy: { status: privacy.status, publicAi: privacy.publicAi },
   corrections: { lastIntake: corrections.status, slaHours: corrections.entry?.slaHours ?? null, reporterPublic: false },
   operations: { readiness: readiness.status, fixedProductionDomain: readiness.external?.officialProduction === true, backupRestore: readiness.checks?.backupRestore?.status ?? "UNKNOWN", uptimeObservation: readiness.checks?.uptimeObservation?.status ?? "UNKNOWN", performanceObservation: readiness.checks?.performanceObservation?.status ?? "UNKNOWN", securityLocal: readiness.checks?.securityLocal?.status ?? "UNKNOWN", independentSecurity: readiness.checks?.securityLocal?.independentReview ?? "UNKNOWN" },
-  wikimedia: { status: wikimedia.status, metadataRecords: wikimedia.imported, rightsStatus: wikimedia.rightsStatus, reviewStatus: wikimedia.reviewStatus, binaryDownloaded: wikimedia.binaryDownloaded },
+  wikimedia: { status: wikimedia.status, metadataRecords: wikimedia.imported, rightsStatus: wikimedia.rightsStatus, reviewStatus: wikimedia.reviewStatus, binaryDownloaded: wikimedia.binaryDownloaded, binaryServingEnabled: rightsReview.binaryServingEnabled === true, invalidMetadataCount: rightsReview.invalidMetadataCount ?? null },
   aiComparison: { status: aiComparison.status, configs: aiComparison.configs?.map((entry) => entry.config.id) ?? [], modelIndependence: aiComparison.modelIndependence, humanApproval: aiComparison.humanApproval },
   blockers: pending,
   disclosure: "This dashboard reports implementation evidence only. It is not an independent historian council endorsement, legal approval, security review, school pilot result or Public Beta release approval.",

@@ -12,6 +12,8 @@ describe("transparency dashboard evidence", () => {
     expect(dashboard.blockers).toHaveLength(11);
     expect(dashboard.operations.backupRestore).toBe("PASS_DISPOSABLE_ONLY");
     expect(dashboard.operations.independentSecurity).toBe("PENDING_EXTERNAL");
+    expect(dashboard.wikimedia.invalidMetadataCount).toBe(1);
+    expect(dashboard.wikimedia.binaryServingEnabled).toBe(false);
     expect(dashboard.disclosure).toContain("not an independent historian council endorsement");
   });
 });

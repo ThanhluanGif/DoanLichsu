@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v2",
-  "generatedAt": "2026-08-13T13:14:42.714Z",
+  "generatedAt": "2026-08-13T13:55:20.156Z",
   "releaseStatus": "NOT_READY",
   "publicBeta": false,
   "coverage": {
@@ -44,7 +44,9 @@
     "metadataRecords": 300,
     "rightsStatus": "LINK_ONLY",
     "reviewStatus": "PENDING_REVIEW",
-    "binaryDownloaded": false
+    "binaryDownloaded": false,
+    "binaryServingEnabled": false,
+    "invalidMetadataCount": 1
   },
   "aiComparison": {
     "status": "PASS_MACHINE_COMPARISON",
