@@ -1,0 +1,28 @@
+{
+  "card": "C-039",
+  "probe": "npm run live:smoke -- --origin https://promises-ports-hawaiian-interactive.trycloudflare.com --output artifacts/staging-smoke/live-report.json",
+  "live": {
+    "origin": "https://promises-ports-hawaiian-interactive.trycloudflare.com",
+    "status": "PASS",
+    "checks": 7,
+    "allHttpStatuses": 200,
+    "database": "ok",
+    "report": "artifacts/staging-smoke/live-report.json",
+    "markdown": "artifacts/staging-smoke/live-report.md"
+  },
+  "redFixture": {
+    "origin": "https://127.0.0.1:9",
+    "status": "FAIL",
+    "exitCode": 1,
+    "failedChecks": 7,
+    "report": "artifacts/staging-smoke/red-report.json",
+    "markdown": "artifacts/staging-smoke/red-report.md",
+    "databaseMutation": false
+  },
+  "quality": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS"
+  },
+  "generatedAt": "2026-08-13T08:16:28.534Z"
+}

@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-08-13T08:16:11.972Z",
+  "origin": "https://promises-ports-hawaiian-interactive.trycloudflare.com",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "healthz",
+      "path": "/healthz",
+      "status": 200,
+      "contentType": "application/json",
+      "latencyMs": 1184,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "openapi",
+      "path": "/openapi.json",
+      "status": 200,
+      "contentType": "application/json",
+      "latencyMs": 366,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "places-vi",
+      "path": "/api/v1/vi/places?pageSize=50",
+      "status": 200,
+      "contentType": "application/json",
+      "latencyMs": 375,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "places-en",
+      "path": "/api/v1/en/places?pageSize=50",
+      "status": 200,
+      "contentType": "application/json",
+      "latencyMs": 478,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "reconstruction-vi",
+      "path": "/api/v1/vi/reconstructions/bach-dang-1288",
+      "status": 200,
+      "contentType": "application/json",
+      "latencyMs": 363,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "map-vi",
+      "path": "/vi/ban-do",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "latencyMs": 373,
+      "passed": true,
+      "remediation": null
+    },
+    {
+      "name": "transparency-vi",
+      "path": "/vi/nguon-va-kiem-chung",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "latencyMs": 354,
+      "passed": true,
+      "remediation": null
+    }
+  ]
+}

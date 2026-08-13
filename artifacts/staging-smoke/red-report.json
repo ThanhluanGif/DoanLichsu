@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-08-13T08:16:28.534Z",
+  "origin": "https://127.0.0.1:9",
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "healthz",
+      "path": "/healthz",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 51,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "openapi",
+      "path": "/openapi.json",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 1,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "places-vi",
+      "path": "/api/v1/vi/places?pageSize=50",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 0,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "places-en",
+      "path": "/api/v1/en/places?pageSize=50",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 1,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "reconstruction-vi",
+      "path": "/api/v1/vi/reconstructions/bach-dang-1288",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 1,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "map-vi",
+      "path": "/vi/ban-do",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 0,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    },
+    {
+      "name": "transparency-vi",
+      "path": "/vi/nguon-va-kiem-chung",
+      "status": null,
+      "contentType": null,
+      "latencyMs": 0,
+      "passed": false,
+      "remediation": "TypeError: fetch failed"
+    }
+  ]
+}
