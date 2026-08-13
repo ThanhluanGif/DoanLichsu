@@ -10,6 +10,7 @@
 - Performance observation: PASS_BOUNDED_OBSERVATION
 - Independent security: **PENDING_EXTERNAL**
 - External blockers: 11
+- Published-history remediation: **REQUIRES_HUMAN_REVIEW** (105 candidates; database writes: 0)
 
 ## Blockers
 
