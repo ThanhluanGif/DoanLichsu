@@ -1,8 +1,12 @@
 # Production readiness
 
-- Status: **FAIL**
-- Database absolute/existing: true
-- Backup/restore rehearsal: **PASS (disposable)**
-- AI eval: 500/500; machine status PASS
-- Fixed production domain/load/uptime: **NO EVIDENCE**
-- Council/privacy sign-off: **NOT RECORDED**
+- Status: **PASS_LOCAL_ONLY**
+- Public Beta allowed: **NO**
+- Official production evidence: **NO**
+- Local quality: PASS_LOCAL_ONLY
+- Backup/restore: PASS_DISPOSABLE_ONLY
+- Uptime: PASS_SHORT_OBSERVATION; 90-day evidence: **NO**
+- Performance: PASS_BOUNDED_OBSERVATION; official load evidence: **NO**
+- AI: PASS_MACHINE_ONLY
+- Security: PASS_LOCAL_ONLY; independent review: **PENDING_EXTERNAL**
+- External blockers: 11

@@ -1,52 +1,73 @@
 {
-  "generatedAt": "2026-08-13T10:09:28.610Z",
-  "status": "FAIL",
+  "version": "production-readiness-v2",
+  "generatedAt": "2026-08-13T13:08:39.320Z",
+  "status": "PASS_LOCAL_ONLY",
+  "publicBetaAllowed": false,
+  "officialProductionEvidence": false,
   "checks": {
     "database": {
       "path": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
       "absolute": true,
       "exists": true
     },
-    "quality": [
-      {
-        "command": "npm run lint",
-        "exitCode": 0
-      },
-      {
-        "command": "npm run typecheck",
-        "exitCode": 0
-      },
-      {
-        "command": "npm run build",
-        "exitCode": 0
-      }
-    ],
+    "quality": {
+      "status": "PASS_LOCAL_ONLY",
+      "evidence": "artifacts/release/current-head-evidence.json"
+    },
     "backupRestore": {
-      "rehearsal": "artifacts/operations/backup-restore-proof.json",
-      "rpoTargetMinutes": 15,
-      "rtoTargetMinutes": 60,
-      "verified": true
+      "status": "PASS_DISPOSABLE_ONLY",
+      "evidence": "artifacts/operations/backup-restore-proof.json"
     },
-    "load": {
-      "probe": "not run against fixed production domain",
-      "targetP95Ms": 1000,
-      "verified": false
+    "uptimeObservation": {
+      "status": "PASS_SHORT_OBSERVATION",
+      "evidence": "artifacts/operations/uptime-observations.json",
+      "ninetyDayEvidence": false
     },
-    "aiEval": {
-      "status": "PASS",
-      "targetQuestions": 500,
-      "actualQuestions": 500,
-      "targetGap": 0
+    "performanceObservation": {
+      "status": "PASS_BOUNDED_OBSERVATION",
+      "evidence": "artifacts/operations/performance-observations.json",
+      "officialLoadEvidence": false
     },
-    "aiDegradation": {
-      "fallback": "search/lesson",
-      "verified": true
+    "aiMachineEval": {
+      "status": "PASS_MACHINE_ONLY",
+      "evidence": "artifacts/ai-eval/report-500.json"
+    },
+    "securityLocal": {
+      "status": "PASS_LOCAL_ONLY",
+      "evidence": "artifacts/security/security-review-pack.json",
+      "independentReview": "PENDING_EXTERNAL",
+      "penTest": "NOT_PERFORMED"
     }
   },
+  "external": {
+    "status": "BLOCKED_EXTERNAL",
+    "pending": [
+      "official-production",
+      "uptime-90-day",
+      "council-signoff",
+      "ai-golden-human-approval",
+      "model-comparison",
+      "dpia-approval",
+      "partner-rights",
+      "real-pilot",
+      "school-university-reach",
+      "independent-security",
+      "named-operations"
+    ],
+    "officialProduction": false
+  },
   "blockers": [
-    "No fixed production domain evidence",
-    "Load and 90-day uptime evidence not recorded",
-    "Council/privacy sign-off not recorded"
+    "official-production",
+    "uptime-90-day",
+    "council-signoff",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "dpia-approval",
+    "partner-rights",
+    "real-pilot",
+    "school-university-reach",
+    "independent-security",
+    "named-operations"
   ],
   "databaseMutation": false
 }
