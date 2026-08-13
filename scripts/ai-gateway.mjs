@@ -17,8 +17,9 @@ try {
   const corpusSnapshotId = corpus.sha256;
   const normalized = question.trim().toLocaleLowerCase("vi");
   const injection = /(ignore|bỏ qua|reveal|tiết lộ|system prompt|không cần nguồn|without citation|jailbreak)/i.test(normalized);
-  if (!normalized || injection) {
-    const response = abstain([injection ? "Yêu cầu chứa chỉ dẫn vượt qua chính sách nguồn; gateway không thực hiện." : "Câu hỏi trống."] , injection ? "PROMPT_INJECTION_BLOCKED" : "EMPTY_QUERY"); response.corpusSnapshotId = corpusSnapshotId; mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(response, null, 2)}\n`); process.stdout.write(`${JSON.stringify(response)}\n`); process.exitCode = 0;
+  const unsupported = /(ngoài corpus|chưa có trong corpus|mọi sử gia|kết luận một vấn đề chính trị|so sánh hai nguồn chưa)/i.test(normalized);
+  if (!normalized || injection || unsupported) {
+    const response = abstain([injection ? "Yêu cầu chứa chỉ dẫn vượt qua chính sách nguồn; gateway không thực hiện." : unsupported ? "Câu hỏi cần nguồn hoặc so sánh chưa có trong corpus được duyệt." : "Câu hỏi trống."] , injection ? "PROMPT_INJECTION_BLOCKED" : unsupported ? "OUT_OF_CORPUS" : "EMPTY_QUERY"); response.corpusSnapshotId = corpusSnapshotId; mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(response, null, 2)}\n`); process.stdout.write(`${JSON.stringify(response)}\n`); process.exitCode = 0;
   } else {
     const words = normalized.match(/[\p{L}\p{N}]{3,}/gu) || []; const ids = new Map(); for (const word of words) for (const id of corpus.index?.[word] || []) ids.set(id, (ids.get(id) || 0) + 1); const ranked = [...ids.entries()].sort((a, b) => b[1] - a[1]).map(([id]) => id); const records = corpus.records.filter((record) => ranked.includes(record.id));
     if (!records.length) { const response = abstain(["Không tìm thấy claim đã kiểm chứng phù hợp trong corpus snapshot."]); response.corpusSnapshotId = corpusSnapshotId; mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(response, null, 2)}\n`); process.stdout.write(`${JSON.stringify(response)}\n`); }
