@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-08-13T10:51:38.620Z",
+  "status": "PENDING_COUNCIL_SIGNOFF",
+  "memberCount": 0,
+  "dualReviewCount": 0,
+  "errors": [
+    "MINIMUM_THREE_COUNCIL_MEMBERS",
+    "NO_DUAL_REVIEWS",
+    "MISSING_RELEASE_CANDIDATE_SIGNOFF"
+  ],
+  "noFabricatedIdentities": true,
+  "publicReleaseAllowed": false,
+  "databaseMutation": false
+}

@@ -2,7 +2,7 @@
 
 - Overall: **NOT_READY**
 - Public Beta: **DISABLED**
-- Checks: 3/12 implementation gates represented
+- Checks: 3/13 implementation gates represented
 - External blockers: 11
 
 - product-surface: **PASS**
@@ -15,5 +15,6 @@
 - real-user-pilot: **BLOCKED_EXTERNAL**
 - backup-recovery-mechanism: **PASS_DISPOSABLE_ONLY**
 - governance-policy: **BLOCKED_EXTERNAL**
+- council-signoff-ledger: **BLOCKED_EXTERNAL**
 - operations-ledger: **BLOCKED_EXTERNAL**
 - public-beta-release: **BLOCKED_EXTERNAL**

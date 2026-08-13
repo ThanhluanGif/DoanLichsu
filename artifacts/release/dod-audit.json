@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:48:46.852Z",
+  "generatedAt": "2026-08-13T10:52:06.208Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -82,6 +82,14 @@
       "status": "BLOCKED_EXTERNAL",
       "evidence": [
         "artifacts/governance/governance-proof.json"
+      ]
+    },
+    {
+      "id": "council-signoff-ledger",
+      "group": "governance",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/governance/council-signoff-validation.json"
       ]
     },
     {
