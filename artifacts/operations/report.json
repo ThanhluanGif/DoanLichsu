@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:15:51.236Z",
+  "generatedAt": "2026-08-13T14:02:40.199Z",
   "input": "/Volumes/sdd anh/Doan1/docs/operations/90-day-calendar.md",
   "status": "PASS",
   "checks": [
@@ -36,5 +36,8 @@
   "realPilotCompleted": false,
   "realCouncilSignoff": false,
   "fixedProductionDomain": false,
-  "ledgerItems": 11
+  "ledgerItems": 11,
+  "pendingGateCount": 11,
+  "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
+  "noExternalApprovalClaim": true
 }
