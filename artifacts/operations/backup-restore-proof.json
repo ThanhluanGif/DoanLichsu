@@ -1,0 +1,12 @@
+{
+  "status": "PASS_DISPOSABLE_REHEARSAL",
+  "databaseMutation": false,
+  "productionDatabaseTouched": false,
+  "rpoTargetMinutes": 15,
+  "rtoTargetMinutes": 60,
+  "verified": true,
+  "command": "npm run test:recovery",
+  "tests": { "files": 1, "passed": 2, "backupChecksum": true, "restoreSchemaVersion": 9, "tamperRejected": true, "databaseMutation": false },
+  "scope": "Disposable temporary SQLite database; production database was not touched.",
+  "note": "This proves the recovery mechanism, not a production RPO/RTO measurement."
+}
