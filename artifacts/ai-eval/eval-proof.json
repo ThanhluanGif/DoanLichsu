@@ -1,0 +1,9 @@
+{
+  "card": "C-046",
+  "generatedAt": "2026-08-13T08:38:51.407Z",
+  "status": "FAIL_CLOSED_BETA_NOT_READY",
+  "seed": {"questions":12,"categories":{"curriculum":5,"politics":2,"compare":1,"false-premise":2,"injection":2},"accuracy":1,"citationPrecision":1,"injectionLeakRate":0},
+  "target": {"questions":500,"gap":488,"betaGate":"FAIL"},
+  "report":"artifacts/ai-eval/report.json",
+  "policy": {"noPublicBetaClaim":true,"redTeamPromptsStored":"no secrets or user data","dbMutation":false}
+}
