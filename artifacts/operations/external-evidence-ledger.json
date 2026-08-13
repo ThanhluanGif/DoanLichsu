@@ -1,0 +1,22 @@
+{
+  "version": "external-evidence-v1",
+  "status": "PENDING_EXTERNAL_EVIDENCE",
+  "realCouncilSignoff": false,
+  "realPilotCompleted": false,
+  "officialProductionDomain": false,
+  "items": [
+    {"id":"official-production","status":"PENDING","owner":null,"artifact":null},
+    {"id":"uptime-90-day","status":"PENDING","owner":null,"artifact":null},
+    {"id":"council-signoff","status":"PENDING","owner":null,"artifact":null},
+    {"id":"ai-golden-human-approval","status":"PENDING","owner":null,"artifact":null},
+    {"id":"model-comparison","status":"PENDING","owner":null,"artifact":null},
+    {"id":"dpia-approval","status":"PENDING","owner":null,"artifact":null},
+    {"id":"partner-rights","status":"PENDING","owner":null,"artifact":null},
+    {"id":"real-pilot","status":"PENDING","owner":null,"artifact":null},
+    {"id":"school-university-reach","status":"PENDING","owner":null,"artifact":null},
+    {"id":"independent-security","status":"PENDING","owner":null,"artifact":null},
+    {"id":"named-operations","status":"PENDING","owner":null,"artifact":null}
+  ],
+  "fabricatedPersonalData": false,
+  "databaseMutation": false
+}

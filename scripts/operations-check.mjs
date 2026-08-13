@@ -1,1 +1,16 @@
-import {readFileSync,writeFileSync,mkdirSync} from "node:fs";import {resolve,dirname} from "node:path";const args=process.argv.slice(2);const option=(n,f)=>{const i=args.indexOf(n);return i>=0?args[i+1]:f;};const input=resolve(option("--input","docs/operations/90-day-calendar.md"));const output=resolve(option("--output","artifacts/operations/report.json"));const text=readFileSync(input,"utf8");const markers=["90-day","Incident rota","Pilot protocol","PENDING_EXTERNAL_EVIDENCE","Content + Rights","Primary SRE/QA","consent"];const checks=markers.map(marker=>({marker,passed:text.toLowerCase().includes(marker.toLowerCase())}));const report={generatedAt:new Date().toISOString(),input,status:checks.every(c=>c.passed)?"PASS":"FAIL",checks,externalEvidence:"PENDING",realPilotCompleted:false,realCouncilSignoff:false,fixedProductionDomain:false};mkdirSync(dirname(output),{recursive:true});writeFileSync(output,`${JSON.stringify(report,null,2)}\n`);writeFileSync(output.replace(/\.json$/,'.md'),`# Operations readiness\n\n- Status: **${report.status}**\n- External evidence: **PENDING**\n- Real pilot completed: **NO CLAIM**\n- Council sign-off: **NOT RECORDED**\n`);process.stdout.write(`${JSON.stringify(report)}\n`);if(report.status!=="PASS")process.exitCode=1;
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+const args = process.argv.slice(2);
+const option = (name, fallback) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : fallback; };
+const input = resolve(option("--input", "docs/operations/90-day-calendar.md"));
+const output = resolve(option("--output", "artifacts/operations/report.json"));
+const text = readFileSync(input, "utf8");
+const ledger = JSON.parse(readFileSync(resolve("artifacts/operations/external-evidence-ledger.json"), "utf8"));
+const markers = ["90-day", "Incident rota", "Pilot protocol", "PENDING_EXTERNAL_EVIDENCE", "Content + Rights", "Primary SRE/QA", "consent"];
+const checks = markers.map((marker) => ({ marker, passed: text.toLowerCase().includes(marker.toLowerCase()) }));
+const report = { generatedAt: new Date().toISOString(), input, status: checks.every((check) => check.passed) && ledger.items.every((item) => item.status === "PENDING") ? "PASS" : "FAIL", checks, externalEvidence: ledger.status, realPilotCompleted: ledger.realPilotCompleted, realCouncilSignoff: ledger.realCouncilSignoff, fixedProductionDomain: ledger.officialProductionDomain, ledgerItems: ledger.items.length };
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
+writeFileSync(output.replace(/\.json$/, ".md"), `# Operations readiness\n\n- Status: **${report.status}**\n- External evidence: **${report.externalEvidence}**\n- Real pilot completed: **NO CLAIM**\n- Council sign-off: **NOT RECORDED**\n- Ledger items: ${report.ledgerItems}\n`);
+process.stdout.write(`${JSON.stringify(report)}\n`);
+if (report.status !== "PASS") process.exitCode = 1;
