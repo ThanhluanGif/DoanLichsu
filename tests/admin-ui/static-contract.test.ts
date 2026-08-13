@@ -7,7 +7,7 @@ const read=(path:string)=>readFileSync(join(root,path),"utf8");
 
 describe("admin UI contract",()=>{
   it("ships every editorial journey route",()=>{
-    for(const path of ["src/app/admin/login/page.tsx","src/app/admin/page.tsx","src/app/admin/contents/page.tsx","src/app/admin/contents/new/page.tsx","src/app/admin/contents/[id]/page.tsx","src/app/admin/review/page.tsx","src/app/admin/sources/page.tsx","src/app/admin/media/page.tsx","src/app/admin/users/page.tsx","src/app/admin/audit/page.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
+    for(const path of ["src/app/admin/login/page.tsx","src/app/admin/page.tsx","src/app/admin/contents/page.tsx","src/app/admin/contents/new/page.tsx","src/app/admin/contents/[id]/page.tsx","src/app/admin/review/page.tsx","src/app/admin/sources/page.tsx","src/app/admin/media/page.tsx","src/app/admin/users/page.tsx","src/app/admin/audit/page.tsx","src/app/admin/published-history/page.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
   });
   it("keeps the create and translation surfaces within six primary fields",()=>{
     const source=read("src/components/admin/ContentEditor.tsx");const [creation,editor]=source.split("export function ContentEditorPage");

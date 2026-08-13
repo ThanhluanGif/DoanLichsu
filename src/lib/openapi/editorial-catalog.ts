@@ -84,6 +84,7 @@ export const editorialOpenApiPaths = {
   },
   "/api/v1/admin/users/{id}": { patch: operation("updateUser", "Cập nhật người dùng", { request: "UserUpdateInput", response: "UserView", parameters: [id],roles:adminRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: auditFilters,roles:adminRoles,errors:["400","401","403","500"] }) },
+  "/api/v1/admin/published-history": { get: operation("listPublishedHistoryQueue", "Liệt kê nội dung thiếu xác nhận lịch sử", { response: "List:PublishedHistoryQueueItem", parameters: page,roles:reviewerRoles,errors:["400","401","403","500"] }) },
 } as const;
 
 const string = { type: "string" } as const;
@@ -118,6 +119,7 @@ export const editorialOpenApiSchemas = {
   RejectInput: object(["version","locales","reason"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},reason:{type:"string",minLength:1} }),
   PublishedHistoryReviewInput: object(["version","evidenceLocator","note","attestation"], { version,evidenceLocator:{type:"string",minLength:1,maxLength:2_000},note:{type:"string",minLength:1,maxLength:2_000},attestation:{type:"string",const:"HUMAN_REVIEWED"} }),
   PublishedHistoryReviewResult: object(["contentId","status","reviewedBy","reviewedAt","evidenceLocator"], { contentId:string,status:{type:"string",const:"HUMAN_REVIEWED"},reviewedBy:string,reviewedAt:{type:"string",format:"date-time"},evidenceLocator:string }),
+  PublishedHistoryQueueItem: object(["id","type","status","version","titles","reviewedBy","reviewedAt","publishedAt","updatedAt"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},version,titles:partialLocaleRecord(nullableString),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString,updatedAt:{type:"string",format:"date-time"} }),
   WorkflowResult: object(["id","status","version","translationStatuses","reviewedBy","reviewedAt","publishedAt"], { id:string,status:{type:"string",enum:workflow},version,translationStatuses:partialLocaleRecord({type:"string",enum:translationStatuses}),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString }),
   TranslationCreateInput: translationCreate,
   TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,...translationEditableProperties }),
