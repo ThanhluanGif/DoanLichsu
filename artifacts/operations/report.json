@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-08-13T09:06:41.705Z",
+  "input": "/Volumes/sdd anh/Doan1/docs/operations/90-day-calendar.md",
+  "status": "PASS",
+  "checks": [
+    {
+      "marker": "90-day",
+      "passed": true
+    },
+    {
+      "marker": "Incident rota",
+      "passed": true
+    },
+    {
+      "marker": "Pilot protocol",
+      "passed": true
+    },
+    {
+      "marker": "PENDING_EXTERNAL_EVIDENCE",
+      "passed": true
+    },
+    {
+      "marker": "Content + Rights",
+      "passed": true
+    },
+    {
+      "marker": "Primary SRE/QA",
+      "passed": true
+    },
+    {
+      "marker": "consent",
+      "passed": true
+    }
+  ],
+  "externalEvidence": "PENDING",
+  "realPilotCompleted": false,
+  "realCouncilSignoff": false,
+  "fixedProductionDomain": false
+}

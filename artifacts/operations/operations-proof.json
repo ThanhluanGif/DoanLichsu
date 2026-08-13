@@ -1,0 +1,13 @@
+{
+  "card": "C-057",
+  "generatedAt": "2026-08-13T09:06:41.705Z",
+  "status":"PASS_PLAN_NOT_EXTERNAL_PROOF",
+  "controls":7,
+  "calendar":"90-day",
+  "pilot":"protocol only; no real participant claim",
+  "incidentRota":"roles defined; named on-call contact pending",
+  "externalEvidence":"PENDING",
+  "realCouncilSignoff":false,
+  "fixedProductionDomain":false,
+  "report":"artifacts/operations/report.json"
+}
