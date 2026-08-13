@@ -418,6 +418,24 @@ code { font-family: var(--mono); }
 .contextual-tutor-answer li { display: grid; gap: 2px; }
 .contextual-tutor-answer li a { color: var(--accent); font-weight: 750; }
 .contextual-tutor-answer li span { font-size: 12px; }
+.transparency-main { max-width: 1120px; }
+.transparency-dashboard { display: grid; gap: 22px; }
+.transparency-status { padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: var(--grad-sky); }
+.transparency-status h1 { max-width: 780px; margin: 4px 0 12px; font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: -.04em; }
+.transparency-status > p:not(.eyebrow) { max-width: 780px; margin: 0; color: var(--fg-muted); line-height: 1.7; }
+.transparency-release { display: inline-grid; gap: 4px; margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border); background: var(--surface-paper); }
+.transparency-release span, .transparency-metric span { color: var(--fg-subtle); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+.transparency-release strong { color: var(--warning, #9b5c00); font-family: var(--mono); font-size: 18px; }
+.transparency-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.transparency-metric { display: grid; gap: 7px; min-height: 112px; padding: 18px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-paper); }
+.transparency-metric strong { font-family: var(--serif); font-size: 28px; line-height: 1.05; }
+.transparency-metric small { color: var(--fg-muted); font-size: 12px; line-height: 1.45; }
+.transparency-blockers { padding: 24px 28px; border: 1px solid var(--border); background: var(--surface-paper); }
+.transparency-blockers h2 { margin: 0 0 14px; font-family: var(--serif); font-size: 32px; }
+.transparency-blockers ul { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--fg-muted); line-height: 1.55; }
+.transparency-disclosure { margin: 0; color: var(--fg-subtle); font-size: 12px; line-height: 1.6; }
+@media (max-width: 760px) { .transparency-status { padding: 22px 18px; }.transparency-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .transparency-grid { grid-template-columns: 1fr; } }
 .lesson-heading { padding: 26px 28px; border: 1px solid var(--border); border-radius: 8px; background: var(--grad-sky); }
 .lesson-heading h2 { margin: 3px 0 8px; font-family: var(--serif); font-size: clamp(32px,4vw,48px); line-height: 1.05; }
 .lesson-heading > p:last-child { max-width: 690px; margin: 0; color: var(--fg-muted); font-size: 14px; line-height: 1.65; }
