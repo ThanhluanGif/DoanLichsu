@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-08-13T10:56:43.793Z",
+  "commit": "5f7dabbb11841a9f1fdf7212cca076c7b6e83f19",
+  "origin": "http://127.0.0.1:3241",
+  "originKind": "local production-like standalone; not official production",
+  "steps": [
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "exitCode": 0,
+      "durationMs": 14212,
+      "outputSha256": "4b35ba85800d6771231a4abb458e87dced11ffea5c1f897ea19aced3f1b7cab9"
+    },
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "durationMs": 3758,
+      "outputSha256": "69b884b2de217c0fee131423c7b34d42fa601838c2c3c67ef7e3abc2371f9f8b"
+    },
+    {
+      "name": "test",
+      "command": "npm test -- --testTimeout=15000",
+      "exitCode": 0,
+      "durationMs": 26177,
+      "outputSha256": "bdbd2afdfa3ee71bcadb5aaaf1301b18ccb3f9fd340dd4a27d7350141c532520"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "durationMs": 16081,
+      "outputSha256": "f0f2289bb8018ba89e1f15ba350d359362d1acfa9b7d688fbdf02ce4345a1b5d"
+    },
+    {
+      "name": "migrate",
+      "command": "npm run db:migrate",
+      "exitCode": 0,
+      "durationMs": 684,
+      "outputSha256": "47658034d2d154d3d63e2caa82b869f13e8640c11c997583d16ec3a3ac994bc6"
+    },
+    {
+      "name": "seed",
+      "command": "npm run db:seed",
+      "exitCode": 0,
+      "durationMs": 1024,
+      "outputSha256": "8bc06e3a7fba0052f14e862c575f01a3646d9d5f5c12d7ee263a87522fc75f5a"
+    },
+    {
+      "name": "backup",
+      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/backup.mjs",
+      "exitCode": 0,
+      "durationMs": 223,
+      "outputSha256": "f43e836d13fe21c4327ff01a3d18f6e7c194b84b47684043daa030ef799d95a5"
+    },
+    {
+      "name": "restore",
+      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/restore.mjs /var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/qsv-current-head-BsGIvT/backups/quan-su-viet-2026-08-13T10-57-45-929Z.sqlite",
+      "exitCode": 0,
+      "durationMs": 213,
+      "outputSha256": "3c45aa52f04e273814df7ab9cd6728661af5146e6dd1896f0afe36d0f0348a7e"
+    }
+  ],
+  "local": {
+    "health": 200,
+    "openapi": 200,
+    "search": 200,
+    "securityHeaders": true,
+    "p95SearchMs": 53.933761999993294
+  },
+  "backupRestore": {
+    "backupChecksum": true,
+    "restoreChecksum": true,
+    "databaseMutation": false
+  },
+  "httpsE2e": "NOT_RUN_IN_THIS_LOCAL_RUN",
+  "externalLimitations": [
+    "official production domain",
+    "90-day uptime",
+    "independent pen-test",
+    "real Council/pilot/rights/privacy approvals"
+  ]
+}

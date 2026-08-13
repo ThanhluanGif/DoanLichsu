@@ -2,7 +2,7 @@
 
 - Overall: **NOT_READY**
 - Public Beta: **DISABLED**
-- Checks: 3/13 implementation gates represented
+- Checks: 3/14 implementation gates represented
 - External blockers: 11
 
 - product-surface: **PASS**
@@ -14,6 +14,7 @@
 - wikimedia-rights-review: **BLOCKED_EXTERNAL**
 - real-user-pilot: **BLOCKED_EXTERNAL**
 - backup-recovery-mechanism: **PASS_DISPOSABLE_ONLY**
+- current-head-release-evidence: **PASS_LOCAL_ONLY**
 - governance-policy: **BLOCKED_EXTERNAL**
 - council-signoff-ledger: **BLOCKED_EXTERNAL**
 - operations-ledger: **BLOCKED_EXTERNAL**

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:52:06.208Z",
+  "generatedAt": "2026-08-13T10:58:32.355Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -74,6 +74,14 @@
       "status": "PASS_DISPOSABLE_ONLY",
       "evidence": [
         "artifacts/operations/backup-restore-proof.json"
+      ]
+    },
+    {
+      "id": "current-head-release-evidence",
+      "group": "quality",
+      "status": "PASS_LOCAL_ONLY",
+      "evidence": [
+        "artifacts/release/current-head-evidence.json"
       ]
     },
     {
