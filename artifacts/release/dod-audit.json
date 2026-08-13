@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:31:37.218Z",
+  "generatedAt": "2026-08-13T10:35:49.466Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -26,6 +26,14 @@
       "status": "PASS",
       "evidence": [
         "artifacts/ai-eval/report-500.json"
+      ]
+    },
+    {
+      "id": "ai-config-comparison",
+      "group": "ai",
+      "status": "PASS_CONFIG_ONLY",
+      "evidence": [
+        "artifacts/ai-eval/config-comparison.json"
       ]
     },
     {
