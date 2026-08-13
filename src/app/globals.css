@@ -405,6 +405,19 @@ code { font-family: var(--mono); }
 .article-copy { max-width: 790px; }
 .article-copy h2 { margin: 48px 0 14px; font-family: var(--serif); font-size: 34px; }.article-copy p { color: var(--fg-muted); font-size: 17px; line-height: 1.9; }
 .lesson-content { display: grid; gap: 18px; margin: 0 0 62px; }
+.contextual-tutor { display: grid; gap: 16px; margin: 0 0 42px; padding: 24px 26px; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--bg-subtle); }
+.contextual-tutor-header h2 { margin: 4px 0 8px; font-family: var(--serif); font-size: 32px; }
+.contextual-tutor-header p:last-child { max-width: 780px; margin: 0; color: var(--fg-muted); font-size: 14px; line-height: 1.7; }
+.contextual-tutor-prompts { display: flex; flex-wrap: wrap; gap: 8px; }
+.contextual-tutor-prompts .button { font-size: 12px; }
+.contextual-tutor form { display: grid; gap: 10px; max-width: 760px; }
+.contextual-tutor textarea { display: block; width: 100%; margin-top: 6px; padding: 10px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-paper); color: var(--fg-base); font: inherit; resize: vertical; }
+.contextual-tutor-answer { display: grid; gap: 8px; max-width: 820px; padding: 16px; border: 1px solid var(--border); background: var(--surface-paper); }
+.contextual-tutor-answer p { margin: 0; color: var(--fg-muted); line-height: 1.7; }
+.contextual-tutor-answer ol { display: grid; gap: 8px; margin: 0; padding-left: 20px; color: var(--fg-muted); font-size: 13px; }
+.contextual-tutor-answer li { display: grid; gap: 2px; }
+.contextual-tutor-answer li a { color: var(--accent); font-weight: 750; }
+.contextual-tutor-answer li span { font-size: 12px; }
 .lesson-heading { padding: 26px 28px; border: 1px solid var(--border); border-radius: 8px; background: var(--grad-sky); }
 .lesson-heading h2 { margin: 3px 0 8px; font-family: var(--serif); font-size: clamp(32px,4vw,48px); line-height: 1.05; }
 .lesson-heading > p:last-child { max-width: 690px; margin: 0; color: var(--fg-muted); font-size: 14px; line-height: 1.65; }
