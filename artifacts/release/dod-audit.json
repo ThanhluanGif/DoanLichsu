@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:17:04.726Z",
+  "generatedAt": "2026-08-13T10:31:37.218Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -26,6 +26,14 @@
       "status": "PASS",
       "evidence": [
         "artifacts/ai-eval/report-500.json"
+      ]
+    },
+    {
+      "id": "wikimedia-metadata-pilot",
+      "group": "rights",
+      "status": "PASS_METADATA_ONLY",
+      "evidence": [
+        "artifacts/wikimedia/batch-300-report.json"
       ]
     },
     {

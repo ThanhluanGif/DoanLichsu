@@ -8,10 +8,12 @@ const coverage = load("artifacts/curriculum-completeness/live-coverage.json");
 const ai = load("artifacts/ai-eval/report-500.json");
 const governance = load("artifacts/governance/governance-proof.json");
 const operations = load("artifacts/operations/report.json");
+const wikimedia = load("artifacts/wikimedia/batch-300-report.json");
 const checks = [
   { id: "product-surface", group: "product", status: "PASS", evidence: ["artifacts/operations/live-smoke-proof.json", "artifacts/transparency/live-transparency-proof.json"] },
   { id: "mandatory-coverage", group: "content", status: coverage.summary?.completeMandatoryRequirements === coverage.summary?.mandatoryRequirements ? "PASS" : "BLOCKED", evidence: ["artifacts/curriculum-completeness/live-coverage.json"] },
   { id: "ai-machine-eval", group: "ai", status: ai.status === "PASS" && ai.actualQuestions === 500 ? "PASS" : "BLOCKED", evidence: ["artifacts/ai-eval/report-500.json"] },
+  { id: "wikimedia-metadata-pilot", group: "rights", status: wikimedia.status === "PASS" && wikimedia.imported === 300 && wikimedia.binaryDownloaded === false && wikimedia.autoPublished === false ? "PASS_METADATA_ONLY" : "BLOCKED", evidence: ["artifacts/wikimedia/batch-300-report.json"] },
   { id: "backup-recovery-mechanism", group: "quality", status: readiness.checks?.backupRestore?.verified ? "PASS_DISPOSABLE_ONLY" : "BLOCKED", evidence: ["artifacts/operations/backup-restore-proof.json"] },
   { id: "governance-policy", group: "governance", status: governance.honesty?.councilSignoff === "NOT_YET_SIGNED" ? "BLOCKED_EXTERNAL" : "PASS", evidence: ["artifacts/governance/governance-proof.json"] },
   { id: "operations-ledger", group: "operations", status: operations.externalEvidence === "PENDING_EXTERNAL_EVIDENCE" ? "BLOCKED_EXTERNAL" : "PASS", evidence: ["artifacts/operations/external-evidence-ledger.json"] },
