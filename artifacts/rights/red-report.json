@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-08-13T08:23:35.691Z",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/rights/red-ledger.json",
+  "status": "FAIL",
+  "records": [
+    {
+      "id": "missing-license-must-fail",
+      "rightsStatus": "PERMITTED",
+      "passed": false,
+      "missing": [
+        "recheckAt",
+        "takedownContact",
+        "licenseShortName",
+        "licenseUrl",
+        "creditLine"
+      ],
+      "publicBinaryAllowed": false,
+      "remediation": "Add a verifiable rights decision or use LINK_ONLY/BLOCKED; do not serve binary."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "missing-license-must-fail",
+    "provider": "WIKIMEDIA_COMMONS",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unknown.jpg",
+    "rightsStatus": "PERMITTED",
+    "reviewer": "Nobody",
+    "decidedAt": "2026-08-13T00:00:00Z"
+  }
+]

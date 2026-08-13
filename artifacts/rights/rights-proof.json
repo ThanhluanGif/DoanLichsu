@@ -1,0 +1,7 @@
+{
+  "card": "C-041",
+  "generatedAt": "2026-08-13T08:23:35.691Z",
+  "green": {"status":"PASS","exitCode":0,"records":2,"servedBinary":1,"linkOnly":1,"report":"artifacts/rights/report.json"},
+  "red": {"status":"FAIL","exitCode":1,"missingFields":["licenseShortName","licenseUrl","creditLine","recheckAt","takedownContact"],"report":"artifacts/rights/red-report.json"},
+  "policy": {"onlyPermittedOrPublicDomainServeBinary":true,"wikimediaAutoPublish":false,"unclearRights":"LINK_ONLY_OR_BLOCKED"}
+}

@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-13T08:23:35.490Z",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/rights/ledger.json",
+  "status": "PASS",
+  "records": [
+    {
+      "id": "wikimedia-bach-dang-commons-001",
+      "rightsStatus": "PERMITTED",
+      "passed": true,
+      "missing": [],
+      "publicBinaryAllowed": true,
+      "remediation": null
+    },
+    {
+      "id": "unknown-asset-link-only-001",
+      "rightsStatus": "LINK_ONLY",
+      "passed": true,
+      "missing": [],
+      "publicBinaryAllowed": false,
+      "remediation": null
+    }
+  ]
+}

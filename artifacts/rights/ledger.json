@@ -1,0 +1,31 @@
+[
+  {
+    "id": "wikimedia-bach-dang-commons-001",
+    "provider": "WIKIMEDIA_COMMONS",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Example.jpg",
+    "revisionId": "fixture-revision-001",
+    "revisionTimestamp": "2026-08-13T00:00:00Z",
+    "fileTitle": "File:Example.jpg",
+    "licenseShortName": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "creator": "Example creator",
+    "creditLine": "Example creator, Wikimedia Commons, CC BY-SA 4.0",
+    "rightsStatus": "PERMITTED",
+    "reviewer": "Rights reviewer (fixture)",
+    "decidedAt": "2026-08-13T00:00:00Z",
+    "recheckAt": "2027-08-13T00:00:00Z",
+    "takedownContact": "rights@example.invalid",
+    "originalChecksum": "sha256:fixture-original",
+    "derivativeChecksum": "sha256:fixture-derivative"
+  },
+  {
+    "id": "unknown-asset-link-only-001",
+    "provider": "PARTNER_ARCHIVE",
+    "sourceUrl": "https://archive.example.invalid/item/001",
+    "rightsStatus": "LINK_ONLY",
+    "reviewer": "Rights reviewer (fixture)",
+    "decidedAt": "2026-08-13T00:00:00Z",
+    "recheckAt": "2026-11-13T00:00:00Z",
+    "takedownContact": "rights@example.invalid"
+  }
+]
