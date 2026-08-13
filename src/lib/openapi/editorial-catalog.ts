@@ -76,6 +76,7 @@ export const editorialOpenApiPaths = {
   "/api/v1/admin/contents/{id}/approve": { post: operation("approveContent", "Duyệt locale", { request: "ReviewInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/reject": { post: operation("rejectContent", "Từ chối locale", { request: "RejectInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/publish": { post: operation("publishContent", "Xuất bản locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/history-review": { post: operation("reviewPublishedHistory", "Xác nhận lịch sử biên tập nội dung đã xuất bản", { request: "PublishedHistoryReviewInput", response: "PublishedHistoryReviewResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/archive": { post: operation("archiveContent", "Lưu trữ nội dung", { request: "VersionInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/users": {
     get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: userFilters,roles:adminRoles,errors:["400","401","403","500"] }),
@@ -115,6 +116,8 @@ export const editorialOpenApiSchemas = {
   LocaleWorkflowInput: object(["version","locales"], { version,locales:{type:"array",minItems:1,uniqueItems:true,items:{type:"string",enum:["vi","en"]}} }),
   ReviewInput: object(["version","locales"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},note:string }),
   RejectInput: object(["version","locales","reason"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},reason:{type:"string",minLength:1} }),
+  PublishedHistoryReviewInput: object(["version","evidenceLocator","note","attestation"], { version,evidenceLocator:{type:"string",minLength:1,maxLength:2_000},note:{type:"string",minLength:1,maxLength:2_000},attestation:{type:"string",const:"HUMAN_REVIEWED"} }),
+  PublishedHistoryReviewResult: object(["contentId","status","reviewedBy","reviewedAt","evidenceLocator"], { contentId:string,status:{type:"string",const:"HUMAN_REVIEWED"},reviewedBy:string,reviewedAt:{type:"string",format:"date-time"},evidenceLocator:string }),
   WorkflowResult: object(["id","status","version","translationStatuses","reviewedBy","reviewedAt","publishedAt"], { id:string,status:{type:"string",enum:workflow},version,translationStatuses:partialLocaleRecord({type:"string",enum:translationStatuses}),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString }),
   TranslationCreateInput: translationCreate,
   TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,...translationEditableProperties }),

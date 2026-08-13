@@ -147,6 +147,24 @@ export function adminContentDetail(database: SqliteDatabase, id: string) {
   };
 }
 
+export function reviewPublishedHistory(database: SqliteDatabase, id: string, input: Record<string, unknown>, actor: AuthUser) {
+  const expectedVersion = numberField(input, "version", true)!;
+  const evidenceLocator = stringField(input, "evidenceLocator", { required: true, max: 2_000 })!;
+  const note = stringField(input, "note", { required: true, max: 2_000 })!;
+  const attestation = stringField(input, "attestation", { required: true, max: 80 })!;
+  if (attestation !== "HUMAN_REVIEWED") invalidField("attestation", "Phải xác nhận HUMAN_REVIEWED.");
+  const now = new Date().toISOString();
+  database.transaction(() => {
+    const row = contentRow(database, id);
+    if (row.status !== "PUBLISHED") throw new ApiError(422, "HISTORY_REVIEW_REQUIRES_PUBLISHED", "Chỉ nội dung đã xuất bản mới được xác nhận lịch sử.");
+    if (row.version !== expectedVersion) throw new ApiError(409, "STALE_VERSION", "Phiên bản nội dung đã thay đổi.");
+    const duplicate = database.prepare("SELECT 1 FROM audit_logs WHERE object_type='content' AND object_id=? AND action='content.editorial_history.review' LIMIT 1").get(id);
+    if (duplicate) throw new ApiError(409, "HISTORY_ALREADY_REVIEWED", "Lịch sử biên tập của nội dung này đã được xác nhận.");
+    writeAudit(database, { actorId: actor.id, action: "content.editorial_history.review", objectType: "content", objectId: id, metadata: { attestation, evidenceLocator, note, contentVersion: expectedVersion, reviewedAt: now } });
+  }).immediate();
+  return { contentId: id, status: "HUMAN_REVIEWED", reviewedBy: actor.displayName, reviewedAt: now, evidenceLocator };
+}
+
 export function replaceCurriculumMappings(database:SqliteDatabase,id:string,input:Record<string,unknown>,actor:AuthUser){
   const version=numberField(input,"version",true)!;
   const requirementIds=stringArrayField(input,"requirementIds");
