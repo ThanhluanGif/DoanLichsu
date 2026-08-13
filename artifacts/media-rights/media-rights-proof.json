@@ -1,0 +1,7 @@
+{
+  "card": "C-043",
+  "generatedAt": "2026-08-13T08:28:41.047Z",
+  "green": {"status":"PASS","exitCode":0,"records":2,"binaryAllowed":1,"linkOnly":1,"report":"artifacts/media-rights/report.json"},
+  "red": {"status":"FAIL","exitCode":1,"activeTakedownBlocked":true,"missing":["creditLine"],"binaryAllowed":false,"report":"artifacts/media-rights/red-report.json"},
+  "privacy": {"claimantPrivateDataStored":"NO","publicChangelogReferenceRequired":true}
+}

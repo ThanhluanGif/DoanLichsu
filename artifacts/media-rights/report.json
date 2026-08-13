@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-13T08:28:40.788Z",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/media-rights/ledger.json",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "media-bach-dang-001",
+      "rightsStatus": "PERMITTED",
+      "takedownStatus": "NONE",
+      "passed": true,
+      "binaryAllowed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "id": "media-link-only-002",
+      "rightsStatus": "LINK_ONLY",
+      "takedownStatus": "NONE",
+      "passed": true,
+      "binaryAllowed": false,
+      "missing": [],
+      "remediation": null
+    }
+  ]
+}

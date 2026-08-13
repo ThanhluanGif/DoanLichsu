@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-08-13T08:28:41.047Z",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/media-rights/red-ledger.json",
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "media-takedown-003",
+      "rightsStatus": "PERMITTED",
+      "takedownStatus": "ACTIVE",
+      "passed": false,
+      "binaryAllowed": false,
+      "missing": [
+        "creditLine"
+      ],
+      "remediation": "Keep binary blocked until takedown review is resolved and changelogged."
+    }
+  ]
+}
