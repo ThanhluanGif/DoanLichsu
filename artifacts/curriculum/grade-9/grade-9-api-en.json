@@ -1,0 +1,287 @@
+{
+  "data": {
+    "grade": 9,
+    "label": "Grade 9",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g9-world-1918-1945",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "The world from 1918 to 1945",
+        "slug": "world-1918-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1918 đến năm 1945",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1918,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Outline the world order, crises, and the Second World War."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-1918-1945",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The world, 1918–1945: crisis, fascism, and global war",
+            "slug": "world-1918-1945-crisis-fascism-and-global-war",
+            "summary": "From a fragile postwar settlement through depression, fascism, the Holocaust, and the Second World War, the period shows why treaties alone could not sustain peace.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-1918-1945",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Vietnam from 1918 to 1945",
+        "slug": "vietnam-1918-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1918 đến năm 1945",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1918,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Analyse national movements and the August Revolution of 1945."
+        ],
+        "lessons": [
+          {
+            "id": "event-august-revolution",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "August Revolution",
+            "slug": "august-revolution",
+            "summary": "In August 1945, the Việt Minh took power in Hà Nội and many localities before independence was proclaimed.",
+            "thumbnail": null,
+            "startDate": "1945-08-19",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-colonial",
+              "title": "Anti-colonial resistance",
+              "slug": "anti-colonial-resistance"
+            },
+            "tags": [
+              "Independence"
+            ]
+          },
+          {
+            "id": "lesson-g9-vietnam-1918-1945",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1918–1945: multiple movements and the August Revolution",
+            "slug": "vietnam-1918-1945-multiple-movements-and-the-august-revolution",
+            "summary": "Colonial change, competing paths to national liberation, and wartime conditions converged in the August Revolution and the 1945 declaration of independence.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-world-1945-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "The world from 1945 to 1991",
+        "slug": "world-1945-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1945 đến năm 1991",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 1991,
+        "requiredOutcomes": [
+          "Outline the Cold War, decolonisation, and international change."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-1945-1991",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The world, 1945–1991: Cold War, decolonisation, and social change",
+            "slug": "world-1945-1991-cold-war-decolonisation-and-social-change",
+            "summary": "US–Soviet rivalry shaped global security, but decolonisation, new states, and social movements were also historical agents between 1945 and 1991.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-1945-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Vietnam from 1945 to 1991",
+        "slug": "vietnam-1945-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1945 đến năm 1991",
+        "publishedCount": 4,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 1991,
+        "requiredOutcomes": [
+          "Outline wars of independence, reunification, national defence, and early Đổi mới."
+        ],
+        "lessons": [
+          {
+            "id": "event-dien-bien-phu",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Battle of Điện Biên Phủ",
+            "slug": "battle-of-dien-bien-phu",
+            "summary": "The 56-day battle ended on 7 May 1954 with the defeat of the French fortified position.",
+            "thumbnail": null,
+            "startDate": "1954-03-13",
+            "endDate": "1954-05-07",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence",
+              "Logistics"
+            ]
+          },
+          {
+            "id": "event-northern-border",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Defence of the northern border in 1979",
+            "slug": "defence-northern-border-1979",
+            "summary": "Fighting took place along Vietnam's northern border in February and March 1979.",
+            "thumbnail": null,
+            "startDate": "1979-02-17",
+            "endDate": "1979-03-16",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-border",
+              "title": "Post-1975 border defence",
+              "slug": "post-1975-border-defence"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          },
+          {
+            "id": "event-ho-chi-minh-campaign",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Hồ Chí Minh Campaign",
+            "slug": "ho-chi-minh-campaign",
+            "summary": "The late-April 1975 campaign entered Saigon and ended the war, enabling national reunification.",
+            "thumbnail": null,
+            "startDate": "1975-04-26",
+            "endDate": "1975-04-30",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence"
+            ]
+          },
+          {
+            "id": "lesson-g9-vietnam-1945-1991",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1945–1991: resistance, reunification, defence, and Đổi mới",
+            "slug": "vietnam-1945-1991-resistance-reunification-defence-and-doi-moi",
+            "summary": "From defending a new state through war, legal reunification, border defence, reconstruction, and reform, this history did not stop in April 1975.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-world-since-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "The world since 1991",
+        "slug": "world-since-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1991 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1991,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Recognise development trends, globalisation, and new challenges."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-since-1991",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The world, 1991–2026: deeper connection, greater shared risk",
+            "slug": "world-1991-2026-deeper-connection-and-greater-shared-risk",
+            "summary": "Updated through 11 August 2026: globalisation and digitalisation expanded opportunity while inequality, crisis, pandemic, climate change, and AI governance became shared challenges.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-since-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Vietnam since 1991",
+        "slug": "vietnam-since-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1991 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1991,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Outline Vietnam's achievements, challenges, and integration to the stated as-of date."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-vietnam-since-1991",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam, 1991–2026: integration, development, and new challenges",
+            "slug": "vietnam-1991-2026-integration-development-and-new-challenges",
+            "summary": "Updated through 11 August 2026: Vietnam expanded relations and joined ASEAN and the WTO, improving many aspects of life while facing productivity, ageing, climate, and unequal opportunity.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}
