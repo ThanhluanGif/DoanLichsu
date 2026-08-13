@@ -1,0 +1,281 @@
+{
+  "locale": "en",
+  "track": "MANDATORY",
+  "data": {
+    "grade": 10,
+    "label": "Grade 10",
+    "summary": {
+      "requirementCount": 7,
+      "publishedRequirementCount": 7,
+      "verifiedRequirementCount": 7,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g10-history-and-historiography",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "History and historiography",
+        "slug": "history-and-historiography",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Lịch sử và Sử học",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Distinguish the historical past, historical knowledge, and historical methods."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-history-historiography",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "History and historiography: past, evidence, and interpretation",
+            "slug": "history-and-historiography-past-evidence-and-interpretation",
+            "summary": "History is the human past; historiography is the methodical work of investigating, testing, and interpreting that past through evidence.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-roles-of-history",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "The roles of history",
+        "slug": "roles-of-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Vai trò của Sử học",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Explain the roles of history in heritage, development, and public life."
+        ],
+        "lessons": [
+          {
+            "id": "topic-preservation",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Preserving military heritage",
+            "slug": "preserving-military-heritage",
+            "summary": "Preservation requires cataloguing, provenance checks, plural interpretation, and responsible public access.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-memory",
+              "title": "Contemporary military memory and heritage",
+              "slug": "contemporary-military-memory-and-heritage"
+            },
+            "tags": [
+              "Heritage"
+            ]
+          },
+          {
+            "id": "lesson-g10-roles-history",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The roles of history in life and the future",
+            "slug": "the-roles-of-history-in-life-and-the-future",
+            "summary": "History supports understanding, memory, heritage management, and responsible decisions in modern society.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-ancient-medieval-world-civilisations",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Selected ancient and medieval world civilisations",
+        "slug": "ancient-medieval-world-civilisations",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh thế giới thời cổ – trung đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -4000,
+        "periodEnd": 1500,
+        "requiredOutcomes": [
+          "Compare foundations and representative achievements of major civilisations."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-world-civilisations",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Ancient and medieval civilisations: cities, writing, and exchange",
+            "slug": "ancient-and-medieval-civilisations-cities-writing-and-exchange",
+            "summary": "Civilisations grew from environments, social organisation, writing, cities, and exchange; they should not be measured by one scale.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-industrial-revolutions-world-history",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Industrial revolutions in world history",
+        "slug": "industrial-revolutions-world-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1750,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse achievements and impacts of successive industrial revolutions."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-industrial-revolutions",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Industrial revolutions: energy, data, and society",
+            "slug": "industrial-revolutions-energy-data-and-society",
+            "summary": "From steam mechanisation to electricity, automation, and AI, each technological wave changed production, life, and the distribution of power.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-southeast-asian-civilisation",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Southeast Asian civilisation",
+        "slug": "southeast-asian-civilisation",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Văn minh Đông Nam Á",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Outline the foundations, development, and achievements of Southeast Asian civilisation."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-southeast-asian-civilisation",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Southeast Asian civilisation: exchange, seas, and localisation",
+            "slug": "southeast-asian-civilisation-exchange-seas-and-localisation",
+            "summary": "Southeast Asia grew through multiple centres, sea–land connections, and selective localisation of outside influences.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-civilisations-on-vietnamese-territory",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Selected civilisations on Vietnamese territory before 1858",
+        "slug": "civilisations-on-vietnamese-territory",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -700,
+        "periodEnd": 1858,
+        "requiredOutcomes": [
+          "Analyse the achievements and value of major civilisations on Vietnamese territory."
+        ],
+        "lessons": [
+          {
+            "id": "artifact-bach-dang-stakes",
+            "type": "ARTIFACT",
+            "locale": "en",
+            "title": "Bạch Đằng wooden stakes",
+            "slug": "bach-dang-wooden-stakes",
+            "summary": "Archaeological stake fields recall the use of tides in the battles on the Bạch Đằng River.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Early history",
+              "Heritage"
+            ]
+          },
+          {
+            "id": "lesson-g10-vietnam-civilisations",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Civilisations on Vietnamese territory before 1858: layers and centres",
+            "slug": "civilisations-on-vietnamese-territory-before-1858-layers-and-centres",
+            "summary": "Văn Lang–Âu Lạc, Champa, Funan–Oc Eo, and Đại Việt are distinct historical layers that together contribute to heritage in present-day Vietnam.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-vietnamese-ethnic-communities",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Vietnam's ethnic communities",
+        "slug": "vietnamese-ethnic-communities",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Cộng đồng các dân tộc Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Explain diversity, unity, and traditions of solidarity among Vietnam's communities."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-ethnic-communities",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnamese ethnic communities: diversity, unity, and shared creation",
+            "slug": "vietnamese-ethnic-communities-diversity-unity-and-shared-creation",
+            "summary": "The 54 ethnic groups have diverse languages, memories, livelihoods, and heritage; national history is created through interaction and the contributions of every community.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

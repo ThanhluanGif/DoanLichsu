@@ -1,0 +1,19 @@
+{
+  "auditedAt": "2026-08-13T04:50:00.000Z",
+  "method": "curl HEAD-equivalent fetch plus browser/web retrieval where available; bot-protected responses are recorded rather than treated as 404",
+  "sources": [
+    {"id":"source-g10-moet-programme","url":"https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-mon-lich-su.pdf","httpStatus":200,"retrieval":"direct fetch; PDF URL resolved"},
+    {"id":"source-g10-unesco-memory-world","url":"https://www.unesco.org/en/memory-world","httpStatus":200,"retrieval":"browser retrieval; page states preservation, universal access, and public awareness aims"},
+    {"id":"source-g10-unesco-archives","url":"https://www.unesco.org/en/archives4betterworld","httpStatus":500,"retrieval":"UNESCO server returned internal error to automated fetch; URL retained as institutional citation and requires manual browser follow-up"},
+    {"id":"source-g10-vnmh-dong-son","url":"https://baotanglichsu.vn/VI/Articles/3101/16655/van-hoa-djong-son-o-viet-nam-90-nam-phat-hien-va-nghien-cuu-phan-1.html","httpStatus":200,"retrieval":"browser retrieval; article and archaeological chronology visible"},
+    {"id":"source-g10-unesco-thang-long","url":"https://whc.unesco.org/en/list/1328","httpStatus":403,"retrieval":"UNESCO World Heritage Centre bot protection on direct fetch; browser retrieval visible with 11th-century Ly construction, nearly 13 centuries of power, and China/Champa crossroads"},
+    {"id":"source-g10-vnmh-oc-eo","url":"https://baotanglichsu.vn/VI/Articles/3101/71999/van-hoa-oc-eo-phu-nam-mot-thoang-nhin-lai-qua-suu-tap-hien-vat-trung-bay-tai-bao-tang-lich-su-quoc-gia.html","httpStatus":200,"retrieval":"browser retrieval; museum article resolved"},
+    {"id":"source-g10-unesco-my-son","url":"https://whc.unesco.org/en/list/949/","httpStatus":403,"retrieval":"UNESCO World Heritage Centre bot protection on direct fetch; browser retrieval resolved page"},
+    {"id":"source-g10-ubdt-54","url":"https://ubdt.gov.vn/gioi-thieu/cong-dong-54-dan-toc.htm","httpStatus":0,"retrieval":"network timeout from direct fetch; browser retrieval resolved official page and 54-group listing"},
+    {"id":"source-g10-ubdt-report","url":"https://files.ubdt.gov.vn/files/ecm/source_files/2020/09/15/14303430_Bao%20cao%20kien%20nghi%20-CTDT0116_20-09-15.pdf","httpStatus":0,"retrieval":"network timeout from direct fetch; retained as official PDF citation and requires manual browser follow-up"},
+    {"id":"source-g10-unesco-hoi-an","url":"https://whc.unesco.org/en/list/948/","httpStatus":403,"retrieval":"UNESCO World Heritage Centre bot protection on direct fetch; browser retrieval resolved page"},
+    {"id":"source-g10-unesco-hue","url":"https://whc.unesco.org/en/list/678/","httpStatus":403,"retrieval":"UNESCO World Heritage Centre bot protection on direct fetch; browser retrieval resolved page"},
+    {"id":"source-g10-quochoi-constitutional-history","url":"https://thuvienso.quochoi.vn/handle/11742/94316","httpStatus":200,"retrieval":"browser/direct retrieval; catalogue record resolved"}
+  ],
+  "governance": "No third-party binaries were downloaded or proxied. Non-200 results are documented as access limitations, not falsified as verified body fetches; UI cites original URLs only."
+}

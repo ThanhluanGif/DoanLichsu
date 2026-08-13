@@ -1,0 +1,112 @@
+{
+  "locale": "vi",
+  "track": "ELECTIVE",
+  "data": {
+    "grade": 10,
+    "label": "Lớp 10",
+    "summary": {
+      "requirementCount": 3,
+      "publishedRequirementCount": 3,
+      "verifiedRequirementCount": 3,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g10-fields-of-historical-study",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "Các lĩnh vực của Sử học",
+        "slug": "fields-of-historical-study",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các lĩnh vực của Sử học",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Vận dụng cách tiếp cận của một số chuyên ngành sử học."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-fields-history",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: các lĩnh vực của Sử học",
+            "slug": "chuyen-de-lua-chon-cac-linh-vuc-cua-su-hoc",
+            "summary": "Khảo cổ học, lịch sử xã hội, kinh tế, văn hóa, môi trường, quân sự và lịch sử số đặt những câu hỏi khác nhau cho cùng một quá khứ.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-heritage-conservation",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "Bảo tồn và phát huy giá trị di sản văn hóa Việt Nam",
+        "slug": "heritage-conservation",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Bảo tồn và phát huy giá trị di sản văn hóa Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Đề xuất cách nhận diện, bảo tồn và phát huy di sản có trách nhiệm."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-heritage-conservation",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: bảo tồn và phát huy di sản",
+            "slug": "chuyen-de-lua-chon-bao-ton-va-phat-huy-di-san",
+            "summary": "Bảo tồn di sản cần hồ sơ, cộng đồng, quyền, sinh kế và cách kể trung thực; phát huy không có nghĩa biến di sản thành phông nền du lịch.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-state-and-law-vietnam",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "Nhà nước và pháp luật Việt Nam trong lịch sử",
+        "slug": "state-and-law-vietnam",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Nhà nước và pháp luật Việt Nam trong lịch sử",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Khái quát nhà nước, pháp luật và các bản Hiến pháp Việt Nam đến lần cập nhật 2025."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-state-law",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: nhà nước và pháp luật Việt Nam trong lịch sử",
+            "slug": "chuyen-de-lua-chon-nha-nuoc-va-phap-luat-viet-nam-trong-lich-su",
+            "summary": "Nhà nước và pháp luật thay đổi theo bối cảnh; đọc hiến pháp cần đặt văn bản trong thiết chế, xã hội và lịch sử lập hiến.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

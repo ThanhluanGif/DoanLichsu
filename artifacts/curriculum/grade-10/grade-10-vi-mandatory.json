@@ -1,0 +1,281 @@
+{
+  "locale": "vi",
+  "track": "MANDATORY",
+  "data": {
+    "grade": 10,
+    "label": "Lớp 10",
+    "summary": {
+      "requirementCount": 7,
+      "publishedRequirementCount": 7,
+      "verifiedRequirementCount": 7,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g10-history-and-historiography",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Lịch sử và Sử học",
+        "slug": "history-and-historiography",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Lịch sử và Sử học",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Phân biệt hiện thực lịch sử, nhận thức lịch sử và phương pháp sử học."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-history-historiography",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Lịch sử và Sử học: quá khứ, bằng chứng và diễn giải",
+            "slug": "lich-su-va-su-hoc-qua-khu-bang-chung-va-dien-giai",
+            "summary": "Lịch sử là quá khứ của con người; Sử học là hoạt động có phương pháp để tìm hiểu, kiểm chứng và diễn giải quá khứ từ bằng chứng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-roles-of-history",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Vai trò của Sử học",
+        "slug": "roles-of-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Vai trò của Sử học",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Giải thích vai trò của sử học với di sản, phát triển và đời sống."
+        ],
+        "lessons": [
+          {
+            "id": "topic-preservation",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Bảo tồn di sản quân sự",
+            "slug": "bao-ton-di-san-quan-su",
+            "summary": "Bảo tồn đòi hỏi kiểm kê, xác minh nguồn gốc, diễn giải đa chiều và công bố thông tin có trách nhiệm.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-memory",
+              "title": "Ký ức và di sản quân sự đương đại",
+              "slug": "ky-uc-va-di-san-quan-su-duong-dai"
+            },
+            "tags": [
+              "Di sản"
+            ]
+          },
+          {
+            "id": "lesson-g10-roles-history",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Vai trò của Sử học trong đời sống và tương lai",
+            "slug": "vai-tro-cua-su-hoc-trong-doi-song-va-tuong-lai",
+            "summary": "Sử học giúp hiểu căn nguyên, bảo vệ ký ức, quản lý di sản và ra quyết định có trách nhiệm trong xã hội hiện đại.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-ancient-medieval-world-civilisations",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Một số nền văn minh thế giới thời cổ – trung đại",
+        "slug": "ancient-medieval-world-civilisations",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh thế giới thời cổ – trung đại",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -4000,
+        "periodEnd": 1500,
+        "requiredOutcomes": [
+          "So sánh cơ sở hình thành và thành tựu tiêu biểu của các nền văn minh."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-world-civilisations",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Nền văn minh thế giới cổ–trung đại: thành phố, chữ viết và trao đổi",
+            "slug": "nen-van-minh-the-gioi-co-trung-dai-thanh-pho-chu-viet-va-trao-doi",
+            "summary": "Các nền văn minh hình thành từ môi trường, tổ chức xã hội, chữ viết, đô thị và mạng lưới trao đổi; không nên đo tất cả bằng một thước đo duy nhất.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-industrial-revolutions-world-history",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+        "slug": "industrial-revolutions-world-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1750,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Phân tích thành tựu và tác động của các cuộc cách mạng công nghiệp."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-industrial-revolutions",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Các cuộc cách mạng công nghiệp: năng lượng, dữ liệu và xã hội",
+            "slug": "cac-cuoc-cach-mang-cong-nghiep-nang-luong-du-lieu-va-xa-hoi",
+            "summary": "Từ cơ giới hóa hơi nước đến điện, tự động hóa và AI, mỗi làn sóng công nghệ làm đổi cách sản xuất, sống và phân phối quyền lực.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-southeast-asian-civilisation",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Văn minh Đông Nam Á",
+        "slug": "southeast-asian-civilisation",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Văn minh Đông Nam Á",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Trình bày cơ sở, tiến trình và thành tựu của văn minh Đông Nam Á."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-southeast-asian-civilisation",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Văn minh Đông Nam Á: giao lưu, biển và bản địa hóa",
+            "slug": "van-minh-dong-nam-a-giao-luu-bien-va-ban-dia-hoa",
+            "summary": "Đông Nam Á hình thành từ các xã hội đa trung tâm, kết nối biển–đất liền và tiếp biến chọn lọc các ảnh hưởng bên ngoài.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-civilisations-on-vietnamese-territory",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+        "slug": "civilisations-on-vietnamese-territory",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -700,
+        "periodEnd": 1858,
+        "requiredOutcomes": [
+          "Phân tích thành tựu và giá trị của Văn Lang – Âu Lạc, Chăm-pa, Phù Nam và Đại Việt."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-vietnam-civilisations",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Các nền văn minh trên đất Việt trước 1858: nhiều lớp, nhiều trung tâm",
+            "slug": "cac-nen-van-minh-tren-dat-viet-truoc-1858-nhieu-lop-nhieu-trung-tam",
+            "summary": "Văn Lang–Âu Lạc, Chăm-pa, Phù Nam–Óc Eo và Đại Việt là những lớp lịch sử khác nhau cùng góp phần tạo nên di sản trên lãnh thổ Việt Nam.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "artifact-bach-dang-stakes",
+            "type": "ARTIFACT",
+            "locale": "vi",
+            "title": "Cọc gỗ Bạch Đằng",
+            "slug": "coc-go-bach-dang",
+            "summary": "Những bãi cọc khảo cổ gợi lại chiến thuật lợi dụng thủy triều trong các trận Bạch Đằng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-dynasties",
+              "title": "Bảo vệ quốc gia thời quân chủ",
+              "slug": "bao-ve-quoc-gia-thoi-quan-chu"
+            },
+            "tags": [
+              "Lịch sử cổ-trung đại",
+              "Di sản"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "g10-vietnamese-ethnic-communities",
+        "grade": 10,
+        "track": "MANDATORY",
+        "topic": "Cộng đồng các dân tộc Việt Nam",
+        "slug": "vietnamese-ethnic-communities",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Cộng đồng các dân tộc Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Giải thích tính đa dạng, thống nhất và truyền thống đoàn kết cộng đồng."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-ethnic-communities",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Cộng đồng các dân tộc Việt Nam: đa dạng, thống nhất và cùng kiến tạo",
+            "slug": "cong-dong-cac-dan-toc-viet-nam-da-dang-thong-nhat-va-cung-kien-tao",
+            "summary": "54 tộc người có ngôn ngữ, ký ức, sinh kế và di sản đa dạng; lịch sử quốc gia được tạo nên bởi tương tác, trao đổi và những đóng góp của tất cả cộng đồng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}
