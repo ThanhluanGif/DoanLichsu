@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v2",
-  "generatedAt": "2026-08-13T15:48:07.946Z",
+  "generatedAt": "2026-08-13T15:57:58.942Z",
   "releaseStatus": "NOT_READY",
   "publicBeta": false,
   "coverage": {
@@ -40,9 +40,9 @@
     "independentSecurity": "PENDING_EXTERNAL"
   },
   "release": {
-    "testedCommit": "c4303a6432e8a9b04e27b94a7e3fd5e6b02f25f9",
-    "sourceTreeSha256": "952f77213890bc17cce8a558872511dc53f63838aebffc970f36d151f676971d",
-    "currentSourceTreeSha256": "952f77213890bc17cce8a558872511dc53f63838aebffc970f36d151f676971d",
+    "testedCommit": "835921c26408b7f75190cd4e2b23581425b373ee",
+    "sourceTreeSha256": "35b439224780170602d14fbb504ba68b146d0d8b6b07679bf5013f2438b1614a",
+    "currentSourceTreeSha256": "35b439224780170602d14fbb504ba68b146d0d8b6b07679bf5013f2438b1614a",
     "sourceTreeMatches": true
   },
   "wikimedia": {
