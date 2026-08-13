@@ -1,0 +1,10 @@
+{
+  "card": "C-056",
+  "generatedAt": "2026-08-13T09:04:04.618Z",
+  "status":"PASS",
+  "snapshotId":"24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "nodes":110,
+  "edges":220,
+  "allEdgesVerified":true,
+  "artifact":"artifacts/knowledge-graph/graph.json"
+}

@@ -1,0 +1,2968 @@
+{
+  "graphVersion": "knowledge-graph-v1",
+  "status": "PASS",
+  "generatedAt": "2026-08-13T09:04:04.618Z",
+  "snapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "nodes": [
+    {
+      "id": "lesson-g10-ethnic-communities",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnamese ethnic communities: diversity, unity, and shared creation",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-ubdt-54",
+        "source-g10-ubdt-report"
+      ]
+    },
+    {
+      "id": "lesson-g10-ethnic-communities",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Cộng đồng các dân tộc Việt Nam: đa dạng, thống nhất và cùng kiến tạo",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-ubdt-54",
+        "source-g10-ubdt-report"
+      ]
+    },
+    {
+      "id": "lesson-g10-fields-history",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: fields of historical study",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-fields-history",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: các lĩnh vực của Sử học",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-heritage-conservation",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: conserving and interpreting heritage",
+      "provenance": [
+        "source-g10-unesco-hoi-an",
+        "source-g10-unesco-hue",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-heritage-conservation",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: bảo tồn và phát huy di sản",
+      "provenance": [
+        "source-g10-unesco-hoi-an",
+        "source-g10-unesco-hue",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-history-historiography",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "History and historiography: past, evidence, and interpretation",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-history-historiography",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Lịch sử và Sử học: quá khứ, bằng chứng và diễn giải",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-industrial-revolutions",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Industrial revolutions: energy, data, and society",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-industrial-revolutions",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Các cuộc cách mạng công nghiệp: năng lượng, dữ liệu và xã hội",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-roles-history",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The roles of history in life and the future",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-roles-history",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Vai trò của Sử học trong đời sống và tương lai",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-archives",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-southeast-asian-civilisation",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Southeast Asian civilisation: exchange, seas, and localisation",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-hoi-an",
+        "source-g10-unesco-my-son"
+      ]
+    },
+    {
+      "id": "lesson-g10-southeast-asian-civilisation",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Văn minh Đông Nam Á: giao lưu, biển và bản địa hóa",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-hoi-an",
+        "source-g10-unesco-my-son"
+      ]
+    },
+    {
+      "id": "lesson-g10-state-law",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: state and law in Vietnamese history",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-quochoi-constitutional-history",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-state-law",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: nhà nước và pháp luật Việt Nam trong lịch sử",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-quochoi-constitutional-history",
+        "source-g10-unesco-archives"
+      ]
+    },
+    {
+      "id": "lesson-g10-vietnam-civilisations",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Civilisations on Vietnamese territory before 1858: layers and centres",
+      "provenance": [
+        "source-g10-unesco-my-son",
+        "source-g10-unesco-thang-long",
+        "source-g10-vnmh-dong-son",
+        "source-g10-vnmh-oc-eo"
+      ]
+    },
+    {
+      "id": "lesson-g10-vietnam-civilisations",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Các nền văn minh trên đất Việt trước 1858: nhiều lớp, nhiều trung tâm",
+      "provenance": [
+        "source-g10-unesco-my-son",
+        "source-g10-unesco-thang-long",
+        "source-g10-vnmh-dong-son",
+        "source-g10-vnmh-oc-eo"
+      ]
+    },
+    {
+      "id": "lesson-g10-world-civilisations",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Ancient and medieval civilisations: cities, writing, and exchange",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g10-world-civilisations",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Nền văn minh thế giới cổ–trung đại: thành phố, chữ viết và trao đổi",
+      "provenance": [
+        "source-g10-moet-programme",
+        "source-g10-unesco-memory-world"
+      ]
+    },
+    {
+      "id": "lesson-g11-bourgeois-capitalism",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Bourgeois revolutions and the development of capitalism",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history"
+      ]
+    },
+    {
+      "id": "lesson-g11-bourgeois-capitalism",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history"
+      ]
+    },
+    {
+      "id": "lesson-g11-east-sea",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam's sovereignty, rights, and lawful interests in the East Sea",
+      "provenance": [
+        "source-g11-hoang-sa-tay-son-nguyen",
+        "source-g11-moet-programme",
+        "source-g11-nguyen-chau-ban",
+        "source-g11-unclos",
+        "source-g11-unclos-territorial-sea"
+      ]
+    },
+    {
+      "id": "lesson-g11-east-sea",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+      "provenance": [
+        "source-g11-hoang-sa-tay-son-nguyen",
+        "source-g11-moet-programme",
+        "source-g11-nguyen-chau-ban",
+        "source-g11-unclos",
+        "source-g11-unclos-territorial-sea"
+      ]
+    },
+    {
+      "id": "lesson-g11-figures",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: notable figures in Vietnamese history",
+      "provenance": [
+        "source-g11-bach-dang",
+        "source-g11-moet-programme",
+        "source-g11-vnmh-figures"
+      ]
+    },
+    {
+      "id": "lesson-g11-figures",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: danh nhân trong lịch sử Việt Nam",
+      "provenance": [
+        "source-g11-bach-dang",
+        "source-g11-moet-programme",
+        "source-g11-vnmh-figures"
+      ]
+    },
+    {
+      "id": "lesson-g11-national-defence",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnamese national defence and liberation before 1945",
+      "provenance": [
+        "source-g11-bach-dang",
+        "source-g11-bach-dang-excavation",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-national-defence",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trước 1945",
+      "provenance": [
+        "source-g11-bach-dang",
+        "source-g11-bach-dang-excavation",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-reforms",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Major reforms in Vietnamese history before 1858",
+      "provenance": [
+        "source-g11-ho-quy-ly-reform",
+        "source-g11-ly-tran-reforms",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-reforms",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Một số cải cách lớn trước năm 1858",
+      "provenance": [
+        "source-g11-ho-quy-ly-reform",
+        "source-g11-ly-tran-reforms",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-socialism-1917",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Socialism from 1917 to the present",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history"
+      ]
+    },
+    {
+      "id": "lesson-g11-socialism-1917",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history"
+      ]
+    },
+    {
+      "id": "lesson-g11-southeast-asian-independence",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Southeast Asian paths to independence and nation-building",
+      "provenance": [
+        "source-g11-asean-history",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-southeast-asian-independence",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đông Nam Á giành độc lập và xây dựng quốc gia",
+      "provenance": [
+        "source-g11-asean-history",
+        "source-g11-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g11-traditional-arts",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: traditional Vietnamese arts",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-unesco-traditional-arts"
+      ]
+    },
+    {
+      "id": "lesson-g11-traditional-arts",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: nghệ thuật truyền thống Việt Nam",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-unesco-traditional-arts"
+      ]
+    },
+    {
+      "id": "lesson-g11-war-peace",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: war and peace in the twentieth century",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history",
+        "source-g11-unclos"
+      ]
+    },
+    {
+      "id": "lesson-g11-war-peace",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: chiến tranh và hòa bình thế kỉ XX",
+      "provenance": [
+        "source-g11-moet-programme",
+        "source-g11-un-history",
+        "source-g11-unclos"
+      ]
+    },
+    {
+      "id": "lesson-g12-asean",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "ASEAN: historical milestones",
+      "provenance": [
+        "source-g12-asean-history",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-asean",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "ASEAN: những chặng đường lịch sử",
+      "provenance": [
+        "source-g12-asean-history",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-foreign-relations",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnamese foreign relations in modern history",
+      "provenance": [
+        "source-g12-foreign-relations-timeline",
+        "source-g12-moet-programme",
+        "source-g12-mofa-foreign-policy"
+      ]
+    },
+    {
+      "id": "lesson-g12-foreign-relations",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+      "provenance": [
+        "source-g12-foreign-relations-timeline",
+        "source-g12-moet-programme",
+        "source-g12-mofa-foreign-policy"
+      ]
+    },
+    {
+      "id": "lesson-g12-ho-chi-minh",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Hồ Chí Minh in Vietnamese history",
+      "provenance": [
+        "source-g12-hcm-museum",
+        "source-g12-ho-chi-minh-documents",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-ho-chi-minh",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Hồ Chí Minh trong lịch sử Việt Nam",
+      "provenance": [
+        "source-g12-hcm-museum",
+        "source-g12-ho-chi-minh-documents",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-integration",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: Vietnam's international integration",
+      "provenance": [
+        "source-g12-gso-development",
+        "source-g12-moet-programme",
+        "source-g12-mofa-foreign-policy"
+      ]
+    },
+    {
+      "id": "lesson-g12-integration",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: quá trình hội nhập quốc tế của Việt Nam",
+      "provenance": [
+        "source-g12-gso-development",
+        "source-g12-moet-programme",
+        "source-g12-mofa-foreign-policy"
+      ]
+    },
+    {
+      "id": "lesson-g12-japan",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: Japan since 1945",
+      "provenance": [
+        "source-g12-japan-1945",
+        "source-g12-moet-programme",
+        "source-g12-un-cold-war"
+      ]
+    },
+    {
+      "id": "lesson-g12-japan",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: Nhật Bản từ năm 1945 đến nay",
+      "provenance": [
+        "source-g12-japan-1945",
+        "source-g12-moet-programme",
+        "source-g12-un-cold-war"
+      ]
+    },
+    {
+      "id": "lesson-g12-religion",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Elective: belief and religion in Vietnam",
+      "provenance": [
+        "source-g12-moet-programme",
+        "source-g12-religion-heritage"
+      ]
+    },
+    {
+      "id": "lesson-g12-religion",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chuyên đề lựa chọn: tín ngưỡng và tôn giáo ở Việt Nam",
+      "provenance": [
+        "source-g12-moet-programme",
+        "source-g12-religion-heritage"
+      ]
+    },
+    {
+      "id": "lesson-g12-vietnam-1945-1975",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Revolution, wars of independence, and national defence, 1945–1975",
+      "provenance": [
+        "source-g12-august-revolution",
+        "source-g12-moet-programme",
+        "source-g12-party-chronology",
+        "source-g12-vietnam-dien-bien"
+      ]
+    },
+    {
+      "id": "lesson-g12-vietnam-1945-1975",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+      "provenance": [
+        "source-g12-august-revolution",
+        "source-g12-moet-programme",
+        "source-g12-party-chronology",
+        "source-g12-vietnam-dien-bien"
+      ]
+    },
+    {
+      "id": "lesson-g12-vietnam-since-1975",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam since 1975 and the Đổi mới process",
+      "provenance": [
+        "source-g12-doimoi",
+        "source-g12-gso-development",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-vietnam-since-1975",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+      "provenance": [
+        "source-g12-doimoi",
+        "source-g12-gso-development",
+        "source-g12-moet-programme"
+      ]
+    },
+    {
+      "id": "lesson-g12-world-cold-war",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The world during and after the Cold War",
+      "provenance": [
+        "source-g12-moet-programme",
+        "source-g12-un-cold-war"
+      ]
+    },
+    {
+      "id": "lesson-g12-world-cold-war",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Thế giới trong và sau Chiến tranh lạnh",
+      "provenance": [
+        "source-g12-moet-programme",
+        "source-g12-un-cold-war"
+      ]
+    },
+    {
+      "id": "lesson-g6-ancient-civilisations",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Reading ancient civilisations through achievements and exchange",
+      "provenance": [
+        "source-g6-british-museum-ancient-world",
+        "source-g6-unesco-silk-roads"
+      ]
+    },
+    {
+      "id": "lesson-g6-ancient-civilisations",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đọc các nền văn minh cổ qua thành tựu và giao lưu",
+      "provenance": [
+        "source-g6-british-museum-ancient-world",
+        "source-g6-unesco-silk-roads"
+      ]
+    },
+    {
+      "id": "lesson-g6-champa",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Champa: kingdom, exchange, and the heritage of My Son",
+      "provenance": [
+        "source-g6-unesco-my-son"
+      ]
+    },
+    {
+      "id": "lesson-g6-champa",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Chăm-pa: vương quốc, giao lưu và di sản Mỹ Sơn",
+      "provenance": [
+        "source-g6-unesco-my-son"
+      ]
+    },
+    {
+      "id": "lesson-g6-funan",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Funan and the Oc Eo world",
+      "provenance": [
+        "source-g6-vnmh-funan"
+      ]
+    },
+    {
+      "id": "lesson-g6-funan",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Phù Nam và thế giới Óc Eo",
+      "provenance": [
+        "source-g6-vnmh-funan"
+      ]
+    },
+    {
+      "id": "lesson-g6-human-origins",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Human origins and early society",
+      "provenance": [
+        "source-g6-smithsonian-human-evolution"
+      ]
+    },
+    {
+      "id": "lesson-g6-human-origins",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Nguồn gốc loài người và đời sống nguyên thủy",
+      "provenance": [
+        "source-g6-smithsonian-human-evolution"
+      ]
+    },
+    {
+      "id": "lesson-g6-northern-rule-resistance",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Northern rule, social change, and the path to self-rule",
+      "provenance": [
+        "source-g6-vnmh-independence"
+      ]
+    },
+    {
+      "id": "lesson-g6-northern-rule-resistance",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Bắc thuộc, chuyển biến xã hội và hành trình giành tự chủ",
+      "provenance": [
+        "source-g6-vnmh-independence"
+      ]
+    },
+    {
+      "id": "lesson-g6-southeast-asia-to-tenth-century",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Southeast Asia to the tenth century: kingdoms and exchange networks",
+      "provenance": [
+        "source-g6-unesco-my-son",
+        "source-g6-unesco-silk-roads",
+        "source-g6-vnmh-funan"
+      ]
+    },
+    {
+      "id": "lesson-g6-southeast-asia-to-tenth-century",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đông Nam Á đến thế kỉ X: vương quốc và mạng giao lưu",
+      "provenance": [
+        "source-g6-unesco-my-son",
+        "source-g6-unesco-silk-roads",
+        "source-g6-vnmh-funan"
+      ]
+    },
+    {
+      "id": "lesson-g6-van-lang-au-lac",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Van Lang and Au Lac through archaeology and tradition",
+      "provenance": [
+        "source-g6-vnmh-dong-son"
+      ]
+    },
+    {
+      "id": "lesson-g6-van-lang-au-lac",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Văn Lang – Âu Lạc qua khảo cổ và truyền thống",
+      "provenance": [
+        "source-g6-vnmh-dong-son"
+      ]
+    },
+    {
+      "id": "lesson-g6-why-study-history",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Learning history from evidence and time",
+      "provenance": [
+        "source-g6-official-programme"
+      ]
+    },
+    {
+      "id": "lesson-g6-why-study-history",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Học lịch sử từ dấu vết và thời gian",
+      "provenance": [
+        "source-g6-official-programme"
+      ]
+    },
+    {
+      "id": "lesson-g7-lam-son-later-le",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The Lam Sơn uprising and fifteenth-century Đại Việt",
+      "provenance": [
+        "source-g7-vnmh-lam-kinh",
+        "source-g7-vnmh-lam-son"
+      ]
+    },
+    {
+      "id": "lesson-g7-lam-son-later-le",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Khởi nghĩa Lam Sơn và Đại Việt thế kỉ XV",
+      "provenance": [
+        "source-g7-vnmh-lam-kinh",
+        "source-g7-vnmh-lam-son"
+      ]
+    },
+    {
+      "id": "lesson-g7-medieval-china-india",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Medieval China and India through states, exchange, and culture",
+      "provenance": [
+        "source-g7-met-china-1000-1400",
+        "source-g7-met-qing",
+        "source-g7-met-south-asia-1600-1800",
+        "source-g7-met-south-southeast-asia",
+        "source-g7-met-tang"
+      ]
+    },
+    {
+      "id": "lesson-g7-medieval-china-india",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Trung Quốc và Ấn Độ trung đại qua nhà nước, giao lưu và văn hóa",
+      "provenance": [
+        "source-g7-met-china-1000-1400",
+        "source-g7-met-qing",
+        "source-g7-met-south-asia-1600-1800",
+        "source-g7-met-south-southeast-asia",
+        "source-g7-met-tang"
+      ]
+    },
+    {
+      "id": "lesson-g7-medieval-western-europe",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Medieval Western Europe: estates, towns, and changing ideas",
+      "provenance": [
+        "source-g7-met-feudalism",
+        "source-g7-met-reformation",
+        "source-g7-met-renaissance"
+      ]
+    },
+    {
+      "id": "lesson-g7-medieval-western-europe",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Tây Âu trung đại: lãnh địa, đô thị và những chuyển đổi tư tưởng",
+      "provenance": [
+        "source-g7-met-feudalism",
+        "source-g7-met-reformation",
+        "source-g7-met-renaissance"
+      ]
+    },
+    {
+      "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Southeast Asia, tenth–sixteenth centuries: kingdoms, water, and exchange",
+      "provenance": [
+        "source-g7-unesco-angkor",
+        "source-g7-unesco-borobudur",
+        "source-g7-unesco-sukhothai"
+      ]
+    },
+    {
+      "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đông Nam Á thế kỉ X–XVI: vương quốc, nước và mạng giao lưu",
+      "provenance": [
+        "source-g7-unesco-angkor",
+        "source-g7-unesco-borobudur",
+        "source-g7-unesco-sukhothai"
+      ]
+    },
+    {
+      "id": "lesson-g7-vietnam-tenth-thirteenth",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "From tenth-century self-rule to Đại Việt under the Lý",
+      "provenance": [
+        "source-g7-unesco-thang-long",
+        "source-g7-vnmh-ly-tran",
+        "source-g7-vnmh-ngo-dinh-le"
+      ]
+    },
+    {
+      "id": "lesson-g7-vietnam-tenth-thirteenth",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Từ tự chủ thế kỉ X đến quốc gia Đại Việt thời Lý",
+      "provenance": [
+        "source-g7-unesco-thang-long",
+        "source-g7-vnmh-ly-tran",
+        "source-g7-vnmh-ngo-dinh-le"
+      ]
+    },
+    {
+      "id": "lesson-g7-vietnam-tran-ho",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Đại Việt under the Trần and Hồ: government, resistance, and reform",
+      "provenance": [
+        "source-g7-unesco-ho-citadel",
+        "source-g7-vnmh-ho",
+        "source-g7-vnmh-ly-tran"
+      ]
+    },
+    {
+      "id": "lesson-g7-vietnam-tran-ho",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đại Việt thời Trần–Hồ: xây dựng, kháng chiến và cải cách",
+      "provenance": [
+        "source-g7-unesco-ho-citadel",
+        "source-g7-vnmh-ho",
+        "source-g7-vnmh-ly-tran"
+      ]
+    },
+    {
+      "id": "lesson-g8-early-modern-revolutions",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Early modern revolutions: power, rights, and nations",
+      "provenance": [
+        "source-g8-dhm-1789-1871",
+        "source-g8-fr-rights",
+        "source-g8-rijks-dutch-revolt",
+        "source-g8-uk-bill-rights",
+        "source-g8-us-declaration"
+      ]
+    },
+    {
+      "id": "lesson-g8-early-modern-revolutions",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Các cuộc cách mạng cận đại: quyền lực, quyền con người và quốc gia",
+      "provenance": [
+        "source-g8-dhm-1789-1871",
+        "source-g8-fr-rights",
+        "source-g8-rijks-dutch-revolt",
+        "source-g8-uk-bill-rights",
+        "source-g8-us-declaration"
+      ]
+    },
+    {
+      "id": "lesson-g8-industrial-revolution",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The Industrial Revolution: machines, energy, and a new society",
+      "provenance": [
+        "source-g8-science-steam",
+        "source-g8-science-work",
+        "source-g8-uk-early-industry",
+        "source-g8-uk-factory-act"
+      ]
+    },
+    {
+      "id": "lesson-g8-industrial-revolution",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Cách mạng công nghiệp: máy móc, năng lượng và xã hội mới",
+      "provenance": [
+        "source-g8-science-steam",
+        "source-g8-science-work",
+        "source-g8-uk-early-industry",
+        "source-g8-uk-factory-act"
+      ]
+    },
+    {
+      "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Southeast Asia, sixteenth–nineteenth centuries: trade, conquest, and varied responses",
+      "provenance": [
+        "source-g8-dutch-voc",
+        "source-g8-ph-basi-revolt",
+        "source-g8-thai-diplomacy",
+        "source-g8-unesco-melaka",
+        "source-g8-unesco-vigan"
+      ]
+    },
+    {
+      "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Đông Nam Á thế kỉ XVI–XIX: thương mại, xâm chiếm và nhiều cách ứng phó",
+      "provenance": [
+        "source-g8-dutch-voc",
+        "source-g8-ph-basi-revolt",
+        "source-g8-thai-diplomacy",
+        "source-g8-unesco-melaka",
+        "source-g8-unesco-vigan"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-1885-1918",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1885–1918: Cần Vương, Yên Thế, and new strategies",
+      "provenance": [
+        "source-g8-vnmh-dong-du",
+        "source-g8-vnmh-dong-kinh",
+        "source-g8-vnmh-hue-1885",
+        "source-g8-vnmh-yen-the"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-1885-1918",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1885–1918: Cần Vương, Yên Thế và những con đường cứu nước mới",
+      "provenance": [
+        "source-g8-vnmh-dong-du",
+        "source-g8-vnmh-dong-kinh",
+        "source-g8-vnmh-hue-1885",
+        "source-g8-vnmh-yen-the"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnamese resistance to French conquest, 1858–1884",
+      "provenance": [
+        "source-g8-vnmh-danang-1858",
+        "source-g8-vnmh-nguyen-tri-phuong",
+        "source-g8-vnmh-treaties-1884"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam chống cuộc chinh phục của Pháp, 1858–1884",
+      "provenance": [
+        "source-g8-vnmh-danang-1858",
+        "source-g8-vnmh-nguyen-tri-phuong",
+        "source-g8-vnmh-treaties-1884"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-nguyen-dynasty",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1802–1858: the Nguyễn and the challenge of governing a unified state",
+      "provenance": [
+        "source-g8-unesco-hue",
+        "source-g8-vnmh-maritime-nguyen",
+        "source-g8-vnmh-nguyen"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-nguyen-dynasty",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1802–1858: nhà Nguyễn và bài toán quản trị một quốc gia thống nhất",
+      "provenance": [
+        "source-g8-unesco-hue",
+        "source-g8-vnmh-maritime-nguyen",
+        "source-g8-vnmh-nguyen"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1527–1802: division, southward expansion, and Tây Sơn",
+      "provenance": [
+        "source-g8-unesco-hoi-an",
+        "source-g8-vnmh-le-mac",
+        "source-g8-vnmh-quang-trung"
+      ]
+    },
+    {
+      "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1527–1802: phân tranh, mở cõi và phong trào Tây Sơn",
+      "provenance": [
+        "source-g8-unesco-hoi-an",
+        "source-g8-vnmh-le-mac",
+        "source-g8-vnmh-quang-trung"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-1918-1945",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1918–1945: multiple movements and the August Revolution",
+      "provenance": [
+        "source-g9-vnmh-august",
+        "source-g9-vnmh-independence",
+        "source-g9-vnmh-press-1945"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-1918-1945",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1918–1945: nhiều dòng vận động và Cách mạng tháng Tám",
+      "provenance": [
+        "source-g9-vnmh-august",
+        "source-g9-vnmh-independence",
+        "source-g9-vnmh-press-1945"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-1945-1991",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1945–1991: resistance, reunification, defence, and Đổi mới",
+      "provenance": [
+        "source-g9-government-doi-moi",
+        "source-g9-mofa-cambodia",
+        "source-g9-vnmh-france-war",
+        "source-g9-vnmh-hcm-campaign"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-1945-1991",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1945–1991: kháng chiến, thống nhất, bảo vệ và Đổi mới",
+      "provenance": [
+        "source-g9-government-doi-moi",
+        "source-g9-mofa-cambodia",
+        "source-g9-vnmh-france-war",
+        "source-g9-vnmh-hcm-campaign"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-since-1991",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "Vietnam, 1991–2026: integration, development, and new challenges",
+      "provenance": [
+        "source-g9-asean-50",
+        "source-g9-gso-2026",
+        "source-g9-mofa-us",
+        "source-g9-world-bank-vietnam-2026",
+        "source-g9-wto-vietnam"
+      ]
+    },
+    {
+      "id": "lesson-g9-vietnam-since-1991",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Việt Nam 1991–2026: hội nhập, phát triển và những bài toán mới",
+      "provenance": [
+        "source-g9-asean-50",
+        "source-g9-gso-2026",
+        "source-g9-mofa-us",
+        "source-g9-world-bank-vietnam-2026",
+        "source-g9-wto-vietnam"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-1918-1945",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The world, 1918–1945: crisis, fascism, and global war",
+      "provenance": [
+        "source-g9-iwm-1945",
+        "source-g9-un-history",
+        "source-g9-ushmm-nazi"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-1918-1945",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Thế giới 1918–1945: khủng hoảng, phát xít và chiến tranh toàn cầu",
+      "provenance": [
+        "source-g9-iwm-1945",
+        "source-g9-un-history",
+        "source-g9-ushmm-nazi"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-1945-1991",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The world, 1945–1991: Cold War, decolonisation, and social change",
+      "provenance": [
+        "source-g9-state-ussr",
+        "source-g9-uk-cold-war",
+        "source-g9-un-decolonization"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-1945-1991",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Thế giới 1945–1991: Chiến tranh lạnh, giải phóng dân tộc và biến đổi xã hội",
+      "provenance": [
+        "source-g9-state-ussr",
+        "source-g9-uk-cold-war",
+        "source-g9-un-decolonization"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-since-1991",
+      "type": "TOPIC",
+      "locale": "en",
+      "label": "The world, 1991–2026: deeper connection, greater shared risk",
+      "provenance": [
+        "source-g9-itu-2025",
+        "source-g9-un-sdg-2026",
+        "source-g9-who-covid",
+        "source-g9-wmo-2025"
+      ]
+    },
+    {
+      "id": "lesson-g9-world-since-1991",
+      "type": "TOPIC",
+      "locale": "vi",
+      "label": "Thế giới 1991–2026: kết nối sâu hơn, rủi ro chung lớn hơn",
+      "provenance": [
+        "source-g9-itu-2025",
+        "source-g9-un-sdg-2026",
+        "source-g9-who-covid",
+        "source-g9-wmo-2025"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "lesson-g10-ethnic-communities",
+      "to": "source-g10-ubdt-54",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-ethnic-count",
+      "locator": "Cổng ‘Cộng đồng 54 Dân tộc Việt Nam’ — official group list",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-ethnic-communities",
+      "to": "source-g10-ubdt-report",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-ethnic-terms",
+      "locator": "Phần kiến nghị về sử dụng chính xác thuật ngữ ‘dân tộc’ và ‘tộc người’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-ethnic-communities",
+      "to": "source-g10-ubdt-54",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-ethnic-count",
+      "locator": "Cổng ‘Cộng đồng 54 Dân tộc Việt Nam’ — official group list",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-ethnic-communities",
+      "to": "source-g10-ubdt-report",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-ethnic-terms",
+      "locator": "Phần kiến nghị về sử dụng chính xác thuật ngữ ‘dân tộc’ và ‘tộc người’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-fields-history",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-fields-digital",
+      "locator": "Archives for a better world — evidence and knowledge",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-fields-history",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-fields-methods",
+      "locator": "Mạch chuyên đề lựa chọn ‘Các lĩnh vực của Sử học’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-fields-history",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-fields-digital",
+      "locator": "Archives for a better world — evidence and knowledge",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-fields-history",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-fields-methods",
+      "locator": "Mạch chuyên đề lựa chọn ‘Các lĩnh vực của Sử học’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-heritage-conservation",
+      "to": "source-g10-unesco-hoi-an",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-heritage-hoi-an",
+      "locator": "Hoi An — Brief synthesis and criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-heritage-conservation",
+      "to": "source-g10-unesco-hue",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-heritage-hue",
+      "locator": "Complex of Hué Monuments — UNESCO brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-heritage-conservation",
+      "to": "source-g10-unesco-hoi-an",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-heritage-hoi-an",
+      "locator": "Hoi An — Brief synthesis and criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-heritage-conservation",
+      "to": "source-g10-unesco-hue",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-heritage-hue",
+      "locator": "Complex of Hué Monuments — UNESCO brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-history-historiography",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-historiography-memory",
+      "locator": "Memory of the World — aims to preserve, enable access, and raise awareness",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-history-historiography",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-historiography-past",
+      "locator": "Mạch nội dung ‘Lịch sử và Sử học’ — mục tiêu phân biệt hiện thực và nhận thức lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-history-historiography",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-historiography-memory",
+      "locator": "Memory of the World — aims to preserve, enable access, and raise awareness",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-history-historiography",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-historiography-past",
+      "locator": "Mạch nội dung ‘Lịch sử và Sử học’ — mục tiêu phân biệt hiện thực và nhận thức lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-industrial-revolutions",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-industrial-impact",
+      "locator": "Archives for a better world — records as evidence of human activities and societies",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-industrial-revolutions",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-industrial-stages",
+      "locator": "Mạch lớp 10 ‘Các cuộc cách mạng công nghiệp trong lịch sử thế giới’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-industrial-revolutions",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-industrial-impact",
+      "locator": "Archives for a better world — records as evidence of human activities and societies",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-industrial-revolutions",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-industrial-stages",
+      "locator": "Mạch lớp 10 ‘Các cuộc cách mạng công nghiệp trong lịch sử thế giới’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-roles-history",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-roles-future",
+      "locator": "Archives for a better world — archives as evidence and sources of knowledge",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-roles-history",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-roles-heritage",
+      "locator": "Memory of the World page — programme aims",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-roles-history",
+      "to": "source-g10-unesco-archives",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-roles-future",
+      "locator": "Archives for a better world — archives as evidence and sources of knowledge",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-roles-history",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-roles-heritage",
+      "locator": "Memory of the World page — programme aims",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-southeast-asian-civilisation",
+      "to": "source-g10-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-sea-champa",
+      "locator": "UNESCO My Son — Brief synthesis, 4th–13th centuries and political/religious capital",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-southeast-asian-civilisation",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-sea-civilisation",
+      "locator": "Mạch ‘Văn minh Đông Nam Á thời cổ–trung đại’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-southeast-asian-civilisation",
+      "to": "source-g10-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-sea-champa",
+      "locator": "UNESCO My Son — Brief synthesis, 4th–13th centuries and political/religious capital",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-southeast-asian-civilisation",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-sea-civilisation",
+      "locator": "Mạch ‘Văn minh Đông Nam Á thời cổ–trung đại’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-state-law",
+      "to": "source-g10-quochoi-constitutional-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-law-constitutions",
+      "locator": "Bibliographic abstract — constitutional practice from 1946 through 2013",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-state-law",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-law-context",
+      "locator": "Programme structure — mandatory and elective strands for upper secondary history",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-state-law",
+      "to": "source-g10-quochoi-constitutional-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-law-constitutions",
+      "locator": "Bibliographic abstract — constitutional practice from 1946 through 2013",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-state-law",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-law-context",
+      "locator": "Programme structure — mandatory and elective strands for upper secondary history",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-vietnam-civilisations",
+      "to": "source-g10-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-vietnam-civilisations-dongson",
+      "locator": "‘90 năm phát hiện và nghiên cứu’ — archaeological chronology and evidence sections",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-vietnam-civilisations",
+      "to": "source-g10-unesco-thang-long",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-vietnam-civilisations-thanglong",
+      "locator": "UNESCO Brief summary — Ly dynasty, 11th century, and nearly thirteen centuries of power",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-vietnam-civilisations",
+      "to": "source-g10-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-vietnam-civilisations-dongson",
+      "locator": "‘90 năm phát hiện và nghiên cứu’ — archaeological chronology and evidence sections",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-vietnam-civilisations",
+      "to": "source-g10-unesco-thang-long",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-vietnam-civilisations-thanglong",
+      "locator": "UNESCO Brief summary — Ly dynasty, 11th century, and nearly thirteen centuries of power",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-world-civilisations",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-civilisations-comparison",
+      "locator": "Lớp 10 — mạch ‘Một số nền văn minh thế giới thời cổ–trung đại’ and required outcome",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-world-civilisations",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-civilisations-exchange",
+      "locator": "Memory of the World — preservation, access, and awareness",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-world-civilisations",
+      "to": "source-g10-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-civilisations-comparison",
+      "locator": "Lớp 10 — mạch ‘Một số nền văn minh thế giới thời cổ–trung đại’ and required outcome",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g10-world-civilisations",
+      "to": "source-g10-unesco-memory-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g10-civilisations-exchange",
+      "locator": "Memory of the World — preservation, access, and awareness",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-bourgeois-capitalism",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-capitalism-limits",
+      "locator": "UN history — institutional context and post-war rights framework",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-bourgeois-capitalism",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-capitalism-revolutions",
+      "locator": "Mạch lớp 11 ‘Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-bourgeois-capitalism",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-capitalism-limits",
+      "locator": "UN history — institutional context and post-war rights framework",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-bourgeois-capitalism",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-capitalism-revolutions",
+      "locator": "Mạch lớp 11 ‘Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-east-sea",
+      "to": "source-g11-nguyen-chau-ban",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-east-sea-records",
+      "locator": "Châu bản triều Nguyễn — passages dated Minh Mệnh 17 (1836) and 19 (1838)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-east-sea",
+      "to": "source-g11-unclos",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-east-sea-unclos",
+      "locator": "UNCLOS contents — Parts II, V, and VI",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-east-sea",
+      "to": "source-g11-nguyen-chau-ban",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-east-sea-records",
+      "locator": "Châu bản triều Nguyễn — passages dated Minh Mệnh 17 (1836) and 19 (1838)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-east-sea",
+      "to": "source-g11-unclos",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-east-sea-unclos",
+      "locator": "UNCLOS contents — Parts II, V, and VI",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-figures",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-figures-context",
+      "locator": "Chuyên đề 11.3 — Danh nhân trong lịch sử Việt Nam",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-figures",
+      "to": "source-g11-vnmh-figures",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-figures-network",
+      "locator": "Bảo tàng Lịch sử Quốc gia — cổng tra cứu nhân vật và hồ sơ lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-figures",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-figures-context",
+      "locator": "Chuyên đề 11.3 — Danh nhân trong lịch sử Việt Nam",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-figures",
+      "to": "source-g11-vnmh-figures",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-figures-network",
+      "locator": "Bảo tàng Lịch sử Quốc gia — cổng tra cứu nhân vật và hồ sơ lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-national-defence",
+      "to": "source-g11-bach-dang",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-defence-bach-dang",
+      "locator": "Bạch Đằng — opening summary naming the three battles",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-national-defence",
+      "to": "source-g11-bach-dang-excavation",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-defence-evidence",
+      "locator": "Bài giới thiệu đợt khai quật Bạch Đằng xuân 1969",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-national-defence",
+      "to": "source-g11-bach-dang",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-defence-bach-dang",
+      "locator": "Bạch Đằng — opening summary naming the three battles",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-national-defence",
+      "to": "source-g11-bach-dang-excavation",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-defence-evidence",
+      "locator": "Bài giới thiệu đợt khai quật Bạch Đằng xuân 1969",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-reforms",
+      "to": "source-g11-ly-tran-reforms",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-reforms-comparison",
+      "locator": "Chương trình môn Lịch sử — yêu cầu phân tích bối cảnh, nội dung, kết quả, ý nghĩa",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-reforms",
+      "to": "source-g11-ho-quy-ly-reform",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-reforms-ho-quy-ly",
+      "locator": "Cải cách Hồ Quý Ly — opening paragraphs on political, military, economic, cultural, and social reforms",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-reforms",
+      "to": "source-g11-ly-tran-reforms",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-reforms-comparison",
+      "locator": "Chương trình môn Lịch sử — yêu cầu phân tích bối cảnh, nội dung, kết quả, ý nghĩa",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-reforms",
+      "to": "source-g11-ho-quy-ly-reform",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-reforms-ho-quy-ly",
+      "locator": "Cải cách Hồ Quý Ly — opening paragraphs on political, military, economic, cultural, and social reforms",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-socialism-1917",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-socialism-change",
+      "locator": "UN history — institutional change and international context",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-socialism-1917",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-socialism-formation",
+      "locator": "Mạch lớp 11 ‘Chủ nghĩa xã hội từ năm 1917 đến nay’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-socialism-1917",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-socialism-change",
+      "locator": "UN history — institutional change and international context",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-socialism-1917",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-socialism-formation",
+      "locator": "Mạch lớp 11 ‘Chủ nghĩa xã hội từ năm 1917 đến nay’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-southeast-asian-independence",
+      "to": "source-g11-asean-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-asean-cooperation",
+      "locator": "ASEAN — The Founding of ASEAN, Bangkok Declaration, 8 August 1967",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-southeast-asian-independence",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-asean-independence",
+      "locator": "Mạch lớp 11 ‘Quá trình giành độc lập của các quốc gia Đông Nam Á’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-southeast-asian-independence",
+      "to": "source-g11-asean-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-asean-cooperation",
+      "locator": "ASEAN — The Founding of ASEAN, Bangkok Declaration, 8 August 1967",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-southeast-asian-independence",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-asean-independence",
+      "locator": "Mạch lớp 11 ‘Quá trình giành độc lập của các quốc gia Đông Nam Á’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-traditional-arts",
+      "to": "source-g11-unesco-traditional-arts",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-arts-community",
+      "locator": "UNESCO Intangible Cultural Heritage — Viet Nam state page and community-based safeguarding",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-traditional-arts",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-arts-heritage",
+      "locator": "Chuyên đề 11.1 — Lịch sử nghệ thuật truyền thống Việt Nam",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-traditional-arts",
+      "to": "source-g11-unesco-traditional-arts",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-arts-community",
+      "locator": "UNESCO Intangible Cultural Heritage — Viet Nam state page and community-based safeguarding",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-traditional-arts",
+      "to": "source-g11-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-arts-heritage",
+      "locator": "Chuyên đề 11.1 — Lịch sử nghệ thuật truyền thống Việt Nam",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-war-peace",
+      "to": "source-g11-unclos",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-peace-law",
+      "locator": "UNCLOS contents and preamble — peaceful uses and dispute provisions",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-war-peace",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-peace-un",
+      "locator": "UN History — founding context and Charter",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-war-peace",
+      "to": "source-g11-unclos",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-peace-law",
+      "locator": "UNCLOS contents and preamble — peaceful uses and dispute provisions",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g11-war-peace",
+      "to": "source-g11-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g11-peace-un",
+      "locator": "UN History — founding context and Charter",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-asean",
+      "to": "source-g12-asean-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-asean-founding",
+      "locator": "ASEAN — The Founding of ASEAN, Bangkok Declaration",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-asean",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-asean-vietnam",
+      "locator": "Mạch ASEAN và hội nhập trong chương trình lớp 12",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-asean",
+      "to": "source-g12-asean-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-asean-founding",
+      "locator": "ASEAN — The Founding of ASEAN, Bangkok Declaration",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-asean",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-asean-vietnam",
+      "locator": "Mạch ASEAN và hội nhập trong chương trình lớp 12",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-foreign-relations",
+      "to": "source-g12-foreign-relations-timeline",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-foreign-asof",
+      "locator": "MOFA foreign-relations portal — current gateway and dated entries",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-foreign-relations",
+      "to": "source-g12-mofa-foreign-policy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-foreign-principles",
+      "locator": "Đẩy mạnh đối ngoại toàn diện — stated principles and objectives",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-foreign-relations",
+      "to": "source-g12-foreign-relations-timeline",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-foreign-asof",
+      "locator": "MOFA foreign-relations portal — current gateway and dated entries",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-foreign-relations",
+      "to": "source-g12-mofa-foreign-policy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-foreign-principles",
+      "locator": "Đẩy mạnh đối ngoại toàn diện — stated principles and objectives",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-ho-chi-minh",
+      "to": "source-g12-ho-chi-minh-documents",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-hcm-activity",
+      "locator": "Hồ Chí Minh với cách mạng Lào — sections on 1945 and international solidarity",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-ho-chi-minh",
+      "to": "source-g12-hcm-museum",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-hcm-method",
+      "locator": "Bảo tàng Hồ Chí Minh — museum portal and collections context",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-ho-chi-minh",
+      "to": "source-g12-ho-chi-minh-documents",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-hcm-activity",
+      "locator": "Hồ Chí Minh với cách mạng Lào — sections on 1945 and international solidarity",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-ho-chi-minh",
+      "to": "source-g12-hcm-museum",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-hcm-method",
+      "locator": "Bảo tàng Hồ Chí Minh — museum portal and collections context",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-integration",
+      "to": "source-g12-gso-development",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-integration-data",
+      "locator": "GSO data portal — year-defined statistics and metadata",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-integration",
+      "to": "source-g12-mofa-foreign-policy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-integration-policy",
+      "locator": "Đẩy mạnh đối ngoại toàn diện — integration, peace, and national-interest objectives",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-integration",
+      "to": "source-g12-gso-development",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-integration-data",
+      "locator": "GSO data portal — year-defined statistics and metadata",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-integration",
+      "to": "source-g12-mofa-foreign-policy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-integration-policy",
+      "locator": "Đẩy mạnh đối ngoại toàn diện — integration, peace, and national-interest objectives",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-japan",
+      "to": "source-g12-un-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-japan-limits",
+      "locator": "UN post-war history — international context for comparative framing",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-japan",
+      "to": "source-g12-japan-1945",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-japan-recovery",
+      "locator": "MOFA Diplomatic Bluebook — post-war diplomacy and development sections",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-japan",
+      "to": "source-g12-un-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-japan-limits",
+      "locator": "UN post-war history — international context for comparative framing",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-japan",
+      "to": "source-g12-japan-1945",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-japan-recovery",
+      "locator": "MOFA Diplomatic Bluebook — post-war diplomacy and development sections",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-religion",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-religion-change",
+      "locator": "Chuyên đề lựa chọn lớp 12 — yêu cầu thực hành và tìm hiểu văn hóa",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-religion",
+      "to": "source-g12-religion-heritage",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-religion-community",
+      "locator": "UNESCO Intangible Cultural Heritage — Viet Nam state page",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-religion",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-religion-change",
+      "locator": "Chuyên đề lựa chọn lớp 12 — yêu cầu thực hành và tìm hiểu văn hóa",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-religion",
+      "to": "source-g12-religion-heritage",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-religion-community",
+      "locator": "UNESCO Intangible Cultural Heritage — Viet Nam state page",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-1945-1975",
+      "to": "source-g12-august-revolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-august-outcome",
+      "locator": "Cách mạng Tháng 8 và Quốc khánh 2/9/1945 — event chronology",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-1945-1975",
+      "to": "source-g12-party-chronology",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-war-geneva",
+      "locator": "Lịch sử Biên niên Đảng — entries on Dien Bien Phu and Geneva",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-1945-1975",
+      "to": "source-g12-august-revolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-august-outcome",
+      "locator": "Cách mạng Tháng 8 và Quốc khánh 2/9/1945 — event chronology",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-1945-1975",
+      "to": "source-g12-party-chronology",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-war-geneva",
+      "locator": "Lịch sử Biên niên Đảng — entries on Dien Bien Phu and Geneva",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-since-1975",
+      "to": "source-g12-gso-development",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-current-data",
+      "locator": "GSO data portal — definitions and year-specific tables",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-since-1975",
+      "to": "source-g12-doimoi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-doimoi-process",
+      "locator": "Đổi mới và phát triển kinh tế Việt Nam — policy overview",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-since-1975",
+      "to": "source-g12-gso-development",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-current-data",
+      "locator": "GSO data portal — definitions and year-specific tables",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-vietnam-since-1975",
+      "to": "source-g12-doimoi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-doimoi-process",
+      "locator": "Đổi mới và phát triển kinh tế Việt Nam — policy overview",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-world-cold-war",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-cold-war-structure",
+      "locator": "Mạch lớp 12 ‘Thế giới trong và sau Chiến tranh lạnh’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-world-cold-war",
+      "to": "source-g12-un-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-post1991-change",
+      "locator": "UN history — post-war international institutions and changing order",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-world-cold-war",
+      "to": "source-g12-moet-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-cold-war-structure",
+      "locator": "Mạch lớp 12 ‘Thế giới trong và sau Chiến tranh lạnh’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g12-world-cold-war",
+      "to": "source-g12-un-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g12-post1991-change",
+      "locator": "UN history — post-war international institutions and changing order",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-ancient-civilisations",
+      "to": "source-g6-british-museum-ancient-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-ancient-civilisations-evidence",
+      "locator": "Discover sessions and resources — Ancient Egypt, Ancient Greece, Ancient Rome, Middle East and Asia",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-ancient-civilisations",
+      "to": "source-g6-unesco-silk-roads",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-ancient-civilisations-exchange",
+      "locator": "About the Silk Roads — Routes of Dialogue",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-ancient-civilisations",
+      "to": "source-g6-british-museum-ancient-world",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-ancient-civilisations-evidence",
+      "locator": "Discover sessions and resources — Ancient Egypt, Ancient Greece, Ancient Rome, Middle East and Asia",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-ancient-civilisations",
+      "to": "source-g6-unesco-silk-roads",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-ancient-civilisations-exchange",
+      "locator": "About the Silk Roads — Routes of Dialogue",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-champa",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-champa-exchange",
+      "locator": "Criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-champa",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-champa-my-son",
+      "locator": "Outstanding Universal Value — Brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-champa",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-champa-exchange",
+      "locator": "Criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-champa",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-champa-my-son",
+      "locator": "Outstanding Universal Value — Brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-funan",
+      "to": "source-g6-vnmh-funan",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-funan-oc-eo",
+      "locator": "Phần giới thiệu phòng trưng bày Óc Eo–Phù Nam và quan hệ giữa cổ vật với thư tịch",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-funan",
+      "to": "source-g6-vnmh-funan",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-funan-trade",
+      "locator": "Các đoạn mô tả tiền kim loại, đá quý và giao thương viễn dương",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-funan",
+      "to": "source-g6-vnmh-funan",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-funan-oc-eo",
+      "locator": "Phần giới thiệu phòng trưng bày Óc Eo–Phù Nam và quan hệ giữa cổ vật với thư tịch",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-funan",
+      "to": "source-g6-vnmh-funan",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-funan-trade",
+      "locator": "Các đoạn mô tả tiền kim loại, đá quý và giao thương viễn dương",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-human-origins",
+      "to": "source-g6-smithsonian-human-evolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-human-origins-branches",
+      "locator": "Human Fossils — Fossil Evidence",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-human-origins",
+      "to": "source-g6-smithsonian-human-evolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-human-origins-evidence",
+      "locator": "Evidence of Evolution — Human Fossils, Behavior, Genetics, Dating",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-human-origins",
+      "to": "source-g6-smithsonian-human-evolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-human-origins-branches",
+      "locator": "Human Fossils — Fossil Evidence",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-human-origins",
+      "to": "source-g6-smithsonian-human-evolution",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-human-origins-evidence",
+      "locator": "Evidence of Evolution — Human Fossils, Behavior, Genetics, Dating",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-northern-rule-resistance",
+      "to": "source-g6-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-northern-rule-continuity",
+      "locator": "Final paragraph — Bach Dang battle victory in 938",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-northern-rule-resistance",
+      "to": "source-g6-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-northern-rule-struggles",
+      "locator": "Exhibition narrative — sequence of struggles from the first to tenth centuries",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-northern-rule-resistance",
+      "to": "source-g6-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-northern-rule-continuity",
+      "locator": "Final paragraph — Bach Dang battle victory in 938",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-northern-rule-resistance",
+      "to": "source-g6-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-northern-rule-struggles",
+      "locator": "Exhibition narrative — sequence of struggles from the first to tenth centuries",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-southeast-asia-to-tenth-century",
+      "to": "source-g6-unesco-silk-roads",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-sea-exchange",
+      "locator": "About the Silk Roads — maritime routes and dissemination of religions",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-southeast-asia-to-tenth-century",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-sea-local-adaptation",
+      "locator": "Outstanding Universal Value — Brief synthesis and criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-southeast-asia-to-tenth-century",
+      "to": "source-g6-unesco-silk-roads",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-sea-exchange",
+      "locator": "About the Silk Roads — maritime routes and dissemination of religions",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-southeast-asia-to-tenth-century",
+      "to": "source-g6-unesco-my-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-sea-local-adaptation",
+      "locator": "Outstanding Universal Value — Brief synthesis and criterion (ii)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-van-lang-au-lac",
+      "to": "source-g6-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-van-lang-dong-son",
+      "locator": "Phần mở đầu — niên đại, phân bố và quan hệ với nhà nước sơ khai",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-van-lang-au-lac",
+      "to": "source-g6-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-van-lang-material-life",
+      "locator": "Các nhóm di tích và di vật Đông Sơn được giới thiệu trong bài",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-van-lang-au-lac",
+      "to": "source-g6-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-van-lang-dong-son",
+      "locator": "Phần mở đầu — niên đại, phân bố và quan hệ với nhà nước sơ khai",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-van-lang-au-lac",
+      "to": "source-g6-vnmh-dong-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-van-lang-material-life",
+      "locator": "Các nhóm di tích và di vật Đông Sơn được giới thiệu trong bài",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-why-study-history",
+      "to": "source-g6-official-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-why-study-history-evidence",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-why-study-history",
+      "to": "source-g6-official-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-why-study-history-time",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-why-study-history",
+      "to": "source-g6-official-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-why-study-history-evidence",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g6-why-study-history",
+      "to": "source-g6-official-programme",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g6-why-study-history-time",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-lam-son-later-le",
+      "to": "source-g7-vnmh-lam-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-lam-son-victory",
+      "locator": "Các đoạn về khởi nghĩa năm 1418, thắng lợi 1427 và Lê Lợi lên ngôi năm 1428",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-lam-son-later-le",
+      "to": "source-g7-vnmh-lam-kinh",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-later-le-lam-kinh",
+      "locator": "Phần giới thiệu lịch sử Lam Sơn–Lam Kinh và kết quả khảo cổ khu trung tâm",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-lam-son-later-le",
+      "to": "source-g7-vnmh-lam-son",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-lam-son-victory",
+      "locator": "Các đoạn về khởi nghĩa năm 1418, thắng lợi 1427 và Lê Lợi lên ngôi năm 1428",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-lam-son-later-le",
+      "to": "source-g7-vnmh-lam-kinh",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-later-le-lam-kinh",
+      "locator": "Phần giới thiệu lịch sử Lam Sơn–Lam Kinh và kết quả khảo cổ khu trung tâm",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-china-india",
+      "to": "source-g7-met-tang",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-china-tang-cosmopolitan",
+      "locator": "Essay paragraphs 173–176 — unification, Chang'an networks, trade routes, and examinations",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-china-india",
+      "to": "source-g7-met-south-southeast-asia",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-india-multiple-centres",
+      "locator": "Chronology, p. 13 — medieval India, Pala and Sena, Chola, Delhi Sultanate, Vijayanagara",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-china-india",
+      "to": "source-g7-met-tang",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-china-tang-cosmopolitan",
+      "locator": "Essay paragraphs 173–176 — unification, Chang'an networks, trade routes, and examinations",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-china-india",
+      "to": "source-g7-met-south-southeast-asia",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-india-multiple-centres",
+      "locator": "Chronology, p. 13 — medieval India, Pala and Sena, Chola, Delhi Sultanate, Vijayanagara",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-western-europe",
+      "to": "source-g7-met-feudalism",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-western-europe-feudal-variety",
+      "locator": "Essay paragraphs 1–2 — fiefs, military service, and alternative forms of landholding and loyalty",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-western-europe",
+      "to": "source-g7-met-reformation",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-western-europe-reformation",
+      "locator": "Essay paragraphs 175–185 — origins, spread, Protestant branches, and Catholic response",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-western-europe",
+      "to": "source-g7-met-feudalism",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-western-europe-feudal-variety",
+      "locator": "Essay paragraphs 1–2 — fiefs, military service, and alternative forms of landholding and loyalty",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-medieval-western-europe",
+      "to": "source-g7-met-reformation",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-western-europe-reformation",
+      "locator": "Essay paragraphs 175–185 — origins, spread, Protestant branches, and Catholic response",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "to": "source-g7-unesco-angkor",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-southeast-asia-angkor",
+      "locator": "Outstanding Universal Value — Brief synthesis and criteria (i)–(iv)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "to": "source-g7-unesco-sukhothai",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-southeast-asia-sukhothai",
+      "locator": "Outstanding Universal Value — Brief synthesis and criterion (i)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "to": "source-g7-unesco-angkor",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-southeast-asia-angkor",
+      "locator": "Outstanding Universal Value — Brief synthesis and criteria (i)–(iv)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "to": "source-g7-unesco-sukhothai",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-southeast-asia-sukhothai",
+      "locator": "Outstanding Universal Value — Brief synthesis and criterion (i)",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tenth-thirteenth",
+      "to": "source-g7-vnmh-ngo-dinh-le",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-vietnam-independent-foundations",
+      "locator": "Tổng quan trưng bày — chính quyền độc lập, quân sự, kinh tế, văn hóa và hiện vật Hoa Lư",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tenth-thirteenth",
+      "to": "source-g7-unesco-thang-long",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-vietnam-thang-long",
+      "locator": "Outstanding Universal Value — Brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tenth-thirteenth",
+      "to": "source-g7-vnmh-ngo-dinh-le",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-vietnam-independent-foundations",
+      "locator": "Tổng quan trưng bày — chính quyền độc lập, quân sự, kinh tế, văn hóa và hiện vật Hoa Lư",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tenth-thirteenth",
+      "to": "source-g7-unesco-thang-long",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-vietnam-thang-long",
+      "locator": "Outstanding Universal Value — Brief synthesis",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tran-ho",
+      "to": "source-g7-vnmh-ho",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-tran-ho-reforms",
+      "locator": "Tổng quan trưng bày — chính sách kinh tế, xã hội, giáo dục và hiện vật triều Hồ",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tran-ho",
+      "to": "source-g7-vnmh-ly-tran",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-tran-resistance",
+      "locator": "Tổng quan trưng bày — công cuộc giữ nước thời Lý–Trần",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tran-ho",
+      "to": "source-g7-vnmh-ho",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-tran-ho-reforms",
+      "locator": "Tổng quan trưng bày — chính sách kinh tế, xã hội, giáo dục và hiện vật triều Hồ",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g7-vietnam-tran-ho",
+      "to": "source-g7-vnmh-ly-tran",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g7-tran-resistance",
+      "locator": "Tổng quan trưng bày — công cuộc giữ nước thời Lý–Trần",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-early-modern-revolutions",
+      "to": "source-g8-dhm-1789-1871",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-revolutions-1871",
+      "locator": "Permanent exhibition overview — revolutions of 1848/49 and founding of the German Empire in 1871",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-early-modern-revolutions",
+      "to": "source-g8-fr-rights",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-revolutions-rights",
+      "locator": "Histoire et patrimoine — paragraphs on the votes of 20–26 August 1789 and the principles proclaimed",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-early-modern-revolutions",
+      "to": "source-g8-dhm-1789-1871",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-revolutions-1871",
+      "locator": "Permanent exhibition overview — revolutions of 1848/49 and founding of the German Empire in 1871",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-early-modern-revolutions",
+      "to": "source-g8-fr-rights",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-revolutions-rights",
+      "locator": "Histoire et patrimoine — paragraphs on the votes of 20–26 August 1789 and the principles proclaimed",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-industrial-revolution",
+      "to": "source-g8-uk-factory-act",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-industrial-labour",
+      "locator": "The 1833 Factory Act — child labour limits, schooling, four inspectors, and enforcement constraints",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-industrial-revolution",
+      "to": "source-g8-uk-early-industry",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-industrial-system",
+      "locator": "Early industry and Parliament — agriculture, workshop production, textiles, and rapid eighteenth-century industrialisation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-industrial-revolution",
+      "to": "source-g8-uk-factory-act",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-industrial-labour",
+      "locator": "The 1833 Factory Act — child labour limits, schooling, four inspectors, and enforcement constraints",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-industrial-revolution",
+      "to": "source-g8-uk-early-industry",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-industrial-system",
+      "locator": "Early industry and Parliament — agriculture, workshop production, textiles, and rapid eighteenth-century industrialisation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "to": "source-g8-unesco-melaka",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-sea-colonial-layers",
+      "locator": "Brief synthesis and criteria (ii)–(iv) — Malay, Portuguese, Dutch, and British layers",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "to": "source-g8-thai-diplomacy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-sea-siam-response",
+      "locator": "Diplomatic History — Bangkok period, treaties under Mongkut, Krom Tha, and institutional separation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "to": "source-g8-unesco-melaka",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-sea-colonial-layers",
+      "locator": "Brief synthesis and criteria (ii)–(iv) — Malay, Portuguese, Dutch, and British layers",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "to": "source-g8-thai-diplomacy",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-sea-siam-response",
+      "locator": "Diplomatic History — Bangkok period, treaties under Mongkut, Krom Tha, and institutional separation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-1885-1918",
+      "to": "source-g8-vnmh-dong-du",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-1885-new-strategies",
+      "locator": "Các phần về mục tiêu, hoạt động và niên đại phong trào Đông Du 1905–1908",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-1885-1918",
+      "to": "source-g8-vnmh-yen-the",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-1885-yen-the",
+      "locator": "Giới thiệu trưng bày — niên đại 1884–1913 và vai trò Đề Nắm, Hoàng Hoa Thám",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-1885-1918",
+      "to": "source-g8-vnmh-dong-du",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-1885-new-strategies",
+      "locator": "Các phần về mục tiêu, hoạt động và niên đại phong trào Đông Du 1905–1908",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-1885-1918",
+      "to": "source-g8-vnmh-yen-the",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-1885-yen-the",
+      "locator": "Giới thiệu trưng bày — niên đại 1884–1913 và vai trò Đề Nắm, Hoàng Hoa Thám",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "to": "source-g8-vnmh-danang-1858",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-conquest-danang",
+      "locator": "Các đoạn về 31/8–1/9/1858, kế hoạch đánh nhanh, phòng tuyến Nguyễn Tri Phương và chuyển hướng 2/2/1859",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "to": "source-g8-vnmh-treaties-1884",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-conquest-treaties",
+      "locator": "Phần bối cảnh lịch sử — hiệp ước Harmand 1883, Patenôtre 1884 và mở rộng kiểm soát Bắc Kỳ",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "to": "source-g8-vnmh-danang-1858",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-conquest-danang",
+      "locator": "Các đoạn về 31/8–1/9/1858, kế hoạch đánh nhanh, phòng tuyến Nguyễn Tri Phương và chuyển hướng 2/2/1859",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "to": "source-g8-vnmh-treaties-1884",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-conquest-treaties",
+      "locator": "Phần bối cảnh lịch sử — hiệp ước Harmand 1883, Patenôtre 1884 và mở rộng kiểm soát Bắc Kỳ",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-nguyen-dynasty",
+      "to": "source-g8-vnmh-nguyen",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-nguyen-administration",
+      "locator": "Tổng quan trưng bày — mốc 1802, giai đoạn độc lập và cải cách hành chính, khai hoang, thủy lợi",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-nguyen-dynasty",
+      "to": "source-g8-unesco-hue",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-nguyen-hue",
+      "locator": "Brief description — capital of unified Viet Nam in 1802 and Nguyễn political, cultural, religious centre",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-nguyen-dynasty",
+      "to": "source-g8-vnmh-nguyen",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-nguyen-administration",
+      "locator": "Tổng quan trưng bày — mốc 1802, giai đoạn độc lập và cải cách hành chính, khai hoang, thủy lợi",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-nguyen-dynasty",
+      "to": "source-g8-unesco-hue",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-nguyen-hue",
+      "locator": "Brief description — capital of unified Viet Nam in 1802 and Nguyễn political, cultural, religious centre",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "to": "source-g8-vnmh-quang-trung",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-vietnam-tay-son",
+      "locator": "Các đoạn niên biểu 1785, 1786, 1788–1789 và Phú Xuân thời Tây Sơn đến 1802",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "to": "source-g8-vnmh-le-mac",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-vietnam-trade-expansion",
+      "locator": "Giới thiệu trưng bày — niên biểu 1428–1788 và đoạn về thương mại, ngoại thương, cảng thị",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "to": "source-g8-vnmh-quang-trung",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-vietnam-tay-son",
+      "locator": "Các đoạn niên biểu 1785, 1786, 1788–1789 và Phú Xuân thời Tây Sơn đến 1802",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "to": "source-g8-vnmh-le-mac",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g8-vietnam-trade-expansion",
+      "locator": "Giới thiệu trưng bày — niên biểu 1428–1788 và đoạn về thương mại, ngoại thương, cảng thị",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1918-1945",
+      "to": "source-g9-vnmh-august",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1918-august",
+      "locator": "Các phần về Tổng khởi nghĩa tháng Tám và lễ Độc lập ngày 2/9/1945",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1918-1945",
+      "to": "source-g9-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1918-party",
+      "locator": "Phần trưng bày 1930–1945 — mốc 3/2/1930 và ba cao trào cách mạng",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1918-1945",
+      "to": "source-g9-vnmh-august",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1918-august",
+      "locator": "Các phần về Tổng khởi nghĩa tháng Tám và lễ Độc lập ngày 2/9/1945",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1918-1945",
+      "to": "source-g9-vnmh-independence",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1918-party",
+      "locator": "Phần trưng bày 1930–1945 — mốc 3/2/1930 và ba cao trào cách mạng",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1945-1991",
+      "to": "source-g9-government-doi-moi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1945-doi-moi",
+      "locator": "Phần ‘Đại hội đại biểu toàn quốc lần thứ VI Đảng Cộng sản Việt Nam (12-1986)’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1945-1991",
+      "to": "source-g9-vnmh-france-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1945-resistance",
+      "locator": "Giới thiệu trưng bày — kháng chiến 9 năm 1946–1954 và Điện Biên Phủ tháng 5/1954",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1945-1991",
+      "to": "source-g9-government-doi-moi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1945-doi-moi",
+      "locator": "Phần ‘Đại hội đại biểu toàn quốc lần thứ VI Đảng Cộng sản Việt Nam (12-1986)’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-1945-1991",
+      "to": "source-g9-vnmh-france-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-1945-resistance",
+      "locator": "Giới thiệu trưng bày — kháng chiến 9 năm 1946–1954 và Điện Biên Phủ tháng 5/1954",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-since-1991",
+      "to": "source-g9-asean-50",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-current-asean",
+      "locator": "ASEAN 50 historical timeline — membership expansion entry for Viet Nam, 28 July 1995",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-since-1991",
+      "to": "source-g9-wto-vietnam",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-current-wto",
+      "locator": "Member information opening paragraph — ‘member of the WTO since 11 January 2007’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-since-1991",
+      "to": "source-g9-asean-50",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-current-asean",
+      "locator": "ASEAN 50 historical timeline — membership expansion entry for Viet Nam, 28 July 1995",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-vietnam-since-1991",
+      "to": "source-g9-wto-vietnam",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-vietnam-current-wto",
+      "locator": "Member information opening paragraph — ‘member of the WTO since 11 January 2007’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1918-1945",
+      "to": "source-g9-ushmm-nazi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1918-nazi",
+      "locator": "Key Facts, item 3, and Introduction; last edited 21 July 2025",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1918-1945",
+      "to": "source-g9-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1918-un",
+      "locator": "Sections ‘The Charter is signed’ and ‘The UN officially comes into existence’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1918-1945",
+      "to": "source-g9-ushmm-nazi",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1918-nazi",
+      "locator": "Key Facts, item 3, and Introduction; last edited 21 July 2025",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1918-1945",
+      "to": "source-g9-un-history",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1918-un",
+      "locator": "Sections ‘The Charter is signed’ and ‘The UN officially comes into existence’",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1945-1991",
+      "to": "source-g9-uk-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1945-cold-war",
+      "locator": "Resource introduction — ‘The Cold War (1945–1991)’ and US/USSR nuclear confrontation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1945-1991",
+      "to": "source-g9-un-decolonization",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1945-decolonization",
+      "locator": "Opening overview and section on General Assembly resolution 1514 (XV), 14 December 1960",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1945-1991",
+      "to": "source-g9-uk-cold-war",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1945-cold-war",
+      "locator": "Resource introduction — ‘The Cold War (1945–1991)’ and US/USSR nuclear confrontation",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-1945-1991",
+      "to": "source-g9-un-decolonization",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-1945-decolonization",
+      "locator": "Opening overview and section on General Assembly resolution 1514 (XV), 14 December 1960",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-since-1991",
+      "to": "source-g9-who-covid",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-current-covid",
+      "locator": "Overview — PHEIC, pandemic characterisation, and 5 May 2023 emergency-status paragraphs",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-since-1991",
+      "to": "source-g9-itu-2025",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-current-digital",
+      "locator": "Facts and Figures 2025 overview and press release dated 17 November 2025",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-since-1991",
+      "to": "source-g9-who-covid",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-current-covid",
+      "locator": "Overview — PHEIC, pandemic characterisation, and 5 May 2023 emergency-status paragraphs",
+      "confidence": "VERIFIED"
+    },
+    {
+      "from": "lesson-g9-world-since-1991",
+      "to": "source-g9-itu-2025",
+      "type": "SUPPORTED_BY",
+      "claimId": "claim-g9-world-current-digital",
+      "locator": "Facts and Figures 2025 overview and press release dated 17 November 2025",
+      "confidence": "VERIFIED"
+    }
+  ],
+  "counts": {
+    "nodes": 110,
+    "edges": 220
+  }
+}
