@@ -16,11 +16,13 @@ const rightsReview = load("artifacts/wikimedia/rights-review-ledger.json");
 const pilot = load("artifacts/operations/pilot-validation.json");
 const council = load("artifacts/governance/council-signoff-validation.json");
 const currentRelease = load("artifacts/release/current-head-evidence.json");
+const publishedHistory = load("artifacts/curriculum-completeness/published-content-audit.json");
 const currentSourceTreeSha256 = sourceTreeSha256();
 const currentReleaseCoherent = currentRelease.sourceTreeSha256 === currentSourceTreeSha256;
 const checks = [
   { id: "product-surface", group: "product", status: "PASS", evidence: ["artifacts/operations/live-smoke-proof.json", "artifacts/transparency/live-transparency-proof.json"] },
   { id: "mandatory-coverage", group: "content", status: coverage.summary?.completeMandatoryRequirements === coverage.summary?.mandatoryRequirements ? "PASS" : "BLOCKED", evidence: ["artifacts/curriculum-completeness/live-coverage.json"] },
+  { id: "published-content-history", group: "content", status: publishedHistory.status === "PASS_INTERNAL_AUDIT" ? "PASS_INTERNAL" : "BLOCKED_INTERNAL", evidence: ["artifacts/curriculum-completeness/published-content-audit.json"], missingContent: publishedHistory.missingContent },
   { id: "ai-machine-eval", group: "ai", status: ai.status === "PASS" && ai.actualQuestions === 500 ? "PASS" : "BLOCKED", evidence: ["artifacts/ai-eval/report-500.json"] },
   { id: "ai-config-comparison", group: "ai", status: configComparison.status === "PASS_MACHINE_COMPARISON" ? "PASS_CONFIG_ONLY" : "BLOCKED", evidence: ["artifacts/ai-eval/config-comparison.json"] },
   { id: "ai-human-golden-review", group: "ai", status: humanReview.status === "PASS_HUMAN_APPROVED" && humanReview.dualApproved === 500 ? "PASS" : "BLOCKED_EXTERNAL", evidence: ["artifacts/ai-eval/human-review-ledger.json"] },

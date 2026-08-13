@@ -12,6 +12,7 @@ const rows = [
   ["product", "Official production domain and deploy evidence", "official-production", "artifacts/operations/external-evidence-ledger.json"],
   ["content", "Mandatory 6-12 coverage verified", "mandatory-coverage", "artifacts/curriculum-completeness/live-coverage.json"],
   ["content", "Every public lesson has source/claim/reviewer/translation/asOf/correction history", "mandatory-coverage", "artifacts/approved-corpus/snapshot.json"],
+  ["content", "Published content has editorial correction/audit history", "published-content-history", "artifacts/curriculum-completeness/published-content-audit.json"],
   ["rights", "Served media has permitted/public-domain rights and credit/license", "wikimedia-rights-review", "artifacts/wikimedia/rights-review-ledger.json"],
   ["rights", "Partner rights/permission archive", "partner-rights", "artifacts/operations/external-evidence-ledger.json"],
   ["ai", "AI eval, citations/abstention, versions and privacy controls", "ai-machine-eval", "artifacts/ai-eval/report-500.json"],
