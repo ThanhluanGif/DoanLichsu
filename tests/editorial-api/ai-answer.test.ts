@@ -46,4 +46,22 @@ describe("internal alpha AI route", () => {
     expect(payload.data.data.suggestedNext[0]?.slug).toBe("cong-dong-cac-dan-toc-viet-nam-da-dang-thong-nhat-va-cung-kien-tao");
     expect(payload.data.data.citations.length).toBeGreaterThan(0);
   });
+
+  it("rejects malformed and overlong requests before corpus access", async () => {
+    const cookie = await login();
+    const malformed = await answerRoute(new Request(`${origin}/api/v1/vi/ai/answer`, { method: "POST", headers: new Headers({ Origin: origin, Cookie: cookie, "x-qsv-ai-alpha": "internal", "Content-Type": "application/json" }), body: JSON.stringify({ question: "" }) }), { params: Promise.resolve({ locale: "vi" }) });
+    expect(malformed.status).toBe(400);
+    expect((await malformed.json()).code).toBe("INVALID_AI_REQUEST");
+    const oversized = await answerRoute(new Request(`${origin}/api/v1/vi/ai/answer`, { method: "POST", headers: new Headers({ Origin: origin, Cookie: cookie, "x-qsv-ai-alpha": "internal", "Content-Type": "application/json" }), body: JSON.stringify({ question: "x".repeat(2001) }) }), { params: Promise.resolve({ locale: "vi" }) });
+    expect(oversized.status).toBe(400);
+    const invalidContext = await answerRoute(new Request(`${origin}/api/v1/vi/ai/answer`, { method: "POST", headers: new Headers({ Origin: origin, Cookie: cookie, "x-qsv-ai-alpha": "internal", "Content-Type": "application/json" }), body: JSON.stringify({ question: "lịch sử", contextSlug: "x".repeat(201) }) }), { params: Promise.resolve({ locale: "vi" }) });
+    expect(invalidContext.status).toBe(400);
+  });
+
+  it("rejects malformed JSON without persisting a transcript", async () => {
+    const cookie = await login();
+    const response = await answerRoute(new Request(`${origin}/api/v1/vi/ai/answer`, { method: "POST", headers: new Headers({ Origin: origin, Cookie: cookie, "x-qsv-ai-alpha": "internal", "Content-Type": "application/json" }), body: "{" }), { params: Promise.resolve({ locale: "vi" }) });
+    expect(response.status).toBe(400);
+    expect((await response.json()).code).toBe("INVALID_AI_REQUEST");
+  });
 });
