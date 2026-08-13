@@ -7,7 +7,7 @@ import { learnByGradePath } from "@/lib/public-client/paths";
 export function CurriculumGradeCard({grade,locale}:{grade:CurriculumGradeSummary;locale:Locale}) {
   const copy=t(locale);
   const verifiedLabel=grade.fullCoverage?copy.curriculumCoverageComplete:copy.curriculumCoveragePending;
-  return <article className="curriculum-grade-card" data-grade-card={grade.grade}>
+  return <article className="curriculum-grade-card motion-grade-card" data-grade-card={grade.grade} data-motion-context="grade-to-lesson">
     <div className="curriculum-grade-card-top">
       <p className="curriculum-grade-number">{copy.curriculumGrade} <strong>{grade.grade}</strong></p>
       <span className={`coverage-badge${grade.fullCoverage?" verified":" pending"}`}>{verifiedLabel}</span>
@@ -18,6 +18,6 @@ export function CurriculumGradeCard({grade,locale}:{grade:CurriculumGradeSummary
       <div><dt>{copy.curriculumPublished}</dt><dd>{grade.publishedLessonCount}</dd></div>
       <div><dt>{copy.curriculumVerified}</dt><dd>{grade.verifiedRequirementCount}/{grade.requirementCount}</dd></div>
     </dl>
-    <Link className="card-link curriculum-grade-link" href={learnByGradePath(locale,grade.grade)} aria-label={`${locale === "vi" ? "Mở" : "Open"} ${grade.label}`}><span>{locale === "vi" ? "Xem chủ đề" : "View topics"}</span><ArrowRightIcon/></Link>
+    <Link className="card-link curriculum-grade-link motion-context-link" href={learnByGradePath(locale,grade.grade)} aria-label={`${locale === "vi" ? "Mở" : "Open"} ${grade.label}`}><span>{locale === "vi" ? "Xem chủ đề" : "View topics"}</span><ArrowRightIcon/></Link>
   </article>;
 }

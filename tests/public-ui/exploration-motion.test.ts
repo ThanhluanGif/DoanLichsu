@@ -1,0 +1,3 @@
+import { readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+describe("exploration motion contract", () => { it("uses context hooks and reduced-motion reset without layout animation", () => { const css = readFileSync("src/app/globals.css", "utf8"); expect(css).toContain("motion-context-link"); expect(css).toContain("motion-place-card"); expect(css).toContain("motion-phase-card"); expect(css).toContain("prefers-reduced-motion: reduce"); expect(css).toContain("transition-duration: 0s!important"); expect(css).not.toMatch(/motion-context[^}]*\b(width|height|margin|padding|top|left)\s*:/); }); });

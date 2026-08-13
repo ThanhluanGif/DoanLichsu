@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-08-13T07:50:00.000Z",
+  "liveOrigin": "https://promises-ports-hawaiian-interactive.trycloudflare.com",
+  "journeys": ["/vi/hoc-theo-lop", "/vi/ban-do#place-bach-dang", "/vi/mo-phong/bach-dang-1288"],
+  "livePlaywright": "2 passed — context keyboard parity and reduced-motion computed-style reset",
+  "motionRules": { "properties": ["opacity", "translate"], "maxRouteEntryMs": 320, "maxOffsetPx": 16, "scrollLocked": false, "reducedMotion": { "transitionDuration": "0s", "animationName": "none", "translate": "none" } },
+  "evidence": ["artifacts/exploration-motion/live-output", "artifacts/exploration-motion/live-report"]
+}
