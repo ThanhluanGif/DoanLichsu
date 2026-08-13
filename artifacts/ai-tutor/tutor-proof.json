@@ -1,0 +1,8 @@
+{
+  "card": "C-047",
+  "generatedAt": "2026-08-13T08:40:52.337Z",
+  "alpha": {"status":"INTERNAL_ALPHA_NOT_PUBLIC","groundedResponse":"GROUNDED","guidedPrompts":3,"lessonId":"lesson-g6-why-study-history","response":"artifacts/ai-tutor/alpha.json"},
+  "abstain": {"status":"INTERNAL_ALPHA_NOT_PUBLIC","gatewayResponse":"ABSTAIN","fallback":"SEARCH_OR_LESSON","response":"artifacts/ai-tutor/abstain.json"},
+  "privacy": {"accountRequired":false,"identityStored":false,"childFreeFormPublic":false},
+  "publicBeta": {"enabled":false,"reason":"C-046 still has 488-question eval gap"}
+}
