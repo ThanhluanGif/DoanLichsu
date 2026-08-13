@@ -1,0 +1,30 @@
+{
+  "packVersion": "teacher-pack-v1",
+  "status": "PASS",
+  "contentId": "lesson-g6-why-study-history",
+  "corpusSnapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "locale": "en",
+  "title": "Learning history from evidence and time",
+  "objectives": [
+    "Phân biệt dữ kiện, nguồn và diễn giải.",
+    "Dùng locator để kiểm chứng một luận điểm."
+  ],
+  "activities": [
+    "Đọc bài học và mở từng nguồn.",
+    "Lập bảng claim–evidence–locator–status."
+  ],
+  "quiz": [
+    {
+      "question": "Nguồn được kiểm chứng dùng để làm gì?",
+      "answer": "Đối chiếu luận điểm với evidence và locator.",
+      "citation": "source-g6-official-programme"
+    },
+    {
+      "question": "Khi chưa đủ nguồn nên làm gì?",
+      "answer": "Nói rõ giới hạn và không kết luận quá chứng cứ.",
+      "citation": "source-g6-official-programme"
+    }
+  ],
+  "sensitiveNote": "Không thay thế giáo viên; kiểm tra chủ đề nhạy cảm theo policy.",
+  "exportedAt": "2026-08-13T08:45:03.057Z"
+}

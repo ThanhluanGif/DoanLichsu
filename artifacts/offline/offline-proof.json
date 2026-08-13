@@ -1,0 +1,7 @@
+{
+  "card": "C-053",
+  "generatedAt": "2026-08-13T08:53:55.890Z",
+  "green": {"status":"PASS","integrity":"PASS","bytes":1124,"privateDataIncluded":false,"manifest":"artifacts/offline/manifest.json"},
+  "red": {"status":"FAIL_CLOSED","invalidChecksumFixture":"artifacts/offline/red-manifest.json","binaryNotServed":true},
+  "cachePolicy": {"lowBandwidth":true,"offlineHtmlFallback":true,"excluded":["admin","private","ai-transcript"]}
+}

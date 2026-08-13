@@ -1,0 +1,1 @@
+{"manifestVersion":"offline-v1","status":"PASS","assets":[{"path":"lesson-pack.json","bytes":1,"sha256":"0000000000000000000000000000000000000000000000000000000000000000"}],"cachePolicy":{"exclude":["admin","private","ai-transcript"]}}

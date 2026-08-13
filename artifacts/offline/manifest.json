@@ -1,0 +1,25 @@
+{
+  "manifestVersion": "offline-v1",
+  "status": "PASS",
+  "generatedAt": "2026-08-13T08:53:55.890Z",
+  "source": "/Volumes/sdd anh/Doan1/artifacts/teacher-pack/lesson-pack.json",
+  "assets": [
+    {
+      "path": "lesson-pack.json",
+      "bytes": 1124,
+      "sha256": "ed2078a3cec4e1bd1e09ed9bfda15b7e84430f2f1717c8765b838c2b732ce7d3"
+    }
+  ],
+  "cachePolicy": {
+    "lowBandwidth": true,
+    "offlineHtmlFallback": true,
+    "exclude": [
+      "admin",
+      "private",
+      "ai-transcript"
+    ]
+  },
+  "snapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "integrity": "PASS",
+  "privateDataIncluded": false
+}
