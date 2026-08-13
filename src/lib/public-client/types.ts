@@ -1,6 +1,6 @@
-import type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem,PlaceView } from "@/lib/content/types";
+import type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem,PlaceView,ReconstructionListItem,ReconstructionView } from "@/lib/content/types";
 
-export type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem,PlaceView };
+export type { AssetProvenanceView,ContentDetail,ContentListItem,ContentType,CurriculumCatalogView,CurriculumGradeView,Locale,PageMeta,PeriodView,PublicSourceItem,RightsStatus,SearchResult,SourceContentRef,TimelineItem,PlaceView,ReconstructionListItem,ReconstructionView };
 
 export interface HomeView {
   featured: ContentListItem[];

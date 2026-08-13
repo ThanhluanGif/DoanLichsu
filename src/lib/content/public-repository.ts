@@ -4,6 +4,7 @@ import { normalizeSearchText } from "@/lib/search/normalize";
 import { curriculumContentIds,curriculumCounts,curriculumRefsForContent,programmeAsOf,publicGrade,publicTrack,requirementRef,requirementRows,verifiedCurriculumContentIds,type CurriculumRequirementRow } from "./curriculum";
 import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type LessonView,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem,type PlaceView, type PlacePrecision } from "./types";
 import { historicalPlaces } from "@/data/maps/places";
+import { bachDang1288 } from "@/data/reconstructions/bach-dang-1288";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -169,6 +170,33 @@ export function getPlaces(database: SqliteDatabase, locale: Locale, search: URLS
   const page = Math.max(1, Number(search.get("page") ?? "1") || 1);
   const pageSize = Math.min(50, Math.max(1, Number(search.get("pageSize") ?? "50") || 50));
   return { data: data.slice((page - 1) * pageSize, page * pageSize), meta: pageMeta(page, pageSize, data.length) };
+}
+
+function reconstructionListItem(database: SqliteDatabase, locale: Locale) {
+  const row = database.prepare(`${publicSelect} AND n.id = ? AND t.locale = ? LIMIT 1`).get(bachDang1288.contentId, locale) as BaseRow | undefined;
+  return { id: bachDang1288.id, slug: bachDang1288.slug, title: bachDang1288.title[locale], summary: bachDang1288.summary[locale], label: "EDUCATIONAL_RECONSTRUCTION" as const, confidence: bachDang1288.confidence, thumbnail: row ? thumbnail(database, row.id, locale) : null };
+}
+
+function reconstructionSources(database: SqliteDatabase) {
+  return database.prepare(`SELECT s.id,s.title,s.author,s.publisher,s.year,s.url,s.accessed_at AS accessedAt,s.citation_note AS citationNote,s.source_type AS sourceType,s.quality_tier AS qualityTier,s.institution,s.identifier,s.edition,s.archived_url AS archivedUrl,s.checksum,s.verification_status AS verificationStatus,verifier.display_name AS verifiedBy,s.verified_at AS verifiedAt,s.verification_note AS verificationNote FROM sources s LEFT JOIN users verifier ON verifier.id=s.verified_by WHERE s.id IN (${bachDang1288.sourceIds.map(() => "?").join(",")}) ORDER BY s.id`).all(...bachDang1288.sourceIds) as ContentDetail["sources"];
+}
+
+export function getReconstructions(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
+  const { page, pageSize } = parsePage(search);
+  if (page > 1) return { data: [], meta: pageMeta(page, pageSize, 1) };
+  const published = database.prepare("SELECT status FROM content_nodes WHERE id=? AND status='PUBLISHED'").get(bachDang1288.contentId);
+  if (!published) return { data: [], meta: pageMeta(1, pageSize, 0) };
+  const data = published ? [reconstructionListItem(database, locale)] : [];
+  return { data, meta: pageMeta(1, pageSize, data.length) };
+}
+
+export function getReconstruction(database: SqliteDatabase, locale: Locale, slug: string) {
+  if (slug !== bachDang1288.slug) throw new PublicApiError(404, "RECONSTRUCTION_NOT_FOUND", "Tái dựng không tồn tại hoặc chưa được xuất bản.");
+  const item = reconstructionListItem(database, locale);
+  const contentSlug = locale === "vi" ? "chien-thang-bach-dang-1288" : "battle-of-bach-dang-1288";
+  const content = getDetail(database, locale, "EVENT", contentSlug).data;
+  const place = getPlaces(database, locale, new URLSearchParams()).data.find((candidate) => candidate.id === "place-bach-dang");
+  return { data: { ...item, content: { id: content.id, type: content.type, locale: content.locale, title: content.title, slug: content.slug, summary: content.summary, thumbnail: content.thumbnail, startDate: content.startDate, endDate: content.endDate, datePrecision: content.datePrecision, period: content.period, tags: content.tags }, assumptions: bachDang1288.assumptions[locale], sources: reconstructionSources(database), places: place ? [place] : [], phases: bachDang1288.phases.map((phase) => ({ id: phase.id, order: phase.order, title: phase.title[locale], narrative: phase.narrative[locale], dateLabel: phase.dateLabel[locale], confidence: phase.confidence, assumptions: phase.assumptions[locale], focusPlaceIds: bachDang1288.placeIds, moves: phase.moves.map((move) => ({ id: move.id, side: move.side, label: move.label[locale], from: move.from, to: move.to, confidence: move.confidence, sourceIds: move.sourceIds })) })), fallback: { image: bachDang1288.fallbackImage, narrative: bachDang1288.fallback[locale] } } };
 }
 
 export function getTimeline(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {

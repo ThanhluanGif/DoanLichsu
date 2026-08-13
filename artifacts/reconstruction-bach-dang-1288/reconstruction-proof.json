@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-08-13T07:46:00.000Z",
+  "liveOrigin": "https://promises-ports-hawaiian-interactive.trycloudflare.com",
+  "urls": { "listVi": "/vi/mo-phong", "detailVi": "/vi/mo-phong/bach-dang-1288", "detailEn": "/en/mo-phong/bach-dang-1288", "apiVi": "/api/v1/vi/reconstructions/bach-dang-1288", "apiEn": "/api/v1/en/reconstructions/bach-dang-1288", "fallback": "/vi/mo-phong/bach-dang-1288" },
+  "liveHttp": { "healthz": 200, "listVi": 200, "detailVi": 200, "detailEn": 200, "apiVi": 200, "apiEn": 200 },
+  "scene": { "id": "reconstruction-bach-dang-1288", "label": "EDUCATIONAL_RECONSTRUCTION", "confidence": "MEDIUM", "phasesVi": 3, "phasesEn": 3, "sourcesVi": 2, "sourcesEn": 2, "fallbackImage": "/images/reconstructions/bach-dang-1288-fallback.svg", "lazyEnhancement": "dynamic import('three') after narrative" },
+  "verification": { "livePlaywright": "2 passed — desktop narrative/keyboard/axe/overflow and mobile reduced-motion fallback", "desktopAxeCriticalOrSerious": 0, "noPhysicsOrCasualtySimulation": true, "sourceIdsPerMove": true, "assumptionsPerPhase": true, "noWebGLFallback": true },
+  "artifacts": ["artifacts/reconstruction-bach-dang-1288/live-vi.json", "artifacts/reconstruction-bach-dang-1288/live-en.json", "artifacts/reconstruction-bach-dang-1288/live-vi.html", "artifacts/reconstruction-bach-dang-1288/live-en.html"]
+}

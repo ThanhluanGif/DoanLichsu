@@ -132,6 +132,11 @@ export interface PlaceView {
   id: string; slug: string; title: string; summary: string; point: GeoPoint;
   precision: PlacePrecision; locatorNote: string; related: ContentListItem[];
 }
+export type ReconstructionConfidence = "HIGH" | "MEDIUM" | "LOW";
+export interface ReconstructionListItem { id:string; slug:string; title:string; summary:string; label:"EDUCATIONAL_RECONSTRUCTION"; confidence:ReconstructionConfidence; thumbnail:MediaView|null; }
+export interface ReconstructionMove { id:string; side:string; label:string; from:GeoPoint; to:GeoPoint; confidence:ReconstructionConfidence; sourceIds:string[]; }
+export interface ReconstructionPhase { id:string; order:number; title:string; narrative:string; dateLabel:string; confidence:ReconstructionConfidence; assumptions:string[]; focusPlaceIds:string[]; moves:ReconstructionMove[]; }
+export interface ReconstructionView extends ReconstructionListItem { content:ContentListItem; assumptions:string[]; sources:SourceView[]; places:PlaceView[]; phases:ReconstructionPhase[]; fallback:{image:string|null;narrative:string}; }
 
 export interface ContentDetail extends ContentListItem {
   body: string;

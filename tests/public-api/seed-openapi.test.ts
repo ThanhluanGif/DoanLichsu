@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8], currentVersion: 8 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8, 9], currentVersion: 9 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",

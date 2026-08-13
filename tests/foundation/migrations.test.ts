@@ -26,8 +26,8 @@ describe("SQLite migrations", () => {
   it("applies migrations once and keeps their version after reopening", () => {
     const databasePath = createDatabasePath();
 
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8], currentVersion: 8 });
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [], currentVersion: 8 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8, 9], currentVersion: 9 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [], currentVersion: 9 });
 
     const database = new Database(databasePath, { readonly: true });
     const rows = database.prepare("SELECT version, name FROM schema_migrations").all();
@@ -42,6 +42,7 @@ describe("SQLite migrations", () => {
       { version: 6, name: "0006_lessons.sql" },
       { version: 7, name: "0007_asset_provenance.sql" },
       { version: 8, name: "0008_places.sql" },
+      { version: 9, name: "0009_reconstructions.sql" },
     ]);
   });
 
@@ -56,7 +57,7 @@ describe("SQLite migrations", () => {
     ]);
     const appliedSets = results.map(({ stdout }) => JSON.parse(stdout).applied).sort();
 
-    expect(appliedSets).toEqual([[], [1, 2, 3, 4, 5, 6, 7, 8]]);
+    expect(appliedSets).toEqual([[], [1, 2, 3, 4, 5, 6, 7, 8, 9]]);
   });
 
   it("rejects an applied migration that was renamed", () => {

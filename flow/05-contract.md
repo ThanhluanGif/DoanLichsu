@@ -224,7 +224,8 @@ interface ReconstructionMove {
 }
 interface ReconstructionPhase {
   id: string; order: number; title: string; narrative: string;
-  dateLabel: string; focusPlaceIds: string[]; moves: ReconstructionMove[];
+  dateLabel: string; confidence: ReconstructionConfidence; assumptions: string[];
+  focusPlaceIds: string[]; moves: ReconstructionMove[];
 }
 interface ReconstructionView extends ReconstructionListItem {
   content: ContentListItem; assumptions: string[]; sources: SourceView[];
