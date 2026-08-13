@@ -1,9 +1,10 @@
 {
   "version": "ai-human-review-v1",
-  "generatedAt": "2026-08-13T10:45:45.330Z",
+  "generatedAt": "2026-08-13T10:49:57.305Z",
   "status": "PENDING_HUMAN_REVIEW",
   "total": 500,
   "dualApproved": 0,
+  "violations": [],
   "datasetSha256": "8b4171471c85a2035f0d3eb6a1e79260a10888760a68b2db8bffe30d8ad867b9",
   "reportSha256": "9a0c14a5837c7f5b65c36b3b2b3b0b5c2c22cf709506424b9aeb6d88e4ecc22d",
   "noFabricatedReviewers": true,
