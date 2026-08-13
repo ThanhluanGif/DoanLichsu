@@ -29,6 +29,17 @@ for (const id of requiredIds) {
     } else if (item.status === "PASS") errors.push(`${id}:ARTIFACT_MISSING`);
   }
 }
+const statusFor = (id) => items.find((item) => item.id === id)?.status;
+if (ledger.status === "READY" && items.some((item) => item.status !== "PASS")) errors.push("READY_REQUIRES_ALL_GATES_PASS");
+const flagChecks = [
+  ["realCouncilSignoff", "council-signoff"],
+  ["realPilotCompleted", "real-pilot"],
+  ["officialProductionDomain", "official-production"],
+];
+for (const [flag, id] of flagChecks) {
+  if (ledger[flag] === true && statusFor(id) !== "PASS") errors.push(`${flag}:REQUIRES_${id.toUpperCase().replaceAll("-", "_")}_PASS`);
+  if (statusFor(id) === "PASS" && ledger[flag] !== true) errors.push(`${id}:PASS_REQUIRES_${flag}_TRUE`);
+}
 const pending = items.filter((item) => item.status === "PENDING").map((item) => item.id);
 const report = { version: "external-evidence-verification-v1", generatedAt: new Date().toISOString(), input: relative(root, input), status: errors.length ? "FAIL" : "PASS_LEDGER_VALID", releaseAllowed: errors.length === 0 && pending.length === 0, pending, errors, noFabricatedEvidence: ledger.fabricatedPersonalData === false };
 mkdirSync(dirname(output), { recursive: true });

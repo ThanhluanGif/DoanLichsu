@@ -34,6 +34,24 @@ describe("external evidence verifier", () => {
     expect(result.status).not.toBe(0);
     expect(report.errors).toContain("FABRICATED_PERSONAL_DATA_FLAG_MUST_BE_FALSE");
   });
+
+  it("rejects READY ledgers that still contain pending gates", () => {
+    const base = JSON.parse(readFileSync("artifacts/operations/external-evidence-ledger.json", "utf8"));
+    const { result, report } = run({ ...base, status: "READY" });
+    expect(result.status).not.toBe(0);
+    expect(report.errors).toContain("READY_REQUIRES_ALL_GATES_PASS");
+  });
+
+  it("rejects top-level production, council, and pilot claims without matching PASS items", () => {
+    const base = JSON.parse(readFileSync("artifacts/operations/external-evidence-ledger.json", "utf8"));
+    const { result, report } = run({ ...base, realCouncilSignoff: true, realPilotCompleted: true, officialProductionDomain: true });
+    expect(result.status).not.toBe(0);
+    expect(report.errors).toEqual(expect.arrayContaining([
+      "realCouncilSignoff:REQUIRES_COUNCIL_SIGNOFF_PASS",
+      "realPilotCompleted:REQUIRES_REAL_PILOT_PASS",
+      "officialProductionDomain:REQUIRES_OFFICIAL_PRODUCTION_PASS",
+    ]));
+  });
 });
 
 afterAll(() => rmSync(temp, { recursive: true, force: true }));
