@@ -18,6 +18,7 @@
     "test:public-ui:axe": "node tests/public-ui/axe-runtime.mjs",
     "test:e2e": "playwright test",
     "test:security": "vitest run tests/security",
+    "security:review-pack": "node scripts/security-review-pack.mjs",
     "test:recovery": "vitest run tests/recovery",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "tsx scripts/seed.ts",
