@@ -1,6 +1,6 @@
 {
   "version": "external-evidence-handoff-v1",
-  "generatedAt": "2026-08-13T15:21:31.525Z",
+  "generatedAt": "2026-08-13T15:32:24.287Z",
   "sourceLedger": "artifacts/operations/external-evidence-ledger.json",
   "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
   "pendingCount": 11,
