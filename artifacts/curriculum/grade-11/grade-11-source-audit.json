@@ -1,0 +1,21 @@
+{
+  "auditedAt": "2026-08-13T05:14:30.000Z",
+  "method": "direct HTTP fetch plus official browser/web retrieval; access limits are disclosed rather than treated as 404",
+  "sources": [
+    {"id":"source-g11-moet-programme","url":"https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-mon-lich-su.pdf","retrieval":"official programme PDF; Grade 11 requirements and East Sea legal milestones visible"},
+    {"id":"source-g11-bach-dang","url":"https://baotanglichsu.vn/vi/Articles/3091/12693/bai-coc-bach-djang-tro-thanh-di-tich-quoc-gia-djac-biet-11-10-2012.html","retrieval":"official museum page; three Bach Dang battles and site status visible"},
+    {"id":"source-g11-bach-dang-excavation","url":"https://baotanglichsu.vn/VI/Articles/3096/14143/djoi-djiem-so-luoc-ve-djot-khai-quat-bai-coc-bach-djang-xuan-1969.html","retrieval":"official museum excavation reference"},
+    {"id":"source-g11-hoang-sa-tay-son-nguyen","url":"https://baotanglichsu.vn/vi/Articles/2001/65768/hoang-sa-va-truong-sa-duoi-thoi-tay-son-nha-nguyen.html","retrieval":"official museum reference on Hoang Sa/Bac Hai activity"},
+    {"id":"source-g11-nguyen-chau-ban","url":"https://baotanglichsu.vn/vi/Articles/2001/66733/chau-ban-trieu-nguyen-tu-lieu-co-co-gia-tri-kep-khang-dinh-chu-quyen-hoang-sa-truong-sa-cua-viet-nam.html","retrieval":"official museum page; 1836/1838 imperial-document locators visible"},
+    {"id":"source-g11-unclos","url":"https://www.un.org/Depts/los/convention_agreements/texts/unclos/UNCLOS-TOC.htm","retrieval":"UN official treaty contents; Parts II, V, VI visible"},
+    {"id":"source-g11-unclos-territorial-sea","url":"https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm","retrieval":"UN official treaty text; Articles 2–3 visible"},
+    {"id":"source-g11-ho-quy-ly-reform","url":"https://baotanglichsu.vn/vi/Articles/3129/19687/cai-cach-ho-quy-ly.html","retrieval":"official museum book introduction; reform fields and late Tran–Ho context visible"},
+    {"id":"source-g11-ly-tran-reforms","url":"https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-mon-lich-su.pdf","retrieval":"same official programme PDF, distinct curriculum locator"},
+    {"id":"source-g11-asean-history","url":"https://asean.org/the-founding-of-asean/","retrieval":"ASEAN institutional founding reference; 1967 Bangkok Declaration"},
+    {"id":"source-g11-un-history","url":"https://www.un.org/en/about-us/history-of-the-un","retrieval":"UN official history reference"},
+    {"id":"source-g11-unesco-traditional-arts","url":"https://ich.unesco.org/en/state/viet-nam-VN","retrieval":"UNESCO intangible-heritage state page"},
+    {"id":"source-g11-vnmh-figures","url":"https://baotanglichsu.vn/vi/Articles/3090/nhan-vat-lich-su.html","retrieval":"museum catalogue gateway; individual profiles remain subject to claim-level review"}
+  ],
+  "uniqueUrlCount": 12,
+  "governance": "No third-party binary was copied or proxied. Sensitive sovereignty claims cite Vietnamese institutional records and UNCLOS separately, retain locators, and disclose that C-033 internal editorial review is not independent historian-council approval."
+}

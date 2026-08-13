@@ -1,0 +1,133 @@
+{
+  "locale": "en",
+  "track": "ELECTIVE",
+  "data": {
+    "grade": 11,
+    "label": "Grade 11",
+    "summary": {
+      "requirementCount": 3,
+      "publishedRequirementCount": 3,
+      "verifiedRequirementCount": 3,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g11-traditional-vietnamese-arts",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "History of traditional Vietnamese arts",
+        "slug": "traditional-vietnamese-arts",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử nghệ thuật truyền thống Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Identify the development and value of selected traditional arts."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-traditional-arts",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: traditional Vietnamese arts",
+            "slug": "elective-traditional-vietnamese-arts",
+            "summary": "Traditional arts are living community practices whose form, space, practitioners, change, and cultural rights must be studied together.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-war-and-peace-twentieth-century",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "War and peace in the twentieth century",
+        "slug": "war-and-peace-twentieth-century",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh và hòa bình trong thế kỉ XX",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1900,
+        "periodEnd": 2000,
+        "requiredOutcomes": [
+          "Analyse causes and consequences of war and efforts to build peace."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-war-peace",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: war and peace in the twentieth century",
+            "slug": "elective-war-and-peace-in-the-twentieth-century",
+            "summary": "Twentieth-century war history combines causes, civilian experience, international law, consequences, and peace-building efforts.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-notable-vietnamese-figures",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "Notable figures in Vietnamese history",
+        "slug": "notable-vietnamese-figures",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Danh nhân trong lịch sử Việt Nam",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Assess historical contributions using sources and context, avoiding mythologisation."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-figures",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: notable figures in Vietnamese history",
+            "slug": "elective-notable-figures-in-vietnamese-history",
+            "summary": "A figure's profile should place contributions, limits, social networks, and contemporary voices together rather than mythologising.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "person-tran-hung-dao",
+            "type": "PERSON",
+            "locale": "en",
+            "title": "Trần Hưng Đạo",
+            "slug": "tran-hung-dao-en",
+            "summary": "Trần Quốc Tuấn was a principal commander in the thirteenth-century wars against Yuan-Mongol invasions.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Leadership",
+              "Resistance"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

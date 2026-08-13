@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-08-13T05:14:35.951Z",
+  "url": "https://ping-roller-simplified-horizontal.trycloudflare.com",
+  "coverage": {
+    "mandatory": 6,
+    "elective": 3,
+    "locales": [
+      "vi",
+      "en"
+    ],
+    "trackLabelsSeparated": true,
+    "sensitiveLesson": "g11-east-sea-sovereignty"
+  },
+  "desktop": {
+    "path": "/vi/chu-de/chu-quyen-cac-quyen-va-loi-ich-hop-phap-cua-viet-nam-o-bien-dong",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/elective-traditional-vietnamese-arts",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 1
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-11/grade-11-coverage-desktop.png",
+    "artifacts/curriculum/grade-11/grade-11-desktop.png",
+    "artifacts/curriculum/grade-11/grade-11-coverage-mobile.png",
+    "artifacts/curriculum/grade-11/grade-11-mobile.png"
+  ]
+}

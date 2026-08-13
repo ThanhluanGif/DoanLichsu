@@ -1,0 +1,133 @@
+{
+  "locale": "vi",
+  "track": "ELECTIVE",
+  "data": {
+    "grade": 11,
+    "label": "Lớp 11",
+    "summary": {
+      "requirementCount": 3,
+      "publishedRequirementCount": 3,
+      "verifiedRequirementCount": 3,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g11-traditional-vietnamese-arts",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "Lịch sử nghệ thuật truyền thống Việt Nam",
+        "slug": "traditional-vietnamese-arts",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử nghệ thuật truyền thống Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Nhận diện tiến trình và giá trị của một số loại hình nghệ thuật truyền thống."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-traditional-arts",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: nghệ thuật truyền thống Việt Nam",
+            "slug": "chuyen-de-lua-chon-nghe-thuat-truyen-thong-viet-nam",
+            "summary": "Nghệ thuật truyền thống là thực hành sống của cộng đồng, cần đọc hình thức, không gian, người thực hành, lịch sử biến đổi và quyền văn hóa.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-war-and-peace-twentieth-century",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "Chiến tranh và hòa bình trong thế kỉ XX",
+        "slug": "war-and-peace-twentieth-century",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh và hòa bình trong thế kỉ XX",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1900,
+        "periodEnd": 2000,
+        "requiredOutcomes": [
+          "Phân tích nguyên nhân, hậu quả chiến tranh và các nỗ lực kiến tạo hòa bình."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-war-peace",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: chiến tranh và hòa bình thế kỉ XX",
+            "slug": "chuyen-de-lua-chon-chien-tranh-va-hoa-binh-the-ky-xx",
+            "summary": "Lịch sử chiến tranh thế kỉ XX cần kết hợp nguyên nhân, trải nghiệm dân sự, luật quốc tế, hậu quả và các nỗ lực hòa bình.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-notable-vietnamese-figures",
+        "grade": 11,
+        "track": "ELECTIVE",
+        "topic": "Danh nhân trong lịch sử Việt Nam",
+        "slug": "notable-vietnamese-figures",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Danh nhân trong lịch sử Việt Nam",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Đánh giá đóng góp của nhân vật bằng nguồn và bối cảnh, tránh thần thoại hóa."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-figures",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chuyên đề lựa chọn: danh nhân trong lịch sử Việt Nam",
+            "slug": "chuyen-de-lua-chon-danh-nhan-trong-lich-su-viet-nam",
+            "summary": "Hồ sơ danh nhân phải đặt đóng góp, giới hạn, mạng lưới xã hội và tiếng nói đương thời cạnh nhau, tránh thần thoại hóa.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          },
+          {
+            "id": "person-tran-hung-dao",
+            "type": "PERSON",
+            "locale": "vi",
+            "title": "Trần Hưng Đạo",
+            "slug": "tran-hung-dao",
+            "summary": "Trần Quốc Tuấn là thống soái quan trọng trong các cuộc kháng chiến chống Nguyên–Mông thế kỷ XIII.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-dynasties",
+              "title": "Bảo vệ quốc gia thời quân chủ",
+              "slug": "bao-ve-quoc-gia-thoi-quan-chu"
+            },
+            "tags": [
+              "Chỉ huy",
+              "Kháng chiến"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

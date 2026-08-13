@@ -1,0 +1,229 @@
+{
+  "locale": "en",
+  "track": "MANDATORY",
+  "data": {
+    "grade": 11,
+    "label": "Grade 11",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g11-bourgeois-revolutions-capitalism",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Bourgeois revolutions and the development of capitalism",
+        "slug": "bourgeois-revolutions-capitalism",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1566,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse aims, forces, outcomes, and the development of capitalism."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-bourgeois-capitalism",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Bourgeois revolutions and the development of capitalism",
+            "slug": "bourgeois-revolutions-and-the-development-of-capitalism",
+            "summary": "Bourgeois revolutions changed institutions, ownership, and production relations; their outcomes must be read with class, colonial, and citizenship limits.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-socialism-since-1917",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Socialism from 1917 to the present",
+        "slug": "socialism-since-1917",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chủ nghĩa xã hội từ năm 1917 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1917,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse the formation, development, crises, and adaptation of socialism."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-socialism-1917",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Socialism from 1917 to the present",
+            "slug": "socialism-from-1917-to-the-present",
+            "summary": "The history of socialism includes diverse models, achievements, crises, and adaptations rather than a straight line.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-southeast-asian-independence",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Southeast Asian paths to independence",
+        "slug": "southeast-asian-independence",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Quá trình giành độc lập của các quốc gia Đông Nam Á",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1800,
+        "periodEnd": 1975,
+        "requiredOutcomes": [
+          "Compare struggles for independence and nation-building in Southeast Asia."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-southeast-asian-independence",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Southeast Asian paths to independence and nation-building",
+            "slug": "southeast-asian-paths-to-independence-and-nation-building",
+            "summary": "Southeast Asian states followed different paths from colonial rule to independence, nation-building, and regional cooperation.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-vietnam-national-defence-before-1945",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Vietnamese national defence and liberation before 1945",
+        "slug": "vietnam-national-defence-before-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -214,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Explain roles, causes of success or failure, and lessons of representative wars."
+        ],
+        "lessons": [
+          {
+            "id": "event-bach-dang-1288",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Battle of Bạch Đằng, 1288",
+            "slug": "battle-of-bach-dang-1288",
+            "summary": "Trần forces used the tide and a prepared stake field to defeat the withdrawing Yuan-Mongol fleet.",
+            "thumbnail": null,
+            "startDate": "1288-04-09",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Defending the dynastic state",
+              "slug": "defending-the-dynastic-state"
+            },
+            "tags": [
+              "Early history",
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g11-national-defence",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnamese national defence and liberation before 1945",
+            "slug": "vietnamese-national-defence-and-liberation-before-1945",
+            "summary": "Wars before 1945 reveal relationships among terrain, organisation, society, leadership, and collective power; victories should not be mythologised.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-major-vietnamese-reforms",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Major reforms in Vietnamese history before 1858",
+        "slug": "major-vietnamese-reforms",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 900,
+        "periodEnd": 1858,
+        "requiredOutcomes": [
+          "Analyse context, content, outcomes, and significance of representative reforms."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-reforms",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Major reforms in Vietnamese history before 1858",
+            "slug": "major-reforms-in-vietnamese-history-before-1858",
+            "summary": "Reform was an attempt to change institutions and society in context; assessment must place goals, implementation, responses, and consequences together.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-east-sea-sovereignty",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "History of Vietnam's sovereignty, rights, and lawful interests in the East Sea",
+        "slug": "east-sea-sovereignty",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Explain strategic importance and the historical exercise of maritime sovereignty."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-east-sea",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam's sovereignty, rights, and lawful interests in the East Sea",
+            "slug": "vietnams-sovereignty-rights-and-lawful-interests-in-the-east-sea",
+            "summary": "Studying the East Sea combines Vietnamese records, UNCLOS terminology, chronology, and peaceful dispute settlement.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}
