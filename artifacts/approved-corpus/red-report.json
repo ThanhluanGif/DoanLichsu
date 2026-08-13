@@ -1,0 +1,7 @@
+{
+  "generatedAt": "2026-08-13T08:33:55.025Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "status": "FAIL",
+  "error": "Error: {\"code\":\"CORPUS_NOT_APPROVED\",\"violations\":[{\"contentId\":\"event-dien-bien-phu\",\"reason\":\"missing verified provenance\"},{\"contentId\":\"event-dien-bien-phu\",\"reason\":\"missing verified claim evidence\"},{\"contentId\":\"event-dien-bien-phu\",\"reason\":\"missing verified provenance\"},{\"contentId\":\"event-dien-bien-phu\",\"reason\":\"missing verified claim evidence\"}]}",
+  "remediation": "Review/publish the missing evidence; this command never mutates the database."
+}

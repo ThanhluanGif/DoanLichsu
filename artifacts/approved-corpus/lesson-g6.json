@@ -1,0 +1,700 @@
+{
+  "generatedAt": "2026-08-13T08:32:44.865Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "status": "PASS",
+  "snapshotVersion": "approved-corpus-v1",
+  "scope": {
+    "contentId": "lesson-g6-why-study-history"
+  },
+  "schemaVersion": 9,
+  "sha256": "076619bb2bbb8400c01c62f3b621a3420102fd9633c4a9ad209c2a978d62b197",
+  "counts": {
+    "translations": 2,
+    "content": 1,
+    "sources": 1,
+    "claims": 2,
+    "indexTerms": 192
+  },
+  "records": [
+    {
+      "id": "lesson-g6-why-study-history",
+      "type": "TOPIC",
+      "locale": "en",
+      "title": "Learning history from evidence and time",
+      "slug": "learning-history-from-evidence-and-time",
+      "summary": "History is studied through different kinds of evidence; learners ask who created a source, in what setting, and how its dates are known.",
+      "body": "The past cannot be replayed in front of us. Learners approach it through surviving traces such as objects, sites, written records, images, oral accounts, and archaeological data. Each kind of evidence answers different questions and needs context.\n\nTime helps arrange events and examine what came before or after. Decades, centuries, millennia, BCE, and CE are conventions for expressing historical time. A historical date may be exact, approximate, or known only as a range.\n\nLearning history is therefore more than memorising an answer. It involves asking questions, checking evidence, distinguishing facts from interpretations, and revising an explanation when better evidence appears.",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "sources": [
+        {
+          "contentId": "lesson-g6-why-study-history",
+          "id": "source-g6-official-programme",
+          "title": "Thông tư 17/2025/TT-BGDĐT và tài liệu Chương trình giáo dục phổ thông",
+          "url": "https://vanban.chinhphu.vn/?docid=215347&pageid=27160&typegroupid=6",
+          "verificationStatus": "VERIFIED",
+          "sourceType": "PRIMARY_RECORD",
+          "qualityTier": "TIER_1_PRIMARY",
+          "accessedAt": "2026-08-11T00:00:00.000Z",
+          "institution": "Bộ Giáo dục và Đào tạo",
+          "identifier": "17/2025/TT-BGDĐT; cập nhật chương trình theo 32/2018/TT-BGDĐT",
+          "checksum": null
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-g6-why-study-history-evidence",
+          "contentId": "lesson-g6-why-study-history",
+          "claimType": "CONTEXT",
+          "assessment": "CONFIRMED",
+          "statementVi": "Yêu cầu lớp 6 đặt việc nhận diện và đánh giá nguồn tư liệu vào nền tảng của năng lực tìm hiểu lịch sử.",
+          "statementEn": "The Grade 6 programme places the recognition and assessment of sources at the foundation of historical enquiry.",
+          "verificationStatus": "VERIFIED",
+          "sourceId": "source-g6-official-programme",
+          "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?",
+          "note": "Claim mô tả yêu cầu chương trình; các ví dụ và lời giải thích trong bài do dự án biên soạn gốc."
+        },
+        {
+          "id": "claim-g6-why-study-history-time",
+          "contentId": "lesson-g6-why-study-history",
+          "claimType": "DATE",
+          "assessment": "CONFIRMED",
+          "statementVi": "Chương trình lớp 6 yêu cầu người học sử dụng các khái niệm thập kỉ, thế kỉ, thiên niên kỉ, trước Công nguyên và Công nguyên.",
+          "statementEn": "The Grade 6 programme requires learners to use decades, centuries, millennia, BCE, and CE.",
+          "verificationStatus": "VERIFIED",
+          "sourceId": "source-g6-official-programme",
+          "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử",
+          "note": "Không ép mọi mốc lịch sử thành ngày chính xác; ứng dụng giữ date precision riêng."
+        }
+      ]
+    },
+    {
+      "id": "lesson-g6-why-study-history",
+      "type": "TOPIC",
+      "locale": "vi",
+      "title": "Học lịch sử từ dấu vết và thời gian",
+      "slug": "hoc-lich-su-tu-dau-vet-va-thoi-gian",
+      "summary": "Lịch sử được tìm hiểu từ nhiều loại tư liệu; người học phải đặt câu hỏi về người tạo nguồn, hoàn cảnh và cách xác định thời gian.",
+      "body": "Quá khứ đã xảy ra không thể lặp lại nguyên vẹn trước mắt chúng ta. Người học tiếp cận quá khứ qua dấu vết còn lại như hiện vật, di tích, văn bản, hình ảnh, lời kể và dữ liệu khảo cổ. Mỗi loại tư liệu trả lời một nhóm câu hỏi khác nhau và đều cần được đặt trong bối cảnh.\n\nThời gian giúp sắp xếp sự kiện và nhận ra quan hệ trước–sau. Thập kỉ, thế kỉ, thiên niên kỉ, trước Công nguyên và Công nguyên là các quy ước để biểu đạt mốc thời gian; ngày tháng trong sử liệu có thể chính xác, xấp xỉ hoặc chỉ biết theo khoảng.\n\nHọc lịch sử vì thế không phải chỉ ghi nhớ đáp án. Đó là quá trình nêu câu hỏi, kiểm tra bằng chứng, phân biệt dữ kiện với diễn giải và sẵn sàng điều chỉnh nhận định khi xuất hiện tư liệu tốt hơn.",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "sources": [
+        {
+          "contentId": "lesson-g6-why-study-history",
+          "id": "source-g6-official-programme",
+          "title": "Thông tư 17/2025/TT-BGDĐT và tài liệu Chương trình giáo dục phổ thông",
+          "url": "https://vanban.chinhphu.vn/?docid=215347&pageid=27160&typegroupid=6",
+          "verificationStatus": "VERIFIED",
+          "sourceType": "PRIMARY_RECORD",
+          "qualityTier": "TIER_1_PRIMARY",
+          "accessedAt": "2026-08-11T00:00:00.000Z",
+          "institution": "Bộ Giáo dục và Đào tạo",
+          "identifier": "17/2025/TT-BGDĐT; cập nhật chương trình theo 32/2018/TT-BGDĐT",
+          "checksum": null
+        }
+      ],
+      "claims": [
+        {
+          "id": "claim-g6-why-study-history-evidence",
+          "contentId": "lesson-g6-why-study-history",
+          "claimType": "CONTEXT",
+          "assessment": "CONFIRMED",
+          "statementVi": "Yêu cầu lớp 6 đặt việc nhận diện và đánh giá nguồn tư liệu vào nền tảng của năng lực tìm hiểu lịch sử.",
+          "statementEn": "The Grade 6 programme places the recognition and assessment of sources at the foundation of historical enquiry.",
+          "verificationStatus": "VERIFIED",
+          "sourceId": "source-g6-official-programme",
+          "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?",
+          "note": "Claim mô tả yêu cầu chương trình; các ví dụ và lời giải thích trong bài do dự án biên soạn gốc."
+        },
+        {
+          "id": "claim-g6-why-study-history-time",
+          "contentId": "lesson-g6-why-study-history",
+          "claimType": "DATE",
+          "assessment": "CONFIRMED",
+          "statementVi": "Chương trình lớp 6 yêu cầu người học sử dụng các khái niệm thập kỉ, thế kỉ, thiên niên kỉ, trước Công nguyên và Công nguyên.",
+          "statementEn": "The Grade 6 programme requires learners to use decades, centuries, millennia, BCE, and CE.",
+          "verificationStatus": "VERIFIED",
+          "sourceId": "source-g6-official-programme",
+          "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử",
+          "note": "Không ép mọi mốc lịch sử thành ngày chính xác; ứng dụng giữ date precision riêng."
+        }
+      ]
+    }
+  ],
+  "index": {
+    "accounts": [
+      "lesson-g6-why-study-history"
+    ],
+    "after": [
+      "lesson-g6-why-study-history"
+    ],
+    "and": [
+      "lesson-g6-why-study-history"
+    ],
+    "ảnh": [
+      "lesson-g6-why-study-history"
+    ],
+    "answer": [
+      "lesson-g6-why-study-history"
+    ],
+    "answers": [
+      "lesson-g6-why-study-history"
+    ],
+    "appears": [
+      "lesson-g6-why-study-history"
+    ],
+    "approach": [
+      "lesson-g6-why-study-history"
+    ],
+    "approximate": [
+      "lesson-g6-why-study-history"
+    ],
+    "archaeological": [
+      "lesson-g6-why-study-history"
+    ],
+    "are": [
+      "lesson-g6-why-study-history"
+    ],
+    "arrange": [
+      "lesson-g6-why-study-history"
+    ],
+    "ask": [
+      "lesson-g6-why-study-history"
+    ],
+    "asking": [
+      "lesson-g6-why-study-history"
+    ],
+    "bản": [
+      "lesson-g6-why-study-history"
+    ],
+    "bằng": [
+      "lesson-g6-why-study-history"
+    ],
+    "bce": [
+      "lesson-g6-why-study-history"
+    ],
+    "before": [
+      "lesson-g6-why-study-history"
+    ],
+    "better": [
+      "lesson-g6-why-study-history"
+    ],
+    "biết": [
+      "lesson-g6-why-study-history"
+    ],
+    "biệt": [
+      "lesson-g6-why-study-history"
+    ],
+    "biểu": [
+      "lesson-g6-why-study-history"
+    ],
+    "bối": [
+      "lesson-g6-why-study-history"
+    ],
+    "các": [
+      "lesson-g6-why-study-history"
+    ],
+    "cách": [
+      "lesson-g6-why-study-history"
+    ],
+    "came": [
+      "lesson-g6-why-study-history"
+    ],
+    "cần": [
+      "lesson-g6-why-study-history"
+    ],
+    "cận": [
+      "lesson-g6-why-study-history"
+    ],
+    "cảnh": [
+      "lesson-g6-why-study-history"
+    ],
+    "cannot": [
+      "lesson-g6-why-study-history"
+    ],
+    "câu": [
+      "lesson-g6-why-study-history"
+    ],
+    "centuries": [
+      "lesson-g6-why-study-history"
+    ],
+    "checking": [
+      "lesson-g6-why-study-history"
+    ],
+    "chỉ": [
+      "lesson-g6-why-study-history"
+    ],
+    "chính": [
+      "lesson-g6-why-study-history"
+    ],
+    "chỉnh": [
+      "lesson-g6-why-study-history"
+    ],
+    "chúng": [
+      "lesson-g6-why-study-history"
+    ],
+    "chứng": [
+      "lesson-g6-why-study-history"
+    ],
+    "còn": [
+      "lesson-g6-why-study-history"
+    ],
+    "công": [
+      "lesson-g6-why-study-history"
+    ],
+    "context": [
+      "lesson-g6-why-study-history"
+    ],
+    "conventions": [
+      "lesson-g6-why-study-history"
+    ],
+    "created": [
+      "lesson-g6-why-study-history"
+    ],
+    "đáp": [
+      "lesson-g6-why-study-history"
+    ],
+    "đạt": [
+      "lesson-g6-why-study-history"
+    ],
+    "đặt": [
+      "lesson-g6-why-study-history"
+    ],
+    "data": [
+      "lesson-g6-why-study-history"
+    ],
+    "date": [
+      "lesson-g6-why-study-history"
+    ],
+    "dates": [
+      "lesson-g6-why-study-history"
+    ],
+    "dấu": [
+      "lesson-g6-why-study-history"
+    ],
+    "decades": [
+      "lesson-g6-why-study-history"
+    ],
+    "đều": [
+      "lesson-g6-why-study-history"
+    ],
+    "diễn": [
+      "lesson-g6-why-study-history"
+    ],
+    "điều": [
+      "lesson-g6-why-study-history"
+    ],
+    "different": [
+      "lesson-g6-why-study-history"
+    ],
+    "định": [
+      "lesson-g6-why-study-history"
+    ],
+    "distinguishing": [
+      "lesson-g6-why-study-history"
+    ],
+    "được": [
+      "lesson-g6-why-study-history"
+    ],
+    "each": [
+      "lesson-g6-why-study-history"
+    ],
+    "events": [
+      "lesson-g6-why-study-history"
+    ],
+    "evidence": [
+      "lesson-g6-why-study-history"
+    ],
+    "exact": [
+      "lesson-g6-why-study-history"
+    ],
+    "examine": [
+      "lesson-g6-why-study-history"
+    ],
+    "explanation": [
+      "lesson-g6-why-study-history"
+    ],
+    "expressing": [
+      "lesson-g6-why-study-history"
+    ],
+    "facts": [
+      "lesson-g6-why-study-history"
+    ],
+    "for": [
+      "lesson-g6-why-study-history"
+    ],
+    "from": [
+      "lesson-g6-why-study-history"
+    ],
+    "front": [
+      "lesson-g6-why-study-history"
+    ],
+    "ghi": [
+      "lesson-g6-why-study-history"
+    ],
+    "giải": [
+      "lesson-g6-why-study-history"
+    ],
+    "gian": [
+      "lesson-g6-why-study-history"
+    ],
+    "giúp": [
+      "lesson-g6-why-study-history"
+    ],
+    "helps": [
+      "lesson-g6-why-study-history"
+    ],
+    "hiện": [
+      "lesson-g6-why-study-history"
+    ],
+    "hiểu": [
+      "lesson-g6-why-study-history"
+    ],
+    "hình": [
+      "lesson-g6-why-study-history"
+    ],
+    "historical": [
+      "lesson-g6-why-study-history"
+    ],
+    "history": [
+      "lesson-g6-why-study-history"
+    ],
+    "hoặc": [
+      "lesson-g6-why-study-history"
+    ],
+    "hoàn": [
+      "lesson-g6-why-study-history"
+    ],
+    "học": [
+      "lesson-g6-why-study-history"
+    ],
+    "hỏi": [
+      "lesson-g6-why-study-history"
+    ],
+    "hơn": [
+      "lesson-g6-why-study-history"
+    ],
+    "how": [
+      "lesson-g6-why-study-history"
+    ],
+    "images": [
+      "lesson-g6-why-study-history"
+    ],
+    "interpretations": [
+      "lesson-g6-why-study-history"
+    ],
+    "involves": [
+      "lesson-g6-why-study-history"
+    ],
+    "its": [
+      "lesson-g6-why-study-history"
+    ],
+    "khác": [
+      "lesson-g6-why-study-history"
+    ],
+    "khảo": [
+      "lesson-g6-why-study-history"
+    ],
+    "khi": [
+      "lesson-g6-why-study-history"
+    ],
+    "khoảng": [
+      "lesson-g6-why-study-history"
+    ],
+    "không": [
+      "lesson-g6-why-study-history"
+    ],
+    "khứ": [
+      "lesson-g6-why-study-history"
+    ],
+    "kiểm": [
+      "lesson-g6-why-study-history"
+    ],
+    "kiện": [
+      "lesson-g6-why-study-history"
+    ],
+    "kind": [
+      "lesson-g6-why-study-history"
+    ],
+    "kinds": [
+      "lesson-g6-why-study-history"
+    ],
+    "known": [
+      "lesson-g6-why-study-history"
+    ],
+    "lại": [
+      "lesson-g6-why-study-history"
+    ],
+    "lặp": [
+      "lesson-g6-why-study-history"
+    ],
+    "learners": [
+      "lesson-g6-why-study-history"
+    ],
+    "learning": [
+      "lesson-g6-why-study-history"
+    ],
+    "lịch": [
+      "lesson-g6-why-study-history"
+    ],
+    "liệu": [
+      "lesson-g6-why-study-history"
+    ],
+    "loại": [
+      "lesson-g6-why-study-history"
+    ],
+    "lời": [
+      "lesson-g6-why-study-history"
+    ],
+    "mắt": [
+      "lesson-g6-why-study-history"
+    ],
+    "may": [
+      "lesson-g6-why-study-history"
+    ],
+    "memorising": [
+      "lesson-g6-why-study-history"
+    ],
+    "millennia": [
+      "lesson-g6-why-study-history"
+    ],
+    "mốc": [
+      "lesson-g6-why-study-history"
+    ],
+    "mỗi": [
+      "lesson-g6-why-study-history"
+    ],
+    "more": [
+      "lesson-g6-why-study-history"
+    ],
+    "một": [
+      "lesson-g6-why-study-history"
+    ],
+    "needs": [
+      "lesson-g6-why-study-history"
+    ],
+    "nêu": [
+      "lesson-g6-why-study-history"
+    ],
+    "ngày": [
+      "lesson-g6-why-study-history"
+    ],
+    "người": [
+      "lesson-g6-why-study-history"
+    ],
+    "nguồn": [
+      "lesson-g6-why-study-history"
+    ],
+    "nguyên": [
+      "lesson-g6-why-study-history"
+    ],
+    "nhận": [
+      "lesson-g6-why-study-history"
+    ],
+    "nhau": [
+      "lesson-g6-why-study-history"
+    ],
+    "nhiều": [
+      "lesson-g6-why-study-history"
+    ],
+    "nhớ": [
+      "lesson-g6-why-study-history"
+    ],
+    "nhóm": [
+      "lesson-g6-why-study-history"
+    ],
+    "như": [
+      "lesson-g6-why-study-history"
+    ],
+    "niên": [
+      "lesson-g6-why-study-history"
+    ],
+    "objects": [
+      "lesson-g6-why-study-history"
+    ],
+    "only": [
+      "lesson-g6-why-study-history"
+    ],
+    "oral": [
+      "lesson-g6-why-study-history"
+    ],
+    "past": [
+      "lesson-g6-why-study-history"
+    ],
+    "phải": [
+      "lesson-g6-why-study-history"
+    ],
+    "phân": [
+      "lesson-g6-why-study-history"
+    ],
+    "qua": [
+      "lesson-g6-why-study-history"
+    ],
+    "quá": [
+      "lesson-g6-why-study-history"
+    ],
+    "quan": [
+      "lesson-g6-why-study-history"
+    ],
+    "questions": [
+      "lesson-g6-why-study-history"
+    ],
+    "quy": [
+      "lesson-g6-why-study-history"
+    ],
+    "range": [
+      "lesson-g6-why-study-history"
+    ],
+    "records": [
+      "lesson-g6-why-study-history"
+    ],
+    "replayed": [
+      "lesson-g6-why-study-history"
+    ],
+    "revising": [
+      "lesson-g6-why-study-history"
+    ],
+    "sẵn": [
+      "lesson-g6-why-study-history"
+    ],
+    "sàng": [
+      "lesson-g6-why-study-history"
+    ],
+    "sắp": [
+      "lesson-g6-why-study-history"
+    ],
+    "sau": [
+      "lesson-g6-why-study-history"
+    ],
+    "setting": [
+      "lesson-g6-why-study-history"
+    ],
+    "sites": [
+      "lesson-g6-why-study-history"
+    ],
+    "source": [
+      "lesson-g6-why-study-history"
+    ],
+    "studied": [
+      "lesson-g6-why-study-history"
+    ],
+    "such": [
+      "lesson-g6-why-study-history"
+    ],
+    "surviving": [
+      "lesson-g6-why-study-history"
+    ],
+    "tạo": [
+      "lesson-g6-why-study-history"
+    ],
+    "than": [
+      "lesson-g6-why-study-history"
+    ],
+    "tháng": [
+      "lesson-g6-why-study-history"
+    ],
+    "thập": [
+      "lesson-g6-why-study-history"
+    ],
+    "the": [
+      "lesson-g6-why-study-history"
+    ],
+    "thế": [
+      "lesson-g6-why-study-history"
+    ],
+    "thể": [
+      "lesson-g6-why-study-history"
+    ],
+    "theo": [
+      "lesson-g6-why-study-history"
+    ],
+    "therefore": [
+      "lesson-g6-why-study-history"
+    ],
+    "thiên": [
+      "lesson-g6-why-study-history"
+    ],
+    "thời": [
+      "lesson-g6-why-study-history"
+    ],
+    "through": [
+      "lesson-g6-why-study-history"
+    ],
+    "tích": [
+      "lesson-g6-why-study-history"
+    ],
+    "tiếp": [
+      "lesson-g6-why-study-history"
+    ],
+    "tìm": [
+      "lesson-g6-why-study-history"
+    ],
+    "time": [
+      "lesson-g6-why-study-history"
+    ],
+    "tốt": [
+      "lesson-g6-why-study-history"
+    ],
+    "tra": [
+      "lesson-g6-why-study-history"
+    ],
+    "trả": [
+      "lesson-g6-why-study-history"
+    ],
+    "traces": [
+      "lesson-g6-why-study-history"
+    ],
+    "trình": [
+      "lesson-g6-why-study-history"
+    ],
+    "trong": [
+      "lesson-g6-why-study-history"
+    ],
+    "trước": [
+      "lesson-g6-why-study-history"
+    ],
+    "ước": [
+      "lesson-g6-why-study-history"
+    ],
+    "văn": [
+      "lesson-g6-why-study-history"
+    ],
+    "vật": [
+      "lesson-g6-why-study-history"
+    ],
+    "vẹn": [
+      "lesson-g6-why-study-history"
+    ],
+    "vết": [
+      "lesson-g6-why-study-history"
+    ],
+    "với": [
+      "lesson-g6-why-study-history"
+    ],
+    "what": [
+      "lesson-g6-why-study-history"
+    ],
+    "when": [
+      "lesson-g6-why-study-history"
+    ],
+    "who": [
+      "lesson-g6-why-study-history"
+    ],
+    "written": [
+      "lesson-g6-why-study-history"
+    ],
+    "xác": [
+      "lesson-g6-why-study-history"
+    ],
+    "xấp": [
+      "lesson-g6-why-study-history"
+    ],
+    "xảy": [
+      "lesson-g6-why-study-history"
+    ],
+    "xếp": [
+      "lesson-g6-why-study-history"
+    ],
+    "xuất": [
+      "lesson-g6-why-study-history"
+    ]
+  }
+}

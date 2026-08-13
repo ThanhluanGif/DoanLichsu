@@ -1,0 +1,7 @@
+{
+  "card": "C-044",
+  "generatedAt": "2026-08-13T08:33:55.025Z",
+  "green": {"status":"PASS","exitCode":0,"scope":"published lesson-* corpus","translations":110,"content":55,"verifiedSources":114,"verifiedClaims":110,"indexTerms":3516,"sha256":"24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e","snapshot":"artifacts/approved-corpus/snapshot.json"},
+  "red": {"status":"FAIL","exitCode":1,"contentId":"event-dien-bien-phu","reason":"missing verified provenance and claim evidence","databaseMutation":false,"report":"artifacts/approved-corpus/red-report.json"},
+  "boundary": {"onlyPublishedLessonTranslations":true,"onlyVerifiedClaimEvidence":true,"readOnlyDatabase":true}
+}
