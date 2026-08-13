@@ -1,0 +1,12 @@
+{
+  "status": "PASS_PRODUCTION_LIKE_SMOKE",
+  "origin": "https://portal-focus-uses-noon.trycloudflare.com",
+  "originKind": "Cloudflare quick tunnel; temporary and not an official production domain",
+  "generatedAt": "2026-08-13T10:11:40.377Z",
+  "checks": 7,
+  "allHttp200": true,
+  "routes": ["healthz", "openapi", "places-vi", "places-en", "reconstruction-vi", "map-vi", "transparency-vi"],
+  "latencyMs": { "min": 308, "p50Approx": 330, "p95Approx": 955, "targetP95Ms": 1000 },
+  "publicAi": "not enabled by this smoke script; C-061 live proof covers 401/200 auth boundary",
+  "externalGatesPending": ["official domain", "90-day uptime", "independent load/security review", "named on-call owner"]
+}
