@@ -1,0 +1,287 @@
+{
+  "data": {
+    "grade": 9,
+    "label": "Lớp 9",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g9-world-1918-1945",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Thế giới từ năm 1918 đến năm 1945",
+        "slug": "world-1918-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1918 đến năm 1945",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1918,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Trình bày trật tự thế giới, khủng hoảng và Chiến tranh thế giới thứ hai."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-1918-1945",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Thế giới 1918–1945: khủng hoảng, phát xít và chiến tranh toàn cầu",
+            "slug": "the-gioi-1918-1945-khung-hoang-phat-xit-va-chien-tranh-toan-cau",
+            "summary": "Từ trật tự hậu chiến mong manh đến Đại khủng hoảng, chủ nghĩa phát xít, Holocaust và Chiến tranh thế giới thứ hai, giai đoạn này cho thấy hòa bình không thể chỉ dựa vào hiệp ước.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-1918-1945",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Việt Nam từ năm 1918 đến năm 1945",
+        "slug": "vietnam-1918-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1918 đến năm 1945",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1918,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Phân tích phong trào dân tộc và Cách mạng tháng Tám năm 1945."
+        ],
+        "lessons": [
+          {
+            "id": "event-august-revolution",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Cách mạng Tháng Tám",
+            "slug": "cach-mang-thang-tam",
+            "summary": "Tháng Tám năm 1945, Việt Minh giành chính quyền tại Hà Nội và nhiều địa phương trước khi tuyên bố độc lập.",
+            "thumbnail": null,
+            "startDate": "1945-08-19",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-colonial",
+              "title": "Kháng chiến chống thực dân",
+              "slug": "khang-chien-chong-thuc-dan"
+            },
+            "tags": [
+              "Độc lập"
+            ]
+          },
+          {
+            "id": "lesson-g9-vietnam-1918-1945",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Việt Nam 1918–1945: nhiều dòng vận động và Cách mạng tháng Tám",
+            "slug": "viet-nam-1918-1945-nhieu-dong-van-dong-va-cach-mang-thang-tam",
+            "summary": "Những biến đổi thuộc địa, nhiều khuynh hướng cứu nước và điều kiện chiến tranh đã hội tụ trong Cách mạng tháng Tám và Tuyên ngôn Độc lập năm 1945.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-world-1945-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Thế giới từ năm 1945 đến năm 1991",
+        "slug": "world-1945-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1945 đến năm 1991",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 1991,
+        "requiredOutcomes": [
+          "Trình bày Chiến tranh lạnh, giải phóng dân tộc và biến đổi quốc tế."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-1945-1991",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Thế giới 1945–1991: Chiến tranh lạnh, giải phóng dân tộc và biến đổi xã hội",
+            "slug": "the-gioi-1945-1991-chien-tranh-lanh-giai-phong-dan-toc-va-bien-doi-xa-hoi",
+            "summary": "Đối đầu Mỹ–Liên Xô định hình an ninh toàn cầu, nhưng phi thực dân hóa, các quốc gia mới và phong trào xã hội cũng là chủ thể của giai đoạn 1945–1991.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-1945-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Việt Nam từ năm 1945 đến năm 1991",
+        "slug": "vietnam-1945-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1945 đến năm 1991",
+        "publishedCount": 4,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 1991,
+        "requiredOutcomes": [
+          "Trình bày kháng chiến, thống nhất, bảo vệ Tổ quốc và bước đầu Đổi mới."
+        ],
+        "lessons": [
+          {
+            "id": "event-ho-chi-minh-campaign",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Chiến dịch Hồ Chí Minh",
+            "slug": "chien-dich-ho-chi-minh",
+            "summary": "Chiến dịch cuối tháng 4 năm 1975 tiến vào Sài Gòn và kết thúc chiến tranh, mở đường thống nhất đất nước.",
+            "thumbnail": null,
+            "startDate": "1975-04-26",
+            "endDate": "1975-04-30",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Các cuộc chiến tranh giành độc lập và thống nhất",
+              "slug": "chien-tranh-gianh-doc-lap-va-thong-nhat"
+            },
+            "tags": [
+              "Độc lập"
+            ]
+          },
+          {
+            "id": "event-dien-bien-phu",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Chiến dịch Điện Biên Phủ",
+            "slug": "chien-dich-dien-bien-phu",
+            "summary": "Trận đánh kéo dài 56 ngày, kết thúc ngày 7 tháng 5 năm 1954 với thất bại của tập đoàn cứ điểm Pháp.",
+            "thumbnail": null,
+            "startDate": "1954-03-13",
+            "endDate": "1954-05-07",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Các cuộc chiến tranh giành độc lập và thống nhất",
+              "slug": "chien-tranh-gianh-doc-lap-va-thong-nhat"
+            },
+            "tags": [
+              "Độc lập",
+              "Hậu cần"
+            ]
+          },
+          {
+            "id": "event-northern-border",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Chiến đấu bảo vệ biên giới phía Bắc năm 1979",
+            "slug": "bao-ve-bien-gioi-phia-bac-1979",
+            "summary": "Cuộc chiến diễn ra dọc biên giới phía Bắc trong tháng 2 và 3 năm 1979.",
+            "thumbnail": null,
+            "startDate": "1979-02-17",
+            "endDate": "1979-03-16",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-border",
+              "title": "Bảo vệ biên giới sau năm 1975",
+              "slug": "bao-ve-bien-gioi-sau-1975"
+            },
+            "tags": [
+              "Kháng chiến"
+            ]
+          },
+          {
+            "id": "lesson-g9-vietnam-1945-1991",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Việt Nam 1945–1991: kháng chiến, thống nhất, bảo vệ và Đổi mới",
+            "slug": "viet-nam-1945-1991-khang-chien-thong-nhat-bao-ve-va-doi-moi",
+            "summary": "Từ bảo vệ nền độc lập mới đến chiến tranh, thống nhất pháp lý, bảo vệ biên giới, tái thiết và Đổi mới, giai đoạn này không kết thúc ở tháng 4/1975.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-world-since-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Thế giới từ năm 1991 đến nay",
+        "slug": "world-since-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1991 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1991,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Nhận biết xu thế phát triển, toàn cầu hóa và những thách thức mới."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-world-since-1991",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Thế giới 1991–2026: kết nối sâu hơn, rủi ro chung lớn hơn",
+            "slug": "the-gioi-1991-2026-ket-noi-sau-hon-rui-ro-chung-lon-hon",
+            "summary": "Cập nhật đến 11/08/2026: toàn cầu hóa và số hóa mở rộng cơ hội nhưng đi cùng bất bình đẳng, khủng hoảng, đại dịch, khí hậu và tranh luận về quản trị AI.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g9-vietnam-since-1991",
+        "grade": 9,
+        "track": "MANDATORY",
+        "topic": "Việt Nam từ năm 1991 đến nay",
+        "slug": "vietnam-since-1991",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1991 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1991,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Trình bày thành tựu, thách thức và hội nhập của Việt Nam đến thời điểm cập nhật."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g9-vietnam-since-1991",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Việt Nam 1991–2026: hội nhập, phát triển và những bài toán mới",
+            "slug": "viet-nam-1991-2026-hoi-nhap-phat-trien-va-nhung-bai-toan-moi",
+            "summary": "Cập nhật đến 11/08/2026: Việt Nam mở rộng quan hệ, hội nhập ASEAN và WTO, cải thiện nhiều mặt đời sống nhưng vẫn đối diện năng suất, già hóa, khí hậu và bất bình đẳng cơ hội.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

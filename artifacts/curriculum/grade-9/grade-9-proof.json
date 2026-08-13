@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-08-13T04:16:18.831Z",
+  "url": "https://ips-activities-len-porcelain.trycloudflare.com",
+  "asOf": "2026-08-11T00:00:00.000Z",
+  "coverage": {
+    "requirements": 6,
+    "published": 6,
+    "verified": 6,
+    "fullCoverage": true,
+    "locales": [
+      "vi",
+      "en"
+    ]
+  },
+  "desktop": {
+    "path": "/vi/chu-de/viet-nam-1991-2026-hoi-nhap-phat-trien-va-nhung-bai-toan-moi",
+    "lesson": "Việt Nam 1991–2026: hội nhập, phát triển và những bài toán mới",
+    "claims": 2,
+    "sources": 5,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1352
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/world-1991-2026-deeper-connection-and-greater-shared-risk",
+    "lesson": "The world, 1991–2026: deeper connection, greater shared risk",
+    "claims": 2,
+    "sources": 4,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 816
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-9/grade-9-coverage-desktop.png",
+    "artifacts/curriculum/grade-9/grade-9-desktop.png",
+    "artifacts/curriculum/grade-9/grade-9-coverage-mobile.png",
+    "artifacts/curriculum/grade-9/grade-9-mobile.png"
+  ]
+}
