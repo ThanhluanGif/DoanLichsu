@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "contentId": "event-dien-bien-phu",
+  "error": "Lesson is not in approved corpus",
+  "remediation": "Approve source/claim evidence before export."
+}

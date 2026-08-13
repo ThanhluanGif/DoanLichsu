@@ -1,0 +1,7 @@
+{
+  "card": "C-049",
+  "generatedAt": "2026-08-13T08:45:03.057Z",
+  "green": {"status":"PASS","contentId":"lesson-g6-why-study-history","quizItems":2,"citationAnswers":2,"snapshot":"24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e","artifact":"artifacts/teacher-pack/lesson-pack.json"},
+  "red": {"status":"FAIL","contentId":"event-dien-bien-phu","reason":"Lesson is not in approved corpus","artifact":"artifacts/teacher-pack/red-report.json"},
+  "aiClaimsAdded":false
+}
