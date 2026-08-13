@@ -1,0 +1,15 @@
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+const input = resolve("artifacts/wikimedia/batch-300-report.json");
+const output = resolve("artifacts/wikimedia/rights-review-ledger.json");
+const batch = JSON.parse(readFileSync(input, "utf8"));
+const inputSha256 = createHash("sha256").update(readFileSync(input)).digest("hex");
+const rows = batch.records.map((record, index) => ({ ordinal: index + 1, id: record.id, pageId: record.pageId, fileTitle: record.fileTitle, revisionId: record.revisionId, revisionTimestamp: record.revisionTimestamp, originalUrl: record.originalUrl, descriptionUrl: record.descriptionUrl, artist: record.artist, creditLine: record.creditLine, licenseShortName: record.licenseShortName, licenseUrl: record.licenseUrl, restrictions: record.restrictions, rightsStatus: "LINK_ONLY", reviewStatus: "PENDING_REVIEW", rightsReviewer: null, legalReviewer: null, decision: null, permissionReference: null, takedownReference: null, serveBinary: false }));
+const approved = rows.filter((row) => row.decision === "PERMITTED" || row.decision === "PUBLIC_DOMAIN").length;
+const ledger = { version: "wikimedia-rights-review-v1", generatedAt: new Date().toISOString(), status: approved === 300 ? "PASS_DUAL_REVIEW" : "PENDING_RIGHTS_REVIEW", total: rows.length, approvedForBinary: approved, inputSha256, noFabricatedReviewers: true, binaryServingEnabled: false, rows };
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, `${JSON.stringify(ledger, null, 2)}\n`);
+writeFileSync(output.replace(/\.json$/, ".md"), `# Wikimedia rights review ledger\n\n- Status: **${ledger.status}**\n- Records: ${ledger.total}\n- Approved for binary: ${ledger.approvedForBinary}/300\n- Input SHA-256: ${inputSha256}\n- Reviewers/permissions: **PENDING; no identities fabricated**\n- Binary serving: **DISABLED**\n`);
+process.stdout.write(`${JSON.stringify({ status: ledger.status, total: ledger.total, approvedForBinary: ledger.approvedForBinary, inputSha256 })}\n`);
+if (ledger.status !== "PASS_DUAL_REVIEW") process.exitCode = 1;

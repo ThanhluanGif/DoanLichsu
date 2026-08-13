@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:46:04.087Z",
+  "generatedAt": "2026-08-13T10:47:19.895Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -50,6 +50,14 @@
       "status": "PASS_METADATA_ONLY",
       "evidence": [
         "artifacts/wikimedia/batch-300-report.json"
+      ]
+    },
+    {
+      "id": "wikimedia-rights-review",
+      "group": "rights",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/wikimedia/rights-review-ledger.json"
       ]
     },
     {
