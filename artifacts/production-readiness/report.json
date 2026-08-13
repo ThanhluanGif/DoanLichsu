@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-13T08:58:31.226Z",
+  "generatedAt": "2026-08-13T10:09:28.610Z",
   "status": "FAIL",
   "checks": {
     "database": {
       "path": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
-      "absolute": false,
+      "absolute": true,
       "exists": true
     },
     "quality": [
@@ -22,15 +22,21 @@
       }
     ],
     "backupRestore": {
-      "rehearsal": "documented in docs/release-runbook.md",
+      "rehearsal": "artifacts/operations/backup-restore-proof.json",
       "rpoTargetMinutes": 15,
       "rtoTargetMinutes": 60,
-      "verified": false
+      "verified": true
     },
     "load": {
       "probe": "not run against fixed production domain",
       "targetP95Ms": 1000,
       "verified": false
+    },
+    "aiEval": {
+      "status": "PASS",
+      "targetQuestions": 500,
+      "actualQuestions": 500,
+      "targetGap": 0
     },
     "aiDegradation": {
       "fallback": "search/lesson",
@@ -39,7 +45,7 @@
   },
   "blockers": [
     "No fixed production domain evidence",
-    "500-question AI eval gap remains",
+    "Load and 90-day uptime evidence not recorded",
     "Council/privacy sign-off not recorded"
   ],
   "databaseMutation": false

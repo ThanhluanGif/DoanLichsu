@@ -1,9 +1,9 @@
 {
   "dashboardVersion": "transparency-v1",
-  "generatedAt": "2026-08-13T10:02:25.107Z",
+  "generatedAt": "2026-08-13T10:08:59.703Z",
   "releaseStatus": "NOT_READY",
   "coverage": {
-    "mandatory": "see source report",
+    "mandatory": "46/46",
     "source": "artifacts/curriculum-completeness/live-coverage.json"
   },
   "rights": {
@@ -32,7 +32,7 @@
   "operations": {
     "readiness": "FAIL",
     "fixedProductionDomain": false,
-    "backupRestoreVerified": false
+    "backupRestoreVerified": true
   },
   "blockers": [
     "Hội đồng chưa có biên bản ký release",
