@@ -11,6 +11,7 @@ const segmentTypes = new Map<string,ContentType>(Object.values(typeSegments).fla
 
 export function homePath(locale: Locale) { return `/${locale}`; }
 export function timelinePath(locale: Locale, query = "") { return `/${locale}/timeline${query}`; }
+export function mapPath(locale: Locale, query = "") { return `/${locale}/ban-do${query}`; }
 export function searchPath(locale: Locale, query = "") { return `/${locale}/${locale === "vi" ? "tim-kiem" : "search"}${query}`; }
 export function sourcesPath(locale: Locale, query = "") { return `/${locale}/sources${query}`; }
 export function archivePath(locale: Locale, query = "") { return `/${locale}/tu-lieu${query}`; }

@@ -2,7 +2,8 @@ import type { SqliteDatabase } from "@/lib/db/connection";
 import { contentTypeLabels } from "@/lib/i18n/config";
 import { normalizeSearchText } from "@/lib/search/normalize";
 import { curriculumContentIds,curriculumCounts,curriculumRefsForContent,programmeAsOf,publicGrade,publicTrack,requirementRef,requirementRows,verifiedCurriculumContentIds,type CurriculumRequirementRow } from "./curriculum";
-import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type LessonView,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem } from "./types";
+import { contentTypes,grades,type ClaimView,type ContentDetail,type ContentListItem,type ContentType,type CurriculumGradeSummary,type CurriculumRequirementView,type Grade,type LessonView,type Locale,type MediaView,type PeriodRef,type PeriodView,type PublicSourceItem,type SearchResult,type SourceContentRef,type TimelineItem,type PlaceView, type PlacePrecision } from "./types";
+import { historicalPlaces } from "@/data/maps/places";
 import { PublicApiError, pageMeta, parseContentType, parsePage, optionalYear } from "./validation";
 
 type BaseRow = {
@@ -149,6 +150,25 @@ export function getContents(database: SqliteDatabase, locale: Locale, search: UR
   const total = rows.length;
   const selected = rows.slice((page - 1) * pageSize, page * pageSize);
   return { data: selected.map((row) => listItem(database, row, locale)), meta: pageMeta(page, pageSize, total) };
+}
+
+export function getPlaces(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {
+  const precision = search.get("precision");
+  if (precision !== null && precision !== "EXACT" && precision !== "APPROXIMATE") {
+    throw new PublicApiError(400, "INVALID_QUERY", "Độ chính xác không hợp lệ.", { fieldErrors: { precision: ["Chỉ nhận EXACT hoặc APPROXIMATE."] } });
+  }
+  const query = search.get("q")?.trim().toLocaleLowerCase(locale) ?? "";
+  const records = historicalPlaces.filter((place) => (!precision || place.precision === precision) && (!query || `${place.title[locale]} ${place.summary[locale]}`.toLocaleLowerCase(locale).includes(query)));
+  const data: PlaceView[] = records.map((place) => {
+    const related = place.relatedContent.flatMap(({ id }) => {
+      const row = database.prepare(`${publicSelect} AND n.id = ? AND t.locale = ? LIMIT 1`).get(id, locale) as BaseRow | undefined;
+      return row ? [listItem(database, row, locale)] : [];
+    });
+    return { id: place.id, slug: place.slug, title: place.title[locale], summary: place.summary[locale], point: place.point, precision: place.precision as PlacePrecision, locatorNote: place.locatorNote[locale], related };
+  });
+  const page = Math.max(1, Number(search.get("page") ?? "1") || 1);
+  const pageSize = Math.min(50, Math.max(1, Number(search.get("pageSize") ?? "50") || 50));
+  return { data: data.slice((page - 1) * pageSize, page * pageSize), meta: pageMeta(page, pageSize, data.length) };
 }
 
 export function getTimeline(database: SqliteDatabase, locale: Locale, search: URLSearchParams) {

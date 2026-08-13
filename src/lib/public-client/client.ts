@@ -1,4 +1,4 @@
-import type { ContentDetail,ContentListItem,CurriculumCatalogView,CurriculumGradeView,DataResponse,FacetView,HomeView,ListResponse,Locale,PeriodView,PublicSourceItem,SearchResult,TimelineItem } from "./types";
+import type { ContentDetail,ContentListItem,CurriculumCatalogView,CurriculumGradeView,DataResponse,FacetView,HomeView,ListResponse,Locale,PeriodView,PublicSourceItem,SearchResult,TimelineItem,PlaceView } from "./types";
 
 export class PublicClientError extends Error {
   constructor(public readonly status:number,public readonly code:string,message:string) { super(message); }
@@ -39,6 +39,7 @@ export function createPublicClient(options: {origin?:string;fetcher?:Fetcher} = 
     curriculum:async(locale:Locale) => (await request<DataResponse<CurriculumCatalogView>>(`/api/v1/${locale}/curriculum`)).data,
     curriculumGrade:async(locale:Locale,grade:number) => (await request<DataResponse<CurriculumGradeView>>(`/api/v1/${locale}/curriculum/${grade}`)).data,
     detail:async(locale:Locale,type:string,slug:string) => (await request<DataResponse<ContentDetail>>(`/api/v1/${locale}/contents/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`)).data,
+    places:async(locale:Locale,query:URLSearchParams = new URLSearchParams()) => request<ListResponse<PlaceView>>(`/api/v1/${locale}/places${query.toString()?`?${query}`:""}`),
   };
 }
 

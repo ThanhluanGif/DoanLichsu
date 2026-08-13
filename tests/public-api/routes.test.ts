@@ -14,6 +14,7 @@ import { GET as taxonomies } from "@/app/api/v1/[locale]/taxonomies/route";
 import { GET as curriculum } from "@/app/api/v1/[locale]/curriculum/route";
 import { GET as curriculumGrade } from "@/app/api/v1/[locale]/curriculum/[grade]/route";
 import { GET as alternate } from "@/app/api/v1/contents/[id]/alternate/route";
+import { GET as places } from "@/app/api/v1/[locale]/places/route";
 
 const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-public-api-"));
 const databasePath = join(directory, "public.db");
@@ -33,6 +34,19 @@ afterAll(() => {
 });
 
 describe("public read API", () => {
+  it("returns local places with explicit precision and published related content", async () => {
+    const response = await places(new Request("http://local/api/v1/vi/places?pageSize=50"), localeContext("vi"));
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    expect(body.meta).toMatchObject({ page: 1, pageSize: 50, total: 9, totalPages: 1 });
+    expect(Object.keys(body.data[0])).toEqual(["id", "slug", "title", "summary", "point", "precision", "locatorNote", "related"]);
+    expect(body.data.some((place: { precision: string }) => place.precision === "APPROXIMATE")).toBe(true);
+    expect(body.data.find((place: { id: string }) => place.id === "place-bach-dang")).toMatchObject({ precision: "APPROXIMATE", related: expect.arrayContaining([expect.objectContaining({ id: "event-bach-dang-1288" })]) });
+    const exact = await places(new Request("http://local/api/v1/vi/places?precision=EXACT"), localeContext("vi"));
+    expect((await exact.json()).data.every((place: { precision: string }) => place.precision === "EXACT")).toBe(true);
+    const invalid = await places(new Request("http://local/api/v1/vi/places?precision=POINT"), localeContext("vi"));
+    expect(invalid.status).toBe(400);
+  });
   it("returns exact home, period and taxonomy envelopes from published locale rows", async () => {
     const homeResponse = await home(new Request("http://local/api/v1/vi/home"), localeContext("vi"));
     const homeBody = await homeResponse.json();

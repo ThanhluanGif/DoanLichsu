@@ -36,6 +36,11 @@ const errors = (...statuses: Array<keyof typeof errorResponses>) =>
   Object.fromEntries(statuses.map((status) => [status,errorResponses[status]]));
 
 export const publicOpenApiPaths = {
+  "/api/v1/{locale}/places": { get: {
+    operationId: "listPublicPlaces", summary: "Liệt kê địa danh lịch sử", description: "Trả các địa danh gắn với nội dung đã xuất bản; điểm APPROXIMATE là locator giáo dục, không phải ranh giới pháp lý.", tags: ["Public"],
+    parameters: [localeParameter, ...pageParameters, { name: "precision", in: "query", schema: { type: "string", enum: ["EXACT", "APPROXIMATE"] } }, { name: "q", in: "query", schema: { type: "string", maxLength: 200 } }],
+    responses: { "200": jsonResponse(listRef("PlaceView")), ...errors("400", "404", "500") },
+  } },
   "/api/v1/{locale}/home": { get: {
     operationId: "getPublicHome", summary: "Đọc trang chủ công khai", description: "Trả nội dung nổi bật, thời kỳ, nội dung mới và số lượng đã xuất bản.", tags: ["Public"], parameters: [localeParameter],
     responses: { "200": jsonResponse(dataRef("HomeView")), ...errors("404","500") },
@@ -129,6 +134,7 @@ const sourceProperties = {
 const sourceRequired = Object.keys(sourceProperties);
 
 export const publicOpenApiSchemas = {
+  PlaceView: { type: "object", additionalProperties: false, required: ["id", "slug", "title", "summary", "point", "precision", "locatorNote", "related"], properties: { id: { type: "string" }, slug: { type: "string" }, title: { type: "string" }, summary: { type: "string" }, point: { type: "object", additionalProperties: false, required: ["longitude", "latitude"], properties: { longitude: { type: "number", minimum: -180, maximum: 180 }, latitude: { type: "number", minimum: -90, maximum: 90 } } }, precision: { type: "string", enum: ["EXACT", "APPROXIMATE"] }, locatorNote: { type: "string" }, related: { type: "array", items: { $ref: "#/components/schemas/ContentListItem" } } } },
   PageMeta: { type: "object", additionalProperties: false, required: ["page", "pageSize", "total", "totalPages"], properties: { page: { type: "integer" }, pageSize: { type: "integer" }, total: { type: "integer" }, totalPages: { type: "integer" } } },
   ApiError: { type: "object", additionalProperties: false, required: ["code", "message", "requestId"], properties: { code: { type: "string" }, message: { type: "string" }, details: { type: "object", additionalProperties: false, properties: { fieldErrors: { type: "object", additionalProperties: { type: "array", items: { type: "string" } } }, violations: { type: "array", items: { type: "string" } } } }, requestId: { type: "string", format: "uuid" } } },
   AssetProvenanceView:{type:"object",additionalProperties:false,required:["holdingInstitution","inventoryId","origin","rightsStatus","permissionDocument","creditLine","checksum"],properties:{holdingInstitution:{type:"string"},inventoryId:nullableString,origin:{type:"string"},rightsStatus:{type:"string",enum:rightsStatuses},permissionDocument:{anyOf:[{type:"string",format:"uri",pattern:"^https://"},{type:"null"}]},creditLine:{type:"string"},checksum:nullableString}},

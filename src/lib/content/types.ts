@@ -29,6 +29,7 @@ export const curriculumTracks = ["MANDATORY","ELECTIVE"] as const;
 export type CurriculumTrack = (typeof curriculumTracks)[number];
 export const coverageStatuses = ["MISSING","DRAFT","PUBLISHED","VERIFIED"] as const;
 export type CoverageStatus = (typeof coverageStatuses)[number];
+export type PlacePrecision = "EXACT" | "APPROXIMATE";
 
 export interface PageMeta {
   page: number;
@@ -124,6 +125,12 @@ export interface ContentListItem {
   datePrecision: DatePrecision | null;
   period: PeriodRef | null;
   tags: string[];
+}
+
+export interface GeoPoint { longitude: number; latitude: number; }
+export interface PlaceView {
+  id: string; slug: string; title: string; summary: string; point: GeoPoint;
+  precision: PlacePrecision; locatorNote: string; related: ContentListItem[];
 }
 
 export interface ContentDetail extends ContentListItem {

@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-08-13T07:16:00.000Z",
+  "liveOrigin": "https://cheese-vessels-unified-travel.trycloudflare.com",
+  "urls": {
+    "healthz": "/healthz",
+    "apiVi": "/api/v1/vi/places?pageSize=50",
+    "apiEn": "/api/v1/en/places?pageSize=50",
+    "mapVi": "/vi/ban-do",
+    "mapEn": "/en/ban-do",
+    "fallbackVi": "/vi/ban-do?precision=APPROXIMATE"
+  },
+  "liveHttp": {
+    "healthz": 200,
+    "apiVi": 200,
+    "apiEn": 200,
+    "mapVi": 200,
+    "mapEn": 200,
+    "fallbackVi": 200
+  },
+  "places": {
+    "viTotal": 9,
+    "enTotal": 9,
+    "approximateIncluded": true,
+    "first": {
+      "id": "place-bach-dang",
+      "precision": "APPROXIMATE",
+      "point": { "longitude": 106.75, "latitude": 20.96 },
+      "relatedCount": 3
+    }
+  },
+  "verification": {
+    "livePlaywright": "3 passed (desktop pointer/filter/detail, mobile approximate/no-overflow, HTML no-WebGL narrative)",
+    "desktopAxeCriticalOrSerious": 0,
+    "desktopClientWidth": 1280,
+    "desktopScrollWidth": 1280,
+    "desktopLcpMs": 456,
+    "keyboardMarker": true,
+    "filterAndDetailLink": true,
+    "htmlFallback": true,
+    "externalTilesOrWebglRequired": false
+  },
+  "screenshots": [
+    "artifacts/historical-map/map-desktop.png",
+    "artifacts/historical-map/map-mobile.png"
+  ],
+  "jsonArtifacts": [
+    "artifacts/historical-map/live-places-vi.json",
+    "artifacts/historical-map/live-places-en.json"
+  ]
+}

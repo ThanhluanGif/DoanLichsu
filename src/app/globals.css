@@ -51,6 +51,22 @@ a { color: inherit; }
 .button.primary:hover { background: var(--accent-dark); }
 .button.secondary { border-color: var(--border); background: var(--surface-paper); }
 
+.map-filter { display: grid; grid-template-columns: minmax(0, 1fr) 210px auto auto; gap: 12px; align-items: end; margin: 10px 0 38px; padding: 18px; border: 1px solid var(--border); background: var(--surface-paper); }
+.map-filter label { display: grid; gap: 6px; color: var(--fg-muted); font-size: 12px; font-weight: 750; }
+.map-filter input,.map-filter select { min-height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 5px; background: var(--bg-base); color: var(--fg-base); font: inherit; }
+.historical-map-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 42px; align-items: start; }
+.historical-map-figure { margin: 0; padding: 20px; border: 1px solid var(--border); background: var(--surface-paper); }
+.historical-map-figure figcaption { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 14px; font-size: 14px; }.historical-map-figure figcaption span { color: var(--fg-subtle); font-size: 11px; }
+.historical-map-svg { display: block; width: 100%; height: min(650px, 68vw); min-height: 390px; overflow: visible; border: 1px solid var(--border); background: #e8efea; }
+.map-land { fill: #cbd9c6; stroke: #718679; stroke-width: .6; }.map-grid-line { fill: none; stroke: #b8c9bd; stroke-width: .25; stroke-dasharray: 1 1; }
+.map-marker-layer { position: absolute; inset: 55px 20px 38px; pointer-events: none; }.map-marker { position: absolute; display: grid; width: 28px; height: 28px; transform: translate(-50%, -50%); place-items: center; border: 2px solid var(--fg-base); border-radius: 50%; background: var(--surface-paper); color: var(--fg-base); font-family: var(--mono); font-size: 16px; font-weight: 800; text-decoration: none; pointer-events: auto; }.map-marker.approximate { border-style: dashed; color: var(--accent); }.map-marker:hover,.map-marker:focus-visible { z-index: 2; background: var(--accent); color: white; }
+.map-fallback-note { margin: 14px 0 0; color: var(--fg-muted); font-size: 13px; }.map-place-list ol { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+.map-place-card { padding: 22px; border: 1px solid var(--border); background: var(--surface-paper); scroll-margin-top: 22px; }.map-place-card:target { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent); }
+.map-place-heading { display: flex; align-items: start; gap: 10px; }.map-place-heading h3 { margin: 0; font-family: var(--serif); font-size: 25px; line-height: 1.12; }.precision-chip { flex: 0 0 auto; padding: 4px 7px; border: 1px solid var(--accent-success); border-radius: 999px; color: var(--accent-success); font-family: var(--mono); font-size: 9px; font-weight: 800; letter-spacing: .04em; }.precision-chip.approximate { border-style: dashed; color: var(--accent); }
+.map-place-card > p { color: var(--fg-muted); }.map-place-locator { font-size: 12px; }.map-related { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 15px; }.map-related strong { width: 100%; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }.map-related a { color: var(--accent); font-size: 13px; font-weight: 750; }.map-no-related { font-size: 12px; }
+@media (max-width: 850px) { .map-filter { grid-template-columns: 1fr 1fr; }.map-filter .button,.map-filter .text-link { width: 100%; }.historical-map-layout { grid-template-columns: 1fr; gap: 28px; }.historical-map-svg { height: 620px; } }
+@media (max-width: 520px) { .map-filter { grid-template-columns: 1fr; }.historical-map-figure { padding: 12px; }.historical-map-figure figcaption { display: grid; gap: 3px; }.historical-map-svg { height: 520px; min-height: 0; }.map-place-heading { display: grid; }.map-place-heading h3 { font-size: 23px; } }
+
 .foundation-shell { display: grid; min-height: 100vh; place-items: center; padding: 32px; }
 .foundation-card { width: min(760px, 100%); padding: clamp(32px, 7vw, 72px); border: 1px solid var(--border); border-radius: 10px; background: var(--surface-paper); }
 .foundation-card .brand { margin-bottom: 70px; }

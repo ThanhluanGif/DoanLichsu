@@ -211,7 +211,7 @@ interface AdminCurriculumCoverageView {
 interface GeoPoint { longitude: number; latitude: number }
 interface PlaceView {
   id: string; slug: string; title: string; summary: string; point: GeoPoint;
-  precision: "EXACT" | "APPROXIMATE"; related: ContentListItem[];
+  precision: "EXACT" | "APPROXIMATE"; locatorNote: string; related: ContentListItem[];
 }
 interface ReconstructionListItem {
   id: string; slug: string; title: string; summary: string;
@@ -241,7 +241,7 @@ interface FacetQuery {
   period?: string; tag?: string; grade?: Grade; topic?: string;
   fromYear?: number; toYear?: number;
 }
-interface PlaceQuery extends PageQuery { period?: string; grade?: Grade; contentId?: string }
+interface PlaceQuery extends PageQuery { q?: string; precision?: "EXACT" | "APPROXIMATE" }
 
 interface LoginInput { email: string; password: string }
 interface AuthUser { id: string; email: string; displayName: string; role: Role }
