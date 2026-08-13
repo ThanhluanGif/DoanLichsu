@@ -1,0 +1,1944 @@
+{
+  "version": "published-content-audit-v1",
+  "generatedAt": "2026-08-13T16:03:48.154Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "status": "BLOCKED_INTERNAL_AUDIT",
+  "publishedContent": 105,
+  "completeContent": 0,
+  "missingContent": 105,
+  "missingIds": [
+    "artifact-bach-dang-stakes",
+    "artifact-cu-chi-tunnels",
+    "artifact-dien-bien-flag",
+    "artifact-hoang-dieu-cannon",
+    "artifact-mig21-4324",
+    "artifact-mong-dong",
+    "artifact-museum-record",
+    "artifact-pack-bicycle",
+    "artifact-tank-843",
+    "artifact-truong-son-petrol-pipe",
+    "event-august-revolution",
+    "event-bach-dang-1288",
+    "event-bach-dang-938",
+    "event-border-campaign",
+    "event-can-vuong",
+    "event-da-nang-1858",
+    "event-dien-bien-phu",
+    "event-ho-chi-minh-campaign",
+    "event-ho-chi-minh-trail",
+    "event-lam-son",
+    "event-linebacker-ii",
+    "event-ly-song",
+    "event-national-resistance",
+    "event-ngoc-hoi",
+    "event-northern-border",
+    "event-southwest-border",
+    "event-tet-offensive",
+    "event-trung-sisters",
+    "event-vi-xuyen",
+    "event-yen-the",
+    "lesson-g10-ethnic-communities",
+    "lesson-g10-fields-history",
+    "lesson-g10-heritage-conservation",
+    "lesson-g10-history-historiography",
+    "lesson-g10-industrial-revolutions",
+    "lesson-g10-roles-history",
+    "lesson-g10-southeast-asian-civilisation",
+    "lesson-g10-state-law",
+    "lesson-g10-vietnam-civilisations",
+    "lesson-g10-world-civilisations",
+    "lesson-g11-bourgeois-capitalism",
+    "lesson-g11-east-sea",
+    "lesson-g11-figures",
+    "lesson-g11-national-defence",
+    "lesson-g11-reforms",
+    "lesson-g11-socialism-1917",
+    "lesson-g11-southeast-asian-independence",
+    "lesson-g11-traditional-arts",
+    "lesson-g11-war-peace",
+    "lesson-g12-asean",
+    "lesson-g12-foreign-relations",
+    "lesson-g12-ho-chi-minh",
+    "lesson-g12-integration",
+    "lesson-g12-japan",
+    "lesson-g12-religion",
+    "lesson-g12-vietnam-1945-1975",
+    "lesson-g12-vietnam-since-1975",
+    "lesson-g12-world-cold-war",
+    "lesson-g6-ancient-civilisations",
+    "lesson-g6-champa",
+    "lesson-g6-funan",
+    "lesson-g6-human-origins",
+    "lesson-g6-northern-rule-resistance",
+    "lesson-g6-southeast-asia-to-tenth-century",
+    "lesson-g6-van-lang-au-lac",
+    "lesson-g6-why-study-history",
+    "lesson-g7-lam-son-later-le",
+    "lesson-g7-medieval-china-india",
+    "lesson-g7-medieval-western-europe",
+    "lesson-g7-southeast-asia-tenth-sixteenth",
+    "lesson-g7-vietnam-tenth-thirteenth",
+    "lesson-g7-vietnam-tran-ho",
+    "lesson-g8-early-modern-revolutions",
+    "lesson-g8-industrial-revolution",
+    "lesson-g8-southeast-asia-sixteenth-nineteenth",
+    "lesson-g8-vietnam-1885-1918",
+    "lesson-g8-vietnam-anti-colonial-1858-1884",
+    "lesson-g8-vietnam-nguyen-dynasty",
+    "lesson-g8-vietnam-sixteenth-eighteenth",
+    "lesson-g9-vietnam-1918-1945",
+    "lesson-g9-vietnam-1945-1991",
+    "lesson-g9-vietnam-since-1991",
+    "lesson-g9-world-1918-1945",
+    "lesson-g9-world-1945-1991",
+    "lesson-g9-world-since-1991",
+    "period-border",
+    "period-colonial",
+    "period-dynasties",
+    "period-early",
+    "period-independence-wars",
+    "period-memory",
+    "person-ho-chi-minh",
+    "person-le-loi",
+    "person-ngo-quyen",
+    "person-nguyen-thi-dinh",
+    "person-phan-dinh-phung",
+    "person-quang-trung",
+    "person-tran-hung-dao",
+    "person-trung-sisters",
+    "person-truong-dinh",
+    "person-vo-nguyen-giap",
+    "topic-diplomacy",
+    "topic-logistics",
+    "topic-peoples-war",
+    "topic-preservation"
+  ],
+  "externalCouncilApproval": "NOT_EVALUATED",
+  "noFabricatedApproval": true,
+  "rows": [
+    {
+      "id": "artifact-bach-dang-stakes",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-cu-chi-tunnels",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-dien-bien-flag",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-hoang-dieu-cannon",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-mig21-4324",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "translationStatus",
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-mong-dong",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-museum-record",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-pack-bicycle",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-tank-843",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "artifact-truong-son-petrol-pipe",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-august-revolution",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-bach-dang-1288",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-bach-dang-938",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-border-campaign",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-can-vuong",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-da-nang-1858",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-dien-bien-phu",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-ho-chi-minh-campaign",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-ho-chi-minh-trail",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-lam-son",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-linebacker-ii",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-ly-song",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-national-resistance",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-ngoc-hoi",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-northern-border",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-southwest-border",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-tet-offensive",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-trung-sisters",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-vi-xuyen",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "event-yen-the",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-ethnic-communities",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-fields-history",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-heritage-conservation",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-history-historiography",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-industrial-revolutions",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-roles-history",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-southeast-asian-civilisation",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-state-law",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-vietnam-civilisations",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g10-world-civilisations",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-bourgeois-capitalism",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-east-sea",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 5,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-figures",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-national-defence",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-reforms",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-socialism-1917",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-southeast-asian-independence",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-traditional-arts",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g11-war-peace",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-asean",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-foreign-relations",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-ho-chi-minh",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-integration",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-japan",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-religion",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-vietnam-1945-1975",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-vietnam-since-1975",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g12-world-cold-war",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-ancient-civilisations",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-champa",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-funan",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-human-origins",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-northern-rule-resistance",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-southeast-asia-to-tenth-century",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-van-lang-au-lac",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g6-why-study-history",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 1,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-lam-son-later-le",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 2,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-medieval-china-india",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 5,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-medieval-western-europe",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-vietnam-tenth-thirteenth",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g7-vietnam-tran-ho",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-early-modern-revolutions",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 5,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-industrial-revolution",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 5,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-vietnam-1885-1918",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-vietnam-nguyen-dynasty",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-vietnam-1918-1945",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-vietnam-1945-1991",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-vietnam-since-1991",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 5,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-world-1918-1945",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-world-1945-1991",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 3,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "lesson-g9-world-since-1991",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "editorialAuditHistory"
+      ],
+      "sources": 4,
+      "claims": 2,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-border",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-colonial",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-dynasties",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-early",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-independence-wars",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "period-memory",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-ho-chi-minh",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-le-loi",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-ngo-quyen",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-nguyen-thi-dinh",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-phan-dinh-phung",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-quang-trung",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-tran-hung-dao",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-trung-sisters",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-truong-dinh",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "person-vo-nguyen-giap",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "topic-diplomacy",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "topic-logistics",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "topic-peoples-war",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    },
+    {
+      "id": "topic-preservation",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "missing": [
+        "reviewedAt",
+        "en:asOf",
+        "vi:asOf",
+        "verifiedSource",
+        "verifiedClaimEvidence",
+        "editorialAuditHistory"
+      ],
+      "sources": 0,
+      "claims": 0,
+      "auditLogs": 0,
+      "correctionHistory": false,
+      "complete": false
+    }
+  ]
+}

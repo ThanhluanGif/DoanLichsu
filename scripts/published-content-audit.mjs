@@ -1,0 +1,18 @@
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import Database from "better-sqlite3";
+import { dirname, resolve } from "node:path";
+
+const databasePath = resolve(process.env.DATABASE_PATH || "data/quan-su-viet.db");
+const output = resolve(process.env.OUTPUT || "artifacts/curriculum-completeness/published-content-audit.json");
+const database = new Database(databasePath, { readonly: true });
+const rows = database.prepare(`SELECT n.id,n.reviewed_by AS reviewer,n.reviewed_at AS reviewedAt,n.updated_at AS updatedAt,t.locale,t.translation_status AS translationStatus,lt.as_of AS asOf FROM content_nodes n JOIN content_translations t ON t.node_id=n.id LEFT JOIN lesson_translations lt ON lt.content_id=n.id AND lt.locale=t.locale WHERE n.status='PUBLISHED' ORDER BY n.id,t.locale`).all();
+const auditCount = database.prepare("SELECT COUNT(*) AS count FROM audit_logs a WHERE a.object_type='content' AND a.object_id=?");
+const sourceCount = database.prepare("SELECT COUNT(*) AS count FROM content_sources cs JOIN sources s ON s.id=cs.source_id WHERE cs.content_id=? AND s.verification_status='VERIFIED'");
+const claimCount = database.prepare("SELECT COUNT(*) AS count FROM content_claims c WHERE c.content_id=? AND c.verification_status='VERIFIED' AND EXISTS (SELECT 1 FROM claim_evidence ce WHERE ce.claim_id=c.id) AND NOT EXISTS (SELECT 1 FROM claim_evidence ce JOIN sources s ON s.id=ce.source_id WHERE ce.claim_id=c.id AND s.verification_status<>'VERIFIED')");
+const byNode = new Map();
+for (const row of rows) { const entry = byNode.get(row.id) ?? { id: row.id, locales: [], missing: [] }; entry.locales.push(row.locale); if (row.translationStatus !== "PUBLISHED") entry.missing.push("translationStatus"); if (!row.reviewer) entry.missing.push("reviewer"); if (!row.reviewedAt) entry.missing.push("reviewedAt"); if (!row.asOf) entry.missing.push(`${row.locale}:asOf`); if (!row.updatedAt) entry.missing.push("updatedAt"); byNode.set(row.id, entry); }
+const audited = [...byNode.values()].map((entry) => { const sources = sourceCount.get(entry.id).count; const claims = claimCount.get(entry.id).count; const auditLogs = auditCount.get(entry.id).count; const missing = [...new Set([...entry.missing, ...(sources < 1 ? ["verifiedSource"] : []), ...(claims < 1 ? ["verifiedClaimEvidence"] : []), ...(auditLogs < 1 ? ["editorialAuditHistory"] : [])])]; return { ...entry, sources, claims, auditLogs, correctionHistory: auditLogs > 0, complete: missing.length === 0, missing }; });
+database.close();
+const missingRows = audited.filter((row) => !row.complete);
+const report = { version: "published-content-audit-v1", generatedAt: new Date().toISOString(), database: databasePath, status: missingRows.length === 0 ? "PASS_INTERNAL_AUDIT" : "BLOCKED_INTERNAL_AUDIT", publishedContent: audited.length, completeContent: audited.filter((row) => row.complete).length, missingContent: missingRows.length, missingIds: missingRows.map((row) => row.id), externalCouncilApproval: "NOT_EVALUATED", noFabricatedApproval: true, rows: audited };
+mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`); writeFileSync(output.replace(/\.json$/, ".md"), `# Published content audit\n\n- Status: **${report.status}**\n- Published content: ${report.publishedContent}\n- Complete metadata/history: ${report.completeContent}\n- Missing: ${report.missingContent}\n- External Council approval: **NOT EVALUATED**\n- No fabricated approval: **YES**\n`); process.stdout.write(`${JSON.stringify({ status: report.status, publishedContent: report.publishedContent, completeContent: report.completeContent, missingContent: report.missingContent })}\n`); if (report.status !== "PASS_INTERNAL_AUDIT") process.exitCode = 1;
