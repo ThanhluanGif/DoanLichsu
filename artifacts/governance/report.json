@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-08-13T08:20:55.019Z",
+  "root": "/Volumes/sdd anh/Doan1/docs/governance",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "editorial-charter",
+      "file": "/Volumes/sdd anh/Doan1/docs/governance/editorial-charter.md",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "source-rights",
+      "file": "/Volumes/sdd anh/Doan1/docs/governance/source-rights-policy.md",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "sensitive-topic",
+      "file": "/Volumes/sdd anh/Doan1/docs/governance/sensitive-topic-policy.md",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "correction",
+      "file": "/Volumes/sdd anh/Doan1/docs/governance/correction-policy.md",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "raci",
+      "file": "/Volumes/sdd anh/Doan1/docs/governance/raci.md",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "council-signoff-is-explicitly-pending",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "dual-review-required",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "ai-cannot-arbitrate-sensitive-disputes",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "rights-unclear-link-only",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "correction-sla",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    }
+  ]
+}

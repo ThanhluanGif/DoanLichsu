@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-08-13T08:20:55.164Z",
+  "root": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture",
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "editorial-charter",
+      "file": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/editorial-charter.md",
+      "passed": false,
+      "missing": [
+        "VERIFIED",
+        "PUBLISHED",
+        "Corrections are traceable",
+        "sensitive"
+      ],
+      "remediation": "Restore the missing governance control and rerun the check."
+    },
+    {
+      "name": "source-rights",
+      "file": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/source-rights-policy.md",
+      "passed": false,
+      "missing": [],
+      "remediation": "Restore the missing governance control and rerun the check."
+    },
+    {
+      "name": "sensitive-topic",
+      "file": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/sensitive-topic-policy.md",
+      "passed": false,
+      "missing": [],
+      "remediation": "Restore the missing governance control and rerun the check."
+    },
+    {
+      "name": "correction",
+      "file": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/correction-policy.md",
+      "passed": false,
+      "missing": [],
+      "remediation": "Restore the missing governance control and rerun the check."
+    },
+    {
+      "name": "raci",
+      "file": "/Volumes/sdd anh/Doan1/artifacts/governance/red-fixture/raci.md",
+      "passed": false,
+      "missing": [],
+      "remediation": "Restore the missing governance control and rerun the check."
+    },
+    {
+      "name": "council-signoff-is-explicitly-pending",
+      "passed": true,
+      "missing": [],
+      "remediation": null
+    },
+    {
+      "name": "dual-review-required",
+      "passed": false,
+      "missing": [
+        "dual-review-required"
+      ],
+      "remediation": "Add the mandatory governance control."
+    },
+    {
+      "name": "ai-cannot-arbitrate-sensitive-disputes",
+      "passed": false,
+      "missing": [
+        "ai-cannot-arbitrate-sensitive-disputes"
+      ],
+      "remediation": "Add the mandatory governance control."
+    },
+    {
+      "name": "rights-unclear-link-only",
+      "passed": false,
+      "missing": [
+        "rights-unclear-link-only"
+      ],
+      "remediation": "Add the mandatory governance control."
+    },
+    {
+      "name": "correction-sla",
+      "passed": false,
+      "missing": [
+        "correction-sla"
+      ],
+      "remediation": "Add the mandatory governance control."
+    }
+  ]
+}

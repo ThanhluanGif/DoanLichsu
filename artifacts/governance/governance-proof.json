@@ -1,0 +1,27 @@
+{
+  "card": "C-040",
+  "generatedAt": "2026-08-13T08:20:55.019Z",
+  "policyStatus": "DRAFT_PENDING_COUNCIL_SIGNOFF",
+  "green": {
+    "command": "npm run governance:check -- --output artifacts/governance/report.json",
+    "exitCode": 0,
+    "status": "PASS",
+    "requiredPolicies": 4,
+    "raciRoles": 8,
+    "controls": 5,
+    "report": "artifacts/governance/report.json",
+    "markdown": "artifacts/governance/report.md"
+  },
+  "red": {
+    "command": "node scripts/governance-check.mjs --root artifacts/governance/red-fixture --output artifacts/governance/red-report.json",
+    "exitCode": 1,
+    "status": "FAIL",
+    "databaseMutation": false,
+    "report": "artifacts/governance/red-report.json"
+  },
+  "honesty": {
+    "councilSignoff": "NOT_YET_SIGNED",
+    "independentHistorianApprovalClaimed": false,
+    "publicReleaseAllowed": false
+  }
+}
