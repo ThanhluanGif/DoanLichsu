@@ -1,0 +1,64 @@
+{
+  "version": "uptime-observation-v1",
+  "generatedAt": "2026-08-13T12:45:39.074Z",
+  "origin": "https://tops-gone-rose-trademark.trycloudflare.com",
+  "observationWindow": {
+    "startedAt": "2026-08-13T12:45:39.074Z",
+    "endedAt": "2026-08-13T12:45:40.160Z",
+    "samples": 2
+  },
+  "availabilityRatio": 1,
+  "passedSamples": 2,
+  "failedSamples": 0,
+  "officialProductionEvidence": false,
+  "ninetyDayEvidence": false,
+  "status": "PASS_OBSERVATION",
+  "observations": [
+    {
+      "sample": 1,
+      "observedAt": "2026-08-13T12:45:39.078Z",
+      "passed": true,
+      "checks": [
+        {
+          "name": "healthz",
+          "path": "/healthz",
+          "status": 200,
+          "contentType": "application/json",
+          "latencyMs": 374,
+          "passed": true
+        },
+        {
+          "name": "openapi",
+          "path": "/openapi.json",
+          "status": 200,
+          "contentType": "application/json",
+          "latencyMs": 482,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "sample": 2,
+      "observedAt": "2026-08-13T12:45:39.936Z",
+      "passed": true,
+      "checks": [
+        {
+          "name": "healthz",
+          "path": "/healthz",
+          "status": 200,
+          "contentType": "application/json",
+          "latencyMs": 109,
+          "passed": true
+        },
+        {
+          "name": "openapi",
+          "path": "/openapi.json",
+          "status": 200,
+          "contentType": "application/json",
+          "latencyMs": 115,
+          "passed": true
+        }
+      ]
+    }
+  ]
+}
