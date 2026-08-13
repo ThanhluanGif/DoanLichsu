@@ -3,7 +3,7 @@
 - Overall: **NOT_READY**
 - Public Beta: **DISABLED**
 - No fabricated evidence: **YES**
-- Blocked external rows: 11
+- Blocked external rows: 12
 
 - **product** — Official production URL, HTTPS and six critical journeys: **PASS** (artifacts/operations/live-smoke-proof.json)
 - **product** — Official production domain and deploy evidence: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
@@ -21,4 +21,5 @@
 - **governance** — Historian Council signed release: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
 - **privacy** — Approved DPIA/privacy evidence: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
 - **research** — Real pilot and school/university reach evidence: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
+- **research** — School/university partnership reach evidence: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
 - **security** — Independent security review: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)

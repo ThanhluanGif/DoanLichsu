@@ -5,6 +5,7 @@ const load = (path) => JSON.parse(readFileSync(resolve(path), "utf8"));
 const output = resolve("artifacts/release/year-one-dod-matrix.json");
 const dod = load("artifacts/release/dod-audit.json");
 const ledger = load("artifacts/operations/external-evidence-ledger.json");
+const requiredExternalIds = ["official-production", "uptime-90-day", "council-signoff", "ai-golden-human-approval", "model-comparison", "dpia-approval", "partner-rights", "real-pilot", "school-university-reach", "independent-security", "named-operations"];
 const checks = new Map(dod.checks.map((check) => [check.id, check]));
 const rows = [
   ["product", "Official production URL, HTTPS and six critical journeys", "product-surface", "artifacts/operations/live-smoke-proof.json"],
@@ -23,6 +24,7 @@ const rows = [
   ["governance", "Historian Council signed release", "council-signoff", "artifacts/operations/external-evidence-ledger.json"],
   ["privacy", "Approved DPIA/privacy evidence", "dpia-approval", "artifacts/operations/external-evidence-ledger.json"],
   ["research", "Real pilot and school/university reach evidence", "real-pilot", "artifacts/operations/external-evidence-ledger.json"],
+  ["research", "School/university partnership reach evidence", "school-university-reach", "artifacts/operations/external-evidence-ledger.json"],
   ["security", "Independent security review", "independent-security", "artifacts/operations/external-evidence-ledger.json"],
 ];
 const matrix = rows.map(([group, requirement, checkId, evidence]) => {
@@ -32,6 +34,10 @@ const matrix = rows.map(([group, requirement, checkId, evidence]) => {
   return { group, requirement, status: check?.status ?? "MISSING", evidence, gate: checkId, noFabricatedEvidence: true };
 });
 const report = { version: "year-one-dod-matrix-v1", generatedAt: new Date().toISOString(), sourcePlanSection: "Section 17 — Definition of Done after 12 months", overall: dod.status, publicBeta: dod.publicBeta, noFabricatedEvidence: true, rows: matrix, blockedExternal: matrix.filter((row) => row.status === "BLOCKED_EXTERNAL").map((row) => row.gate) };
+const canonicalExternalRows = matrix.filter((row) => requiredExternalIds.includes(row.gate));
+const canonicalExternalIds = canonicalExternalRows.map((row) => row.gate);
+const externalCoverage = canonicalExternalRows.length === requiredExternalIds.length && requiredExternalIds.every((id) => canonicalExternalIds.filter((candidate) => candidate === id).length === 1) && canonicalExternalRows.every((row) => row.status === "BLOCKED_EXTERNAL" || row.status === "EVIDENCED_EXTERNAL");
+if (!externalCoverage) throw new Error("Year-one DoD matrix must contain every canonical external gate exactly once.");
 mkdirSync(dirname(output), { recursive: true });
 writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
 writeFileSync(output.replace(/\.json$/, ".md"), `# Year-one DoD completion matrix\n\n- Overall: **${report.overall}**\n- Public Beta: **${report.publicBeta ? "ENABLED" : "DISABLED"}**\n- No fabricated evidence: **YES**\n- Blocked external rows: ${report.blockedExternal.length}\n\n${matrix.map((row) => `- **${row.group}** — ${row.requirement}: **${row.status}** (${row.evidence})`).join("\n")}\n`);

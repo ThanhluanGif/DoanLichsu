@@ -1,6 +1,6 @@
 {
   "version": "year-one-dod-matrix-v1",
-  "generatedAt": "2026-08-13T15:32:24.282Z",
+  "generatedAt": "2026-08-13T15:36:19.075Z",
   "sourcePlanSection": "Section 17 — Definition of Done after 12 months",
   "overall": "NOT_READY",
   "publicBeta": false,
@@ -153,6 +153,16 @@
       "noFabricatedEvidence": true
     },
     {
+      "group": "research",
+      "requirement": "School/university partnership reach evidence",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "school-university-reach",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
       "group": "security",
       "requirement": "Independent security review",
       "status": "BLOCKED_EXTERNAL",
@@ -174,6 +184,7 @@
     "council-signoff",
     "dpia-approval",
     "real-pilot",
+    "school-university-reach",
     "independent-security"
   ]
 }
