@@ -1,0 +1,112 @@
+{
+  "locale": "en",
+  "track": "ELECTIVE",
+  "data": {
+    "grade": 12,
+    "label": "Grade 12",
+    "summary": {
+      "requirementCount": 3,
+      "publishedRequirementCount": 3,
+      "verifiedRequirementCount": 3,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g12-belief-and-religion-vietnam",
+        "grade": 12,
+        "track": "ELECTIVE",
+        "topic": "History of belief and religion in Vietnam",
+        "slug": "belief-and-religion-vietnam",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Lịch sử tín ngưỡng và tôn giáo ở Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Recognise the diversity and historical roles of belief and religion."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g12-religion",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: belief and religion in Vietnam",
+            "slug": "elective-belief-and-religion-in-vietnam",
+            "summary": "Belief and religion are diverse practices connected to communities, institutions, heritage, and social change.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-japan-since-1945",
+        "grade": 12,
+        "track": "ELECTIVE",
+        "topic": "Japan since 1945",
+        "slug": "japan-since-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Nhật Bản từ năm 1945 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse Japan's recovery, development, and international position."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g12-japan",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: Japan since 1945",
+            "slug": "elective-japan-since-1945",
+            "summary": "Post-1945 Japan combined recovery, reform, technology, alliance, and social debate.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-vietnam-international-integration",
+        "grade": 12,
+        "track": "ELECTIVE",
+        "topic": "Vietnam's international integration",
+        "slug": "vietnam-international-integration",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Quá trình hội nhập quốc tế của Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1986,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse stages, achievements, opportunities, and challenges of integration."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g12-integration",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: Vietnam's international integration",
+            "slug": "elective-vietnams-international-integration",
+            "summary": "International integration creates cooperation and opportunity while also bringing dependence, competition, and adaptation demands.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}\n

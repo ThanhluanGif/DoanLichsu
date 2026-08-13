@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-08-13T05:39:12.336Z",
+  "url": "https://bon-episode-exciting-out.trycloudflare.com",
+  "asOf": "2026-08-13T00:00:00.000Z",
+  "coverage": {
+    "mandatory": 6,
+    "elective": 3,
+    "locales": [
+      "vi",
+      "en"
+    ],
+    "trackLabelsSeparated": true
+  },
+  "desktop": {
+    "path": "/vi/chu-de/viet-nam-tu-nam-1975-den-nay-va-cong-cuoc-doi-moi",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/elective-belief-and-religion-in-vietnam",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 1
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-12/grade-12-coverage-desktop.png",
+    "artifacts/curriculum/grade-12/grade-12-desktop.png",
+    "artifacts/curriculum/grade-12/grade-12-coverage-mobile.png",
+    "artifacts/curriculum/grade-12/grade-12-mobile.png"
+  ]
+}\n
