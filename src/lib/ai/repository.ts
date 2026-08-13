@@ -5,8 +5,9 @@ import { aiModelVersion, aiPolicyVersion, abstainAnswer, type AiAnswer } from ".
 
 type CorpusRow = { id: string; type: string; locale: Locale; title: string; slug: string; summary: string; body: string; sourceId: string; sourceTitle: string; institution: string | null; sourceUrl: string; locator: string; claimId: string; statement: string };
 
-export function answerFromApprovedCorpus(database: SqliteDatabase, locale: Locale, question: string): AiAnswer {
+export function answerFromApprovedCorpus(database: SqliteDatabase, locale: Locale, question: string, contextSlug?: string): AiAnswer {
   const normalized = normalizeSearchText(question.trim());
+  const normalizedContextSlug = contextSlug?.trim() || null;
   const snapshot = database.prepare("SELECT COALESCE(MAX(updated_at), '') AS asOf FROM content_nodes WHERE status='PUBLISHED'").get() as { asOf: string };
   const corpusSnapshotId = `db-approved-${snapshot.asOf || "empty"}`;
   const injection = /(ignore|bỏ qua|reveal|tiết lộ|system prompt|không cần nguồn|without citation|jailbreak)/i.test(normalized);
@@ -23,9 +24,9 @@ export function answerFromApprovedCorpus(database: SqliteDatabase, locale: Local
     JOIN content_claims c ON c.content_id=n.id AND c.verification_status='VERIFIED'
     JOIN claim_evidence ce ON ce.claim_id=c.id AND length(trim(ce.locator))>0
     JOIN sources s ON s.id=ce.source_id AND s.verification_status='VERIFIED'
-    WHERE n.status='PUBLISHED' AND (${tokens.map(() => "t.search_text LIKE ?").join(" OR ")})
+    WHERE n.status='PUBLISHED' AND (? IS NULL OR t.slug=?) AND (? IS NOT NULL OR ${tokens.length ? tokens.map(() => "t.search_text LIKE ?").join(" OR ") : "1=1"})
     ORDER BY n.updated_at DESC,n.id,c.id LIMIT 80
-  `).all(locale, locale, ...tokens.map((token) => `%${token}%`)) as CorpusRow[];
+  `).all(locale, locale, normalizedContextSlug, normalizedContextSlug, normalizedContextSlug, ...tokens.map((token) => `%${token}%`)) as CorpusRow[];
   if (!rows.length) return abstainAnswer("INSUFFICIENT_APPROVED_EVIDENCE", corpusSnapshotId, locale);
   const ranked = [...new Map(rows.map((item) => {
     const haystack = normalizeSearchText(`${item.title} ${item.summary} ${item.body} ${item.statement}`);
