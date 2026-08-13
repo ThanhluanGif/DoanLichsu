@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
+import { sourceTreeSha256 } from "./source-tree-hash.mjs";
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : fallback; };
@@ -15,6 +16,8 @@ const security = read("artifacts/security/security-review-pack.json");
 const external = read("artifacts/operations/external-evidence-ledger.json", { items: [] });
 const qualitySteps = qualityEvidence?.steps?.filter((step) => ["lint", "typecheck", "test", "build"].includes(step.name)) ?? [];
 const localQuality = qualitySteps.length === 4 && qualitySteps.every((step) => step.exitCode === 0);
+const currentSourceTreeSha256 = sourceTreeSha256();
+const sourceTreeMatches = Boolean(qualityEvidence?.sourceTreeSha256) && qualityEvidence.sourceTreeSha256 === currentSourceTreeSha256;
 const localRecovery = recovery?.verified === true;
 const localUptime = uptime?.status === "PASS_OBSERVATION" && uptime?.officialProductionEvidence === false;
 const localPerformance = performance?.status === "PASS_OBSERVATION" && performance?.officialLoadEvidence === false;
@@ -29,7 +32,7 @@ const report = {
   officialProductionEvidence: false,
   checks: {
     database: { path: db, absolute: true, exists: existsSync(db) },
-    quality: { status: localQuality ? "PASS_LOCAL_ONLY" : "FAIL", evidence: "artifacts/release/current-head-evidence.json" },
+    quality: { status: localQuality && sourceTreeMatches ? "PASS_LOCAL_ONLY" : "FAIL", evidence: "artifacts/release/current-head-evidence.json", sourceTreeSha256: qualityEvidence?.sourceTreeSha256 ?? null, currentSourceTreeSha256, sourceTreeMatches },
     backupRestore: { status: localRecovery ? "PASS_DISPOSABLE_ONLY" : "BLOCKED", evidence: "artifacts/operations/backup-restore-proof.json" },
     uptimeObservation: { status: localUptime ? "PASS_SHORT_OBSERVATION" : "BLOCKED", evidence: "artifacts/operations/uptime-observations.json", ninetyDayEvidence: false },
     performanceObservation: { status: localPerformance ? "PASS_BOUNDED_OBSERVATION" : "BLOCKED", evidence: "artifacts/operations/performance-observations.json", officialLoadEvidence: false },

@@ -12,5 +12,8 @@ describe("production readiness report", () => {
     expect(report.officialProductionEvidence).toBe(false);
     expect(report.external.status).toBe("BLOCKED_EXTERNAL");
     expect(report.external.pending).toContain("official-production");
+    if (process.env.RELEASE_EVIDENCE_RUN === "1") return;
+    expect(report.checks.quality.sourceTreeMatches).toBe(true);
+    expect(report.checks.quality.sourceTreeSha256).toBe(report.checks.quality.currentSourceTreeSha256);
   });
 });
