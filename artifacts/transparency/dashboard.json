@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v1",
-  "generatedAt": "2026-08-13T09:00:02.627Z",
+  "generatedAt": "2026-08-13T10:02:25.107Z",
   "releaseStatus": "NOT_READY",
   "coverage": {
     "mandatory": "see source report",
@@ -12,10 +12,10 @@
     "linkOnly": 1
   },
   "ai": {
-    "status": "FAIL",
+    "status": "PASS",
     "targetQuestions": 500,
-    "actualQuestions": 12,
-    "targetGap": 488,
+    "actualQuestions": 500,
+    "targetGap": 0,
     "citationPrecision": 1,
     "injectionLeakRate": 0,
     "publicBeta": false
@@ -36,7 +36,7 @@
   },
   "blockers": [
     "Hội đồng chưa có biên bản ký release",
-    "AI eval mới 12/500 câu; public beta bị khóa",
+    "Machine eval 500/500 PASS nhưng golden answers/citations chưa được Hội đồng duyệt",
     "Fixed production domain và uptime 90 ngày chưa có bằng chứng",
     "Backup/restore và load rehearsal chưa verified",
     "DPIA/privacy review chưa ký"
