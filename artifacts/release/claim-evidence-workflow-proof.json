@@ -1,0 +1,26 @@
+{
+  "card": "C-080",
+  "verifiedAt": "2026-08-13T19:36:00+07:00",
+  "origin": "https://tops-gone-rose-trademark.trycloudflare.com",
+  "test": {
+    "command": "E2E_BASE_URL=https://tops-gone-rose-trademark.trycloudflare.com E2E_EDITOR_EMAIL=editor@quansuviet.local E2E_EDITOR_PASSWORD=<redacted> E2E_REVIEWER_EMAIL=reviewer@quansuviet.local E2E_REVIEWER_PASSWORD=<redacted> npx playwright test tests/e2e/claim-evidence.spec.ts --reporter=line",
+    "result": "1 passed (14.7s)",
+    "observed": [
+      "Editor created bilingual content and attached an institutional reference source with publisher, source type and quality tier.",
+      "Editor created a bilingual claim with an evidence locator and submitted the claim for review.",
+      "Reviewer transitioned the source DRAFT -> NEEDS_REVIEW -> VERIFIED.",
+      "Reviewer transitioned the claim NEEDS_REVIEW -> VERIFIED.",
+      "Reviewer approved and published only after both source and claim were VERIFIED.",
+      "The public Vietnamese detail URL rendered the created title."
+    ]
+  },
+  "failClosed": {
+    "command": "npm test -- --testTimeout=15000 tests/editorial-api/source-governance.test.ts",
+    "result": "pass",
+    "observed": "DISCOVERY_ONLY/TIER_5_DISCOVERY source verification is rejected with SOURCE_NOT_VERIFIABLE and a claim using an unverified source is rejected with CLAIM_EVIDENCE_UNVERIFIED."
+  },
+  "disclosures": [
+    "The quick tunnel is disposable release evidence, not an official production domain.",
+    "This artifact does not represent Council sign-off, school pilot, rights approval, security review, uptime, or Public Beta readiness."
+  ]
+}
