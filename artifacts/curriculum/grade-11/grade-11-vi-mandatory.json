@@ -1,0 +1,229 @@
+{
+  "locale": "vi",
+  "track": "MANDATORY",
+  "data": {
+    "grade": 11,
+    "label": "Lớp 11",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g11-bourgeois-revolutions-capitalism",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+        "slug": "bourgeois-revolutions-capitalism",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1566,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Phân tích mục tiêu, lực lượng, kết quả và sự phát triển của chủ nghĩa tư bản."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-bourgeois-capitalism",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+            "slug": "cach-mang-tu-san-va-su-phat-trien-cua-chu-nghia-tu-ban",
+            "summary": "Cách mạng tư sản biến đổi thiết chế, quyền sở hữu và quan hệ sản xuất; kết quả phải được đọc cùng giới hạn về giai cấp, thuộc địa và quyền công dân.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-socialism-since-1917",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+        "slug": "socialism-since-1917",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chủ nghĩa xã hội từ năm 1917 đến nay",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1917,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Phân tích sự hình thành, phát triển, khủng hoảng và điều chỉnh của chủ nghĩa xã hội."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-socialism-1917",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+            "slug": "chu-nghia-xa-hoi-tu-nam-1917-den-nay",
+            "summary": "Lịch sử chủ nghĩa xã hội gồm nhiều mô hình, thành tựu, khủng hoảng và điều chỉnh; không nên rút gọn thành một đường thẳng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-southeast-asian-independence",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Quá trình giành độc lập của các quốc gia Đông Nam Á",
+        "slug": "southeast-asian-independence",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Quá trình giành độc lập của các quốc gia Đông Nam Á",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1800,
+        "periodEnd": 1975,
+        "requiredOutcomes": [
+          "So sánh quá trình đấu tranh và xây dựng quốc gia độc lập ở Đông Nam Á."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-southeast-asian-independence",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Đông Nam Á giành độc lập và xây dựng quốc gia",
+            "slug": "dong-nam-a-gianh-doc-lap-va-xay-dung-quoc-gia",
+            "summary": "Các quốc gia Đông Nam Á đi qua những con đường độc lập khác nhau, từ đấu tranh vũ trang đến thương lượng và xây dựng hợp tác khu vực.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-vietnam-national-defence-before-1945",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+        "slug": "vietnam-national-defence-before-1945",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": -214,
+        "periodEnd": 1945,
+        "requiredOutcomes": [
+          "Giải thích vai trò, nguyên nhân thành bại và bài học của các cuộc chiến tranh tiêu biểu."
+        ],
+        "lessons": [
+          {
+            "id": "event-bach-dang-1288",
+            "type": "EVENT",
+            "locale": "vi",
+            "title": "Chiến thắng Bạch Đằng năm 1288",
+            "slug": "chien-thang-bach-dang-1288",
+            "summary": "Quân Trần tận dụng thủy triều và trận địa cọc để đánh bại đạo thủy quân Nguyên–Mông rút lui.",
+            "thumbnail": null,
+            "startDate": "1288-04-09",
+            "endDate": null,
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-dynasties",
+              "title": "Bảo vệ quốc gia thời quân chủ",
+              "slug": "bao-ve-quoc-gia-thoi-quan-chu"
+            },
+            "tags": [
+              "Lịch sử cổ-trung đại",
+              "Kháng chiến"
+            ]
+          },
+          {
+            "id": "lesson-g11-national-defence",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trước 1945",
+            "slug": "chien-tranh-bao-ve-to-quoc-va-giai-phong-dan-toc-truoc-1945",
+            "summary": "Các cuộc chiến tranh trước 1945 cho thấy quan hệ giữa địa hình, tổ chức, xã hội, lãnh đạo và sức mạnh cộng đồng; bài học phải tránh thần thoại hóa chiến thắng.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-major-vietnamese-reforms",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+        "slug": "major-vietnamese-reforms",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 900,
+        "periodEnd": 1858,
+        "requiredOutcomes": [
+          "Phân tích bối cảnh, nội dung, kết quả và ý nghĩa của các cuộc cải cách tiêu biểu."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-reforms",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Một số cải cách lớn trước năm 1858",
+            "slug": "mot-so-cai-cach-lon-truoc-nam-1858",
+            "summary": "Cải cách là nỗ lực thay đổi thiết chế và xã hội trong bối cảnh cụ thể; đánh giá phải đặt mục tiêu, thực thi, phản ứng và hệ quả cạnh nhau.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g11-east-sea-sovereignty",
+        "grade": 11,
+        "track": "MANDATORY",
+        "topic": "Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+        "slug": "east-sea-sovereignty",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Giải thích vị trí chiến lược và quá trình xác lập, thực thi chủ quyền biển đảo."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g11-east-sea",
+            "type": "TOPIC",
+            "locale": "vi",
+            "title": "Chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+            "slug": "chu-quyen-cac-quyen-va-loi-ich-hop-phap-cua-viet-nam-o-bien-dong",
+            "summary": "Học lịch sử Biển Đông cần kết hợp tư liệu Việt Nam, thuật ngữ UNCLOS, niên đại và nguyên tắc giải quyết tranh chấp bằng biện pháp hòa bình.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}
