@@ -1,0 +1,11 @@
+{
+  "card": "C-058",
+  "generatedAt": "2026-08-13T09:18:13.819Z",
+  "liveOrigin": "https://wins-orbit-schools-pig.trycloudflare.com",
+  "publicGate": {"status":403,"code":"AI_BETA_DISABLED","publicBeta":false},
+  "internalGrounded": {"status":"GROUNDED","citationCount":8,"hasLocator":true,"access":"INTERNAL_ALPHA"},
+  "internalInjection": {"status":"ABSTAIN","reason":"PROMPT_INJECTION_BLOCKED","citationCount":0},
+  "browser": {"lessonPath":"/vi/chu-de/hoc-lich-su-tu-dau-vet-va-thoi-gian","tutorVisible":true,"guidedPrompts":3,"alphaDisclosure":true},
+  "quality": {"testFiles":48,"tests":216,"lint":"PASS","typecheck":"PASS","build":"PASS"},
+  "limitations":["Temporary quick tunnel, not official production domain","500-question eval remains incomplete","Internal alpha only"]
+}
