@@ -1,0 +1,112 @@
+{
+  "locale": "en",
+  "track": "ELECTIVE",
+  "data": {
+    "grade": 10,
+    "label": "Grade 10",
+    "summary": {
+      "requirementCount": 3,
+      "publishedRequirementCount": 3,
+      "verifiedRequirementCount": 3,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g10-fields-of-historical-study",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "Fields of historical study",
+        "slug": "fields-of-historical-study",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các lĩnh vực của Sử học",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Apply approaches from selected fields of historical study."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-fields-history",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: fields of historical study",
+            "slug": "elective-fields-of-historical-study",
+            "summary": "Archaeology, social, economic, cultural, environmental, military, and digital history ask different questions of the same past.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-heritage-conservation",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "Conserving and promoting Vietnamese cultural heritage",
+        "slug": "heritage-conservation",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Bảo tồn và phát huy giá trị di sản văn hóa Việt Nam",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Propose responsible ways to identify, conserve, and interpret heritage."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-heritage-conservation",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: conserving and interpreting heritage",
+            "slug": "elective-conserving-and-interpreting-heritage",
+            "summary": "Heritage conservation requires evidence, communities, rights, livelihoods, and honest interpretation; promotion is not turning heritage into a tourism backdrop.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g10-state-and-law-vietnam",
+        "grade": 10,
+        "track": "ELECTIVE",
+        "topic": "State and law in Vietnamese history",
+        "slug": "state-and-law-vietnam",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Nhà nước và pháp luật Việt Nam trong lịch sử",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": null,
+        "periodEnd": null,
+        "requiredOutcomes": [
+          "Outline Vietnamese state, law, and constitutions through the 2025 update."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g10-state-law",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Elective: state and law in Vietnamese history",
+            "slug": "elective-state-and-law-in-vietnamese-history",
+            "summary": "States and laws change with context; constitutions must be read within institutions, society, and the history of constitutional practice.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}

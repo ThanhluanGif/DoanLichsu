@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-08-13T04:50:55.275Z",
+  "url": "https://holiday-pest-doom-thus.trycloudflare.com",
+  "coverage": {
+    "mandatory": 7,
+    "elective": 3,
+    "locales": [
+      "vi",
+      "en"
+    ],
+    "trackLabelsSeparated": true
+  },
+  "desktop": {
+    "path": "/vi/chu-de/lich-su-va-su-hoc-qua-khu-bang-chung-va-dien-giai",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "lcpMs": 1
+    }
+  },
+  "mobile": {
+    "path": "/en/topics/elective-fields-of-historical-study",
+    "claims": 2,
+    "keyboard": true,
+    "metrics": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "lcpMs": 1
+    }
+  },
+  "accessibility": {
+    "desktopCriticalOrSerious": 0,
+    "mobileCriticalOrSerious": 0
+  },
+  "screenshots": [
+    "artifacts/curriculum/grade-10/grade-10-coverage-desktop.png",
+    "artifacts/curriculum/grade-10/grade-10-desktop.png",
+    "artifacts/curriculum/grade-10/grade-10-coverage-mobile.png",
+    "artifacts/curriculum/grade-10/grade-10-mobile.png"
+  ]
+}
