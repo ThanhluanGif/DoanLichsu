@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:47:19.895Z",
+  "generatedAt": "2026-08-13T10:48:46.852Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -58,6 +58,14 @@
       "status": "BLOCKED_EXTERNAL",
       "evidence": [
         "artifacts/wikimedia/rights-review-ledger.json"
+      ]
+    },
+    {
+      "id": "real-user-pilot",
+      "group": "research",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/operations/pilot-validation.json"
       ]
     },
     {

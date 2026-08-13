@@ -2,7 +2,7 @@
 
 - Overall: **NOT_READY**
 - Public Beta: **DISABLED**
-- Checks: 3/11 implementation gates represented
+- Checks: 3/12 implementation gates represented
 - External blockers: 11
 
 - product-surface: **PASS**
@@ -12,6 +12,7 @@
 - ai-human-golden-review: **BLOCKED_EXTERNAL**
 - wikimedia-metadata-pilot: **PASS_METADATA_ONLY**
 - wikimedia-rights-review: **BLOCKED_EXTERNAL**
+- real-user-pilot: **BLOCKED_EXTERNAL**
 - backup-recovery-mechanism: **PASS_DISPOSABLE_ONLY**
 - governance-policy: **BLOCKED_EXTERNAL**
 - operations-ledger: **BLOCKED_EXTERNAL**
