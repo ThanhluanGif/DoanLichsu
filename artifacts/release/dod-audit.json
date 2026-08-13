@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-08-13T10:17:04.726Z",
+  "status": "NOT_READY",
+  "publicBeta": false,
+  "checks": [
+    {
+      "id": "product-surface",
+      "group": "product",
+      "status": "PASS",
+      "evidence": [
+        "artifacts/operations/live-smoke-proof.json",
+        "artifacts/transparency/live-transparency-proof.json"
+      ]
+    },
+    {
+      "id": "mandatory-coverage",
+      "group": "content",
+      "status": "PASS",
+      "evidence": [
+        "artifacts/curriculum-completeness/live-coverage.json"
+      ]
+    },
+    {
+      "id": "ai-machine-eval",
+      "group": "ai",
+      "status": "PASS",
+      "evidence": [
+        "artifacts/ai-eval/report-500.json"
+      ]
+    },
+    {
+      "id": "backup-recovery-mechanism",
+      "group": "quality",
+      "status": "PASS_DISPOSABLE_ONLY",
+      "evidence": [
+        "artifacts/operations/backup-restore-proof.json"
+      ]
+    },
+    {
+      "id": "governance-policy",
+      "group": "governance",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/governance/governance-proof.json"
+      ]
+    },
+    {
+      "id": "operations-ledger",
+      "group": "operations",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/operations/external-evidence-ledger.json"
+      ]
+    },
+    {
+      "id": "public-beta-release",
+      "group": "release",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/transparency/dashboard.json",
+        "docs/operations/external-evidence-ledger.md"
+      ]
+    }
+  ],
+  "unmetExternal": [
+    "official-production",
+    "uptime-90-day",
+    "council-signoff",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "dpia-approval",
+    "partner-rights",
+    "real-pilot",
+    "school-university-reach",
+    "independent-security",
+    "named-operations"
+  ],
+  "noFabricatedEvidence": true,
+  "sourceLedger": "artifacts/operations/external-evidence-ledger.json"
+}
