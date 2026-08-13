@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-08-13T08:51:40.734Z",
+  "status": "PASS",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/analytics/events.json",
+  "privacy": {
+    "identifiersStored": false,
+    "cookie": false,
+    "minimumGroupSize": 2,
+    "retentionDays": 30,
+    "childProfiling": false
+  },
+  "metrics": {
+    "totalEvents": 5,
+    "groups": 2,
+    "visible": {
+      "2026-08-13|/vi/hoc-theo-lop/6|lesson_complete": {
+        "count": 2
+      },
+      "2026-08-13|/vi/ai|ai_abstain": {
+        "count": 2
+      }
+    }
+  },
+  "suppressedGroups": 1,
+  "databaseMutation": false
+}

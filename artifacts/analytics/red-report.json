@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-08-13T08:51:40.830Z",
+  "status": "FAIL",
+  "input": "/Volumes/sdd anh/Doan1/artifacts/analytics/red-pii.json",
+  "privacy": {
+    "identifiersStored": false,
+    "cookie": false,
+    "minimumGroupSize": 2,
+    "retentionDays": 30,
+    "childProfiling": false
+  },
+  "metrics": {
+    "totalEvents": 1,
+    "groups": 0,
+    "visible": {}
+  },
+  "suppressedGroups": 1,
+  "databaseMutation": false
+}

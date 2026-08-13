@@ -1,0 +1,7 @@
+[
+  {"route":"/vi/hoc-theo-lop/6","event":"lesson_complete","session":"anon-a","day":"2026-08-13"},
+  {"route":"/vi/hoc-theo-lop/6","event":"lesson_complete","session":"anon-b","day":"2026-08-13"},
+  {"route":"/vi/search","event":"search_zero","session":"anon-c","day":"2026-08-13"},
+  {"route":"/vi/ai","event":"ai_abstain","session":"anon-d","day":"2026-08-13"},
+  {"route":"/vi/ai","event":"ai_abstain","session":"anon-e","day":"2026-08-13"}
+]

@@ -1,0 +1,7 @@
+{
+  "card": "C-052",
+  "generatedAt": "2026-08-13T08:51:40.830Z",
+  "green": {"status":"PASS","events":5,"visibleGroups":2,"suppressedLowCount":1,"report":"artifacts/analytics/report.json"},
+  "red": {"status":"FAIL","piiDetected":true,"counted":false,"report":"artifacts/analytics/red-report.json"},
+  "privacy": {"cookies":false,"identifiersStored":false,"retentionDays":30,"childProfiling":false}
+}
