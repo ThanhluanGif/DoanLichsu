@@ -32,6 +32,7 @@
     "corpus:snapshot": "node scripts/approved-corpus.mjs",
     "ai:gateway": "node scripts/ai-gateway.mjs",
     "ai:eval": "node scripts/ai-eval.mjs",
+    "ai:eval:dataset": "node scripts/ai-eval-dataset.mjs",
     "ai:tutor": "node scripts/ai-tutor.mjs",
     "privacy:check": "node scripts/privacy-check.mjs",
     "teacher:pack": "node scripts/teacher-pack.mjs",
