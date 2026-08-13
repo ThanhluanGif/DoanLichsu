@@ -1,0 +1,179 @@
+{
+  "version": "year-one-dod-matrix-v1",
+  "generatedAt": "2026-08-13T15:29:39.430Z",
+  "sourcePlanSection": "Section 17 — Definition of Done after 12 months",
+  "overall": "NOT_READY",
+  "publicBeta": false,
+  "noFabricatedEvidence": true,
+  "rows": [
+    {
+      "group": "product",
+      "requirement": "Official production URL, HTTPS and six critical journeys",
+      "status": "PASS",
+      "evidence": "artifacts/operations/live-smoke-proof.json",
+      "gate": "product-surface",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "product",
+      "requirement": "Official production domain and deploy evidence",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "official-production",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "content",
+      "requirement": "Mandatory 6-12 coverage verified",
+      "status": "PASS",
+      "evidence": "artifacts/curriculum-completeness/live-coverage.json",
+      "gate": "mandatory-coverage",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "content",
+      "requirement": "Every public lesson has source/claim/reviewer/translation/asOf/correction history",
+      "status": "PASS",
+      "evidence": "artifacts/approved-corpus/snapshot.json",
+      "gate": "mandatory-coverage",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "rights",
+      "requirement": "Served media has permitted/public-domain rights and credit/license",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/wikimedia/rights-review-ledger.json",
+      "gate": "wikimedia-rights-review",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "rights",
+      "requirement": "Partner rights/permission archive",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "partner-rights",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "ai",
+      "requirement": "AI eval, citations/abstention, versions and privacy controls",
+      "status": "PASS",
+      "evidence": "artifacts/ai-eval/report-500.json",
+      "gate": "ai-machine-eval",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "ai",
+      "requirement": "Human-approved golden set",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "ai-golden-human-approval",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "ai",
+      "requirement": "Independent model/config comparison",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "model-comparison",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "quality",
+      "requirement": "Lint/typecheck/test/build and local release evidence",
+      "status": "PASS_LOCAL_ONLY",
+      "evidence": "artifacts/release/current-head-evidence.json",
+      "gate": "current-head-release-evidence",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "quality",
+      "requirement": "WCAG/performance/reliability/security KPI evidence",
+      "status": "PASS_DISPOSABLE_ONLY",
+      "evidence": "artifacts/production-readiness/report.json",
+      "gate": "backup-recovery-mechanism",
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "operations",
+      "requirement": "Named technical/content/rights/AI owners, rota, budget",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "named-operations",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "operations",
+      "requirement": "90-day uptime and real production operations",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "uptime-90-day",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "governance",
+      "requirement": "Historian Council signed release",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "council-signoff",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "privacy",
+      "requirement": "Approved DPIA/privacy evidence",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "dpia-approval",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "research",
+      "requirement": "Real pilot and school/university reach evidence",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "real-pilot",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    },
+    {
+      "group": "security",
+      "requirement": "Independent security review",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "artifacts/operations/external-evidence-ledger.json",
+      "gate": "independent-security",
+      "owner": null,
+      "artifact": null,
+      "noFabricatedEvidence": true
+    }
+  ],
+  "blockedExternal": [
+    "official-production",
+    "wikimedia-rights-review",
+    "partner-rights",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "named-operations",
+    "uptime-90-day",
+    "council-signoff",
+    "dpia-approval",
+    "real-pilot",
+    "independent-security"
+  ]
+}
