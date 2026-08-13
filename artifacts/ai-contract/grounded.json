@@ -1,0 +1,50 @@
+{
+  "contractVersion": "ai-answer-v1",
+  "status": "GROUNDED",
+  "answer": "Vietnamese ethnic communities: diversity, unity, and shared creation: The 54 ethnic groups have diverse languages, memories, livelihoods, and heritage; national history is created through interaction and the contributions of every community.",
+  "keyPoints": [
+    {
+      "text": "The 54 ethnic groups have diverse languages, memories, livelihoods, and heritage; national history is created through interaction and the contributions of every community.",
+      "claimId": "claim-g10-ethnic-count"
+    }
+  ],
+  "citations": [
+    {
+      "sourceId": "source-g10-ubdt-54",
+      "title": "Cộng đồng 54 Dân tộc Việt Nam",
+      "institution": "Ủy ban Dân tộc",
+      "locator": "Cổng ‘Cộng đồng 54 Dân tộc Việt Nam’ — official group list",
+      "url": "https://ubdt.gov.vn/gioi-thieu/cong-dong-54-dan-toc.htm"
+    },
+    {
+      "sourceId": "source-g10-ubdt-report",
+      "title": "Báo cáo kiến nghị về cộng đồng dân tộc",
+      "institution": "Ủy ban Dân tộc",
+      "locator": "Phần kiến nghị về sử dụng chính xác thuật ngữ ‘dân tộc’ và ‘tộc người’",
+      "url": "https://files.ubdt.gov.vn/files/ecm/source_files/2020/09/15/14303430_Bao%20cao%20kien%20nghi%20-CTDT0116_20-09-15.pdf"
+    }
+  ],
+  "confidence": "MEDIUM",
+  "limitations": [
+    "Đây là tóm tắt từ bài học đã duyệt; không thay thế giáo viên hoặc nguồn gốc."
+  ],
+  "suggestedNext": [
+    {
+      "type": "LESSON",
+      "slug": "vietnamese-ethnic-communities-diversity-unity-and-shared-creation",
+      "title": "Vietnamese ethnic communities: diversity, unity, and shared creation"
+    }
+  ],
+  "generatedAt": "2026-08-13T08:36:12.431Z",
+  "modelVersion": "deterministic-gateway-0.1",
+  "promptPolicyVersion": "ai-answer-policy-v1",
+  "corpusSnapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "retrieval": {
+    "recordId": "lesson-g10-ethnic-communities",
+    "matchedTerms": [
+      "cần",
+      "học",
+      "lịch"
+    ]
+  }
+}

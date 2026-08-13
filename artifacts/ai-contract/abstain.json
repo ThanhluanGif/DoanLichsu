@@ -1,0 +1,20 @@
+{
+  "contractVersion": "ai-answer-v1",
+  "status": "ABSTAIN",
+  "answer": "Chưa thể trả lời chắc chắn từ kho tư liệu đã được kiểm duyệt.",
+  "keyPoints": [],
+  "citations": [],
+  "confidence": "LOW",
+  "limitations": [
+    "Yêu cầu chứa chỉ dẫn vượt qua chính sách nguồn; gateway không thực hiện."
+  ],
+  "suggestedNext": [
+    "Mở bài học có nguồn đã kiểm chứng",
+    "Gửi câu hỏi hẹp hơn trong phạm vi chương trình"
+  ],
+  "generatedAt": "2026-08-13T08:36:13.006Z",
+  "modelVersion": "deterministic-gateway-0.1",
+  "promptPolicyVersion": "ai-answer-policy-v1",
+  "corpusSnapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "abstentionReason": "PROMPT_INJECTION_BLOCKED"
+}

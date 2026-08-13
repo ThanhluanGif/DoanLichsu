@@ -1,0 +1,7 @@
+{
+  "card": "C-045",
+  "generatedAt": "2026-08-13T08:36:13.006Z",
+  "grounded": {"status":"GROUNDED","answerHasKeyPoints":true,"citationCount":2,"citationLocators":true,"corpusSnapshotId":"24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e","modelVersion":"deterministic-gateway-0.1","response":"artifacts/ai-contract/grounded.json"},
+  "abstention": {"status":"ABSTAIN","reason":"PROMPT_INJECTION_BLOCKED","citationCount":0,"response":"artifacts/ai-contract/abstain.json"},
+  "contract": {"version":"ai-answer-v1","modelExternalCall":false,"approvedCorpusOnly":true,"noAutoPublish":true}
+}
