@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:44:12.754Z",
+  "generatedAt": "2026-08-13T10:46:04.087Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -34,6 +34,14 @@
       "status": "PASS_CONFIG_ONLY",
       "evidence": [
         "artifacts/ai-eval/config-comparison.json"
+      ]
+    },
+    {
+      "id": "ai-human-golden-review",
+      "group": "ai",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": [
+        "artifacts/ai-eval/human-review-ledger.json"
       ]
     },
     {
