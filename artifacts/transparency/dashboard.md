@@ -11,7 +11,7 @@
 - Hội đồng chưa có biên bản ký release
 - Machine eval 500/500 PASS nhưng golden answers/citations chưa được Hội đồng duyệt
 - Fixed production domain và uptime 90 ngày chưa có bằng chứng
-- Backup/restore và load rehearsal chưa verified
+- Backup/restore disposable rehearsal PASS; production RPO/RTO và load rehearsal chưa verified
 - DPIA/privacy review chưa ký
 
 This dashboard reports implementation evidence; it is not an independent historian council endorsement.
