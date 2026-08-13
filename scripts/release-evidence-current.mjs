@@ -1,13 +1,14 @@
 import { execFileSync, spawn, spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve, dirname } from "node:path";
 import { createHash } from "node:crypto";
+import { sourceTreeSha256 } from "./source-tree-hash.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const output = resolve("artifacts/release/current-head-evidence.json");
 const startedAt = new Date().toISOString();
-const commit = execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
+const testedCommit = execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 const steps = [];
 function run(name, command, args, env = {}) {
   const started = Date.now();
@@ -23,7 +24,12 @@ async function waitFor(url) {
   }
   throw new Error(`server did not become healthy: ${url}`);
 }
-const quality = [run("lint", "npm", ["run", "lint"]), run("typecheck", "npm", ["run", "typecheck"]), run("test", "npm", ["test", "--", "--testTimeout=15000"], { RELEASE_EVIDENCE_RUN: "1" }), run("build", "npm", ["run", "build"])];
+run("lint", "npm", ["run", "lint"]);
+run("typecheck", "npm", ["run", "typecheck"]);
+run("test", "npm", ["test", "--", "--testTimeout=15000"], { RELEASE_EVIDENCE_RUN: "1" });
+run("build", "npm", ["run", "build"]);
+const qualityNames = new Set(["lint", "typecheck", "test", "build"]);
+if (steps.slice(0, 4).some((step) => step.exitCode !== 0)) throw new Error(`Current release evidence quality steps failed: ${steps.slice(0, 4).filter((step) => step.exitCode !== 0).map((step) => step.name).join(", ")}`);
 const temporary = mkdtempSync(join(tmpdir(), "qsv-current-head-"));
 const databasePath = join(temporary, "release.sqlite");
 run("migrate", "npm", ["run", "db:migrate"], { DATABASE_PATH: databasePath });
@@ -50,9 +56,8 @@ try {
   const headers = (await fetch(`${origin}/vi`)).headers;
   local.securityHeaders = headers.get("content-security-policy")?.includes("frame-ancestors 'none'") && headers.get("x-content-type-options") === "nosniff" && headers.get("x-frame-options") === "DENY";
 } finally { server.kill("SIGTERM"); rmSync(temporary, { recursive: true, force: true }); }
-const report = { generatedAt: startedAt, commit, origin, originKind: "local production-like standalone; not official production", steps, local, backupRestore: { backupChecksum: Boolean(backupJson?.sha256), restoreChecksum: Boolean(restoreJson?.sha256Verified), databaseMutation: false }, httpsE2e: "NOT_RUN_IN_THIS_LOCAL_RUN", externalLimitations: ["official production domain", "90-day uptime", "independent pen-test", "real Council/pilot/rights/privacy approvals"] };
-const qualityNames = new Set(["lint", "typecheck", "test", "build"]);
+const report = { generatedAt: startedAt, testedCommit, sourceTreeSha256: sourceTreeSha256(), origin, originKind: "local production-like standalone; not official production", steps, local, backupRestore: { backupChecksum: Boolean(backupJson?.sha256), restoreChecksum: Boolean(restoreJson?.sha256Verified), databaseMutation: false }, httpsE2e: "NOT_RUN_IN_THIS_LOCAL_RUN", externalLimitations: ["official production domain", "90-day uptime", "independent pen-test", "real Council/pilot/rights/privacy approvals"] };
 const qualitySteps = steps.filter((step) => qualityNames.has(step.name));
 if (qualitySteps.length !== 4 || qualitySteps.some((step) => step.exitCode !== 0)) throw new Error("Current HEAD release evidence quality steps did not all pass.");
-mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`); writeFileSync(output.replace(/\.json$/, ".md"), `# Current HEAD release evidence\n\n- Commit: ${commit}\n- Origin: ${origin} (local production-like; not official)\n- Quality: ${steps.filter((step) => ["lint", "typecheck", "test", "build"].includes(step.name) && step.exitCode === 0).length}/4 PASS\n- Health/OpenAPI/Search: ${local.health}/${local.openapi}/${local.search}\n- Search p95 (10 samples): ${Math.round(local.p95SearchMs ?? 0)}ms\n- Security headers: ${local.securityHeaders ? "PASS" : "FAIL"}\n- Backup checksum/restore: ${report.backupRestore.backupChecksum}/${report.backupRestore.restoreChecksum}\n- HTTPS E2E: **NOT RUN IN THIS LOCAL RUN**\n- External gates: **PENDING**\n`);
-process.stdout.write(`${JSON.stringify({ commit, quality: steps.slice(0, 4).map((step) => step.exitCode), local, backupRestore: report.backupRestore })}\n`);
+mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`); writeFileSync(output.replace(/\.json$/, ".md"), `# Current release evidence\n\n- Tested commit: ${testedCommit}\n- Source tree SHA-256: ${report.sourceTreeSha256}\n- Origin: ${origin} (local production-like; not official)\n- Quality: ${steps.filter((step) => ["lint", "typecheck", "test", "build"].includes(step.name) && step.exitCode === 0).length}/4 PASS\n- Health/OpenAPI/Search: ${local.health}/${local.openapi}/${local.search}\n- Search p95 (10 samples): ${Math.round(local.p95SearchMs ?? 0)}ms\n- Security headers: ${local.securityHeaders ? "PASS" : "FAIL"}\n- Backup checksum/restore: ${report.backupRestore.backupChecksum}/${report.backupRestore.restoreChecksum}\n- HTTPS E2E: **NOT RUN IN THIS LOCAL RUN**\n- External gates: **PENDING**\n`);
+process.stdout.write(`${JSON.stringify({ testedCommit, sourceTreeSha256: report.sourceTreeSha256, quality: steps.slice(0, 4).map((step) => step.exitCode), local, backupRestore: report.backupRestore })}\n`);

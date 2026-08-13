@@ -1,6 +1,7 @@
-# Current HEAD release evidence
+# Current release evidence
 
-- Commit: 6889ad3e81a76e6df88874c507a90601a0fd53cb
+- Tested commit: 5821e18df00035d4b8d6fb69af658c80069a484d
+- Source tree SHA-256: 993e013fb0c84a1efd2dc303fa198fd822054e7b4b03274550736c40932ea7b9
 - Origin: http://127.0.0.1:3241 (local production-like; not official)
 - Quality: 4/4 PASS
 - Health/OpenAPI/Search: 200/200/200
