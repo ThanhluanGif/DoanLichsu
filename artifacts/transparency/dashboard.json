@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v1",
-  "generatedAt": "2026-08-13T10:12:46.717Z",
+  "generatedAt": "2026-08-13T10:38:27.841Z",
   "releaseStatus": "NOT_READY",
   "coverage": {
     "mandatory": "46/46",
@@ -33,6 +33,22 @@
     "readiness": "FAIL",
     "fixedProductionDomain": false,
     "backupRestoreVerified": true
+  },
+  "wikimedia": {
+    "status": "PASS",
+    "metadataRecords": 300,
+    "rightsStatus": "LINK_ONLY",
+    "reviewStatus": "PENDING_REVIEW",
+    "binaryDownloaded": false
+  },
+  "aiComparison": {
+    "status": "PASS_MACHINE_COMPARISON",
+    "configs": [
+      "baseline-retrieval",
+      "strict-context-retrieval"
+    ],
+    "modelIndependence": "NOT_PROVEN_SAME_DETERMINISTIC_GATEWAY",
+    "humanApproval": "PENDING_HUMAN_MODEL_REVIEW"
   },
   "blockers": [
     "Hội đồng chưa có biên bản ký release",

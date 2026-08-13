@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-08-13T10:41:37.965Z",
+  "commit": "working HEAD after C-071 changes; build verified before proof",
+  "origin": "http://127.0.0.1:3230",
+  "originKind": "local production-like standalone server; HTTPS quick-tunnel DNS unavailable for this run",
+  "health": {"status": 200, "database": "ok"},
+  "dashboard": {"status": 200, "releaseStatus": "NOT_READY", "aiEval": "500/500", "wikimediaMetadata": 300, "aiComparison": "PASS_MACHINE_COMPARISON", "publicBeta": false},
+  "openapi": {"aiCookieAuth": true},
+  "noSecretsOrPii": true,
+  "httpsE2e": "BLOCKED_TUNNEL_DNS; do not treat local proof as official production URL"
+}

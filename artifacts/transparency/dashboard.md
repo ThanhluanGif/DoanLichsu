@@ -5,6 +5,8 @@
 - AI eval: 500/500
 - Rights served binary: 1; LINK_ONLY: 1
 - Fixed production domain: **NO EVIDENCE**
+- Wikimedia metadata pilot: 300 records; rights LINK_ONLY; human review PENDING_REVIEW
+- AI config comparison: **PASS_MACHINE_COMPARISON**; model independence NOT_PROVEN_SAME_DETERMINISTIC_GATEWAY
 
 ## Blockers
 
