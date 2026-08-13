@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-08-13T08:57:52.580Z",
+  "status": "FAIL",
+  "checks": {
+    "database": {
+      "path": "/Volumes/sdd anh/Doan1/relative.db",
+      "absolute": false,
+      "exists": false
+    },
+    "quality": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      }
+    ],
+    "backupRestore": {
+      "rehearsal": "documented in docs/release-runbook.md",
+      "rpoTargetMinutes": 15,
+      "rtoTargetMinutes": 60,
+      "verified": false
+    },
+    "load": {
+      "probe": "not run against fixed production domain",
+      "targetP95Ms": 1000,
+      "verified": false
+    },
+    "aiDegradation": {
+      "fallback": "search/lesson",
+      "verified": true
+    }
+  },
+  "blockers": [
+    "No fixed production domain evidence",
+    "500-question AI eval gap remains",
+    "Council/privacy sign-off not recorded"
+  ],
+  "databaseMutation": false
+}

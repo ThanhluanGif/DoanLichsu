@@ -1,0 +1,13 @@
+{
+  "card": "C-054",
+  "generatedAt": "2026-08-13T08:58:31.226Z",
+  "status": "FAIL_CLOSED_RELEASE_BLOCKED",
+  "quality": {"lint":0,"typecheck":0,"build":0},
+  "database": {"absolute":false,"exists":true,"mutation":false},
+  "rpoRto": {"rpoMinutes":15,"rtoMinutes":60,"verified":false},
+  "load": {"fixedProductionDomain":false,"verified":false},
+  "fallback": {"ai":"search/lesson","verified":true},
+  "blockers":["No fixed production domain evidence","500-question AI eval gap remains","Council/privacy sign-off not recorded"],
+  "report":"artifacts/production-readiness/report.json",
+  "redReport":"artifacts/production-readiness/red-report.json"
+}
