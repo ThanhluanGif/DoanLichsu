@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-08-13T08:25:51.327Z",
+  "provider": "WIKIMEDIA_COMMONS",
+  "status": "PASS",
+  "source": "fixture:/Volumes/sdd anh/Doan1/artifacts/wikimedia/fixture-response.json",
+  "count": 1,
+  "records": [
+    {
+      "id": "wikimedia-123",
+      "provider": "WIKIMEDIA_COMMONS",
+      "pageId": 123,
+      "fileTitle": "File:Bach Dang fixture.jpg",
+      "revisionId": 99887766,
+      "revisionTimestamp": "2026-08-13T00:00:00Z",
+      "originalUrl": "https://upload.wikimedia.org/example-fixture.jpg",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Bach_Dang_fixture.jpg",
+      "artist": "Fixture archivist",
+      "creditLine": "Fixture archivist / Wikimedia Commons",
+      "licenseShortName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "importedAt": "2026-08-13T08:25:51.327Z",
+      "binaryDownloaded": false,
+      "autoPublished": false
+    }
+  ]
+}

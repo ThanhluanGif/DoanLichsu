@@ -1,0 +1,7 @@
+{
+  "card": "C-042",
+  "generatedAt": "2026-08-13T08:26:30.469Z",
+  "fixture": {"status":"PASS","records":1,"reviewStatus":"PENDING_REVIEW","rightsStatus":"LINK_ONLY","binaryDownloaded":false,"autoPublished":false,"report":"artifacts/wikimedia/review-queue.json"},
+  "live": {"status":"PASS","title":"File:Flag of Vietnam.svg","pageId":383863,"revisionId":1254205846,"license":"Public domain (metadata only; reviewer decision pending)","binaryDownloaded":false,"autoPublished":false,"report":"artifacts/wikimedia/live-report.json"},
+  "failure": {"status":"FAIL","exitCode":1,"origin":"https://127.0.0.1:9","binaryDownloaded":false,"autoPublished":false,"report":"artifacts/wikimedia/live-fail.json"}
+}

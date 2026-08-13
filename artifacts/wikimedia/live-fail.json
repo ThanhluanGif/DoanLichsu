@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-08-13T08:25:51.927Z",
+  "provider": "WIKIMEDIA_COMMONS",
+  "status": "FAIL",
+  "source": "https://127.0.0.1:9",
+  "error": "TypeError: fetch failed",
+  "binaryDownloaded": false,
+  "autoPublished": false,
+  "remediation": "Inspect API availability/rate limit and retry with a bounded batch; do not publish or serve binary."
+}
