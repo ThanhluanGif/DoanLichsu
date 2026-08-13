@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-08-13T08:49:20.596Z",
+  "status": "FAIL",
+  "error": "INVALID_CORRECTION",
+  "missing": [
+    "evidenceLocator"
+  ],
+  "pii": true,
+  "appended": false
+}

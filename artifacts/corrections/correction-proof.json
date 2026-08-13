@@ -1,0 +1,7 @@
+{
+  "card": "C-051",
+  "generatedAt": "2026-08-13T08:49:20.596Z",
+  "valid": {"status":"PASS","state":"RECEIVED","slaHours":72,"reporterStored":false,"report":"artifacts/corrections/report.json","changelog":"artifacts/corrections/changelog.json"},
+  "red": {"status":"FAIL","error":"INVALID_CORRECTION","pii":true,"appended":false,"report":"artifacts/corrections/red-report.json"},
+  "privacy": {"publicReporterData":false,"appendOnlyInbox":true}
+}
