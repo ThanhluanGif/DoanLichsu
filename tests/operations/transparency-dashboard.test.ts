@@ -14,6 +14,10 @@ describe("transparency dashboard evidence", () => {
     expect(dashboard.operations.independentSecurity).toBe("PENDING_EXTERNAL");
     expect(dashboard.wikimedia.invalidMetadataCount).toBe(1);
     expect(dashboard.wikimedia.binaryServingEnabled).toBe(false);
+    if (process.env.RELEASE_EVIDENCE_RUN === "1") return;
+    expect(dashboard.release.testedCommit).toMatch(/^[0-9a-f]{40}$/);
+    expect(dashboard.release.sourceTreeMatches).toBe(true);
+    expect(dashboard.release.sourceTreeSha256).toBe(dashboard.release.currentSourceTreeSha256);
     expect(dashboard.disclosure).toContain("not an independent historian council endorsement");
   });
 });

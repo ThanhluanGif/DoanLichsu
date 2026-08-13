@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
+import { sourceTreeSha256 } from "./source-tree-hash.mjs";
 const args = process.argv.slice(2);
 const option = (name, fallback) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : fallback; };
 const output = resolve(option("--output", "artifacts/transparency/dashboard.json"));
@@ -9,11 +10,13 @@ const rights = load("artifacts/rights/report.json");
 const aiEval = load("artifacts/ai-eval/report-500.json");
 const privacy = load("artifacts/privacy/report.json");
 const readiness = load("artifacts/production-readiness/report.json");
+const releaseEvidence = load("artifacts/release/current-head-evidence.json");
 const corrections = load("artifacts/corrections/report.json");
 const wikimedia = load("artifacts/wikimedia/batch-300-report.json");
 const aiComparison = load("artifacts/ai-eval/config-comparison.json");
 const external = load("artifacts/operations/external-evidence-ledger.json");
 const rightsReview = load("artifacts/wikimedia/rights-review-ledger.json");
+const currentSourceTreeSha256 = sourceTreeSha256();
 const pending = external.items.filter((item) => item.status !== "PASS").map((item) => item.id);
 const report = {
   dashboardVersion: "transparency-v2",
@@ -26,6 +29,7 @@ const report = {
   privacy: { status: privacy.status, publicAi: privacy.publicAi },
   corrections: { lastIntake: corrections.status, slaHours: corrections.entry?.slaHours ?? null, reporterPublic: false },
   operations: { readiness: readiness.status, fixedProductionDomain: readiness.external?.officialProduction === true, backupRestore: readiness.checks?.backupRestore?.status ?? "UNKNOWN", uptimeObservation: readiness.checks?.uptimeObservation?.status ?? "UNKNOWN", performanceObservation: readiness.checks?.performanceObservation?.status ?? "UNKNOWN", securityLocal: readiness.checks?.securityLocal?.status ?? "UNKNOWN", independentSecurity: readiness.checks?.securityLocal?.independentReview ?? "UNKNOWN" },
+  release: { testedCommit: releaseEvidence.testedCommit ?? null, sourceTreeSha256: releaseEvidence.sourceTreeSha256 ?? null, currentSourceTreeSha256, sourceTreeMatches: releaseEvidence.sourceTreeSha256 === currentSourceTreeSha256 },
   wikimedia: { status: wikimedia.status, metadataRecords: wikimedia.imported, rightsStatus: wikimedia.rightsStatus, reviewStatus: wikimedia.reviewStatus, binaryDownloaded: wikimedia.binaryDownloaded, binaryServingEnabled: rightsReview.binaryServingEnabled === true, invalidMetadataCount: rightsReview.invalidMetadataCount ?? null },
   aiComparison: { status: aiComparison.status, configs: aiComparison.configs?.map((entry) => entry.config.id) ?? [], modelIndependence: aiComparison.modelIndependence, humanApproval: aiComparison.humanApproval },
   blockers: pending,
