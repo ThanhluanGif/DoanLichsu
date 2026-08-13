@@ -1,0 +1,23 @@
+{
+  "auditedAt": "2026-08-13T05:36:00.000Z",
+  "method": "official web/browser retrieval and direct HTTP checks; source limitations are disclosed rather than treated as verified body copies",
+  "sources": [
+    {"id":"source-g12-moet-programme","url":"https://moet.gov.vn/content/vanban/Lists/VBPQ/Attachments/1483/vbhn-chuong-trinh-mon-lich-su.pdf","retrieval":"official programme PDF; Grade 12 strands resolved"},
+    {"id":"source-g12-august-revolution","url":"https://tulieuvankien.dangcongsan.vn/ho-so-su-kien-nhan-chung/su-kien-va-nhan-chung/cach-mang-thang-8-va-quoc-khanh-291945-cua-nuoc-viet-nam-dan-chu-cong-hoa-3310","retrieval":"official Party document portal; August 1945 and 2 September chronology resolved"},
+    {"id":"source-g12-party-chronology","url":"https://tulieuvankien.dangcongsan.vn/van-kien-tu-lieu-ve-dang/book/lich-su-dang/lich-su-bien-nien-dang-cong-san-viet-nam-tap-3-176?categoryId=102000083","retrieval":"official Party chronology catalogue; 1945–1954 milestones resolved"},
+    {"id":"source-g12-un-cold-war","url":"https://www.un.org/en/about-us/history-of-the-un","retrieval":"UN official history reference"},
+    {"id":"source-g12-asean-history","url":"https://asean.org/the-founding-of-asean/","retrieval":"ASEAN official founding reference; 1967 Bangkok Declaration"},
+    {"id":"source-g12-vietnam-dien-bien","url":"https://baotanglichsu.vn/vi/Articles/3091/17870/dien-bien-phu-tran-quyet-chien-quyet-thang.html","retrieval":"official museum reference; campaign record"},
+    {"id":"source-g12-doimoi","url":"https://chinhphu.vn/chu-truong-chinh-sach-lon/doi-moi-va-phat-trien-dat-nuoc-102240831154708139.htm","retrieval":"Government Portal policy overview; policy framing disclosed"},
+    {"id":"source-g12-gso-development","url":"https://www.gso.gov.vn/en/data-and-statistics/","retrieval":"General Statistics Office data portal; definitions and years required"},
+    {"id":"source-g12-mofa-foreign-policy","url":"https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/day-manh-doi-ngoai-toan-dien-o-tam-cao-moi-58878-138.html","retrieval":"Foreign Ministry policy statement; official-position limitation disclosed"},
+    {"id":"source-g12-foreign-relations-timeline","url":"https://mofa.gov.vn/vi/quan-he-doi-ngoai","retrieval":"Foreign Ministry relations gateway; individual entries require dated locators"},
+    {"id":"source-g12-ho-chi-minh-documents","url":"https://tulieuvankien.dangcongsan.vn/print/2621/ho-chi-minh-voi-cach-mang-lao","retrieval":"official document portal; international-activity passages resolved"},
+    {"id":"source-g12-hcm-museum","url":"https://baotanghochiminh.vn/","retrieval":"museum portal; individual object rights remain claim/media review items"},
+    {"id":"source-g12-constitution-2013","url":"https://vanban.chinhphu.vn/?pageid=27160&docid=171264","retrieval":"Government legal portal; constitutional record resolved"},
+    {"id":"source-g12-religion-heritage","url":"https://ich.unesco.org/en/state/viet-nam-VN","retrieval":"UNESCO intangible-heritage state page"},
+    {"id":"source-g12-japan-1945","url":"https://www.mofa.go.jp/policy/other/bluebook/","retrieval":"Japan Foreign Ministry Bluebook gateway; official-source limitation disclosed"}
+  ],
+  "uniqueUrlCount": 15,
+  "governance": "No third-party binary was downloaded or proxied. Current lesson updates carry asOf 2026-08-13 and source metadata; internal C-034 review is not independent historian-council approval."
+}

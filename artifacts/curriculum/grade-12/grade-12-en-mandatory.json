@@ -1,0 +1,330 @@
+{
+  "locale": "en",
+  "track": "MANDATORY",
+  "data": {
+    "grade": 12,
+    "label": "Grade 12",
+    "summary": {
+      "requirementCount": 6,
+      "publishedRequirementCount": 6,
+      "verifiedRequirementCount": 6,
+      "fullCoverage": true
+    },
+    "requirements": [
+      {
+        "id": "g12-world-during-after-cold-war",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "The world during and after the Cold War",
+        "slug": "world-during-after-cold-war",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Thế giới trong và sau Chiến tranh lạnh",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse the world order, Cold War, and trends after 1991."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g12-world-cold-war",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "The world during and after the Cold War",
+            "slug": "the-world-during-and-after-the-cold-war",
+            "summary": "The Cold War shaped order, conflict, and cooperation; after 1991 the world changed without becoming a simple single pole.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-asean-history",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "ASEAN: historical milestones",
+        "slug": "asean-history",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: ASEAN: Những chặng đường lịch sử",
+        "publishedCount": 1,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1967,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Outline ASEAN's formation, development, and role."
+        ],
+        "lessons": [
+          {
+            "id": "lesson-g12-asean",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "ASEAN: historical milestones",
+            "slug": "asean-historical-milestones",
+            "summary": "ASEAN grew from regional cooperation in 1967 through enlargement, dialogue, and the limits of consensus.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-vietnam-1945-1975",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "Revolution, wars of independence, and national defence, 1945–1975",
+        "slug": "vietnam-1945-1975",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+        "publishedCount": 3,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1945,
+        "periodEnd": 1975,
+        "requiredOutcomes": [
+          "Analyse major developments from the August Revolution to national reunification."
+        ],
+        "lessons": [
+          {
+            "id": "event-dien-bien-phu",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Battle of Điện Biên Phủ",
+            "slug": "battle-of-dien-bien-phu",
+            "summary": "The 56-day battle ended on 7 May 1954 with the defeat of the French fortified position.",
+            "thumbnail": null,
+            "startDate": "1954-03-13",
+            "endDate": "1954-05-07",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence",
+              "Logistics"
+            ]
+          },
+          {
+            "id": "event-ho-chi-minh-campaign",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Hồ Chí Minh Campaign",
+            "slug": "ho-chi-minh-campaign",
+            "summary": "The late-April 1975 campaign entered Saigon and ended the war, enabling national reunification.",
+            "thumbnail": null,
+            "startDate": "1975-04-26",
+            "endDate": "1975-04-30",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence"
+            ]
+          },
+          {
+            "id": "lesson-g12-vietnam-1945-1975",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Revolution, wars of independence, and national defence, 1945–1975",
+            "slug": "revolution-wars-of-independence-and-national-defence-1945-1975",
+            "summary": "From the August Revolution to reunification, political, military, diplomatic, and social upheaval brought immense losses.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-vietnam-since-1975",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "Vietnam since 1975 and the Đổi mới process",
+        "slug": "vietnam-since-1975",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+        "publishedCount": 3,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1975,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse reunification, national defence, Đổi mới, and development to the stated as-of date."
+        ],
+        "lessons": [
+          {
+            "id": "event-northern-border",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Defence of the northern border in 1979",
+            "slug": "defence-northern-border-1979",
+            "summary": "Fighting took place along Vietnam's northern border in February and March 1979.",
+            "thumbnail": null,
+            "startDate": "1979-02-17",
+            "endDate": "1979-03-16",
+            "datePrecision": "DAY",
+            "period": {
+              "id": "period-border",
+              "title": "Post-1975 border defence",
+              "slug": "post-1975-border-defence"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          },
+          {
+            "id": "event-southwest-border",
+            "type": "EVENT",
+            "locale": "en",
+            "title": "Defence of the southwestern border",
+            "slug": "defence-southwestern-border",
+            "summary": "Border conflict escalated in the late 1970s, leading to territorial defence operations and assistance to Cambodia.",
+            "thumbnail": null,
+            "startDate": "1978-12-01",
+            "endDate": "1979-01-07",
+            "datePrecision": "MONTH",
+            "period": {
+              "id": "period-border",
+              "title": "Post-1975 border defence",
+              "slug": "post-1975-border-defence"
+            },
+            "tags": [
+              "Resistance"
+            ]
+          },
+          {
+            "id": "lesson-g12-vietnam-since-1975",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnam since 1975 and the Đổi mới process",
+            "slug": "vietnam-since-1975-and-the-doi-moi-process",
+            "summary": "After 1975 Vietnam rebuilt, defended the country, and pursued Đổi mới; current updates require an as-of date, indicators, and data provenance.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-vietnamese-foreign-relations",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "Vietnamese foreign relations in modern history",
+        "slug": "vietnamese-foreign-relations",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1858,
+        "periodEnd": 2026,
+        "requiredOutcomes": [
+          "Analyse major principles, activities, and achievements in foreign relations."
+        ],
+        "lessons": [
+          {
+            "id": "topic-diplomacy",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Military affairs and diplomacy",
+            "slug": "military-affairs-and-diplomacy",
+            "summary": "Battlefield outcomes and diplomatic negotiation repeatedly influenced one another in modern Vietnamese history.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence"
+            ]
+          },
+          {
+            "id": "lesson-g12-foreign-relations",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Vietnamese foreign relations in modern history",
+            "slug": "vietnamese-foreign-relations-in-modern-history",
+            "summary": "Vietnamese foreign relations changed through war, independence, integration, and peaceful protection of national interests under law.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      },
+      {
+        "id": "g12-ho-chi-minh",
+        "grade": 12,
+        "track": "MANDATORY",
+        "topic": "Hồ Chí Minh in Vietnamese history",
+        "slug": "ho-chi-minh",
+        "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Hồ Chí Minh trong lịch sử Việt Nam",
+        "publishedCount": 2,
+        "verifiedCount": 1,
+        "coverageStatus": "VERIFIED",
+        "periodStart": 1890,
+        "periodEnd": 1969,
+        "requiredOutcomes": [
+          "Outline Hồ Chí Minh's activities and assess his historical role from sources."
+        ],
+        "lessons": [
+          {
+            "id": "person-ho-chi-minh",
+            "type": "PERSON",
+            "locale": "en",
+            "title": "Hồ Chí Minh",
+            "slug": "ho-chi-minh-en",
+            "summary": "Hồ Chí Minh led the independence movement and served as president of the Democratic Republic of Vietnam.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": {
+              "id": "period-independence-wars",
+              "title": "Wars for independence and reunification",
+              "slug": "wars-for-independence-and-reunification"
+            },
+            "tags": [
+              "Independence",
+              "Leadership"
+            ]
+          },
+          {
+            "id": "lesson-g12-ho-chi-minh",
+            "type": "TOPIC",
+            "locale": "en",
+            "title": "Hồ Chí Minh in Vietnamese history",
+            "slug": "ho-chi-minh-in-vietnamese-history",
+            "summary": "Ho Chi Minh should be studied through activity, documents, networks, and memory; respect for heritage does not replace historical method.",
+            "thumbnail": null,
+            "startDate": null,
+            "endDate": null,
+            "datePrecision": null,
+            "period": null,
+            "tags": []
+          }
+        ]
+      }
+    ]
+  }
+}\n
