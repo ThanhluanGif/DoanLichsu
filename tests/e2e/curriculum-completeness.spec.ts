@@ -1,0 +1,2 @@
+import { expect, test } from "@playwright/test";
+test("public transparency route and seven grade journeys expose honest coverage", async ({ page }) => { await page.goto("/vi/nguon-va-kiem-chung"); await expect(page.getByRole("heading", { level: 1, name: /Chương trình và bằng chứng/ })).toBeVisible(); for (const grade of [6, 7, 8, 9, 10, 11, 12]) { await page.goto(`/vi/hoc-theo-lop/${grade}`); await expect(page.getByRole("heading", { level: 1, name: `Lớp ${grade}` })).toBeVisible(); await expect(page.locator(".curriculum-coverage-strip")).toBeVisible(); } });

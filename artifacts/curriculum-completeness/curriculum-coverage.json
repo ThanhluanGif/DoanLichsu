@@ -1,0 +1,2193 @@
+{
+  "generatedAt": "2026-08-13T08:05:01.510Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "schemaVersion": 9,
+  "status": "PASS",
+  "rules": {
+    "mandatoryRequiresBothLocales": true,
+    "mandatoryRequiresSourceClaimReviewerProvenance": true,
+    "electiveSeparate": true,
+    "emptyFacetsFail": true
+  },
+  "summary": {
+    "mandatoryRequirements": 46,
+    "completeMandatoryRequirements": 46,
+    "publishedContent": 105,
+    "gradesPassing": 7,
+    "emptyFacets": []
+  },
+  "grades": [
+    {
+      "grade": 6,
+      "requirementCount": 8,
+      "completeRequirementCount": 8,
+      "fullCoverage": true
+    },
+    {
+      "grade": 7,
+      "requirementCount": 6,
+      "completeRequirementCount": 6,
+      "fullCoverage": true
+    },
+    {
+      "grade": 8,
+      "requirementCount": 7,
+      "completeRequirementCount": 7,
+      "fullCoverage": true
+    },
+    {
+      "grade": 9,
+      "requirementCount": 6,
+      "completeRequirementCount": 6,
+      "fullCoverage": true
+    },
+    {
+      "grade": 10,
+      "requirementCount": 7,
+      "completeRequirementCount": 7,
+      "fullCoverage": true
+    },
+    {
+      "grade": 11,
+      "requirementCount": 6,
+      "completeRequirementCount": 6,
+      "fullCoverage": true
+    },
+    {
+      "grade": 12,
+      "requirementCount": 6,
+      "completeRequirementCount": 6,
+      "fullCoverage": true
+    }
+  ],
+  "mandatory": [
+    {
+      "id": "g6-why-study-history",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Tại sao cần học Lịch sử?",
+        "en": "Why study history?"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Tại sao cần học Lịch sử?",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-why-study-history",
+              "slug": "hoc-lich-su-tu-dau-vet-va-thoi-gian",
+              "title": "Học lịch sử từ dấu vết và thời gian",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Một nguồn có thể rất gần sự kiện nhưng vẫn mang góc nhìn của người tạo ra nó. Ngược lại, công trình viết muộn hơn có thể tổng hợp nhiều bằng chứng nhưng phụ thuộc cách lựa chọn của tác giả. Vì vậy độ tin cậy không được quyết định chỉ bằng tuổi của tài liệu. Người học cần hỏi nguồn do ai tạo, nhằm mục đích gì, còn nguyên vẹn không, và có thể đối chiếu với nguồn nào khác.",
+              "complete": "Một nguồn có thể rất gần sự kiện nhưng vẫn mang góc nhìn của người tạo ra nó. Ngược lại, công trình viết muộn hơn có thể tổng hợp nhiều bằng chứng nhưng phụ thuộc cách lựa chọn của tác giả. Vì vậy độ tin cậy không được quyết định chỉ bằng tuổi của tài liệu. Người học cần hỏi nguồn do ai tạo, nhằm mục đích gì, còn nguyên vẹn không, và có thể đối chiếu với nguồn nào khác."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-why-study-history",
+              "slug": "learning-history-from-evidence-and-time",
+              "title": "Learning history from evidence and time",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A source may be close to an event and still express the perspective of its creator. A later study may compare more evidence but depends on the author's selection and method. Reliability is therefore not decided by age alone. Learners should ask who created the source, why it was created, whether it survives intact, and what other evidence can test it.",
+              "complete": "A source may be close to an event and still express the perspective of its creator. A later study may compare more evidence but depends on the author's selection and method. Reliability is therefore not decided by age alone. Learners should ask who created the source, why it was created, whether it survives intact, and what other evidence can test it."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-human-origins",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Nguồn gốc loài người và xã hội nguyên thủy",
+        "en": "Human origins and early society"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Nguồn gốc loài người và xã hội nguyên thủy",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-human-origins",
+              "slug": "nguon-goc-loai-nguoi-va-doi-song-nguyen-thuy",
+              "title": "Nguồn gốc loài người và đời sống nguyên thủy",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Hóa thạch cho biết đặc điểm cơ thể; công cụ và dấu vết cư trú cho biết hành vi; di truyền giúp xem quan hệ và di chuyển; định tuổi đặt chúng vào thời gian. Không một nhóm bằng chứng nào đủ cho mọi câu hỏi. Việc so sánh nhiều loại dữ liệu giúp tránh biến một mẫu vật đơn lẻ thành kết luận quá rộng.",
+              "complete": "Hóa thạch cho biết đặc điểm cơ thể; công cụ và dấu vết cư trú cho biết hành vi; di truyền giúp xem quan hệ và di chuyển; định tuổi đặt chúng vào thời gian. Không một nhóm bằng chứng nào đủ cho mọi câu hỏi. Việc so sánh nhiều loại dữ liệu giúp tránh biến một mẫu vật đơn lẻ thành kết luận quá rộng."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-human-origins",
+              "slug": "human-origins-and-early-society",
+              "title": "Human origins and early society",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Fossils describe bodies; tools and sites describe behaviour; genetics helps investigate relationships and movement; dating places evidence in time. No single category answers every question. Comparing different evidence prevents one specimen from being stretched into an overly broad conclusion.",
+              "complete": "Fossils describe bodies; tools and sites describe behaviour; genetics helps investigate relationships and movement; dating places evidence in time. No single category answers every question. Comparing different evidence prevents one specimen from being stretched into an overly broad conclusion."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-ancient-civilisations",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các xã hội và nền văn minh cổ đại",
+        "en": "Ancient societies and civilisations"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Các xã hội và nền văn minh cổ đại",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-ancient-civilisations",
+              "slug": "doc-cac-nen-van-minh-co-qua-thanh-tuu-va-giao-luu",
+              "title": "Đọc các nền văn minh cổ qua thành tựu và giao lưu",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "So sánh có ích khi cùng đặt một câu hỏi—chẳng hạn cách tổ chức đô thị hoặc lưu giữ chữ viết—nhưng trở nên sai lệch nếu dùng một tiêu chí hiện đại để xếp hạng mọi xã hội. Hiện vật bảo tàng cho thấy kỹ thuật và đời sống; tuyến giao lưu cho thấy ý tưởng không tồn tại trong cô lập. Hai góc nhìn cần được dùng cùng nhau.",
+              "complete": "So sánh có ích khi cùng đặt một câu hỏi—chẳng hạn cách tổ chức đô thị hoặc lưu giữ chữ viết—nhưng trở nên sai lệch nếu dùng một tiêu chí hiện đại để xếp hạng mọi xã hội. Hiện vật bảo tàng cho thấy kỹ thuật và đời sống; tuyến giao lưu cho thấy ý tưởng không tồn tại trong cô lập. Hai góc nhìn cần được dùng cùng nhau."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-ancient-civilisations",
+              "slug": "reading-ancient-civilisations-through-achievements-and-exchange",
+              "title": "Reading ancient civilisations through achievements and exchange",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Comparison works when it asks the same question—such as how cities were organised or writing preserved—but misleads when a modern criterion is used to rank every society. Museum objects illuminate technology and life; exchange routes reveal that ideas did not exist in isolation. Both views are needed.",
+              "complete": "Comparison works when it asks the same question—such as how cities were organised or writing preserved—but misleads when a modern criterion is used to rank every society. Museum objects illuminate technology and life; exchange routes reveal that ideas did not exist in isolation. Both views are needed."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-southeast-asia-to-tenth-century",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+        "en": "Southeast Asia to the tenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-southeast-asia-to-tenth-century",
+              "slug": "dong-nam-a-den-the-ki-x-vuong-quoc-va-mang-giao-luu",
+              "title": "Đông Nam Á đến thế kỉ X: vương quốc và mạng giao lưu",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Khái niệm khu vực giúp nhìn thấy các tuyến liên hệ, nhưng không được làm mất tính đa dạng. Một bia ký, đền tháp hoặc hiện vật nhập khẩu cho thấy có tiếp xúc; để kết luận về tổ chức xã hội còn cần khảo cổ, cư trú, sản xuất và văn bản. Vì vậy bài học dùng nhiều ví dụ thay vì một mô hình duy nhất.",
+              "complete": "Khái niệm khu vực giúp nhìn thấy các tuyến liên hệ, nhưng không được làm mất tính đa dạng. Một bia ký, đền tháp hoặc hiện vật nhập khẩu cho thấy có tiếp xúc; để kết luận về tổ chức xã hội còn cần khảo cổ, cư trú, sản xuất và văn bản. Vì vậy bài học dùng nhiều ví dụ thay vì một mô hình duy nhất."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-southeast-asia-to-tenth-century",
+              "slug": "southeast-asia-to-the-tenth-century-kingdoms-and-exchange",
+              "title": "Southeast Asia to the tenth century: kingdoms and exchange networks",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A regional view reveals connections but must preserve diversity. An inscription, tower, or imported object demonstrates contact; conclusions about society also require settlement, production, archaeology, and texts. The lesson therefore uses several examples rather than one universal model.",
+              "complete": "A regional view reveals connections but must preserve diversity. An inscription, tower, or imported object demonstrates contact; conclusions about society also require settlement, production, archaeology, and texts. The lesson therefore uses several examples rather than one universal model."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-van-lang-au-lac",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Văn Lang – Âu Lạc",
+        "en": "Văn Lang and Âu Lạc"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Văn Lang – Âu Lạc",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-van-lang-au-lac",
+              "slug": "van-lang-au-lac-qua-khao-co-va-truyen-thong",
+              "title": "Văn Lang – Âu Lạc qua khảo cổ và truyền thống",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Khảo cổ cho phép nhận diện không gian, kỹ thuật, sản xuất và phân hóa xã hội nhưng hiếm khi tự cho biết tên gọi chính trị. Thư tịch ghi tên người và sự kiện nhưng có thể được biên soạn muộn. Truyền thuyết giữ ký ức cộng đồng song chứa biểu tượng. Kết luận vững hơn khi ba nhóm nguồn được phân loại rồi đối chiếu thay vì trộn lẫn.",
+              "complete": "Khảo cổ cho phép nhận diện không gian, kỹ thuật, sản xuất và phân hóa xã hội nhưng hiếm khi tự cho biết tên gọi chính trị. Thư tịch ghi tên người và sự kiện nhưng có thể được biên soạn muộn. Truyền thuyết giữ ký ức cộng đồng song chứa biểu tượng. Kết luận vững hơn khi ba nhóm nguồn được phân loại rồi đối chiếu thay vì trộn lẫn."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-van-lang-au-lac",
+              "slug": "van-lang-and-au-lac-through-archaeology-and-tradition",
+              "title": "Van Lang and Au Lac through archaeology and tradition",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Archaeology can identify space, technology, production, and social differentiation but rarely supplies political names by itself. Texts name people and events but may have been compiled later. Legends preserve community memory while using symbols. Stronger conclusions classify and compare these sources instead of blending them together.",
+              "complete": "Archaeology can identify space, technology, production, and social differentiation but rarely supplies political names by itself. Texts name people and events but may have been compiled later. Legends preserve community memory while using symbols. Stronger conclusions classify and compare these sources instead of blending them together."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-northern-rule-resistance",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+        "en": "Northern rule and struggles for independence"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-northern-rule-resistance",
+              "slug": "bac-thuoc-chuyen-bien-xa-hoi-va-hanh-trinh-gianh-tu-chu",
+              "title": "Bắc thuộc, chuyển biến xã hội và hành trình giành tự chủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Nếu chỉ liệt kê khởi nghĩa, người học khó thấy tiến trình. Cần đặt từng cuộc đấu tranh trong bối cảnh bộ máy cai trị, lực lượng địa phương và khả năng duy trì chính quyền. Đồng thời, thay đổi văn hóa không chỉ là mất hoặc còn nguyên: nhiều yếu tố được tiếp nhận, biến đổi và kết hợp trong đời sống địa phương.",
+              "complete": "Nếu chỉ liệt kê khởi nghĩa, người học khó thấy tiến trình. Cần đặt từng cuộc đấu tranh trong bối cảnh bộ máy cai trị, lực lượng địa phương và khả năng duy trì chính quyền. Đồng thời, thay đổi văn hóa không chỉ là mất hoặc còn nguyên: nhiều yếu tố được tiếp nhận, biến đổi và kết hợp trong đời sống địa phương."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-northern-rule-resistance",
+              "slug": "northern-rule-social-change-and-the-path-to-self-rule",
+              "title": "Northern rule, social change, and the path to self-rule",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A list of uprisings can hide the process connecting them. Each struggle needs the context of administration, local forces, and the capacity to sustain government. Cultural change was also not a choice between complete loss and no change: communities adopted, transformed, and combined different elements.",
+              "complete": "A list of uprisings can hide the process connecting them. Each struggle needs the context of administration, local forces, and the capacity to sustain government. Cultural change was also not a choice between complete loss and no change: communities adopted, transformed, and combined different elements."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-champa",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vương quốc Chăm-pa",
+        "en": "The kingdom of Champa"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Chăm-pa",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-champa",
+              "slug": "cham-pa-vuong-quoc-giao-luu-va-di-san-my-son",
+              "title": "Chăm-pa: vương quốc, giao lưu và di sản Mỹ Sơn",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Đền tháp được bảo tồn tốt hơn nhiều dấu vết đời thường nên dễ làm câu chuyện nghiêng về tôn giáo và tầng lớp quyền lực. Để hiểu xã hội rộng hơn, cần đặt kiến trúc cạnh bia ký, khảo cổ cư trú, sản xuất, thương mại và ký ức cộng đồng. Cũng cần tránh áp một đường biên cố định cho toàn bộ lịch sử Chăm-pa.",
+              "complete": "Đền tháp được bảo tồn tốt hơn nhiều dấu vết đời thường nên dễ làm câu chuyện nghiêng về tôn giáo và tầng lớp quyền lực. Để hiểu xã hội rộng hơn, cần đặt kiến trúc cạnh bia ký, khảo cổ cư trú, sản xuất, thương mại và ký ức cộng đồng. Cũng cần tránh áp một đường biên cố định cho toàn bộ lịch sử Chăm-pa."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-champa",
+              "slug": "champa-kingdom-exchange-and-the-heritage-of-my-son",
+              "title": "Champa: kingdom, exchange, and the heritage of My Son",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Temples often survive better than traces of ordinary life, which can tilt the story toward religion and elites. A wider account places architecture alongside inscriptions, settlements, production, trade, and community memory. It also avoids projecting one fixed border across Champa's whole history.",
+              "complete": "Temples often survive better than traces of ordinary life, which can tilt the story toward religion and elites. A wider account places architecture alongside inscriptions, settlements, production, trade, and community memory. It also avoids projecting one fixed border across Champa's whole history."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g6-funan",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vương quốc Phù Nam",
+        "en": "The kingdom of Funan"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Phù Nam",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g6-funan",
+              "slug": "phu-nam-va-the-gioi-oc-eo",
+              "title": "Phù Nam và thế giới Óc Eo",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Khảo cổ và thư tịch không dùng cùng một hệ thống tên gọi. Hiện vật cho biết vật liệu, kỹ thuật, phân bố và quan hệ trao đổi; văn bản cho biết tên nước, vua hoặc sự kiện theo góc nhìn người viết. Việc nối hai nhóm nguồn cần nêu rõ bước suy luận và tránh biến một phát hiện thành kết luận cho toàn vùng.",
+              "complete": "Khảo cổ và thư tịch không dùng cùng một hệ thống tên gọi. Hiện vật cho biết vật liệu, kỹ thuật, phân bố và quan hệ trao đổi; văn bản cho biết tên nước, vua hoặc sự kiện theo góc nhìn người viết. Việc nối hai nhóm nguồn cần nêu rõ bước suy luận và tránh biến một phát hiện thành kết luận cho toàn vùng."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g6-funan",
+              "slug": "funan-and-the-oc-eo-world",
+              "title": "Funan and the Oc Eo world",
+              "sourceCount": 1,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Archaeology and written records do not use the same naming systems. Objects reveal material, technology, distribution, and exchange; texts name states, rulers, or events from an author's viewpoint. Connecting them requires explicit reasoning and should not turn one discovery into a conclusion about the whole region.",
+              "complete": "Archaeology and written records do not use the same naming systems. Objects reveal material, technology, distribution, and exchange; texts name states, rulers, or events from an author's viewpoint. Connecting them requires explicit reasoning and should not turn one discovery into a conclusion about the whole region."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-medieval-western-europe",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI",
+        "en": "Western Europe from the fifth to early sixteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-medieval-western-europe",
+              "slug": "tay-au-trung-dai-lanh-dia-do-thi-va-chuyen-doi-tu-tuong",
+              "title": "Tây Âu trung đại: lãnh địa, đô thị và những chuyển đổi tư tưởng",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Khái niệm “phong kiến” giúp nhận ra quan hệ đất đai và nghĩa vụ, nhưng dễ che khuất khác biệt giữa các vùng nếu dùng như một sơ đồ duy nhất. Bằng chứng về lâu đài và kị sĩ thường phản ánh tầng lớp quyền lực; hồ sơ đô thị, công cụ, hàng hóa và kiến trúc tôn giáo bổ sung góc nhìn về người lao động, thương nhân và cộng đồng. Phục hưng và Cải cách cũng không phải một lần “thức tỉnh” đồng loạt mà là nhiều chuyển đổi lan với tốc độ khác nhau.",
+              "complete": "Khái niệm “phong kiến” giúp nhận ra quan hệ đất đai và nghĩa vụ, nhưng dễ che khuất khác biệt giữa các vùng nếu dùng như một sơ đồ duy nhất. Bằng chứng về lâu đài và kị sĩ thường phản ánh tầng lớp quyền lực; hồ sơ đô thị, công cụ, hàng hóa và kiến trúc tôn giáo bổ sung góc nhìn về người lao động, thương nhân và cộng đồng. Phục hưng và Cải cách cũng không phải một lần “thức tỉnh” đồng loạt mà là nhiều chuyển đổi lan với tốc độ khác nhau."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-medieval-western-europe",
+              "slug": "medieval-western-europe-estates-towns-and-changing-ideas",
+              "title": "Medieval Western Europe: estates, towns, and changing ideas",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "The term 'feudalism' helps identify relationships involving land and service, but it can conceal regional differences when treated as a universal diagram. Castles and knightly objects often represent powerful groups; urban records, tools, goods, and religious buildings add evidence about workers, merchants, and communities. The Renaissance and Reformation were also not one sudden awakening, but connected changes spreading at different speeds.",
+              "complete": "The term 'feudalism' helps identify relationships involving land and service, but it can conceal regional differences when treated as a universal diagram. Castles and knightly objects often represent powerful groups; urban records, tools, goods, and religious buildings add evidence about workers, merchants, and communities. The Renaissance and Reformation were also not one sudden awakening, but connected changes spreading at different speeds."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-medieval-china-india",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Trung Quốc và Ấn Độ thời trung đại",
+        "en": "Medieval China and India"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Trung Quốc và Ấn Độ thời trung đại",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-medieval-china-india",
+              "slug": "trung-quoc-va-an-do-trung-dai-qua-nha-nuoc-giao-luu-va-van-hoa",
+              "title": "Trung Quốc và Ấn Độ trung đại qua nhà nước, giao lưu và văn hóa",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Niên biểu triều đại giúp định hướng thời gian nhưng thường đặt cung đình ở trung tâm. Hiện vật, công trình và dấu vết thương mại cho phép đặt thêm câu hỏi về nghệ nhân, thương nhân, tu sĩ và cộng đồng địa phương. So sánh hai không gian không nhằm xếp hạng “thịnh trị”, mà xem các thiết chế chính trị khác nhau đã hỗ trợ, kiểm soát hoặc thích nghi với giao lưu như thế nào.",
+              "complete": "Niên biểu triều đại giúp định hướng thời gian nhưng thường đặt cung đình ở trung tâm. Hiện vật, công trình và dấu vết thương mại cho phép đặt thêm câu hỏi về nghệ nhân, thương nhân, tu sĩ và cộng đồng địa phương. So sánh hai không gian không nhằm xếp hạng “thịnh trị”, mà xem các thiết chế chính trị khác nhau đã hỗ trợ, kiểm soát hoặc thích nghi với giao lưu như thế nào."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-medieval-china-india",
+              "slug": "medieval-china-and-india-through-states-exchange-and-culture",
+              "title": "Medieval China and India through states, exchange, and culture",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Dynastic timelines organise chronology but tend to centre courts. Objects, buildings, and trading evidence support questions about artisans, merchants, religious travellers, and local communities. Comparing the two regions is not a ranking of golden ages. It examines how different political institutions supported, controlled, or adapted to exchange.",
+              "complete": "Dynastic timelines organise chronology but tend to centre courts. Objects, buildings, and trading evidence support questions about artisans, merchants, religious travellers, and local communities. Comparing the two regions is not a ranking of golden ages. It examines how different political institutions supported, controlled, or adapted to exchange."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-southeast-asia-tenth-sixteenth",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI",
+        "en": "Southeast Asia from the late tenth to early sixteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+              "slug": "dong-nam-a-the-ki-x-xvi-vuong-quoc-nuoc-va-mang-giao-luu",
+              "title": "Đông Nam Á thế kỉ X–XVI: vương quốc, nước và mạng giao lưu",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Ba di sản UNESCO là cửa sổ mạnh nhưng có thiên lệch: công trình bền vững và trung tâm quyền lực dễ được nhìn thấy hơn nhà ở hay lao động thường ngày. So sánh chúng cần tách điều nguồn xác nhận trực tiếp — niên đại, cấu trúc, giá trị di sản — khỏi diễn giải rộng về cả xã hội. Bản đồ chính trị cũng phải được hiểu là thay đổi, không phải biên giới quốc gia hiện đại kéo lùi về quá khứ.",
+              "complete": "Ba di sản UNESCO là cửa sổ mạnh nhưng có thiên lệch: công trình bền vững và trung tâm quyền lực dễ được nhìn thấy hơn nhà ở hay lao động thường ngày. So sánh chúng cần tách điều nguồn xác nhận trực tiếp — niên đại, cấu trúc, giá trị di sản — khỏi diễn giải rộng về cả xã hội. Bản đồ chính trị cũng phải được hiểu là thay đổi, không phải biên giới quốc gia hiện đại kéo lùi về quá khứ."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-southeast-asia-tenth-sixteenth",
+              "slug": "southeast-asia-tenth-sixteenth-centuries-kingdoms-water-and-exchange",
+              "title": "Southeast Asia, tenth–sixteenth centuries: kingdoms, water, and exchange",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "The three UNESCO sites are powerful windows with a built-in bias: durable monuments and centres of authority are more visible than ordinary homes and labour. Comparison should separate what the sources directly establish—dates, structures, and heritage significance—from wider interpretations of society. Political maps also changed over time and should not project present national borders backward.",
+              "complete": "The three UNESCO sites are powerful windows with a built-in bias: durable monuments and centres of authority are more visible than ordinary homes and labour. Comparison should separate what the sources directly establish—dates, structures, and heritage significance—from wider interpretations of society. Political maps also changed over time and should not project present national borders backward."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-vietnam-tenth-thirteenth",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XIII",
+        "en": "Vietnam from the tenth to early thirteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XIII",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-vietnam-tenth-thirteenth",
+              "slug": "tu-tu-chu-the-ki-x-den-quoc-gia-dai-viet-thoi-ly",
+              "title": "Từ tự chủ thế kỉ X đến quốc gia Đại Việt thời Lý",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Các triều đại thường được kể như chuỗi vua thay nhau, nhưng câu hỏi quan trọng hơn là thiết chế nào được tạo dựng và người dân chịu tác động ra sao. Hiện vật Hoa Lư và khảo cổ Thăng Long cho thấy nền tảng vật chất của quyền lực; sử liệu về chiến tranh cho biết quyết định và kết quả. Cả hai nhóm đều cần đặt cạnh địa lý, sản xuất và quan hệ trung ương–địa phương.",
+              "complete": "Các triều đại thường được kể như chuỗi vua thay nhau, nhưng câu hỏi quan trọng hơn là thiết chế nào được tạo dựng và người dân chịu tác động ra sao. Hiện vật Hoa Lư và khảo cổ Thăng Long cho thấy nền tảng vật chất của quyền lực; sử liệu về chiến tranh cho biết quyết định và kết quả. Cả hai nhóm đều cần đặt cạnh địa lý, sản xuất và quan hệ trung ương–địa phương."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-vietnam-tenth-thirteenth",
+              "slug": "from-tenth-century-self-rule-to-dai-viet-under-the-ly",
+              "title": "From tenth-century self-rule to Đại Việt under the Lý",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Dynasties are often presented as a succession of rulers, but the more useful question is which institutions were built and how people were affected. Objects from Hoa Lu and archaeology at Thang Long reveal the material basis of power; war narratives describe decisions and outcomes. Both need the context of geography, production, and central-local relations.",
+              "complete": "Dynasties are often presented as a succession of rulers, but the more useful question is which institutions were built and how people were affected. Objects from Hoa Lu and archaeology at Thang Long reveal the material basis of power; war narratives describe decisions and outcomes. Both need the context of geography, production, and central-local relations."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-vietnam-tran-ho",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam thời Trần và Hồ",
+        "en": "Vietnam under the Trần and Hồ"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam thời Trần và Hồ",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-vietnam-tran-ho",
+              "slug": "dai-viet-thoi-tran-ho-xay-dung-khang-chien-va-cai-cach",
+              "title": "Đại Việt thời Trần–Hồ: xây dựng, kháng chiến và cải cách",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Ký ức chiến thắng dễ tập trung vào anh hùng và trận quyết chiến, trong khi sức mạnh còn đến từ hậu cần, địa hình, phối hợp quân dân, ngoại giao và khả năng điều chỉnh chiến lược. Tương tự, gọi cải cách Hồ Quý Ly là “tiến bộ” hay “thất bại” chưa đủ: một chính sách có thể có mục tiêu đáng chú ý nhưng thực thi gấp, gặp chống đối hoặc không giải quyết được khủng hoảng an ninh.",
+              "complete": "Ký ức chiến thắng dễ tập trung vào anh hùng và trận quyết chiến, trong khi sức mạnh còn đến từ hậu cần, địa hình, phối hợp quân dân, ngoại giao và khả năng điều chỉnh chiến lược. Tương tự, gọi cải cách Hồ Quý Ly là “tiến bộ” hay “thất bại” chưa đủ: một chính sách có thể có mục tiêu đáng chú ý nhưng thực thi gấp, gặp chống đối hoặc không giải quyết được khủng hoảng an ninh."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-vietnam-tran-ho",
+              "slug": "dai-viet-under-tran-and-ho-government-resistance-and-reform",
+              "title": "Đại Việt under the Trần and Hồ: government, resistance, and reform",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Public memory can centre victories on heroes and decisive battles, although logistics, terrain, civilian-military coordination, diplomacy, and strategic adaptation also mattered. Similarly, calling Ho Quy Ly's reforms either progressive or failed is incomplete. A policy may have a notable aim while being rushed, resisted, or unable to resolve a security crisis.",
+              "complete": "Public memory can centre victories on heroes and decisive battles, although logistics, terrain, civilian-military coordination, diplomacy, and strategic adaptation also mattered. Similarly, calling Ho Quy Ly's reforms either progressive or failed is incomplete. A policy may have a notable aim while being rushed, resisted, or unable to resolve a security crisis."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g7-lam-son-later-le",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ",
+        "en": "Lam Sơn uprising and Đại Việt under the Later Lê"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g7-lam-son-later-le",
+              "slug": "khoi-nghia-lam-son-va-dai-viet-the-ki-xv",
+              "title": "Khởi nghĩa Lam Sơn và Đại Việt thế kỉ XV",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Nguồn tưởng niệm thường làm nổi bật tài năng Lê Lợi, còn phân tích lịch sử cần giữ vai trò của tập thể nghĩa quân, người dân, tướng lĩnh, Nguyễn Trãi, địa hình, hậu cần và sai lầm của đối phương. Với Lê sơ, bộ luật, thi cử và kiến trúc phản ánh năng lực nhà nước nhưng không tự chứng minh mọi nhóm xã hội đều được hưởng lợi như nhau.",
+              "complete": "Nguồn tưởng niệm thường làm nổi bật tài năng Lê Lợi, còn phân tích lịch sử cần giữ vai trò của tập thể nghĩa quân, người dân, tướng lĩnh, Nguyễn Trãi, địa hình, hậu cần và sai lầm của đối phương. Với Lê sơ, bộ luật, thi cử và kiến trúc phản ánh năng lực nhà nước nhưng không tự chứng minh mọi nhóm xã hội đều được hưởng lợi như nhau."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g7-lam-son-later-le",
+              "slug": "lam-son-uprising-and-fifteenth-century-dai-viet",
+              "title": "The Lam Sơn uprising and fifteenth-century Đại Việt",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Commemorative sources often foreground Le Loi's ability, while historical analysis should retain the roles of the wider force, local people, commanders, Nguyen Trai, terrain, logistics, and enemy errors. Under the Early Le, laws, examinations, and architecture show state capacity but do not prove that every social group benefited equally.",
+              "complete": "Commemorative sources often foreground Le Loi's ability, while historical analysis should retain the roles of the wider force, local people, commanders, Nguyen Trai, terrain, logistics, and enemy errors. Under the Early Le, laws, examinations, and architecture show state capacity but do not prove that every social group benefited equally."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-early-modern-revolutions",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các cuộc cách mạng tư sản thời cận đại",
+        "en": "Early modern bourgeois revolutions"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Các cuộc cách mạng tư sản thời cận đại",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-early-modern-revolutions",
+              "slug": "cac-cuoc-cach-mang-can-dai-quyen-luc-quyen-con-nguoi-va-quoc-gia",
+              "title": "Các cuộc cách mạng cận đại: quyền lực, quyền con người và quốc gia",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Tuyên ngôn và hiến pháp cho biết điều người đương thời muốn hợp thức hóa; chúng không tự chứng minh quyền đã được thực thi bình đẳng. So sánh cần đặt văn kiện cạnh cơ cấu sở hữu, quyền bầu cử, chế độ nô lệ, giới tính và bạo lực chiến tranh. Mốc 1871 còn nhắc rằng xây dựng quốc gia có thể diễn ra bằng quân sự và quyền lực quân chủ dù ngôn ngữ dân tộc từng được các phong trào tự do sử dụng.",
+              "complete": "Tuyên ngôn và hiến pháp cho biết điều người đương thời muốn hợp thức hóa; chúng không tự chứng minh quyền đã được thực thi bình đẳng. So sánh cần đặt văn kiện cạnh cơ cấu sở hữu, quyền bầu cử, chế độ nô lệ, giới tính và bạo lực chiến tranh. Mốc 1871 còn nhắc rằng xây dựng quốc gia có thể diễn ra bằng quân sự và quyền lực quân chủ dù ngôn ngữ dân tộc từng được các phong trào tự do sử dụng."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-early-modern-revolutions",
+              "slug": "early-modern-revolutions-power-rights-and-nations",
+              "title": "Early modern revolutions: power, rights, and nations",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Declarations and constitutions reveal what contemporaries sought to legitimise; they do not prove that rights were implemented equally. Comparison must place documents beside property rules, suffrage, slavery, gender, and wartime violence. The endpoint of 1871 also shows that nation-building could proceed through war and monarchical power even when liberal movements had earlier used the language of nationality.",
+              "complete": "Declarations and constitutions reveal what contemporaries sought to legitimise; they do not prove that rights were implemented equally. Comparison must place documents beside property rules, suffrage, slavery, gender, and wartime violence. The endpoint of 1871 also shows that nation-building could proceed through war and monarchical power even when liberal movements had earlier used the language of nationality."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-industrial-revolution",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng công nghiệp",
+        "en": "The Industrial Revolution"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Cách mạng công nghiệp",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-industrial-revolution",
+              "slug": "cach-mang-cong-nghiep-may-moc-nang-luong-va-xa-hoi-moi",
+              "title": "Cách mạng công nghiệp: máy móc, năng lượng và xã hội mới",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Một động cơ được bảo tồn cho thấy thiết kế và vật liệu, còn hồ sơ nhà máy, điều tra y tế, luật và lời kể lao động cho thấy ai vận hành nó và chịu chi phí nào. Số liệu sản lượng không đủ để kết luận mức sống của mọi nhóm đều tăng. Cũng cần phân biệt thời điểm phát minh, thời điểm phổ biến và sự khác nhau giữa các vùng thay vì gọi toàn bộ giai đoạn là một bước nhảy tức thời.",
+              "complete": "Một động cơ được bảo tồn cho thấy thiết kế và vật liệu, còn hồ sơ nhà máy, điều tra y tế, luật và lời kể lao động cho thấy ai vận hành nó và chịu chi phí nào. Số liệu sản lượng không đủ để kết luận mức sống của mọi nhóm đều tăng. Cũng cần phân biệt thời điểm phát minh, thời điểm phổ biến và sự khác nhau giữa các vùng thay vì gọi toàn bộ giai đoạn là một bước nhảy tức thời."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-industrial-revolution",
+              "slug": "industrial-revolution-machines-energy-and-a-new-society",
+              "title": "The Industrial Revolution: machines, energy, and a new society",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A preserved engine reveals design and materials, while factory records, medical investigations, laws, and workers' accounts show who operated it and at what cost. Output figures alone cannot establish that living standards rose for every group. We must also distinguish invention from diffusion and regional variation instead of describing the entire era as one sudden leap.",
+              "complete": "A preserved engine reveals design and materials, while factory records, medical investigations, laws, and workers' accounts show who operated it and at what cost. Output figures alone cannot establish that living standards rose for every group. We must also distinguish invention from diffusion and regional variation instead of describing the entire era as one sudden leap."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-southeast-asia-sixteenth-nineteenth",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX",
+        "en": "Southeast Asia from the sixteenth to nineteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+              "slug": "dong-nam-a-the-ki-xvi-xix-thuong-mai-xam-chiem-va-ung-pho",
+              "title": "Đông Nam Á thế kỉ XVI–XIX: thương mại, xâm chiếm và nhiều cách ứng phó",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Kiến trúc thuộc địa cho thấy quyền lực và giao thoa, nhưng một thành phố không đại diện cả khu vực. Tài liệu do công ty và đế quốc lập có lượng dữ liệu lớn song phản ánh mục tiêu quản trị của họ; cần đọc cùng hiện vật, ký ức địa phương và phản kháng. Trường hợp Xiêm cũng không nên gọi đơn giản là “không bị ảnh hưởng”: giữ chủ quyền nhà nước đi kèm các hiệp ước bất bình đẳng và mất không gian kiểm soát.",
+              "complete": "Kiến trúc thuộc địa cho thấy quyền lực và giao thoa, nhưng một thành phố không đại diện cả khu vực. Tài liệu do công ty và đế quốc lập có lượng dữ liệu lớn song phản ánh mục tiêu quản trị của họ; cần đọc cùng hiện vật, ký ức địa phương và phản kháng. Trường hợp Xiêm cũng không nên gọi đơn giản là “không bị ảnh hưởng”: giữ chủ quyền nhà nước đi kèm các hiệp ước bất bình đẳng và mất không gian kiểm soát."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+              "slug": "southeast-asia-sixteenth-nineteenth-centuries-trade-conquest-responses",
+              "title": "Southeast Asia, sixteenth–nineteenth centuries: trade, conquest, and varied responses",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Colonial architecture reveals power and cultural interaction, but one city cannot represent an entire region. Company and imperial archives contain extensive information while reflecting the administrative purposes that created them; they need to be read beside objects, local memory, and resistance. Siam should not be described simply as untouched: preserving state sovereignty involved unequal treaties and territorial concessions.",
+              "complete": "Colonial architecture reveals power and cultural interaction, but one city cannot represent an entire region. Company and imperial archives contain extensive information while reflecting the administrative purposes that created them; they need to be read beside objects, local memory, and resistance. Siam should not be described simply as untouched: preserving state sovereignty involved unequal treaties and territorial concessions."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-vietnam-sixteenth-eighteenth",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ đầu thế kỉ XVI đến thế kỉ XVIII",
+        "en": "Vietnam from the sixteenth to eighteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ đầu thế kỉ XVI đến thế kỉ XVIII",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+              "slug": "viet-nam-1527-1802-phan-tranh-mo-coi-va-tay-son",
+              "title": "Việt Nam 1527–1802: phân tranh, mở cõi và phong trào Tây Sơn",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Nguồn triều đại thường đặt trung tâm ở vua, chúa và chiến trận; di tích cảng thị mở thêm góc nhìn về thương nhân, thợ thủ công, di dân và cộng đồng ngoại quốc. Khái niệm “mở cõi” cần kèm câu hỏi ai quản lý đất, ai di chuyển và ai mất quyền kiểm soát. Với Tây Sơn, ký ức chiến thắng cần đặt cạnh năng lực hành chính và khủng hoảng kế vị để giải thích cả thành tựu lẫn sụp đổ.",
+              "complete": "Nguồn triều đại thường đặt trung tâm ở vua, chúa và chiến trận; di tích cảng thị mở thêm góc nhìn về thương nhân, thợ thủ công, di dân và cộng đồng ngoại quốc. Khái niệm “mở cõi” cần kèm câu hỏi ai quản lý đất, ai di chuyển và ai mất quyền kiểm soát. Với Tây Sơn, ký ức chiến thắng cần đặt cạnh năng lực hành chính và khủng hoảng kế vị để giải thích cả thành tựu lẫn sụp đổ."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-sixteenth-eighteenth",
+              "slug": "vietnam-1527-1802-division-southward-expansion-and-tay-son",
+              "title": "Vietnam, 1527–1802: division, southward expansion, and Tây Sơn",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Dynastic sources tend to centre rulers, lords, and battles; port heritage adds merchants, artisans, migrants, and foreign communities. 'Southward expansion' must be accompanied by questions about who governed land, who moved, and who lost control. For Tây Sơn, memories of victory need to be read alongside administration and succession crises to explain both achievement and collapse.",
+              "complete": "Dynastic sources tend to centre rulers, lords, and battles; port heritage adds merchants, artisans, migrants, and foreign communities. 'Southward expansion' must be accompanied by questions about who governed land, who moved, and who lost control. For Tây Sơn, memories of victory need to be read alongside administration and succession crises to explain both achievement and collapse."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-vietnam-nguyen-dynasty",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam nửa đầu thế kỉ XIX",
+        "en": "Vietnam in the first half of the nineteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam nửa đầu thế kỉ XIX",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-nguyen-dynasty",
+              "slug": "viet-nam-1802-1858-nha-nguyen-va-quan-tri-quoc-gia-thong-nhat",
+              "title": "Việt Nam 1802–1858: nhà Nguyễn và bài toán quản trị một quốc gia thống nhất",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Văn bản triều đình cho thấy thiết kế chính sách; hiện vật, thủy lợi, thành lũy và di sản đô thị cho thấy năng lực vật chất, nhưng cần thêm dấu vết nổi dậy, thuế và đời sống để đánh giá tác động. Cùng một chính sách khai hoang có thể tăng đất canh tác nhưng cũng tạo lao dịch hoặc tranh chấp. Phân tích nguyên nhân yếu kém quốc phòng phải xét ngân sách, công nghệ, huấn luyện, thông tin và chiến lược thay vì một phán xét đạo đức duy nhất.",
+              "complete": "Văn bản triều đình cho thấy thiết kế chính sách; hiện vật, thủy lợi, thành lũy và di sản đô thị cho thấy năng lực vật chất, nhưng cần thêm dấu vết nổi dậy, thuế và đời sống để đánh giá tác động. Cùng một chính sách khai hoang có thể tăng đất canh tác nhưng cũng tạo lao dịch hoặc tranh chấp. Phân tích nguyên nhân yếu kém quốc phòng phải xét ngân sách, công nghệ, huấn luyện, thông tin và chiến lược thay vì một phán xét đạo đức duy nhất."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-nguyen-dynasty",
+              "slug": "vietnam-1802-1858-nguyen-governing-a-unified-state",
+              "title": "Vietnam, 1802–1858: the Nguyễn and the challenge of governing a unified state",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Court records reveal policy design; objects, irrigation, fortifications, and urban heritage show material capacity, but evidence about rebellion, taxation, and daily life is also needed to assess effects. The same reclamation policy could enlarge cultivation while creating labour burdens or disputes. Military weakness must be analysed through finance, technology, training, information, and strategy instead of a single moral judgement.",
+              "complete": "Court records reveal policy design; objects, irrigation, fortifications, and urban heritage show material capacity, but evidence about rebellion, taxation, and daily life is also needed to assess effects. The same reclamation policy could enlarge cultivation while creating labour burdens or disputes. Military weakness must be analysed through finance, technology, training, information, and strategy instead of a single moral judgement."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-vietnam-anti-colonial-1858-1884",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam chống thực dân Pháp xâm lược 1858–1884",
+        "en": "Vietnamese resistance to French conquest, 1858–1884"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam chống thực dân Pháp xâm lược 1858–1884",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+              "slug": "viet-nam-chong-cuoc-chinh-phuc-cua-phap-1858-1884",
+              "title": "Việt Nam chống cuộc chinh phục của Pháp, 1858–1884",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Nguồn quân sự thường làm nổi bật tướng lĩnh, trận đánh và vũ khí; hiệp ước cho thấy thay đổi pháp lý, còn phong trào địa phương phản ánh quyền chủ động ngoài triều đình. Phải phân biệt mục tiêu, năng lực và kết quả ở từng thời điểm. Phản biện chính sách nhà Nguyễn là cần thiết, nhưng chỉ có giá trị khi đối chiếu nguồn và so sánh lựa chọn khả thi trong tương quan quốc tế thế kỉ XIX.",
+              "complete": "Nguồn quân sự thường làm nổi bật tướng lĩnh, trận đánh và vũ khí; hiệp ước cho thấy thay đổi pháp lý, còn phong trào địa phương phản ánh quyền chủ động ngoài triều đình. Phải phân biệt mục tiêu, năng lực và kết quả ở từng thời điểm. Phản biện chính sách nhà Nguyễn là cần thiết, nhưng chỉ có giá trị khi đối chiếu nguồn và so sánh lựa chọn khả thi trong tương quan quốc tế thế kỉ XIX."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-anti-colonial-1858-1884",
+              "slug": "vietnamese-resistance-to-french-conquest-1858-1884",
+              "title": "Vietnamese resistance to French conquest, 1858–1884",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Military sources foreground commanders, battles, and weapons; treaties show legal change, while local movements reveal agency outside the court. Goals, capacity, and outcomes must be separated at each stage. Criticising Nguyễn policy is necessary, but it is meaningful only when evidence and realistic choices within the nineteenth-century international balance are compared.",
+              "complete": "Military sources foreground commanders, battles, and weapons; treaties show legal change, while local movements reveal agency outside the court. Goals, capacity, and outcomes must be separated at each stage. Criticising Nguyễn policy is necessary, but it is meaningful only when evidence and realistic choices within the nineteenth-century international balance are compared."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g8-vietnam-1885-1918",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1885 đến năm 1918",
+        "en": "Vietnam from 1885 to 1918"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ năm 1885 đến năm 1918",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-1885-1918",
+              "slug": "viet-nam-1885-1918-can-vuong-yen-the-va-con-duong-moi",
+              "title": "Việt Nam 1885–1918: Cần Vương, Yên Thế và những con đường cứu nước mới",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Nhãn “yêu nước” cho biết mục tiêu chung rộng nhưng không giải thích khác biệt về lực lượng, mô hình nhà nước hay phương pháp. Cần Vương gắn tính chính danh quân chủ; Yên Thế bám sinh kế và địa bàn; Đông Du dựa vào mạng quốc tế; Đông Kinh Nghĩa Thục dùng giáo dục công cộng. So sánh thất bại cần xét đàn áp thuộc địa, nguồn lực, tổ chức và giả định chiến lược, không dùng kết quả để phủ nhận ý nghĩa học hỏi của từng phong trào.",
+              "complete": "Nhãn “yêu nước” cho biết mục tiêu chung rộng nhưng không giải thích khác biệt về lực lượng, mô hình nhà nước hay phương pháp. Cần Vương gắn tính chính danh quân chủ; Yên Thế bám sinh kế và địa bàn; Đông Du dựa vào mạng quốc tế; Đông Kinh Nghĩa Thục dùng giáo dục công cộng. So sánh thất bại cần xét đàn áp thuộc địa, nguồn lực, tổ chức và giả định chiến lược, không dùng kết quả để phủ nhận ý nghĩa học hỏi của từng phong trào."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g8-vietnam-1885-1918",
+              "slug": "vietnam-1885-1918-can-vuong-yen-the-and-new-strategies",
+              "title": "Vietnam, 1885–1918: Cần Vương, Yên Thế, and new strategies",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "The label 'patriotic' identifies a broad shared aim but does not explain differences in participants, state models, or methods. Can Vuong drew on royal legitimacy; Yen The on livelihood and terrain; Dong Du on international networks; Dong Kinh Nghia Thuc on public education. Comparing defeats requires attention to colonial repression, resources, organisation, and strategic assumptions, without using outcomes to erase what each movement learned.",
+              "complete": "The label 'patriotic' identifies a broad shared aim but does not explain differences in participants, state models, or methods. Can Vuong drew on royal legitimacy; Yen The on livelihood and terrain; Dong Du on international networks; Dong Kinh Nghia Thuc on public education. Comparing defeats requires attention to colonial repression, resources, organisation, and strategic assumptions, without using outcomes to erase what each movement learned."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-world-1918-1945",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1918 đến năm 1945",
+        "en": "The world from 1918 to 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1918 đến năm 1945",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-1918-1945",
+              "slug": "the-gioi-1918-1945-khung-hoang-phat-xit-va-chien-tranh-toan-cau",
+              "title": "Thế giới 1918–1945: khủng hoảng, phát xít và chiến tranh toàn cầu",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Không nên giải thích chiến tranh bằng một nguyên nhân duy nhất hoặc xem năm 1939 là điểm khởi đầu giống nhau ở mọi khu vực. Versailles, khủng hoảng kinh tế, chủ nghĩa đế quốc, phân biệt chủng tộc, quyết định của các chính phủ và thất bại của an ninh tập thể tương tác với nhau. Cách tiếp cận này cũng tránh biến Holocaust thành hệ quả ngẫu nhiên: đó là chính sách có tư tưởng, bộ máy và lựa chọn của con người. Bài học về thiết chế quốc tế cần đi cùng giới hạn quyền lực và trách nhiệm của thành viên.",
+              "complete": "Không nên giải thích chiến tranh bằng một nguyên nhân duy nhất hoặc xem năm 1939 là điểm khởi đầu giống nhau ở mọi khu vực. Versailles, khủng hoảng kinh tế, chủ nghĩa đế quốc, phân biệt chủng tộc, quyết định của các chính phủ và thất bại của an ninh tập thể tương tác với nhau. Cách tiếp cận này cũng tránh biến Holocaust thành hệ quả ngẫu nhiên: đó là chính sách có tư tưởng, bộ máy và lựa chọn của con người. Bài học về thiết chế quốc tế cần đi cùng giới hạn quyền lực và trách nhiệm của thành viên."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-1918-1945",
+              "slug": "world-1918-1945-crisis-fascism-and-global-war",
+              "title": "The world, 1918–1945: crisis, fascism, and global war",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "No single cause explains the war, and 1939 was not an identical starting point in every region. Versailles, economic collapse, imperialism, racial ideology, government choices, and failures of collective security interacted. This lens also prevents the Holocaust from appearing accidental: it depended on an ideology, institutions, and human decisions. Studying international organisations requires attention both to their rules and to whether member states supply political will and power.",
+              "complete": "No single cause explains the war, and 1939 was not an identical starting point in every region. Versailles, economic collapse, imperialism, racial ideology, government choices, and failures of collective security interacted. This lens also prevents the Holocaust from appearing accidental: it depended on an ideology, institutions, and human decisions. Studying international organisations requires attention both to their rules and to whether member states supply political will and power."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-vietnam-1918-1945",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1918 đến năm 1945",
+        "en": "Vietnam from 1918 to 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1918 đến năm 1945",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g9-vietnam-1918-1945",
+              "slug": "viet-nam-1918-1945-nhieu-dong-van-dong-va-cach-mang-thang-tam",
+              "title": "Việt Nam 1918–1945: nhiều dòng vận động và Cách mạng tháng Tám",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Một câu chuyện chỉ có một tổ chức sẽ che khuất tranh luận về dân tộc, dân chủ, cải cách và cách mạng trong xã hội Việt Nam. Ngược lại, chỉ nói ‘thời cơ Nhật đầu hàng’ sẽ hạ thấp nhiều năm xây dựng mạng lưới và huy động. Phân tích cân bằng phải đặt vai trò chủ động của người Việt bên cạnh cấu trúc thuộc địa và chiến tranh, đồng thời không bỏ qua nạn đói, đàn áp và chi phí mà dân thường gánh chịu.",
+              "complete": "Một câu chuyện chỉ có một tổ chức sẽ che khuất tranh luận về dân tộc, dân chủ, cải cách và cách mạng trong xã hội Việt Nam. Ngược lại, chỉ nói ‘thời cơ Nhật đầu hàng’ sẽ hạ thấp nhiều năm xây dựng mạng lưới và huy động. Phân tích cân bằng phải đặt vai trò chủ động của người Việt bên cạnh cấu trúc thuộc địa và chiến tranh, đồng thời không bỏ qua nạn đói, đàn áp và chi phí mà dân thường gánh chịu."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g9-vietnam-1918-1945",
+              "slug": "vietnam-1918-1945-multiple-movements-and-the-august-revolution",
+              "title": "Vietnam, 1918–1945: multiple movements and the August Revolution",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A narrative centred on only one organisation hides arguments over nationalism, democracy, reform, and revolution. A narrative centred only on Japan's surrender, however, erases years of network-building and mobilisation. Balanced explanation keeps Vietnamese agency beside colonial and wartime structures and includes famine, repression, and the burdens borne by civilians rather than treating political victory as cost-free.",
+              "complete": "A narrative centred on only one organisation hides arguments over nationalism, democracy, reform, and revolution. A narrative centred only on Japan's surrender, however, erases years of network-building and mobilisation. Balanced explanation keeps Vietnamese agency beside colonial and wartime structures and includes famine, repression, and the burdens borne by civilians rather than treating political victory as cost-free."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-world-1945-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1945 đến năm 1991",
+        "en": "The world from 1945 to 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1945 đến năm 1991",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-1945-1991",
+              "slug": "the-gioi-1945-1991-chien-tranh-lanh-giai-phong-dan-toc-va-bien-doi-xa-hoi",
+              "title": "Thế giới 1945–1991: Chiến tranh lạnh, giải phóng dân tộc và biến đổi xã hội",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Khái niệm ‘hai cực’ hữu ích để đọc cấu trúc quyền lực nhưng sẽ gây sai lệch nếu mọi cuộc xung đột bị coi là sản phẩm từ bên ngoài. Các xã hội thuộc địa và hậu thuộc địa có mục tiêu, chia rẽ và chiến lược riêng. Tương tự, Liên Xô tan rã không thể giải thích chỉ bằng áp lực Mỹ; cải tổ, kinh tế, dân tộc và đấu tranh thể chế bên trong đều quan trọng. Phân tích cần tách kết thúc một cấu trúc quốc tế khỏi tuyên bố rằng lịch sử hay xung đột đã kết thúc.",
+              "complete": "Khái niệm ‘hai cực’ hữu ích để đọc cấu trúc quyền lực nhưng sẽ gây sai lệch nếu mọi cuộc xung đột bị coi là sản phẩm từ bên ngoài. Các xã hội thuộc địa và hậu thuộc địa có mục tiêu, chia rẽ và chiến lược riêng. Tương tự, Liên Xô tan rã không thể giải thích chỉ bằng áp lực Mỹ; cải tổ, kinh tế, dân tộc và đấu tranh thể chế bên trong đều quan trọng. Phân tích cần tách kết thúc một cấu trúc quốc tế khỏi tuyên bố rằng lịch sử hay xung đột đã kết thúc."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-1945-1991",
+              "slug": "world-1945-1991-cold-war-decolonisation-and-social-change",
+              "title": "The world, 1945–1991: Cold War, decolonisation, and social change",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Bipolarity is useful for mapping alliances and deterrence, but it distorts history if every conflict is treated as externally manufactured. Colonial and postcolonial societies had goals, divisions, and strategies of their own. Likewise, Soviet dissolution cannot be reduced to pressure from the United States: reform, economic conditions, nationality, and institutional conflict within the union mattered. Ending one international structure was not the end of history or conflict.",
+              "complete": "Bipolarity is useful for mapping alliances and deterrence, but it distorts history if every conflict is treated as externally manufactured. Colonial and postcolonial societies had goals, divisions, and strategies of their own. Likewise, Soviet dissolution cannot be reduced to pressure from the United States: reform, economic conditions, nationality, and institutional conflict within the union mattered. Ending one international structure was not the end of history or conflict."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-vietnam-1945-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1945 đến năm 1991",
+        "en": "Vietnam from 1945 to 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1945 đến năm 1991",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "chien-dich-dien-bien-phu",
+              "title": "Chiến dịch Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            },
+            {
+              "id": "lesson-g9-vietnam-1945-1991",
+              "slug": "viet-nam-1945-1991-khang-chien-thong-nhat-bao-ve-va-doi-moi",
+              "title": "Việt Nam 1945–1991: kháng chiến, thống nhất, bảo vệ và Đổi mới",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Một niên biểu chỉ gồm chiến thắng quân sự không giải thích được đời sống dân thường, ngoại giao, hậu phương, thống nhất pháp lý hay khủng hoảng kinh tế. Cũng cần phân biệt mục tiêu tự vệ ở biên giới Tây Nam với quá trình hiện diện kéo dài tại Campuchia và tranh luận quốc tế quanh quá trình đó. Đổi mới năm 1986 là bước ngoặt nhưng không tạo kết quả tức thời; đây là tiến trình điều chỉnh thể chế và chính sách trong bối cảnh trong nước lẫn quốc tế biến động.",
+              "complete": "Một niên biểu chỉ gồm chiến thắng quân sự không giải thích được đời sống dân thường, ngoại giao, hậu phương, thống nhất pháp lý hay khủng hoảng kinh tế. Cũng cần phân biệt mục tiêu tự vệ ở biên giới Tây Nam với quá trình hiện diện kéo dài tại Campuchia và tranh luận quốc tế quanh quá trình đó. Đổi mới năm 1986 là bước ngoặt nhưng không tạo kết quả tức thời; đây là tiến trình điều chỉnh thể chế và chính sách trong bối cảnh trong nước lẫn quốc tế biến động."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "battle-of-dien-bien-phu",
+              "title": "Battle of Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            },
+            {
+              "id": "lesson-g9-vietnam-1945-1991",
+              "slug": "vietnam-1945-1991-resistance-reunification-defence-and-doi-moi",
+              "title": "Vietnam, 1945–1991: resistance, reunification, defence, and Đổi mới",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "A chronology of military victories alone cannot explain civilian life, diplomacy, the home front, legal reunification, or economic crisis. Analysis should also distinguish the defensive objective on the southwestern border from the prolonged presence in Cambodia and international disputes around it. Đổi mới in 1986 was a turning point rather than an instant outcome: it began an institutional and policy process amid rapidly changing domestic and international conditions.",
+              "complete": "A chronology of military victories alone cannot explain civilian life, diplomacy, the home front, legal reunification, or economic crisis. Analysis should also distinguish the defensive objective on the southwestern border from the prolonged presence in Cambodia and international disputes around it. Đổi mới in 1986 was a turning point rather than an instant outcome: it began an institutional and policy process amid rapidly changing domestic and international conditions."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-world-since-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1991 đến nay",
+        "en": "The world since 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1991 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-since-1991",
+              "slug": "the-gioi-1991-2026-ket-noi-sau-hon-rui-ro-chung-lon-hon",
+              "title": "Thế giới 1991–2026: kết nối sâu hơn, rủi ro chung lớn hơn",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Các thuật ngữ ‘đơn cực’ và ‘đa cực’ là khung phân tích có tranh luận, không phải một dữ kiện duy nhất. Toàn cầu hóa vừa tạo tăng trưởng và trao đổi vừa làm cú sốc lan nhanh hơn. Dữ liệu ITU là ước tính cho năm 2025; dữ liệu khí hậu WMO quan sát tới 2025; báo cáo SDG 2026 đo tiến độ, còn mục tiêu 2030 là mục tiêu tương lai. Bài không biến các mục tiêu hoặc kịch bản thành kết quả đã xảy ra.",
+              "complete": "Các thuật ngữ ‘đơn cực’ và ‘đa cực’ là khung phân tích có tranh luận, không phải một dữ kiện duy nhất. Toàn cầu hóa vừa tạo tăng trưởng và trao đổi vừa làm cú sốc lan nhanh hơn. Dữ liệu ITU là ước tính cho năm 2025; dữ liệu khí hậu WMO quan sát tới 2025; báo cáo SDG 2026 đo tiến độ, còn mục tiêu 2030 là mục tiêu tương lai. Bài không biến các mục tiêu hoặc kịch bản thành kết quả đã xảy ra."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g9-world-since-1991",
+              "slug": "world-1991-2026-deeper-connection-and-greater-shared-risk",
+              "title": "The world, 1991–2026: deeper connection, greater shared risk",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "‘Unipolar’ and ‘multipolar’ are contested analytical frames, not a single settled fact. Globalisation supports exchange and growth while allowing shocks to spread faster. ITU values are 2025 estimates, WMO observations run through 2025, and the 2026 SDG report assesses progress; the 2030 Goals remain future targets. This lesson does not recast goals, projections, or scenarios as completed events.",
+              "complete": "‘Unipolar’ and ‘multipolar’ are contested analytical frames, not a single settled fact. Globalisation supports exchange and growth while allowing shocks to spread faster. ITU values are 2025 estimates, WMO observations run through 2025, and the 2026 SDG report assesses progress; the 2030 Goals remain future targets. This lesson does not recast goals, projections, or scenarios as completed events."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g9-vietnam-since-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1991 đến nay",
+        "en": "Vietnam since 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1991 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g9-vietnam-since-1991",
+              "slug": "viet-nam-1991-2026-hoi-nhap-phat-trien-va-nhung-bai-toan-moi",
+              "title": "Việt Nam 1991–2026: hội nhập, phát triển và những bài toán mới",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Không nên kể hội nhập như một chuỗi lễ kết nạp hoặc xem mọi tăng trưởng là kết quả của một mốc duy nhất. Cải cách trong nước, lao động, đầu tư, thị trường quốc tế và ổn định xã hội tương tác. Các con số y tế 2023, giáo dục 2024 và tăng trưởng 2025 là dữ liệu quan sát theo từng năm; con số 2026–2027 trên World Bank là forecast. Việc công khai kỳ tham chiếu giúp học sinh không nhầm ‘trang cập nhật năm 2026’ với ‘mọi dữ liệu đều thuộc năm 2026’.",
+              "complete": "Không nên kể hội nhập như một chuỗi lễ kết nạp hoặc xem mọi tăng trưởng là kết quả của một mốc duy nhất. Cải cách trong nước, lao động, đầu tư, thị trường quốc tế và ổn định xã hội tương tác. Các con số y tế 2023, giáo dục 2024 và tăng trưởng 2025 là dữ liệu quan sát theo từng năm; con số 2026–2027 trên World Bank là forecast. Việc công khai kỳ tham chiếu giúp học sinh không nhầm ‘trang cập nhật năm 2026’ với ‘mọi dữ liệu đều thuộc năm 2026’."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g9-vietnam-since-1991",
+              "slug": "vietnam-1991-2026-integration-development-and-new-challenges",
+              "title": "Vietnam, 1991–2026: integration, development, and new challenges",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-11T00:00:00.000Z",
+              "provenance": "Integration should not be reduced to accession ceremonies, nor should all growth be credited to one milestone. Domestic reform, labour, investment, international markets, and social stability interact. Health values from 2023, education values from 2024, and 2025 growth are observations tied to those years; World Bank values for 2026–2027 are forecasts. Publishing each reference period prevents a page updated in 2026 from being misread as though every datum described 2026.",
+              "complete": "Integration should not be reduced to accession ceremonies, nor should all growth be credited to one milestone. Domestic reform, labour, investment, international markets, and social stability interact. Health values from 2023, education values from 2024, and 2025 growth are observations tied to those years; World Bank values for 2026–2027 are forecasts. Publishing each reference period prevents a page updated in 2026 from being misread as though every datum described 2026."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-history-and-historiography",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử và Sử học",
+        "en": "History and historiography"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Lịch sử và Sử học",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-history-historiography",
+              "slug": "lich-su-va-su-hoc-qua-khu-bang-chung-va-dien-giai",
+              "title": "Lịch sử và Sử học: quá khứ, bằng chứng và diễn giải",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Tính khách quan trong Sử học không có nghĩa là không có người nghiên cứu, mà là lập luận có thể kiểm tra, phản biện và sửa chữa. Cần dạy học sinh phân biệt ‘có nguồn’ với ‘nguồn chứng minh đủ câu’, đồng thời phân biệt sự bất đồng dựa trên bằng chứng với phủ nhận tùy tiện.",
+              "complete": "Tính khách quan trong Sử học không có nghĩa là không có người nghiên cứu, mà là lập luận có thể kiểm tra, phản biện và sửa chữa. Cần dạy học sinh phân biệt ‘có nguồn’ với ‘nguồn chứng minh đủ câu’, đồng thời phân biệt sự bất đồng dựa trên bằng chứng với phủ nhận tùy tiện."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-history-historiography",
+              "slug": "history-and-historiography-past-evidence-and-interpretation",
+              "title": "History and historiography: past, evidence, and interpretation",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Objectivity does not mean an absent researcher; it means claims can be tested, challenged, and revised. Students should distinguish ‘a source exists’ from ‘the source proves the whole sentence’ and distinguish evidence-based disagreement from arbitrary denial.",
+              "complete": "Objectivity does not mean an absent researcher; it means claims can be tested, challenged, and revised. Students should distinguish ‘a source exists’ from ‘the source proves the whole sentence’ and distinguish evidence-based disagreement from arbitrary denial."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-roles-of-history",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vai trò của Sử học",
+        "en": "The roles of history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Vai trò của Sử học",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-roles-history",
+              "slug": "vai-tro-cua-su-hoc-trong-doi-song-va-tuong-lai",
+              "title": "Vai trò của Sử học trong đời sống và tương lai",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "‘Bài học lịch sử’ hữu ích khi nêu rõ cơ chế và điều kiện, không phải khẩu hiệu rút ra từ một sự kiện. Tương tự, số hóa di sản cần song hành với quyền, ngữ cảnh và sự tham gia của cộng đồng sở hữu ký ức. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "‘Bài học lịch sử’ hữu ích khi nêu rõ cơ chế và điều kiện, không phải khẩu hiệu rút ra từ một sự kiện. Tương tự, số hóa di sản cần song hành với quyền, ngữ cảnh và sự tham gia của cộng đồng sở hữu ký ức. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-roles-history",
+              "slug": "the-roles-of-history-in-life-and-the-future",
+              "title": "The roles of history in life and the future",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "A historical lesson is useful when it identifies mechanisms and conditions, not when it becomes a slogan. Digitising heritage likewise requires rights, context, and participation by communities whose memories are represented. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "A historical lesson is useful when it identifies mechanisms and conditions, not when it becomes a slogan. Digitising heritage likewise requires rights, context, and participation by communities whose memories are represented. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-ancient-medieval-world-civilisations",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số nền văn minh thế giới thời cổ – trung đại",
+        "en": "Selected ancient and medieval world civilisations"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh thế giới thời cổ – trung đại",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-world-civilisations",
+              "slug": "nen-van-minh-the-gioi-co-trung-dai-thanh-pho-chu-viet-va-trao-doi",
+              "title": "Nền văn minh thế giới cổ–trung đại: thành phố, chữ viết và trao đổi",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Khái niệm ‘văn minh’ dễ trở thành nhãn đánh giá. Bài học dùng nó như công cụ so sánh có điều kiện, luôn hỏi về bằng chứng, nhóm xã hội và sự giao lưu xuyên vùng. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "Khái niệm ‘văn minh’ dễ trở thành nhãn đánh giá. Bài học dùng nó như công cụ so sánh có điều kiện, luôn hỏi về bằng chứng, nhóm xã hội và sự giao lưu xuyên vùng. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-world-civilisations",
+              "slug": "ancient-and-medieval-civilisations-cities-writing-and-exchange",
+              "title": "Ancient and medieval civilisations: cities, writing, and exchange",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "‘Civilisation’ can become a ranking label. This lesson uses it as a conditional comparison tool, asking about evidence, social groups, and cross-regional exchange. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "‘Civilisation’ can become a ranking label. This lesson uses it as a conditional comparison tool, asking about evidence, social groups, and cross-regional exchange. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-industrial-revolutions-world-history",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+        "en": "Industrial revolutions in world history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-industrial-revolutions",
+              "slug": "cac-cuoc-cach-mang-cong-nghiep-nang-luong-du-lieu-va-xa-hoi",
+              "title": "Các cuộc cách mạng công nghiệp: năng lượng, dữ liệu và xã hội",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Thuật ngữ ‘cách mạng công nghiệp lần thứ tư’ hữu ích để mở thảo luận nhưng có thể che giấu khác biệt vùng miền và người lao động. Cần luôn hỏi dữ liệu thuộc năm nào và lợi ích được phân phối ra sao. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "Thuật ngữ ‘cách mạng công nghiệp lần thứ tư’ hữu ích để mở thảo luận nhưng có thể che giấu khác biệt vùng miền và người lao động. Cần luôn hỏi dữ liệu thuộc năm nào và lợi ích được phân phối ra sao. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-industrial-revolutions",
+              "slug": "industrial-revolutions-energy-data-and-society",
+              "title": "Industrial revolutions: energy, data, and society",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "‘Fourth industrial revolution’ can open discussion but hide regional and labour differences. Always ask which year a dataset describes and who receives gains. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "‘Fourth industrial revolution’ can open discussion but hide regional and labour differences. Always ask which year a dataset describes and who receives gains. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-southeast-asian-civilisation",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Văn minh Đông Nam Á",
+        "en": "Southeast Asian civilisation"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Văn minh Đông Nam Á",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-southeast-asian-civilisation",
+              "slug": "van-minh-dong-nam-a-giao-luu-bien-va-ban-dia-hoa",
+              "title": "Văn minh Đông Nam Á: giao lưu, biển và bản địa hóa",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Khái niệm giao lưu phải đi cùng bất cân xứng quyền lực. Bài học dùng UNESCO như một nguồn di sản thể chế nhưng không để danh hiệu thay thế nghiên cứu lịch sử địa phương. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "Khái niệm giao lưu phải đi cùng bất cân xứng quyền lực. Bài học dùng UNESCO như một nguồn di sản thể chế nhưng không để danh hiệu thay thế nghiên cứu lịch sử địa phương. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-southeast-asian-civilisation",
+              "slug": "southeast-asian-civilisation-exchange-seas-and-localisation",
+              "title": "Southeast Asian civilisation: exchange, seas, and localisation",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Exchange must be read alongside unequal power. UNESCO heritage descriptions are valuable institutional evidence but cannot replace local historical research. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "Exchange must be read alongside unequal power. UNESCO heritage descriptions are valuable institutional evidence but cannot replace local historical research. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-civilisations-on-vietnamese-territory",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+        "en": "Selected civilisations on Vietnamese territory before 1858"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-vietnam-civilisations",
+              "slug": "cac-nen-van-minh-tren-dat-viet-truoc-1858-nhieu-lop-nhieu-trung-tam",
+              "title": "Các nền văn minh trên đất Việt trước 1858: nhiều lớp, nhiều trung tâm",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Bài học phải giữ đồng thời tính liên tục của lịch sử Việt Nam và tính đa dạng của các cộng đồng. Di sản UNESCO là bằng chứng vật chất có giá trị, không phải giấy chứng nhận cho một câu chuyện độc quyền. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "Bài học phải giữ đồng thời tính liên tục của lịch sử Việt Nam và tính đa dạng của các cộng đồng. Di sản UNESCO là bằng chứng vật chất có giá trị, không phải giấy chứng nhận cho một câu chuyện độc quyền. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-vietnam-civilisations",
+              "slug": "civilisations-on-vietnamese-territory-before-1858-layers-and-centres",
+              "title": "Civilisations on Vietnamese territory before 1858: layers and centres",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "The lesson holds continuity and diversity together. UNESCO heritage is valuable material evidence, not a certificate for an exclusive narrative. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "The lesson holds continuity and diversity together. UNESCO heritage is valuable material evidence, not a certificate for an exclusive narrative. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g10-vietnamese-ethnic-communities",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cộng đồng các dân tộc Việt Nam",
+        "en": "Vietnam's ethnic communities"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Cộng đồng các dân tộc Việt Nam",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g10-ethnic-communities",
+              "slug": "cong-dong-cac-dan-toc-viet-nam-da-dang-thong-nhat-va-cung-kien-tao",
+              "title": "Cộng đồng các dân tộc Việt Nam: đa dạng, thống nhất và cùng kiến tạo",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Dùng con số 54 mà không nói về nội bộ đa dạng có thể biến bài học thành danh sách. Cần tránh lãng mạn hóa ‘bản sắc truyền thống’ và tránh coi cộng đồng thiểu số chỉ là đối tượng chính sách. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối.",
+              "complete": "Dùng con số 54 mà không nói về nội bộ đa dạng có thể biến bài học thành danh sách. Cần tránh lãng mạn hóa ‘bản sắc truyền thống’ và tránh coi cộng đồng thiểu số chỉ là đối tượng chính sách. Bản ghi này phải nêu rõ phạm vi, loại bằng chứng, giới hạn diễn giải và câu hỏi để học sinh có thể kiểm tra lại nguồn thay vì tiếp nhận kết luận như sự thật tuyệt đối."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g10-ethnic-communities",
+              "slug": "vietnamese-ethnic-communities-diversity-unity-and-shared-creation",
+              "title": "Vietnamese ethnic communities: diversity, unity, and shared creation",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Using the number 54 without internal diversity turns history into a list. Avoid romanticising ‘tradition’ and avoid treating minority communities only as policy objects. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact.",
+              "complete": "Using the number 54 without internal diversity turns history into a list. Avoid romanticising ‘tradition’ and avoid treating minority communities only as policy objects. This note states the scope, evidence type, interpretive limits, and questions so students can check the source instead of treating a conclusion as absolute fact."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-bourgeois-revolutions-capitalism",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+        "en": "Bourgeois revolutions and the development of capitalism"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-bourgeois-capitalism",
+              "slug": "cach-mang-tu-san-va-su-phat-trien-cua-chu-nghia-tu-ban",
+              "title": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Đọc cách mạng như một quá trình nhiều lực lượng giúp tránh kể chuyện một chiều; cần đặt quyền công dân, thuộc địa, giới và lao động vào cùng khung phân tích. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Đọc cách mạng như một quá trình nhiều lực lượng giúp tránh kể chuyện một chiều; cần đặt quyền công dân, thuộc địa, giới và lao động vào cùng khung phân tích. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-bourgeois-capitalism",
+              "slug": "bourgeois-revolutions-and-the-development-of-capitalism",
+              "title": "Bourgeois revolutions and the development of capitalism",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Reading revolution as a process of competing forces avoids a single story; citizenship, empire, gender, and labour belong in the same frame. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "Reading revolution as a process of competing forces avoids a single story; citizenship, empire, gender, and labour belong in the same frame. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-socialism-since-1917",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+        "en": "Socialism from 1917 to the present"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chủ nghĩa xã hội từ năm 1917 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-socialism-1917",
+              "slug": "chu-nghia-xa-hoi-tu-nam-1917-den-nay",
+              "title": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Không nên dùng một chỉ số hoặc một hồi ký để đại diện cho cả xã hội; bảng so sánh cần ghi thời điểm, đơn vị và tiếng nói bị thiếu. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Không nên dùng một chỉ số hoặc một hồi ký để đại diện cho cả xã hội; bảng so sánh cần ghi thời điểm, đơn vị và tiếng nói bị thiếu. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-socialism-1917",
+              "slug": "socialism-from-1917-to-the-present",
+              "title": "Socialism from 1917 to the present",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "One indicator or memoir cannot represent a whole society; comparisons should record dates, units, and missing voices. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "One indicator or memoir cannot represent a whole society; comparisons should record dates, units, and missing voices. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-southeast-asian-independence",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Quá trình giành độc lập của các quốc gia Đông Nam Á",
+        "en": "Southeast Asian paths to independence"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Quá trình giành độc lập của các quốc gia Đông Nam Á",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-southeast-asian-independence",
+              "slug": "dong-nam-a-gianh-doc-lap-va-xay-dung-quoc-gia",
+              "title": "Đông Nam Á giành độc lập và xây dựng quốc gia",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Đặt Việt Nam trong khu vực giúp tránh ngoại lệ luận; mọi so sánh phải giữ tên gọi, niên đại và tiếng nói của xã hội địa phương. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Đặt Việt Nam trong khu vực giúp tránh ngoại lệ luận; mọi so sánh phải giữ tên gọi, niên đại và tiếng nói của xã hội địa phương. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-southeast-asian-independence",
+              "slug": "southeast-asian-paths-to-independence-and-nation-building",
+              "title": "Southeast Asian paths to independence and nation-building",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Placing Vietnam in the region avoids exceptionalism; comparisons must preserve local names, dates, and social voices. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "Placing Vietnam in the region avoids exceptionalism; comparisons must preserve local names, dates, and social voices. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-vietnam-national-defence-before-1945",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+        "en": "Vietnamese national defence and liberation before 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-national-defence",
+              "slug": "chien-tranh-bao-ve-to-quoc-va-giai-phong-dan-toc-truoc-1945",
+              "title": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trước 1945",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Một di tích quân sự có giá trị nhưng không đủ để đại diện cho mọi tiếng nói; cần đặt chiến thuật cạnh dân sự, hậu cần, môi trường và ký ức. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Một di tích quân sự có giá trị nhưng không đủ để đại diện cho mọi tiếng nói; cần đặt chiến thuật cạnh dân sự, hậu cần, môi trường và ký ức. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-national-defence",
+              "slug": "vietnamese-national-defence-and-liberation-before-1945",
+              "title": "Vietnamese national defence and liberation before 1945",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "A military site is valuable evidence but cannot represent every voice; strategy must be read beside civilians, logistics, environment, and memory. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "A military site is valuable evidence but cannot represent every voice; strategy must be read beside civilians, logistics, environment, and memory. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-major-vietnamese-reforms",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+        "en": "Major reforms in Vietnamese history before 1858"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-reforms",
+              "slug": "mot-so-cai-cach-lon-truoc-nam-1858",
+              "title": "Một số cải cách lớn trước năm 1858",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Đánh giá cải cách cần tách ý định khỏi kết quả; nguồn của cơ quan trung ương phải được đặt cạnh địa phương, dân cư và bằng chứng vật chất. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Đánh giá cải cách cần tách ý định khỏi kết quả; nguồn của cơ quan trung ương phải được đặt cạnh địa phương, dân cư và bằng chứng vật chất. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-reforms",
+              "slug": "major-reforms-in-vietnamese-history-before-1858",
+              "title": "Major reforms in Vietnamese history before 1858",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Assessment separates intention from outcome; central records should be read beside local experience and material evidence. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "Assessment separates intention from outcome; central records should be read beside local experience and material evidence. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g11-east-sea-sovereignty",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+        "en": "History of Vietnam's sovereignty, rights, and lawful interests in the East Sea"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g11-east-sea",
+              "slug": "chu-quyen-cac-quyen-va-loi-ich-hop-phap-cua-viet-nam-o-bien-dong",
+              "title": "Chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Mọi claim nhạy cảm phải có locator, loại nguồn, thời điểm và trạng thái; reviewer cần kiểm tra cả tính chính xác lịch sử lẫn ngôn ngữ không kích động. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập.",
+              "complete": "Mọi claim nhạy cảm phải có locator, loại nguồn, thời điểm và trạng thái; reviewer cần kiểm tra cả tính chính xác lịch sử lẫn ngôn ngữ không kích động. Bài tập kiểm chứng phải ghi rõ phạm vi của từng nguồn, không biến kết quả mong muốn thành bằng chứng. Khi có tranh luận, học sinh lập bảng so sánh dữ kiện, cách diễn giải, mức chắc chắn và câu hỏi còn mở; reviewer nội bộ chỉ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g11-east-sea",
+              "slug": "vietnams-sovereignty-rights-and-lawful-interests-in-the-east-sea",
+              "title": "Vietnam's sovereignty, rights, and lawful interests in the East Sea",
+              "sourceCount": 5,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Every sensitive claim needs a locator, source type, date, and status; review checks historical accuracy and non-inciting language. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council.",
+              "complete": "Every sensitive claim needs a locator, source type, date, and status; review checks historical accuracy and non-inciting language. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council. A verification exercise states each source's scope and never turns a desired conclusion into evidence. When debate remains, students compare facts, interpretations, confidence, and open questions; the internal reviewer certifies editorial process only and is not an independent historian council."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-world-during-after-cold-war",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới trong và sau Chiến tranh lạnh",
+        "en": "The world during and after the Cold War"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Thế giới trong và sau Chiến tranh lạnh",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g12-world-cold-war",
+              "slug": "the-gioi-trong-va-sau-chien-tranh-lanh",
+              "title": "Thế giới trong và sau Chiến tranh lạnh",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Mô hình hai cực hữu ích nhưng không đủ; bài học phải giữ chủ thể khu vực và các hệ quả xã hội bên dưới cấp độ cường quốc. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Mô hình hai cực hữu ích nhưng không đủ; bài học phải giữ chủ thể khu vực và các hệ quả xã hội bên dưới cấp độ cường quốc. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g12-world-cold-war",
+              "slug": "the-world-during-and-after-the-cold-war",
+              "title": "The world during and after the Cold War",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "A bipolar model helps but is incomplete; preserve regional agency and social consequences below great-power scale. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "A bipolar model helps but is incomplete; preserve regional agency and social consequences below great-power scale. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-asean-history",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "ASEAN: Những chặng đường lịch sử",
+        "en": "ASEAN: historical milestones"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: ASEAN: Những chặng đường lịch sử",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g12-asean",
+              "slug": "asean-nhung-chang-duong-lich-su",
+              "title": "ASEAN: những chặng đường lịch sử",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Đọc ASEAN từ văn kiện và thực tiễn xã hội giúp tránh cả ca ngợi trừu tượng lẫn phủ nhận giá trị hợp tác. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Đọc ASEAN từ văn kiện và thực tiễn xã hội giúp tránh cả ca ngợi trừu tượng lẫn phủ nhận giá trị hợp tác. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g12-asean",
+              "slug": "asean-historical-milestones",
+              "title": "ASEAN: historical milestones",
+              "sourceCount": 2,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Reading ASEAN through documents and social practice avoids abstract praise and dismissal of cooperation. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "Reading ASEAN through documents and social practice avoids abstract praise and dismissal of cooperation. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-vietnam-1945-1975",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+        "en": "Revolution, wars of independence, and national defence, 1945–1975"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "chien-dich-dien-bien-phu",
+              "title": "Chiến dịch Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            },
+            {
+              "id": "lesson-g12-vietnam-1945-1975",
+              "slug": "cach-mang-khang-chien-va-bao-ve-to-quoc-1945-1975",
+              "title": "Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Một câu chuyện chính trị không được xóa đời sống dân sự; mọi tuyên bố về thành công cần ghi nguồn và giới hạn diễn giải. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Một câu chuyện chính trị không được xóa đời sống dân sự; mọi tuyên bố về thành công cần ghi nguồn và giới hạn diễn giải. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "battle-of-dien-bien-phu",
+              "title": "Battle of Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            },
+            {
+              "id": "lesson-g12-vietnam-1945-1975",
+              "slug": "revolution-wars-of-independence-and-national-defence-1945-1975",
+              "title": "Revolution, wars of independence, and national defence, 1945–1975",
+              "sourceCount": 4,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Political narrative cannot erase civilian life; every success claim needs a source and interpretive limit. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "Political narrative cannot erase civilian life; every success claim needs a source and interpretive limit. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-vietnam-since-1975",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+        "en": "Vietnam since 1975 and the Đổi mới process"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g12-vietnam-since-1975",
+              "slug": "viet-nam-tu-nam-1975-den-nay-va-cong-cuoc-doi-moi",
+              "title": "Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Mọi cập nhật hiện tại phải có asOf và nguồn; thống kê mô tả xu hướng nhưng không tự giải thích nguyên nhân hay giá trị sống. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Mọi cập nhật hiện tại phải có asOf và nguồn; thống kê mô tả xu hướng nhưng không tự giải thích nguyên nhân hay giá trị sống. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g12-vietnam-since-1975",
+              "slug": "vietnam-since-1975-and-the-doi-moi-process",
+              "title": "Vietnam since 1975 and the Đổi mới process",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Every current update needs an as-of date and source; statistics describe trends but do not explain causes or well-being by themselves. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "Every current update needs an as-of date and source; statistics describe trends but do not explain causes or well-being by themselves. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-vietnamese-foreign-relations",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+        "en": "Vietnamese foreign relations in modern history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g12-foreign-relations",
+              "slug": "lich-su-doi-ngoai-viet-nam-thoi-can-hien-dai",
+              "title": "Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Nguồn của Bộ Ngoại giao có giá trị về lập trường chính sách nhưng phải ghi đúng vị trí phát ngôn và đối chiếu khi claim mang tính lịch sử. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Nguồn của Bộ Ngoại giao có giá trị về lập trường chính sách nhưng phải ghi đúng vị trí phát ngôn và đối chiếu khi claim mang tính lịch sử. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g12-foreign-relations",
+              "slug": "vietnamese-foreign-relations-in-modern-history",
+              "title": "Vietnamese foreign relations in modern history",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "A Foreign Ministry source is valuable for policy position but must be labelled as such and cross-checked when a claim is historical. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "A Foreign Ministry source is valuable for policy position but must be labelled as such and cross-checked when a claim is historical. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    },
+    {
+      "id": "g12-ho-chi-minh",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Hồ Chí Minh trong lịch sử Việt Nam",
+        "en": "Hồ Chí Minh in Vietnamese history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Hồ Chí Minh trong lịch sử Việt Nam",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "lesson-g12-ho-chi-minh",
+              "slug": "ho-chi-minh-trong-lich-su-viet-nam",
+              "title": "Hồ Chí Minh trong lịch sử Việt Nam",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Tôn trọng nhân vật và di sản phải đi cùng quyền được kiểm chứng; mỗi trích dẫn cần xác định tác giả, thời điểm và loại nguồn. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản.",
+              "complete": "Tôn trọng nhân vật và di sản phải đi cùng quyền được kiểm chứng; mỗi trích dẫn cần xác định tác giả, thời điểm và loại nguồn. Reviewer nội bộ xác nhận quy trình biên tập, không thay thế Hội đồng sử học độc lập. Khi có nguồn mới hoặc bất đồng, bài phải ghi diff, mức chắc chắn và chuyển dual review trước khi xuất bản."
+            }
+          ],
+          "complete": true
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "lesson-g12-ho-chi-minh",
+              "slug": "ho-chi-minh-in-vietnamese-history",
+              "title": "Hồ Chí Minh in Vietnamese history",
+              "sourceCount": 3,
+              "verifiedClaimCount": 2,
+              "reviewer": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+              "asOf": "2026-08-13T00:00:00.000Z",
+              "provenance": "Respect for a figure and heritage belongs with the right to verify; every quotation identifies author, date, and source type. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication.",
+              "complete": "Respect for a figure and heritage belongs with the right to verify; every quotation identifies author, date, and source type. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication. The internal reviewer certifies editorial process and is not an independent historian council. New evidence or disagreement requires a diff, confidence statement, and dual review before publication."
+            }
+          ],
+          "complete": true
+        }
+      },
+      "complete": true
+    }
+  ],
+  "elective": [
+    {
+      "grade": 10,
+      "requirements": 3
+    },
+    {
+      "grade": 11,
+      "requirements": 3
+    },
+    {
+      "grade": 12,
+      "requirements": 3
+    }
+  ]
+}

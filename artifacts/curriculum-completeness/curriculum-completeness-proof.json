@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-08-13T08:09:00.000Z",
+  "liveOrigin": "https://promises-ports-hawaiian-interactive.trycloudflare.com",
+  "urls": { "reportVi": "/vi/nguon-va-kiem-chung", "reportEn": "/en/nguon-va-kiem-chung", "grades": ["/vi/hoc-theo-lop/6", "/vi/hoc-theo-lop/7", "/vi/hoc-theo-lop/8", "/vi/hoc-theo-lop/9", "/vi/hoc-theo-lop/10", "/vi/hoc-theo-lop/11", "/vi/hoc-theo-lop/12"] },
+  "liveHttp": { "healthz": 200, "reportVi": 200, "reportEn": 200, "grade6": 200, "grade12": 200 },
+  "releaseGate": { "redFixtureExit": 1, "redFixtureStatus": "FAIL", "redFixtureMutated": false, "greenExit": 0, "greenStatus": "PASS", "mandatoryRequirements": 46, "completeMandatoryRequirements": 46, "gradesPassing": 7, "emptyFacets": [], "electiveSeparate": true, "gradeCoverage": { "6": true, "7": true, "8": true, "9": true, "10": true, "11": true, "12": true } },
+  "livePlaywright": "1 passed — transparency report and all seven grade journeys",
+  "artifacts": ["artifacts/curriculum-completeness/live-coverage.json", "artifacts/curriculum-completeness/live-report-vi.html", "artifacts/curriculum-completeness/live-report-en.html"]
+}

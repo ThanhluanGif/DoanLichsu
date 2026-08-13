@@ -1,0 +1,1093 @@
+{
+  "generatedAt": "2026-08-13T08:04:38.377Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "schemaVersion": 9,
+  "status": "FAIL",
+  "rules": {
+    "mandatoryRequiresBothLocales": true,
+    "mandatoryRequiresSourceClaimReviewerProvenance": true,
+    "electiveSeparate": true,
+    "emptyFacetsFail": true
+  },
+  "summary": {
+    "mandatoryRequirements": 46,
+    "completeMandatoryRequirements": 0,
+    "publishedContent": 50,
+    "gradesPassing": 0,
+    "emptyFacets": []
+  },
+  "grades": [
+    {
+      "grade": 6,
+      "requirementCount": 8,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 7,
+      "requirementCount": 6,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 8,
+      "requirementCount": 7,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 9,
+      "requirementCount": 6,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 10,
+      "requirementCount": 7,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 11,
+      "requirementCount": 6,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    },
+    {
+      "grade": 12,
+      "requirementCount": 6,
+      "completeRequirementCount": 0,
+      "fullCoverage": false
+    }
+  ],
+  "mandatory": [
+    {
+      "id": "g6-why-study-history",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Tại sao cần học Lịch sử?",
+        "en": "Why study history?"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Tại sao cần học Lịch sử?",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-human-origins",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Nguồn gốc loài người và xã hội nguyên thủy",
+        "en": "Human origins and early society"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Nguồn gốc loài người và xã hội nguyên thủy",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-ancient-civilisations",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các xã hội và nền văn minh cổ đại",
+        "en": "Ancient societies and civilisations"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Các xã hội và nền văn minh cổ đại",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-southeast-asia-to-tenth-century",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+        "en": "Southeast Asia to the tenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Đông Nam Á từ những thế kỉ tiếp giáp Công nguyên đến thế kỉ X",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-van-lang-au-lac",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Văn Lang – Âu Lạc",
+        "en": "Văn Lang and Âu Lạc"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Văn Lang – Âu Lạc",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-northern-rule-resistance",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+        "en": "Northern rule and struggles for independence"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Thời Bắc thuộc và các cuộc đấu tranh giành độc lập",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-champa",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vương quốc Chăm-pa",
+        "en": "The kingdom of Champa"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Chăm-pa",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g6-funan",
+      "grade": 6,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vương quốc Phù Nam",
+        "en": "The kingdom of Funan"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 6: Vương quốc Phù Nam",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-medieval-western-europe",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI",
+        "en": "Western Europe from the fifth to early sixteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-medieval-china-india",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Trung Quốc và Ấn Độ thời trung đại",
+        "en": "Medieval China and India"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Trung Quốc và Ấn Độ thời trung đại",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-southeast-asia-tenth-sixteenth",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI",
+        "en": "Southeast Asia from the late tenth to early sixteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-vietnam-tenth-thirteenth",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XIII",
+        "en": "Vietnam from the tenth to early thirteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XIII",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-vietnam-tran-ho",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam thời Trần và Hồ",
+        "en": "Vietnam under the Trần and Hồ"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Việt Nam thời Trần và Hồ",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g7-lam-son-later-le",
+      "grade": 7,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ",
+        "en": "Lam Sơn uprising and Đại Việt under the Later Lê"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 7: Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-early-modern-revolutions",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các cuộc cách mạng tư sản thời cận đại",
+        "en": "Early modern bourgeois revolutions"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Các cuộc cách mạng tư sản thời cận đại",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-industrial-revolution",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng công nghiệp",
+        "en": "The Industrial Revolution"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Cách mạng công nghiệp",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-southeast-asia-sixteenth-nineteenth",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX",
+        "en": "Southeast Asia from the sixteenth to nineteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Đông Nam Á từ thế kỉ XVI đến thế kỉ XIX",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-vietnam-sixteenth-eighteenth",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ đầu thế kỉ XVI đến thế kỉ XVIII",
+        "en": "Vietnam from the sixteenth to eighteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ đầu thế kỉ XVI đến thế kỉ XVIII",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-vietnam-nguyen-dynasty",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam nửa đầu thế kỉ XIX",
+        "en": "Vietnam in the first half of the nineteenth century"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam nửa đầu thế kỉ XIX",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-vietnam-anti-colonial-1858-1884",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam chống thực dân Pháp xâm lược 1858–1884",
+        "en": "Vietnamese resistance to French conquest, 1858–1884"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam chống thực dân Pháp xâm lược 1858–1884",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g8-vietnam-1885-1918",
+      "grade": 8,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1885 đến năm 1918",
+        "en": "Vietnam from 1885 to 1918"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 8: Việt Nam từ năm 1885 đến năm 1918",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-world-1918-1945",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1918 đến năm 1945",
+        "en": "The world from 1918 to 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1918 đến năm 1945",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-vietnam-1918-1945",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1918 đến năm 1945",
+        "en": "Vietnam from 1918 to 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1918 đến năm 1945",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-world-1945-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1945 đến năm 1991",
+        "en": "The world from 1945 to 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1945 đến năm 1991",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-vietnam-1945-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1945 đến năm 1991",
+        "en": "Vietnam from 1945 to 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1945 đến năm 1991",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "chien-dich-dien-bien-phu",
+              "title": "Chiến dịch Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            }
+          ],
+          "complete": false
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "battle-of-dien-bien-phu",
+              "title": "Battle of Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            }
+          ],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-world-since-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới từ năm 1991 đến nay",
+        "en": "The world since 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Thế giới từ năm 1991 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g9-vietnam-since-1991",
+      "grade": 9,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1991 đến nay",
+        "en": "Vietnam since 1991"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử và Địa lí THCS, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 17/2025/TT-BGDĐT — Lớp 9: Việt Nam từ năm 1991 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-history-and-historiography",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử và Sử học",
+        "en": "History and historiography"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Lịch sử và Sử học",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-roles-of-history",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Vai trò của Sử học",
+        "en": "The roles of history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Vai trò của Sử học",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-ancient-medieval-world-civilisations",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số nền văn minh thế giới thời cổ – trung đại",
+        "en": "Selected ancient and medieval world civilisations"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh thế giới thời cổ – trung đại",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-industrial-revolutions-world-history",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+        "en": "Industrial revolutions in world history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-southeast-asian-civilisation",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Văn minh Đông Nam Á",
+        "en": "Southeast Asian civilisation"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Văn minh Đông Nam Á",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-civilisations-on-vietnamese-territory",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+        "en": "Selected civilisations on Vietnamese territory before 1858"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Một số nền văn minh trên đất nước Việt Nam trước năm 1858",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g10-vietnamese-ethnic-communities",
+      "grade": 10,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cộng đồng các dân tộc Việt Nam",
+        "en": "Vietnam's ethnic communities"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 10: Cộng đồng các dân tộc Việt Nam",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-bourgeois-revolutions-capitalism",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+        "en": "Bourgeois revolutions and the development of capitalism"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Cách mạng tư sản và sự phát triển của chủ nghĩa tư bản",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-socialism-since-1917",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Chủ nghĩa xã hội từ năm 1917 đến nay",
+        "en": "Socialism from 1917 to the present"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chủ nghĩa xã hội từ năm 1917 đến nay",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-southeast-asian-independence",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Quá trình giành độc lập của các quốc gia Đông Nam Á",
+        "en": "Southeast Asian paths to independence"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Quá trình giành độc lập của các quốc gia Đông Nam Á",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-vietnam-national-defence-before-1945",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+        "en": "Vietnamese national defence and liberation before 1945"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Chiến tranh bảo vệ Tổ quốc và giải phóng dân tộc trong lịch sử Việt Nam trước 1945",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-major-vietnamese-reforms",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+        "en": "Major reforms in Vietnamese history before 1858"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Một số cuộc cải cách lớn trong lịch sử Việt Nam trước năm 1858",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g11-east-sea-sovereignty",
+      "grade": 11,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+        "en": "History of Vietnam's sovereignty, rights, and lawful interests in the East Sea"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 11: Lịch sử bảo vệ chủ quyền, các quyền và lợi ích hợp pháp của Việt Nam ở Biển Đông",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-world-during-after-cold-war",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Thế giới trong và sau Chiến tranh lạnh",
+        "en": "The world during and after the Cold War"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Thế giới trong và sau Chiến tranh lạnh",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-asean-history",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "ASEAN: Những chặng đường lịch sử",
+        "en": "ASEAN: historical milestones"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: ASEAN: Những chặng đường lịch sử",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-vietnam-1945-1975",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+        "en": "Revolution, wars of independence, and national defence, 1945–1975"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Cách mạng, kháng chiến và bảo vệ Tổ quốc 1945–1975",
+      "locales": {
+        "vi": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "chien-dich-dien-bien-phu",
+              "title": "Chiến dịch Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            }
+          ],
+          "complete": false
+        },
+        "en": {
+          "lessons": [
+            {
+              "id": "event-dien-bien-phu",
+              "slug": "battle-of-dien-bien-phu",
+              "title": "Battle of Điện Biên Phủ",
+              "sourceCount": 1,
+              "verifiedClaimCount": 0,
+              "reviewer": "Ban biên tập Quân Sử Việt",
+              "asOf": "2026-08-10T00:00:00.000Z",
+              "provenance": false,
+              "complete": false
+            }
+          ],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-vietnam-since-1975",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+        "en": "Vietnam since 1975 and the Đổi mới process"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Việt Nam từ năm 1975 đến nay và công cuộc Đổi mới",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-vietnamese-foreign-relations",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+        "en": "Vietnamese foreign relations in modern history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Lịch sử đối ngoại Việt Nam thời cận – hiện đại",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    },
+    {
+      "id": "g12-ho-chi-minh",
+      "grade": 12,
+      "track": "MANDATORY",
+      "topic": {
+        "vi": "Hồ Chí Minh trong lịch sử Việt Nam",
+        "en": "Hồ Chí Minh in Vietnamese history"
+      },
+      "officialProgramRef": "Chương trình GDPT môn Lịch sử, Thông tư 32/2018/TT-BGDĐT, cập nhật Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT — Lớp 12: Hồ Chí Minh trong lịch sử Việt Nam",
+      "locales": {
+        "vi": {
+          "lessons": [],
+          "complete": false
+        },
+        "en": {
+          "lessons": [],
+          "complete": false
+        }
+      },
+      "complete": false
+    }
+  ],
+  "elective": [
+    {
+      "grade": 10,
+      "requirements": 3
+    },
+    {
+      "grade": 11,
+      "requirements": 3
+    },
+    {
+      "grade": 12,
+      "requirements": 3
+    }
+  ]
+}
