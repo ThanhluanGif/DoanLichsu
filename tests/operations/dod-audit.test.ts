@@ -11,5 +11,8 @@ describe("DoD audit evidence compatibility", () => {
     expect(report.publicBeta).toBe(false);
     expect(report.checks.find((check: { id: string }) => check.id === "backup-recovery-mechanism")).toMatchObject({ status: "PASS_DISPOSABLE_ONLY" });
     expect(report.unmetExternal).toContain("uptime-90-day");
+    if (process.env.RELEASE_EVIDENCE_RUN === "1") return;
+    const release = report.checks.find((check: { id: string }) => check.id === "current-head-release-evidence");
+    expect(release).toMatchObject({ status: "PASS_LOCAL_ONLY", sourceTreeMatches: true });
   });
 });
