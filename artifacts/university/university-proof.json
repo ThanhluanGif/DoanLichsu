@@ -1,0 +1,7 @@
+{
+  "card": "C-050",
+  "generatedAt": "2026-08-13T08:47:07.718Z",
+  "green": {"status":"PASS","contentId":"lesson-g6-why-study-history","evidenceRows":2,"citationFormats":["BibTeX","CSV","Markdown"],"artifact":"artifacts/university/dossier.json"},
+  "red": {"status":"FAIL","contentId":"event-dien-bien-phu","reason":"Content not found in approved corpus","artifact":"artifacts/university/red-report.json"},
+  "fabricatedCitations":false
+}

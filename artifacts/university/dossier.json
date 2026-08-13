@@ -1,0 +1,38 @@
+{
+  "dossierVersion": "university-dossier-v1",
+  "status": "PASS",
+  "contentId": "lesson-g6-why-study-history",
+  "corpusSnapshotId": "24a9a1ea3d77eb2d589f9579176088deab8e5ff99c32a0be918ff352abfde57e",
+  "researchQuestions": [
+    "Nguồn nào hỗ trợ luận điểm và còn giới hạn gì?",
+    "Có thể so sánh cách diễn giải nào mà không vượt quá chứng cứ?"
+  ],
+  "entityTable": [
+    {
+      "entity": "lesson-g6-why-study-history",
+      "label": "Learning history from evidence and time",
+      "type": "TOPIC"
+    }
+  ],
+  "evidenceTable": [
+    {
+      "claimId": "claim-g6-why-study-history-evidence",
+      "sourceId": "source-g6-official-programme",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?",
+      "note": "Claim mô tả yêu cầu chương trình; các ví dụ và lời giải thích trong bài do dự án biên soạn gốc."
+    },
+    {
+      "claimId": "claim-g6-why-study-history-time",
+      "sourceId": "source-g6-official-programme",
+      "locator": "Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử",
+      "note": "Không ép mọi mốc lịch sử thành ngày chính xác; ứng dụng giữ date precision riêng."
+    }
+  ],
+  "bibtex": "@online{source-g6-official-programme, title={Thông tư 17/2025/TT-BGDĐT và tài liệu Chương trình giáo dục phổ thông}, url={https://vanban.chinhphu.vn/?docid=215347&pageid=27160&typegroupid=6}, urldate={2026-08-11T00:00:00.000Z}}",
+  "csv": "claimId,sourceId,locator\nclaim-g6-why-study-history-evidence,source-g6-official-programme,\"Lớp 6 — Tại sao cần học Lịch sử? — Dựa vào đâu để biết và dựng lại lịch sử?\"\nclaim-g6-why-study-history-time,source-g6-official-programme,\"Lớp 6 — Tại sao cần học Lịch sử? — Thời gian trong lịch sử\"",
+  "limitations": [
+    "Dossier là công cụ nghiên cứu, không phải kết luận cuối cùng.",
+    "Nguồn discovery hoặc chưa verified không được đưa vào export."
+  ],
+  "exportedAt": "2026-08-13T08:47:07.718Z"
+}

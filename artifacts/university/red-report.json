@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "contentId": "event-dien-bien-phu",
+  "error": "Content not found in approved corpus",
+  "remediation": "Approve verified source/evidence before export."
+}
