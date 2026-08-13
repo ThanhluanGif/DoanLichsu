@@ -40,6 +40,7 @@
     "analytics:privacy": "node scripts/privacy-analytics.mjs",
     "offline:pack": "node scripts/offline-pack.mjs",
     "production:readiness": "node scripts/production-readiness.mjs",
+    "transparency:dashboard": "node scripts/transparency-dashboard.mjs",
     "release:check": "node scripts/release-check.mjs",
     "verify:standalone": "node -e \"const f=require('node:fs'); for (const p of ['.next/standalone/server.js','.next/standalone/.next/static','.next/standalone/public/images/hero-history.webp','.next/standalone/public/images/hero-history-mobile.webp','.next/standalone/scripts/migrate.mjs','.next/standalone/scripts/seed.mjs','.next/standalone/src/lib/db/migration-engine.mjs','.next/standalone/migrations/0001_foundation.sql','.next/standalone/migrations/0002_public_content.sql','.next/standalone/migrations/0003_editorial_security.sql','.next/standalone/migrations/0004_source_governance.sql','.next/standalone/migrations/0005_curriculum.sql','.next/standalone/migrations/0006_lessons.sql','.next/standalone/migrations/0007_asset_provenance.sql']) { if (!f.existsSync(p)) throw new Error('Missing standalone artifact: '+p) }\""
   },

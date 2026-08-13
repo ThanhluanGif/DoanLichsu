@@ -1,0 +1,10 @@
+{
+  "card": "C-055",
+  "generatedAt": "2026-08-13T09:00:02.627Z",
+  "releaseStatus": "NOT_READY",
+  "kpis": {"rightsServedBinary":1,"rightsLinkOnly":1,"aiEval": "12/500","citationPrecision":1,"injectionLeakRate":0,"privacy":"PASS","correctionSlaHours":72},
+  "blockers": 5,
+  "publicBeta": false,
+  "disclosure": "Not an independent historian council endorsement",
+  "dashboard":"artifacts/transparency/dashboard.json"
+}

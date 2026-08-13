@@ -1,0 +1,45 @@
+{
+  "dashboardVersion": "transparency-v1",
+  "generatedAt": "2026-08-13T09:00:02.627Z",
+  "releaseStatus": "NOT_READY",
+  "coverage": {
+    "mandatory": "see source report",
+    "source": "artifacts/curriculum-completeness/live-coverage.json"
+  },
+  "rights": {
+    "status": "PASS",
+    "servedBinary": 1,
+    "linkOnly": 1
+  },
+  "ai": {
+    "status": "FAIL",
+    "targetQuestions": 500,
+    "actualQuestions": 12,
+    "targetGap": 488,
+    "citationPrecision": 1,
+    "injectionLeakRate": 0,
+    "publicBeta": false
+  },
+  "privacy": {
+    "status": "PASS",
+    "publicAi": "DISABLED_PENDING_PRIVACY_REVIEW"
+  },
+  "corrections": {
+    "lastIntake": "PASS",
+    "slaHours": 72,
+    "reporterPublic": false
+  },
+  "operations": {
+    "readiness": "FAIL",
+    "fixedProductionDomain": false,
+    "backupRestoreVerified": false
+  },
+  "blockers": [
+    "Hội đồng chưa có biên bản ký release",
+    "AI eval mới 12/500 câu; public beta bị khóa",
+    "Fixed production domain và uptime 90 ngày chưa có bằng chứng",
+    "Backup/restore và load rehearsal chưa verified",
+    "DPIA/privacy review chưa ký"
+  ],
+  "disclosure": "This dashboard reports implementation evidence; it is not an independent historian council endorsement."
+}
