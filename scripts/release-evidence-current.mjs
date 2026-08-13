@@ -23,7 +23,7 @@ async function waitFor(url) {
   }
   throw new Error(`server did not become healthy: ${url}`);
 }
-const quality = [run("lint", "npm", ["run", "lint"]), run("typecheck", "npm", ["run", "typecheck"]), run("test", "npm", ["test", "--", "--testTimeout=15000"]), run("build", "npm", ["run", "build"])];
+const quality = [run("lint", "npm", ["run", "lint"]), run("typecheck", "npm", ["run", "typecheck"]), run("test", "npm", ["test", "--", "--testTimeout=15000"], { RELEASE_EVIDENCE_RUN: "1" }), run("build", "npm", ["run", "build"])];
 const temporary = mkdtempSync(join(tmpdir(), "qsv-current-head-"));
 const databasePath = join(temporary, "release.sqlite");
 run("migrate", "npm", ["run", "db:migrate"], { DATABASE_PATH: databasePath });
@@ -51,5 +51,8 @@ try {
   local.securityHeaders = headers.get("content-security-policy")?.includes("frame-ancestors 'none'") && headers.get("x-content-type-options") === "nosniff" && headers.get("x-frame-options") === "DENY";
 } finally { server.kill("SIGTERM"); rmSync(temporary, { recursive: true, force: true }); }
 const report = { generatedAt: startedAt, commit, origin, originKind: "local production-like standalone; not official production", steps, local, backupRestore: { backupChecksum: Boolean(backupJson?.sha256), restoreChecksum: Boolean(restoreJson?.sha256Verified), databaseMutation: false }, httpsE2e: "NOT_RUN_IN_THIS_LOCAL_RUN", externalLimitations: ["official production domain", "90-day uptime", "independent pen-test", "real Council/pilot/rights/privacy approvals"] };
+const qualityNames = new Set(["lint", "typecheck", "test", "build"]);
+const qualitySteps = steps.filter((step) => qualityNames.has(step.name));
+if (qualitySteps.length !== 4 || qualitySteps.some((step) => step.exitCode !== 0)) throw new Error("Current HEAD release evidence quality steps did not all pass.");
 mkdirSync(dirname(output), { recursive: true }); writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`); writeFileSync(output.replace(/\.json$/, ".md"), `# Current HEAD release evidence\n\n- Commit: ${commit}\n- Origin: ${origin} (local production-like; not official)\n- Quality: ${steps.filter((step) => ["lint", "typecheck", "test", "build"].includes(step.name) && step.exitCode === 0).length}/4 PASS\n- Health/OpenAPI/Search: ${local.health}/${local.openapi}/${local.search}\n- Search p95 (10 samples): ${Math.round(local.p95SearchMs ?? 0)}ms\n- Security headers: ${local.securityHeaders ? "PASS" : "FAIL"}\n- Backup checksum/restore: ${report.backupRestore.backupChecksum}/${report.backupRestore.restoreChecksum}\n- HTTPS E2E: **NOT RUN IN THIS LOCAL RUN**\n- External gates: **PENDING**\n`);
 process.stdout.write(`${JSON.stringify({ commit, quality: steps.slice(0, 4).map((step) => step.exitCode), local, backupRestore: report.backupRestore })}\n`);
