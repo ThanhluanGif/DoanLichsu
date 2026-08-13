@@ -1,7 +1,8 @@
 {
-  "dashboardVersion": "transparency-v1",
-  "generatedAt": "2026-08-13T10:44:12.631Z",
+  "dashboardVersion": "transparency-v2",
+  "generatedAt": "2026-08-13T13:14:42.714Z",
   "releaseStatus": "NOT_READY",
+  "publicBeta": false,
   "coverage": {
     "mandatory": "46/46",
     "source": "artifacts/curriculum-completeness/live-coverage.json"
@@ -30,9 +31,13 @@
     "reporterPublic": false
   },
   "operations": {
-    "readiness": "FAIL",
+    "readiness": "PASS_LOCAL_ONLY",
     "fixedProductionDomain": false,
-    "backupRestoreVerified": true
+    "backupRestore": "PASS_DISPOSABLE_ONLY",
+    "uptimeObservation": "PASS_SHORT_OBSERVATION",
+    "performanceObservation": "PASS_BOUNDED_OBSERVATION",
+    "securityLocal": "PASS_LOCAL_ONLY",
+    "independentSecurity": "PENDING_EXTERNAL"
   },
   "wikimedia": {
     "status": "PASS",
@@ -51,11 +56,17 @@
     "humanApproval": "PENDING_HUMAN_MODEL_REVIEW"
   },
   "blockers": [
-    "Hội đồng chưa có biên bản ký release",
-    "Machine eval 500/500 PASS nhưng golden answers/citations chưa được Hội đồng duyệt",
-    "Fixed production domain và uptime 90 ngày chưa có bằng chứng",
-    "Backup/restore disposable rehearsal PASS; production RPO/RTO và load rehearsal chưa verified",
-    "DPIA/privacy review chưa ký"
+    "official-production",
+    "uptime-90-day",
+    "council-signoff",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "dpia-approval",
+    "partner-rights",
+    "real-pilot",
+    "school-university-reach",
+    "independent-security",
+    "named-operations"
   ],
-  "disclosure": "This dashboard reports implementation evidence; it is not an independent historian council endorsement."
+  "disclosure": "This dashboard reports implementation evidence only. It is not an independent historian council endorsement, legal approval, security review, school pilot result or Public Beta release approval."
 }
