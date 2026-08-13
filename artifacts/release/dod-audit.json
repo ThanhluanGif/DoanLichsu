@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T15:57:58.701Z",
+  "generatedAt": "2026-08-13T16:07:23.024Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -19,6 +19,15 @@
       "evidence": [
         "artifacts/curriculum-completeness/live-coverage.json"
       ]
+    },
+    {
+      "id": "published-content-history",
+      "group": "content",
+      "status": "BLOCKED_INTERNAL",
+      "evidence": [
+        "artifacts/curriculum-completeness/published-content-audit.json"
+      ],
+      "missingContent": 105
     },
     {
       "id": "ai-machine-eval",
@@ -83,8 +92,8 @@
       "evidence": [
         "artifacts/release/current-head-evidence.json"
       ],
-      "sourceTreeSha256": "35b439224780170602d14fbb504ba68b146d0d8b6b07679bf5013f2438b1614a",
-      "currentSourceTreeSha256": "35b439224780170602d14fbb504ba68b146d0d8b6b07679bf5013f2438b1614a",
+      "sourceTreeSha256": "d9775e18f7386f77e58b4f4ff7282730323a332b9919c3500d440389017c81b7",
+      "currentSourceTreeSha256": "d9775e18f7386f77e58b4f4ff7282730323a332b9919c3500d440389017c81b7",
       "sourceTreeMatches": true
     },
     {

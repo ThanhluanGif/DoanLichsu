@@ -2,11 +2,12 @@
 
 - Overall: **NOT_READY**
 - Public Beta: **DISABLED**
-- Checks: 3/14 implementation gates represented
+- Checks: 3/15 implementation gates represented
 - External blockers: 11
 
 - product-surface: **PASS**
 - mandatory-coverage: **PASS**
+- published-content-history: **BLOCKED_INTERNAL**
 - ai-machine-eval: **PASS**
 - ai-config-comparison: **PASS_CONFIG_ONLY**
 - ai-human-golden-review: **BLOCKED_EXTERNAL**
