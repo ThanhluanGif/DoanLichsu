@@ -1,0 +1,55 @@
+{
+  "version": "dpia-readiness-v1",
+  "generatedAt": "2026-08-14T07:22:52.964Z",
+  "input": "docs/operations/dpia-handoff-manifest.example.json",
+  "policy": {
+    "path": "docs/privacy/dpia.md",
+    "sha256": "e83b3b694dff2198441506fbdaccc8b6206c3af0a284c3f52cb572662c005334",
+    "controls": [
+      {
+        "marker": "no-account",
+        "passed": true
+      },
+      {
+        "marker": "Data minimization",
+        "passed": true
+      },
+      {
+        "marker": "deleted within 30 days",
+        "passed": true
+      },
+      {
+        "marker": "deletion/correction",
+        "passed": true
+      },
+      {
+        "marker": "free-form public AI",
+        "passed": true
+      },
+      {
+        "marker": "Incident response",
+        "passed": true
+      },
+      {
+        "marker": "one business day",
+        "passed": true
+      },
+      {
+        "marker": "three business days",
+        "passed": true
+      }
+    ]
+  },
+  "status": "BLOCKED_EXTERNAL",
+  "approved": false,
+  "releaseAllowed": false,
+  "publicBeta": false,
+  "noFabricatedEvidence": true,
+  "databaseMutation": false,
+  "errors": [
+    "POLICY_SHA256_REQUIRED",
+    "OWNER_NAME_REQUIRED_FOR_HANDOFF",
+    "OWNER_AUTHORITY_REQUIRED_FOR_HANDOFF",
+    "OWNER_VERIFIED_AT_MUST_BE_ISO_TIMESTAMP"
+  ]
+}
