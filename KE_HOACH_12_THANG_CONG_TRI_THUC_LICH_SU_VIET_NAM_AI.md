@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 2.8 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 2.9 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 146 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
+> Phạm vi đánh giá: mã nguồn, 147 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -11,7 +11,7 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **146 card đã tạo, 146 done, C-146 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **147 card đã tạo, 147 done, C-147 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
 | Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
@@ -21,11 +21,12 @@
 | Public correction intake + moderation | PASS_LOCAL_ONLY; bilingual form/API, non-PII receipt/SLA, authenticated queue, role/version checks và audited transitions đã có; Council/public content vẫn không tự động thay đổi | `cards/C-137.md`, `cards/C-142.md`, `src/app/[locale]/corrections/page.tsx`, `src/app/api/v1/corrections/route.ts`, `src/app/api/v1/admin/corrections/route.ts` |
 | External evidence intake | PASS_INTAKE_SCHEMA; validator read-only nhận pending ledger và fail-closed với PASS thiếu owner/authority/timestamp/artifact hash; không phải approval | `cards/C-144.md`, `scripts/external-evidence-intake.mjs`, `artifacts/operations/external-evidence-intake.json` |
 | Docker release smoke | PASS_LOCAL_ONLY; image build được với build context tối thiểu, migration/seed/health/OpenAPI/search và persistence sau restart đã kiểm chứng; không phải official production | `cards/C-146.md`, `artifacts/release/container-smoke-proof.json`, `docs/release-runbook.md` |
+| Regression/CI smoke | PASS_LOCAL_ONLY; bare `npm test` chạy 72 files/260 tests sau khi timeout standalone được đặt rõ 30s; không thay thế live production evidence | `cards/C-147.md`, `tests/operations/local-standalone-smoke.test.ts` |
 | DoD năm 1 | NOT_READY; Public Beta false; matrix consistent | `artifacts/release/dod-audit.json`, `artifacts/release/dod-matrix-consistency.json` |
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
 
-**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit và C-146 kiểm chứng Docker volume/restart. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **146/146 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
+**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart và C-147 làm cho CI regression timeout rõ ràng, tái lập được. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **147/147 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
 
 ---
 
@@ -67,7 +68,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **146 thẻ**: C-001 đến C-146; **146 thẻ done** và C-146 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **147 thẻ**: C-001 đến C-147; **147 thẻ done** và C-147 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 

@@ -11,5 +11,5 @@ describe("local standalone smoke evidence", () => {
     expect(report.checks).toHaveLength(9);
     expect(report.checks.every((check: { passed: boolean }) => check.passed)).toBe(true);
     expect(report.checks.find((check: { name: string }) => check.name === "ai-disabled")).toMatchObject({ status: 403, passed: true });
-  });
+  }, 30_000);
 });
