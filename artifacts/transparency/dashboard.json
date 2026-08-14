@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v2",
-  "generatedAt": "2026-08-14T13:06:01.710Z",
+  "generatedAt": "2026-08-14T13:19:26.719Z",
   "releaseStatus": "NOT_READY",
   "publicBeta": false,
   "coverage": {
@@ -8,9 +8,13 @@
     "source": "artifacts/curriculum-completeness/live-coverage.json"
   },
   "rights": {
-    "status": "PASS",
-    "servedBinary": 1,
-    "linkOnly": 1
+    "status": "PENDING_RIGHTS_REVIEW",
+    "catalogStatus": "PASS",
+    "reviewStatus": "PENDING_RIGHTS_REVIEW",
+    "approvedForBinary": 0,
+    "binaryServingEnabled": false,
+    "servedBinary": 0,
+    "linkOnly": 2
   },
   "ai": {
     "status": "PASS",
@@ -48,9 +52,9 @@
     "independentSecurity": "PENDING_EXTERNAL"
   },
   "release": {
-    "testedCommit": "67bc81a72e0aaede4b7806599798b4d64acfba00",
-    "sourceTreeSha256": "c80d370741ee63acb55efadd7e2877a2ef204a7f8da3d1502583db5aec9f6eb9",
-    "currentSourceTreeSha256": "c80d370741ee63acb55efadd7e2877a2ef204a7f8da3d1502583db5aec9f6eb9",
+    "testedCommit": "1895a1ffa0f05d4370bf44c33d15fd1368679d74",
+    "sourceTreeSha256": "b44d325d3b6003f9e37216a089237d9388f50727e376c0d2a2cc18c0e5fdd3e3",
+    "currentSourceTreeSha256": "b44d325d3b6003f9e37216a089237d9388f50727e376c0d2a2cc18c0e5fdd3e3",
     "sourceTreeMatches": true
   },
   "wikimedia": {
