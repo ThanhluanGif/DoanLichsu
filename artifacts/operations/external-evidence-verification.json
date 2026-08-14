@@ -1,6 +1,6 @@
 {
   "version": "external-evidence-verification-v1",
-  "generatedAt": "2026-08-14T05:48:38.480Z",
+  "generatedAt": "2026-08-14T05:59:01.996Z",
   "input": "artifacts/operations/external-evidence-ledger.json",
   "status": "PASS_LEDGER_VALID",
   "releaseAllowed": false,
