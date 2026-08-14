@@ -1,11 +1,11 @@
 # Current release evidence
 
-- Tested commit: 51507b85f547e668c939428b085e53898c2fd6e6
-- Source tree SHA-256: 2e749652213fd2cda745ae575dda1701f4dbc825d36658fab96d1fc717cedf9e
+- Tested commit: b34461359fc0e4fe50ff0a68f182d10b888a8dd1
+- Source tree SHA-256: 6fe6ade008f302ffa6f3ee82fdca320e64cf864a24d20b98ad9256dfb6852462
 - Origin: http://127.0.0.1:3241 (local production-like; not official)
 - Quality: 4/4 PASS
 - Health/OpenAPI/Search: 200/200/200
-- Search p95 (10 samples): 52ms
+- Search p95 (10 samples): 33ms
 - Security headers: PASS
 - Backup checksum/restore: true/true
 - HTTPS E2E: **NOT RUN IN THIS LOCAL RUN**
