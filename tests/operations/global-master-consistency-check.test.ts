@@ -19,12 +19,12 @@ describe("Global Master consistency gate", () => {
   it("accepts the merged 12-month plan and current release snapshot", () => {
     const { result, report } = run(canonical);
     expect(result.status).toBe(0);
-    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: 165, flowDoneCards: 165, latestCard: "C-165", inFlightCards: 0, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
+    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: 166, flowDoneCards: 166, latestCard: "C-166", inFlightCards: 0, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
     expect(report.errors).toEqual([]);
   });
 
   it("fails closed on stale card counts or a Public Beta claim", () => {
-    const stale = canonical.replace("165 card đã tạo, 165 done, C-165 hiện tại", "164 card đã tạo, 164 done, C-164 hiện tại").replace("Public Beta `false`", "Public Beta `true`");
+    const stale = canonical.replace("166 card đã tạo, 166 done, C-166 hiện tại", "165 card đã tạo, 165 done, C-165 hiện tại").replace("Public Beta `false`", "Public Beta `true`");
     const { result, report } = run(stale);
     expect(result.status).toBe(1);
     expect(report.status).toBe("BLOCKED_INTERNAL");

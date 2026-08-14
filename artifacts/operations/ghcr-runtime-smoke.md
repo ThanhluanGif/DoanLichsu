@@ -1,13 +1,14 @@
 # GHCR runtime smoke
 
-- Status: **PASS_LOCAL_CONTAINER_ONLY**
-- Workflow run: `31786643231`
-- Source commit: `83f1a1bd400440004f4b1959e3b0c8b070dd1851`
-- Image digest: `sha256:5fdc06acddaad4b37577eea1ae78d76d786dd5a9c78d3552f0c762861ac3128e`
-- Origin: `http://127.0.0.1:3317`
-- Health/OpenAPI/Search: `200/ok` / `200` / `200`
+- Workflow run: `31788508752`
+- Source commit: `908ac3ece1072619da27ed0889b81d835bcf46fd`
+- Image: `ghcr.io/thanhluangif/doanlichsu@sha256:25a14c0a9846b791cdf5ff00e940a0e83c03517fbd8594b213d19af509d592b9`
+- Origin: `http://127.0.0.1:3321` (local disposable container; not official production)
+- Health/OpenAPI/Search: `200/200/200`
+- Health body: `status=ok`, `database=ok`
 - Docker health: **healthy**
 - Official production: **NO**
 - Production deployment: **NO**
 - Public Beta: **DISABLED**
 - Database mutation: **NO**
+- No fabricated evidence: **YES**
