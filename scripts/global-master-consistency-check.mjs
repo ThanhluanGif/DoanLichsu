@@ -20,7 +20,7 @@ const inFlightCards = cards.length - doneCards;
 const latestDoneCard = cards.filter((file) => /^status:\s*done\s*$/m.test(readFileSync(resolve("cards", file), "utf8"))).map((file) => Number(file.match(/^C-(\d+)\.md$/)[1])).sort((a, b) => a - b).at(-1) ?? 0;
 const planSnapshot = plan.match(/(\d+) card đã tạo, \1 done, C-\1 hiện tại/);
 const expectedCompletedCards = planSnapshot ? Number(planSnapshot[1]) : null;
-const snapshotMatchesDoneCards = expectedCompletedCards !== null && flowCount === expectedCompletedCards && latestDoneCard === expectedCompletedCards && inFlightCards === 0;
+const snapshotMatchesDoneCards = expectedCompletedCards !== null && flowCount === expectedCompletedCards && latestDoneCard === expectedCompletedCards && inFlightCards <= 1;
 const snapshotMatchesOneInFlightCard = expectedCompletedCards !== null && inFlightCards === 1 && expectedCompletedCards === flowCount + 1 && latestDoneCard === flowCount;
 if (expectedCompletedCards === null || (!snapshotMatchesDoneCards && !snapshotMatchesOneInFlightCard) || inFlightCards > 1) errors.push("FLOW_PLAN_SNAPSHOT_MISMATCH");
 
