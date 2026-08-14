@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 2.2 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 2.3 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 130 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại  
+> Phạm vi đánh giá: mã nguồn, 139 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -11,13 +11,14 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **135 card đã tạo, 135 done, C-135 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **139 card đã tạo, 139 done, C-139 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
 | Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
 | AI machine evaluation | PASS 500/500; public AI vẫn DISABLED | `artifacts/ai-eval/report-500.json`, `artifacts/privacy/report.json` |
 | Wikimedia | PASS metadata pilot 300; binary serving tắt; rights review chưa xong | `artifacts/wikimedia/batch-300-report.json`, `artifacts/wikimedia/rights-review-ledger.json` |
 | Published editorial history | BLOCKED_INTERNAL; 105/105 hàng cần người duyệt thật | `artifacts/curriculum-completeness/published-content-audit.json`, `artifacts/curriculum-completeness/published-content-history-plan.json` |
+| Public correction intake | PASS_LOCAL_ONLY; bilingual form/API, non-PII receipt/SLA, moderation chưa hoàn thiện | `cards/C-137.md`, `src/app/[locale]/corrections/page.tsx`, `src/app/api/v1/corrections/route.ts` |
 | DoD năm 1 | NOT_READY; Public Beta false; matrix consistent | `artifacts/release/dod-audit.json`, `artifacts/release/dod-matrix-consistency.json` |
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
@@ -62,7 +63,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **135 thẻ**: C-001 đến C-135; **135 thẻ done** và C-135 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **139 thẻ**: C-001 đến C-139; **139 thẻ done** và C-139 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
@@ -554,7 +555,7 @@ vertical-slice/build track. Các mã A–J và FR01–FR14 vẫn hữu ích khi 
 | A–C: yêu cầu, taxonomy, UX, ERD, OpenAPI | Tháng 1–2; Flow planning gates | Hoàn tất ở mức plan/contract; Flow contract PASS |
 | D–E: nền tảng, DB, public/admin API | Tháng 1–4 | Đã xây và kiểm thử; public/admin routes có evidence |
 | F: frontend public, i18n, timeline, search, SEO, accessibility | Tháng 2–5 | Đã xây; local smoke và public artifacts tồn tại |
-| G: admin, RBAC, editor, review, audit | Tháng 1–5 và C-123–C-125 | Đã xây; history queue/attestation mới thêm nhưng chưa có 105 người duyệt thật |
+| G: admin, RBAC, editor, review, audit | Tháng 1–5, C-123–C-125 và C-137 | Đã xây; history queue/attestation và correction intake local đã có nhưng chưa có 105 người duyệt thật/moderation owner |
 | H: 50 nội dung song ngữ, source, rights | Tháng 2–4 | Curriculum mandatory 6–12 PASS; published history còn BLOCKED_INTERNAL |
 | I: test, security, performance, recovery | Tháng 6–11 | Local evidence PASS; independent security và production gates còn thiếu |
 | J: staging, UAT, production, bàn giao | Tháng 11–12 | Chưa đạt: chưa có official production, real pilot, named operations và sign-off |
@@ -571,7 +572,7 @@ vertical-slice/build track. Các mã A–J và FR01–FR14 vẫn hữu ích khi 
 | M5 | Map/graph/Wikimedia metadata | PASS_METADATA_ONLY/PASS_LOCAL | Wikimedia rights review và partner permission |
 | M6 | AI internal alpha/eval | PASS machine-only | human golden approval và independent model comparison |
 | M7 | AI supervised pilot/DPIA | PARTIAL | DPIA approval, real pilot, human AI review |
-| M8 | Dossier/partner collection | PARTIAL | partner rights, school/university reach |
+| M8 | Dossier/partner collection/correction SLA | PARTIAL/LOCAL | partner rights, school/university reach, moderation owner/SLA evidence |
 | M9 | Offline/low-bandwidth/pilot mở rộng | LOCAL evidence only | real pilot and production operations |
 | M10 | Immersive decision | PASS prototype/local evidence | learning-outcome evidence nếu muốn đưa vào beta |
 | M11 | Hardening/release candidate | PASS_LOCAL_ONLY cho nhiều mục | independent security, named owners, council sign-off |
