@@ -14,6 +14,7 @@ const doneCardNumbers = cardFiles
 const expectedDoneCards = doneCardNumbers.length;
 const expectedLatestCard = Math.max(...doneCardNumbers);
 const expectedInFlightCards = cardFiles.length - expectedDoneCards;
+const planSnapshot = canonical.match(/(\d+) card đã tạo, \1 done, C-\1 hiện tại/);
 const run = (plan: string) => {
   const planPath = join(temp, `${Math.random().toString(36).slice(2)}.md`);
   const outputPath = join(temp, `${Math.random().toString(36).slice(2)}.json`);
@@ -31,7 +32,10 @@ describe("Global Master consistency gate", () => {
   });
 
   it("fails closed on stale card counts or a Public Beta claim", () => {
-    const stale = canonical.replace("170 card đã tạo, 170 done, C-170 hiện tại", "169 card đã tạo, 169 done, C-169 hiện tại").replace("Public Beta `false`", "Public Beta `true`");
+    const currentSnapshot = planSnapshot?.[0] ?? "";
+    const currentCount = Number(planSnapshot?.[1] ?? expectedDoneCards);
+    const staleCount = currentCount - 1;
+    const stale = canonical.replace(currentSnapshot, `${staleCount} card đã tạo, ${staleCount} done, C-${staleCount} hiện tại`).replace("Public Beta `false`", "Public Beta `true`");
     const { result, report } = run(stale);
     expect(result.status).toBe(1);
     expect(report.status).toBe("BLOCKED_INTERNAL");

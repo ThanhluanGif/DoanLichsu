@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 4.10 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 4.11 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 170 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
+> Phạm vi đánh giá: mã nguồn, 171 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -11,10 +11,10 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **170 card đã tạo, 170 done, C-170 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **171 card đã tạo, 171 done, C-171 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
-| Release quality | PASS_LOCAL_ONLY; source tree khớp với tested main merge revision `1ce9a3b`; không phải official production | `artifacts/release/current-head-evidence.json` |
+| Release quality | PASS_LOCAL_ONLY; source tree khớp với tested main merge revision `5db28e9`; không phải official production | `artifacts/release/current-head-evidence.json` |
 | AI machine evaluation | PASS 500/500; public AI vẫn DISABLED | `artifacts/ai-eval/report-500.json`, `artifacts/privacy/report.json` |
 | Model-comparison handoff | BLOCKED_EXTERNAL fail-closed; example thiếu model/metrics/owner; same deterministic gateway comparison không được coi là independent evidence | `cards/C-155.md`, `scripts/model-comparison-check.mjs`, `artifacts/ai-eval/model-comparison-readiness.json`, `docs/operations/model-comparison-protocol.md` |
 | DPIA/privacy handoff | BLOCKED_EXTERNAL fail-closed; canonical policy và 8 control markers được kiểm tra, nhưng approval/owner pháp lý thật chưa có | `cards/C-156.md`, `scripts/dpia-readiness-check.mjs`, `artifacts/privacy/dpia-readiness.json`, `docs/operations/dpia-handoff-protocol.md` |
@@ -41,7 +41,7 @@
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
 
-**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS trên tested main merge revision `1ce9a3b`, immutable GHCR image đã publish và runtime smoke theo digest đã pass, nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập, C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử, C-150 đưa trạng thái evidence vào hàng đợi reviewer trên website, C-151 đồng bộ bộ đếm Global Master, C-152 khóa schema reviewer độc lập cho AI golden set, C-153 tạo validator bàn giao production fail-closed, C-154 sửa batch Wikimedia để loại record `wikimedia-undefined`/backfill candidate hợp lệ, C-155 tạo validator handoff cho model comparison, C-156 tạo validator hash-bound cho DPIA/privacy, C-157 tạo validator handoff cho independent security, C-158 tạo validator hash-bound cho Wikimedia/partner rights, C-159 kiểm tra packet bàn giao 105 hàng lịch sử, C-160 kiểm tra nhất quán bản kế hoạch Global Master, C-161 khóa preflight cấu hình production fail-closed, C-162 tái bind release evidence sau PR #21, C-163 publish immutable image, C-164 ghi nhận digest, C-165 ghi nhận runtime smoke của image immutable, C-166 tái bind release/runtime evidence sau merge, C-167 tái bind release/runtime evidence sau PR #26 và xác nhận lại merge-only provenance trên `main`, C-168 vá dependency `nanoid` high-severity và tái tạo security/release evidence, C-169 bổ sung internal evidence hash-bound cho packet bàn giao external, C-170 tái bind release/runtime/handoff evidence vào merge commit hiện tại. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **170/170 card đang hoàn tất trong phiên này**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
+**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS trên tested main merge revision `5db28e9`, immutable GHCR image đã publish và runtime smoke theo digest đã pass, nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập, C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử, C-150 đưa trạng thái evidence vào hàng đợi reviewer trên website, C-151 đồng bộ bộ đếm Global Master, C-152 khóa schema reviewer độc lập cho AI golden set, C-153 tạo validator bàn giao production fail-closed, C-154 sửa batch Wikimedia để loại record `wikimedia-undefined`/backfill candidate hợp lệ, C-155 tạo validator handoff cho model comparison, C-156 tạo validator hash-bound cho DPIA/privacy, C-157 tạo validator handoff cho independent security, C-158 tạo validator hash-bound cho Wikimedia/partner rights, C-159 kiểm tra packet bàn giao 105 hàng lịch sử, C-160 kiểm tra nhất quán bản kế hoạch Global Master, C-161 khóa preflight cấu hình production fail-closed, C-162 tái bind release evidence sau PR #21, C-163 publish immutable image, C-164 ghi nhận digest, C-165 ghi nhận runtime smoke của image immutable, C-166 tái bind release/runtime evidence sau merge, C-167 tái bind release/runtime evidence sau PR #26 và xác nhận lại merge-only provenance trên `main`, C-168 vá dependency `nanoid` high-severity và tái tạo security/release evidence, C-169 bổ sung internal evidence hash-bound cho packet bàn giao external, C-170 tái bind release/runtime/handoff evidence vào merge commit hiện tại, C-171 xác nhận release evidence trên đúng merge SHA của `main`. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **171/171 card đang hoàn tất trong phiên này**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
 
 ### Bản hợp nhất đang có hiệu lực
 
@@ -49,7 +49,7 @@ Hai tài liệu kế hoạch đã được gộp theo nguyên tắc một nguồ
 
 | Tài liệu | Vai trò từ nay | Cách sử dụng |
 |---|---|---|
-| `KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md` | **Global Master v4.10** | Nguồn duy nhất cho scope, roadmap, gate, KPI, DoD, blocker và mọi card mới |
+| `KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md` | **Global Master v4.11** | Nguồn duy nhất cho scope, roadmap, gate, KPI, DoD, blocker và mọi card mới |
 | `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` | Tài liệu cơ sở/lịch sử 16 tuần | Chỉ dùng để tra cứu yêu cầu MVP cũ; mọi thay đổi phải cập nhật ngược vào Global Master |
 
 Crosswalk ở Mục 11.0 giữ lại toàn bộ mã giai đoạn A–J và FR01–FR14 của bản 16 tuần, nên không mất yêu cầu cũ; các yêu cầu đó đã được đặt vào tháng, gate và Definition of Done tương ứng của kế hoạch 12 tháng.
@@ -58,7 +58,7 @@ Crosswalk ở Mục 11.0 giữ lại toàn bộ mã giai đoạn A–J và FR01�
 
 | Chỉ số | Kết quả hiện tại | Diễn giải |
 |---|---:|---|
-| Tiến độ Flow | **170/170 card sau khi C-170 được kiểm tra (100%)** | Nền tảng kỹ thuật, metadata/rights gate, AI/privacy/security handoff, packet lịch sử, Global Master, production preflight, merged-main release evidence, immutable image handoff, digest runtime smoke, dependency security patch, external handoff internal evidence và provenance sau merge hiện tại đã hoàn tất |
+| Tiến độ Flow | **171/171 card sau khi C-171 được kiểm tra (100%)** | Nền tảng kỹ thuật, metadata/rights gate, AI/privacy/security handoff, packet lịch sử, Global Master, production preflight, merged-main release evidence, immutable image handoff, digest runtime smoke, dependency security patch, external handoff internal evidence và exact-merge provenance đã hoàn tất |
 | Vị trí roadmap | **Cuối M11 / chuẩn bị M12** | Đang ở release-candidate hardening, chưa mở Public Beta |
 | Release quality | **4/4 PASS_LOCAL_ONLY** | Tested main merge revision `a6475004`; local standalone, không phải domain production |
 | Curriculum mandatory | **PASS trong scope đã ký** | Không đồng nghĩa 105 hàng lịch sử đã có attestation người thật |
@@ -109,7 +109,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **170 thẻ**: C-001 đến C-170; **170 thẻ done** và C-170 là card hiện tại cho provenance release/runtime/handoff sau merge. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **171 thẻ**: C-001 đến C-171; **171 thẻ done** và C-171 là card hiện tại cho exact-merge release provenance. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
