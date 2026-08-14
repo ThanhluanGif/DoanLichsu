@@ -1,0 +1,72 @@
+name: Production uptime observation
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRODUCTION_ORIGIN: ${{ secrets.PRODUCTION_ORIGIN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Require authorised production origin
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${PRODUCTION_ORIGIN:-}" ]]; then
+            echo "::error title=Missing production origin::Configure PRODUCTION_ORIGIN as an authorised HTTPS production origin before enabling this monitor."
+            exit 1
+          fi
+          case "$PRODUCTION_ORIGIN" in
+            https://*) ;;
+            *)
+              echo "::error title=Invalid production origin::PRODUCTION_ORIGIN must use HTTPS."
+              exit 1
+              ;;
+          esac
+          case "$PRODUCTION_ORIGIN" in
+            *localhost*|*127.0.0.1*|*0.0.0.0*|*trycloudflare.com*|*example.*)
+              echo "::error title=Non-production origin::Local, tunnel and example origins are not accepted as production evidence."
+              exit 1
+              ;;
+          esac
+
+      - name: Probe production origin
+        run: >-
+          node scripts/uptime-probe.mjs
+          --origin "$PRODUCTION_ORIGIN"
+          --count 1
+          --interval-ms 0
+          --output "artifacts/operations/uptime-observations-${{ github.run_id }}.json"
+
+      - name: Upload immutable observation artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uptime-observation-${{ github.run_id }}
+          path: |
+            artifacts/operations/uptime-observations-${{ github.run_id }}.json
+            artifacts/operations/uptime-observations-${{ github.run_id }}.md
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Publish safe handoff summary
+        if: always()
+        run: |
+          {
+            echo "## Production uptime observation"
+            echo "- Run: ${{ github.run_id }}"
+            echo "- Probe artifact: uptime-observation-${{ github.run_id }}"
+            echo "- Public Beta: DISABLED"
+            echo "- External evidence ledger: NOT MUTATED"
+            echo "- Official 90-day evidence: PENDING OPERATOR REVIEW"
+          } >> "$GITHUB_STEP_SUMMARY"
