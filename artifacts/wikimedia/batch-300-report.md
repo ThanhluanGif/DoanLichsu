@@ -1,8 +1,9 @@
-# Wikimedia 300-record metadata pilot
+# Wikimedia metadata pilot
 
 - Status: **PASS**
-- Requested/imported: 300/300
-- Batches: 6
+- Target/requested/imported: 300/350/300
+- Batches: 7
+- Skipped missing/duplicate metadata: 1
 - Errors: 0
 - Binary downloaded: **NO**
 - Auto-published: **NO**
