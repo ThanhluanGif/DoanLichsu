@@ -3,7 +3,7 @@
 - Status: **PASS_LOCAL_ONLY**
 - Public Beta allowed: **NO**
 - Official production evidence: **NO**
-- Local quality: PASS_LOCAL_ONLY
+- Local quality: FAIL
 - Backup/restore: PASS_DISPOSABLE_ONLY
 - Uptime: PASS_SHORT_OBSERVATION; 90-day evidence: **NO**
 - Performance: PASS_BOUNDED_OBSERVATION; official load evidence: **NO**
