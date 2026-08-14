@@ -19,13 +19,23 @@ const rightsReview = load("artifacts/wikimedia/rights-review-ledger.json");
 const contentHistory = load("artifacts/curriculum-completeness/published-content-history-plan.json");
 const currentSourceTreeSha256 = sourceTreeSha256();
 const pending = external.items.filter((item) => item.status !== "PASS").map((item) => item.id);
+const binaryServingEnabled = rightsReview.binaryServingEnabled === true && Number(rightsReview.approvedForBinary ?? 0) > 0;
+const catalogRecords = rights.records ?? [];
 const report = {
   dashboardVersion: "transparency-v2",
   generatedAt: new Date().toISOString(),
   releaseStatus: "NOT_READY",
   publicBeta: false,
   coverage: { mandatory: coverage.summary ? `${coverage.summary.completeMandatoryRequirements}/${coverage.summary.mandatoryRequirements}` : "see source report", source: "artifacts/curriculum-completeness/live-coverage.json" },
-  rights: { status: rights.status, servedBinary: rights.records?.filter((record) => record.publicBinaryAllowed).length ?? 0, linkOnly: rights.records?.filter((record) => !record.publicBinaryAllowed).length ?? 0 },
+  rights: {
+    status: binaryServingEnabled ? rights.status : rightsReview.status,
+    catalogStatus: rights.status,
+    reviewStatus: rightsReview.status,
+    approvedForBinary: Number(rightsReview.approvedForBinary ?? 0),
+    binaryServingEnabled,
+    servedBinary: binaryServingEnabled ? catalogRecords.filter((record) => record.publicBinaryAllowed).length : 0,
+    linkOnly: binaryServingEnabled ? catalogRecords.filter((record) => !record.publicBinaryAllowed).length : catalogRecords.length,
+  },
   ai: { status: aiEval.status, targetQuestions: aiEval.targetQuestions, actualQuestions: aiEval.actualQuestions, targetGap: aiEval.targetGap, citationPrecision: aiEval.metrics?.citationPrecision, injectionLeakRate: aiEval.metrics?.injectionLeakRate, publicBeta: false },
   privacy: { status: privacy.status, publicAi: privacy.publicAi },
   corrections: { lastIntake: corrections.status, slaHours: corrections.entry?.slaHours ?? null, reporterPublic: false },
