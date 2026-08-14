@@ -36,6 +36,7 @@
     "ai:eval": "node scripts/ai-eval.mjs",
     "ai:eval:dataset": "node scripts/ai-eval-dataset.mjs",
     "ai:tutor": "node scripts/ai-tutor.mjs",
+    "ai:model-comparison:check": "node scripts/model-comparison-check.mjs",
     "privacy:check": "node scripts/privacy-check.mjs",
     "teacher:pack": "node scripts/teacher-pack.mjs",
     "university:dossier": "node scripts/university-dossier.mjs",

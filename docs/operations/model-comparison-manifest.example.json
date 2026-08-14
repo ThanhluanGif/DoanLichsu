@@ -1,0 +1,35 @@
+{
+  "version": "model-comparison-v1",
+  "dataset": {
+    "path": "artifacts/ai-eval/questions-500.json",
+    "sha256": null
+  },
+  "comparisons": [
+    {
+      "id": "model-a",
+      "provider": null,
+      "model": null,
+      "configuration": null,
+      "metrics": null,
+      "artifact": null,
+      "sha256": null
+    },
+    {
+      "id": "model-b",
+      "provider": null,
+      "model": null,
+      "configuration": null,
+      "metrics": null,
+      "artifact": null,
+      "sha256": null
+    }
+  ],
+  "owner": {
+    "name": null,
+    "authority": null,
+    "verifiedAt": null
+  },
+  "externalEvidenceAttached": false,
+  "releaseAllowed": false,
+  "publicBeta": false
+}
