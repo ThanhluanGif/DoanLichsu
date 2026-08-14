@@ -171,12 +171,35 @@ export function listPublishedHistoryQueue(database: SqliteDatabase, search: URLS
   const rows = database.prepare(`
     SELECT n.id,n.type,n.status,n.version,n.reviewed_by,n.reviewed_at,n.published_at,n.updated_at,
       MAX(CASE WHEN t.locale='vi' THEN t.title END) AS title_vi,
-      MAX(CASE WHEN t.locale='en' THEN t.title END) AS title_en
+      MAX(CASE WHEN t.locale='en' THEN t.title END) AS title_en,
+      MAX(CASE WHEN t.locale='vi' THEN t.translation_status END) AS translation_vi,
+      MAX(CASE WHEN t.locale='en' THEN t.translation_status END) AS translation_en,
+      CASE WHEN EXISTS (
+        SELECT 1 FROM content_sources cs JOIN sources s ON s.id=cs.source_id
+        WHERE cs.content_id=n.id
+      ) AND NOT EXISTS (
+        SELECT 1 FROM content_sources cs JOIN sources s ON s.id=cs.source_id
+        WHERE cs.content_id=n.id AND (s.verification_status <> 'VERIFIED' OR s.url IS NULL OR trim(s.url)=''
+          OR s.accessed_at IS NULL OR trim(s.accessed_at)='')
+      ) THEN 'READY' ELSE 'MISSING_OR_UNVERIFIED' END AS source_locator_status,
+      CASE WHEN EXISTS (
+        SELECT 1 FROM content_claims c JOIN claim_evidence ce ON ce.claim_id=c.id
+          JOIN sources s ON s.id=ce.source_id
+        WHERE c.content_id=n.id AND c.verification_status='VERIFIED'
+          AND s.verification_status='VERIFIED' AND ce.locator IS NOT NULL AND trim(ce.locator)<>''
+      ) AND NOT EXISTS (
+        SELECT 1 FROM content_claims c
+        WHERE c.content_id=n.id AND (c.verification_status <> 'VERIFIED' OR NOT EXISTS (
+          SELECT 1 FROM claim_evidence ce JOIN sources s ON s.id=ce.source_id
+          WHERE ce.claim_id=c.id AND s.verification_status='VERIFIED'
+            AND ce.locator IS NOT NULL AND trim(ce.locator)<>''
+        ))
+      ) THEN 'READY' ELSE 'MISSING_OR_UNVERIFIED' END AS claim_locator_status
     FROM content_nodes n LEFT JOIN content_translations t ON t.node_id=n.id
     WHERE n.status='PUBLISHED' AND NOT EXISTS (SELECT 1 FROM audit_logs a WHERE a.object_type='content' AND a.object_id=n.id AND a.action='content.editorial_history.review')
     GROUP BY n.id ORDER BY n.published_at,n.id LIMIT ? OFFSET ?
   `).all(pageSize, offset) as Array<Record<string, unknown>>;
-  return { data: rows.map((row) => ({ id: row.id, type: row.type, status: row.status, version: row.version, titles: { vi: row.title_vi, en: row.title_en }, reviewedBy: row.reviewed_by, reviewedAt: row.reviewed_at, publishedAt: row.published_at, updatedAt: row.updated_at })), meta: meta(p, pageSize, total) };
+  return { data: rows.map((row) => ({ id: row.id, type: row.type, status: row.status, version: row.version, titles: { vi: row.title_vi, en: row.title_en }, translationStatuses: { vi: row.translation_vi ?? null, en: row.translation_en ?? null }, sourceLocatorStatus: row.source_locator_status, claimLocatorStatus: row.claim_locator_status, reviewedBy: row.reviewed_by, reviewedAt: row.reviewed_at, publishedAt: row.published_at, updatedAt: row.updated_at })), meta: meta(p, pageSize, total) };
 }
 
 export function replaceCurriculumMappings(database:SqliteDatabase,id:string,input:Record<string,unknown>,actor:AuthUser){

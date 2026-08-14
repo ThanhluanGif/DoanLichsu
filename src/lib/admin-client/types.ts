@@ -4,11 +4,12 @@ import type { AssetProvenanceView,ClaimAssessment,ClaimEvidenceView,ClaimType,Co
 export type { AuthUser,Role,AssetProvenanceView,ClaimAssessment,ClaimEvidenceView,ClaimType,ContentType,DatePrecision,Locale,PageMeta,RightsStatus,SourceQualityTier,SourceType,VerificationStatus };
 export type WorkflowStatus="DRAFT"|"IN_REVIEW"|"REJECTED"|"APPROVED"|"PUBLISHED"|"ARCHIVED";
 export type TranslationStatus="NOT_STARTED"|"TRANSLATING"|"READY_FOR_REVIEW"|"APPROVED"|"PUBLISHED";
+export type EvidenceLocatorStatus="READY"|"MISSING_OR_UNVERIFIED";
 
 export interface AdminTranslation { locale:Locale;id:string;version:number;title:string;slug:string;summary:string;body:string;seoTitle:string;seoDescription:string;translationStatus:TranslationStatus;updatedAt:string }
 export interface AdminContentListItem { id:string;type:ContentType;status:WorkflowStatus;featured:boolean;version:number;titles:Partial<Record<Locale,string>>;updatedAt:string;updatedBy:string }
 export interface AdminContentDetail extends AdminContentListItem { startDate:string|null;endDate:string|null;datePrecision:DatePrecision|null;periodId:string|null;location:string|null;result:string|null;role:string|null;artifactMeta:Record<string,string>|null;tagIds:string[];relatedIds:string[];sourceIds:string[];mediaIds:string[];translations:Partial<Record<Locale,AdminTranslation>> }
-export interface PublishedHistoryQueueItem { id:string;type:ContentType;status:WorkflowStatus;version:number;titles:Partial<Record<Locale,string|null>>;reviewedBy:string|null;reviewedAt:string|null;publishedAt:string|null;updatedAt:string }
+export interface PublishedHistoryQueueItem { id:string;type:ContentType;status:"PUBLISHED";version:number;titles:Partial<Record<Locale,string|null>>;translationStatuses:Partial<Record<Locale,TranslationStatus|null>>;sourceLocatorStatus:EvidenceLocatorStatus;claimLocatorStatus:EvidenceLocatorStatus;reviewedBy:string|null;reviewedAt:string|null;publishedAt:string|null;updatedAt:string }
 export type CorrectionCategory="FACTUAL"|"SOURCE"|"TRANSLATION"|"ACCESSIBILITY"|"SAFETY"|"RIGHTS";
 export type CorrectionUrgency="NORMAL"|"HIGH"|"CRITICAL";
 export type CorrectionState="RECEIVED"|"TRIAGED"|"IN_REVIEW"|"NEEDS_COUNCIL"|"CORRECTED"|"DECLINED"|"ARCHIVED";
