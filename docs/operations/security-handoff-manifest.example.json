@@ -1,0 +1,27 @@
+{
+  "version": "security-handoff-v1",
+  "testedCommit": null,
+  "tool": null,
+  "toolVersion": null,
+  "reviewedAt": null,
+  "scope": [],
+  "findings": {
+    "critical": null,
+    "high": null,
+    "medium": null,
+    "low": null
+  },
+  "remediationStatus": "PENDING_EXTERNAL_REVIEW",
+  "reportArtifact": null,
+  "reportSha256": null,
+  "reviewer": {
+    "name": null,
+    "organization": null,
+    "authority": null,
+    "verifiedAt": null
+  },
+  "decision": "PENDING_EXTERNAL_REVIEW",
+  "externalEvidenceAttached": false,
+  "releaseAllowed": false,
+  "publicBeta": false
+}
