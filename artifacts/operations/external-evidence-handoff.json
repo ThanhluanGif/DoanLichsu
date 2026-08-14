@@ -1,11 +1,58 @@
 {
   "version": "external-evidence-handoff-v1",
-  "generatedAt": "2026-08-14T06:38:08.363Z",
+  "generatedAt": "2026-08-14T11:12:07.391Z",
   "sourceLedger": "artifacts/operations/external-evidence-ledger.json",
   "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
   "pendingCount": 11,
   "noFabricatedEvidence": true,
   "publicBetaAllowed": false,
+  "internalEvidence": {
+    "release": {
+      "artifact": "artifacts/release/current-head-evidence.json",
+      "artifactSha256": "78b52c62661c524723d3b2ebc41d06b5f63181671bb61aa387889d3d5abbbec1",
+      "testedCommit": "58d4be5880025774144adc17bba045e7e6f8a594",
+      "sourceTreeSha256": "62169c86fd77b70555364d90714496e561313418c921e1fcef9e23615249845a",
+      "quality": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "local": {
+        "health": 200,
+        "openapi": 200,
+        "search": 200,
+        "securityHeaders": true,
+        "p95SearchMs": 35.441164999996545
+      }
+    },
+    "runtime": {
+      "artifact": "artifacts/operations/ghcr-runtime-smoke.json",
+      "artifactSha256": "fce340a45bd247d09bee4667b3f2c3695c06af4e8a1f3d0486974ec128a1eb75",
+      "sourceCommit": "a6475004624ec9e882c0d01cf302d88132a2e9af",
+      "image": "ghcr.io/thanhluangif/doanlichsu@sha256:7a70676a0e4e9b353a369bc9679dcbd73f4c13c05461b6339a9f22801d12f7a7",
+      "checks": {
+        "healthz": {
+          "status": 200,
+          "bodyStatus": "ok",
+          "database": "ok"
+        },
+        "openapi": 200,
+        "search": 200,
+        "dockerHealth": "healthy"
+      },
+      "officialProduction": false,
+      "productionDeployment": false
+    },
+    "security": {
+      "artifact": "artifacts/security/security-review-pack.json",
+      "artifactSha256": "41946040c5ccf66556b3e01a79a9ec9ca9a5302dbf2605ac2018f6bb5dc8dd82",
+      "status": "PASS_LOCAL_SECURITY_EVIDENCE",
+      "dependencyAudit": true,
+      "independentReview": "PENDING_EXTERNAL",
+      "penTest": "NOT_PERFORMED"
+    }
+  },
   "rows": [
     {
       "id": "official-production",
