@@ -1,0 +1,70 @@
+name: Publish immutable container
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute image metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=sha,format=long
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push immutable image
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Publish digest handoff
+        env:
+          IMAGE_TAGS: ${{ steps.meta.outputs.tags }}
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          test -n "$IMAGE_DIGEST"
+          case "$IMAGE_DIGEST" in sha256:*) ;; *) echo "Invalid image digest" >&2; exit 1 ;; esac
+          {
+            echo "## Immutable container publication"
+            echo "- Commit: $COMMIT_SHA"
+            echo "- Tags: $IMAGE_TAGS"
+            echo "- Digest: $IMAGE_DIGEST"
+            echo "- Production deployment: NOT PERFORMED"
+            echo "- Public Beta: DISABLED"
+          } >> "$GITHUB_STEP_SUMMARY"
+          printf 'commit=%s\ntags=%s\ndigest=%s\nproductionDeployment=false\npublicBeta=false\n' "$COMMIT_SHA" "$IMAGE_TAGS" "$IMAGE_DIGEST" > image-digest.txt
+
+      - name: Upload digest handoff artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: container-digest-${{ github.sha }}
+          path: image-digest.txt
+          if-no-files-found: error
+          retention-days: 14
