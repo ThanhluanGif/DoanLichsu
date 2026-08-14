@@ -31,15 +31,16 @@ const errors = {
 type ErrorStatus = keyof typeof errors;
 const selectedErrors = <const T extends readonly ErrorStatus[]>(statuses: T) =>
   Object.fromEntries(statuses.map((status) => [status,errors[status]])) as { [K in T[number]]: (typeof errors)[K] };
-const operation = <const T extends readonly ErrorStatus[]>(operationId: string, summary: string, options: { request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][]; errors: T }) => ({
-  operationId, summary, tags: [options.admin === false ? "Auth" : "Editorial"],
-  ...(options.admin === false && operationId === "login" ? {} : { security: auth,"x-allowed-roles":options.roles ?? allRoles }),
+const operation = <const T extends readonly ErrorStatus[]>(operationId: string, summary: string, options: { request?: string; response: string; parameters?: readonly object[]; admin?: boolean; public?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][]; errors: T }) => ({
+  operationId, summary, tags: [options.public ? "Public" : options.admin === false ? "Auth" : "Editorial"],
+  ...(options.public || (options.admin === false && operationId === "login") ? {} : { security: auth,"x-allowed-roles":options.roles ?? allRoles }),
   ...(options.parameters ? { parameters: options.parameters } : {}),
   ...(options.request ? { requestBody: body(options.request) } : {}),
   responses: { [options.status ?? "200"]: json(options.response.startsWith("List:") ? list(options.response.slice(5)) : data(options.response), "Thành công."), ...selectedErrors(options.errors) },
 });
 
 export const editorialOpenApiPaths = {
+  "/api/v1/corrections": { post: operation("createCorrection", "Gửi báo cáo đính chính", { public: true, request: "CorrectionCreateInput", response: "CorrectionReceipt", status: "201", errors:["400","404","409","422","429","500"] }) },
   "/api/v1/auth/login": { post: operation("login", "Đăng nhập", { request: "LoginInput", response: "AuthUser", admin: false,errors:["400","401","403","429","500"] }) },
   "/api/v1/auth/logout": { post: operation("logout", "Đăng xuất", { response: "LogoutResult", admin: false,errors:["401","403","500"] }) },
   "/api/v1/auth/me": { get: operation("me", "Đọc người dùng hiện tại", { response: "AuthUser", admin: false,errors:["401","500"] }) },
@@ -95,6 +96,8 @@ const types = ["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"] as const;
 const workflow = ["DRAFT", "IN_REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "ARCHIVED"] as const;
 const rightsStatuses = ["UNKNOWN", "LINK_ONLY", "PERMITTED", "PUBLIC_DOMAIN"] as const;
 const translationStatuses = ["NOT_STARTED", "TRANSLATING", "READY_FOR_REVIEW", "APPROVED", "PUBLISHED"] as const;
+const correctionCategories = ["FACTUAL", "SOURCE", "TRANSLATION", "ACCESSIBILITY", "SAFETY", "RIGHTS"] as const;
+const correctionUrgencies = ["NORMAL", "HIGH", "CRITICAL"] as const;
 const object = (required: readonly string[], properties: Record<string, object>) => ({ type: "object", additionalProperties: false, required, properties });
 const partialLocaleRecord = (value: object) => object([], { vi:value,en:value });
 const exactEnumRecord = (keys: readonly string[]) => object(keys,Object.fromEntries(keys.map((key) => [key,{ type:"integer" }])));
@@ -110,6 +113,8 @@ const translationCreate = object(["title","slug","summary","body","seoTitle","se
 const contentEditableProperties = { featured:{type:"boolean"},startDate:{type:"string",format:"date"},endDate:{type:"string",format:"date"},datePrecision:{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},periodId:string,location:string,result:string,role:string,artifactMeta:{type:"object",additionalProperties:string},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray } as const;
 
 export const editorialOpenApiSchemas = {
+  CorrectionCreateInput: object(["contentId","category","description","evidenceLocator","urgency","consent"], { contentId:{type:"string",minLength:1,maxLength:200},category:{type:"string",enum:correctionCategories},description:{type:"string",minLength:12,maxLength:2_000},evidenceLocator:{type:"string",minLength:3,maxLength:2_000},urgency:{type:"string",enum:correctionUrgencies},consent:{type:"string",const:"yes"},website:{type:"string",maxLength:200} }),
+  CorrectionReceipt: object(["id","state","receivedAt","slaHours","reporterStored"], { id:string,state:{type:"string",const:"RECEIVED"},receivedAt:{type:"string",format:"date-time"},slaHours:{anyOf:[{type:"integer",const:24},{type:"integer",const:72}]},reporterStored:{type:"boolean",const:false} }),
   AuthUser: object(["id","email","displayName","role"], { id:string,email:{type:"string",format:"email"},displayName:string,role:{type:"string",enum:roles} }),
   LoginInput: object(["email","password"], { email:{type:"string",format:"email"},password:{type:"string",minLength:12,maxLength:256,writeOnly:true} }),
   LogoutResult: object(["loggedOut"], { loggedOut:{type:"boolean",const:true} }),

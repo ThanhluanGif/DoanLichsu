@@ -36,3 +36,12 @@ describe("admin UI contract",()=>{
     expect(source).not.toMatch(/[😀-🙏🌀-🫿]/u);
   });
 });
+
+describe("public correction surface",()=>{
+  it("ships both locale routes and a labeled client form",()=>{
+    for(const path of ["src/app/[locale]/corrections/page.tsx","src/components/public/CorrectionForm.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
+    const source=read("src/components/public/CorrectionForm.tsx");
+    for(const field of ["contentId","category","description","evidenceLocator","urgency","consent","website"])expect(source).toContain(`name=\"${field}\"`);
+    expect(source).toContain("/api/v1/corrections");
+  });
+});

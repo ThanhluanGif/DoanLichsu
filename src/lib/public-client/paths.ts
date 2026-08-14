@@ -16,6 +16,7 @@ export function reconstructionPath(locale: Locale, slug = "") { return `/${local
 export function searchPath(locale: Locale, query = "") { return `/${locale}/${locale === "vi" ? "tim-kiem" : "search"}${query}`; }
 export function sourcesPath(locale: Locale, query = "") { return `/${locale}/sources${query}`; }
 export function archivePath(locale: Locale, query = "") { return `/${locale}/tu-lieu${query}`; }
+export function correctionsPath(locale: Locale, contentId?: string) { return `/${locale}/corrections${contentId ? `?contentId=${encodeURIComponent(contentId)}` : ""}`; }
 export function learnByGradePath(locale: Locale, grade?: Grade) { return `/${locale}/${locale === "vi" ? "hoc-theo-lop" : "learn-by-grade"}${grade === undefined ? "" : `/${grade}`}`; }
 export function contentCollectionPath(locale: Locale, type: ContentType, query = "") { return `/${locale}/${typeSegments[locale][type]}${query}`; }
 export function contentPath(locale: Locale, type: ContentType, slug: string) { return `${contentCollectionPath(locale,type)}/${encodeURIComponent(slug)}`; }
