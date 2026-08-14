@@ -44,4 +44,9 @@ describe("public correction surface",()=>{
     for(const field of ["contentId","category","description","evidenceLocator","urgency","consent","website"])expect(source).toContain(`name=\"${field}\"`);
     expect(source).toContain("/api/v1/corrections");
   });
+  it("ships the authenticated correction moderation queue",()=>{
+    for(const path of ["src/app/admin/corrections/page.tsx","src/components/admin/CorrectionQueue.tsx","src/app/api/v1/admin/corrections/route.ts","src/app/api/v1/admin/corrections/[id]/transition/route.ts"])expect(()=>statSync(join(root,path))).not.toThrow();
+    const source=read("src/components/admin/CorrectionQueue.tsx");
+    for(const marker of ["/api/v1/admin/corrections?","/transition","NEEDS_COUNCIL","CORRECTED","Lý do chuyển trạng thái"])expect(source).toContain(marker);
+  });
 });

@@ -106,8 +106,9 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
   và link gốc.
 - **FR23:** Là người đọc/giáo viên, tôi gửi báo cáo factual/source/translation/accessibility/
   safety/rights cho một nội dung đã xuất bản mà không cần tài khoản; hệ thống xác thực consent,
-  chống spam/PII, trả receipt cùng SLA và chỉ đưa vào hàng đợi moderation, không tự sửa hoặc tự
-  công khai báo cáo.
+  chống spam/PII, trả receipt cùng SLA và chỉ đưa vào hàng đợi moderation. Editor/Reviewer/Admin
+  có thể lọc queue và chuyển state hợp lệ với version, reason và audit actor; không tự sửa hoặc
+  tự công khai báo cáo.
 
 ## Non-functional requirements
 

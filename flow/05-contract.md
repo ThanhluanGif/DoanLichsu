@@ -60,6 +60,8 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | GET | `/api/v1/{locale}/reconstructions/{slug}` | Public; one reviewed/published scene; no write | path `{ locale: Locale; slug: string }` | application/json 200 `DataResponse<ReconstructionView>`; errors application/json 404,500 `ApiError` |
 | GET | `/api/v1/{locale}/sources` | Public; sources used by published content with a published requested-locale translation only; unique by URL | path `{ locale: Locale }`; query `PageQuery` | application/json 200 `ListResponse<PublicSourceItem>`; errors application/json 400,404,500 `ApiError` |
 | POST | `/api/v1/corrections` | Public; validates and stores minimum non-PII moderation intake only; no content/publication mutation | `CorrectionCreateInput` | application/json 201 `DataResponse<CorrectionReceipt>`; errors application/json 400,404,409,422,429,500 `ApiError` |
+| GET | `/api/v1/admin/corrections` | Editor/Reviewer/Admin; paginated moderation queue, no write | query `{ page?: number; pageSize?: number; state?: CorrectionState; category?: CorrectionCategory; urgency?: CorrectionUrgency }` | application/json 200 `ListResponse<AdminCorrectionView>`; errors application/json 400,401,403,500 `ApiError` |
+| POST | `/api/v1/admin/corrections/{id}/transition` | Editor/Reviewer/Admin; validates policy transition, version and reason, writes actor audit only | path `{ id: string }`; `CorrectionTransitionInput` | application/json 200 `DataResponse<AdminCorrectionView>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | GET | `/api/v1/contents/{id}/alternate` | Public; published translations only | path `{ id: string }`; query `{ locale: Locale }` | application/json 200 `DataResponse<AlternateView>` where `alternate` may be `null`; errors application/json 400,404,500 `ApiError` |
 | GET | `/sitemap.xml` | Public; no write | none | application/xml 200 string URL set, empty through C-005 because canonical published VI/EN HTML routes ship in C-006, then populated only with those canonical pages |
 | GET | `/robots.txt` | Public; no write | none | text/plain 200 string allowing public routes and disallowing `/admin` and `/api/v1/admin` |
@@ -131,6 +133,7 @@ interface ApiError {
 }
 type CorrectionCategory = "FACTUAL" | "SOURCE" | "TRANSLATION" | "ACCESSIBILITY" | "SAFETY" | "RIGHTS";
 type CorrectionUrgency = "NORMAL" | "HIGH" | "CRITICAL";
+type CorrectionState = "RECEIVED" | "TRIAGED" | "IN_REVIEW" | "NEEDS_COUNCIL" | "CORRECTED" | "DECLINED" | "ARCHIVED";
 interface CorrectionCreateInput {
   contentId: string; category: CorrectionCategory; description: string;
   evidenceLocator: string; urgency: CorrectionUrgency; consent: "yes"; website?: string;
@@ -138,6 +141,13 @@ interface CorrectionCreateInput {
 interface CorrectionReceipt {
   id: string; state: "RECEIVED"; receivedAt: string; slaHours: 24 | 72;
   reporterStored: false;
+}
+interface CorrectionTransitionInput { version: number; state: CorrectionState; reason: string }
+interface AdminCorrectionView {
+  id: string; contentId: string; contentTitle: string; category: CorrectionCategory;
+  description: string; evidenceLocator: string; urgency: CorrectionUrgency;
+  state: CorrectionState; slaHours: 24 | 72; receivedAt: string; updatedAt: string;
+  version: number; overdue: boolean;
 }
 
 interface HealthResponse { status: "ok"; version: string; database: "ok"; timestamp: string }
@@ -410,4 +420,4 @@ Reference each PRD feature by its `FRn` id so the mapping is machine-checkable
 - FR20 → reconstruction list/detail interfaces and public HTML/WebGL-enhanced reconstruction routes
 - FR21 → Next.js `/{locale}/loading` and public HTML route/template interfaces; no API mutation
 - FR22 → public sources/content detail, `MediaView.provenance`, admin source/media interfaces and rights-serving rule
-- FR23 → `POST /api/v1/corrections` and bilingual `/{locale}/corrections` form; receipt/SLA only, no direct content mutation
+- FR23 → `POST /api/v1/corrections`, `GET /api/v1/admin/corrections`, `POST /api/v1/admin/corrections/{id}/transition` and bilingual `/{locale}/corrections` form; receipt/SLA/moderation only, no direct content mutation

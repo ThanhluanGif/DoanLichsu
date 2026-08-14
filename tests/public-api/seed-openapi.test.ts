@@ -78,6 +78,9 @@ describe("public seed and runtime contract", () => {
   it("publishes every C-003 endpoint and exact public schemas in OpenAPI 3.1", () => {
     expect(openApiDocument.openapi).toBe("3.1.0");
     expect(openApiDocument.paths["/api/v1/corrections"].post.responses["201"]).toBeDefined();
+    expect(openApiDocument.paths["/api/v1/admin/corrections"].get.responses["200"]).toBeDefined();
+    expect(openApiDocument.paths["/api/v1/admin/corrections/{id}/transition"].post.responses["200"]).toBeDefined();
+    expect(openApiDocument.components.schemas.AdminCorrectionView.required).toContain("overdue");
     expect(openApiDocument.components.schemas.CorrectionCreateInput.required).toEqual(["contentId", "category", "description", "evidenceLocator", "urgency", "consent"]);
     expect(Object.keys(openApiDocument.paths)).toEqual(expect.arrayContaining([
       "/api/v1/{locale}/home", "/api/v1/{locale}/periods", "/api/v1/{locale}/timeline",
