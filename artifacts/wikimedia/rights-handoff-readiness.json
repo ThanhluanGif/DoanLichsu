@@ -1,0 +1,29 @@
+{
+  "version": "rights-handoff-readiness-v1",
+  "generatedAt": "2026-08-14T07:51:43.711Z",
+  "input": "docs/operations/rights-handoff-manifest.example.json",
+  "batch": {
+    "path": "artifacts/wikimedia/batch-300-report.json",
+    "sha256": "a8ea6e0bbbe1251943aad3eb4ee954d2fe72add5549c5ab7330475a4c6f060eb"
+  },
+  "ledger": {
+    "path": "artifacts/wikimedia/rights-review-ledger.json",
+    "sha256": "987b9d5f813d0f448a8c892023327801fcc5a5302e4b17b4e11df7654a536672"
+  },
+  "status": "BLOCKED_EXTERNAL",
+  "officialPartnerRights": false,
+  "approvedForBinary": 0,
+  "binaryServingEnabled": false,
+  "releaseAllowed": false,
+  "publicBeta": false,
+  "noFabricatedEvidence": true,
+  "databaseMutation": false,
+  "errors": [
+    "BATCH_SHA256_REQUIRED",
+    "LEDGER_SHA256_REQUIRED",
+    "RIGHTS_REVIEWER_NAME_REQUIRED",
+    "RIGHTS_REVIEWER_AUTHORITY_REQUIRED",
+    "RIGHTS_REVIEWER_VERIFIED_AT_MUST_BE_ISO_TIMESTAMP",
+    "EXACTLY_TWO_PARTNER_COLLECTIONS_REQUIRED"
+  ]
+}
