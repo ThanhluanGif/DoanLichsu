@@ -3,7 +3,7 @@
 - Status: **PENDING_RIGHTS_REVIEW**
 - Records: 300
 - Approved for binary: 0/300
-- Invalid metadata: 1
-- Input SHA-256: eeb6ec5aeed87bd54f821c63711e0244a26d652ef9d28eb681f49944b69abeed
+- Invalid metadata: 0
+- Input SHA-256: a8ea6e0bbbe1251943aad3eb4ee954d2fe72add5549c5ab7330475a4c6f060eb
 - Reviewers/permissions: **PENDING; no identities fabricated**
 - Binary serving: **DISABLED**

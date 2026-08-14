@@ -1,44 +1,15 @@
 {
   "version": "wikimedia-rights-review-v1",
-  "generatedAt": "2026-08-13T13:50:26.080Z",
+  "generatedAt": "2026-08-14T06:51:05.710Z",
   "status": "PENDING_RIGHTS_REVIEW",
   "total": 300,
   "approvedForBinary": 0,
-  "invalidMetadataCount": 1,
+  "invalidMetadataCount": 0,
   "noFabricatedReviewers": true,
   "binaryServingEnabled": false,
   "rows": [
     {
       "ordinal": 1,
-      "id": "wikimedia-undefined",
-      "pageId": null,
-      "fileTitle": "File:Map of Vietnam.svg",
-      "revisionId": null,
-      "revisionTimestamp": null,
-      "originalUrl": null,
-      "descriptionUrl": null,
-      "artist": null,
-      "creditLine": null,
-      "licenseShortName": null,
-      "licenseUrl": null,
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "INVALID_METADATA",
-      "missingMetadata": [
-        "pageId",
-        "descriptionUrl",
-        "revisionId",
-        "revisionTimestamp"
-      ],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 2,
       "id": "wikimedia-383863",
       "pageId": 383863,
       "fileTitle": "File:Flag of Vietnam.svg",
@@ -62,7 +33,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 3,
+      "ordinal": 2,
       "id": "wikimedia-2917637",
       "pageId": 2917637,
       "fileTitle": "File:VietnamMural.jpg",
@@ -86,7 +57,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 4,
+      "ordinal": 3,
       "id": "wikimedia-3703197",
       "pageId": 3703197,
       "fileTitle": "File:Thuong Duc, Vietnam - A Viet Cong prisoner awaits interrogation at the A-109 Special Forces Detachment in Thuong - NARA - 531447.jpg",
@@ -110,7 +81,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 5,
+      "ordinal": 4,
       "id": "wikimedia-19523693",
       "pageId": 19523693,
       "fileTitle": "File:Emblem of the Socialist Republic of Vietnam.svg",
@@ -134,7 +105,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 6,
+      "ordinal": 5,
       "id": "wikimedia-30078246",
       "pageId": 30078246,
       "fileTitle": "File:Palacio de la Reunificación, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 37.JPG",
@@ -158,7 +129,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 7,
+      "ordinal": 6,
       "id": "wikimedia-30083147",
       "pageId": 30083147,
       "fileTitle": "File:Ayuntamiento, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 08.JPG",
@@ -182,7 +153,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 8,
+      "ordinal": 7,
       "id": "wikimedia-30140031",
       "pageId": 30140031,
       "fileTitle": "File:Río Saigón, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 29.JPG",
@@ -206,7 +177,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 9,
+      "ordinal": 8,
       "id": "wikimedia-31821804",
       "pageId": 31821804,
       "fileTitle": "File:Hue Vietnam A-lady-with-her-bike-transporting-goods-01.jpg",
@@ -230,7 +201,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 10,
+      "ordinal": 9,
       "id": "wikimedia-31822939",
       "pageId": 31822939,
       "fileTitle": "File:Hue Vietnam Tomb-of-Emperor-Minh-Mang-03.jpg",
@@ -254,7 +225,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 11,
+      "ordinal": 10,
       "id": "wikimedia-32022479",
       "pageId": 32022479,
       "fileTitle": "File:Hue Vietnam Tomb-of-Emperor-Gia-Long-04a.jpg",
@@ -278,7 +249,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 12,
+      "ordinal": 11,
       "id": "wikimedia-37936613",
       "pageId": 37936613,
       "fileTitle": "File:Hue Vietnam Citadel-of-Huế-21.jpg",
@@ -302,7 +273,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 13,
+      "ordinal": 12,
       "id": "wikimedia-101028421",
       "pageId": 101028421,
       "fileTitle": "File:Corporate seal type of the Socialist Republic of Vietnam (2010's) 02.jpg",
@@ -326,7 +297,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 14,
+      "ordinal": 13,
       "id": "wikimedia-101028432",
       "pageId": 101028432,
       "fileTitle": "File:Corporate seal type of the Socialist Republic of Vietnam (2010's) 03.png",
@@ -350,7 +321,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 15,
+      "ordinal": 14,
       "id": "wikimedia-101028433",
       "pageId": 101028433,
       "fileTitle": "File:Corporate seal type of the Socialist Republic of Vietnam (2010's) 04.jpg",
@@ -374,7 +345,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 16,
+      "ordinal": 15,
       "id": "wikimedia-101028439",
       "pageId": 101028439,
       "fileTitle": "File:Corporate seal type of the Socialist Republic of Vietnam (2010's) 01.png",
@@ -398,7 +369,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 17,
+      "ordinal": 16,
       "id": "wikimedia-101028446",
       "pageId": 101028446,
       "fileTitle": "File:Private and personal seal types of the Socialist Republic of Vietnam (2010's).jpg",
@@ -422,7 +393,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 18,
+      "ordinal": 17,
       "id": "wikimedia-107745292",
       "pageId": 107745292,
       "fileTitle": "File:Viet Nam Su Luoc, Quyen 2, 1923 image 2.png",
@@ -446,7 +417,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 19,
+      "ordinal": 18,
       "id": "wikimedia-107745293",
       "pageId": 107745293,
       "fileTitle": "File:Viet Nam Su Luoc, Quyen 2, 1928 image 1.png",
@@ -470,7 +441,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 20,
+      "ordinal": 19,
       "id": "wikimedia-114909886",
       "pageId": 114909886,
       "fileTitle": "File:Map of provinces and cities of the Socialist Republic of Vietnam 1976.png",
@@ -494,7 +465,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 21,
+      "ordinal": 20,
       "id": "wikimedia-121552640",
       "pageId": 121552640,
       "fileTitle": "File:Embassy of the Socialist Republic of Vietnam (Helsinki).jpg",
@@ -518,7 +489,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 22,
+      "ordinal": 21,
       "id": "wikimedia-124504197",
       "pageId": 124504197,
       "fileTitle": "File:Seal of the \"National Chairman\" (President) of the Socialist Republic of Vietnam (2 June 2000).png",
@@ -542,7 +513,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 23,
+      "ordinal": 22,
       "id": "wikimedia-130216352",
       "pageId": 130216352,
       "fileTitle": "File:Incense in Vietnam.jpg",
@@ -566,7 +537,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 24,
+      "ordinal": 23,
       "id": "wikimedia-142987343",
       "pageId": 142987343,
       "fileTitle": "File:Emblem of Vietnam.svg",
@@ -590,7 +561,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 25,
+      "ordinal": 24,
       "id": "wikimedia-146936100",
       "pageId": 146936100,
       "fileTitle": "File:Flag map of The Socialist Republic of Vietnam.png",
@@ -614,7 +585,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 26,
+      "ordinal": 25,
       "id": "wikimedia-174782712",
       "pageId": 174782712,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194194).jpg",
@@ -638,7 +609,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 27,
+      "ordinal": 26,
       "id": "wikimedia-174782723",
       "pageId": 174782723,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194214).jpg",
@@ -662,7 +633,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 28,
+      "ordinal": 27,
       "id": "wikimedia-174782728",
       "pageId": 174782728,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194264).jpg",
@@ -686,7 +657,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 29,
+      "ordinal": 28,
       "id": "wikimedia-174782734",
       "pageId": 174782734,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194330).jpg",
@@ -695,7 +666,7 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Recovery_Mission_in_the_Socialist_Republic_of_Vietnam_%289194330%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Recovery_Mission_in_the_Socialist_Republic_of_Vietnam_(9194330).jpg",
       "artist": "U.S. Army photo by Spc. <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/portfolio/1729556\">Lilly Ekberg</a>",
-      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/120px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/250px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"900\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D250409-A-AH361-1257 2%3DArmy url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F9194330\"> </span>\nThis image was released by the United States Army with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/9194330\">250409-A-AH361-1257</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250409-A-AH361-1257#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250409-A-AH361-1257#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
+      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/120px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/250px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"900\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D250409-A-AH361-1257 2%3DArmy url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F9194330\"> </span>\nThis image was released by the United States Army with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/9194330\">250409-A-AH361-1257</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250409-A-AH361-1257#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250409-A-AH361-1257#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
       "licenseShortName": "Public domain",
       "licenseUrl": null,
       "restrictions": null,
@@ -710,7 +681,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 30,
+      "ordinal": 29,
       "id": "wikimedia-174790437",
       "pageId": 174790437,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193586).jpg",
@@ -734,7 +705,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 31,
+      "ordinal": 30,
       "id": "wikimedia-174790442",
       "pageId": 174790442,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193688).jpg",
@@ -758,7 +729,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 32,
+      "ordinal": 31,
       "id": "wikimedia-174790447",
       "pageId": 174790447,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193773).jpg",
@@ -782,7 +753,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 33,
+      "ordinal": 32,
       "id": "wikimedia-174790454",
       "pageId": 174790454,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193805).jpg",
@@ -806,7 +777,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 34,
+      "ordinal": 33,
       "id": "wikimedia-174790459",
       "pageId": 174790459,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193838).jpg",
@@ -830,7 +801,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 35,
+      "ordinal": 34,
       "id": "wikimedia-174790465",
       "pageId": 174790465,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193857).jpg",
@@ -854,7 +825,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 36,
+      "ordinal": 35,
       "id": "wikimedia-174790473",
       "pageId": 174790473,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193867).jpg",
@@ -878,7 +849,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 37,
+      "ordinal": 36,
       "id": "wikimedia-174790479",
       "pageId": 174790479,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193895).jpg",
@@ -902,7 +873,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 38,
+      "ordinal": 37,
       "id": "wikimedia-174790482",
       "pageId": 174790482,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193927).jpg",
@@ -926,7 +897,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 39,
+      "ordinal": 38,
       "id": "wikimedia-174790484",
       "pageId": 174790484,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193976).jpg",
@@ -950,7 +921,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 40,
+      "ordinal": 39,
       "id": "wikimedia-174790492",
       "pageId": 174790492,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194030).jpg",
@@ -974,7 +945,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 41,
+      "ordinal": 40,
       "id": "wikimedia-174790496",
       "pageId": 174790496,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194156).jpg",
@@ -998,7 +969,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 42,
+      "ordinal": 41,
       "id": "wikimedia-174790499",
       "pageId": 174790499,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194175).jpg",
@@ -1022,7 +993,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 43,
+      "ordinal": 42,
       "id": "wikimedia-174790504",
       "pageId": 174790504,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194234).jpg",
@@ -1046,7 +1017,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 44,
+      "ordinal": 43,
       "id": "wikimedia-174790684",
       "pageId": 174790684,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193578).jpg",
@@ -1055,7 +1026,7 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Recovery_Mission_in_the_Socialist_Republic_of_Vietnam_%289193578%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Recovery_Mission_in_the_Socialist_Republic_of_Vietnam_(9193578).jpg",
       "artist": "U.S. Army photo by Spc. <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/portfolio/1729556\">Lilly Ekberg</a>",
-      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/120px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/250px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"900\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D250306-A-AH361-1010 2%3DArmy url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F9193578\"> </span>\nThis image was released by the United States Army with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/9193578\">250306-A-AH361-1010</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250306-A-AH361-1010#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250306-A-AH361-1010#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
+      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/120px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg/250px-Emblem_of_the_United_States_Department_of_the_Army.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"900\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D250306-A-AH361-1010 2%3DArmy url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F9193578\"> </span>\nThis image was released by the United States Army with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/9193578\">250306-A-AH361-1010</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250306-A-AH361-1010#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Army_with_known_IDs&amp;filefrom=250306-A-AH361-1010#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
       "licenseShortName": "Public domain",
       "licenseUrl": null,
       "restrictions": null,
@@ -1070,7 +1041,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 45,
+      "ordinal": 44,
       "id": "wikimedia-174790690",
       "pageId": 174790690,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193609).jpg",
@@ -1094,7 +1065,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 46,
+      "ordinal": 45,
       "id": "wikimedia-174790695",
       "pageId": 174790695,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9194248).jpg",
@@ -1118,7 +1089,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 47,
+      "ordinal": 46,
       "id": "wikimedia-174812858",
       "pageId": 174812858,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771980).jpg",
@@ -1142,7 +1113,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 48,
+      "ordinal": 47,
       "id": "wikimedia-174812883",
       "pageId": 174812883,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771983).jpg",
@@ -1166,7 +1137,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 49,
+      "ordinal": 48,
       "id": "wikimedia-179926050",
       "pageId": 179926050,
       "fileTitle": "File:Recovery Mission in the Socialist Republic of Vietnam (9193624).jpg",
@@ -1190,7 +1161,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 50,
+      "ordinal": 49,
       "id": "wikimedia-196836082",
       "pageId": 196836082,
       "fileTitle": "File:Exclusive Economic Zone and the flag map of Socialist Republic of Vietnam.png",
@@ -1214,7 +1185,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 51,
+      "ordinal": 50,
       "id": "wikimedia-5523960",
       "pageId": 5523960,
       "fileTitle": "File:Plaque of Embassy of Vietnam in Helsinki.jpg",
@@ -1238,7 +1209,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 52,
+      "ordinal": 51,
       "id": "wikimedia-27739307",
       "pageId": 27739307,
       "fileTitle": "File:Libélula (Orthetrum sabina) sobre un Gymnocalicium mihanowichii, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 02.jpg",
@@ -1262,7 +1233,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 53,
+      "ordinal": 52,
       "id": "wikimedia-30081815",
       "pageId": 30081815,
       "fileTitle": "File:Parque Tao Dan, Ciudad Ho Chi Minh, Vietnam, 2013-08-15, DD 05.JPG",
@@ -1286,7 +1257,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 54,
+      "ordinal": 53,
       "id": "wikimedia-33468658",
       "pageId": 33468658,
       "fileTitle": "File:Deputy Prime Minister of the Socialist Republic of Vietnam (13891760784).jpg",
@@ -1310,7 +1281,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 55,
+      "ordinal": 54,
       "id": "wikimedia-35572428",
       "pageId": 35572428,
       "fileTitle": "File:Hue Vietnam Thien-Mu-Temple-and-Pagoda-03.jpg",
@@ -1334,7 +1305,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 56,
+      "ordinal": 55,
       "id": "wikimedia-57962482",
       "pageId": 57962482,
       "fileTitle": "File:Đường lên Cầu Khánh hội-Bến Nghé, Quận 1, TPHCM, Việt Nam - panoramio.jpg",
@@ -1358,7 +1329,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 57,
+      "ordinal": 56,
       "id": "wikimedia-59145657",
       "pageId": 59145657,
       "fileTitle": "File:Duong Calmette-phường 9, Quận 4, TPHCM, Việt Nam - panoramio.jpg",
@@ -1382,7 +1353,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 58,
+      "ordinal": 57,
       "id": "wikimedia-72322259",
       "pageId": 72322259,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi meeting the President of the Socialist Republic of Vietnam, Mr. Tran Dai Quang, in Hanoi, Vietnam on September 03, 2016.jpg",
@@ -1406,7 +1377,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 59,
+      "ordinal": 58,
       "id": "wikimedia-83594791",
       "pageId": 83594791,
       "fileTitle": "File:Vietnam, Mui Ne harbor, Vietnamese woman.jpg",
@@ -1430,7 +1401,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 60,
+      "ordinal": 59,
       "id": "wikimedia-106289747",
       "pageId": 106289747,
       "fileTitle": "File:Coat of arms of the Republic of Vietnam (1967–1975).svg",
@@ -1454,7 +1425,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 61,
+      "ordinal": 60,
       "id": "wikimedia-124500962",
       "pageId": 124500962,
       "fileTitle": "File:Seal of the government of the Socialist Republic of Việt Nam (1998).png",
@@ -1478,7 +1449,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 62,
+      "ordinal": 61,
       "id": "wikimedia-125850608",
       "pageId": 125850608,
       "fileTitle": "File:Hồ Chí Minh City voter card - Socialist Republic of Vietnam (1977) Notestamps.png",
@@ -1502,7 +1473,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 63,
+      "ordinal": 62,
       "id": "wikimedia-126340050",
       "pageId": 126340050,
       "fileTitle": "File:Republic of Vietnam An Introduction to Vietnam.pdf",
@@ -1526,7 +1497,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 64,
+      "ordinal": 63,
       "id": "wikimedia-126443741",
       "pageId": 126443741,
       "fileTitle": "File:Decree of the President of the Republic of Vietnam No. 368 TT SL (English).pdf",
@@ -1550,7 +1521,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 65,
+      "ordinal": 64,
       "id": "wikimedia-126579897",
       "pageId": 126579897,
       "fileTitle": "File:Condolence Letter to Chiang Kai Shek by the Embassy of the Republic of Vietnam in Taipei.jpg",
@@ -1574,7 +1545,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 66,
+      "ordinal": 65,
       "id": "wikimedia-126595911",
       "pageId": 126595911,
       "fileTitle": "File:Investment in Vietnam (Embassy of the Republic of Vietnam, Washington, D.C.).pdf",
@@ -1598,7 +1569,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 67,
+      "ordinal": 66,
       "id": "wikimedia-126596179",
       "pageId": 126596179,
       "fileTitle": "File:List of Countries which have recognized the Republic of Vietnam (1958).pdf",
@@ -1622,7 +1593,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 68,
+      "ordinal": 67,
       "id": "wikimedia-129207529",
       "pageId": 129207529,
       "fileTitle": "File:Quoc Huy Viet Nam Chuan.png",
@@ -1646,7 +1617,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 69,
+      "ordinal": 68,
       "id": "wikimedia-133436249",
       "pageId": 133436249,
       "fileTitle": "File:Việt Nam Quốc Vương chi ấn (越南國王之印).svg",
@@ -1670,7 +1641,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 70,
+      "ordinal": 69,
       "id": "wikimedia-145158181",
       "pageId": 145158181,
       "fileTitle": "File:Ethnical Minority of North Vietnam.jpg",
@@ -1694,7 +1665,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 71,
+      "ordinal": 70,
       "id": "wikimedia-151574292",
       "pageId": 151574292,
       "fileTitle": "File:February 2008, wedding goods in Vietnam 2.jpg",
@@ -1718,7 +1689,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 72,
+      "ordinal": 71,
       "id": "wikimedia-151574296",
       "pageId": 151574296,
       "fileTitle": "File:February 2008, wedding goods in Vietnam 3.jpg",
@@ -1742,7 +1713,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 73,
+      "ordinal": 72,
       "id": "wikimedia-151574300",
       "pageId": 151574300,
       "fileTitle": "File:February 2008, wedding goods in Vietnam 4.jpg",
@@ -1766,7 +1737,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 74,
+      "ordinal": 73,
       "id": "wikimedia-151575667",
       "pageId": 151575667,
       "fileTitle": "File:February 2008, wedding goods in Vietnam 5.jpg",
@@ -1790,7 +1761,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 75,
+      "ordinal": 74,
       "id": "wikimedia-174812759",
       "pageId": 174812759,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771964).jpg",
@@ -1814,7 +1785,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 76,
+      "ordinal": 75,
       "id": "wikimedia-174812786",
       "pageId": 174812786,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771965).jpg",
@@ -1838,7 +1809,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 77,
+      "ordinal": 76,
       "id": "wikimedia-174812798",
       "pageId": 174812798,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771970).jpg",
@@ -1862,7 +1833,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 78,
+      "ordinal": 77,
       "id": "wikimedia-174812807",
       "pageId": 174812807,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771971).jpg",
@@ -1886,7 +1857,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 79,
+      "ordinal": 78,
       "id": "wikimedia-174812810",
       "pageId": 174812810,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771973).jpg",
@@ -1910,7 +1881,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 80,
+      "ordinal": 79,
       "id": "wikimedia-174812815",
       "pageId": 174812815,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771975).jpg",
@@ -1934,7 +1905,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 81,
+      "ordinal": 80,
       "id": "wikimedia-174812820",
       "pageId": 174812820,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771976).jpg",
@@ -1958,7 +1929,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 82,
+      "ordinal": 81,
       "id": "wikimedia-174812830",
       "pageId": 174812830,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771977).jpg",
@@ -1982,7 +1953,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 83,
+      "ordinal": 82,
       "id": "wikimedia-174812847",
       "pageId": 174812847,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771978).jpg",
@@ -2006,7 +1977,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 84,
+      "ordinal": 83,
       "id": "wikimedia-174812872",
       "pageId": 174812872,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771982).jpg",
@@ -2030,7 +2001,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 85,
+      "ordinal": 84,
       "id": "wikimedia-174812898",
       "pageId": 174812898,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771985).jpg",
@@ -2054,7 +2025,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 86,
+      "ordinal": 85,
       "id": "wikimedia-174812900",
       "pageId": 174812900,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771986).jpg",
@@ -2078,7 +2049,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 87,
+      "ordinal": 86,
       "id": "wikimedia-174813374",
       "pageId": 174813374,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771959).jpg",
@@ -2102,7 +2073,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 88,
+      "ordinal": 87,
       "id": "wikimedia-174813395",
       "pageId": 174813395,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771961).jpg",
@@ -2126,7 +2097,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 89,
+      "ordinal": 88,
       "id": "wikimedia-174813416",
       "pageId": 174813416,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771963).jpg",
@@ -2150,7 +2121,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 90,
+      "ordinal": 89,
       "id": "wikimedia-174840817",
       "pageId": 174840817,
       "fileTitle": "File:DPAA Pre-Deployment Site Survey operations in the Socialist Republic of Vietnam (8771942).jpg",
@@ -2159,7 +2130,7 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/DPAA_Pre-Deployment_Site_Survey_operations_in_the_Socialist_Republic_of_Vietnam_%288771942%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:DPAA_Pre-Deployment_Site_Survey_operations_in_the_Socialist_Republic_of_Vietnam_(8771942).jpg",
       "artist": "U.S. Air Force photo by Staff Sgt. <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/portfolio/1597874\">Cole Yardley</a>",
-      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Seal_of_the_United_States_Department_of_the_Air_Force.svg/120px-Seal_of_the_United_States_Department_of_the_Air_Force.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Seal_of_the_United_States_Department_of_the_Air_Force.svg/250px-Seal_of_the_United_States_Department_of_the_Air_Force.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"600\" data-file-height=\"600\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D241025-F-FU430-1033 2%3DAir+Force url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F8771942\"> </span>\nThis image was released by the United States Air Force with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/8771942\">241025-F-FU430-1033</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Air_Force_with_known_IDs&amp;filefrom=241025-F-FU430-1033#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Air_Force_with_known_IDs&amp;filefrom=241025-F-FU430-1033#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
+      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Seal_of_the_United_States_Department_of_the_Air_Force.svg/120px-Seal_of_the_United_States_Department_of_the_Air_Force.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"80\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Seal_of_the_United_States_Department_of_the_Air_Force.svg/250px-Seal_of_the_United_States_Department_of_the_Air_Force.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"600\" data-file-height=\"600\"></span></span>\n</td>\n<td align=\"center\">\n<p><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-USMil 1%3D241025-F-FU430-1033 2%3DAir+Force url%3Dhttps%3A%2F%2Fwww.dvidshub.net%2Fimage%2F8771942\"> </span>\nThis image was released by the United States Air Force with the <a href=\"//commons.wikimedia.org/wiki/Commons:VIRIN\" title=\"Commons:VIRIN\">ID</a> <a rel=\"nofollow\" class=\"external text\" href=\"https://www.dvidshub.net/image/8771942\">241025-F-FU430-1033</a> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Air_Force_with_known_IDs&amp;filefrom=241025-F-FU430-1033#mw-category-media\" href=\"https://commons.wikimedia.org/w/index.php?title=Category:Files_created_by_the_United_States_Air_Force_with_known_IDs&amp;filefrom=241025-F-FU430-1033#mw-category-media\"><small>(next)</small></a>.<br>\n<small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/id\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/id\"><bdi class=\"language lang-id\" lang=\"id\">Bahasa Indonesia</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/jax\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/jax\"><bdi class=\"language lang-jax\" lang=\"jax\">Bahaso Jambi</bdi></a> <b>∙</b> \n<a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/de-formal\"><bdi class=\"language lang-de-formal\" lang=\"de-formal\">Deutsch (Sie-Form)</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/es\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/es\"><bdi class=\"language lang-es\" lang=\"es\">español</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/eu\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/eu\"><bdi class=\"language lang-eu\" lang=\"eu\">euskara</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fa\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fa\"><bdi class=\"language lang-fa\" lang=\"fa\">فارسی</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/fr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/fr\"><bdi class=\"language lang-fr\" lang=\"fr\">français</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/it\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/it\"><bdi class=\"language lang-it\" lang=\"it\">italiano</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ko\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ko\"><bdi class=\"language lang-ko\" lang=\"ko\">한국어</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nds\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nds\"><bdi class=\"language lang-nds\" lang=\"nds\">Plattdüütsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/nl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/nl\"><bdi class=\"language lang-nl\" lang=\"nl\">Nederlands</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ps\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ps\"><bdi class=\"language lang-ps\" lang=\"ps\">پښتو</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/pt\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/pt\"><bdi class=\"language lang-pt\" lang=\"pt\">português</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/ru\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/ru\"><bdi class=\"language lang-ru\" lang=\"ru\">русский</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sl\"><bdi class=\"language lang-sl\" lang=\"sl\">slovenščina</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/sv\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/sv\"><bdi class=\"language lang-sv\" lang=\"sv\">svenska</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/tr\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/tr\"><bdi class=\"language lang-tr\" lang=\"tr\">Türkçe</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/uk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/uk\"><bdi class=\"language lang-uk\" lang=\"uk\">українська</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">简体中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-USMil/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">繁體中文</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-USMil/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><span class=\"mw-image-border\" typeof=\"mw:File\"><span><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/120px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"47\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/250px-Flag_of_the_United_States.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"1235\" data-file-height=\"650\"></span></span>\n</td></tr></tbody></table>",
       "licenseShortName": "Public domain",
       "licenseUrl": null,
       "restrictions": null,
@@ -2174,7 +2145,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 91,
+      "ordinal": 90,
       "id": "wikimedia-174840832",
       "pageId": 174840832,
       "fileTitle": "File:DPAA Pre-Deployment Site Survey operations in the Socialist Republic of Vietnam (8771943).jpg",
@@ -2198,7 +2169,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 92,
+      "ordinal": 91,
       "id": "wikimedia-174840841",
       "pageId": 174840841,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771945).jpg",
@@ -2222,7 +2193,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 93,
+      "ordinal": 92,
       "id": "wikimedia-174840852",
       "pageId": 174840852,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771947).jpg",
@@ -2246,7 +2217,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 94,
+      "ordinal": 93,
       "id": "wikimedia-174840862",
       "pageId": 174840862,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771954).jpg",
@@ -2270,7 +2241,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 95,
+      "ordinal": 94,
       "id": "wikimedia-174840872",
       "pageId": 174840872,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771956).jpg",
@@ -2294,7 +2265,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 96,
+      "ordinal": 95,
       "id": "wikimedia-174840879",
       "pageId": 174840879,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771957).jpg",
@@ -2318,7 +2289,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 97,
+      "ordinal": 96,
       "id": "wikimedia-174840889",
       "pageId": 174840889,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771958).jpg",
@@ -2342,7 +2313,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 98,
+      "ordinal": 97,
       "id": "wikimedia-174840896",
       "pageId": 174840896,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771962).jpg",
@@ -2366,7 +2337,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 99,
+      "ordinal": 98,
       "id": "wikimedia-174840903",
       "pageId": 174840903,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771989).jpg",
@@ -2390,7 +2361,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 100,
+      "ordinal": 99,
       "id": "wikimedia-174840913",
       "pageId": 174840913,
       "fileTitle": "File:DPAA Predeployment Site Survey operations in the Socialist Republic of Vietnam (8771991).jpg",
@@ -2414,7 +2385,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 101,
+      "ordinal": 100,
       "id": "wikimedia-434803",
       "pageId": 434803,
       "fileTitle": "File:Flag of South Vietnam.svg",
@@ -2438,7 +2409,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 102,
+      "ordinal": 101,
       "id": "wikimedia-9506575",
       "pageId": 9506575,
       "fileTitle": "File:Vietnam location map.svg",
@@ -2462,7 +2433,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 103,
+      "ordinal": 102,
       "id": "wikimedia-14978501",
       "pageId": 14978501,
       "fileTitle": "File:South Vietnam 200 Dong 1955 Reverse (1st issue).jpg",
@@ -2486,7 +2457,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 104,
+      "ordinal": 103,
       "id": "wikimedia-16243976",
       "pageId": 16243976,
       "fileTitle": "File:My Tho, Vietnam. A Viet Cong base camp being. In the foreground is Private First Class Raymond Rumpa, St Paul, Minnesota - NARA - 530621 edit.jpg",
@@ -2510,7 +2481,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 105,
+      "ordinal": 104,
       "id": "wikimedia-25932462",
       "pageId": 25932462,
       "fileTitle": "File:Republic of Vietnam Marine Division SSI.png",
@@ -2534,7 +2505,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 106,
+      "ordinal": 105,
       "id": "wikimedia-30082203",
       "pageId": 30082203,
       "fileTitle": "File:Adarga (Nymphaea alba), Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 01.jpg",
@@ -2558,7 +2529,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 107,
+      "ordinal": 106,
       "id": "wikimedia-30110170",
       "pageId": 30110170,
       "fileTitle": "File:Puente Mong, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 01.JPG",
@@ -2582,7 +2553,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 108,
+      "ordinal": 107,
       "id": "wikimedia-30251004",
       "pageId": 30251004,
       "fileTitle": "File:Flag of the President of the Republic of Vietnam as Supreme Commander of the Armed Forces.svg",
@@ -2606,7 +2577,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 109,
+      "ordinal": 108,
       "id": "wikimedia-30296566",
       "pageId": 30296566,
       "fileTitle": "File:Flag of the Republic of Vietnam Air Force.svg",
@@ -2630,7 +2601,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 110,
+      "ordinal": 109,
       "id": "wikimedia-72322262",
       "pageId": 72322262,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi meeting the President of the Socialist Republic of Vietnam, Mr. Tran Dai Quang, in Hanoi, Vietnam on September 03, 2016 (1).jpg",
@@ -2654,7 +2625,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 111,
+      "ordinal": 110,
       "id": "wikimedia-72322264",
       "pageId": 72322264,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi meeting the President of the Socialist Republic of Vietnam, Mr. Tran Dai Quang, in Hanoi, Vietnam on September 03, 2016 (2).jpg",
@@ -2678,7 +2649,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 112,
+      "ordinal": 111,
       "id": "wikimedia-83605286",
       "pageId": 83605286,
       "fileTitle": "File:Vietnam, Ninh Binh, Limestone scenery.jpg",
@@ -2702,7 +2673,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 113,
+      "ordinal": 112,
       "id": "wikimedia-89603737",
       "pageId": 89603737,
       "fileTitle": "File:Vietnam bip änderung.png",
@@ -2726,7 +2697,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 114,
+      "ordinal": 113,
       "id": "wikimedia-91150423",
       "pageId": 91150423,
       "fileTitle": "File:Vietnam, Chau Doc, Mekong Delta.jpg",
@@ -2750,7 +2721,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 115,
+      "ordinal": 114,
       "id": "wikimedia-91150426",
       "pageId": 91150426,
       "fileTitle": "File:Vietnam, Chau Doc, Street market.jpg",
@@ -2774,7 +2745,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 116,
+      "ordinal": 115,
       "id": "wikimedia-91155838",
       "pageId": 91155838,
       "fileTitle": "File:Vietnam, Phong Dien, Mekong Delta.jpg",
@@ -2798,7 +2769,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 117,
+      "ordinal": 116,
       "id": "wikimedia-91155841",
       "pageId": 91155841,
       "fileTitle": "File:Vietnam, Phong Dien, Floating market, Vendor.jpg",
@@ -2822,7 +2793,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 118,
+      "ordinal": 117,
       "id": "wikimedia-95589585",
       "pageId": 95589585,
       "fileTitle": "File:Vietnam Saudi Arabia Locator.jpg",
@@ -2846,7 +2817,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 119,
+      "ordinal": 118,
       "id": "wikimedia-99852943",
       "pageId": 99852943,
       "fileTitle": "File:Vietnam (13993881515).jpg",
@@ -2870,7 +2841,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 120,
+      "ordinal": 119,
       "id": "wikimedia-105194408",
       "pageId": 105194408,
       "fileTitle": "File:Emblem of the Republic of Vietnam (1957–1963).svg",
@@ -2894,7 +2865,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 121,
+      "ordinal": 120,
       "id": "wikimedia-125625016",
       "pageId": 125625016,
       "fileTitle": "File:First Republic of Vietnam identity card (1962) Cotevina 01.jpg",
@@ -2918,7 +2889,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 122,
+      "ordinal": 121,
       "id": "wikimedia-125625017",
       "pageId": 125625017,
       "fileTitle": "File:First Republic of Vietnam identity card (1960) Cotevina 02.jpg",
@@ -2942,7 +2913,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 123,
+      "ordinal": 122,
       "id": "wikimedia-125625018",
       "pageId": 125625018,
       "fileTitle": "File:First Republic of Vietnam identity card (1960) Cotevina 01.jpg",
@@ -2966,16 +2937,16 @@
       "serveBinary": false
     },
     {
-      "ordinal": 124,
+      "ordinal": 123,
       "id": "wikimedia-125625020",
       "pageId": 125625020,
       "fileTitle": "File:First Republic of Vietnam identity card (1962) Cotevina 02.jpg",
-      "revisionId": 1253519736,
-      "revisionTimestamp": "2026-07-29T02:38:42Z",
+      "revisionId": 1260579957,
+      "revisionTimestamp": "2026-08-13T12:46:21Z",
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/First_Republic_of_Vietnam_identity_card_%281962%29_Cotevina_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:First_Republic_of_Vietnam_identity_card_(1962)_Cotevina_02.jpg",
       "artist": "The government of the Republic of Vietnam (South Vietnam).",
-      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/195470398064?hash=item2d82f19270:g:PcUAAOSwRYFjaqN7#SellerPresenceViewModel\">Republic of South Vietnam Obsolete Civilian ID Card, 1960. - cotevina (6663). - 100% positive feedback. - $ 25.49 + $ 20.00 Shipping or Best Offer. <strike>Was $29.99</strike> Save $4.50 (15% off). - Est. delivery Fri, Dec 2 - Fri, Dec 16.</a> - <a rel=\"nofollow\" class=\"external text\" href=\"https://vi.raptor.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&amp;item=195470398064&amp;category=36064&amp;pm=1&amp;ds=0&amp;t=1668701949777&amp;cspheader=1\">Paypal Only. Shipping within the United States is $3.00. All other destinations will be sent registered mail for $20, no exceptions. Any questions, please don't hesitate to email us. Thank you for your interest</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/\">www.eBay.com</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/PcUAAOSwRYFjaqN7/s-l400.jpg\">Source image 1</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/lucAAOSwgnljaqN8/s-l400.jpg\">Source image 2</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/PcUAAOSwRYFjaqN7/s-l900.jpg\">Source image 3</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/lucAAOSwgnljaqN8/s-l900.jpg\">Source image 4</a>).</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/374353233556?hash=item5729310694:g:4MAAAOSwbrVjaqN8#SellerPresenceViewModel\">Republic of South Vietnam Obsolete Civilian ID Card, 1962. - cotevina (6663). - 100% positive feedback. - $ 25.49 + $ 20.00 Shipping or Best Offer. - <strike>Was $ 29.99</strike> Save $ 4.50 (15% off). - Est. delivery Fri, Dec 2 - Fri, Dec 16.</a> - <a rel=\"nofollow\" class=\"external text\" href=\"https://vi.raptor.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&amp;item=374353233556&amp;category=36064&amp;pm=1&amp;ds=0&amp;t=1668702215579&amp;cspheader=1\">Paypal Only. Shipping within the United States is $3.00. All other destinations will be sent registered mail for $20, no exceptions. Any questions, please don't hesitate to email us. Thank you for your interest.</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/\">www.eBay.com</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/4MAAAOSwbrVjaqN8/s-l400.jpg\">Source image 1</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/rz4AAOSwruFjaqN8/s-l400.jpg\">Source image 2</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/4MAAAOSwbrVjaqN8/s-l900.jpg\">Source image 3</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/rz4AAOSwruFjaqN8/s-l900.jpg\">Source image 4</a>).</li></ul>",
+      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/195470398064?hash=item2d82f19270:g:PcUAAOSwRYFjaqN7#SellerPresenceViewModel\">Republic of South Vietnam Obsolete Civilian ID Card, 1960. - cotevina (6663). - 100% positive feedback. - $ 25.49 + $ 20.00 Shipping or Best Offer. <s>Was $29.99</s> Save $4.50 (15% off). - Est. delivery Fri, Dec 2 - Fri, Dec 16.</a> - <a rel=\"nofollow\" class=\"external text\" href=\"https://vi.raptor.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&amp;item=195470398064&amp;category=36064&amp;pm=1&amp;ds=0&amp;t=1668701949777&amp;cspheader=1\">Paypal Only. Shipping within the United States is $3.00. All other destinations will be sent registered mail for $20, no exceptions. Any questions, please don't hesitate to email us. Thank you for your interest</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/\">www.eBay.com</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/PcUAAOSwRYFjaqN7/s-l400.jpg\">Source image 1</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/lucAAOSwgnljaqN8/s-l400.jpg\">Source image 2</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/PcUAAOSwRYFjaqN7/s-l900.jpg\">Source image 3</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/lucAAOSwgnljaqN8/s-l900.jpg\">Source image 4</a>).</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/374353233556?hash=item5729310694:g:4MAAAOSwbrVjaqN8#SellerPresenceViewModel\">Republic of South Vietnam Obsolete Civilian ID Card, 1962. - cotevina (6663). - 100% positive feedback. - $ 25.49 + $ 20.00 Shipping or Best Offer. - <s>Was $ 29.99</s> Save $ 4.50 (15% off). - Est. delivery Fri, Dec 2 - Fri, Dec 16.</a> - <a rel=\"nofollow\" class=\"external text\" href=\"https://vi.raptor.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&amp;item=374353233556&amp;category=36064&amp;pm=1&amp;ds=0&amp;t=1668702215579&amp;cspheader=1\">Paypal Only. Shipping within the United States is $3.00. All other destinations will be sent registered mail for $20, no exceptions. Any questions, please don't hesitate to email us. Thank you for your interest.</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.ebay.com/itm/\">www.eBay.com</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/4MAAAOSwbrVjaqN8/s-l400.jpg\">Source image 1</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/rz4AAOSwruFjaqN8/s-l400.jpg\">Source image 2</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/4MAAAOSwbrVjaqN8/s-l900.jpg\">Source image 3</a> / <a rel=\"nofollow\" class=\"external text\" href=\"https://i.ebayimg.com/images/g/rz4AAOSwruFjaqN8/s-l900.jpg\">Source image 4</a>).</li></ul>",
       "licenseShortName": "Public domain",
       "licenseUrl": null,
       "restrictions": null,
@@ -2990,7 +2961,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 125,
+      "ordinal": 124,
       "id": "wikimedia-125626989",
       "pageId": 125626989,
       "fileTitle": "File:Republic of Vietnam Military ID Card (1968) Cotevina 02.png",
@@ -3014,7 +2985,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 126,
+      "ordinal": 125,
       "id": "wikimedia-125626990",
       "pageId": 125626990,
       "fileTitle": "File:Republic of Vietnam Military ID Card (1968) Cotevina 01.png",
@@ -3038,7 +3009,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 127,
+      "ordinal": 126,
       "id": "wikimedia-125708120",
       "pageId": 125708120,
       "fileTitle": "File:Công-Báo Việt-Nam (Bulletin Officiel du Viet-Nam) Jingme.jpg",
@@ -3062,7 +3033,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 128,
+      "ordinal": 127,
       "id": "wikimedia-126228145",
       "pageId": 126228145,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 01A.pdf",
@@ -3086,7 +3057,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 129,
+      "ordinal": 128,
       "id": "wikimedia-126571065",
       "pageId": 126571065,
       "fileTitle": "File:Passport of Trần Quang Khôi issued by the Socialist Republic of Vietnam.pdf",
@@ -3110,7 +3081,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 130,
+      "ordinal": 129,
       "id": "wikimedia-126584531",
       "pageId": 126584531,
       "fileTitle": "File:Seal of the Embassy of the Republic of Vietnam in Taipei during the First Republic of Vietnam.jpg",
@@ -3134,7 +3105,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 131,
+      "ordinal": 130,
       "id": "wikimedia-126594940",
       "pageId": 126594940,
       "fileTitle": "File:Application for Visa - Embassy of the Republic of Vietnam in Washington, D.C.pdf",
@@ -3158,7 +3129,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 132,
+      "ordinal": 131,
       "id": "wikimedia-129522353",
       "pageId": 129522353,
       "fileTitle": "File:Seal of the Cabinet of the Upper House of the Republic of Vietnam.svg",
@@ -3182,7 +3153,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 133,
+      "ordinal": 132,
       "id": "wikimedia-130609895",
       "pageId": 130609895,
       "fileTitle": "File:Emblem of North Vietnam (Democratic Republic of Vietnam).png",
@@ -3206,7 +3177,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 134,
+      "ordinal": 133,
       "id": "wikimedia-131217379",
       "pageId": 131217379,
       "fileTitle": "File:Driver's license issued by the Republic of Vietnam in 1958 02.jpg",
@@ -3230,7 +3201,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 135,
+      "ordinal": 134,
       "id": "wikimedia-131569634",
       "pageId": 131569634,
       "fileTitle": "File:Seal of the Embassy of the Republic of Vietnam, London.png",
@@ -3254,7 +3225,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 136,
+      "ordinal": 135,
       "id": "wikimedia-131812456",
       "pageId": 131812456,
       "fileTitle": "File:Seal of Ba Xuyên Province Chief, Republic of Vietnam (1963).jpg",
@@ -3278,7 +3249,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 137,
+      "ordinal": 136,
       "id": "wikimedia-131968639",
       "pageId": 131968639,
       "fileTitle": "File:Cờ Cơ quan Hàng không và Vũ trụ Quốc gia Việt Nam.png",
@@ -3302,7 +3273,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 138,
+      "ordinal": 137,
       "id": "wikimedia-131968640",
       "pageId": 131968640,
       "fileTitle": "File:Cờ hiệu Cơ quan Hàng không và Vũ trụ Quốc gia Việt Nam.png",
@@ -3326,7 +3297,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 139,
+      "ordinal": 138,
       "id": "wikimedia-131968641",
       "pageId": 131968641,
       "fileTitle": "File:Logo Cơ quan Hàng không và Vũ trụ Quốc gia Việt Nam.png",
@@ -3350,7 +3321,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 140,
+      "ordinal": 139,
       "id": "wikimedia-132087092",
       "pageId": 132087092,
       "fileTitle": "File:Emblem of the Navy of the Republic of Vietnam (Hubert-Herald.nl).jpg",
@@ -3374,7 +3345,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 141,
+      "ordinal": 140,
       "id": "wikimedia-132087093",
       "pageId": 132087093,
       "fileTitle": "File:Logo of the National Police of the Republic of Vietnam (Hubert-Herald.nl).jpg",
@@ -3398,7 +3369,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 142,
+      "ordinal": 141,
       "id": "wikimedia-141467690",
       "pageId": 141467690,
       "fileTitle": "File:Places to visit in Vietnam - SOTC.jpg",
@@ -3422,7 +3393,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 143,
+      "ordinal": 142,
       "id": "wikimedia-142699504",
       "pageId": 142699504,
       "fileTitle": "File:Bánh mì kẹp phô mai Croque monsieur Việt Nam ng2th11n2023 (Dijon Croquê) (6).jpg",
@@ -3446,7 +3417,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 144,
+      "ordinal": 143,
       "id": "wikimedia-151429103",
       "pageId": 151429103,
       "fileTitle": "File:1946 Vietnam Legislative.svg",
@@ -3470,7 +3441,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 145,
+      "ordinal": 144,
       "id": "wikimedia-184593067",
       "pageId": 184593067,
       "fileTitle": "File:Sleeve Insignia of People's Army of Vietnam (2017) Variant 2.png",
@@ -3494,7 +3465,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 146,
+      "ordinal": 145,
       "id": "wikimedia-186694071",
       "pageId": 186694071,
       "fileTitle": "File:Republic of Vietnam Marine Division Badge Vector Version.svg",
@@ -3518,7 +3489,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 147,
+      "ordinal": 146,
       "id": "wikimedia-188564322",
       "pageId": 188564322,
       "fileTitle": "File:Sleeve Insignia of People's Self-Defense Force (Republic of Vietnam).svg",
@@ -3542,7 +3513,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 148,
+      "ordinal": 147,
       "id": "wikimedia-191537981",
       "pageId": 191537981,
       "fileTitle": "File:Ceremonial welcome event for the President of the Socialist Republic of Vietnam, Mr. Tô Lâm at the Rashtrapati Bhavan.jpg",
@@ -3566,7 +3537,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 149,
+      "ordinal": 148,
       "id": "wikimedia-196298133",
       "pageId": 196298133,
       "fileTitle": "File:Vietnam - Starfruit Tree.jpg",
@@ -3590,7 +3561,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 150,
+      "ordinal": 149,
       "id": "wikimedia-196617789",
       "pageId": 196617789,
       "fileTitle": "File:Vietnam - Making baskets.jpg",
@@ -3614,7 +3585,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 151,
+      "ordinal": 150,
       "id": "wikimedia-72322028",
       "pageId": 72322028,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016.jpg",
@@ -3638,7 +3609,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 152,
+      "ordinal": 151,
       "id": "wikimedia-72322031",
       "pageId": 72322031,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (1).jpg",
@@ -3662,7 +3633,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 153,
+      "ordinal": 152,
       "id": "wikimedia-72322040",
       "pageId": 72322040,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (3).jpg",
@@ -3686,7 +3657,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 154,
+      "ordinal": 153,
       "id": "wikimedia-72322042",
       "pageId": 72322042,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (4).jpg",
@@ -3710,7 +3681,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 155,
+      "ordinal": 154,
       "id": "wikimedia-72322045",
       "pageId": 72322045,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (5).jpg",
@@ -3734,7 +3705,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 156,
+      "ordinal": 155,
       "id": "wikimedia-72322048",
       "pageId": 72322048,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (6).jpg",
@@ -3758,7 +3729,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 157,
+      "ordinal": 156,
       "id": "wikimedia-72322071",
       "pageId": 72322071,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (8).jpg",
@@ -3782,7 +3753,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 158,
+      "ordinal": 157,
       "id": "wikimedia-72322083",
       "pageId": 72322083,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (9).jpg",
@@ -3806,7 +3777,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 159,
+      "ordinal": 158,
       "id": "wikimedia-72322090",
       "pageId": 72322090,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (10).jpg",
@@ -3830,7 +3801,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 160,
+      "ordinal": 159,
       "id": "wikimedia-83604691",
       "pageId": 83604691,
       "fileTitle": "File:Vietnam, Ninh Binh, Limestone Landscape.jpg",
@@ -3854,7 +3825,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 161,
+      "ordinal": 160,
       "id": "wikimedia-86306074",
       "pageId": 86306074,
       "fileTitle": "File:Ha Long Bay, Vietnam, Islands.jpg",
@@ -3878,7 +3849,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 162,
+      "ordinal": 161,
       "id": "wikimedia-91150419",
       "pageId": 91150419,
       "fileTitle": "File:Vietnam, Panorama of Chau Doc.jpg",
@@ -3902,7 +3873,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 163,
+      "ordinal": 162,
       "id": "wikimedia-91151147",
       "pageId": 91151147,
       "fileTitle": "File:Vietnam, Temple in Chau Doc.jpg",
@@ -3926,7 +3897,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 164,
+      "ordinal": 163,
       "id": "wikimedia-91151151",
       "pageId": 91151151,
       "fileTitle": "File:Vietnam, Chau Doc, Sam Mountain.jpg",
@@ -3950,7 +3921,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 165,
+      "ordinal": 164,
       "id": "wikimedia-91155433",
       "pageId": 91155433,
       "fileTitle": "File:Can Tho, Vietnam, Floating Market.jpg",
@@ -3974,7 +3945,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 166,
+      "ordinal": 165,
       "id": "wikimedia-91155442",
       "pageId": 91155442,
       "fileTitle": "File:Can Tho, Vietnam, Floating Market, Woman.jpg",
@@ -3998,7 +3969,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 167,
+      "ordinal": 166,
       "id": "wikimedia-91155839",
       "pageId": 91155839,
       "fileTitle": "File:Vietnam, Phong Dien, Floating market, Boats.jpg",
@@ -4022,7 +3993,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 168,
+      "ordinal": 167,
       "id": "wikimedia-112935200",
       "pageId": 112935200,
       "fileTitle": "File:Vietnam w1 locator.svg",
@@ -4046,7 +4017,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 169,
+      "ordinal": 168,
       "id": "wikimedia-123041922",
       "pageId": 123041922,
       "fileTitle": "File:Republic of Vietnam Special Issue on the National Day (1968).pdf",
@@ -4070,7 +4041,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 170,
+      "ordinal": 169,
       "id": "wikimedia-126228143",
       "pageId": 126228143,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 01B.pdf",
@@ -4094,7 +4065,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 171,
+      "ordinal": 170,
       "id": "wikimedia-126228184",
       "pageId": 126228184,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 06.pdf",
@@ -4118,7 +4089,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 172,
+      "ordinal": 171,
       "id": "wikimedia-126228185",
       "pageId": 126228185,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 08.pdf",
@@ -4142,7 +4113,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 173,
+      "ordinal": 172,
       "id": "wikimedia-126228188",
       "pageId": 126228188,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 10.pdf",
@@ -4150,6 +4121,30 @@
       "revisionTimestamp": "2025-11-05T07:26:33Z",
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_%281948%29_Gallica_10.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_(1948)_Gallica_10.pdf",
+      "artist": "The Provisional Central Government of Vietnam, French Indo-China.",
+      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste</a></li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste</a></li></ul>",
+      "licenseShortName": "Public domain",
+      "licenseUrl": null,
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 173,
+      "id": "wikimedia-126228192",
+      "pageId": 126228192,
+      "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 12.pdf",
+      "revisionId": 1157331546,
+      "revisionTimestamp": "2026-01-31T22:45:05Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_%281948%29_Gallica_12.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_(1948)_Gallica_12.pdf",
       "artist": "The Provisional Central Government of Vietnam, French Indo-China.",
       "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste</a></li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste</a></li></ul>",
       "licenseShortName": "Public domain",
@@ -4311,30 +4306,6 @@
     },
     {
       "ordinal": 180,
-      "id": "wikimedia-126230860",
-      "pageId": 126230860,
-      "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 03.pdf",
-      "revisionId": 1157331733,
-      "revisionTimestamp": "2026-01-31T22:45:28Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_%281949%29_Gallica_03.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_(1949)_Gallica_03.pdf",
-      "artist": "The Provisional Central Government of Vietnam, French Indo-China.",
-      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste</a></li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste</a></li></ul>",
-      "licenseShortName": "Public domain",
-      "licenseUrl": null,
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 181,
       "id": "wikimedia-126230865",
       "pageId": 126230865,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 05.pdf",
@@ -4358,7 +4329,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 182,
+      "ordinal": 181,
       "id": "wikimedia-126230871",
       "pageId": 126230871,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 13.pdf",
@@ -4382,7 +4353,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 183,
+      "ordinal": 182,
       "id": "wikimedia-126230897",
       "pageId": 126230897,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 15.pdf",
@@ -4406,7 +4377,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 184,
+      "ordinal": 183,
       "id": "wikimedia-126230899",
       "pageId": 126230899,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 14.pdf",
@@ -4430,7 +4401,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 185,
+      "ordinal": 184,
       "id": "wikimedia-126230930",
       "pageId": 126230930,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 18.pdf",
@@ -4454,7 +4425,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 186,
+      "ordinal": 185,
       "id": "wikimedia-126230932",
       "pageId": 126230932,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 19.pdf",
@@ -4478,7 +4449,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 187,
+      "ordinal": 186,
       "id": "wikimedia-126230965",
       "pageId": 126230965,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 20.pdf",
@@ -4502,7 +4473,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 188,
+      "ordinal": 187,
       "id": "wikimedia-126231012",
       "pageId": 126231012,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 23.pdf",
@@ -4526,7 +4497,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 189,
+      "ordinal": 188,
       "id": "wikimedia-126231015",
       "pageId": 126231015,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 24.pdf",
@@ -4550,7 +4521,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 190,
+      "ordinal": 189,
       "id": "wikimedia-126231017",
       "pageId": 126231017,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 25.pdf",
@@ -4574,7 +4545,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 191,
+      "ordinal": 190,
       "id": "wikimedia-126231027",
       "pageId": 126231027,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 28.pdf",
@@ -4598,7 +4569,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 192,
+      "ordinal": 191,
       "id": "wikimedia-126231040",
       "pageId": 126231040,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 31.pdf",
@@ -4622,7 +4593,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 193,
+      "ordinal": 192,
       "id": "wikimedia-126231062",
       "pageId": 126231062,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 27.pdf",
@@ -4646,7 +4617,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 194,
+      "ordinal": 193,
       "id": "wikimedia-126231096",
       "pageId": 126231096,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 32.pdf",
@@ -4670,7 +4641,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 195,
+      "ordinal": 194,
       "id": "wikimedia-131217378",
       "pageId": 131217378,
       "fileTitle": "File:Driver's license issued by the Republic of Vietnam in 1958 01.jpg",
@@ -4694,7 +4665,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 196,
+      "ordinal": 195,
       "id": "wikimedia-132087094",
       "pageId": 132087094,
       "fileTitle": "File:Coat of arms of the National Police of the Republic of Vietnam (Hubert-Herald.nl).jpg",
@@ -4718,7 +4689,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 197,
+      "ordinal": 196,
       "id": "wikimedia-140423856",
       "pageId": 140423856,
       "fileTitle": "File:Seal of Chau-Thanh, Mỹ Tho Province, Nam-Việt, State of Việt-Nam, French Indo-China (1953) Southeastasiacollector.png",
@@ -4742,7 +4713,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 198,
+      "ordinal": 197,
       "id": "wikimedia-154096997",
       "pageId": 154096997,
       "fileTitle": "File:Decree of the Presidency of the Republic of Vietnam No.138-TTP (1959).jpg",
@@ -4766,7 +4737,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 199,
+      "ordinal": 198,
       "id": "wikimedia-160840892",
       "pageId": 160840892,
       "fileTitle": "File:New huge bridge vietnam Mekong valley.jpg",
@@ -4790,7 +4761,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 200,
+      "ordinal": 199,
       "id": "wikimedia-180636851",
       "pageId": 180636851,
       "fileTitle": "File:Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam (sửa đổi và bổ sung năm 2025).jpg",
@@ -4814,7 +4785,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 201,
+      "ordinal": 200,
       "id": "wikimedia-72321983",
       "pageId": 72321983,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc feed fish in Uncle Ho's pond, in the Presidential Place Compound, in Hanoi, Vietnam (1).jpg",
@@ -4838,7 +4809,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 202,
+      "ordinal": 201,
       "id": "wikimedia-72321987",
       "pageId": 72321987,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc feed fish in Uncle Ho's pond, in the Presidential Place Compound, in Hanoi, Vietnam (2).jpg",
@@ -4862,7 +4833,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 203,
+      "ordinal": 202,
       "id": "wikimedia-72322035",
       "pageId": 72322035,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (2).jpg",
@@ -4886,7 +4857,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 204,
+      "ordinal": 203,
       "id": "wikimedia-72322053",
       "pageId": 72322053,
       "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc witnessing the signing of agreements between India and Vietnam, in Hanoi, Vietnam on September 03, 2016 (7).jpg",
@@ -4910,7 +4881,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 205,
+      "ordinal": 204,
       "id": "wikimedia-83594189",
       "pageId": 83594189,
       "fileTitle": "File:Vietnam, Mui Ne, Kitesurfing kite on the beach.jpg",
@@ -4934,7 +4905,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 206,
+      "ordinal": 205,
       "id": "wikimedia-83594193",
       "pageId": 83594193,
       "fileTitle": "File:Vietnam, Mui Ne, Kitesurfing kites on the beach.jpg",
@@ -4942,6 +4913,30 @@
       "revisionTimestamp": "2026-06-22T15:54:49Z",
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Vietnam%2C_Mui_Ne%2C_Kitesurfing_kites_on_the_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Mui_Ne,_Kitesurfing_kites_on_the_beach.jpg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "licenseShortName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 206,
+      "id": "wikimedia-83605285",
+      "pageId": 83605285,
+      "fileTitle": "File:Vietnam, Ninh Binh, Limestone mountains.jpg",
+      "revisionId": 1236309849,
+      "revisionTimestamp": "2026-06-22T15:54:50Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Vietnam%2C_Ninh_Binh%2C_Limestone_mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Ninh_Binh,_Limestone_mountains.jpg",
       "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
       "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "licenseShortName": "CC BY 4.0",
@@ -5103,13 +5098,13 @@
     },
     {
       "ordinal": 213,
-      "id": "wikimedia-91151150",
-      "pageId": 91151150,
-      "fileTitle": "File:Vietnam, Chau Doc, View from Sam Mountain.jpg",
-      "revisionId": 1236309741,
-      "revisionTimestamp": "2026-06-22T15:54:43Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Vietnam%2C_Chau_Doc%2C_View_from_Sam_Mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Chau_Doc,_View_from_Sam_Mountain.jpg",
+      "id": "wikimedia-91155437",
+      "pageId": 91155437,
+      "fileTitle": "File:Can Tho, Vietnam, Floating Market, Sale.jpg",
+      "revisionId": 1236309541,
+      "revisionTimestamp": "2026-06-22T15:54:30Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Sale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Sale.jpg",
       "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
       "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "licenseShortName": "CC BY 4.0",
@@ -5127,13 +5122,13 @@
     },
     {
       "ordinal": 214,
-      "id": "wikimedia-91155437",
-      "pageId": 91155437,
-      "fileTitle": "File:Can Tho, Vietnam, Floating Market, Sale.jpg",
-      "revisionId": 1236309541,
+      "id": "wikimedia-91155440",
+      "pageId": 91155440,
+      "fileTitle": "File:Can Tho, Vietnam, Floating Market, Rawing 2.jpg",
+      "revisionId": 1236309536,
       "revisionTimestamp": "2026-06-22T15:54:30Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Sale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Sale.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Rawing_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Rawing_2.jpg",
       "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
       "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "licenseShortName": "CC BY 4.0",
@@ -5175,30 +5170,6 @@
     },
     {
       "ordinal": 216,
-      "id": "wikimedia-94777389",
-      "pageId": 94777389,
-      "fileTitle": "File:Flag of Vietnam (16-9).svg",
-      "revisionId": 1254205875,
-      "revisionTimestamp": "2026-07-30T11:51:33Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_Vietnam_%2816-9%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Vietnam_(16-9).svg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bag_of_Anything\" title=\"User:Bag of Anything\">Bag of Anything</a>",
-      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "licenseShortName": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "restrictions": "communist",
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 217,
       "id": "wikimedia-114024503",
       "pageId": 114024503,
       "fileTitle": "File:Vietnam disputed w1 countrymap.svg",
@@ -5222,7 +5193,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 218,
+      "ordinal": 217,
       "id": "wikimedia-126228112",
       "pageId": 126228112,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 02.pdf",
@@ -5246,7 +5217,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 219,
+      "ordinal": 218,
       "id": "wikimedia-126228146",
       "pageId": 126228146,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 03.pdf",
@@ -5270,7 +5241,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 220,
+      "ordinal": 219,
       "id": "wikimedia-126228147",
       "pageId": 126228147,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 05.pdf",
@@ -5294,7 +5265,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 221,
+      "ordinal": 220,
       "id": "wikimedia-126228182",
       "pageId": 126228182,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 04.pdf",
@@ -5318,7 +5289,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 222,
+      "ordinal": 221,
       "id": "wikimedia-126228186",
       "pageId": 126228186,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 09.pdf",
@@ -5342,7 +5313,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 223,
+      "ordinal": 222,
       "id": "wikimedia-126228187",
       "pageId": 126228187,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 07.pdf",
@@ -5366,31 +5337,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 224,
-      "id": "wikimedia-126228192",
-      "pageId": 126228192,
-      "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 12.pdf",
-      "revisionId": 1157331546,
-      "revisionTimestamp": "2026-01-31T22:45:05Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_%281948%29_Gallica_12.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_(1948)_Gallica_12.pdf",
-      "artist": "The Provisional Central Government of Vietnam, French Indo-China.",
-      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste</a></li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste</a></li></ul>",
-      "licenseShortName": "Public domain",
-      "licenseUrl": null,
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 225,
+      "ordinal": 223,
       "id": "wikimedia-126228216",
       "pageId": 126228216,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 11.pdf",
@@ -5414,7 +5361,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 226,
+      "ordinal": 224,
       "id": "wikimedia-126228217",
       "pageId": 126228217,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 13.pdf",
@@ -5438,7 +5385,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 227,
+      "ordinal": 225,
       "id": "wikimedia-126228220",
       "pageId": 126228220,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 14.pdf",
@@ -5462,7 +5409,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 228,
+      "ordinal": 226,
       "id": "wikimedia-126228224",
       "pageId": 126228224,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 17.pdf",
@@ -5486,7 +5433,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 229,
+      "ordinal": 227,
       "id": "wikimedia-126228249",
       "pageId": 126228249,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 16.pdf",
@@ -5510,7 +5457,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 230,
+      "ordinal": 228,
       "id": "wikimedia-126228251",
       "pageId": 126228251,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 19.pdf",
@@ -5534,7 +5481,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 231,
+      "ordinal": 229,
       "id": "wikimedia-126228284",
       "pageId": 126228284,
       "fileTitle": "File:Công-Báo Việt-Nam (1948) Gallica 23.pdf",
@@ -5558,7 +5505,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 232,
+      "ordinal": 230,
       "id": "wikimedia-126230832",
       "pageId": 126230832,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 04.pdf",
@@ -5582,7 +5529,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 233,
+      "ordinal": 231,
       "id": "wikimedia-126230859",
       "pageId": 126230859,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 02.pdf",
@@ -5606,7 +5553,31 @@
       "serveBinary": false
     },
     {
-      "ordinal": 234,
+      "ordinal": 232,
+      "id": "wikimedia-126230860",
+      "pageId": 126230860,
+      "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 03.pdf",
+      "revisionId": 1157331733,
+      "revisionTimestamp": "2026-01-31T22:45:28Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_%281949%29_Gallica_03.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng-B%C3%A1o_Vi%E1%BB%87t-Nam_(1949)_Gallica_03.pdf",
+      "artist": "The Provisional Central Government of Vietnam, French Indo-China.",
+      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1948.liste</a></li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external free\" href=\"https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste\">https://gallica.bnf.fr/ark:/12148/cb32746915n/date1949.liste</a></li></ul>",
+      "licenseShortName": "Public domain",
+      "licenseUrl": null,
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 233,
       "id": "wikimedia-126230863",
       "pageId": 126230863,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 07.pdf",
@@ -5630,7 +5601,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 235,
+      "ordinal": 234,
       "id": "wikimedia-126230864",
       "pageId": 126230864,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 06.pdf",
@@ -5654,7 +5625,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 236,
+      "ordinal": 235,
       "id": "wikimedia-126230866",
       "pageId": 126230866,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 08.pdf",
@@ -5678,7 +5649,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 237,
+      "ordinal": 236,
       "id": "wikimedia-126230867",
       "pageId": 126230867,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 11.pdf",
@@ -5702,7 +5673,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 238,
+      "ordinal": 237,
       "id": "wikimedia-126230869",
       "pageId": 126230869,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 10.pdf",
@@ -5726,7 +5697,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 239,
+      "ordinal": 238,
       "id": "wikimedia-126230894",
       "pageId": 126230894,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 09.pdf",
@@ -5750,7 +5721,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 240,
+      "ordinal": 239,
       "id": "wikimedia-126230896",
       "pageId": 126230896,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 12.pdf",
@@ -5774,7 +5745,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 241,
+      "ordinal": 240,
       "id": "wikimedia-126230926",
       "pageId": 126230926,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 16.pdf",
@@ -5798,7 +5769,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 242,
+      "ordinal": 241,
       "id": "wikimedia-126230927",
       "pageId": 126230927,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 17.pdf",
@@ -5822,7 +5793,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 243,
+      "ordinal": 242,
       "id": "wikimedia-126230966",
       "pageId": 126230966,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 21.pdf",
@@ -5846,7 +5817,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 244,
+      "ordinal": 243,
       "id": "wikimedia-126230967",
       "pageId": 126230967,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 22.pdf",
@@ -5870,7 +5841,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 245,
+      "ordinal": 244,
       "id": "wikimedia-126231034",
       "pageId": 126231034,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 29.pdf",
@@ -5894,7 +5865,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 246,
+      "ordinal": 245,
       "id": "wikimedia-126231038",
       "pageId": 126231038,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 30.pdf",
@@ -5918,7 +5889,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 247,
+      "ordinal": 246,
       "id": "wikimedia-126231059",
       "pageId": 126231059,
       "fileTitle": "File:Công-Báo Việt-Nam (1949) Gallica 26.pdf",
@@ -5942,7 +5913,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 248,
+      "ordinal": 247,
       "id": "wikimedia-184848154",
       "pageId": 184848154,
       "fileTitle": "File:Sleeve Insignia of Vietnam CBRN.png",
@@ -5966,7 +5937,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 249,
+      "ordinal": 248,
       "id": "wikimedia-196298134",
       "pageId": 196298134,
       "fileTitle": "File:Vietnam - Harvesting natural rubber.jpg",
@@ -5990,7 +5961,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 250,
+      "ordinal": 249,
       "id": "wikimedia-196515085",
       "pageId": 196515085,
       "fileTitle": "File:Vietnam - Coffee plant.jpg",
@@ -6002,6 +5973,30 @@
       "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "licenseShortName": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 250,
+      "id": "wikimedia-59025730",
+      "pageId": 59025730,
+      "fileTitle": "File:Duong Le loi- Trung trac-Phường 1, tp. Vũng Tàu, Bà Rịa - Vũng Tàu, Việt Nam - panoramio.jpg",
+      "revisionId": 1082472869,
+      "revisionTimestamp": "2025-09-08T00:56:47Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Duong_Le_loi-_Trung_trac-Ph%C6%B0%E1%BB%9Dng_1%2C_tp._V%C5%A9ng_T%C3%A0u%2C_B%C3%A0_R%E1%BB%8Ba_-_V%C5%A9ng_T%C3%A0u%2C_Vi%E1%BB%87t_Nam_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Duong_Le_loi-_Trung_trac-Ph%C6%B0%E1%BB%9Dng_1,_tp._V%C5%A9ng_T%C3%A0u,_B%C3%A0_R%E1%BB%8Ba_-_V%C5%A9ng_T%C3%A0u,_Vi%E1%BB%87t_Nam_-_panoramio.jpg",
+      "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/20161102062726/http://www.panoramio.com/user/5317517?with_photo_id=115917824\">trungydang</a>",
+      "creditLine": "<a rel=\"nofollow\" class=\"external free\" href=\"https://web.archive.org/web/20161102062724/http://www.panoramio.com/photo/115917824\">https://web.archive.org/web/20161102062724/http://www.panoramio.com/photo/115917824</a>",
+      "licenseShortName": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "restrictions": null,
       "rightsStatus": "LINK_ONLY",
       "reviewStatus": "PENDING_REVIEW",
@@ -6063,54 +6058,6 @@
     },
     {
       "ordinal": 253,
-      "id": "wikimedia-72322116",
-      "pageId": 72322116,
-      "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc at the joint media briefing, in Hanoi, Vietnam on September 03, 2016 (3).jpg",
-      "revisionId": 1055526828,
-      "revisionTimestamp": "2025-07-11T02:20:35Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/The_Prime_Minister%2C_Shri_Narendra_Modi_and_the_Prime_Minister_of_the_Socialist_Republic_of_Vietnam%2C_Mr._Nguyen_Xuan_Phuc_at_the_joint_media_briefing%2C_in_Hanoi%2C_Vietnam_on_September_03%2C_2016_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:The_Prime_Minister,_Shri_Narendra_Modi_and_the_Prime_Minister_of_the_Socialist_Republic_of_Vietnam,_Mr._Nguyen_Xuan_Phuc_at_the_joint_media_briefing,_in_Hanoi,_Vietnam_on_September_03,_2016_(3).jpg",
-      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Prime_Minister%27s_Office_(India)\" class=\"extiw\" title=\"w:en:Prime Minister's Office (India)\"><span title=\"Office of the Prime Minister of India\">Prime Minister's Office</span></a>\n</bdi>",
-      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span class=\"skin-invert\" typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Emblem_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/60px-Emblem_of_India.svg.png\" decoding=\"async\" width=\"50\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/120px-Emblem_of_India.svg.png 2x\" data-file-width=\"550\" data-file-height=\"877\"></a></span></div>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-PIB id-link%3D%5Bhttps%3A%2F%2Farchive.pib.gov.in%2Farchive2%2Fphotoright.aspx%3Fphid%3D87923+87923%5D cnr%3D86565 dept%3DPrime+Minister%27s+Office url%3Dhttp%3A%2F%2Fpibphoto.nic.in%2Fphoto%2F%2F2016%2FSep%2Fl2016090387923.jpg date%3D\"> </span>\n<p>This file or its source was published by Press Information Bureau on behalf of Prime Minister's Office, Government of India under the ID <a rel=\"nofollow\" class=\"external text\" href=\"https://archive.pib.gov.in/archive2/photoright.aspx?phid=87923\">87923</a> and CNR 86565. <small>(<a rel=\"nofollow\" class=\"external text\" href=\"http://pibphoto.nic.in/photo//2016/Sep/l2016090387923.jpg\">direct link</a>)</small>\n</p><p><small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/hi\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/hi\"><bdi class=\"language lang-hi\" lang=\"hi\">हिन्दी</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ta\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ta\"><bdi class=\"language lang-ta\" lang=\"ta\">தமிழ்</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/tcy\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/tcy\"><bdi class=\"language lang-tcy\" lang=\"tcy\">ತುಳು</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh\"><bdi class=\"language lang-zh\" lang=\"zh\">中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">中文（简体）</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">中文（繁體）</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/120px-Flag_of_India.svg.png\" decoding=\"async\" width=\"100\" height=\"67\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/250px-Flag_of_India.svg.png 2x\" data-file-width=\"900\" data-file-height=\"600\"></a></span></div>\n</td></tr></tbody></table>",
-      "licenseShortName": "GODL-India",
-      "licenseUrl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 254,
-      "id": "wikimedia-72322119",
-      "pageId": 72322119,
-      "fileTitle": "File:The Prime Minister, Shri Narendra Modi and the Prime Minister of the Socialist Republic of Vietnam, Mr. Nguyen Xuan Phuc at the joint media briefing, in Hanoi, Vietnam on September 03, 2016 (4).jpg",
-      "revisionId": 948426929,
-      "revisionTimestamp": "2024-10-23T08:44:57Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Prime_Minister%2C_Shri_Narendra_Modi_and_the_Prime_Minister_of_the_Socialist_Republic_of_Vietnam%2C_Mr._Nguyen_Xuan_Phuc_at_the_joint_media_briefing%2C_in_Hanoi%2C_Vietnam_on_September_03%2C_2016_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:The_Prime_Minister,_Shri_Narendra_Modi_and_the_Prime_Minister_of_the_Socialist_Republic_of_Vietnam,_Mr._Nguyen_Xuan_Phuc_at_the_joint_media_briefing,_in_Hanoi,_Vietnam_on_September_03,_2016_(4).jpg",
-      "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Prime_Minister%27s_Office_(India)\" class=\"extiw\" title=\"w:en:Prime Minister's Office (India)\"><span title=\"Office of the Prime Minister of India\">Prime Minister's Office</span></a>\n</bdi>",
-      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span class=\"skin-invert\" typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Emblem_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/60px-Emblem_of_India.svg.png\" decoding=\"async\" width=\"50\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/120px-Emblem_of_India.svg.png 2x\" data-file-width=\"550\" data-file-height=\"877\"></a></span></div>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-PIB id-link%3D%5Bhttps%3A%2F%2Farchive.pib.gov.in%2Farchive2%2Fphotoright.aspx%3Fphid%3D87924+87924%5D cnr%3D86566 dept%3DPrime+Minister%27s+Office url%3Dhttp%3A%2F%2Fpibphoto.nic.in%2Fphoto%2F%2F2016%2FSep%2Fl2016090387924.jpg date%3D\"> </span>\n<p>This file or its source was published by Press Information Bureau on behalf of Prime Minister's Office, Government of India under the ID <a rel=\"nofollow\" class=\"external text\" href=\"https://archive.pib.gov.in/archive2/photoright.aspx?phid=87924\">87924</a> and CNR 86566. <small>(<a rel=\"nofollow\" class=\"external text\" href=\"http://pibphoto.nic.in/photo//2016/Sep/l2016090387924.jpg\">direct link</a>)</small>\n</p><p><small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/hi\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/hi\"><bdi class=\"language lang-hi\" lang=\"hi\">हिन्दी</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ta\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ta\"><bdi class=\"language lang-ta\" lang=\"ta\">தமிழ்</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/tcy\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/tcy\"><bdi class=\"language lang-tcy\" lang=\"tcy\">ತುಳು</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh\"><bdi class=\"language lang-zh\" lang=\"zh\">中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">中文（简体）</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">中文（繁體）</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/120px-Flag_of_India.svg.png\" decoding=\"async\" width=\"100\" height=\"67\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/250px-Flag_of_India.svg.png 2x\" data-file-width=\"900\" data-file-height=\"600\"></a></span></div>\n</td></tr></tbody></table>",
-      "licenseShortName": "GODL-India",
-      "licenseUrl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 255,
       "id": "wikimedia-74406569",
       "pageId": 74406569,
       "fileTitle": "File:Flag of the Republic of Vietnam Navy.svg",
@@ -6134,7 +6081,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 256,
+      "ordinal": 254,
       "id": "wikimedia-83594792",
       "pageId": 83594792,
       "fileTitle": "File:Vietnam, Mui Ne harbor, Vietnamese women at work.jpg",
@@ -6158,7 +6105,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 257,
+      "ordinal": 255,
       "id": "wikimedia-83595637",
       "pageId": 83595637,
       "fileTitle": "File:Cat Tien Park, Vietnam, Tree canopy.jpg",
@@ -6182,7 +6129,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 258,
+      "ordinal": 256,
       "id": "wikimedia-83604687",
       "pageId": 83604687,
       "fileTitle": "File:Vietnam, Ninh Binh, Trang An Cave.jpg",
@@ -6206,7 +6153,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 259,
+      "ordinal": 257,
       "id": "wikimedia-83604689",
       "pageId": 83604689,
       "fileTitle": "File:Vietnam, Ninh Binh, Trang An Area.jpg",
@@ -6230,7 +6177,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 260,
+      "ordinal": 258,
       "id": "wikimedia-83604690",
       "pageId": 83604690,
       "fileTitle": "File:Vietnam, Ninh Binh, Rural Scenery.jpg",
@@ -6254,31 +6201,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 261,
-      "id": "wikimedia-83605285",
-      "pageId": 83605285,
-      "fileTitle": "File:Vietnam, Ninh Binh, Limestone mountains.jpg",
-      "revisionId": 1236309849,
-      "revisionTimestamp": "2026-06-22T15:54:50Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Vietnam%2C_Ninh_Binh%2C_Limestone_mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Ninh_Binh,_Limestone_mountains.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
-      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "licenseShortName": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 262,
+      "ordinal": 259,
       "id": "wikimedia-83605290",
       "pageId": 83605290,
       "fileTitle": "File:Vietnam, Ninh Binh, Limestone peaks.jpg",
@@ -6302,7 +6225,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 263,
+      "ordinal": 260,
       "id": "wikimedia-85668333",
       "pageId": 85668333,
       "fileTitle": "File:Vinh Moc tunnels, Vietnam, Entry points on the hills.jpg",
@@ -6326,31 +6249,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 264,
-      "id": "wikimedia-85840493",
-      "pageId": 85840493,
-      "fileTitle": "File:Vietnam, Hanoi, Life on the streets of Hanoi 2.jpg",
-      "revisionId": 1236309768,
-      "revisionTimestamp": "2026-06-22T15:54:45Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Vietnam%2C_Hanoi%2C_Life_on_the_streets_of_Hanoi_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Hanoi,_Life_on_the_streets_of_Hanoi_2.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
-      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "licenseShortName": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 265,
+      "ordinal": 261,
       "id": "wikimedia-85840495",
       "pageId": 85840495,
       "fileTitle": "File:Vietnam, Hanoi, Streets of central Hanoi 2.jpg",
@@ -6374,7 +6273,31 @@
       "serveBinary": false
     },
     {
-      "ordinal": 266,
+      "ordinal": 262,
+      "id": "wikimedia-86207929",
+      "pageId": 86207929,
+      "fileTitle": "File:Hai Van Pass, Vietnam, View southwards.jpg",
+      "revisionId": 1236309605,
+      "revisionTimestamp": "2026-06-22T15:54:35Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hai_Van_Pass%2C_Vietnam%2C_View_southwards.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Hai_Van_Pass,_Vietnam,_View_southwards.jpg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "licenseShortName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 263,
       "id": "wikimedia-86306071",
       "pageId": 86306071,
       "fileTitle": "File:Ha Long Bay, Vietnam, Rock formations.jpg",
@@ -6398,7 +6321,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 267,
+      "ordinal": 264,
       "id": "wikimedia-86446104",
       "pageId": 86446104,
       "fileTitle": "File:Vietnam, Ha Long Bay, Solitude.jpg",
@@ -6422,7 +6345,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 268,
+      "ordinal": 265,
       "id": "wikimedia-91150421",
       "pageId": 91150421,
       "fileTitle": "File:Vietnam, Chau Doc, Floating village.jpg",
@@ -6446,7 +6369,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 269,
+      "ordinal": 266,
       "id": "wikimedia-91150424",
       "pageId": 91150424,
       "fileTitle": "File:Vietnam, Chau Doc, Small houses.jpg",
@@ -6470,7 +6393,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 270,
+      "ordinal": 267,
       "id": "wikimedia-91151148",
       "pageId": 91151148,
       "fileTitle": "File:Vietnam, Chau Doc, City streets.jpg",
@@ -6494,7 +6417,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 271,
+      "ordinal": 268,
       "id": "wikimedia-91151149",
       "pageId": 91151149,
       "fileTitle": "File:Vietnam, Chau Doc, Sam Mountain at Sunset.jpg",
@@ -6518,7 +6441,31 @@
       "serveBinary": false
     },
     {
-      "ordinal": 272,
+      "ordinal": 269,
+      "id": "wikimedia-91151150",
+      "pageId": 91151150,
+      "fileTitle": "File:Vietnam, Chau Doc, View from Sam Mountain.jpg",
+      "revisionId": 1236309741,
+      "revisionTimestamp": "2026-06-22T15:54:43Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Vietnam%2C_Chau_Doc%2C_View_from_Sam_Mountain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Chau_Doc,_View_from_Sam_Mountain.jpg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "licenseShortName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 270,
       "id": "wikimedia-91151152",
       "pageId": 91151152,
       "fileTitle": "File:Vietnam, Chau Doc, View from Sam Mountain at sunset.jpg",
@@ -6542,7 +6489,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 273,
+      "ordinal": 271,
       "id": "wikimedia-91155429",
       "pageId": 91155429,
       "fileTitle": "File:Can Tho, Vietnam, Bridge.jpg",
@@ -6566,7 +6513,31 @@
       "serveBinary": false
     },
     {
-      "ordinal": 274,
+      "ordinal": 272,
+      "id": "wikimedia-91155431",
+      "pageId": 91155431,
+      "fileTitle": "File:Can Tho, Vietnam, Bridge at sunrise 2.jpg",
+      "revisionId": 1236309524,
+      "revisionTimestamp": "2026-06-22T15:54:29Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Can_Tho%2C_Vietnam%2C_Bridge_at_sunrise_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Bridge_at_sunrise_2.jpg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
+      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "licenseShortName": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 273,
       "id": "wikimedia-91155435",
       "pageId": 91155435,
       "fileTitle": "File:Can Tho, Vietnam, Floating market, Early morning.jpg",
@@ -6590,7 +6561,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 275,
+      "ordinal": 274,
       "id": "wikimedia-91155436",
       "pageId": 91155436,
       "fileTitle": "File:Can Tho, Vietnam, Floating Market, Rawing.jpg",
@@ -6614,7 +6585,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 276,
+      "ordinal": 275,
       "id": "wikimedia-91155438",
       "pageId": 91155438,
       "fileTitle": "File:Can Tho, Vietnam, Floating Market, Boats 2.jpg",
@@ -6638,7 +6609,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 277,
+      "ordinal": 276,
       "id": "wikimedia-91155439",
       "pageId": 91155439,
       "fileTitle": "File:Can Tho, Vietnam, Floating Market, Boats.jpg",
@@ -6662,31 +6633,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 278,
-      "id": "wikimedia-91155440",
-      "pageId": 91155440,
-      "fileTitle": "File:Can Tho, Vietnam, Floating Market, Rawing 2.jpg",
-      "revisionId": 1236309536,
-      "revisionTimestamp": "2026-06-22T15:54:30Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Can_Tho%2C_Vietnam%2C_Floating_Market%2C_Rawing_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho,_Vietnam,_Floating_Market,_Rawing_2.jpg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Argenberg\" title=\"User:Argenberg\">Vyacheslav Argenberg</a>",
-      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
-      "licenseShortName": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 279,
+      "ordinal": 277,
       "id": "wikimedia-91155837",
       "pageId": 91155837,
       "fileTitle": "File:Vietnam, Phong Dien, Mekong Delta, River.jpg",
@@ -6710,7 +6657,31 @@
       "serveBinary": false
     },
     {
-      "ordinal": 280,
+      "ordinal": 278,
+      "id": "wikimedia-94777389",
+      "pageId": 94777389,
+      "fileTitle": "File:Flag of Vietnam (16-9).svg",
+      "revisionId": 1254205875,
+      "revisionTimestamp": "2026-07-30T11:51:33Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_Vietnam_%2816-9%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Vietnam_(16-9).svg",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Bag_of_Anything\" title=\"User:Bag of Anything\">Bag of Anything</a>",
+      "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "licenseShortName": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "restrictions": "communist",
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 279,
       "id": "wikimedia-108120701",
       "pageId": 108120701,
       "fileTitle": "File:Việt Nam Hồn (Tháng 7, Năm 1926).pdf",
@@ -6720,6 +6691,30 @@
       "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vi%E1%BB%87t_Nam_H%E1%BB%93n_(Th%C3%A1ng_7,_N%C4%83m_1926).pdf",
       "artist": "Various authors.",
       "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.wordpress.com/2012/04/29/vi%E1%BB%87t-nam-h%E1%BB%93n/\">Việt Nam Hồn. - April 29, 2012 / leminhkhai. - I haven’t had much time recently to post anything new here. I’m still busy, but I thought I would post a document which some people might find interesting.</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.wordpress.com/\">Lê Minh Khải's SEAsian History Blog</a>).</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.files.wordpress.com/2012/04/vnhon.jpg\">It’s a page from a newspaper from the 1920s called the Soul of Việt Nam (Vietnamese: Việt Nam Hồn). It appears to have been registered in France, and it looks to me like that is where it was published, as I don’t think one could publish articles in French Indochina at the time which directly called for independence, like the articles in this paper did.</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.wordpress.com/\">Lê Minh Khải's SEAsian History Blog</a>).</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.files.wordpress.com/2012/04/viet-nam-hon.pdf\">Việt Nam Hồn (Tháng 7, Năm 1926)</a>. (<a rel=\"nofollow\" class=\"external text\" href=\"https://leminhkhai.wordpress.com/\">Lê Minh Khải's SEAsian History Blog</a>).</li></ul>",
+      "licenseShortName": "Public domain",
+      "licenseUrl": null,
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 280,
+      "id": "wikimedia-109115822",
+      "pageId": 109115822,
+      "fileTitle": "File:Vertical flag of the Socialist Republic of Vietnam - Klaus-Michael Schneider (13 May 2010).gif",
+      "revisionId": 949537545,
+      "revisionTimestamp": "2024-10-26T16:37:40Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Vertical_flag_of_the_Socialist_Republic_of_Vietnam_-_Klaus-Michael_Schneider_%2813_May_2010%29.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vertical_flag_of_the_Socialist_Republic_of_Vietnam_-_Klaus-Michael_Schneider_(13_May_2010).gif",
+      "artist": "Original design by Nguyễn Hữu Tiến.",
+      "creditLine": "<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/flags/vn.html\">Viet Nam - Socialist Republic of Viet Nam. - Last modified: 2019-04-22 by</a> <a rel=\"nofollow\" class=\"external text\" href=\"mailto:young.r@verizon.net\">randy young</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/\">The Flags of the World (FOTW) website</a>.</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/images/v/vn'.gif\">Construction Sheet - image by Željko Heimer. - Local Name: Cộng Hòa Xã Hội Chủ Nghĩa Việt. - ISO Code: VN VNM 704 - FIPS 10-4 Code: VM MARC Code: vm. - IOC Code: VIE</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/\">The Flags of the World (FOTW) website</a>.</li></ul>\n<ul><li><a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/images/v/vn_vert09.gif\">Vertical flag of the Socialist Republic of Vietnam - image by Klaus-Michael Schneider, 13 May 2010. - The ratio is approx 2:1, the star’s centre is more or less at the bottom of the first quarter from above. - Source: based upon a photo, shot by Christian Timm in Long Hai on 31 January 2009. - Klaus-Michael Schneider, 13 May 2010</a>, <a rel=\"nofollow\" class=\"external text\" href=\"https://www.fotw.info/\">The Flags of the World (FOTW) website</a>.</li></ul>",
       "licenseShortName": "Public domain",
       "licenseUrl": null,
       "restrictions": null,
@@ -7119,30 +7114,6 @@
     },
     {
       "ordinal": 297,
-      "id": "wikimedia-167766752",
-      "pageId": 167766752,
-      "fileTitle": "File:Vietnam location map pre-July 2025.svg",
-      "revisionId": 1254084071,
-      "revisionTimestamp": "2026-07-30T07:00:37Z",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Vietnam_location_map_pre-July_2025.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Vietnam_location_map_pre-July_2025.svg",
-      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Uwe_Dedering\" title=\"User:Uwe Dedering\">Uwe Dedering</a>",
-      "creditLine": "<p><span class=\"int-own-work\" lang=\"en\">Own work</span>\n</p>\n<ul><li>Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.</li>\n<li><a rel=\"nofollow\" class=\"external free\" href=\"https://gis.chinhphu.vn/\">https://gis.chinhphu.vn/</a></li></ul>",
-      "licenseShortName": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "restrictions": null,
-      "rightsStatus": "LINK_ONLY",
-      "reviewStatus": "PENDING_REVIEW",
-      "missingMetadata": [],
-      "rightsReviewer": null,
-      "legalReviewer": null,
-      "decision": null,
-      "permissionReference": null,
-      "takedownReference": null,
-      "serveBinary": false
-    },
-    {
-      "ordinal": 298,
       "id": "wikimedia-177553937",
       "pageId": 177553937,
       "fileTitle": "File:A variant of Communist Party of Vietnam flag.png",
@@ -7166,7 +7137,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 299,
+      "ordinal": 298,
       "id": "wikimedia-194038691",
       "pageId": 194038691,
       "fileTitle": "File:Công báo Việt Nam Cộng Hòa số 48 năm 1956.pdf",
@@ -7190,7 +7161,7 @@
       "serveBinary": false
     },
     {
-      "ordinal": 300,
+      "ordinal": 299,
       "id": "wikimedia-196362710",
       "pageId": 196362710,
       "fileTitle": "File:Vietnam - Fighting rooster.jpg",
@@ -7202,6 +7173,30 @@
       "creditLine": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
       "licenseShortName": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "restrictions": null,
+      "rightsStatus": "LINK_ONLY",
+      "reviewStatus": "PENDING_REVIEW",
+      "missingMetadata": [],
+      "rightsReviewer": null,
+      "legalReviewer": null,
+      "decision": null,
+      "permissionReference": null,
+      "takedownReference": null,
+      "serveBinary": false
+    },
+    {
+      "ordinal": 300,
+      "id": "wikimedia-71965526",
+      "pageId": 71965526,
+      "fileTitle": "File:Pranab Mukherjee and the President of Socialist Republic of Vietnam, Mr. Truong Tan Sang witnessing the signing ceremony of agreements and MoUs between India and Socialist Republic of Vietnam, in Hanoi on September 15, 2014.jpg",
+      "revisionId": 973605998,
+      "revisionTimestamp": "2024-12-21T17:17:55Z",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Pranab_Mukherjee_and_the_President_of_Socialist_Republic_of_Vietnam%2C_Mr._Truong_Tan_Sang_witnessing_the_signing_ceremony_of_agreements_and_MoUs_between_India_and_Socialist_Republic_of_Vietnam%2C_in_Hanoi_on_September_15%2C_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionUrl": "https://commons.wikimedia.org/wiki/File:Pranab_Mukherjee_and_the_President_of_Socialist_Republic_of_Vietnam,_Mr._Truong_Tan_Sang_witnessing_the_signing_ceremony_of_agreements_and_MoUs_between_India_and_Socialist_Republic_of_Vietnam,_in_Hanoi_on_September_15,_2014.jpg",
+      "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q56009715\" class=\"extiw\" title=\"d:Q56009715\"><span title=\"office assisting the president of India\">President's Secretariat</span></a>\n</bdi>",
+      "creditLine": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span class=\"skin-invert\" typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Emblem_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/60px-Emblem_of_India.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"50\" height=\"80\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/120px-Emblem_of_India.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"550\" data-file-height=\"877\"></a></span></div>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=ID-PIB id-link%3D%5Bhttps%3A%2F%2Farchive.pib.gov.in%2Farchive2%2Fphotoright.aspx%3Fphid%3D56775+56775%5D cnr%3D59515 dept%3DPresident%27s+Secretariat url%3Dhttp%3A%2F%2Fpibphoto.nic.in%2Fphoto%2F%2F2014%2FSep%2Fl2014091556775.jpg date%3D\"> </span>\n<p>This file or its source was published by Press Information Bureau on behalf of President's Secretariat, Government of India under the ID <a rel=\"nofollow\" class=\"external text\" href=\"https://archive.pib.gov.in/archive2/photoright.aspx?phid=56775\">56775</a> and CNR 59515. <small>(<a rel=\"nofollow\" class=\"external text\" href=\"http://pibphoto.nic.in/photo//2014/Sep/l2014091556775.jpg\">direct link</a>)</small>\n</p><p><small>This tag does not indicate the copyright status of the attached work. <span style=\"white-space:nowrap\">A normal <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Copyright_tags\" title=\"Special:MyLanguage/Commons:Copyright tags\">copyright tag</a> is still required.</span> <span style=\"white-space:nowrap\">See <a href=\"//commons.wikimedia.org/wiki/Special:MyLanguage/Commons:Licensing\" title=\"Special:MyLanguage/Commons:Licensing\">Commons:Licensing</a>.</span></small>\n</p>\n<hr>\n<p><span style=\"font-size:small;line-height:1.4\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ar\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ar\"><bdi class=\"language lang-ar\" lang=\"ar\">العربية</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/bn\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/bn\"><bdi class=\"language lang-bn\" lang=\"bn\">বাংলা</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/de\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/de\"><bdi class=\"language lang-de\" lang=\"de\">Deutsch</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/en\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/en\"><bdi class=\"language lang-en\" lang=\"en\">English</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/hi\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/hi\"><bdi class=\"language lang-hi\" lang=\"hi\">हिन्दी</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ja\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ja\"><bdi class=\"language lang-ja\" lang=\"ja\">日本語</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/mk\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/mk\"><bdi class=\"language lang-mk\" lang=\"mk\">македонски</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ml\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ml\"><bdi class=\"language lang-ml\" lang=\"ml\">മലയാളം</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/pl\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/pl\"><bdi class=\"language lang-pl\" lang=\"pl\">polski</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/ta\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/ta\"><bdi class=\"language lang-ta\" lang=\"ta\">தமிழ்</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/tcy\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/tcy\"><bdi class=\"language lang-tcy\" lang=\"tcy\">ತುಳು</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh\"><bdi class=\"language lang-zh\" lang=\"zh\">中文</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hans\"><bdi class=\"language lang-zh-hans\" lang=\"zh-hans\">中文（简体）</bdi></a> <b>∙</b> <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\" href=\"https://commons.wikimedia.org/wiki/Template:ID-PIB/zh-hant\"><bdi class=\"language lang-zh-hant\" lang=\"zh-hant\">中文（繁體）</bdi></a> <b>∙</b> <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:ID-PIB/lang&amp;action=edit\">+/−</a></small></span>\n</p>\n</td>\n<td><div class=\"wpImageAnnotatorControl wpImageAnnotatorOff\"><span typeof=\"mw:File\"><a href=\"//commons.wikimedia.org/wiki/File:Flag_of_India.svg\" class=\"mw-file-description\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/120px-Flag_of_India.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" width=\"100\" height=\"67\" class=\"mw-file-element\" srcset=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/250px-Flag_of_India.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"900\" data-file-height=\"600\"></a></span></div>\n</td></tr></tbody></table>",
+      "licenseShortName": "GODL-India",
+      "licenseUrl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
       "restrictions": null,
       "rightsStatus": "LINK_ONLY",
       "reviewStatus": "PENDING_REVIEW",

@@ -12,7 +12,7 @@ describe("transparency dashboard evidence", () => {
     expect(dashboard.blockers).toHaveLength(11);
     expect(dashboard.operations.backupRestore).toBe("PASS_DISPOSABLE_ONLY");
     expect(dashboard.operations.independentSecurity).toBe("PENDING_EXTERNAL");
-    expect(dashboard.wikimedia.invalidMetadataCount).toBe(1);
+    expect(dashboard.wikimedia.invalidMetadataCount).toBe(0);
     expect(dashboard.wikimedia.binaryServingEnabled).toBe(false);
     expect(dashboard.contentHistory).toMatchObject({ status: "REQUIRES_HUMAN_REVIEW", publishedContent: 105, candidateCount: 105, databaseWrites: 0, fabricatedApproval: false, councilApproval: "NOT_EVALUATED" });
     if (process.env.RELEASE_EVIDENCE_RUN === "1") return;
