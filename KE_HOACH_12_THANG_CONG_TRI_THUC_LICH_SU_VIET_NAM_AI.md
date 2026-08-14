@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 3.1 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 3.2 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 149 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
+> Phạm vi đánh giá: mã nguồn, 150 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -24,11 +24,12 @@
 | Regression/CI smoke | PASS_LOCAL_ONLY; bare `npm test` chạy 72 files/260 tests sau khi timeout standalone được đặt rõ 30s; không thay thế live production evidence | `cards/C-147.md`, `tests/operations/local-standalone-smoke.test.ts` |
 | CI fixture | PASS_LOCAL_ONLY; clean checkout được migrate + seed demo trước test; workflow không chứa production secret và không phải production evidence | `cards/C-148.md`, `.github/workflows/ci.yml` |
 | Reviewer handoff packet | PASS_LOCAL_ONLY; 105 hàng, 210 translation rows (209 published), source/claim gaps được phơi bày; zero DB writes, reviewer/signature để trống | `cards/C-149.md`, `scripts/published-content-review-packet.mjs`, `artifacts/curriculum-completeness/published-content-review-packet.json` |
+| Reviewer queue evidence states | PASS_LOCAL_ONLY khi C-150 hoàn tất; queue/API/OpenAPI hiển thị readiness source/claim và trạng thái VI/EN, chỉ đọc | `cards/C-150.md`, `src/lib/content/editorial.ts`, `src/components/admin/PublishedHistoryQueue.tsx`, `src/lib/openapi/editorial-catalog.ts` |
 | DoD năm 1 | NOT_READY; Public Beta false; matrix consistent | `artifacts/release/dod-audit.json`, `artifacts/release/dod-matrix-consistency.json` |
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
 
-**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập và C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **149/149 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
+**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập, C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử và C-150 đưa trạng thái evidence vào hàng đợi reviewer trên website. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **150/150 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
 
 ---
 
@@ -70,7 +71,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **149 thẻ**: C-001 đến C-149; **149 thẻ done** và C-149 là card hiện tại cho packet bàn giao reviewer. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **150 thẻ**: C-001 đến C-150; **150 thẻ done** và C-150 là card hiện tại cho trạng thái evidence trong queue reviewer. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 

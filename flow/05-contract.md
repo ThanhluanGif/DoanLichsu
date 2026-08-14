@@ -69,6 +69,8 @@ Function/—/Access(=none)/Args/Return. The shared column below is "Access/Effec
 | POST | `/api/v1/auth/logout` | Authenticated; clears cookie; writes logout audit | none | application/json 200 `DataResponse<{loggedOut:true}>`; errors application/json 401,403,500 `ApiError` |
 | GET | `/api/v1/auth/me` | Authenticated; no write | session cookie | application/json 200 `DataResponse<AuthUser>`; errors application/json 401,500 `ApiError` |
 | GET | `/api/v1/admin/dashboard` | Editor/Reviewer/Admin; no write | session cookie | application/json 200 `DataResponse<DashboardView>`; errors application/json 401,500 `ApiError` |
+| GET | `/api/v1/admin/published-history` | Reviewer/Admin; read-only queue of published content lacking a history attestation | query `{ page?: number; pageSize?: number }` | application/json 200 `ListResponse<PublishedHistoryQueueItem>`; errors application/json 400,401,403,500 `ApiError` |
+| POST | `/api/v1/admin/contents/{id}/history-review` | Reviewer/Admin; explicit human attestation and actor audit only | path `{ id: string }`; `PublishedHistoryReviewInput` | application/json 200 `DataResponse<PublishedHistoryReviewResult>`; errors application/json 400,401,403,404,409,422,500 `ApiError` |
 | GET | `/api/v1/admin/contents` | Editor/Reviewer/Admin; no write | query `AdminContentListQuery` | application/json 200 `ListResponse<AdminContentListItem>`; errors application/json 400,401,500 `ApiError` |
 | POST | `/api/v1/admin/contents` | Editor/Reviewer/Admin; creates DRAFT + audit | `ContentCreateInput` | application/json 201 `DataResponse<AdminContentDetail>`; errors application/json 400,401,403,500 `ApiError` |
 | GET | `/api/v1/admin/contents/{id}` | Editor/Reviewer/Admin; no write | path `{ id: string }` | application/json 200 `DataResponse<AdminContentDetail>`; errors application/json 401,404,500 `ApiError` |
@@ -329,6 +331,16 @@ interface AdminContentDetail extends AdminContentListItem {
   translations: Partial<Record<Locale, AdminTranslation>>;
 }
 interface AdminContentListQuery extends PageQuery { type?: ContentType; status?: WorkflowStatus; locale?: Locale; q?: string }
+type EvidenceLocatorStatus = "READY" | "MISSING_OR_UNVERIFIED";
+interface PublishedHistoryQueueItem {
+  id: string; type: ContentType; status: "PUBLISHED"; version: number;
+  titles: Partial<Record<Locale, string | null>>;
+  translationStatuses: Partial<Record<Locale, TranslationStatus | null>>;
+  sourceLocatorStatus: EvidenceLocatorStatus; claimLocatorStatus: EvidenceLocatorStatus;
+  reviewedBy: string | null; reviewedAt: string | null; publishedAt: string | null; updatedAt: string;
+}
+interface PublishedHistoryReviewInput { version: number; evidenceLocator: string; note: string; attestation: "HUMAN_REVIEWED" }
+interface PublishedHistoryReviewResult { contentId: string; status: "HUMAN_REVIEWED"; reviewedBy: string; reviewedAt: string; evidenceLocator: string }
 interface RecentActivityView { action: string; objectType: string; objectId: string | null; createdAt: string }
 interface DashboardView { countsByStatus: Record<WorkflowStatus, number>; countsByType: Record<ContentType, number>; recentAudit: RecentActivityView[] }
 interface SourceListQuery extends PageQuery { q?: string; sourceType?: SourceType; qualityTier?: SourceQualityTier; verificationStatus?: VerificationStatus }

@@ -99,6 +99,7 @@ const types = ["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"] as const;
 const workflow = ["DRAFT", "IN_REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "ARCHIVED"] as const;
 const rightsStatuses = ["UNKNOWN", "LINK_ONLY", "PERMITTED", "PUBLIC_DOMAIN"] as const;
 const translationStatuses = ["NOT_STARTED", "TRANSLATING", "READY_FOR_REVIEW", "APPROVED", "PUBLISHED"] as const;
+const evidenceLocatorStatuses = ["READY", "MISSING_OR_UNVERIFIED"] as const;
 const correctionCategories = ["FACTUAL", "SOURCE", "TRANSLATION", "ACCESSIBILITY", "SAFETY", "RIGHTS"] as const;
 const correctionUrgencies = ["NORMAL", "HIGH", "CRITICAL"] as const;
 const correctionStates = ["RECEIVED", "TRIAGED", "IN_REVIEW", "NEEDS_COUNCIL", "CORRECTED", "DECLINED", "ARCHIVED"] as const;
@@ -130,7 +131,7 @@ export const editorialOpenApiSchemas = {
   RejectInput: object(["version","locales","reason"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},reason:{type:"string",minLength:1} }),
   PublishedHistoryReviewInput: object(["version","evidenceLocator","note","attestation"], { version,evidenceLocator:{type:"string",minLength:1,maxLength:2_000},note:{type:"string",minLength:1,maxLength:2_000},attestation:{type:"string",const:"HUMAN_REVIEWED"} }),
   PublishedHistoryReviewResult: object(["contentId","status","reviewedBy","reviewedAt","evidenceLocator"], { contentId:string,status:{type:"string",const:"HUMAN_REVIEWED"},reviewedBy:string,reviewedAt:{type:"string",format:"date-time"},evidenceLocator:string }),
-  PublishedHistoryQueueItem: object(["id","type","status","version","titles","reviewedBy","reviewedAt","publishedAt","updatedAt"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},version,titles:partialLocaleRecord(nullableString),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString,updatedAt:{type:"string",format:"date-time"} }),
+  PublishedHistoryQueueItem: object(["id","type","status","version","titles","translationStatuses","sourceLocatorStatus","claimLocatorStatus","reviewedBy","reviewedAt","publishedAt","updatedAt"], { id:string,type:{type:"string",enum:types},status:{type:"string",const:"PUBLISHED"},version,titles:partialLocaleRecord(nullableString),translationStatuses:partialLocaleRecord({anyOf:[{type:"string",enum:translationStatuses},{type:"null"}]}),sourceLocatorStatus:{type:"string",enum:evidenceLocatorStatuses},claimLocatorStatus:{type:"string",enum:evidenceLocatorStatuses},reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString,updatedAt:{type:"string",format:"date-time"} }),
   WorkflowResult: object(["id","status","version","translationStatuses","reviewedBy","reviewedAt","publishedAt"], { id:string,status:{type:"string",enum:workflow},version,translationStatuses:partialLocaleRecord({type:"string",enum:translationStatuses}),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString }),
   TranslationCreateInput: translationCreate,
   TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,...translationEditableProperties }),
