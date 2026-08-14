@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 2.3 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 2.4 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 139 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
+> Phạm vi đánh giá: mã nguồn, 141 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -11,7 +11,7 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **139 card đã tạo, 139 done, C-139 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **141 card đã tạo, 141 done, C-141 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
 | Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
@@ -63,7 +63,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **139 thẻ**: C-001 đến C-139; **139 thẻ done** và C-139 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **141 thẻ**: C-001 đến C-141; **141 thẻ done** và C-141 là card hiện tại cho việc đồng bộ global master với current HEAD. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
