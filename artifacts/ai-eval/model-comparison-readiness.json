@@ -1,0 +1,29 @@
+{
+  "version": "model-comparison-readiness-v1",
+  "generatedAt": "2026-08-14T07:07:25.777Z",
+  "input": "docs/operations/model-comparison-manifest.example.json",
+  "canonicalDataset": {
+    "path": "artifacts/ai-eval/questions-500.json",
+    "sha256": "8b4171471c85a2035f0d3eb6a1e79260a10888760a68b2db8bffe30d8ad867b9"
+  },
+  "status": "BLOCKED_EXTERNAL",
+  "releaseAllowed": false,
+  "officialModelIndependenceEvidence": false,
+  "publicBeta": false,
+  "noFabricatedEvidence": true,
+  "databaseMutation": false,
+  "comparisonCount": 2,
+  "errors": [
+    "DATASET_SHA256_REQUIRED",
+    "comparison[0]:PROVIDER_AND_MODEL_REQUIRED",
+    "comparison[0]:CONFIGURATION_REQUIRED",
+    "comparison[0]:METRICS_REQUIRED",
+    "comparison[1]:PROVIDER_AND_MODEL_REQUIRED",
+    "comparison[1]:SAME_PROVIDER_MODEL_NOT_ALLOWED",
+    "comparison[1]:CONFIGURATION_REQUIRED",
+    "comparison[1]:METRICS_REQUIRED",
+    "OWNER_NAME_REQUIRED_FOR_PACKET",
+    "OWNER_AUTHORITY_REQUIRED_FOR_PACKET",
+    "OWNER_VERIFIED_AT_MUST_BE_ISO_TIMESTAMP"
+  ]
+}
