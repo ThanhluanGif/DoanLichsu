@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T07:13:19.499Z",
+  "generatedAt": "2026-08-14T07:25:17.973Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -92,8 +92,8 @@
       "evidence": [
         "artifacts/release/current-head-evidence.json"
       ],
-      "sourceTreeSha256": "3f252a764f3258734fbf200a72c6e159a02ce03f13cabcbf85ec1c04beeba213",
-      "currentSourceTreeSha256": "3f252a764f3258734fbf200a72c6e159a02ce03f13cabcbf85ec1c04beeba213",
+      "sourceTreeSha256": "59498ee02a8d0ffd1ebcd6f7d78b4e6be6d1a5708361f5bb5eedf50731a25375",
+      "currentSourceTreeSha256": "59498ee02a8d0ffd1ebcd6f7d78b4e6be6d1a5708361f5bb5eedf50731a25375",
       "sourceTreeMatches": true
     },
     {

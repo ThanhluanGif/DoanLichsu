@@ -1,0 +1,15 @@
+# DPIA readiness
+
+- Status: **BLOCKED_EXTERNAL**
+- Approved: **NO**
+- Release allowed: **NO**
+- Public Beta: **DISABLED**
+- Controls: 8/8
+- Policy SHA-256: e83b3b694dff2198441506fbdaccc8b6206c3af0a284c3f52cb572662c005334
+- Errors: 4
+- No fabricated evidence: **YES**
+
+- POLICY_SHA256_REQUIRED
+- OWNER_NAME_REQUIRED_FOR_HANDOFF
+- OWNER_AUTHORITY_REQUIRED_FOR_HANDOFF
+- OWNER_VERIFIED_AT_MUST_BE_ISO_TIMESTAMP

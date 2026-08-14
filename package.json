@@ -38,6 +38,7 @@
     "ai:tutor": "node scripts/ai-tutor.mjs",
     "ai:model-comparison:check": "node scripts/model-comparison-check.mjs",
     "privacy:check": "node scripts/privacy-check.mjs",
+    "privacy:handoff:check": "node scripts/dpia-readiness-check.mjs",
     "teacher:pack": "node scripts/teacher-pack.mjs",
     "university:dossier": "node scripts/university-dossier.mjs",
     "corrections:inbox": "node scripts/correction-inbox.mjs",
