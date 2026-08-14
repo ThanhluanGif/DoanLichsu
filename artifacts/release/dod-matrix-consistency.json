@@ -1,6 +1,6 @@
 {
   "version": "dod-matrix-consistency-v1",
-  "generatedAt": "2026-08-14T06:00:07.684Z",
+  "generatedAt": "2026-08-14T06:15:55.274Z",
   "consistent": true,
   "checks": {
     "overall": true,
