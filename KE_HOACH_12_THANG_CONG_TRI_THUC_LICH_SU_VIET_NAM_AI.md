@@ -11,7 +11,7 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **149 card đã tạo, 149 done, C-149 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **151 card đã tạo, 151 done, C-151 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
 | Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
@@ -24,7 +24,7 @@
 | Regression/CI smoke | PASS_LOCAL_ONLY; bare `npm test` chạy 72 files/260 tests sau khi timeout standalone được đặt rõ 30s; không thay thế live production evidence | `cards/C-147.md`, `tests/operations/local-standalone-smoke.test.ts` |
 | CI fixture | PASS_LOCAL_ONLY; clean checkout được migrate + seed demo trước test; workflow không chứa production secret và không phải production evidence | `cards/C-148.md`, `.github/workflows/ci.yml` |
 | Reviewer handoff packet | PASS_LOCAL_ONLY; 105 hàng, 210 translation rows (209 published), source/claim gaps được phơi bày; zero DB writes, reviewer/signature để trống | `cards/C-149.md`, `scripts/published-content-review-packet.mjs`, `artifacts/curriculum-completeness/published-content-review-packet.json` |
-| Reviewer queue evidence states | PASS_LOCAL_ONLY khi C-150 hoàn tất; queue/API/OpenAPI hiển thị readiness source/claim và trạng thái VI/EN, chỉ đọc | `cards/C-150.md`, `src/lib/content/editorial.ts`, `src/components/admin/PublishedHistoryQueue.tsx`, `src/lib/openapi/editorial-catalog.ts` |
+| Reviewer queue evidence states | PASS_LOCAL_ONLY; queue/API/OpenAPI hiển thị readiness source/claim và trạng thái VI/EN, chỉ đọc | `cards/C-150.md`, `src/lib/content/editorial.ts`, `src/components/admin/PublishedHistoryQueue.tsx`, `src/lib/openapi/editorial-catalog.ts` |
 | DoD năm 1 | NOT_READY; Public Beta false; matrix consistent | `artifacts/release/dod-audit.json`, `artifacts/release/dod-matrix-consistency.json` |
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
@@ -71,7 +71,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **150 thẻ**: C-001 đến C-150; **150 thẻ done** và C-150 là card hiện tại cho trạng thái evidence trong queue reviewer. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **151 thẻ**: C-001 đến C-151; **151 thẻ done** và C-151 là card hiện tại cho việc đồng bộ bộ đếm Global Master sau C-150. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
