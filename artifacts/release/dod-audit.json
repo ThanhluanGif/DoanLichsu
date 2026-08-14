@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T05:25:32.730Z",
+  "generatedAt": "2026-08-14T05:29:12.536Z",
   "status": "NOT_READY",
   "publicBeta": false,
   "checks": [
@@ -88,13 +88,13 @@
     {
       "id": "current-head-release-evidence",
       "group": "quality",
-      "status": "BLOCKED",
+      "status": "PASS_LOCAL_ONLY",
       "evidence": [
         "artifacts/release/current-head-evidence.json"
       ],
-      "sourceTreeSha256": "8fcb5d1cc11db7108e2c1b4ff8fb8c7259a7c08a995b3bc7b1c1509e1dd1b5dd",
-      "currentSourceTreeSha256": "01fa4b4e49669d89430ca24f87e65f65538e340507ac8d3caea9a5e1de812b19",
-      "sourceTreeMatches": false
+      "sourceTreeSha256": "a7109585459fc74dc4d09db87177e2221469a5fc4ba1f32b6314b61ea3d5816f",
+      "currentSourceTreeSha256": "a7109585459fc74dc4d09db87177e2221469a5fc4ba1f32b6314b61ea3d5816f",
+      "sourceTreeMatches": true
     },
     {
       "id": "governance-policy",
