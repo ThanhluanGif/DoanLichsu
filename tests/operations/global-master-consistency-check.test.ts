@@ -15,11 +15,13 @@ const expectedDoneCards = doneCardNumbers.length;
 const expectedLatestCard = Math.max(...doneCardNumbers);
 const expectedInFlightCards = cardFiles.length - expectedDoneCards;
 const planSnapshot = canonical.match(/(\d+) card đã tạo, \1 done, C-\1 hiện tại/);
-const run = (plan: string) => {
+const run = (plan: string, packetPath?: string) => {
   const planPath = join(temp, `${Math.random().toString(36).slice(2)}.md`);
   const outputPath = join(temp, `${Math.random().toString(36).slice(2)}.json`);
   writeFileSync(planPath, plan);
-  const result = spawnSync(process.execPath, ["scripts/global-master-consistency-check.mjs", "--plan", planPath, "--output", outputPath], { cwd: root, encoding: "utf8" });
+  const args = ["scripts/global-master-consistency-check.mjs", "--plan", planPath, "--output", outputPath];
+  if (packetPath) args.push("--packet", packetPath);
+  const result = spawnSync(process.execPath, args, { cwd: root, encoding: "utf8" });
   return { result, report: JSON.parse(readFileSync(outputPath, "utf8")) };
 };
 
@@ -41,6 +43,19 @@ describe("Global Master consistency gate", () => {
     expect(report.status).toBe("BLOCKED_INTERNAL");
     expect(report.errors).toEqual(expect.arrayContaining(["FLOW_PLAN_SNAPSHOT_MISMATCH", "GLOBAL_MASTER_PROGRESS_SENTENCE_MISSING", "GLOBAL_MASTER_PUBLIC_BETA_FALSE_MISSING"]));
     expect(report.publicBeta).toBe(false);
+  });
+
+  it("accepts a partial human packet without opening release", () => {
+    const packetPath = join(temp, "partial-history-readiness.json");
+    const packet = JSON.parse(readFileSync(resolve(root, "artifacts/curriculum-completeness/published-history-packet-readiness.json"), "utf8"));
+    packet.status = "PASS_WITH_HUMAN_ROWS";
+    packet.rowsRequiringHumanReview = 104;
+    packet.rowsAlreadyReviewed = 1;
+    writeFileSync(packetPath, JSON.stringify(packet));
+    const { result, report } = run(canonical, packetPath);
+    expect(result.status).toBe(0);
+    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", historyPacket: { rowsRequiringHumanReview: 104, rowsAlreadyReviewed: 1 }, publicBeta: false, releaseAllowed: false, databaseMutation: false });
+    expect(report.errors).toEqual([]);
   });
 });
 

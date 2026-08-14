@@ -8,6 +8,7 @@ const option = (name, fallback) => {
 };
 const planPath = resolve(option("--plan", "KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md"));
 const outputPath = resolve(option("--output", "artifacts/release/global-master-consistency.json"));
+const packetPath = resolve(option("--packet", "artifacts/curriculum-completeness/published-history-packet-readiness.json"));
 const plan = readFileSync(planPath, "utf8");
 const errors = [];
 const requireText = (needle, code) => {
@@ -24,9 +25,11 @@ const snapshotMatchesDoneCards = expectedCompletedCards !== null && flowCount ==
 const snapshotMatchesOneInFlightCard = expectedCompletedCards !== null && inFlightCards === 1 && expectedCompletedCards === flowCount + 1 && latestDoneCard === flowCount;
 if (expectedCompletedCards === null || (!snapshotMatchesDoneCards && !snapshotMatchesOneInFlightCard) || inFlightCards > 1) errors.push("FLOW_PLAN_SNAPSHOT_MISMATCH");
 
-const packet = JSON.parse(readFileSync(resolve("artifacts/curriculum-completeness/published-history-packet-readiness.json"), "utf8"));
+const packet = JSON.parse(readFileSync(packetPath, "utf8"));
 const dod = JSON.parse(readFileSync(resolve("artifacts/release/dod-audit.json"), "utf8"));
-if (packet.status !== "PASS_PACKET_PENDING_HUMAN" || packet.publishedContent !== 105 || packet.rowsRequiringHumanReview !== 105 || packet.rowsAlreadyReviewed !== 0 || packet.publicBeta !== false || packet.databaseMutation !== false) errors.push("HISTORY_PACKET_STATE_MISMATCH");
+const packetStatusValid = packet.status === "PASS_PACKET_PENDING_HUMAN" || packet.status === "PASS_WITH_HUMAN_ROWS";
+const packetCountersValid = Number.isInteger(packet.rowsRequiringHumanReview) && Number.isInteger(packet.rowsAlreadyReviewed) && packet.rowsRequiringHumanReview >= 0 && packet.rowsAlreadyReviewed >= 0 && packet.rowsRequiringHumanReview + packet.rowsAlreadyReviewed === 105;
+if (!packetStatusValid || packet.publishedContent !== 105 || !packetCountersValid || packet.publicBeta !== false || packet.databaseMutation !== false) errors.push("HISTORY_PACKET_STATE_MISMATCH");
 if (dod.status !== "NOT_READY" || dod.publicBeta !== false || dod.unmetExternal?.length !== 11) errors.push("DOD_EXTERNAL_STATE_MISMATCH");
 
 if (!/^> Phiên bản: \d+\.\d+ — \*\*GLOBAL BUILD MASTER/m.test(plan)) errors.push("GLOBAL_MASTER_VERSION_MARKER_MISSING");
