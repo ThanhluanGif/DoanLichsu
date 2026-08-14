@@ -1,11 +1,11 @@
 {
   "version": "ghcr-runtime-smoke-v1",
-  "observedAt": "2026-08-14T10:09:14.300Z",
-  "workflowRun": "31790704218",
-  "sourceCommit": "e43c6d112dfae6743ed8229d6ad0271f98624e4e",
-  "image": "ghcr.io/thanhluangif/doanlichsu@sha256:a3aa2f81ebde371a992f904a3f88ca0167f434fb15bf0cbe481b020a212587e8",
-  "containerId": "2d20d0d55ad154506dd9eaedf0bd3d6730cab5718c2c4e0835937f0e56b968ac",
-  "origin": "http://127.0.0.1:3322",
+  "observedAt": "2026-08-14T10:18:51.300Z",
+  "workflowRun": "31791494696",
+  "sourceCommit": "a6475004624ec9e882c0d01cf302d88132a2e9af",
+  "image": "ghcr.io/thanhluangif/doanlichsu@sha256:7a70676a0e4e9b353a369bc9679dcbd73f4c13c05461b6339a9f22801d12f7a7",
+  "containerId": "28614d09f6c5dcd75a22c81c3b636b6e57a0aba45c3e8b176c4b91432dbe3e32",
+  "origin": "http://127.0.0.1:3323",
   "originKind": "local disposable container; not official production",
   "checks": {
     "healthz": { "status": 200, "bodyStatus": "ok", "database": "ok" },
