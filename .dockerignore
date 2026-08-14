@@ -5,6 +5,10 @@ coverage
 data
 backups
 artifacts
+!artifacts/
+!artifacts/transparency/
+artifacts/transparency/*
+!artifacts/transparency/dashboard.json
 test-results
 playwright-report
 .env
