@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T10:20:33.960Z",
-  "testedCommit": "a6475004624ec9e882c0d01cf302d88132a2e9af",
-  "sourceTreeSha256": "2b9a51e4f397570038449740ecb74116428f252bc272281665dad3a7366d1434",
+  "generatedAt": "2026-08-14T10:42:15.786Z",
+  "testedCommit": "bb1a55d5783d802e5622373c8864047725a28e08",
+  "sourceTreeSha256": "15441182e7fdbaa14db21a5841cd8a188e7e1e6f927cb7a9afdaccdbe8152410",
   "origin": "http://127.0.0.1:3241",
   "originKind": "local production-like standalone; not official production",
   "steps": [
@@ -9,57 +9,57 @@
       "name": "lint",
       "command": "npm run lint",
       "exitCode": 0,
-      "durationMs": 11948,
+      "durationMs": 12799,
       "outputSha256": "6c0c097515df45eae14fd4aad1a012c1c4533fee40359076618deca8d77d414a"
     },
     {
       "name": "typecheck",
       "command": "npm run typecheck",
       "exitCode": 0,
-      "durationMs": 2987,
+      "durationMs": 3587,
       "outputSha256": "69b884b2de217c0fee131423c7b34d42fa601838c2c3c67ef7e3abc2371f9f8b"
     },
     {
       "name": "test",
       "command": "npm test -- --testTimeout=15000",
       "exitCode": 0,
-      "durationMs": 23316,
-      "outputSha256": "fdb423e051b2804a39b233f789cc65f7b3414c9c7f1239b87af548f521c98fa1"
+      "durationMs": 32124,
+      "outputSha256": "14cb7ae7dc9fe272ce870aecbceb71f37d790f67535384900890eeeb46c08f8f"
     },
     {
       "name": "build",
       "command": "npm run build",
       "exitCode": 0,
-      "durationMs": 9645,
-      "outputSha256": "979a2454e6b1682c110626f32120407c9046e41bb579f23ba5f81352e2e31a44"
+      "durationMs": 14620,
+      "outputSha256": "894af331af59718c09b5a8beab1c6ba4029e018cdf6ec8e17fb653a562528a89"
     },
     {
       "name": "migrate",
       "command": "npm run db:migrate",
       "exitCode": 0,
-      "durationMs": 429,
-      "outputSha256": "7e0999515de9d1a5b1bed7d03142640b87ac8f28ca79adcd0b30ba027a9d5806"
+      "durationMs": 803,
+      "outputSha256": "e7f8d9f6259f3e8d4f3de3efa7e984bc382482c407bc6d416876c8f1b7fed4d7"
     },
     {
       "name": "seed",
       "command": "npm run db:seed",
       "exitCode": 0,
-      "durationMs": 820,
+      "durationMs": 799,
       "outputSha256": "8bc06e3a7fba0052f14e862c575f01a3646d9d5f5c12d7ee263a87522fc75f5a"
     },
     {
       "name": "backup",
       "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/backup.mjs",
       "exitCode": 0,
-      "durationMs": 161,
-      "outputSha256": "a40b08448437bb3ecab3f6573075a6b605c277c656e3a1d20f37ca7487c32071"
+      "durationMs": 152,
+      "outputSha256": "4864d92606676e3b65d319940d20e11b87e070ba6a75efe57a3fecd920bcf083"
     },
     {
       "name": "restore",
-      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/restore.mjs /var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/qsv-current-head-asaXk3/backups/quan-su-viet-2026-08-14T10-21-23-253Z.sqlite",
+      "command": "/usr/local/Cellar/node/26.4.0/bin/node scripts/restore.mjs /var/folders/2w/pq4j4x216vb2d4k__dxwcy1c0000gn/T/qsv-current-head-5JiCyF/backups/quan-su-viet-2026-08-14T10-43-20-655Z.sqlite",
       "exitCode": 0,
-      "durationMs": 143,
-      "outputSha256": "14eceaf19fd04731bc763350964d6e72764024951b3f8f4d5f0bd290115ef996"
+      "durationMs": 158,
+      "outputSha256": "173634b93f692b138ebd4492116a27f4883c18e003ca566af89fb16db9093c38"
     }
   ],
   "local": {
@@ -67,7 +67,7 @@
     "openapi": 200,
     "search": 200,
     "securityHeaders": true,
-    "p95SearchMs": 35.94122200000129
+    "p95SearchMs": 57.70904500001052
   },
   "backupRestore": {
     "backupChecksum": true,
