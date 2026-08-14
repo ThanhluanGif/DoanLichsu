@@ -1,7 +1,7 @@
 # Global Master consistency
 
 - Status: **PASS_GLOBAL_MASTER_CONSISTENT**
-- Flow: 173/173 done (C-173); in-flight cards: 1
+- Flow: 174/174 done (C-174); in-flight cards: 0
 - Roadmap: **M11 hardening / prepare M12**
 - History packet: 105 rows; 105 pending; 0 reviewed
 - External blockers: 11

@@ -1,11 +1,11 @@
 {
   "version": "global-master-consistency-v1",
-  "generatedAt": "2026-08-14T12:48:52.286Z",
+  "generatedAt": "2026-08-14T12:53:35.869Z",
   "plan": "KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md",
-  "flowCards": 173,
-  "flowDoneCards": 173,
-  "latestCard": "C-173",
-  "inFlightCards": 1,
+  "flowCards": 174,
+  "flowDoneCards": 174,
+  "latestCard": "C-174",
+  "inFlightCards": 0,
   "roadmapPosition": "M11_HARDENING_PREPARE_M12",
   "publicBeta": false,
   "historyPacket": {
