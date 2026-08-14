@@ -1,6 +1,17 @@
 # Runbook release và phục hồi v1
 
+## 0. Immutable image handoff
+
 ## 1. Chuẩn bị bí mật và persistent database
+
+Mỗi lần `main` thay đổi, workflow `Publish immutable container` build và đẩy
+image lên GHCR với tag đầy đủ theo commit SHA. Workflow chỉ tạo supply-chain
+artifact; nó **không** triển khai production, không tạo domain, không ghi
+external evidence ledger và không bật Public Beta.
+
+Sau khi workflow xanh, lấy `sha256:` digest trong Actions summary/artifact
+`container-digest-<commit>` và đưa digest đó vào production handoff manifest
+cùng deployment record thật. Không dùng tag `latest` làm bằng chứng release.
 
 Không commit file env. Tạo `SESSION_SECRET` tối thiểu 32 ký tự và ba mật khẩu seed riêng
 biệt, tối thiểu 16 ký tự, không dùng giá trị demo. `APP_ORIGIN` phải là origin HTTPS cuối

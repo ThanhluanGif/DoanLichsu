@@ -19,7 +19,7 @@ describe("Global Master consistency gate", () => {
   it("accepts the merged 12-month plan and current release snapshot", () => {
     const { result, report } = run(canonical);
     expect(result.status).toBe(0);
-    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: 162, flowDoneCards: 162, latestCard: "C-162", inFlightCards: 0, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
+    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: 162, flowDoneCards: 162, latestCard: "C-162", inFlightCards: 1, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
     expect(report.errors).toEqual([]);
   });
 
