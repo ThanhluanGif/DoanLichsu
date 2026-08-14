@@ -1,0 +1,43 @@
+{
+  "version": "security-handoff-readiness-v1",
+  "generatedAt": "2026-08-14T07:37:36.992Z",
+  "input": "docs/operations/security-handoff-manifest.example.json",
+  "testedCommit": null,
+  "currentCommit": "371f338e55b72d2551a950acb15fdea495ac0f98",
+  "scope": [
+    "auth-rbac",
+    "source-ingestion",
+    "ai-safety"
+  ],
+  "findings": {
+    "critical": null,
+    "high": null,
+    "medium": null,
+    "low": null
+  },
+  "status": "BLOCKED_EXTERNAL",
+  "officialSecurityEvidence": false,
+  "releaseAllowed": false,
+  "publicBeta": false,
+  "noFabricatedEvidence": true,
+  "databaseMutation": false,
+  "errors": [
+    "TESTED_COMMIT_REQUIRED",
+    "TOOL_REQUIRED",
+    "TOOL_VERSION_REQUIRED",
+    "REVIEWED_AT_MUST_BE_ISO_TIMESTAMP",
+    "MISSING_SCOPE:auth-rbac",
+    "MISSING_SCOPE:source-ingestion",
+    "MISSING_SCOPE:ai-safety",
+    "FINDINGS_CRITICAL_MUST_BE_NON_NEGATIVE_INTEGER",
+    "FINDINGS_HIGH_MUST_BE_NON_NEGATIVE_INTEGER",
+    "FINDINGS_MEDIUM_MUST_BE_NON_NEGATIVE_INTEGER",
+    "FINDINGS_LOW_MUST_BE_NON_NEGATIVE_INTEGER",
+    "REPORT_ARTIFACT_MUST_BE_REPOSITORY_ARTIFACT",
+    "REPORT_SHA256_REQUIRED",
+    "REVIEWER_NAME_REQUIRED",
+    "REVIEWER_ORGANIZATION_REQUIRED",
+    "REVIEWER_AUTHORITY_REQUIRED",
+    "REVIEWER_VERIFIED_AT_MUST_BE_ISO_TIMESTAMP"
+  ]
+}
