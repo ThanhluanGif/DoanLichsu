@@ -1,16 +1,17 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 2.0 — **kế hoạch hợp nhất, nguồn chuẩn duy nhất**  
+> Phiên bản: 2.1 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**  
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
 > Phạm vi đánh giá: mã nguồn, 130 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại  
-> Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.
+> Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
+> **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
 ### Trạng thái điều hành tại 14/08/2026
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; 130 card đã tạo, 130 done | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **131 card đã tạo, 130 done, C-131 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
 | Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
@@ -58,18 +59,10 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Kiểm chứng | Source governance, claim/evidence, reviewer, audit log, provenance và rights status |
 | Học tập | Danh mục “Học theo lớp”, ma trận requirement lớp 6–12, trang bài học có mục tiêu/phân tích/tranh luận/nguồn |
 | Giao diện | Hệ nhận diện riêng, responsive, song ngữ, timeline, collection, source catalog, loading/motion |
-| Chất lượng | Lint đạt, typecheck đạt, 35 test file/169 test đạt ngày 11/08/2026 khi chạy đúng quyền môi trường |
+| Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có 38 thẻ:
-
-- 27 thẻ đã đánh dấu `done`.
-- 11 thẻ `todo`: C-028 đến C-038.
-- 7 thẻ nội dung lớp 6–12: C-028 đến C-034.
-- Bản đồ: C-035.
-- Một prototype 3D Bạch Đằng 1288: C-036.
-- Motion khám phá: C-037.
-- Gate completeness lớp 6–12: C-038.
+Flow hiện có **131 thẻ**: C-001 đến C-131; **130 thẻ done** và C-131 là card hiện tại cho việc củng cố global build master. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
@@ -99,7 +92,7 @@ Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trư�
 
 **GO**, với điều kiện đổi cách gọi thành “Cổng Tri thức Lịch sử Việt Nam — Public Beta” và giữ **Quân Sử Việt** là một collection/chuyên mục mạnh trong hệ sinh thái, thay vì cố đổi toàn bộ thương hiệu ngay.
 
-Không GO nếu dự án vẫn chỉ có một người làm mọi vai trò. Một cá nhân trong 12 tháng có thể hoàn tất 11 thẻ hiện tại và một AI prototype nhỏ; không thể đồng thời tạo corpus quốc gia, kiểm duyệt học thuật, quan hệ đối tác, nền tảng AI an toàn và vận hành cộng đồng. Kế hoạch này giả định có đội liên ngành tối thiểu ở Mục 15.
+Không GO nếu dự án vẫn chỉ có một người làm mọi vai trò. Một cá nhân có thể xây nền móng kỹ thuật và prototype, nhưng không thể tự thay thế Hội đồng, reviewer, rights owner, pilot owner, DPIA approver và independent security reviewer. Kế hoạch này giả định có đội liên ngành tối thiểu ở Mục 15.
 
 ---
 
