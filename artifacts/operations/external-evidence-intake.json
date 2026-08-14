@@ -1,8 +1,9 @@
 {
-  "version": "external-evidence-verification-v1",
-  "generatedAt": "2026-08-14T04:30:37.455Z",
+  "version": "external-evidence-intake-v1",
+  "generatedAt": "2026-08-14T04:30:36.204Z",
   "input": "artifacts/operations/external-evidence-ledger.json",
-  "status": "PASS_LEDGER_VALID",
+  "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
+  "status": "PASS_INTAKE_SCHEMA",
   "releaseAllowed": false,
   "pending": [
     "official-production",
@@ -17,6 +18,9 @@
     "independent-security",
     "named-operations"
   ],
+  "rejected": [],
+  "passed": [],
   "errors": [],
-  "noFabricatedEvidence": true
+  "noFabricatedEvidence": true,
+  "databaseMutation": false
 }

@@ -18,3 +18,28 @@ Status: `PENDING_EXTERNAL_EVIDENCE` (no invented people, signatures, participant
 
 Existing machine evidence (500-question eval, disposable backup/restore, smoke, transparency)
 does not substitute for these external approvals.
+
+## Evidence packet intake schema
+
+Before changing any row from `PENDING` to `PASS`, run:
+
+```bash
+npm run operations:evidence:intake
+```
+
+The command is read-only and writes only
+`artifacts/operations/external-evidence-intake.json` plus its Markdown summary.
+For a claimed `PASS`, the row must include all of the following:
+
+- `owner`: named responsible person or organisation account;
+- `authority`: the role/scope that authorises the evidence (for example,
+  independent security reviewer or Historian Council chair);
+- `verifiedAt`: an ISO-8601 timestamp;
+- `artifact`: an existing repository-relative path under `artifacts/`;
+- `sha256`: the exact SHA-256 of that artifact.
+
+The validator also checks the gate ID, status, ledger flags and `READY` rule. A
+green `PASS_INTAKE_SCHEMA` means only that the packet is structurally
+verifiable; it does not mean the Council, production, rights, DPIA, pilot,
+security or operations gate has been approved. `releaseAllowed` stays false
+until every canonical gate is genuinely `PASS`.

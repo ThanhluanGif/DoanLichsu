@@ -47,6 +47,7 @@
     "operations:check": "node scripts/operations-check.mjs",
     "operations:uptime": "node scripts/uptime-probe.mjs",
     "operations:evidence:verify": "node scripts/external-evidence-verify.mjs",
+    "operations:evidence:intake": "node scripts/external-evidence-intake.mjs",
     "operations:performance": "node scripts/performance-probe.mjs",
     "release:check": "node scripts/release-check.mjs",
     "release:evidence:current": "node scripts/release-evidence-current.mjs",
