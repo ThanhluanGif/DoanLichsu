@@ -1,0 +1,26 @@
+{
+  "version": "production-config-preflight-v1",
+  "generatedAt": "2026-08-14T08:32:47.471Z",
+  "input": "process.env",
+  "status": "BLOCKED_EXTERNAL",
+  "checks": {
+    "nodeEnvProduction": false,
+    "officialHttpsOrigin": false,
+    "absoluteDatabasePath": false,
+    "sessionSecretPresentAndNonPlaceholder": false,
+    "demoSeedDisabled": true,
+    "appVersionPresent": false
+  },
+  "acceptedSecretValues": false,
+  "databaseMutation": false,
+  "releaseAllowed": false,
+  "publicBeta": false,
+  "errors": [
+    "APP_ORIGIN_MUST_BE_VALID_HTTPS_URL",
+    "NODE_ENV_MUST_BE_PRODUCTION",
+    "DATABASE_PATH_MUST_BE_ABSOLUTE",
+    "SESSION_SECRET_MIN_LENGTH_32",
+    "SESSION_SECRET_REQUIRED",
+    "APP_VERSION_REQUIRED"
+  ]
+}
