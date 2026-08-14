@@ -1,6 +1,6 @@
 {
   "version": "local-standalone-smoke-v1",
-  "generatedAt": "2026-08-14T05:32:08.259Z",
+  "generatedAt": "2026-08-14T05:48:28.168Z",
   "origin": "http://127.0.0.1:3298",
   "originKind": "local production-like standalone; not official production",
   "databasePath": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
@@ -55,7 +55,7 @@
       "name": "openapi",
       "path": "/openapi.json",
       "status": 200,
-      "bytes": 123651,
+      "bytes": 124181,
       "passed": true
     },
     {
