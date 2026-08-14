@@ -2,8 +2,8 @@
 
 - Pending gates: **11**
 - Ledger SHA-256: d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d
-- Release commit: 5db28e9fab2aad7bdff7e4ddf39d1e12760e91b7
-- Runtime image: ghcr.io/thanhluangif/doanlichsu@sha256:7a70676a0e4e9b353a369bc9679dcbd73f4c13c05461b6339a9f22801d12f7a7
+- Release commit: b3434ff3710635472b1456ef930ea6c0c9a51b41
+- Runtime image: ghcr.io/thanhluangif/doanlichsu@sha256:21bf2aaa105fbffeda9a90d95278cae8e95b528b0365b419738efa9e2f947584
 - Security pack: PASS_LOCAL_SECURITY_EVIDENCE
 - Public Beta allowed: **NO**
 - No fabricated evidence: **YES**
