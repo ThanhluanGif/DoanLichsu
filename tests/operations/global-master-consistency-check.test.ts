@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
@@ -7,6 +7,13 @@ import { afterAll, describe, expect, it } from "vitest";
 const root = process.cwd();
 const temp = mkdtempSync(join(tmpdir(), "qsv-global-master-"));
 const canonical = readFileSync(resolve(root, "KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md"), "utf8");
+const cardFiles = readdirSync(resolve(root, "cards")).filter((file) => /^C-\d+\.md$/.test(file));
+const doneCardNumbers = cardFiles
+  .filter((file) => /^status:\s*done\s*$/m.test(readFileSync(resolve(root, "cards", file), "utf8")))
+  .map((file) => Number(file.match(/^C-(\d+)\.md$/)?.[1]));
+const expectedDoneCards = doneCardNumbers.length;
+const expectedLatestCard = Math.max(...doneCardNumbers);
+const expectedInFlightCards = cardFiles.length - expectedDoneCards;
 const run = (plan: string) => {
   const planPath = join(temp, `${Math.random().toString(36).slice(2)}.md`);
   const outputPath = join(temp, `${Math.random().toString(36).slice(2)}.json`);
@@ -19,12 +26,12 @@ describe("Global Master consistency gate", () => {
   it("accepts the merged 12-month plan and current release snapshot", () => {
     const { result, report } = run(canonical);
     expect(result.status).toBe(0);
-    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: 169, flowDoneCards: 169, latestCard: "C-169", inFlightCards: 0, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
+    expect(report).toMatchObject({ status: "PASS_GLOBAL_MASTER_CONSISTENT", flowCards: expectedDoneCards, flowDoneCards: expectedDoneCards, latestCard: `C-${expectedLatestCard}`, inFlightCards: expectedInFlightCards, roadmapPosition: "M11_HARDENING_PREPARE_M12", publicBeta: false, externalBlockers: 11, historyPacket: { publishedContent: 105, rowsRequiringHumanReview: 105, rowsAlreadyReviewed: 0 } });
     expect(report.errors).toEqual([]);
   });
 
   it("fails closed on stale card counts or a Public Beta claim", () => {
-    const stale = canonical.replace("169 card đã tạo, 169 done, C-169 hiện tại", "168 card đã tạo, 168 done, C-168 hiện tại").replace("Public Beta `false`", "Public Beta `true`");
+    const stale = canonical.replace("170 card đã tạo, 170 done, C-170 hiện tại", "169 card đã tạo, 169 done, C-169 hiện tại").replace("Public Beta `false`", "Public Beta `true`");
     const { result, report } = run(stale);
     expect(result.status).toBe(1);
     expect(report.status).toBe("BLOCKED_INTERNAL");

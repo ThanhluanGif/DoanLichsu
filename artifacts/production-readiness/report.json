@@ -1,6 +1,6 @@
 {
   "version": "production-readiness-v2",
-  "generatedAt": "2026-08-14T11:12:04.708Z",
+  "generatedAt": "2026-08-14T11:30:42.296Z",
   "status": "PASS_LOCAL_ONLY",
   "publicBetaAllowed": false,
   "officialProductionEvidence": false,
@@ -13,8 +13,8 @@
     "quality": {
       "status": "PASS_LOCAL_ONLY",
       "evidence": "artifacts/release/current-head-evidence.json",
-      "sourceTreeSha256": "62169c86fd77b70555364d90714496e561313418c921e1fcef9e23615249845a",
-      "currentSourceTreeSha256": "62169c86fd77b70555364d90714496e561313418c921e1fcef9e23615249845a",
+      "sourceTreeSha256": "ab836f4ef2ac0e7f8f8ac445ef1a264c77ca8b45b433a8fdb2cdbf795289a04e",
+      "currentSourceTreeSha256": "ab836f4ef2ac0e7f8f8ac445ef1a264c77ca8b45b433a8fdb2cdbf795289a04e",
       "sourceTreeMatches": true
     },
     "backupRestore": {
