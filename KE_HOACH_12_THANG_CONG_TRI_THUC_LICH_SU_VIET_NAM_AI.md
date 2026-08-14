@@ -49,7 +49,7 @@ Hai tài liệu kế hoạch đã được gộp theo nguyên tắc một nguồ
 
 | Tài liệu | Vai trò từ nay | Cách sử dụng |
 |---|---|---|
-| `KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md` | **Global Master v4.7** | Nguồn duy nhất cho scope, roadmap, gate, KPI, DoD, blocker và mọi card mới |
+| `KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md` | **Global Master v4.8** | Nguồn duy nhất cho scope, roadmap, gate, KPI, DoD, blocker và mọi card mới |
 | `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` | Tài liệu cơ sở/lịch sử 16 tuần | Chỉ dùng để tra cứu yêu cầu MVP cũ; mọi thay đổi phải cập nhật ngược vào Global Master |
 
 Crosswalk ở Mục 11.0 giữ lại toàn bộ mã giai đoạn A–J và FR01–FR14 của bản 16 tuần, nên không mất yêu cầu cũ; các yêu cầu đó đã được đặt vào tháng, gate và Definition of Done tương ứng của kế hoạch 12 tháng.

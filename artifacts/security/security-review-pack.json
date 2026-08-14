@@ -1,6 +1,6 @@
 {
   "version": "security-review-pack-v1",
-  "generatedAt": "2026-08-14T10:43:38.746Z",
+  "generatedAt": "2026-08-14T10:52:35.433Z",
   "status": "PASS_LOCAL_SECURITY_EVIDENCE",
   "staticChecks": {
     "releaseContract": true,
@@ -12,14 +12,14 @@
       "name": "static-release-contract",
       "command": "/usr/local/Cellar/node/26.4.0/bin/node node_modules/vitest/vitest.mjs run tests/security/release-static.test.ts --testTimeout=15000",
       "exitCode": 0,
-      "outputSha256": "36d1cc4520c5846189cbf461c399e862c5376ad87e2226f0b9a931f8f50285cf",
+      "outputSha256": "ae0ce35c3862fee44c6785ea4be367b13cc13ca9c8fc8d7f496853227722f4e0",
       "dependencyVulnerabilities": null
     },
     {
       "name": "security-workflow",
       "command": "/usr/local/Cellar/node/26.4.0/bin/node node_modules/vitest/vitest.mjs run tests/editorial-api/security-workflow.test.ts --testTimeout=15000",
       "exitCode": 0,
-      "outputSha256": "a5000016154e8a446974c8dbf46652b1714ef264fe4085d0d1cc2255902728c7",
+      "outputSha256": "c75c0c9a21aa181d9b9739d382cb0920a73c57abcb2c86a69bf0da692cb0bff1",
       "dependencyVulnerabilities": null
     },
     {
