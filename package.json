@@ -31,6 +31,7 @@
     "wikimedia:import": "node scripts/wikimedia-import.mjs",
     "media:rights": "node scripts/media-rights-check.mjs",
     "corpus:snapshot": "node scripts/approved-corpus.mjs",
+    "content:history:packet": "node scripts/published-content-review-packet.mjs",
     "ai:gateway": "node scripts/ai-gateway.mjs",
     "ai:eval": "node scripts/ai-eval.mjs",
     "ai:eval:dataset": "node scripts/ai-eval-dataset.mjs",
