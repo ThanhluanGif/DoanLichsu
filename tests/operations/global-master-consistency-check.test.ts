@@ -34,7 +34,7 @@ describe("Global Master consistency gate", () => {
   it("fails closed on stale card counts or a Public Beta claim", () => {
     const currentSnapshot = planSnapshot?.[0] ?? "";
     const currentCount = Number(planSnapshot?.[1] ?? expectedDoneCards);
-    const staleCount = currentCount - 1;
+    const staleCount = currentCount - (expectedInFlightCards > 0 ? 2 : 1);
     const stale = canonical.replace(currentSnapshot, `${staleCount} card đã tạo, ${staleCount} done, C-${staleCount} hiện tại`).replace("Public Beta `false`", "Public Beta `true`");
     const { result, report } = run(stale);
     expect(result.status).toBe(1);
