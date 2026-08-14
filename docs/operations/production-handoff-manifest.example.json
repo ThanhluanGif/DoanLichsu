@@ -1,0 +1,17 @@
+{
+  "version": "production-handoff-v1",
+  "environment": "production",
+  "origin": null,
+  "releaseCommit": null,
+  "imageDigest": null,
+  "criticalRoutes": [],
+  "deploymentRecord": { "artifact": null, "sha256": null },
+  "rollback": { "ref": null, "artifact": null, "sha256": null },
+  "database": { "strategy": null, "backupArtifact": null, "restoreArtifact": null },
+  "monitoring": { "provider": null, "artifact": null, "sha256": null },
+  "owner": { "name": null, "organization": null, "contact": null },
+  "onCall": { "name": null, "escalation": null, "rotaArtifact": null },
+  "rpoMinutes": null,
+  "rtoMinutes": null,
+  "secretNames": []
+}

@@ -43,6 +43,7 @@
     "analytics:privacy": "node scripts/privacy-analytics.mjs",
     "offline:pack": "node scripts/offline-pack.mjs",
     "production:readiness": "node scripts/production-readiness.mjs",
+    "production:handoff": "node scripts/production-handoff-check.mjs",
     "transparency:dashboard": "node scripts/transparency-dashboard.mjs",
     "graph:export": "node scripts/knowledge-graph.mjs",
     "operations:check": "node scripts/operations-check.mjs",

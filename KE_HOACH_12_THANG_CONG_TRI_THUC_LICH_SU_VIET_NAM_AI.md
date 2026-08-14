@@ -1,9 +1,9 @@
 # Kế hoạch 12 tháng xây dựng Cổng Tri thức Lịch sử Việt Nam có AI đồng hành
 
-> Phiên bản: 3.2 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
+> Phiên bản: 3.3 — **GLOBAL BUILD MASTER / kế hoạch hợp nhất, nguồn chuẩn duy nhất**
 > Ngày cập nhật: 14/08/2026  
 > Kế hoạch cơ sở đã hợp nhất: `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` (bản 16 tuần, 06/08/2026)  
-> Phạm vi đánh giá: mã nguồn, 152 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
+> Phạm vi đánh giá: mã nguồn, 153 Flow card, test, API/OpenAPI, giao diện, release evidence và DoD artifacts trong workspace hiện tại
 > Mục tiêu: đưa nền tảng **Quân Sử Việt** hiện có thành Public Beta năm 1 của một cổng tri thức lịch sử Việt Nam có nguồn, có kiểm duyệt, hữu ích cho học sinh, sinh viên, giáo viên và cộng đồng.  
 > **Quy tắc global:** mọi build card mới, thay đổi scope, báo cáo tiến độ, release gate và quyết định ưu tiên bắt buộc đọc và cập nhật file này trước; file kế hoạch 16 tuần chỉ là tài liệu lịch sử.
 
@@ -11,10 +11,10 @@
 
 | Hạng mục | Trạng thái hiện tại | Bằng chứng chuẩn |
 |---|---|---|
-| Flow planning | PASS; contract đã khóa; **152 card đã tạo, 152 done, C-152 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
+| Flow planning | PASS; contract đã khóa; **153 card đã tạo, 153 done, C-153 hiện tại** | `flow/00-idea.md`…`flow/05-contract.md`, `bash /Users/admin/.agents/skills/flow/runner/flow.sh status` |
 | Public product surface | PASS trên local production-like evidence; các journey public đã có | `artifacts/operations/live-smoke-proof.json`, `artifacts/transparency/live-transparency-proof.json` |
 | Curriculum 6–12 | PASS mandatory coverage trong scope hiện tại | `artifacts/curriculum-completeness/live-coverage.json` |
-| Release quality | PASS_LOCAL_ONLY; source tree khớp; không phải official production | `artifacts/release/current-head-evidence.json` |
+| Release quality | PASS_LOCAL_ONLY; source tree khớp với HEAD `7acbd8f`; không phải official production | `artifacts/release/current-head-evidence.json` |
 | AI machine evaluation | PASS 500/500; public AI vẫn DISABLED | `artifacts/ai-eval/report-500.json`, `artifacts/privacy/report.json` |
 | Wikimedia | PASS metadata pilot 300; binary serving tắt; rights review chưa xong | `artifacts/wikimedia/batch-300-report.json`, `artifacts/wikimedia/rights-review-ledger.json` |
 | Published editorial history | BLOCKED_INTERNAL; 105/105 hàng cần người duyệt thật; packet bàn giao đọc-only đã tạo, không tự xác nhận | `artifacts/curriculum-completeness/published-content-audit.json`, `artifacts/curriculum-completeness/published-content-history-plan.json`, `artifacts/curriculum-completeness/published-content-review-packet.json` |
@@ -26,11 +26,38 @@
 | Reviewer handoff packet | PASS_LOCAL_ONLY; 105 hàng, 210 translation rows (209 published), source/claim gaps được phơi bày; zero DB writes, reviewer/signature để trống | `cards/C-149.md`, `scripts/published-content-review-packet.mjs`, `artifacts/curriculum-completeness/published-content-review-packet.json` |
 | Reviewer queue evidence states | PASS_LOCAL_ONLY; queue/API/OpenAPI hiển thị readiness source/claim và trạng thái VI/EN, chỉ đọc | `cards/C-150.md`, `src/lib/content/editorial.ts`, `src/components/admin/PublishedHistoryQueue.tsx`, `src/lib/openapi/editorial-catalog.ts` |
 | AI golden-set review ledger | PASS_LOCAL_ONLY; 500 hàng machine-eval có schema reviewer role/authority/evidence, validator fail-closed; human approval vẫn pending | `cards/C-152.md`, `scripts/ai-human-review-ledger.mjs`, `artifacts/ai-eval/human-review-ledger.json`, `docs/operations/ai-human-review-protocol.md` |
+| Production handoff validator | BLOCKED_EXTERNAL by design; manifest checks HTTPS target, digest, six routes, rollback/monitoring, RPO/RTO and named owners without accepting secrets; no deployment target supplied | `cards/C-153.md`, `scripts/production-handoff-check.mjs`, `artifacts/operations/production-handoff-check.json`, `docs/operations/production-handoff.md` |
 | DoD năm 1 | NOT_READY; Public Beta false; matrix consistent | `artifacts/release/dod-audit.json`, `artifacts/release/dod-matrix-consistency.json` |
 
 **Kết luận giai đoạn:** dự án đã hoàn tất nền móng kỹ thuật, MVP public scope, curriculum 6–12, workflow nội dung, AI safety prototype, metadata Wikimedia và local release verification. Dự án **chưa đạt Gate M12/Public Beta** vì còn 105 attestation lịch sử biên tập và 11 external gates. Không dùng các nhãn “production”, “đã được Hội đồng duyệt” hoặc “Public Beta” cho đến khi có evidence tương ứng.
 
-**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập, C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử, C-150 đưa trạng thái evidence vào hàng đợi reviewer trên website, C-151 đồng bộ bộ đếm Global Master và C-152 khóa schema reviewer độc lập cho AI golden set. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **152/152 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
+**Vị trí tiến độ 12 tháng tại snapshot này:** đang ở cuối **Tháng 11 / Gate M11 — hardening và release candidate**, với bằng chứng local production-like đã PASS trên HEAD `7acbd8f` nhưng chưa phải official production. C-144 bổ sung cổng kiểm tra packet external evidence, C-145 đồng bộ provenance sau commit, C-146 kiểm chứng Docker volume/restart, C-147 làm CI regression timeout rõ ràng, C-148 làm clean CI checkout có fixture dữ liệu tái lập, C-149 tạo packet bàn giao reviewer đọc-only cho 105 hàng lịch sử, C-150 đưa trạng thái evidence vào hàng đợi reviewer trên website, C-151 đồng bộ bộ đếm Global Master, C-152 khóa schema reviewer độc lập cho AI golden set và C-153 tạo validator bàn giao production fail-closed. Các bước này chỉ làm nền tảng đáng tin cậy hơn, không tự biến pending thành approval. Vì vậy tiến độ kỹ thuật của Flow là **153/153 card done**, còn tiến độ ra mắt công khai vẫn **M12 NOT_READY / Public Beta false**.
+
+### Bản hợp nhất đang có hiệu lực
+
+Hai tài liệu kế hoạch đã được gộp theo nguyên tắc một nguồn chuẩn:
+
+| Tài liệu | Vai trò từ nay | Cách sử dụng |
+|---|---|---|
+| `KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md` | **Global Master v3.3** | Nguồn duy nhất cho scope, roadmap, gate, KPI, DoD, blocker và mọi card mới |
+| `KE_HOACH_WEBSITE_LICH_SU_QUAN_SU_VIET_NAM.md` | Tài liệu cơ sở/lịch sử 16 tuần | Chỉ dùng để tra cứu yêu cầu MVP cũ; mọi thay đổi phải cập nhật ngược vào Global Master |
+
+Crosswalk ở Mục 11.0 giữ lại toàn bộ mã giai đoạn A–J và FR01–FR14 của bản 16 tuần, nên không mất yêu cầu cũ; các yêu cầu đó đã được đặt vào tháng, gate và Definition of Done tương ứng của kế hoạch 12 tháng.
+
+### Bảng tiến độ điều hành hiện tại
+
+| Chỉ số | Kết quả hiện tại | Diễn giải |
+|---|---:|---|
+| Tiến độ Flow | **153/153 card done (100%)** | Nền tảng kỹ thuật và các validator nội bộ đã hoàn tất |
+| Vị trí roadmap | **Cuối M11 / chuẩn bị M12** | Đang ở release-candidate hardening, chưa mở Public Beta |
+| Release quality | **4/4 PASS_LOCAL_ONLY** | HEAD `7acbd8f`; local standalone, không phải domain production |
+| Curriculum mandatory | **PASS trong scope đã ký** | Không đồng nghĩa 105 hàng lịch sử đã có attestation người thật |
+| AI golden set | **500/500 machine-eval; 0/500 dual human approval** | AI công khai vẫn tắt |
+| Wikimedia | **300 metadata pilot; binary serving tắt** | Rights review/permission archive còn thiếu |
+| DoD năm 1 | **NOT_READY** | Ma trận nhất quán; Public Beta `false` |
+| External blockers | **11** | Cần owner/người duyệt/đơn vị thật cung cấp bằng chứng |
+
+**Quy tắc chuyển M11 → M12:** chỉ chuyển khi production handoff manifest có target HTTPS thật, release/image/deploy evidence được owner xác nhận, independent security, Council, rights, DPIA, pilot và named operations đã được ghi nhận. Không có dữ liệu đó thì tiếp tục giữ `NOT_READY`, dù toàn bộ test nội bộ đều xanh.
 
 ---
 
@@ -72,7 +99,7 @@ Dự án hiện tại **không bắt đầu từ số 0**. Nó đã hoàn thành
 | Chất lượng | Lint/typecheck/build/release evidence đạt trên current-head; focused và regression tests có bằng chứng trong các card gần nhất |
 | Release | Có runbook, health check, backup/restore, dependency audit, accessibility/performance evidence |
 
-Flow hiện có **152 thẻ**: C-001 đến C-152; **152 thẻ done** và C-152 là card hiện tại cho schema reviewer độc lập của AI golden set. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
+Flow hiện có **153 thẻ**: C-001 đến C-153; **153 thẻ done** và C-153 là card hiện tại cho validator bàn giao production fail-closed. Các card C-028–C-038 đã được thực thi và bằng chứng của chúng nằm trong `artifacts/`/lịch sử git; không dùng số liệu 38-card cũ để báo cáo hiện trạng.
 
 Kiểm tra ngày 11/08/2026 cũng phát hiện hai điều phải xử lý trước khi mở rộng:
 
