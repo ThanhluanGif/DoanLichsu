@@ -77,10 +77,29 @@ try {
     WHERE n.status='PUBLISHED'
     ORDER BY c.content_id,c.id,ce.source_id
   `).all();
-  const reviewed = new Set(database.prepare(`
-    SELECT object_id AS contentId FROM audit_logs
-    WHERE object_type='content' AND action='content.editorial_history.review'
-  `).all().map((row) => row.contentId));
+  const reviewRows = database.prepare(`
+    SELECT a.object_id AS contentId,a.actor_id AS actorId,a.metadata,a.created_at AS auditCreatedAt,
+      u.display_name AS reviewer,u.role AS reviewerRole
+    FROM audit_logs a
+    LEFT JOIN users u ON u.id=a.actor_id
+    WHERE a.object_type='content' AND a.action='content.editorial_history.review'
+    ORDER BY a.created_at DESC,a.id DESC
+  `).all();
+  const reviewByContent = new Map();
+  for (const row of reviewRows) {
+    if (reviewByContent.has(row.contentId)) continue;
+    let metadata = {};
+    try { metadata = JSON.parse(row.metadata ?? "{}"); } catch { metadata = {}; }
+    reviewByContent.set(row.contentId, {
+      status: "HUMAN_REVIEWED",
+      reviewer: row.reviewer ?? null,
+      reviewerRole: row.reviewerRole ?? null,
+      attestation: metadata.attestation ?? null,
+      evidenceLocator: metadata.evidenceLocator ?? null,
+      note: metadata.note ?? null,
+      reviewedAt: metadata.reviewedAt ?? row.auditCreatedAt ?? null,
+    });
+  }
 
   const byContent = new Map();
   for (const row of translationRows) {
@@ -141,8 +160,8 @@ try {
 
   const rows = [...byContent.values()].map((entry) => ({
     ...entry,
-    history: {
-      status: reviewed.has(entry.id) ? "HUMAN_REVIEWED" : "REQUIRES_HUMAN_REVIEW",
+    history: reviewByContent.get(entry.id) ?? {
+      status: "REQUIRES_HUMAN_REVIEW",
       reviewer: null,
       reviewerRole: null,
       attestation: null,
@@ -164,11 +183,11 @@ try {
     row.reviewChecklist = {
       sourceLocatorStatus: row.sources.length && row.sources.every((source) => source.verificationStatus === "VERIFIED" && source.url && source.accessedAt) ? "READY" : "MISSING_OR_UNVERIFIED",
       claimLocatorStatus: row.claims.length && row.claims.every((claim) => claim.verificationStatus === "VERIFIED" && claim.sourceId && claim.locator) ? "READY" : "MISSING_OR_UNVERIFIED",
-      reviewer: null,
-      reviewerRole: null,
-      evidenceLocator: null,
-      note: null,
-      attestation: null,
+      reviewer: row.history.status === "HUMAN_REVIEWED" ? row.history.reviewer : null,
+      reviewerRole: row.history.status === "HUMAN_REVIEWED" ? row.history.reviewerRole : null,
+      evidenceLocator: row.history.status === "HUMAN_REVIEWED" ? row.history.evidenceLocator : null,
+      note: row.history.status === "HUMAN_REVIEWED" ? row.history.note : null,
+      attestation: row.history.status === "HUMAN_REVIEWED" ? row.history.attestation : null,
     };
   }
   const canonical = JSON.stringify(rows);
@@ -176,7 +195,7 @@ try {
     version: "published-content-review-packet-v1",
     generatedAt,
     database: databasePath,
-    status: "REQUIRES_HUMAN_REVIEW",
+    status: rows.some((row) => row.history.status === "HUMAN_REVIEWED") ? "PASS_WITH_HUMAN_ROWS" : "REQUIRES_HUMAN_REVIEW",
     publishedContent: rows.length,
     publishedTranslations: rows.reduce((count, row) => count + row.translations.filter((translation) => translation.translationStatus === "PUBLISHED").length, 0),
     translationRows: rows.reduce((count, row) => count + row.translations.length, 0),

@@ -1,6 +1,6 @@
 {
   "version": "published-history-packet-readiness-v1",
-  "generatedAt": "2026-08-14T08:06:45.770Z",
+  "generatedAt": "2026-08-14T13:04:18.962Z",
   "input": "artifacts/curriculum-completeness/published-content-review-packet.json",
   "packetSha256": "873f00bcbe91186c57146c8da304b027d5316f23a798975252a4b971d57da472",
   "status": "PASS_PACKET_PENDING_HUMAN",

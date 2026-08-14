@@ -44,6 +44,65 @@ describe("published content review packet", () => {
       afterDatabase.close();
     }
   });
+
+  it("round-trips a real-shaped review audit into the packet and validator", () => {
+    const databasePath = join(temp, "reviewed-packet.db");
+    const output = join(temp, "reviewed-packet.json");
+    copyFileSync(resolve("data/quan-su-viet.db"), databasePath);
+    const initial = spawnSync(process.execPath, ["scripts/published-content-review-packet.mjs"], {
+      cwd: process.cwd(), env: { ...process.env, DATABASE_PATH: databasePath, OUTPUT: output }, encoding: "utf8",
+    });
+    expect(initial.status).toBe(0);
+    const before = JSON.parse(readFileSync(output, "utf8"));
+    const contentId = before.rows[0].id as string;
+    const reviewedAt = "2026-08-14T13:00:00.000Z";
+    const database = new Database(databasePath);
+    database.prepare(`
+      INSERT INTO audit_logs (id, actor_id, action, object_type, object_id, metadata, created_at)
+      VALUES (?, ?, 'content.editorial_history.review', 'content', ?, ?, ?)
+    `).run("audit-history-roundtrip", "user-reviewer", contentId, JSON.stringify({ attestation: "HUMAN_REVIEWED", evidenceLocator: "https://archive.example.test/review/roundtrip-001", note: "Đã đối chiếu nguồn và lịch sử biên tập.", reviewedAt, contentVersion: 1 }), reviewedAt);
+    database.close();
+
+    const result = spawnSync(process.execPath, ["scripts/published-content-review-packet.mjs"], {
+      cwd: process.cwd(), env: { ...process.env, DATABASE_PATH: databasePath, OUTPUT: output }, encoding: "utf8",
+    });
+    expect(result.status).toBe(0);
+    const report = JSON.parse(readFileSync(output, "utf8"));
+    const row = report.rows.find((item: { id: string }) => item.id === contentId);
+    expect(report).toMatchObject({ status: "PASS_WITH_HUMAN_ROWS", rowsRequiringHumanReview: 104, rowsAlreadyReviewed: 1, databaseWrites: 0, fabricatedReviewers: false, publicBeta: false });
+    expect(row.history).toEqual({ status: "HUMAN_REVIEWED", reviewer: "Kiểm duyệt viên", reviewerRole: "REVIEWER", attestation: "HUMAN_REVIEWED", evidenceLocator: "https://archive.example.test/review/roundtrip-001", note: "Đã đối chiếu nguồn và lịch sử biên tập.", reviewedAt });
+    expect(row.reviewChecklist).toMatchObject({ reviewer: "Kiểm duyệt viên", reviewerRole: "REVIEWER", attestation: "HUMAN_REVIEWED", evidenceLocator: "https://archive.example.test/review/roundtrip-001" });
+
+    const readinessOutput = join(temp, "reviewed-readiness.json");
+    const readiness = spawnSync(process.execPath, ["scripts/published-history-packet-check.mjs", "--input", output, "--output", readinessOutput], { cwd: process.cwd(), encoding: "utf8" });
+    expect(readiness.status).toBe(0);
+    expect(JSON.parse(readFileSync(readinessOutput, "utf8"))).toMatchObject({ status: "PASS_WITH_HUMAN_ROWS", rowsRequiringHumanReview: 104, rowsAlreadyReviewed: 1, releaseAllowed: false, publicBeta: false, databaseMutation: false });
+  });
+
+  it("keeps incomplete audit metadata fail-closed", () => {
+    const databasePath = join(temp, "incomplete-reviewed-packet.db");
+    const output = join(temp, "incomplete-reviewed-packet.json");
+    copyFileSync(resolve("data/quan-su-viet.db"), databasePath);
+    const initial = spawnSync(process.execPath, ["scripts/published-content-review-packet.mjs"], {
+      cwd: process.cwd(), env: { ...process.env, DATABASE_PATH: databasePath, OUTPUT: output }, encoding: "utf8",
+    });
+    expect(initial.status).toBe(0);
+    const contentId = JSON.parse(readFileSync(output, "utf8")).rows[0].id as string;
+    const database = new Database(databasePath);
+    database.prepare(`
+      INSERT INTO audit_logs (id, actor_id, action, object_type, object_id, metadata, created_at)
+      VALUES (?, ?, 'content.editorial_history.review', 'content', ?, ?, ?)
+    `).run("audit-history-incomplete", "user-reviewer", contentId, JSON.stringify({ attestation: "HUMAN_REVIEWED" }), "2026-08-14T13:01:00.000Z");
+    database.close();
+    const result = spawnSync(process.execPath, ["scripts/published-content-review-packet.mjs"], {
+      cwd: process.cwd(), env: { ...process.env, DATABASE_PATH: databasePath, OUTPUT: output }, encoding: "utf8",
+    });
+    expect(result.status).toBe(0);
+    const readinessOutput = join(temp, "incomplete-readiness.json");
+    const readiness = spawnSync(process.execPath, ["scripts/published-history-packet-check.mjs", "--input", output, "--output", readinessOutput], { cwd: process.cwd(), encoding: "utf8" });
+    expect(readiness.status).toBe(1);
+    expect(JSON.parse(readFileSync(readinessOutput, "utf8")).errors).toContain("row[0]:PARTIAL_HUMAN_ATTESTATION");
+  });
 });
 
 afterAll(() => rmSync(temp, { recursive: true, force: true }));
