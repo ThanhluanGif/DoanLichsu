@@ -1,6 +1,6 @@
 {
   "version": "year-one-dod-matrix-v1",
-  "generatedAt": "2026-08-14T03:52:50.960Z",
+  "generatedAt": "2026-08-14T04:17:47.340Z",
   "sourcePlanSection": "Section 17 — Definition of Done after 12 months",
   "overall": "NOT_READY",
   "publicBeta": false,
@@ -97,7 +97,7 @@
     {
       "group": "quality",
       "requirement": "Lint/typecheck/test/build and local release evidence",
-      "status": "PASS_LOCAL_ONLY",
+      "status": "BLOCKED",
       "evidence": "artifacts/release/current-head-evidence.json",
       "gate": "current-head-release-evidence",
       "noFabricatedEvidence": true

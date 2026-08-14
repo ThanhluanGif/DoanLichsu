@@ -1,6 +1,6 @@
 {
   "version": "local-standalone-smoke-v1",
-  "generatedAt": "2026-08-13T15:55:48.734Z",
+  "generatedAt": "2026-08-14T04:17:26.809Z",
   "origin": "http://127.0.0.1:3298",
   "originKind": "local production-like standalone; not official production",
   "databasePath": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
@@ -13,28 +13,28 @@
       "name": "home-vi",
       "path": "/vi",
       "status": 200,
-      "bytes": 65530,
+      "bytes": 65739,
       "passed": true
     },
     {
       "name": "home-en",
       "path": "/en",
       "status": 200,
-      "bytes": 62861,
+      "bytes": 63046,
       "passed": true
     },
     {
       "name": "privacy-vi",
       "path": "/vi/privacy",
       "status": 200,
-      "bytes": 21575,
+      "bytes": 21784,
       "passed": true
     },
     {
       "name": "transparency-vi",
       "path": "/vi/transparency",
       "status": 200,
-      "bytes": 23393,
+      "bytes": 24000,
       "passed": true
     },
     {
@@ -55,7 +55,7 @@
       "name": "openapi",
       "path": "/openapi.json",
       "status": 200,
-      "bytes": 111985,
+      "bytes": 123651,
       "passed": true
     },
     {
