@@ -1,0 +1,97 @@
+{
+  "version": "performance-observation-v1",
+  "generatedAt": "2026-08-13T12:59:51.462Z",
+  "origin": "https://tops-gone-rose-trademark.trycloudflare.com",
+  "requests": 10,
+  "concurrency": 1,
+  "paths": [
+    "/healthz",
+    "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20"
+  ],
+  "samples": 10,
+  "passed": 10,
+  "failed": 0,
+  "latencyMs": {
+    "p50": 104,
+    "p95": 298,
+    "max": 298
+  },
+  "budgets": {
+    "p95Ms": 1000
+  },
+  "status": "PASS_OBSERVATION",
+  "officialLoadEvidence": false,
+  "officialProductionEvidence": false,
+  "observations": [
+    {
+      "index": 1,
+      "path": "/healthz",
+      "status": 200,
+      "latencyMs": 298,
+      "passed": true
+    },
+    {
+      "index": 2,
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20",
+      "status": 200,
+      "latencyMs": 116,
+      "passed": true
+    },
+    {
+      "index": 3,
+      "path": "/healthz",
+      "status": 200,
+      "latencyMs": 102,
+      "passed": true
+    },
+    {
+      "index": 4,
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20",
+      "status": 200,
+      "latencyMs": 104,
+      "passed": true
+    },
+    {
+      "index": 5,
+      "path": "/healthz",
+      "status": 200,
+      "latencyMs": 107,
+      "passed": true
+    },
+    {
+      "index": 6,
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20",
+      "status": 200,
+      "latencyMs": 101,
+      "passed": true
+    },
+    {
+      "index": 7,
+      "path": "/healthz",
+      "status": 200,
+      "latencyMs": 98,
+      "passed": true
+    },
+    {
+      "index": 8,
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20",
+      "status": 200,
+      "latencyMs": 112,
+      "passed": true
+    },
+    {
+      "index": 9,
+      "path": "/healthz",
+      "status": 200,
+      "latencyMs": 97,
+      "passed": true
+    },
+    {
+      "index": 10,
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu&pageSize=20",
+      "status": 200,
+      "latencyMs": 105,
+      "passed": true
+    }
+  ]
+}

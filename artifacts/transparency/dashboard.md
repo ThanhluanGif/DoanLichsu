@@ -1,17 +1,29 @@
 # Public transparency dashboard
 
 - Release: **NOT READY**
-- AI public beta: **DISABLED**
-- AI eval: 12/500
-- Rights served binary: 1; LINK_ONLY: 1
-- Fixed production domain: **NO EVIDENCE**
+- Public Beta: **DISABLED**
+- Mandatory coverage: 46/46
+- AI eval: 500/500
+- Operations readiness: PASS_LOCAL_ONLY
+- Backup/restore: PASS_DISPOSABLE_ONLY
+- Uptime observation: PASS_SHORT_OBSERVATION
+- Performance observation: PASS_BOUNDED_OBSERVATION
+- Independent security: **PENDING_EXTERNAL**
+- External blockers: 11
+- Published-history remediation: **REQUIRES_HUMAN_REVIEW** (105 candidates; database writes: 0)
 
 ## Blockers
 
-- Hội đồng chưa có biên bản ký release
-- AI eval mới 12/500 câu; public beta bị khóa
-- Fixed production domain và uptime 90 ngày chưa có bằng chứng
-- Backup/restore và load rehearsal chưa verified
-- DPIA/privacy review chưa ký
+- official-production
+- uptime-90-day
+- council-signoff
+- ai-golden-human-approval
+- model-comparison
+- dpia-approval
+- partner-rights
+- real-pilot
+- school-university-reach
+- independent-security
+- named-operations
 
-This dashboard reports implementation evidence; it is not an independent historian council endorsement.
+This dashboard reports implementation evidence only. It is not an independent historian council endorsement, legal approval, security review, school pilot result or Public Beta release approval.

@@ -50,10 +50,11 @@ it; if a pain has no feature, it goes to the "not addressed" list — honestly.
 | P20 | Người khám phá | Không hình dung diễn biến trận đánh nhưng video/mô phỏng thường không nói rõ giả định | Yêu cầu người vận hành + rủi ro sử liệu ngày 10/08/2026 | Xem video không có citation | FR20 | Một scene có nguồn, giả định, confidence, scrub keyboard và fallback tĩnh |
 | P21 | Người dùng mobile | Loading hiện là skeleton có chữ, chuyển cảnh chưa mang nhận diện riêng | Audit `loading.tsx`/motion ngày 10/08/2026 | Chờ trạng thái chung chung | FR21 | Logo báo tiến trình ngay, transition hỗ trợ thứ tự đọc và tắt hoàn toàn khi reduced motion |
 | P22 | Người nghiên cứu | URL ảnh/tư liệu không chứng minh quyền tái sử dụng hoặc mã lưu trữ | Hướng dẫn Cục Văn thư/Lưu trữ và catalog bảo tàng; nghiên cứu 10/08/2026 | Lưu link hoặc sao chép thiếu provenance | FR22 | Tư liệu có institution/id/origin/rights/credit; chưa rõ quyền chỉ hiện citation/link |
+| P23 | Người đọc/giáo viên | Không có kênh báo lỗi nguồn, bản dịch, accessibility hoặc rights có kiểm soát | Correction policy v1.0 và yêu cầu M8 trong GLOBAL BUILD MASTER | Nhắn riêng hoặc bỏ qua lỗi | FR23 | Gửi báo cáo không cần tài khoản, nhận SLA, không lộ danh tính và không làm thay đổi nội dung công khai trực tiếp |
 
 ### Pains NOT addressed in v1 (deliberate — tie to the scope cut list)
 
-- Người đọc muốn gửi sửa lỗi ngay trên trang → hoãn form feedback để tránh spam/PII; v1 dùng form khảo sát của nhóm test.
+- Người đọc muốn tự sửa hoặc bình luận công khai → không cho phép; FR23 chỉ nhận báo cáo có moderation, không mở chỉnh sửa trực tiếp.
 - Người học muốn lưu danh sách cá nhân → hoãn tài khoản công chúng/saved list vì Impact L, Grade B.
 - Editor muốn upload file lớn và cùng sửa realtime → hoãn object-storage upload/collaboration; v1 nhập URL media đã được kiểm tra và cảnh báo thay đổi chưa lưu.
 - Người học muốn AI tự trả lời/tự xuất bản và VR/AR toàn kho → vẫn hoãn; V2 chỉ làm bản
@@ -103,6 +104,11 @@ interface in the contract (`FRn →`); `/flow consistency` checks this mechanica
 - **FR22:** Là người nghiên cứu, tôi duyệt tư liệu/hiện vật theo cơ quan lưu giữ và mã hồ
   sơ/kiểm kê; asset chỉ được phục vụ khi rights status cho phép, nếu không trang chỉ citation
   và link gốc.
+- **FR23:** Là người đọc/giáo viên, tôi gửi báo cáo factual/source/translation/accessibility/
+  safety/rights cho một nội dung đã xuất bản mà không cần tài khoản; hệ thống xác thực consent,
+  chống spam/PII, trả receipt cùng SLA và chỉ đưa vào hàng đợi moderation. Editor/Reviewer/Admin
+  có thể lọc queue và chuyển state hợp lệ với version, reason và audit actor; không tự sửa hoặc
+  tự công khai báo cáo.
 
 ## Non-functional requirements
 

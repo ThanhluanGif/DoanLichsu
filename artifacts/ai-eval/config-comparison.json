@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-08-13T10:35:00.397Z",
+  "status": "PASS_MACHINE_COMPARISON",
+  "input": "artifacts/ai-eval/questions-500.json",
+  "inputSha256": "8b4171471c85a2035f0d3eb6a1e79260a10888760a68b2db8bffe30d8ad867b9",
+  "configs": [
+    {
+      "config": {
+        "id": "baseline-retrieval",
+        "description": "Deterministic gateway default retrieval; no context override",
+        "env": {}
+      },
+      "total": 500,
+      "accuracy": 1,
+      "citationPrecision": 1,
+      "injectionLeakRate": 0
+    },
+    {
+      "config": {
+        "id": "strict-context-retrieval",
+        "description": "Deterministic gateway under strict context/evidence policy",
+        "env": {
+          "QSV_STRICT_CONTEXT": "1"
+        }
+      },
+      "total": 500,
+      "accuracy": 1,
+      "citationPrecision": 1,
+      "injectionLeakRate": 0
+    }
+  ],
+  "modelIndependence": "NOT_PROVEN_SAME_DETERMINISTIC_GATEWAY",
+  "humanApproval": "PENDING_HUMAN_MODEL_REVIEW",
+  "publicBeta": false
+}

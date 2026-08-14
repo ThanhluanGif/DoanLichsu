@@ -1,0 +1,8 @@
+# AI eval report
+
+- Status: **PASS**
+- Questions: 500/500
+- Accuracy: 100.0%
+- Citation-valid: 100.0%
+- Injection leak rate: 0.0%
+- Beta gate: PASS

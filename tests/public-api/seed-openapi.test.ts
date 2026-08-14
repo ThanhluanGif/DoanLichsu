@@ -14,7 +14,7 @@ describe("public seed and runtime contract", () => {
     const directory = mkdtempSync(join(tmpdir(), "quan-su-viet-seed-contract-"));
     directories.push(directory);
     const databasePath = join(directory, "seed.db");
-    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8, 9], currentVersion: 9 });
+    expect(migrateDatabase(databasePath)).toMatchObject({ applied: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], currentVersion: 10 });
     const seed = () => {
       const result = spawnSync(resolve("node_modules/.bin/tsx"), ["scripts/seed.ts"], {
         cwd: resolve("."), env: { ...process.env, DATABASE_PATH: databasePath }, encoding: "utf8",
@@ -77,6 +77,11 @@ describe("public seed and runtime contract", () => {
 
   it("publishes every C-003 endpoint and exact public schemas in OpenAPI 3.1", () => {
     expect(openApiDocument.openapi).toBe("3.1.0");
+    expect(openApiDocument.paths["/api/v1/corrections"].post.responses["201"]).toBeDefined();
+    expect(openApiDocument.paths["/api/v1/admin/corrections"].get.responses["200"]).toBeDefined();
+    expect(openApiDocument.paths["/api/v1/admin/corrections/{id}/transition"].post.responses["200"]).toBeDefined();
+    expect(openApiDocument.components.schemas.AdminCorrectionView.required).toContain("overdue");
+    expect(openApiDocument.components.schemas.CorrectionCreateInput.required).toEqual(["contentId", "category", "description", "evidenceLocator", "urgency", "consent"]);
     expect(Object.keys(openApiDocument.paths)).toEqual(expect.arrayContaining([
       "/api/v1/{locale}/home", "/api/v1/{locale}/periods", "/api/v1/{locale}/timeline",
       "/api/v1/{locale}/contents", "/api/v1/{locale}/contents/{type}/{slug}",

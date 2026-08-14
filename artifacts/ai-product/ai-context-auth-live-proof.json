@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-08-13T09:58:00.000Z",
+  "commit": "b3b5da6",
+  "origin": "https://holly-ended-namespace-bikes.trycloudflare.com",
+  "originKind": "Cloudflare quick tunnel for production-like verification; not an official domain",
+  "health": { "status": 200, "database": "ok" },
+  "publicHeaderWithoutSession": { "status": 401, "code": "UNAUTHENTICATED", "proof": "x-qsv-ai-alpha alone cannot access alpha" },
+  "authenticatedReviewer": { "status": 200, "access": "INTERNAL_ALPHA", "answerStatus": "GROUNDED", "contextSlug": "cong-dong-cac-dan-toc-viet-nam-da-dang-thong-nhat-va-cung-kien-tao", "suggestedNextSlug": "cong-dong-cac-dan-toc-viet-nam-da-dang-thong-nhat-va-cung-kien-tao", "citationCount": 1 },
+  "openapi": { "security": "cookieAuth", "contextSlug": true, "unauthenticatedResponse": "401" },
+  "publicBeta": "DISABLED"
+}

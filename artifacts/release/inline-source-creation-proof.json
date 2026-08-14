@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-08-13T11:38:00.000Z",
+  "origin": "https://determines-simply-techno-log.trycloudflare.com",
+  "originKind": "Cloudflare quick tunnel to a local production-like standalone server; not official production",
+  "selectedPlaywrightRun": {
+    "command": "tests/e2e/security.spec.ts tests/e2e/performance.spec.ts tests/e2e/curriculum-catalog.spec.ts tests/e2e/public-sources.spec.ts tests/e2e/rare-sources.spec.ts tests/e2e/accessibility.spec.ts tests/e2e/admin-release.spec.ts",
+    "passed": 6,
+    "failed": 1,
+    "failureIsFailClosedPublishValidation": true
+  },
+  "inlineSource": {
+    "requestContractDefaults": {
+      "sourceType": "DISCOVERY_ONLY",
+      "qualityTier": "TIER_5_DISCOVERY"
+    },
+    "uiConfirmation": "Đã tạo và gắn nguồn.",
+    "sourceCountAfterCreation": 1
+  },
+  "inlineMedia": {
+    "metadataOnly": true,
+    "binaryDownloaded": false,
+    "uiConfirmation": "Đã tạo và gắn media.",
+    "mediaCountAfterCreation": 1
+  },
+  "accessibility": {
+    "seriousOrCriticalAxeFindings": 0
+  },
+  "publishGuard": {
+    "status": "BLOCKED_AS_DESIGNED",
+    "message": "all content sources must be VERIFIED; content requires at least one VERIFIED claim"
+  },
+  "externalLimitations": [
+    "official production domain",
+    "independent rights approval",
+    "verified editorial claim evidence",
+    "public beta readiness"
+  ]
+}

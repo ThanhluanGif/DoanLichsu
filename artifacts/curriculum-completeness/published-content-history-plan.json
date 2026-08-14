@@ -1,0 +1,3374 @@
+{
+  "version": "published-content-history-plan-v1",
+  "generatedAt": "2026-08-13T16:16:49.953Z",
+  "database": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "status": "REQUIRES_HUMAN_REVIEW",
+  "publishedContent": 105,
+  "existingHistoryContent": 0,
+  "candidateCount": 105,
+  "databaseWrites": 0,
+  "fabricatedApproval": false,
+  "councilApproval": "NOT_EVALUATED",
+  "candidates": [
+    {
+      "contentId": "artifact-bach-dang-stakes",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-cu-chi-tunnels",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-dien-bien-flag",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-hoang-dieu-cannon",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-mig21-4324",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "READY_FOR_REVIEW",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-mong-dong",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-museum-record",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-pack-bicycle",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-tank-843",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "artifact-truong-son-petrol-pipe",
+      "type": "ARTIFACT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-august-revolution",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-bach-dang-1288",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-bach-dang-938",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-border-campaign",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-can-vuong",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-da-nang-1858",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-dien-bien-phu",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-ho-chi-minh-campaign",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-ho-chi-minh-trail",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-lam-son",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-linebacker-ii",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-ly-song",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-national-resistance",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-ngoc-hoi",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-northern-border",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-southwest-border",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-tet-offensive",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-trung-sisters",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-vi-xuyen",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "event-yen-the",
+      "type": "EVENT",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-ethnic-communities",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-fields-history",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-heritage-conservation",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-history-historiography",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-industrial-revolutions",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-roles-history",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-southeast-asian-civilisation",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-state-law",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-vietnam-civilisations",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g10-world-civilisations",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-032 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-bourgeois-capitalism",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-east-sea",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-figures",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-national-defence",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-reforms",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-socialism-1917",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-southeast-asian-independence",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-traditional-arts",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g11-war-peace",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-033 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-asean",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-foreign-relations",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-ho-chi-minh",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-integration",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-japan",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-religion",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-vietnam-1945-1975",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-vietnam-since-1975",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g12-world-cold-war",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-034 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-13T00:00:00.000Z",
+      "publishedAt": "2026-08-13T00:00:00.000Z",
+      "createdAt": "2026-08-13T00:00:00.000Z",
+      "updatedAt": "2026-08-13T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-ancient-civilisations",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-champa",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-funan",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-human-origins",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-northern-rule-resistance",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-southeast-asia-to-tenth-century",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-van-lang-au-lac",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g6-why-study-history",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-028 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-lam-son-later-le",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-medieval-china-india",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-medieval-western-europe",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-southeast-asia-tenth-sixteenth",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-vietnam-tenth-thirteenth",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g7-vietnam-tran-ho",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-029 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-early-modern-revolutions",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-industrial-revolution",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-southeast-asia-sixteenth-nineteenth",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-vietnam-1885-1918",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-vietnam-anti-colonial-1858-1884",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-vietnam-nguyen-dynasty",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g8-vietnam-sixteenth-eighteenth",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-030 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-vietnam-1918-1945",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-vietnam-1945-1991",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-vietnam-since-1991",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-world-1918-1945",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-world-1945-1991",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "lesson-g9-world-since-1991",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Kiểm duyệt nội bộ C-031 (chưa thay thế Hội đồng sử học)",
+      "reviewedAt": "2026-08-11T00:00:00.000Z",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "createdAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-border",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-colonial",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-dynasties",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-early",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-independence-wars",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "period-memory",
+      "type": "PERIOD",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-ho-chi-minh",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-le-loi",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-ngo-quyen",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-nguyen-thi-dinh",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-phan-dinh-phung",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-quang-trung",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-tran-hung-dao",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-trung-sisters",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-truong-dinh",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "person-vo-nguyen-giap",
+      "type": "PERSON",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "topic-diplomacy",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "topic-logistics",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "topic-peoples-war",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    },
+    {
+      "contentId": "topic-preservation",
+      "type": "TOPIC",
+      "locales": [
+        "en",
+        "vi"
+      ],
+      "reviewedBy": "Ban biên tập Quân Sử Việt",
+      "reviewedAt": null,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "createdAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z",
+      "translations": [
+        {
+          "locale": "en",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        },
+        {
+          "locale": "vi",
+          "translationStatus": "PUBLISHED",
+          "version": 1
+        }
+      ],
+      "candidateActions": [
+        "VERIFY_EXISTING_PROVENANCE",
+        "REVIEW_EDITORIAL_HISTORY",
+        "RECORD_APPROVED_HISTORY"
+      ],
+      "disposition": "REQUIRES_HUMAN_REVIEW",
+      "fabricatedApproval": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": "dod-matrix-consistency-v1",
+  "generatedAt": "2026-08-14T05:33:24.163Z",
+  "consistent": true,
+  "checks": {
+    "overall": true,
+    "publicBeta": true,
+    "externalBlockers": true
+  },
+  "dodStatus": "NOT_READY",
+  "matrixStatus": "NOT_READY",
+  "publicBeta": false,
+  "canonicalExternalBlockers": [
+    "official-production",
+    "uptime-90-day",
+    "council-signoff",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "dpia-approval",
+    "partner-rights",
+    "real-pilot",
+    "school-university-reach",
+    "independent-security",
+    "named-operations"
+  ],
+  "noFabricatedEvidence": true
+}

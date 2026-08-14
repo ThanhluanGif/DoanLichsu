@@ -7,7 +7,7 @@ const read=(path:string)=>readFileSync(join(root,path),"utf8");
 
 describe("admin UI contract",()=>{
   it("ships every editorial journey route",()=>{
-    for(const path of ["src/app/admin/login/page.tsx","src/app/admin/page.tsx","src/app/admin/contents/page.tsx","src/app/admin/contents/new/page.tsx","src/app/admin/contents/[id]/page.tsx","src/app/admin/review/page.tsx","src/app/admin/sources/page.tsx","src/app/admin/media/page.tsx","src/app/admin/users/page.tsx","src/app/admin/audit/page.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
+    for(const path of ["src/app/admin/login/page.tsx","src/app/admin/page.tsx","src/app/admin/contents/page.tsx","src/app/admin/contents/new/page.tsx","src/app/admin/contents/[id]/page.tsx","src/app/admin/review/page.tsx","src/app/admin/sources/page.tsx","src/app/admin/media/page.tsx","src/app/admin/users/page.tsx","src/app/admin/audit/page.tsx","src/app/admin/published-history/page.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
   });
   it("keeps the create and translation surfaces within six primary fields",()=>{
     const source=read("src/components/admin/ContentEditor.tsx");const [creation,editor]=source.split("export function ContentEditorPage");
@@ -34,5 +34,19 @@ describe("admin UI contract",()=>{
     const source=[read("src/components/admin/AdminShell.tsx"),read("src/components/admin/LoginForm.tsx"),read("src/components/admin/AdminPages.tsx"),read("src/components/admin/ContentEditor.tsx")].join("\n");
     expect(source).not.toContain("dangerouslySetInnerHTML");
     expect(source).not.toMatch(/[😀-🙏🌀-🫿]/u);
+  });
+});
+
+describe("public correction surface",()=>{
+  it("ships both locale routes and a labeled client form",()=>{
+    for(const path of ["src/app/[locale]/corrections/page.tsx","src/components/public/CorrectionForm.tsx"])expect(()=>statSync(join(root,path))).not.toThrow();
+    const source=read("src/components/public/CorrectionForm.tsx");
+    for(const field of ["contentId","category","description","evidenceLocator","urgency","consent","website"])expect(source).toContain(`name=\"${field}\"`);
+    expect(source).toContain("/api/v1/corrections");
+  });
+  it("ships the authenticated correction moderation queue",()=>{
+    for(const path of ["src/app/admin/corrections/page.tsx","src/components/admin/CorrectionQueue.tsx","src/app/api/v1/admin/corrections/route.ts","src/app/api/v1/admin/corrections/[id]/transition/route.ts"])expect(()=>statSync(join(root,path))).not.toThrow();
+    const source=read("src/components/admin/CorrectionQueue.tsx");
+    for(const marker of ["/api/v1/admin/corrections?","/transition","NEEDS_COUNCIL","CORRECTED","Lý do chuyển trạng thái"])expect(source).toContain(marker);
   });
 });

@@ -1,0 +1,10 @@
+{
+  "version": "council-signoff-v1",
+  "status": "PENDING_COUNCIL_SIGNOFF",
+  "members": [],
+  "dualReviews": [],
+  "releaseCandidateSignoff": null,
+  "noFabricatedIdentities": true,
+  "publicReleaseAllowed": false,
+  "databaseMutation": false
+}

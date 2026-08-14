@@ -147,6 +147,38 @@ export function adminContentDetail(database: SqliteDatabase, id: string) {
   };
 }
 
+export function reviewPublishedHistory(database: SqliteDatabase, id: string, input: Record<string, unknown>, actor: AuthUser) {
+  const expectedVersion = numberField(input, "version", true)!;
+  const evidenceLocator = stringField(input, "evidenceLocator", { required: true, max: 2_000 })!;
+  const note = stringField(input, "note", { required: true, max: 2_000 })!;
+  const attestation = stringField(input, "attestation", { required: true, max: 80 })!;
+  if (attestation !== "HUMAN_REVIEWED") invalidField("attestation", "Phải xác nhận HUMAN_REVIEWED.");
+  const now = new Date().toISOString();
+  database.transaction(() => {
+    const row = contentRow(database, id);
+    if (row.status !== "PUBLISHED") throw new ApiError(422, "HISTORY_REVIEW_REQUIRES_PUBLISHED", "Chỉ nội dung đã xuất bản mới được xác nhận lịch sử.");
+    if (row.version !== expectedVersion) throw new ApiError(409, "STALE_VERSION", "Phiên bản nội dung đã thay đổi.");
+    const duplicate = database.prepare("SELECT 1 FROM audit_logs WHERE object_type='content' AND object_id=? AND action='content.editorial_history.review' LIMIT 1").get(id);
+    if (duplicate) throw new ApiError(409, "HISTORY_ALREADY_REVIEWED", "Lịch sử biên tập của nội dung này đã được xác nhận.");
+    writeAudit(database, { actorId: actor.id, action: "content.editorial_history.review", objectType: "content", objectId: id, metadata: { attestation, evidenceLocator, note, contentVersion: expectedVersion, reviewedAt: now } });
+  }).immediate();
+  return { contentId: id, status: "HUMAN_REVIEWED", reviewedBy: actor.displayName, reviewedAt: now, evidenceLocator };
+}
+
+export function listPublishedHistoryQueue(database: SqliteDatabase, search: URLSearchParams) {
+  const { page: p, pageSize, offset } = page(search);
+  const total = (database.prepare(`SELECT COUNT(*) AS count FROM content_nodes n WHERE n.status='PUBLISHED' AND NOT EXISTS (SELECT 1 FROM audit_logs a WHERE a.object_type='content' AND a.object_id=n.id AND a.action='content.editorial_history.review')`).get() as { count: number }).count;
+  const rows = database.prepare(`
+    SELECT n.id,n.type,n.status,n.version,n.reviewed_by,n.reviewed_at,n.published_at,n.updated_at,
+      MAX(CASE WHEN t.locale='vi' THEN t.title END) AS title_vi,
+      MAX(CASE WHEN t.locale='en' THEN t.title END) AS title_en
+    FROM content_nodes n LEFT JOIN content_translations t ON t.node_id=n.id
+    WHERE n.status='PUBLISHED' AND NOT EXISTS (SELECT 1 FROM audit_logs a WHERE a.object_type='content' AND a.object_id=n.id AND a.action='content.editorial_history.review')
+    GROUP BY n.id ORDER BY n.published_at,n.id LIMIT ? OFFSET ?
+  `).all(pageSize, offset) as Array<Record<string, unknown>>;
+  return { data: rows.map((row) => ({ id: row.id, type: row.type, status: row.status, version: row.version, titles: { vi: row.title_vi, en: row.title_en }, reviewedBy: row.reviewed_by, reviewedAt: row.reviewed_at, publishedAt: row.published_at, updatedAt: row.updated_at })), meta: meta(p, pageSize, total) };
+}
+
 export function replaceCurriculumMappings(database:SqliteDatabase,id:string,input:Record<string,unknown>,actor:AuthUser){
   const version=numberField(input,"version",true)!;
   const requirementIds=stringArrayField(input,"requirementIds");

@@ -4,6 +4,8 @@ export const adminNavigation=[
   {href:"/admin",label:"Tổng quan",roles:["ADMIN","EDITOR","REVIEWER"] as Role[]},
   {href:"/admin/contents",label:"Nội dung",roles:["ADMIN","EDITOR","REVIEWER"] as Role[]},
   {href:"/admin/review",label:"Chờ duyệt",roles:["ADMIN","REVIEWER"] as Role[]},
+  {href:"/admin/published-history",label:"Lịch sử cần xác nhận",roles:["ADMIN","REVIEWER"] as Role[]},
+  {href:"/admin/corrections",label:"Báo lỗi cần xử lý",roles:["ADMIN","EDITOR","REVIEWER"] as Role[]},
   {href:"/admin/sources",label:"Nguồn tư liệu",roles:["ADMIN","EDITOR","REVIEWER"] as Role[]},
   {href:"/admin/media",label:"Thư viện media",roles:["ADMIN","EDITOR","REVIEWER"] as Role[]},
   {href:"/admin/users",label:"Người dùng",roles:["ADMIN"] as Role[]},

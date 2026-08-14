@@ -1,0 +1,22 @@
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+const args = process.argv.slice(2);
+const option = (name, fallback) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : fallback; };
+const input = resolve(option("--input", "artifacts/wikimedia/batch-300-report.json"));
+const output = resolve(option("--output", "artifacts/wikimedia/rights-review-ledger.json"));
+const batch = JSON.parse(readFileSync(input, "utf8"));
+const inputSha256 = createHash("sha256").update(readFileSync(input)).digest("hex");
+const rows = batch.records.map((record, index) => {
+  const metadataFields = ["pageId", "fileTitle", "descriptionUrl", "revisionId", "revisionTimestamp"];
+  const missingMetadata = metadataFields.filter((field) => record[field] === undefined || record[field] === null || String(record[field]).trim() === "");
+  return { ordinal: index + 1, id: record.id, pageId: record.pageId, fileTitle: record.fileTitle, revisionId: record.revisionId, revisionTimestamp: record.revisionTimestamp, originalUrl: record.originalUrl, descriptionUrl: record.descriptionUrl, artist: record.artist, creditLine: record.creditLine, licenseShortName: record.licenseShortName, licenseUrl: record.licenseUrl, restrictions: record.restrictions, rightsStatus: "LINK_ONLY", reviewStatus: missingMetadata.length ? "INVALID_METADATA" : "PENDING_REVIEW", missingMetadata, rightsReviewer: null, legalReviewer: null, decision: null, permissionReference: null, takedownReference: null, serveBinary: false };
+});
+const approved = rows.filter((row) => row.decision === "PERMITTED" || row.decision === "PUBLIC_DOMAIN").length;
+const invalidMetadataCount = rows.filter((row) => row.reviewStatus === "INVALID_METADATA").length;
+const ledger = { version: "wikimedia-rights-review-v1", generatedAt: new Date().toISOString(), status: approved === rows.length && invalidMetadataCount === 0 ? "PASS_DUAL_REVIEW" : "PENDING_RIGHTS_REVIEW", total: rows.length, approvedForBinary: approved, invalidMetadataCount, noFabricatedReviewers: true, binaryServingEnabled: false, rows };
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, `${JSON.stringify(ledger, null, 2)}\n`);
+writeFileSync(output.replace(/\.json$/, ".md"), `# Wikimedia rights review ledger\n\n- Status: **${ledger.status}**\n- Records: ${ledger.total}\n- Approved for binary: ${ledger.approvedForBinary}/${ledger.total}\n- Invalid metadata: ${ledger.invalidMetadataCount}\n- Input SHA-256: ${inputSha256}\n- Reviewers/permissions: **PENDING; no identities fabricated**\n- Binary serving: **DISABLED**\n`);
+process.stdout.write(`${JSON.stringify({ status: ledger.status, total: ledger.total, approvedForBinary: ledger.approvedForBinary, invalidMetadataCount: ledger.invalidMetadataCount, inputSha256 })}\n`);
+if (ledger.status !== "PASS_DUAL_REVIEW") process.exitCode = 1;

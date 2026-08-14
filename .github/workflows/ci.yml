@@ -15,8 +15,30 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run db:seed
+        env:
+          GRADE_6_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_7_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_8_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_9_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_10_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_11_SEED_ONLY: "1"
+      - run: npm run db:seed
+        env:
+          GRADE_12_SEED_ONLY: "1"
       - run: npm run lint
       - run: npm run typecheck
-      - run: npm test
       - run: npm run build
+      - run: npm test
       - run: npm run verify:standalone

@@ -1,0 +1,10 @@
+{
+  "version": "pilot-ledger-v1",
+  "status": "PENDING_REAL_PILOT",
+  "participants": [],
+  "requiredFields": ["consent", "arm", "taskCompletion", "comprehension.pre", "comprehension.post", "feedback", "anonymizedAt", "deleteAt"],
+  "arms": ["AI", "NO_AI"],
+  "minimumTarget": {"students": 8, "universityStudents": 4, "teachers": 4, "lecturers": 2, "librarians": 2, "schools": 5, "universities": 1, "totalUsers": 300},
+  "noFabricatedParticipants": true,
+  "databaseMutation": false
+}

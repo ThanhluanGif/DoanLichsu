@@ -1,0 +1,50 @@
+{
+  "version": "container-smoke-v1",
+  "generatedAt": "2026-08-14T04:42:00.000Z",
+  "testedCommit": "13f5a66c866420d11dbb08468ef6a97a4dc2d348",
+  "origin": "http://127.0.0.1:43146",
+  "originKind": "isolated local Docker compose; not official production",
+  "composeProject": "qsv-c146",
+  "container": "qsv-c146-app-1",
+  "containerId": "82a15213c80c",
+  "image": "quan-su-viet:0.1.0",
+  "imageDigest": "sha256:934899893a32415ed385636695a26a5e8ef45e3f7309630c8b169e5772688c04",
+  "imageSizeBytes": 109669616,
+  "buildContextBytes": 62050,
+  "buildContextPolicy": "only artifacts/transparency/dashboard.json is re-included; whole artifacts directory remains ignored",
+  "seed": {
+    "migrationVersion": 10,
+    "contentNodes": 50,
+    "translations": 100,
+    "sources": 50,
+    "users": 3,
+    "curriculumRequirements": 55,
+    "curriculumMappings": 23
+  },
+  "beforeRestart": {
+    "health": { "status": 200, "bodyStatus": "ok", "database": "ok" },
+    "openapiAdminCorrections": 200,
+    "search": { "status": 200, "resultCount": 4 },
+    "homeVi": 200
+  },
+  "afterRestart": {
+    "containerHealth": "healthy",
+    "health": { "status": 200, "bodyStatus": "ok", "database": "ok" },
+    "openapiAdminCorrections": 200,
+    "search": { "status": 200, "resultCount": 4 },
+    "homeVi": 200
+  },
+  "redGreen": {
+    "firstBuild": "FAIL_MODULE_NOT_FOUND_ARTIFACTS_TRANSPARENCY_DASHBOARD",
+    "fix": ".dockerignore re-includes only artifacts/transparency/dashboard.json",
+    "finalBuild": "PASS"
+  },
+  "externalLimitations": [
+    "official HTTPS production domain",
+    "90-day uptime",
+    "independent security review",
+    "Council/DPIA/rights/pilot/operations approvals"
+  ],
+  "publicBeta": false,
+  "noExternalApprovalClaim": true
+}

@@ -15,6 +15,7 @@ const sourceFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, 
 const claimFilters = [...page, { name:"claimType",in:"query",schema:{type:"string",enum:claimTypes} }, { name:"verificationStatus",in:"query",schema:{type:"string",enum:verificationStatuses} }] as const;
 const mediaFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"kind",in:"query",schema:{type:"string",enum:["IMAGE","DOCUMENT"]} }] as const;
 const userFilters = [...page, { name:"q",in:"query",schema:{type:"string"} }, { name:"role",in:"query",schema:{type:"string",enum:["ADMIN","EDITOR","REVIEWER"]} }, { name:"active",in:"query",schema:{type:"boolean"} }] as const;
+const correctionFilters = [...page, { name:"state",in:"query",schema:{type:"string",enum:["RECEIVED","TRIAGED","IN_REVIEW","NEEDS_COUNCIL","CORRECTED","DECLINED","ARCHIVED"]} }, { name:"category",in:"query",schema:{type:"string",enum:["FACTUAL","SOURCE","TRANSLATION","ACCESSIBILITY","SAFETY","RIGHTS"]} }, { name:"urgency",in:"query",schema:{type:"string",enum:["NORMAL","HIGH","CRITICAL"]} }] as const;
 const auditFilters = [...page, ...["actorId","action","objectType","objectId","from","to"].map((name)=>({name,in:"query",schema:{type:"string"}}))] as const;
 const gradeSchema={anyOf:[6,7,8,9,10,11,12].map((grade)=>({type:"integer",const:grade}))} as const;
 const curriculumCoverageFilters=[{name:"grade",in:"query",schema:gradeSchema},{name:"track",in:"query",schema:{type:"string",enum:["MANDATORY","ELECTIVE"]}},{name:"status",in:"query",schema:{type:"string",enum:["MISSING","DRAFT","PUBLISHED","VERIFIED"]}}] as const;
@@ -31,15 +32,18 @@ const errors = {
 type ErrorStatus = keyof typeof errors;
 const selectedErrors = <const T extends readonly ErrorStatus[]>(statuses: T) =>
   Object.fromEntries(statuses.map((status) => [status,errors[status]])) as { [K in T[number]]: (typeof errors)[K] };
-const operation = <const T extends readonly ErrorStatus[]>(operationId: string, summary: string, options: { request?: string; response: string; parameters?: readonly object[]; admin?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][]; errors: T }) => ({
-  operationId, summary, tags: [options.admin === false ? "Auth" : "Editorial"],
-  ...(options.admin === false && operationId === "login" ? {} : { security: auth,"x-allowed-roles":options.roles ?? allRoles }),
+const operation = <const T extends readonly ErrorStatus[]>(operationId: string, summary: string, options: { request?: string; response: string; parameters?: readonly object[]; admin?: boolean; public?: boolean; status?: "200"|"201"; roles?: readonly (typeof allRoles)[number][]; errors: T }) => ({
+  operationId, summary, tags: [options.public ? "Public" : options.admin === false ? "Auth" : "Editorial"],
+  ...(options.public || (options.admin === false && operationId === "login") ? {} : { security: auth,"x-allowed-roles":options.roles ?? allRoles }),
   ...(options.parameters ? { parameters: options.parameters } : {}),
   ...(options.request ? { requestBody: body(options.request) } : {}),
   responses: { [options.status ?? "200"]: json(options.response.startsWith("List:") ? list(options.response.slice(5)) : data(options.response), "Thành công."), ...selectedErrors(options.errors) },
 });
 
 export const editorialOpenApiPaths = {
+  "/api/v1/corrections": { post: operation("createCorrection", "Gửi báo cáo đính chính", { public: true, request: "CorrectionCreateInput", response: "CorrectionReceipt", status: "201", errors:["400","404","409","422","429","500"] }) },
+  "/api/v1/admin/corrections": { get: operation("listCorrections", "Liệt kê hàng đợi báo lỗi", { response: "List:AdminCorrectionView", parameters: correctionFilters, errors:["400","401","403","500"] }) },
+  "/api/v1/admin/corrections/{id}/transition": { post: operation("transitionCorrection", "Chuyển trạng thái báo lỗi", { request: "CorrectionTransitionInput", response: "AdminCorrectionView", parameters: [id], errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/auth/login": { post: operation("login", "Đăng nhập", { request: "LoginInput", response: "AuthUser", admin: false,errors:["400","401","403","429","500"] }) },
   "/api/v1/auth/logout": { post: operation("logout", "Đăng xuất", { response: "LogoutResult", admin: false,errors:["401","403","500"] }) },
   "/api/v1/auth/me": { get: operation("me", "Đọc người dùng hiện tại", { response: "AuthUser", admin: false,errors:["401","500"] }) },
@@ -76,6 +80,7 @@ export const editorialOpenApiPaths = {
   "/api/v1/admin/contents/{id}/approve": { post: operation("approveContent", "Duyệt locale", { request: "ReviewInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/reject": { post: operation("rejectContent", "Từ chối locale", { request: "RejectInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/publish": { post: operation("publishContent", "Xuất bản locale", { request: "LocaleWorkflowInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
+  "/api/v1/admin/contents/{id}/history-review": { post: operation("reviewPublishedHistory", "Xác nhận lịch sử biên tập nội dung đã xuất bản", { request: "PublishedHistoryReviewInput", response: "PublishedHistoryReviewResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/contents/{id}/archive": { post: operation("archiveContent", "Lưu trữ nội dung", { request: "VersionInput", response: "WorkflowResult", parameters: [id],roles:reviewerRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/users": {
     get: operation("listUsers", "Liệt kê người dùng", { response: "List:UserView", parameters: userFilters,roles:adminRoles,errors:["400","401","403","500"] }),
@@ -83,6 +88,7 @@ export const editorialOpenApiPaths = {
   },
   "/api/v1/admin/users/{id}": { patch: operation("updateUser", "Cập nhật người dùng", { request: "UserUpdateInput", response: "UserView", parameters: [id],roles:adminRoles,errors:["400","401","403","404","409","422","500"] }) },
   "/api/v1/admin/audit-logs": { get: operation("listAuditLogs", "Liệt kê audit log", { response: "List:AuditLogView", parameters: auditFilters,roles:adminRoles,errors:["400","401","403","500"] }) },
+  "/api/v1/admin/published-history": { get: operation("listPublishedHistoryQueue", "Liệt kê nội dung thiếu xác nhận lịch sử", { response: "List:PublishedHistoryQueueItem", parameters: page,roles:reviewerRoles,errors:["400","401","403","500"] }) },
 } as const;
 
 const string = { type: "string" } as const;
@@ -93,6 +99,9 @@ const types = ["PERIOD", "EVENT", "PERSON", "ARTIFACT", "TOPIC"] as const;
 const workflow = ["DRAFT", "IN_REVIEW", "APPROVED", "PUBLISHED", "REJECTED", "ARCHIVED"] as const;
 const rightsStatuses = ["UNKNOWN", "LINK_ONLY", "PERMITTED", "PUBLIC_DOMAIN"] as const;
 const translationStatuses = ["NOT_STARTED", "TRANSLATING", "READY_FOR_REVIEW", "APPROVED", "PUBLISHED"] as const;
+const correctionCategories = ["FACTUAL", "SOURCE", "TRANSLATION", "ACCESSIBILITY", "SAFETY", "RIGHTS"] as const;
+const correctionUrgencies = ["NORMAL", "HIGH", "CRITICAL"] as const;
+const correctionStates = ["RECEIVED", "TRIAGED", "IN_REVIEW", "NEEDS_COUNCIL", "CORRECTED", "DECLINED", "ARCHIVED"] as const;
 const object = (required: readonly string[], properties: Record<string, object>) => ({ type: "object", additionalProperties: false, required, properties });
 const partialLocaleRecord = (value: object) => object([], { vi:value,en:value });
 const exactEnumRecord = (keys: readonly string[]) => object(keys,Object.fromEntries(keys.map((key) => [key,{ type:"integer" }])));
@@ -108,6 +117,10 @@ const translationCreate = object(["title","slug","summary","body","seoTitle","se
 const contentEditableProperties = { featured:{type:"boolean"},startDate:{type:"string",format:"date"},endDate:{type:"string",format:"date"},datePrecision:{type:"string",enum:["DAY","MONTH","YEAR","APPROXIMATE"]},periodId:string,location:string,result:string,role:string,artifactMeta:{type:"object",additionalProperties:string},tagIds:idArray,relatedIds:idArray,sourceIds:idArray,mediaIds:idArray } as const;
 
 export const editorialOpenApiSchemas = {
+  CorrectionCreateInput: object(["contentId","category","description","evidenceLocator","urgency","consent"], { contentId:{type:"string",minLength:1,maxLength:200},category:{type:"string",enum:correctionCategories},description:{type:"string",minLength:12,maxLength:2_000},evidenceLocator:{type:"string",minLength:3,maxLength:2_000},urgency:{type:"string",enum:correctionUrgencies},consent:{type:"string",const:"yes"},website:{type:"string",maxLength:200} }),
+  CorrectionReceipt: object(["id","state","receivedAt","slaHours","reporterStored"], { id:string,state:{type:"string",const:"RECEIVED"},receivedAt:{type:"string",format:"date-time"},slaHours:{anyOf:[{type:"integer",const:24},{type:"integer",const:72}]},reporterStored:{type:"boolean",const:false} }),
+  CorrectionTransitionInput: object(["version","state","reason"], { version, state:{type:"string",enum:correctionStates}, reason:{type:"string",minLength:1,maxLength:2_000} }),
+  AdminCorrectionView: object(["id","contentId","contentTitle","category","description","evidenceLocator","urgency","state","slaHours","receivedAt","updatedAt","version","overdue"], { id:string,contentId:string,contentTitle:string,category:{type:"string",enum:correctionCategories},description:{type:"string",minLength:1,maxLength:2_000},evidenceLocator:string,urgency:{type:"string",enum:correctionUrgencies},state:{type:"string",enum:correctionStates},slaHours:{anyOf:[{type:"integer",const:24},{type:"integer",const:72}]},receivedAt:{type:"string",format:"date-time"},updatedAt:{type:"string",format:"date-time"},version,overdue:{type:"boolean"} }),
   AuthUser: object(["id","email","displayName","role"], { id:string,email:{type:"string",format:"email"},displayName:string,role:{type:"string",enum:roles} }),
   LoginInput: object(["email","password"], { email:{type:"string",format:"email"},password:{type:"string",minLength:12,maxLength:256,writeOnly:true} }),
   LogoutResult: object(["loggedOut"], { loggedOut:{type:"boolean",const:true} }),
@@ -115,6 +128,9 @@ export const editorialOpenApiSchemas = {
   LocaleWorkflowInput: object(["version","locales"], { version,locales:{type:"array",minItems:1,uniqueItems:true,items:{type:"string",enum:["vi","en"]}} }),
   ReviewInput: object(["version","locales"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},note:string }),
   RejectInput: object(["version","locales","reason"], { version,locales:{type:"array",minItems:1,items:{type:"string",enum:["vi","en"]}},reason:{type:"string",minLength:1} }),
+  PublishedHistoryReviewInput: object(["version","evidenceLocator","note","attestation"], { version,evidenceLocator:{type:"string",minLength:1,maxLength:2_000},note:{type:"string",minLength:1,maxLength:2_000},attestation:{type:"string",const:"HUMAN_REVIEWED"} }),
+  PublishedHistoryReviewResult: object(["contentId","status","reviewedBy","reviewedAt","evidenceLocator"], { contentId:string,status:{type:"string",const:"HUMAN_REVIEWED"},reviewedBy:string,reviewedAt:{type:"string",format:"date-time"},evidenceLocator:string }),
+  PublishedHistoryQueueItem: object(["id","type","status","version","titles","reviewedBy","reviewedAt","publishedAt","updatedAt"], { id:string,type:{type:"string",enum:types},status:{type:"string",enum:workflow},version,titles:partialLocaleRecord(nullableString),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString,updatedAt:{type:"string",format:"date-time"} }),
   WorkflowResult: object(["id","status","version","translationStatuses","reviewedBy","reviewedAt","publishedAt"], { id:string,status:{type:"string",enum:workflow},version,translationStatuses:partialLocaleRecord({type:"string",enum:translationStatuses}),reviewedBy:nullableString,reviewedAt:nullableString,publishedAt:nullableString }),
   TranslationCreateInput: translationCreate,
   TranslationInput: object(["version","title","slug","summary","body","seoTitle","seoDescription","translationStatus"], { version,...translationEditableProperties }),

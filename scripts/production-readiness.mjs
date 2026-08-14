@@ -1,1 +1,49 @@
-import {existsSync,readFileSync,writeFileSync,mkdirSync} from "node:fs";import {resolve,dirname} from "node:path";import {spawnSync} from "node:child_process";const args=process.argv.slice(2);const option=(n,f)=>{const i=args.indexOf(n);return i>=0?args[i+1]:f;};const db=option("--database",process.env.DATABASE_PATH||"data/quan-su-viet.db");const output=resolve(option("--output","artifacts/production-readiness/report.json"));const absolute=/^\//.test(resolve(db))&&db===resolve(db);const scripts=["npm run lint","npm run typecheck","npm run build"];const steps=scripts.map(command=>{const r=spawnSync(command,{shell:true,encoding:"utf8",timeout:120000});return{command,exitCode:r.status};});const dbExists=existsSync(resolve(db));const report={generatedAt:new Date().toISOString(),status:absolute&&dbExists&&steps.every(s=>s.exitCode===0)?"PASS":"FAIL",checks:{database:{path:resolve(db),absolute,exists:dbExists},quality:steps,backupRestore:{rehearsal:"documented in docs/release-runbook.md",rpoTargetMinutes:15,rtoTargetMinutes:60,verified:false},load:{probe:"not run against fixed production domain",targetP95Ms:1000,verified:false},aiDegradation:{fallback:"search/lesson",verified:true}},blockers:["No fixed production domain evidence","500-question AI eval gap remains","Council/privacy sign-off not recorded"],databaseMutation:false};mkdirSync(dirname(output),{recursive:true});writeFileSync(output,`${JSON.stringify(report,null,2)}\n`);writeFileSync(output.replace(/\.json$/,'.md'),`# Production readiness\n\n- Status: **${report.status}**\n- Database absolute/existing: ${absolute&&dbExists}\n- Backup/restore verified: **NO**\n- Fixed production domain: **NO EVIDENCE**\n- AI degradation fallback: search/lesson\n`);process.stdout.write(`${JSON.stringify(report)}\n`);if(report.status!=="PASS")process.exitCode=1;
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { sourceTreeSha256 } from "./source-tree-hash.mjs";
+
+const args = process.argv.slice(2);
+const option = (name, fallback) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : fallback; };
+const db = resolve(option("--database", process.env.DATABASE_PATH || "data/quan-su-viet.db"));
+const output = resolve(option("--output", "artifacts/production-readiness/report.json"));
+const read = (path, fallback = null) => { try { return JSON.parse(readFileSync(resolve(path), "utf8")); } catch { return fallback; } };
+const qualityEvidence = read("artifacts/release/current-head-evidence.json");
+const recovery = read("artifacts/operations/backup-restore-proof.json");
+const uptime = read("artifacts/operations/uptime-observations.json");
+const performance = read("artifacts/operations/performance-observations.json");
+const aiEval = read("artifacts/ai-eval/report-500.json", {});
+const security = read("artifacts/security/security-review-pack.json");
+const external = read("artifacts/operations/external-evidence-ledger.json", { items: [] });
+const qualitySteps = qualityEvidence?.steps?.filter((step) => ["lint", "typecheck", "test", "build"].includes(step.name)) ?? [];
+const localQuality = qualitySteps.length === 4 && qualitySteps.every((step) => step.exitCode === 0);
+const currentSourceTreeSha256 = sourceTreeSha256();
+const sourceTreeMatches = Boolean(qualityEvidence?.sourceTreeSha256) && qualityEvidence.sourceTreeSha256 === currentSourceTreeSha256;
+const localRecovery = recovery?.verified === true;
+const localUptime = uptime?.status === "PASS_OBSERVATION" && uptime?.officialProductionEvidence === false;
+const localPerformance = performance?.status === "PASS_OBSERVATION" && performance?.officialLoadEvidence === false;
+const localAi = aiEval?.status === "PASS" && aiEval?.actualQuestions === 500;
+const localSecurity = security?.status === "PASS_LOCAL_SECURITY_EVIDENCE" && security?.independentReview === "PENDING_EXTERNAL";
+const pending = external.items.filter((item) => item.status !== "PASS").map((item) => item.id);
+const report = {
+  version: "production-readiness-v2",
+  generatedAt: new Date().toISOString(),
+  status: "PASS_LOCAL_ONLY",
+  publicBetaAllowed: false,
+  officialProductionEvidence: false,
+  checks: {
+    database: { path: db, absolute: true, exists: existsSync(db) },
+    quality: { status: localQuality && sourceTreeMatches ? "PASS_LOCAL_ONLY" : "FAIL", evidence: "artifacts/release/current-head-evidence.json", sourceTreeSha256: qualityEvidence?.sourceTreeSha256 ?? null, currentSourceTreeSha256, sourceTreeMatches },
+    backupRestore: { status: localRecovery ? "PASS_DISPOSABLE_ONLY" : "BLOCKED", evidence: "artifacts/operations/backup-restore-proof.json" },
+    uptimeObservation: { status: localUptime ? "PASS_SHORT_OBSERVATION" : "BLOCKED", evidence: "artifacts/operations/uptime-observations.json", ninetyDayEvidence: false },
+    performanceObservation: { status: localPerformance ? "PASS_BOUNDED_OBSERVATION" : "BLOCKED", evidence: "artifacts/operations/performance-observations.json", officialLoadEvidence: false },
+    aiMachineEval: { status: localAi ? "PASS_MACHINE_ONLY" : "BLOCKED", evidence: "artifacts/ai-eval/report-500.json" },
+    securityLocal: { status: localSecurity ? "PASS_LOCAL_ONLY" : "BLOCKED", evidence: "artifacts/security/security-review-pack.json", independentReview: security?.independentReview ?? "MISSING", penTest: security?.penTest ?? "MISSING" },
+  },
+  external: { status: pending.length ? "BLOCKED_EXTERNAL" : "PENDING_REVIEW", pending, officialProduction: external.officialProductionDomain === true },
+  blockers: pending,
+  databaseMutation: false,
+};
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
+writeFileSync(output.replace(/\.json$/, ".md"), `# Production readiness\n\n- Status: **${report.status}**\n- Public Beta allowed: **NO**\n- Official production evidence: **NO**\n- Local quality: ${report.checks.quality.status}\n- Backup/restore: ${report.checks.backupRestore.status}\n- Uptime: ${report.checks.uptimeObservation.status}; 90-day evidence: **NO**\n- Performance: ${report.checks.performanceObservation.status}; official load evidence: **NO**\n- AI: ${report.checks.aiMachineEval.status}\n- Security: ${report.checks.securityLocal.status}; independent review: **${report.checks.securityLocal.independentReview}**\n- External blockers: ${pending.length}\n`);
+process.stdout.write(`${JSON.stringify({ status: report.status, publicBetaAllowed: false, localQuality, localRecovery, localUptime, localPerformance, localAi, localSecurity, externalBlockers: pending.length })}\n`);

@@ -1,0 +1,83 @@
+{
+  "version": "local-standalone-smoke-v1",
+  "generatedAt": "2026-08-14T05:32:08.259Z",
+  "origin": "http://127.0.0.1:3298",
+  "originKind": "local production-like standalone; not official production",
+  "databasePath": "/Volumes/sdd anh/Doan1/data/quan-su-viet.db",
+  "databasePathAbsolute": true,
+  "status": "PASS_LOCAL_ONLY",
+  "publicBeta": false,
+  "aiPublic": "DISABLED",
+  "checks": [
+    {
+      "name": "home-vi",
+      "path": "/vi",
+      "status": 200,
+      "bytes": 65739,
+      "passed": true
+    },
+    {
+      "name": "home-en",
+      "path": "/en",
+      "status": 200,
+      "bytes": 63046,
+      "passed": true
+    },
+    {
+      "name": "privacy-vi",
+      "path": "/vi/privacy",
+      "status": 200,
+      "bytes": 21784,
+      "passed": true
+    },
+    {
+      "name": "transparency-vi",
+      "path": "/vi/transparency",
+      "status": 200,
+      "bytes": 24000,
+      "passed": true
+    },
+    {
+      "name": "sitemap",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "bytes": 19161,
+      "passed": true
+    },
+    {
+      "name": "health",
+      "path": "/healthz",
+      "status": 200,
+      "bytes": 88,
+      "passed": true
+    },
+    {
+      "name": "openapi",
+      "path": "/openapi.json",
+      "status": 200,
+      "bytes": 123651,
+      "passed": true
+    },
+    {
+      "name": "search",
+      "path": "/api/v1/vi/search?q=dien%20bien%20phu",
+      "status": 200,
+      "bytes": 6551,
+      "passed": true
+    },
+    {
+      "name": "ai-disabled",
+      "path": "/api/v1/vi/ai/answer",
+      "status": 403,
+      "bytes": 125,
+      "passed": true
+    }
+  ],
+  "externalLimitations": [
+    "official HTTPS production",
+    "90-day uptime",
+    "independent security",
+    "real pilot",
+    "Council/DPIA/rights approvals"
+  ]
+}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/content/types";
 import { t } from "@/lib/i18n/config";
-import { archivePath,homePath,learnByGradePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
+import { archivePath,correctionsPath,homePath,learnByGradePath,searchPath,sourcesPath,timelinePath } from "@/lib/public-client/paths";
 import { SearchIcon } from "@/components/icons";
 import { BrandMark } from "@/components/BrandMark";
 
@@ -32,7 +32,7 @@ export function PublicShell({locale,localeHref,children}:{locale:Locale;localeHr
     {children}
     <footer className="site-footer">
       <div className="footer-identity"><Link className="brand" href={homePath(locale)}><BrandMark/><span><strong>Quân Sử Việt</strong><small>{locale === "vi" ? "Dự án học tập song ngữ" : "A bilingual learning project"}</small></span></Link><p>{copy.footer}</p></div>
-      <div className="footer-editorial"><p>{locale === "vi" ? "Dành cho đội ngũ biên tập" : "For the editorial team"}</p><Link className="text-link" href="/admin/login">{locale === "vi" ? "Đăng nhập không gian biên tập" : "Sign in to the editorial workspace"}</Link><small>{locale === "vi" ? "Tài khoản do quản trị viên cấp; không có đăng ký công khai." : "Accounts are issued by an administrator; public registration is not available."}</small></div>
+      <div className="footer-editorial"><p>{locale === "vi" ? "Dành cho đội ngũ biên tập" : "For the editorial team"}</p><Link className="text-link" href="/admin/login">{locale === "vi" ? "Đăng nhập không gian biên tập" : "Sign in to the editorial workspace"}</Link><Link className="text-link" href={correctionsPath(locale)}>{locale === "vi" ? "Báo lỗi hoặc đính chính" : "Report a correction"}</Link><Link className="text-link" href={`/${locale}/privacy`}>{locale === "vi" ? "Riêng tư và an toàn AI" : "Privacy and AI safety"}</Link><small>{locale === "vi" ? "Tài khoản do quản trị viên cấp; không có đăng ký công khai." : "Accounts are issued by an administrator; public registration is not available."}</small></div>
     </footer>
   </div>;
 }

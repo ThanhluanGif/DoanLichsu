@@ -19,6 +19,12 @@ Sau deploy, kiểm tra route trong OpenAPI trước khi chẩn đoán code để
 Base image dùng Docker Official Library mirror trên Amazon ECR Public để tránh Docker Hub
 TLS/metadata timeout; có thể ghi đè build arg `NODE_IMAGE` nếu hạ tầng dùng registry nội bộ.
 
+`.dockerignore` giữ toàn bộ `artifacts/` ngoài build context để tránh đưa evidence và
+ảnh kiểm thử vào image. Ngoại lệ duy nhất là
+`artifacts/transparency/dashboard.json`, vì hai trang minh bạch đọc snapshot này ở
+thời điểm build. Khi thêm import artifact mới, phải thêm ngoại lệ tối thiểu tương ứng
+và kiểm tra build context không phình thành toàn bộ thư mục evidence.
+
 ```bash
 docker compose --env-file /tmp/quan-su-viet-release.env build --pull
 docker compose --env-file /tmp/quan-su-viet-release.env run --rm -e ALLOW_DEMO_SEED=1 app \

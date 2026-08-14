@@ -1,9 +1,10 @@
 {
-  "dashboardVersion": "transparency-v1",
-  "generatedAt": "2026-08-13T09:00:02.627Z",
+  "dashboardVersion": "transparency-v2",
+  "generatedAt": "2026-08-14T05:33:17.479Z",
   "releaseStatus": "NOT_READY",
+  "publicBeta": false,
   "coverage": {
-    "mandatory": "see source report",
+    "mandatory": "46/46",
     "source": "artifacts/curriculum-completeness/live-coverage.json"
   },
   "rights": {
@@ -12,10 +13,10 @@
     "linkOnly": 1
   },
   "ai": {
-    "status": "FAIL",
+    "status": "PASS",
     "targetQuestions": 500,
-    "actualQuestions": 12,
-    "targetGap": 488,
+    "actualQuestions": 500,
+    "targetGap": 0,
     "citationPrecision": 1,
     "injectionLeakRate": 0,
     "publicBeta": false
@@ -29,17 +30,59 @@
     "slaHours": 72,
     "reporterPublic": false
   },
+  "contentHistory": {
+    "status": "REQUIRES_HUMAN_REVIEW",
+    "publishedContent": 105,
+    "candidateCount": 105,
+    "databaseWrites": 0,
+    "fabricatedApproval": false,
+    "councilApproval": "NOT_EVALUATED"
+  },
   "operations": {
-    "readiness": "FAIL",
+    "readiness": "PASS_LOCAL_ONLY",
     "fixedProductionDomain": false,
-    "backupRestoreVerified": false
+    "backupRestore": "PASS_DISPOSABLE_ONLY",
+    "uptimeObservation": "PASS_SHORT_OBSERVATION",
+    "performanceObservation": "PASS_BOUNDED_OBSERVATION",
+    "securityLocal": "PASS_LOCAL_ONLY",
+    "independentSecurity": "PENDING_EXTERNAL"
+  },
+  "release": {
+    "testedCommit": "6b3c79c1b333819434e853c29b61facfbbe9ec75",
+    "sourceTreeSha256": "a7109585459fc74dc4d09db87177e2221469a5fc4ba1f32b6314b61ea3d5816f",
+    "currentSourceTreeSha256": "a7109585459fc74dc4d09db87177e2221469a5fc4ba1f32b6314b61ea3d5816f",
+    "sourceTreeMatches": true
+  },
+  "wikimedia": {
+    "status": "PASS",
+    "metadataRecords": 300,
+    "rightsStatus": "LINK_ONLY",
+    "reviewStatus": "PENDING_REVIEW",
+    "binaryDownloaded": false,
+    "binaryServingEnabled": false,
+    "invalidMetadataCount": 1
+  },
+  "aiComparison": {
+    "status": "PASS_MACHINE_COMPARISON",
+    "configs": [
+      "baseline-retrieval",
+      "strict-context-retrieval"
+    ],
+    "modelIndependence": "NOT_PROVEN_SAME_DETERMINISTIC_GATEWAY",
+    "humanApproval": "PENDING_HUMAN_MODEL_REVIEW"
   },
   "blockers": [
-    "Hội đồng chưa có biên bản ký release",
-    "AI eval mới 12/500 câu; public beta bị khóa",
-    "Fixed production domain và uptime 90 ngày chưa có bằng chứng",
-    "Backup/restore và load rehearsal chưa verified",
-    "DPIA/privacy review chưa ký"
+    "official-production",
+    "uptime-90-day",
+    "council-signoff",
+    "ai-golden-human-approval",
+    "model-comparison",
+    "dpia-approval",
+    "partner-rights",
+    "real-pilot",
+    "school-university-reach",
+    "independent-security",
+    "named-operations"
   ],
-  "disclosure": "This dashboard reports implementation evidence; it is not an independent historian council endorsement."
+  "disclosure": "This dashboard reports implementation evidence only. It is not an independent historian council endorsement, legal approval, security review, school pilot result or Public Beta release approval."
 }

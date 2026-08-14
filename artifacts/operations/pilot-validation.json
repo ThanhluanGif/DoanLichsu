@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-08-13T10:48:24.259Z",
+  "status": "PASS_TEMPLATE_PENDING_REAL_PILOT",
+  "participantCount": 0,
+  "violations": [],
+  "realPilotCompleted": false,
+  "consentRequired": true,
+  "guardianProcessRequiredWhenApplicable": true,
+  "noFabricatedParticipants": true,
+  "databaseMutation": false
+}

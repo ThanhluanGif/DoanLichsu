@@ -12,6 +12,7 @@ export function buildSitemap(items:Record<Locale,ContentListItem[]>,curriculum?:
     entries.push({url:absolutePublicUrl(timelinePath(locale)),changeFrequency:"weekly",priority:.8});
     entries.push({url:absolutePublicUrl(sourcesPath(locale)),changeFrequency:"weekly",priority:.7});
     entries.push({url:absolutePublicUrl(archivePath(locale)),changeFrequency:"weekly",priority:.7});
+    entries.push({url:absolutePublicUrl(`/${locale}/privacy`),changeFrequency:"monthly",priority:.5});
     if(curriculum){
       entries.push({url:absolutePublicUrl(learnByGradePath(locale)),changeFrequency:"weekly",priority:.8});
       for(const grade of curriculum[locale].grades.filter((item)=>item.publishedRequirementCount>0 && item.publishedLessonCount>0))entries.push({url:absolutePublicUrl(learnByGradePath(locale,grade.grade)),changeFrequency:"monthly",priority:.7});

@@ -1,4 +1,10 @@
-# Kế hoạch xây dựng Website Lịch sử Quân sự Việt Nam song ngữ Việt – Anh
+# Kế hoạch cơ sở (lịch sử) — Website Lịch sử Quân sự Việt Nam song ngữ Việt – Anh
+
+> **Trạng thái tài liệu:** BẢN LỊCH SỬ ĐÃ HỢP NHẤT. Không dùng file này để lập
+> roadmap mới hoặc ghi nhận trạng thái hiện tại. Nguồn chuẩn duy nhất là
+> [KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md](KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md).
+> Nội dung 16 tuần, FR01–FR14, A–J, vertical slices và test matrix trong file
+> này vẫn được giữ để truy nguyên yêu cầu ban đầu và đối chiếu đồ án.
 
 > Phiên bản: 1.0  
 > Ngày lập: 06/08/2026  
