@@ -1,0 +1,16 @@
+{
+  "version": "rights-handoff-v1",
+  "batchSha256": null,
+  "ledgerSha256": null,
+  "rightsReviewer": {
+    "name": null,
+    "authority": null,
+    "verifiedAt": null
+  },
+  "partnerCollections": [],
+  "decision": "PENDING_EXTERNAL_REVIEW",
+  "externalEvidenceAttached": false,
+  "binaryServingEnabled": false,
+  "releaseAllowed": false,
+  "publicBeta": false
+}

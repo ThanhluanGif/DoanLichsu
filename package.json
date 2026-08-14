@@ -31,6 +31,7 @@
     "rights:check": "node scripts/rights-check.mjs",
     "wikimedia:import": "node scripts/wikimedia-import.mjs",
     "media:rights": "node scripts/media-rights-check.mjs",
+    "rights:handoff:check": "node scripts/rights-handoff-check.mjs",
     "corpus:snapshot": "node scripts/approved-corpus.mjs",
     "content:history:packet": "node scripts/published-content-review-packet.mjs",
     "ai:gateway": "node scripts/ai-gateway.mjs",
