@@ -1,7 +1,7 @@
 # Current release evidence
 
-- Tested commit: 83f1a1bd400440004f4b1959e3b0c8b070dd1851
-- Source tree SHA-256: 6026514615dbece88797f6dbf853c91df6d66bc3c5d849800559e5b3c420b644
+- Tested commit: e9c87791e10a8e74c6cd70c23e72f8c60819c0ae
+- Source tree SHA-256: 1bf9649eaefd4d0bf0ade0e0aae32aa04791918954d5b3f9186de9cb50406687
 - Origin: http://127.0.0.1:3241 (local production-like; not official)
 - Quality: 4/4 PASS
 - Health/OpenAPI/Search: 200/200/200
