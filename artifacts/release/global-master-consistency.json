@@ -1,0 +1,22 @@
+{
+  "version": "global-master-consistency-v1",
+  "generatedAt": "2026-08-14T08:32:47.356Z",
+  "plan": "KE_HOACH_12_THANG_CONG_TRI_THUC_LICH_SU_VIET_NAM_AI.md",
+  "flowCards": 161,
+  "flowDoneCards": 161,
+  "latestCard": "C-161",
+  "inFlightCards": 0,
+  "roadmapPosition": "M11_HARDENING_PREPARE_M12",
+  "publicBeta": false,
+  "historyPacket": {
+    "publishedContent": 105,
+    "rowsRequiringHumanReview": 105,
+    "rowsAlreadyReviewed": 0,
+    "status": "PASS_PACKET_PENDING_HUMAN"
+  },
+  "externalBlockers": 11,
+  "status": "PASS_GLOBAL_MASTER_CONSISTENT",
+  "releaseAllowed": false,
+  "databaseMutation": false,
+  "errors": []
+}
