@@ -15,6 +15,7 @@ const corrections = load("artifacts/corrections/report.json");
 const wikimedia = load("artifacts/wikimedia/batch-300-report.json");
 const aiComparison = load("artifacts/ai-eval/config-comparison.json");
 const external = load("artifacts/operations/external-evidence-ledger.json");
+const externalHandoff = load("artifacts/operations/external-evidence-handoff.json");
 const rightsReview = load("artifacts/wikimedia/rights-review-ledger.json");
 const contentHistory = load("artifacts/curriculum-completeness/published-content-history-plan.json");
 const currentSourceTreeSha256 = sourceTreeSha256();
@@ -44,6 +45,7 @@ const report = {
   release: { testedCommit: releaseEvidence.testedCommit ?? null, sourceTreeSha256: releaseEvidence.sourceTreeSha256 ?? null, currentSourceTreeSha256, sourceTreeMatches: releaseEvidence.sourceTreeSha256 === currentSourceTreeSha256 },
   wikimedia: { status: wikimedia.status, metadataRecords: wikimedia.imported, rightsStatus: wikimedia.rightsStatus, reviewStatus: wikimedia.reviewStatus, binaryDownloaded: wikimedia.binaryDownloaded, binaryServingEnabled: rightsReview.binaryServingEnabled === true, invalidMetadataCount: rightsReview.invalidMetadataCount ?? null },
   aiComparison: { status: aiComparison.status, configs: aiComparison.configs?.map((entry) => entry.config.id) ?? [], modelIndependence: aiComparison.modelIndependence, humanApproval: aiComparison.humanApproval },
+  externalGates: (externalHandoff.rows ?? []).map((row) => ({ id: row.id, status: row.status, owner: row.owner ?? null, requiredOwnerRole: row.requiredOwnerRole, requiredEvidence: row.requiredEvidence, nextAction: row.nextAction })),
   blockers: pending,
   disclosure: "This dashboard reports implementation evidence only. It is not an independent historian council endorsement, legal approval, security review, school pilot result or Public Beta release approval.",
 };

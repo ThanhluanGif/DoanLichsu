@@ -434,6 +434,17 @@ code { font-family: var(--mono); }
 .transparency-blockers { padding: 24px 28px; border: 1px solid var(--border); background: var(--surface-paper); }
 .transparency-blockers h2 { margin: 0 0 14px; font-family: var(--serif); font-size: 32px; }
 .transparency-blockers ul { display: grid; gap: 9px; margin: 0; padding-left: 20px; color: var(--fg-muted); line-height: 1.55; }
+.transparency-gates { padding: 24px 28px; border: 1px solid var(--border); background: var(--surface-paper); }
+.transparency-gates h2 { margin: 0 0 8px; font-family: var(--serif); font-size: 32px; }
+.transparency-gates > p { max-width: 780px; margin: 0 0 18px; color: var(--fg-muted); line-height: 1.6; }
+.transparency-gate-list { display: grid; border-top: 1px solid var(--border); }
+.transparency-gate { border-bottom: 1px solid var(--border); }
+.transparency-gate summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; color: var(--fg-base); cursor: pointer; list-style-position: inside; }
+.transparency-gate summary strong { color: var(--fg-subtle); font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
+.transparency-gate dl { display: grid; gap: 12px; margin: 0 0 16px 24px; }
+.transparency-gate dl div { display: grid; gap: 4px; }
+.transparency-gate dt { color: var(--fg-subtle); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.transparency-gate dd { margin: 0; color: var(--fg-muted); line-height: 1.55; }
 .transparency-disclosure { margin: 0; color: var(--fg-subtle); font-size: 12px; line-height: 1.6; }
 @media (max-width: 760px) { .transparency-status { padding: 22px 18px; }.transparency-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 460px) { .transparency-grid { grid-template-columns: 1fr; } }

@@ -1,6 +1,6 @@
 {
   "dashboardVersion": "transparency-v2",
-  "generatedAt": "2026-08-14T13:48:45.796Z",
+  "generatedAt": "2026-08-15T01:13:28.749Z",
   "releaseStatus": "NOT_READY",
   "publicBeta": false,
   "coverage": {
@@ -52,9 +52,9 @@
     "independentSecurity": "PENDING_EXTERNAL"
   },
   "release": {
-    "testedCommit": "39c8b0f34b03e9bcb77fa2540d0b8ccc11ea1b9e",
-    "sourceTreeSha256": "afa08f07b39ab11b6ba0216ca5c395e5bb2b881b976db8062dc78107609e6dfd",
-    "currentSourceTreeSha256": "afa08f07b39ab11b6ba0216ca5c395e5bb2b881b976db8062dc78107609e6dfd",
+    "testedCommit": "2350a98c1cae1fc294c5e14631b912be5ca7acc8",
+    "sourceTreeSha256": "92584500d67c45d06b70ae09544aa24eae88764777cb81136d7b78b9b42da404",
+    "currentSourceTreeSha256": "92584500d67c45d06b70ae09544aa24eae88764777cb81136d7b78b9b42da404",
     "sourceTreeMatches": true
   },
   "wikimedia": {
@@ -75,6 +75,96 @@
     "modelIndependence": "NOT_PROVEN_SAME_DETERMINISTIC_GATEWAY",
     "humanApproval": "PENDING_HUMAN_MODEL_REVIEW"
   },
+  "externalGates": [
+    {
+      "id": "official-production",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "fixed HTTPS production origin, deployment record, health/openapi/search curl evidence",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "uptime-90-day",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "external-monitor export covering 90 days with incident review",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "council-signoff",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Historian Council chair",
+      "requiredEvidence": "signed review minutes covering curriculum, policy, rights and release",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "ai-golden-human-approval",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "AI safety/editorial reviewers",
+      "requiredEvidence": "dual human review ledger for the complete golden set",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "model-comparison",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "AI owner",
+      "requiredEvidence": "independent model/config comparison on the same frozen evaluation set",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "dpia-approval",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Privacy owner",
+      "requiredEvidence": "approved DPIA with retention, deletion, guardian and incident controls",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "partner-rights",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Archivist/Rights owner",
+      "requiredEvidence": "signed permissions or rights decisions with takedown references",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "real-pilot",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Research lead",
+      "requiredEvidence": "consent/guardian process, dated anonymised participant evidence and AI/no-AI comparison",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "school-university-reach",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Curriculum/partnership owner",
+      "requiredEvidence": "named school/university partner evidence and reach results",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "independent-security",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Independent security owner",
+      "requiredEvidence": "scoped pen-test/auth/RBAC/source/AI report with remediation",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    },
+    {
+      "id": "named-operations",
+      "status": "PENDING",
+      "owner": null,
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "named rota, escalation, budget, rollback/game-day and measured RPO/RTO",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve"
+    }
+  ],
   "blockers": [
     "official-production",
     "uptime-90-day",
