@@ -1,0 +1,244 @@
+{
+  "version": "external-evidence-submission-kit-v1",
+  "generatedAt": "2026-08-15T01:57:49.392Z",
+  "sourceLedger": "artifacts/operations/external-evidence-ledger.json",
+  "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
+  "status": "PENDING_EXTERNAL_EVIDENCE",
+  "releaseAllowed": false,
+  "publicBeta": false,
+  "databaseMutation": false,
+  "noFabricatedEvidence": true,
+  "instructions": {
+    "vi": "Người có thẩm quyền điền submission fields, lưu artifact dưới artifacts/, tính SHA-256 rồi chạy operations:evidence:intake. Không sửa kit để tự phê duyệt và không gửi secret.",
+    "en": "An authorised owner fills the submission fields, stores the artifact under artifacts/, computes SHA-256, then runs operations:evidence:intake. Do not self-approve or submit secrets.",
+    "requiredFields": [
+      {
+        "key": "owner",
+        "requiredForPass": true,
+        "description": "Named person or organisation responsible for this gate."
+      },
+      {
+        "key": "authority",
+        "requiredForPass": true,
+        "description": "Role and scope that authorise the evidence."
+      },
+      {
+        "key": "verifiedAt",
+        "requiredForPass": true,
+        "description": "ISO-8601 UTC timestamp of verification."
+      },
+      {
+        "key": "artifact",
+        "requiredForPass": true,
+        "description": "Repository-relative path under artifacts/; never a URL with a secret."
+      },
+      {
+        "key": "sha256",
+        "requiredForPass": true,
+        "description": "Exact SHA-256 of the submitted artifact."
+      },
+      {
+        "key": "note",
+        "requiredForPass": false,
+        "description": "Optional context; never include passwords, API keys or tokens."
+      }
+    ],
+    "allowedStatuses": [
+      "PENDING",
+      "PASS",
+      "REJECTED"
+    ]
+  },
+  "pendingCount": 11,
+  "passedCount": 0,
+  "rejectedCount": 0,
+  "rows": [
+    {
+      "id": "official-production",
+      "status": "PENDING",
+      "labelVi": "Production chính thức",
+      "labelEn": "Official production",
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "fixed HTTPS production origin, deployment record, health/openapi/search curl evidence",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "uptime-90-day",
+      "status": "PENDING",
+      "labelVi": "Uptime 90 ngày",
+      "labelEn": "90-day uptime",
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "external-monitor export covering 90 days with incident review",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "council-signoff",
+      "status": "PENDING",
+      "labelVi": "Hội đồng ký duyệt",
+      "labelEn": "Historian Council sign-off",
+      "requiredOwnerRole": "Historian Council chair",
+      "requiredEvidence": "signed review minutes covering curriculum, policy, rights and release",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "ai-golden-human-approval",
+      "status": "PENDING",
+      "labelVi": "Duyệt người thật cho AI golden set",
+      "labelEn": "AI golden-set human approval",
+      "requiredOwnerRole": "AI safety/editorial reviewers",
+      "requiredEvidence": "dual human review ledger for the complete golden set",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "model-comparison",
+      "status": "PENDING",
+      "labelVi": "So sánh model độc lập",
+      "labelEn": "Independent model comparison",
+      "requiredOwnerRole": "AI owner",
+      "requiredEvidence": "independent model/config comparison on the same frozen evaluation set",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "dpia-approval",
+      "status": "PENDING",
+      "labelVi": "Phê duyệt DPIA/privacy",
+      "labelEn": "DPIA/privacy approval",
+      "requiredOwnerRole": "Privacy owner",
+      "requiredEvidence": "approved DPIA with retention, deletion, guardian and incident controls",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "partner-rights",
+      "status": "PENDING",
+      "labelVi": "Quyền Wikimedia/đối tác",
+      "labelEn": "Wikimedia/partner rights",
+      "requiredOwnerRole": "Archivist/Rights owner",
+      "requiredEvidence": "signed permissions or rights decisions with takedown references",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "real-pilot",
+      "status": "PENDING",
+      "labelVi": "Pilot người dùng thật",
+      "labelEn": "Real-user pilot",
+      "requiredOwnerRole": "Research lead",
+      "requiredEvidence": "consent/guardian process, dated anonymised participant evidence and AI/no-AI comparison",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "school-university-reach",
+      "status": "PENDING",
+      "labelVi": "Tiếp cận trường/đại học",
+      "labelEn": "School/university reach",
+      "requiredOwnerRole": "Curriculum/partnership owner",
+      "requiredEvidence": "named school/university partner evidence and reach results",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "independent-security",
+      "status": "PENDING",
+      "labelVi": "Security độc lập",
+      "labelEn": "Independent security review",
+      "requiredOwnerRole": "Independent security owner",
+      "requiredEvidence": "scoped pen-test/auth/RBAC/source/AI report with remediation",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    },
+    {
+      "id": "named-operations",
+      "status": "PENDING",
+      "labelVi": "Vận hành có người phụ trách",
+      "labelEn": "Named operations",
+      "requiredOwnerRole": "Operations owner",
+      "requiredEvidence": "named rota, escalation, budget, rollback/game-day and measured RPO/RTO",
+      "nextAction": "Name the responsible owner and attach verifiable artifact; do not self-approve",
+      "submission": {
+        "owner": null,
+        "authority": null,
+        "verifiedAt": null,
+        "artifact": null,
+        "sha256": null,
+        "note": null
+      }
+    }
+  ]
+}

@@ -58,6 +58,7 @@
     "operations:evidence:verify": "node scripts/external-evidence-verify.mjs",
     "operations:evidence:handoff": "node scripts/external-evidence-handoff.mjs",
     "operations:evidence:intake": "node scripts/external-evidence-intake.mjs",
+    "operations:evidence:kit": "node scripts/external-evidence-submission-kit.mjs",
     "operations:performance": "node scripts/performance-probe.mjs",
     "release:check": "node scripts/release-check.mjs",
     "release:evidence:current": "node scripts/release-evidence-current.mjs",
