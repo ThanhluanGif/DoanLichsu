@@ -15,7 +15,7 @@
 - wikimedia-rights-review: **BLOCKED_EXTERNAL**
 - real-user-pilot: **BLOCKED_EXTERNAL**
 - backup-recovery-mechanism: **PASS_DISPOSABLE_ONLY**
-- current-head-release-evidence: **PASS_LOCAL_ONLY**
+- current-head-release-evidence: **BLOCKED**
 - governance-policy: **BLOCKED_EXTERNAL**
 - council-signoff-ledger: **BLOCKED_EXTERNAL**
 - operations-ledger: **BLOCKED_EXTERNAL**

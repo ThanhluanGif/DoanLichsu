@@ -10,6 +10,9 @@ describe("transparency dashboard evidence", () => {
     expect(dashboard.dashboardVersion).toBe("transparency-v2");
     expect(dashboard.publicBeta).toBe(false);
     expect(dashboard.blockers).toHaveLength(11);
+    expect(dashboard.externalGates).toHaveLength(11);
+    expect(dashboard.externalGates[0]).toMatchObject({ id: "official-production", status: "PENDING", owner: null, requiredOwnerRole: "Operations owner" });
+    expect(dashboard.externalGates.every((gate: { requiredEvidence: string; nextAction: string }) => gate.requiredEvidence.length > 0 && gate.nextAction.length > 0)).toBe(true);
     expect(dashboard.operations.backupRestore).toBe("PASS_DISPOSABLE_ONLY");
     expect(dashboard.operations.independentSecurity).toBe("PENDING_EXTERNAL");
     expect(dashboard.wikimedia.invalidMetadataCount).toBe(0);
