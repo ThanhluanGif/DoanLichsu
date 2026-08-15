@@ -1,6 +1,6 @@
 {
   "version": "external-evidence-handoff-v1",
-  "generatedAt": "2026-08-15T01:13:44.614Z",
+  "generatedAt": "2026-08-15T01:34:28.517Z",
   "sourceLedger": "artifacts/operations/external-evidence-ledger.json",
   "ledgerSha256": "d85b395290e9bbd3b4bdf78c79008423262ea54f923ff61f580d3dd57d93c51d",
   "pendingCount": 11,
@@ -9,9 +9,9 @@
   "internalEvidence": {
     "release": {
       "artifact": "artifacts/release/current-head-evidence.json",
-      "artifactSha256": "813032c78abd987979012967d3228a20c750498f394c6a7ebe3d8ecf42a7ce36",
-      "testedCommit": "2350a98c1cae1fc294c5e14631b912be5ca7acc8",
-      "sourceTreeSha256": "92584500d67c45d06b70ae09544aa24eae88764777cb81136d7b78b9b42da404",
+      "artifactSha256": "7acfc634aeab77fff0334a67b697ce6a150104696d6806adbdac0c103a844c0e",
+      "testedCommit": "1710096d14a8a164e8bc63ad51b60d025bb2e8f4",
+      "sourceTreeSha256": "bbdd4aadc04d47e79656a5702c462b1e3f6a492e919c5e20a311cc84b0374333",
       "quality": [
         0,
         0,
@@ -23,7 +23,7 @@
         "openapi": 200,
         "search": 200,
         "securityHeaders": true,
-        "p95SearchMs": 32.556023999997706
+        "p95SearchMs": 33.93117600000551
       }
     },
     "runtime": {
