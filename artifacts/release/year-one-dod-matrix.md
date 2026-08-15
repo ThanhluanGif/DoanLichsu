@@ -15,7 +15,7 @@
 - **ai** — AI eval, citations/abstention, versions and privacy controls: **PASS** (artifacts/ai-eval/report-500.json)
 - **ai** — Human-approved golden set: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
 - **ai** — Independent model/config comparison: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
-- **quality** — Lint/typecheck/test/build and local release evidence: **BLOCKED** (artifacts/release/current-head-evidence.json)
+- **quality** — Lint/typecheck/test/build and local release evidence: **PASS_LOCAL_ONLY** (artifacts/release/current-head-evidence.json)
 - **quality** — WCAG/performance/reliability/security KPI evidence: **PASS_DISPOSABLE_ONLY** (artifacts/production-readiness/report.json)
 - **operations** — Named technical/content/rights/AI owners, rota, budget: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
 - **operations** — 90-day uptime and real production operations: **BLOCKED_EXTERNAL** (artifacts/operations/external-evidence-ledger.json)
